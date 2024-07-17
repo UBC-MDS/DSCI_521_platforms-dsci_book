@@ -1,0 +1,810 @@
+---
+title: DSCI 521 Lecture 1 - Introduction to MDS software and Bash
+jupyter: python3
+---
+
+
+## Learning outcomes
+
+By the end of this lecture, you will have learnt how to:
+
+1. Recognize the directory hierarchy as it is commonly represented in diagrams, paths and in the file explorer software.
+2. Distinguish common operators and representations of the different filesystem elements typically used on Bash. 
+3. Explore the filesystem using Bash commands as ls, pwd and cd.
+4. Translate an absolute path into a relative path and vice versa.
+5. Use command-line arguments to produce alternative outputs of the commands.
+6. Create, edit, move and delete files and folders using the command line and VS Code.
+
+
+
+# Introduction
+
+Welcome to Computer Platforms on Data Science! 
+
+This week we are going to learn about how to explore the filesystem, to use the command line and some other useful tools.
+
+
+
+## Lecture activity
+
+What is a Data Scientist?
+
+Someone whose job is...  
+A.  ... extracting value from data through reproducible and auditable processes. X  
+B.  ... applying machine learning algoritms.  
+C.  ... analyzing large volumes of often unstructured data, with the goal of producing meaningful insights. (https://www.springboard.com/blog/data-science/data-science-definition/)  
+D.  ... well paid.  
+
+
+
+Most of the tools we are going to learn during DSCI 521 are tools that programmers used.
+Programming involves interacting with the system using commands
+
+# The MDS software stack
+
+The following are the core programs that you will be using throughout the MDS program.
+
+#### Bash
+
+- Navigate filesystem
+- Launch programs
+- Automatize
+
+#### Git and GitHub
+
+- Version control
+- Collaboration
+
+#### Python and R
+
+- Data analysis
+- Visualization
+- Statistics
+- Machine learning 
+
+#### VS code, JupyterLab, and RStudio
+
+- Edit text and code files
+- Interactive notebook development
+- Report generation
+
+All these software are leading in their respective area,
+and used by many big tech companies. 
+Examples in R and Python include 
+
+- Tensorflow from Google
+- Pytorch from Facebook
+- R Open from Microsoft
+
+These programs also have active development communities and are open source,
+which means that anyone can read the source code and contribute to these projects.
+Open source programs have many benefits,
+such as
+
+- Being able to use the software after leaving school without paying exorbitant amounts of money
+- Having access to the source code - you can learn and fix bugs (even closed source, Commercial Software has bugs, they are just harder to see and help fixing...).
+- Open Source software is customizable and flexible
+- It's becoming the standard in many tech companies
+- You are part of an awesome and active community!
+
+
+
+**Lecture 1 Activity 1**
+
+You have already learn how to use some commands using JupyterLab IDE. Do you fiend easier to use the commands line or JupyterLab user interfase? 
+
+Note: Command palette
+
+
+
+## Introduction to computing
+
+#### Computer communication
+
+Before we get into practically doing things,
+I want to give some background 
+to the idea of computing.
+Essentially, computing is about humans communicating
+with machines to modulate flows of current in the hardware.
+Early examples of human computer communication were quite primitive
+and included actually disconnecting a wire 
+and connecting it again in a different spot.
+
+Luckily,
+we are not doing this anymore;
+instead we have graphical user interface with menus and buttons,
+which is what you are commonly using on your laptop.
+
+These graphical interface can be thought of as a layer (or *shell*)
+around the internal components of your operating system.
+Shells exist as an intermediate that both makes it easy for us to express our thoughts,
+and for computers to interpret them.
+
+
+#### Text-based communication
+
+We will learn how to communicate to a computer via a text-based shell,
+rather than a graphical one.
+
+Using a text-based shell might at first seems counter-intuitive,
+since the reason for creating a shell in the first place
+was to facilitate user interaction with the computer.
+So now that we have these easy to use graphical user interfaces (GUIs),
+why would anyone in their right mind go back to using a text based interface?
+
+Well,
+it’s partly a misconception,
+GUIs are nice when you are new to something,
+but text based interfaces are actually faster
+and easier to use when you know what you are doing.
+
+We can compare it to learning a language,
+in the beginning it’s nice to look things up in a dictionary (or a menu on the computer),
+but once I know what I want to say,
+it is just easer to say or type it directly,
+instead of looking in submenues.
+
+And by extension,
+it would be even faster to speak or even just think of what you want to do and have it executed by the computer,
+this is what speech- and brain-computer interfaces are concerned with.
+
+#### Bash
+
+Bash is the most commonly used text shell.
+You have it installed on your computer by default if you are using Mac or Linux machine,
+and if you are on a Windows machine you downloaded bash as part of the setup instructions.
+Sometimes we might use "prompt",
+“command line”,
+or "terminal",
+which for the purposes of this lecture,
+refers to the same thing.
+
+The abbreviation BASH stands for Bourne Again SHell.
+Other shells existed before Bash,
+and one of the most successful early shells was invented by Stephen Bourne at Bell Labs in 1977,
+which he called the Bourne Shell.
+In 1989,
+the Free Software Foundation improved the Bourne Shell and as a pun named it the Bourne Again Shell,
+to symbolize it was now "reborn" with new features.
+
+Text-based shells are also called command-line interfaces (CLI).
+The heart of every CLI is a read-evaluate-print loop (REPL).
+When we type a command and press Return (also called Enter) the CLI reads the command,
+evaluates it (i.e.,
+executes it),
+prints the command’s output,
+and loops around to wait for another command.
+Let's see how to do that next!
+
+## Your first words
+
+The default prompt character:
+
+```sh
+$
+```
+
+<br>
+
+Typing in the `whoami` command for showing your username and pressing enter to run it:
+
+```sh
+whoami
+```
+
+```out
+username
+```
+
+<br>
+
+The `pwd` command stands for Print Wording Directory.
+
+```sh
+pwd
+```
+
+```out
+# Linux
+/home/username
+
+# MacOS
+/Users/username
+
+# Windows
+/c/Users/username
+```
+
+Notes:
+Our first shell commands will let us explore our folders and files,
+and will also introduce us to several conventions that most command line tools follow.
+To start,
+when Bash runs it presents us with a prompt to indicate that it is waiting for us to type something.
+This prompt is a simple dollar sign by default (`$`).
+However,
+different shells may use a different symbol:
+in particular,
+the zsh shell,
+which is the default on newer versions of MacOS,
+uses %.
+
+If we run the command `whoami`,
+the computer will tell us who we are (our login name),
+and if we run `pwd` (Print Working Directory) the shell tells us where we are (the `home` directory by default when we launch the shell).
+
+Each user has a `home` directory;
+the function and location of this directory differs a little bit between operating systems.
+On Linux it is usually `/home/username`,
+on MacOS it is `/Users/username`,
+and on Windows it will show up as `/c/Users/username`
+(if you have Git Bash installed).
+Our examples in this module shows the Linux directory structure,
+but you will see that some of the other modules
+show what we would see on MacOS or Windows.
+
+## Exploring the files system
+
+```
+ls
+```
+
+```out
+Downloads     Music
+Documents     todo.txt
+Pictures      my_program
+```
+
+Notes:
+Now that we know where we are,
+let’s see what we have using the command `ls` (short for “listing”),
+which prints the names of the files and directories in the current directory:
+
+Again,
+our results may be different depending on our operating system and what files or directories we have.
+
+
+## Using commands with options
+
+```
+ls -F
+```
+
+```out
+Downloads/    Music/
+Documents/    todo.txt
+Pictures/     my_program*
+```
+
+Notes:
+We can make the output of ls more informative using the -F option (also sometimes called a switch or a flag).
+Options modify the behavior of the command.
+In this case,
+`-F` tells ls to decorate the output of `ls` to show what type of file each entry is.
+A trailing `/` indicates a directory,
+while a trailing `*` tells us something is a runnable program.
+Depending on our setup,
+the shell might also use colors to indicate whether each entry is a file or directory.
+
+
+
+**Lecture 1 Activity **
+
+Can you recognize the following folders in the picture?
+
+1. home directory  
+2. parent directory  
+3. working directory  
+4. root directory  
+
+![](img/diagram-files-activity.png)
+
+
+
+
+
+
+## Navigating and manipulating the filesystem using Bash
+
+What is the command line
+Navigating the filesystem can be done via your visual operating system's user interface (*e.g.,* Finder, Explorer, Nautilus, *etc*) or using a text-based shell such as Bash.
+In the lecture,
+we cover some of the most useful commands
+with the main goal of making you familiar with moving around using Bash.
+The most important commands that we covered are listed in the table below.
+Remember that you can press `TAB` to automatically complete commands and file names as you are typing.
+
+### Shell commands for navigating and manipulating the filesystem
+
+
+| Command | Purpose | Example use |
+||||
+| `pwd` | Print Working Directory | `pwd` |
+| `ls` | LiSt contents | `ls Documents` |
+| `cd` | Change Directory | `cd Desktop` |
+| `mkdir` | MaKe a DIRectory | `mkdir my-new-directory`| 
+| `rm` | ReMove a file | `rm file-to-remove`|
+| `mv` | MoVe a file | `mv file-to-move new-location`|
+| `cp` | CoPy a file | `cp file-to-copy copy-location`|
+
+To read the documentation for a command,
+you can type `man <your_command>` or `<your_command> --help`.
+In the bash configuration that you copied from the installation instructions,
+we have also included a few shortcuts (also called "aliases"),
+to make it easier to type commonly used commands.
+The two relevant ones for this section are
+
+- `l` which lists details of all the files in the current directory 
+and sorts them by modification time.
+- `jl` which is an alias for `jupyter lab`.
+
+Don't worry if you have a hard time remembering some of these in the beginning.
+The key is to practice often,
+and when you forget a specific command
+you can type in the help command we have created `mds-help`
+in you terminal to see a list of all commands we use in MDS.
+
+### Useful shell special characters
+
+| Symbol | Definition |
+|--|-|
+| `.` | Current working directory |
+| `..` | Parent directory |
+| `~` | HOME directory |
+
+
+**Lecture Activity**
+
+1. What would the following commands do? Would them be possible to use with the command `ls` instead of `cd`?
+
+A. `cd .`
+B. `cd ..`
+C. `cd ~`
+D. `cd`
+
+2. Run the following commands in your home directory. 
+Explore the content of the folder `example_521` using your favourite favourite file manager (`Finder` (Mac), `File Explorer` (Windows), Linux (Linux))? Can you draw a diagram with the content of that folder? What command should you run in the shell to find the folder `find_me`.
+
+
+
+
+### Exercise 1
+
+Use command line to:
+1. figure out where you are when you open your command line
+2. navigate to your Documents folder
+3. navigate from your Documents folder to your Desktop
+
+### Exercise 2
+
+Let's check out the documentation of `ls`. What does the option `-a` do?
+What does the `./` and `../` folders represent as output of this command?
+
+
+# Working with Files and Directories
+
+
+We now know how to explore files and directories, but how do we create them? 
+That's what we will find out in this chapter.
+
+```sh
+cd ~/Documents
+
+# MaKe Directory
+mkdir notes
+```
+
+**Naming guidelines**
+
+1. Don't use spaces
+2. Don't begin the name with a `-` (hyphen)
+3. Stick to digits and letters (preferably lower case)
+
+Notes:
+Let's go back to the `~/Documents` directory and create a subfolder called `notes`.
+For this we first use the `~` home  directory shortcut,
+and then the `mkdir` command.
+
+We will talk more about useful naming conventions in module 6.
+For now it is enough if you remember these three guidelines.
+
+1. Don't use spaces
+2. Don't begin the name with a `-` (hyphen)
+3. Stick to digits and letters (preferably lower case)
+
+## Creating a file
+
+```sh
+ls -F notes
+```
+
+<br>
+
+```sh
+cd notes
+code my-first-note.md
+```
+
+Since we just created the `notes` directory,
+ls doesn't display anything when we ask for a listing of its contents.
+
+Let’s change our working directory to `notes`,
+then use the `VS Code` editor to create a file called `my-first-note.md`.
+The command to invoke VS Code from the command line is `code`,
+and if we pass it a filename as an argument,
+the file will be created in the current directory.
+Now try launching it yourself!
+
+The `.md` syntax means that we want to create a markdown file.
+File extensions like `.md` and `.py` don't change anything about the content of the file,
+but they are an indicator to other program such as `VS Code` what type of content
+we are going to put inside the file.
+These program can then activate special functions for certain files,
+such as using the appropriate colors to highlight headings and functions.
+
+Let's move on to the next slide to see how it looks when we are editing file in `VS Code`.
+
+
+## Editing a file in VS Code
+
+This is what it looks like to edit a text file in `VS Code`.
+You will see that there is a small white circle next to the file name.
+This is an indication that the file is not saved yet.
+
+When we are done adding our edits,
+we can hit `Ctrl` + `s` to save the file,
+which will make the white circle disappear.
+After saving the file,
+you can optionally close `VS Code` before returning to the terminal.
+
+We are only using `VS Code` as a simple text editor here,
+but it is worth knowing that you can use use it as a powerful editor for code as well.
+
+
+## Viewing the content of a file in the terminal
+
+```sh
+ls
+```
+
+```out
+my-first-note.md
+```
+
+<br>
+
+```sh
+head my-first-note.md
+```
+
+```out
+These are the first
+few lines of content
+in the file.
+```
+
+Notes:
+If we now type `ls` we will see the name of the file we just created in VS Code.
+To see the content of the file,
+we can use the `head` command.
+`head` show the first few lines of a file
+(just as when we use `df.head()` in pandas),
+and optionally takes an argument for how many lines to show:
+`head -n 10` (the default is five).
+
+`head` works with all plain text files,
+such as code and markdown files,
+but not with binary files
+such as word documents, spreadsheets, or images.
+To see the last few lines,
+you can use `tail` instead of `head`.
+
+## Moving files and directories
+
+```sh
+mv my-first-note.md ..
+ls ..
+```
+
+```out
+Downloads/    Music/        my-first-note.md
+Documents/    todo.txt
+Pictures/     my_program*
+```
+
+<br>
+
+```sh
+mv ../my-fist-note.md .
+ls
+```
+
+```out
+my-fist-note.md
+```
+
+
+To **m**o**v**e a file around,
+we can use the `mv` command.
+For example,
+to move the text file we just created to the parent directory,
+we would type:
+
+```shell
+mv my-first-note.md ..
+```
+
+This moves it to the parent directory,
+and keeps the name the same as we can see if we do `ls ..`
+
+If we want to move the file back to the current directory,
+we can use the `.` shortcut:
+
+```shell
+mv ../my-fist-note.md .
+```
+
+## Renaming a file
+
+```sh
+mv my-fist-note.md note_2022-06-20.md
+ls
+```
+
+```out
+note_2022-06-20.md
+```
+
+<br>
+
+```sh
+mv -v notte_2022-06-20.md note_2022-06-20.md
+```
+
+```out
+renamed 'notte_2022-06-20.md' -> 'note_2022-06-20.md'
+```
+
+Notes:
+Renaming a file can be thought of as moving it to a new filename
+either in the same or a different directory.
+This might initially seem a bit different from a graphical file browser,
+where renaming and moving are two distinct functions,
+but the underlying operation is actually the same.
+
+To give our file a more descriptive name that includes the date we created this file,
+we would type `mv my-fist-note.md notte_2022-06-20.md`.
+We intentionally made a typo here,
+let's fix it while showing off the functionality of the `-v` (verbose) option,
+which prints what was moved/renamed so that it is easier to keep track of
+`renamed 'notte_2022-06-20.md' -> 'note_2022-06-20.md'`.
+
+We must be careful when specifying the destination
+because `mv` will overwrite existing files without warning.
+The option `-i` ("interactive") makes `mv` ask us for confirmation before overwriting,.
+`mv` also works on directories where it renames the directory without changing its contents.
+
+## Copying files and directories
+
+```sh
+# Copy the file to the parent directory
+cp note_2022-06-20.md ..
+```
+
+<br>
+
+```sh
+# Create a backup copy in the same directory
+cp note_2022-06-20.md note_2022-06-20.md.bkp
+ls
+```
+
+```out
+note_2022-06-20.md
+note_2022-06-20.md.bkp
+```
+
+Notes:
+The `cp` command create a **c**o**p**y of a file.
+Just as with `mv`,
+we optionally rename the file as we are copying it.
+
+Here we first copy the note we created to the parent directory and then
+show how we could use `cp` to create a backup of our file in the same directory.
+Remember that the file extension does not change the content of the file,
+so this is just a visual indicator to us for what type of file this is.
+
+If we ever wanted to copy a directory,
+we would have to specify the `-r` flag,
+which indicates that we want to copy the directory recursively,
+i.e. also making a copy of all the directory contents.
+
+## Wildcards
+
+```sh
+touch note_2022-06-20.md.bkp note_2022-07-02.md note_2022-07-02.md.bkp
+ls *.bkp
+```
+
+```out
+note_2022-06-20.md.bkp
+note_2022-07-02.md.bkp
+```
+
+<br>
+
+```sh
+ls *07*
+```
+
+```out
+note_2022-07-02.md
+note_2022-07-02.md.bkp
+```
+
+Wildcards (also called "globbing") simplifies targeting multiple files with similar names
+in the same command.
+The most commonly used wildcard is `*` (a single asterisk).
+It matches zero or more characters,
+so typing `ls *.md` list all of the markdown files in the current directory.
+
+If we wanted to list all the files created in July (month 7),
+we would need to type ls `ls *07*`,
+which means that the filename can include anything before and after `07`.
+If we would have left out the second `*` and type `ls *07`
+we would not have seen any matches because there is not file that end in 07,
+they all have some characters after.
+
+Using wildcards is helpful when we want to delete, move, or copy files
+with a predictable naming pattern.
+
+## Searching for text patterns in files
+
+```sh
+grep "the" note_2022-06-22.md
+```
+
+```out
+note_2022-06-22.md:These are the first
+note_2022-06-22.md:in the file.
+```
+
+We can use the `grep` command to search for text in files.
+To search for the word "the" in our notes file,
+we can type `grep "the" note_2022-06-22.md`.
+This will return every line in the file that contains the word "the".
+
+## Seeing the history of commands
+
+```sh
+history
+```
+
+```out
+1  pwd
+2  ls
+3  cd Documents/
+4  cd
+5  ls -F -a
+6  history
+```
+
+Occasionally,
+we might want to re-use a command that we used in the past,
+but don't remember exactly what it was.
+The `history` command can help us with this
+as it lists all the previous commands we have run
+and in which order we ran them.
+
+## Reading the manual
+
+```sh
+man ls
+```
+
+```out
+LS(1)                                                    User Commands
+ 
+NAME
+       ls - list directory contents
+ 
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+ 
+DESCRIPTION
+       List  information  about the FILEs (the current directory by default).  Sort entries alphabetically if none of -cftuvSUX
+       nor --sort is specified.
+ 
+       Mandatory arguments to long options are mandatory for short options too.
+ 
+       -a, --all
+              do not ignore entries starting with .
+ 
+       -A, --almost-all
+              do not list implied . and ..
+ 
+       --author
+              with -l, print the author of each file
+ 
+       -b, --escape
+              print C-style escapes for nongraphic characters
+ 
+       --block-size=SIZE
+              with -l, scale sizes by SIZE when printing them; e.g., '--block-size=M'; see SIZE format below
+ 
+       -B, --ignore-backups
+              do not list implied entries ending with ~
+...
+```
+
+How can we find out what options like `-t` and `-r` do if we don't know of them already?
+By reading the built-in help manual!
+Typing `man ls` brings up the manual help page for the `ls` command.
+You can navigate these pages with `Space` to go down and `b` to go **B**ack up.
+`q` quits the manual and takes you back to the shell prompt.
+
+Typing `/` starts a search.
+Type in the search term and press `Enter`
+to be taken to the first hit.
+To continue to the **n**ext search hit,
+press `n`,
+and to go to the previous,
+press `shift` + `n`.
+
+## Relative vs absolute path
+
+You are here:
+
+```
+pwd
+```
+
+```
+/Users/timberst/Documents
+```
+
+These are the files in your current working directory:
+```
+ls
+```
+
+```
+DSCI-100  MDS-2018-19   textbooks   research
+```
+
+You can navigate to the research directory using one of two options, a relative path:
+
+```
+cd research
+```
+
+or, using an absolute path:
+```
+cd /Users/timberst/Documents/research
+```
+
+What is the difference? When you use a relative path with a command like `ls` or `cd`, it tries to find that location from where we are, rather than from the root of the file system. However, when you specify the absolute path to a directory by including its entire path from the root directory, which is indicated by a leading slash, The leading `/` tells the computer to follow the path from the root of the file system, so it always refers to exactly one directory, no matter where we are when we run the command.
+
+
+
+**Lecture Activity**
+
+My home directory is: `/Users/Florencia/`
+The output of running `pwd` in the command line is: `/Users/Florencia/canadian_languages`
+
+What is the problem if I run the command: `cd Users/Gittu`. How can I solve it?
+
+Select the correct option(s)
+
+```
+A. cd ../../Gittu
+B. cd ~
+C. cd ~/Gittu
+D. cd /Users/Gittu
+```
+
+## References
+* https://merely-useful.tech/py-rse/bash-tools.html
+* https://missing.csail.mit.edu/
+* https://datascienceatthecommandline.com/2e/chapter-1-introduction.html
+* https://datascienceatthecommandline.com/resources/50-reasons.pdf
+
