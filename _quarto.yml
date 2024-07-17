@@ -1,0 +1,20 @@
+project:
+  type: website
+
+website:
+  title: "DSCI 521: Computing Platforms for Data Science"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - lectures/0-jupyterlab-orientation-intro.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor:
+  markdown:
+    wrap: sentence
