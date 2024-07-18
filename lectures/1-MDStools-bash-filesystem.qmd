@@ -6,22 +6,22 @@ jupyter: python3
 
 ## Learning outcomes
 
-By the end of this lecture, you will have learnt how to:
+By the end of this lecture, you will have learned how to:
 
-1. Recognize the directory hierarchy as it is commonly represented in diagrams, paths and in the file explorer software.
-2. Distinguish common operators and representations of the different filesystem elements typically used on Bash. 
-3. Explore the filesystem using Bash commands as ls, pwd and cd.
+1. Recognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.
+2. Distinguish common operators and representations of the different filesystem elements typically used in Bash. 
+3. Explore the filesystem using Bash commands as `ls`, `pwd` and `cd`.
 4. Translate an absolute path into a relative path and vice versa.
-5. Use command-line arguments to produce alternative outputs of the commands.
-6. Create, edit, move and delete files and folders using the command line and VS Code.
+5. Use command-line arguments to produce alternative outputs of commands.
+6. Create, edit, move, and delete files and folders using the command line and VS Code.
 
 
 
 # Introduction
 
-Welcome to Computer Platforms on Data Science! 
+Welcome to Computer Platforms in Data Science! 
 
-This week we are going to learn about how to explore the filesystem, to use the command line and some other useful tools.
+This week we are going to learn about exploring the filesystem, using the command line, and some other useful tools.
 
 :::{.activity}
 ::::{.activity-header}
@@ -32,14 +32,11 @@ What is a Data Scientist?
 
 Someone whose job is to  
 A.  extract value from data through reproducible and auditable processes. X  
-B.  apply machine learning algoritms.  
-C.  analyze large volumes of often unstructured data, with the goal of producing meaningful insights. (https://www.springboard.com/blog/data-science/data-science-definition/)  
+B.  apply machine learning algorithms.  
+C.  analyze large volumes of often unstructured data to produce meaningful insights. (https://www.springboard.com/blog/data-science/data-science-definition/)  
 D.  get well paid.  
 ::::
 :::
-
-
-
 
 
 Most of the tools we are going to learn during DSCI 521 are tools that programmers used.
@@ -53,7 +50,7 @@ The following are the core programs that you will be using throughout the MDS pr
 
 - Navigate filesystem
 - Launch programs
-- Automatize
+- Automate
 
 #### Git and GitHub
 
@@ -86,11 +83,11 @@ which means that anyone can read the source code and contribute to these project
 Open source programs have many benefits,
 such as
 
-- Being able to use the software after leaving school without paying exorbitant amounts of money
-- Having access to the source code - you can learn and fix bugs (even closed source, Commercial Software has bugs, they are just harder to see and help fixing...).
-- Open Source software is customizable and flexible
-- It's becoming the standard in many tech companies
-- You are part of an awesome and active community!
+- Being able to use the software after leaving school without paying exorbitant amounts of money.
+- Having access to the source code can help you learn and fix bugs (even closed-source commercial software has bugs, but they are just harder to see and fix).
+- Open-source software is customizable and flexible.
+- It is becoming the standard in many tech companies.
+- Being a part of an awesome and active community!
 
 
 :::{.activity}
@@ -98,7 +95,9 @@ such as
 ## Lecture 1 Activity 2
 ::::
 ::::{.activity-container}
-You have already learn how to use some commands using JupyterLab IDE. Do you fiend easier to use the commands line or JupyterLab user interfase? 
+You have already learn how to use some commands using JupyterLab IDE. Do you find it easier to use the command line or JupyterLab user interfase? 
+
+Why might one be better than the other? And in what scenarios?
 
 Note: Command palette
 ::::
@@ -109,11 +108,10 @@ Note: Command palette
 
 #### Computer communication
 
-Before we get into practically doing things,
-I want to give some background 
-to the idea of computing.
+Before we get into the different applications,
+let's talk about computing. 
 Essentially, computing is about humans communicating
-with machines to modulate flows of current in the hardware.
+with machines to modulate flows of current in hardware.
 Early examples of human computer communication were quite primitive
 and included actually disconnecting a wire 
 and connecting it again in a different spot.
@@ -172,7 +170,7 @@ Other shells existed before Bash,
 and one of the most successful early shells was invented by Stephen Bourne at Bell Labs in 1977,
 which he called the Bourne Shell.
 In 1989,
-the Free Software Foundation improved the Bourne Shell and as a pun named it the Bourne Again Shell,
+the Free Software Foundation improved the Bourne Shell and as a pun, named it the Bourne Again Shell
 to symbolize it was now "reborn" with new features.
 
 Text-based shells are also called command-line interfaces (CLI).
@@ -206,7 +204,7 @@ username
 
 <br>
 
-The `pwd` command stands for Print Wording Directory.
+The `pwd` command stands for Print Working Directory.
 
 ```sh
 pwd
@@ -333,7 +331,7 @@ Remember that you can press `TAB` to automatically complete commands and file na
 
 
 | Command | Purpose | Example use |
-||||
+|---------|---------|-------------|
 | `pwd` | Print Working Directory | `pwd` |
 | `ls` | LiSt contents | `ls Documents` |
 | `cd` | Change Directory | `cd Desktop` |
@@ -385,18 +383,30 @@ Explore the content of the folder `example_521` using your favourite favourite f
 ::::
 :::
 
-
-### Exercise 1
-
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 1 Exercise 1
+::::
+::::{.exercise-container}
 Use command line to:
 1. figure out where you are when you open your command line
 2. navigate to your Documents folder
 3. navigate from your Documents folder to your Desktop
+::::
+:::
 
-### Exercise 2
 
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 1 Exercise 2
+::::
+::::{.exercise-container}
 Let's check out the documentation of `ls`. What does the option `-a` do?
 What does the `./` and `../` folders represent as output of this command?
+::::
+:::
+
+
 
 
 # Working with Files and Directories
