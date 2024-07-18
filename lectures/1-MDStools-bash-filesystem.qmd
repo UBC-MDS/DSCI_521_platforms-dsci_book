@@ -48,35 +48,21 @@ The following are the core programs that you will be using throughout the MDS pr
 
 #### Bash
 
-- Navigate filesystem
-- Launch programs
-- Automate
+Bash helps you navigate filesystem, run programs, and automate tasks on your computer.
 
 #### Git and GitHub
 
-- Version control
-- Collaboration
+Git and GitHub are used to track changes in your code and collaborate with others on projects.
 
 #### Python and R
 
-- Data analysis
-- Visualization
-- Statistics
-- Machine learning 
+Python and R are popular languages for analyzing data, creating visualizations, performing statistical analysis, and building machine learning models.
 
 #### VS code, JupyterLab, and RStudio
 
-- Edit text and code files
-- Interactive notebook development
-- Report generation
+VS Code, JupyterLab, and RStudio are powerful editors for writing and running code. They also help create interactive notebooks and reports.
 
-All these software are leading in their respective area,
-and used by many big tech companies. 
-Examples in R and Python include 
-
-- Tensorflow from Google
-- Pytorch from Facebook
-- R Open from Microsoft
+These tools are widely used by big tech companies. For example, Google uses TensorFlow, Facebook uses PyTorch, and Microsoft uses R Open.
 
 These programs also have active development communities and are open source,
 which means that anyone can read the source code and contribute to these projects.

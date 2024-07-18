@@ -177,7 +177,11 @@ Merge conflicts are not bad,
 they happen to everyone and you will need to know how to instruct git what to do.
 
 
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 3 Activity 1
+::::
+::::{.activity-container}
 **Lecture activity**
 
 1 - What of the following practices do you think could be a good idea in order to avoid having merge conflicts?
@@ -186,6 +190,10 @@ A. Push changes to the remote repository daily before starting to work on your l
 B. Pull changes to the remote repository daily before starting to work on your local changes.
 C. Stash changes using the terminal before pulling potentially new conflicting information from the remote repository.
 D. Work only locally or only in the remote repository.
+::::
+:::
+
+
 
 
 
@@ -217,11 +225,17 @@ This line was added somewhere else
 - `>>>>>>> dabb4c8c450e8475aee9b14b4383acc99f42af1d` flags the end of the conflicting change you pulled from GitHub
 
 
-**lecture activity**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 3 Activity 2
+::::
+::::{.activity-container}
 True or False?
 
 You can solve a merge conflict not accepting neither the current nor the incoming changes
+::::
+:::
+
 
 ## What about merge conflicts of Jupyter notebooks?
 
@@ -489,11 +503,18 @@ which would move us forward to the commit we just "deleted".
 because when the reflog is automatically cleared by git,
 your changes are gone forever.
 
-**Lecture activity**
 
+:::{.activity}
+::::{.activity-header}
+## Lecture 3 Activity 3
+::::
+::::{.activity-container}
 True or false?
 
 The `.gitignore` file itself can be committed and pushed to a remote repository.
+::::
+:::
+
 
 
 

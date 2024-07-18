@@ -134,6 +134,12 @@ and the public key you can freely share that will be used to authenticate the ma
 * This is separate from _encryption_ of the data flowing between the client and server.
   * This prevents eavesdroppers from listening to client-server communications
 
+:::{.activity}
+::::{.activity-header}
+## Lecture 2 Activity 1
+::::
+::::{.activity-container}
+
 # Creating a Repository
 
 We can create a repository one of two ways:
@@ -143,16 +149,21 @@ We can create a repository one of two ways:
 
 You can see the second method requires more work. So the first method is usually the most convenient and it is sufficient for you to only use this approach.
 
----
+::::
+:::
 
-**Lecture 3 Activity 2**
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 2 Activity 1
+::::
+::::{.exercise-container}
 
-1 - Check that your cloned repo it is a Git repository. How can you check that you are working on a Git repository?
+Check that your cloned repo it is a Git repository. How can you check that you are working on a Git repository?
 
-2 - Is a repository the same as a directory? Can be a Git repository your current working directory?
+Is a repository the same as a directory? Can be a Git repository your current working directory?
 
-
----
+::::
+:::
 
 ## Cloning repositories from GitHub
 
@@ -346,9 +357,12 @@ to push any more changes yourself (though you will still be able to work and mak
 If you want to do this with the terminal, 
 you have to pull from the terminal you should use the command `git pull`.
 
----
 
-### Exercise 1
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 2 Exercise 2
+::::
+::::{.exercise-container}
 
 Let's access your own GitHub home for MDS. There you can find the links for all the courses' repositories, as well as, the labs' repositories. Your home is located at:
 
@@ -358,7 +372,15 @@ where `yourCWL` should be replaced by your CWL.
 
 (**Hint:** you might want to bookmark this page as it gives you easy access to all relevant courses' repositories).
 
-### Exercise 2
+::::
+:::
+
+
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 2 Exercise 2
+::::
+::::{.exercise-container}
 
 - [Create a new repository at GitHub.com](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository) and choose to add a README file in this process.
 - Clone this repository (note that you will need to change your username on your computer if you use a different one than for GitHub.ubc.ca).
@@ -367,7 +389,10 @@ where `yourCWL` should be replaced by your CWL.
 - Create a new file, add and commit it
 - Push your previous changes to GitHub and confirm that they are there.
 
----
+::::
+:::
+
+
 
 ## Attribution 
 1. [Happy Git and GitHub for the useR by Jenny Bryan and the STAT 545 TAs](http://happygitwithr.com/)

@@ -20,9 +20,15 @@ By the end of the lecture you will be able to:
 
 **Platform in focus** RStudio IDE + Quarto
 
-**Lecture activity**
+:::{.activity}
+::::{.activity-header}
+## Lecture 6 Activity 1
+::::
+::::{.activity-container}
+ Check the following data science analysis. 
+::::
+:::
 
-    * Check the following data science analysis. 
 
 ## Quarto documents markdown flavour
 
@@ -51,8 +57,12 @@ This being said you have to consider that:
 ![alttag](img/rstudio-conf-2022-quarto.png)
 *Quarto documents are created with text and Python, R and/or Julia code*
 
-**Lecture Activity 5**
 
+:::{.activity}
+::::{.activity-header}
+## Lecture 6 Activity 2
+::::
+::::{.activity-container}
 Why using R Markdown and Quarto documents can make your work more reproducible?
 - `.Rmd` and `.qmd` are plain-text files, they can be opened and edited with almost any editor.
 - Including text in the final reports created involves a more detailed explanation of your work than only commenting the code.
@@ -60,7 +70,8 @@ Why using R Markdown and Quarto documents can make your work more reproducible?
 - Because they create a versatile `.md` file as intermediate step.
 - They allow running code as inline code or in code chuncks.
 - The code chunks could be run in any order.
-
+::::
+:::
 
 ## Presentations with JupyterLab, RMarkdown and Quarto
 

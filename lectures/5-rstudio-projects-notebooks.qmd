@@ -17,21 +17,22 @@ By the end of the lecture you will be able to:
 6. Use semantic line breaks for version control files
 7. Specify metadata in the YAML header block
 
-~~7. Produce different types of output files used in reports: pdf, html and doc~~
 
 
 
 **Platform in focus** RStudio IDE 
 
 
-
-
-
-**Lecture Activity 1**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 5 Activity 1
+::::
+::::{.activity-container}
 You have the [following report]() and you have realized that there was an error in one of the calculus you did to generate it. This means that several results are going to be modified.
 Let's run the scripts again and replace the plots and results affected. I hope not to have more errors!
 Do you think that should be other way to solve this?
+::::
+:::
 
 
 
@@ -203,7 +204,7 @@ In the literate programming paradigm, an author has two (equally important) task
 1. write program code to do computing, and
 2. write narratives to explain what is being done by the program code
 
-Going back to our first example in the lecture activity 1, we could agree to only mantain the code used to generate the plots and results produced as part of the analysis. But we will also agree that this code, even if we include comments and docstrings, it is not possible to be easily read for an human. Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.  
+Going back to our first example in lecture 5 activity 1, we could agree to only mantain the code used to generate the plots and results produced as part of the analysis. But we will also agree that this code, even if we include comments and docstrings, it is not possible to be easily read for an human. Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.  
 
 The idea of accompanying the code with so much detailed text, was not widely adopted for software projects [3] but turn into an amazing tool for data scientists who frecquently uses these documents as reports products of their analysis. The rendering of the plots as figures next to the text in a manuscript allows giving valuable context to the visualizations.
 
@@ -226,16 +227,17 @@ From the two elements that compose the dynamic documents, there are three princi
 
 
 
-
-
-
-**Lecture Activity 2**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 5 Activity 2
+::::
+::::{.activity-container}
 Let's go back to the document of the first activity.  
 (1) Convert it in a dynamic document using RMarkdown  
 (2) Are `.Rmd` documents technically considered notebooks?  
 
-
+::::
+:::
 
 ## ~~R~~Markdown
 
@@ -298,14 +300,17 @@ Image extracted from: https://www.markdownguide.org/getting-started/
 
 
 
-
-
-**Lecture Activity 3**  
+:::{.activity}
+::::{.activity-header}
+## Lecture 5 Activity 3
+::::
+::::{.activity-container}
 *work in pairs*
 
 Let's have a quick reminder of markdown. How would you recreate a potential original Markdown file of the [following HTML document]()?   
 How can you check if you have done it correctly?
-
+::::
+:::
 
 
 
@@ -379,17 +384,17 @@ The use of shorter phrases could be a benefit when you are version controlling f
 
 
 
-
-
-
-
-**Lecture Activity 4**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 5 Activity 4
+::::
+::::{.activity-container}
 1. Check the documentation of [Pandoc Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown) and [GitHub Flavour Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-).   
 Find an example that will render on gitHub but nor in RMarkdown and/or viceversa.
 Will emojis work in R Markdown?
 You can use [Babelmark III](https://babelmark.github.io) to check this (be careful because it is not updated, better to check directly on GitHub and R Markdown)
-
+::::
+:::
 
 
 ## Text and rendering R Markdown documents
@@ -438,10 +443,11 @@ which is responsible for creating the finished format.
 ![alttag](img/rstudio-conf-2022-rmarkdown.png)
 *Rmarkdown documents are created from text and R code*
 
-
-
-**Lecture activity 5**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 5 Activity 5
+::::
+::::{.activity-container}
 1. Go back to the `.md` file from the activity 3. 
 Can you recreate the `.Rmd` file that will generate the same `HTML` when rendered?
 
@@ -453,6 +459,9 @@ will keep the intermidiate file `lecture7_example.knit.md` created by `knitr`.
 
 2. Can you think of advantages of using the `.Rmd` 
 instead of the `.md` file to create the final `HTML` document?
+
+::::
+:::
 
 
 
@@ -482,9 +491,17 @@ rather than in the side panel
 as when we ran the same line from within the script script.
 
 
-**Lecture Activity**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 5 Activity 6
+::::
+::::{.activity-container}
 Is it the same an Rnotebook than a `.Rmd` document?
+::::
+:::
+
+
+
 
 
 
@@ -520,10 +537,15 @@ the code in the chunk and the code output will be included in your rendered docu
 You can also run the code by clicking the green play button on the right-hand side of the code chunk.
 
 
-
-**Lecture activity**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 5 Activity 7
+::::
+::::{.activity-container}
 Clone this folder and try to render de `.Rmd` file. What happen? Try to use `here()` for the filepath
+::::
+:::
+
 
 
 
@@ -569,15 +591,18 @@ print(loop_sum)
 ```
 ````
 
-
-
-**Lecture Activity 6**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 5 Activity 8
+::::
+::::{.activity-container}
 `lecture7_act6.Rmd` it is not rendering. Can you fix it?
 
 **Do not duplicate code chunk names,
 this will break the rendering of your document!**
 
+::::
+:::
 
 
 ### 1.4. Code chunk options
@@ -721,10 +746,15 @@ including how to create your own custom template,
 for example for a CV.
 
 
-
-**lecture activity 7**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 5 Activity 9
+::::
+::::{.activity-container}
 What would you use the `github_document` option for?
+::::
+:::
+
 
 
 

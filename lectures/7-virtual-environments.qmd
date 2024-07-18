@@ -19,8 +19,11 @@ By the end of the lecture you will be able to:
 
 ---
 
-**Lecture 6 Activity 1**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 7 Activity 1
+::::
+::::{.activity-container}
 Try to run this code. What do you think it is going on?
 
 ```python
@@ -28,6 +31,8 @@ from palmerpenguins import load_penguins
 penguins = load_penguins()
 penguins.head()
 ```
+::::
+:::
 
 ---
 

@@ -9,14 +9,19 @@ jupyter: python3
 
 ---
 
-**Lecture 2 - Activity 1**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 8 Activity 1
+::::
+::::{.activity-container}
 Let's remember some concepts from last class
 
 True or False
 1. The command `pwd` prints the working directory as a relative path
 2. The home directory can be the current working directory
 3. In general, your home directory is the root directory
+::::
+:::
 
 ---
 
@@ -106,8 +111,11 @@ Benjamin Franklin
 
 ---
 
-**Lecture Activity**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 8 Activity 2
+::::
+::::{.activity-container}
 Which set of file(name)s do you want at 3 a.m. before a deadline?
 
 A. `Joe’s Filenames Use Spaces and Punctuation.xlsx`  
@@ -115,7 +123,8 @@ B. `figure 1.png`
 C. `JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt`  
 D. `2014-06-08_abstract-for-sla.docx`  
 E. `myabstract.docx`  
-
+::::
+:::
 
 
 
@@ -534,10 +543,14 @@ The points are elaborated on below:
 
 ---
 
-**Lecture activity**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 8 Activity 3
+::::
+::::{.activity-container}
 What is wrong with the following
-
+::::
+:::
 
 ---
 
@@ -620,8 +633,11 @@ watermelon
   you can use square brackets `[]`;
 - For example, `[Aa]pple` would match `Apple` and `apple`.
 
-#### Exercise 1
-
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 8 Exercise 1
+::::
+::::{.exercise-container}
 Find all the pairs of vowels in the fruit list.
 
 Highlight the black box below to see than correct answer
@@ -634,6 +650,10 @@ what your regex is matching
 <div style='background-color:black'>
 [aeiou][aeiou]
 </div>
+
+::::
+:::
+
 
 ### Ranges within `[]`
 
@@ -671,21 +691,36 @@ what your regex is matching
   which matches any character that normally occurs inside a word
   (so it does not match spaces, underlines, etc)
 
-#### Exercise 2
+
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 8 Exercise 2
+::::
+::::{.exercise-container}
 
 What is the difference between writing `[A-Za-z]` and [`A-z`]?
 
 <div style='background-color:black'>
 [A-z] will also match the characters `[/]^_`, as you can see in the list above.
 </div>
+::::
+:::
 
-#### Exercise 3
+
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 8 Exercise 3
+::::
+::::{.exercise-container}
 
 Match any characters between two `_`.
 
 <div style='background-color:black'>
 _.*_
 </div>
+
+::::
+:::
 
 ## Anchors
 
@@ -694,14 +729,23 @@ _.*_
 - To remember this, you can use the mnemonic "Start with power (`^`) and end with money (`$`)" (originally from Jenny Bryan).
 - Another useful anchor is `\b`, which matches end of word.
 
-#### Exercise 4
 
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 8 Exercise 4
+::::
+::::{.exercise-container}
 Write a regex that will match a line that contains only pineapple. (Hint: you cannot just write `pineapple` - it will not work - why?)
 
 <div style='background-color:black'>
 ^pineapple$
 <br>note that if you use just `pineapple`, lines that also contain other words would match too.
 </div>
+::::
+:::
+
+
+
 
 ## Repetitions
 
@@ -723,25 +767,39 @@ Write a regex that will match a line that contains only pineapple. (Hint: you ca
     - But `apples+` will not match `apple` or `appplesq`,
       but it will match `apples`, `appless`, `applesss`, etc.
 
-#### Exercise 5
-
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 8 Exercise 5
+::::
+::::{.exercise-container}
 Find the fruits with names between 10 and 12 characters.
 
 <div style='background-color:black'>
 .{10,12}
 </div>
+::::
+:::
 
-#### Exercise 6
-
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 8 Exercise 6
+::::
+::::{.exercise-container}
 Find the lines with no more than 4 letters.
 
 <div style='background-color:black'>
 ^.{0,4}$
 </div>
+::::
+:::
 
-#### Exercise 7
-
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 8 Exercise 7
+::::
+::::{.exercise-container}
 Find all the words that contain at least two consecutive vowels.
+
 
 <div style='background-color:black'>
 [aeiou]{2,}
@@ -749,21 +807,42 @@ Find all the words that contain at least two consecutive vowels.
 [aeiou][aeiou]+
 </div>
 
-#### Exercise 8
+::::
+:::
 
-This is a bit harder derives from all previous sections: Match entire words that end in `_`.
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 8 Exercise 8
+::::
+::::{.exercise-container}
+
+This is a bit harder and derives from all previous sections: Match entire words that end in `_`.
 
 <div style='background-color:black'>
-\w*_\b
+\\w*_\\b
 </div>
 
-# Additional exercises
+::::
+:::
+
+:::{.exercise}
+::::{.exercise-header}
+### Additional exercises
+::::
+::::{.exercise-container}
+
 
 - Go through the interactive tutorials and practice sessions at https://regexone.com/
   that correspond to the topics we have covered during class.
 - The Library Carpentry organization has many regex exercises
   in all sections of their regex course here https://librarycarpentry.org/lc-data-intro/
   (you can just to do the exercises).
+
+::::
+:::
+
+
+
 
 ## References
 
