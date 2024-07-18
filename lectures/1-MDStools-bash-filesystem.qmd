@@ -23,17 +23,22 @@ Welcome to Computer Platforms on Data Science!
 
 This week we are going to learn about how to explore the filesystem, to use the command line and some other useful tools.
 
-
-
-## Lecture activity
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 1 Activity 1
+::::
+::::{.activity-container}
 What is a Data Scientist?
 
-Someone whose job is...  
-A.  ... extracting value from data through reproducible and auditable processes. X  
-B.  ... applying machine learning algoritms.  
-C.  ... analyzing large volumes of often unstructured data, with the goal of producing meaningful insights. (https://www.springboard.com/blog/data-science/data-science-definition/)  
-D.  ... well paid.  
+Someone whose job is to  
+A.  extract value from data through reproducible and auditable processes. X  
+B.  apply machine learning algoritms.  
+C.  analyze large volumes of often unstructured data, with the goal of producing meaningful insights. (https://www.springboard.com/blog/data-science/data-science-definition/)  
+D.  get well paid.  
+::::
+:::
+
+
 
 
 
@@ -88,13 +93,16 @@ such as
 - You are part of an awesome and active community!
 
 
-
-**Lecture 1 Activity 1**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 1 Activity 2
+::::
+::::{.activity-container}
 You have already learn how to use some commands using JupyterLab IDE. Do you fiend easier to use the commands line or JupyterLab user interfase? 
 
 Note: Command palette
-
+::::
+:::
 
 
 ## Introduction to computing
@@ -286,9 +294,11 @@ Depending on our setup,
 the shell might also use colors to indicate whether each entry is a file or directory.
 
 
-
-**Lecture 1 Activity **
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 1 Activity 3
+::::
+::::{.activity-container}
 Can you recognize the following folders in the picture?
 
 1. home directory  
@@ -297,6 +307,12 @@ Can you recognize the following folders in the picture?
 4. root directory  
 
 ![](img/diagram-files-activity.png)
+::::
+:::
+
+
+
+
 
 
 
@@ -352,8 +368,11 @@ in you terminal to see a list of all commands we use in MDS.
 | `~` | HOME directory |
 
 
-**Lecture Activity**
-
+:::{.activity}
+::::{.activity-header}
+## Lecture 1 Activity 4
+::::
+::::{.activity-container}
 1. What would the following commands do? Would them be possible to use with the command `ls` instead of `cd`?
 
 A. `cd .`
@@ -363,8 +382,8 @@ D. `cd`
 
 2. Run the following commands in your home directory. 
 Explore the content of the folder `example_521` using your favourite favourite file manager (`Finder` (Mac), `File Explorer` (Windows), Linux (Linux))? Can you draw a diagram with the content of that folder? What command should you run in the shell to find the folder `find_me`.
-
-
+::::
+:::
 
 
 ### Exercise 1
@@ -785,22 +804,27 @@ cd /Users/timberst/Documents/research
 What is the difference? When you use a relative path with a command like `ls` or `cd`, it tries to find that location from where we are, rather than from the root of the file system. However, when you specify the absolute path to a directory by including its entire path from the root directory, which is indicated by a leading slash, The leading `/` tells the computer to follow the path from the root of the file system, so it always refers to exactly one directory, no matter where we are when we run the command.
 
 
+:::{.activity}
+::::{.activity-header}
+## Lecture 1 Activity 5
+::::
+::::{.activity-container}
+My home directory is: `/Users/Varada/`
+The output of running `pwd` in the command line is: `/Users/Varada/canadian_languages`
 
-**Lecture Activity**
-
-My home directory is: `/Users/Florencia/`
-The output of running `pwd` in the command line is: `/Users/Florencia/canadian_languages`
-
-What is the problem if I run the command: `cd Users/Gittu`. How can I solve it?
+What is the problem if I run the command: `cd Users/Varada`. How can I solve it?
 
 Select the correct option(s)
 
 ```
-A. cd ../../Gittu
+A. cd ../../Varada
 B. cd ~
-C. cd ~/Gittu
-D. cd /Users/Gittu
+C. cd ~/Varada
+D. cd /Users/Varada
 ```
+::::
+:::
+
 
 ## References
 * https://merely-useful.tech/py-rse/bash-tools.html

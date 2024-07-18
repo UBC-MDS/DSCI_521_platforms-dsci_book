@@ -1,0 +1,37 @@
+/*-- scss:rules --*/
+
+// Define UBC and MDS colors
+$ubc-blue: #136ecf;
+$white: #FFFFFF;
+$light-blue: #97D4E9;
+$medium-blue: #6EC4E8;
+$dark-blue: #062f5b;
+
+.activity {
+  margin: 1em 0;
+  border: 2px solid $dark-blue;
+  border-left: 10px solid $dark-blue; 
+  border-radius: 10px;
+}
+
+.activity-header {
+  margin-left: 0em;
+  padding-left: 20px; /* Adjusted left padding */
+  padding-top: 10px; /* Added top padding to center vertically */
+  padding-bottom: 10px; /* Added bottom padding to center vertically */
+  color: $white;
+  background-color: $ubc-blue;
+  border-top-right-radius: 10px;
+  font-size: 0.9em; /* Adjusted title size to be slightly smaller */
+  font-weight: bold;
+  display: flex;
+  align-items: center; /* Vertically center the content */
+}
+
+.activity-container {
+  padding-top: 5px;
+  padding-left: 10px;
+  color: $dark-blue;
+  background-color: $white;
+  border-bottom-right-radius: 10px;
+}
