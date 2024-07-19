@@ -1,0 +1,4 @@
+- [Excuse me, do you have a moment to talk about version control? by Jenny Bryan](https://peerj.com/preprints/3159/)
+- [Comparing commits across time](https://help.github.com/articles/comparing-commits-across-time/)
+- [Resolving a merge conflict using the command line](https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/)
+- [nbdime – diffing and merging of Jupyter Notebooks](https://nbdime.readthedocs.io/en/stable/)

@@ -1,4 +1,5 @@
-- [Excuse me, do you have a moment to talk about version control? by Jenny Bryan](https://peerj.com/preprints/3159/)
-- [Comparing commits across time](https://help.github.com/articles/comparing-commits-across-time/)
-- [Resolving a merge conflict using the command line](https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/)
-- [nbdime – diffing and merging of Jupyter Notebooks](https://nbdime.readthedocs.io/en/stable/)
+- [The Unix Shell: Navigating Files and Directories](https://swcarpentry.github.io/shell-novice/02-filedir/index.html) or
+  [The shell](http://happygitwithr.com/shell.html)
+- [Introduce yourself to Git](http://happygitwithr.com/hello-git.html)
+- [Connect to GitHub](http://happygitwithr.com/push-pull-github.html)
+- [Jupyter Notebook Tutorial: The Definitive Guide](https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook?utm_source=adwords_ppc)

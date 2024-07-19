@@ -23,8 +23,6 @@ Lesson 0
 
 {{< include learning_objectives/lo-ch-00.qmd >}}
 
-{{< include readings/readings-ch-00.qmd >}}
-
 Lesson 1
 
 {{< include learning_objectives/lo-ch-01.qmd >}}
@@ -34,6 +32,8 @@ Lesson 1
 Lesson 2
 
 {{< include learning_objectives/lo-ch-02.qmd >}}
+
+{{< include readings/readings-ch-02.qmd >}}
 
 Lesson 3
 
