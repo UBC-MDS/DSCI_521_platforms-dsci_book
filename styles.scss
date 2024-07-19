@@ -14,7 +14,7 @@ $exercise-light-gray: #dcdcdc;
 .activity {
   margin: 1em 0;
   border: 2px solid $dark-blue;
-  border-left: 10px solid $dark-blue; 
+  border-left: 10px solid $dark-blue;
   border-radius: 10px;
 }
 
@@ -46,7 +46,7 @@ $exercise-light-gray: #dcdcdc;
     border-left: 10px solid $exercise-dark-green;
     border-radius: 10px;
   }
-  
+
 .exercise-header {
     margin-left: 0em;
     padding-left: 20px; /* Adjusted left padding */
@@ -60,7 +60,7 @@ $exercise-light-gray: #dcdcdc;
     display: flex;
     align-items: center; /* Vertically center the content */
   }
-  
+
 .exercise-container {
     padding-top: 5px;
     padding-left: 10px;
@@ -68,3 +68,8 @@ $exercise-light-gray: #dcdcdc;
     background-color: $white;
     border-bottom-right-radius: 10px;
   }
+
+.header-bold{
+  font-weight: bold;
+  font-size: 1.1em
+}
