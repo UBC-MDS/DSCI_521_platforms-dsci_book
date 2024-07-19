@@ -35,8 +35,8 @@ website:
 format:
   html:
     theme:
-      light: [cosmo, customstyle.scss]
-      dark: [slate, customstyle.scss]
+      light: [cosmo, styles.scss]
+      dark: [slate, styles.scss]
     toc: true
 
 editor:
