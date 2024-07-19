@@ -5,17 +5,7 @@ jupyter: python3
 
 ## Lecture objectives
 
-By the end of the lecture you will be able to:
-
-
-1. Understand what is a computational environment and how can ensure the reproducibility of a project
-2. Differenciate Python, Anaconda, MiniConda, Conda and `pip`
-3. Manage packages and environments in Python using Conda
-4. Manage packages and environments in R using `renv`
-
----
-
----
+{{< include ../learning_objectives/lo-ch-07.qmd >}}
 
 :::{.activity}
 ::::{.activity-header}
@@ -655,4 +645,3 @@ The conda virtual environment section of this guide
 was originally published at http://geohackweek.github.io/ under a CC-BY license
 and has been updated to reflect recent changes in conda,
 as well as modified slightly to fit the MDS lecture format.
-

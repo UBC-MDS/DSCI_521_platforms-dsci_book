@@ -5,12 +5,7 @@ jupyter: python3
 
 ## Lecture objectives
 
-By the end of the lecture you will be able to:
-
-1. Use the `quarto` terminal command to create different quarto projects
-2. Create and edit a Quarto website
-3. Discover how GitHub can be used to serve static websites
-4. Modify a GitHub repository to publish a website
+{{< include ../learning_objectives/lo-ch-04.qmd >}}
 
 ## What is Quarto
 
@@ -417,4 +412,3 @@ Quarto works with a few IDEs and text editors.
 - VSCode extension: https://marketplace.visualstudio.com/items?itemName=quarto.quarto
 - RStudio: Comes with RStudio (you can also manually install it as a terminal application)
 - Jupyter Lab: there is no official jupyter quarto extension, but quarto can work with jupyter notebooks in the command line tool
-

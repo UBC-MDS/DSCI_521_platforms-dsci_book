@@ -1,0 +1,6 @@
+1. Explore the Git history via `git log` in the terminal and GitHub.
+2. Compare commits using `git diff` in the terminal and GitHub.
+3. Solve merge conflicts at the command line and in VS Code.
+4. Save transitory changes with `git stash`.
+5. Manage to avoid pushing specific local files by including a `.gitignore`.
+6. Differenciate among different ways to restore your project history (`git reset --hard/--soft`, `git revert`) when working on an older version of a project.

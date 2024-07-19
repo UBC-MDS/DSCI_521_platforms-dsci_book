@@ -5,14 +5,7 @@ jupyter: python3
 
 ## Lecture objectives
 
-By the end of the lecture you will be able to:
-
-1. Understand how Quarto extend RMarkdown documents functionalities.
-2. Explore different data science products to communicate your results: slides, blogs and books.
-3. Create slides using Jupyter Notebook and Quarto slides with `reveal.js`
-4. Create a Jupyter Book and a Quarto books.
-5. Create a Quarto Blog.
-6. Sharing rendered HTML files publicly via GitHub Pages.
+{{< include ../learning_objectives/lo-ch-06.qmd >}}
 
 **Platform in focus** RStudio IDE + Quarto
 
@@ -226,5 +219,3 @@ Until [this issue](https://github.com/jupyter/nbconvert/issues/1057) is fixed,
 a workaround is to paste the image into a Markdown cell
 and it will be included as an attachment,
 which shows up fine in HTML and slide exports.
-
-

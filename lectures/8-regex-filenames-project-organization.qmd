@@ -5,7 +5,7 @@ jupyter: python3
 
 ## Lecture objectives
 
----
+{{< include ../learning_objectives/lo-ch-07.qmd >}}
 
 :::{.activity}
 ::::{.activity-header}
@@ -21,7 +21,6 @@ True or False
 ::::
 :::
 
----
 
 # Project organization
 
@@ -845,4 +844,3 @@ This is a bit harder and derives from all previous sections: Match entire words 
 ## References
 
 [1] Kery, M. B., Radensky, M., Arya, M., John, B. E., & Myers, B. A. (2018, April). The story in the notebook: Exploratory data science using a literate programming tool. In Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems (pp. 1-11).
-

@@ -1,0 +1,4 @@
+1. Use the `quarto` terminal command to create different quarto projects
+2. Create and edit a Quarto website
+3. Discover how GitHub can be used to serve static websites
+4. Modify a GitHub repository to publish a website

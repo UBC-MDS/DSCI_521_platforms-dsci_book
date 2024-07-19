@@ -5,11 +5,7 @@ jupyter: python3
 
 ## Learning Objectives
 
-After this lecture you will be able to
-
-1. Launch JupyterLab
-2. Use the Notebook interface inside Jupyterlab
-3. Know your way around the JupyterLab user interface
+{{< include ../learning_objectives/lo-ch-00.qmd >}}
 
 ## What is JupyterLab
 
