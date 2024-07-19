@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "DSCI 521: Computing Platforms for Data Science"
