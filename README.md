@@ -51,3 +51,4 @@ TODO:
 
 - [ ] Auto build the book using github actions
 - [ ] provide dockerfile for course packages and execution environment
+- [ ] create slide content inline with the textbook lectures
