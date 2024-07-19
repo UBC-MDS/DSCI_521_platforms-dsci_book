@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Getting grovy with Git and GitHub – DSCI 521: Computing Platforms for Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSCI 521: Computing Platforms for Data Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/3-git-history-merge-conflicts-stash.html">Lecture 3: Getting grovy with Git and GitHub</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/0-jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 0: JupyterLab Orientation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/1-MDStools-bash-filesystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 1: Introduction to MDS software and Bash</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/2-git-github-ssh-basic-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 2: Introduction to version control with Git and GitHub</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/3-git-history-merge-conflicts-stash.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lecture 3: Getting grovy with Git and GitHub</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/4-quarto_github_pages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 4: Introduction to Quarto and Github Pages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/5-rstudio-projects-notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 5: Dynamic documents: from markdown to Rmarkdown documents</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/6-rmarkdown-quarto-slides-ghpages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 6: Quarto, RMarkdown, and Jupyter Slides</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/7-virtual-environments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 7: Virtual environments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/8-regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 8: Organization of Data Science projects and some useful tools</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lecture-objectives" id="toc-lecture-objectives" class="nav-link active" data-scroll-target="#lecture-objectives">Lecture objectives</a></li>
+  <li><a href="#viewing-your-git-history-and-restoring-an-older-version-of-the-file" id="toc-viewing-your-git-history-and-restoring-an-older-version-of-the-file" class="nav-link" data-scroll-target="#viewing-your-git-history-and-restoring-an-older-version-of-the-file">Viewing your Git history and restoring an older version of the file</a>
+  <ul class="collapse">
+  <li><a href="#steps-to-follow" id="toc-steps-to-follow" class="nav-link" data-scroll-target="#steps-to-follow">Steps to follow:</a></li>
+  <li><a href="#viewing-the-history-of-a-project" id="toc-viewing-the-history-of-a-project" class="nav-link" data-scroll-target="#viewing-the-history-of-a-project">Viewing the history of a project</a>
+  <ul class="collapse">
+  <li><a href="#steps-to-follow-1" id="toc-steps-to-follow-1" class="nav-link" data-scroll-target="#steps-to-follow-1">Steps to follow:</a></li>
+  <li><a href="#reflection-point" id="toc-reflection-point" class="nav-link" data-scroll-target="#reflection-point">Reflection point</a></li>
+  </ul></li>
+  <li><a href="#restoring-an-older-version-of-a-file" id="toc-restoring-an-older-version-of-a-file" class="nav-link" data-scroll-target="#restoring-an-older-version-of-a-file">Restoring an older version of a file</a>
+  <ul class="collapse">
+  <li><a href="#steps-to-follow-2" id="toc-steps-to-follow-2" class="nav-link" data-scroll-target="#steps-to-follow-2">Steps to follow:</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#deal-with-merge-conflicts-at-the-command-line" id="toc-deal-with-merge-conflicts-at-the-command-line" class="nav-link" data-scroll-target="#deal-with-merge-conflicts-at-the-command-line">3. Deal with merge conflicts at the command line</a>
+  <ul class="collapse">
+  <li><a href="#how-do-you-know-you-have-a-merge-conflict" id="toc-how-do-you-know-you-have-a-merge-conflict" class="nav-link" data-scroll-target="#how-do-you-know-you-have-a-merge-conflict">How do you know you have a merge conflict?</a></li>
+  <li><a href="#what-do-you-do-to-fix-a-merge-conflict" id="toc-what-do-you-do-to-fix-a-merge-conflict" class="nav-link" data-scroll-target="#what-do-you-do-to-fix-a-merge-conflict">What do you do to fix a merge conflict?</a></li>
+  <li><a href="#what-about-merge-conflicts-of-jupyter-notebooks" id="toc-what-about-merge-conflicts-of-jupyter-notebooks" class="nav-link" data-scroll-target="#what-about-merge-conflicts-of-jupyter-notebooks">What about merge conflicts of Jupyter notebooks?</a>
+  <ul class="collapse">
+  <li><a href="#first---a-bit-about-what-a-jupyter-notebook-is-made-up-of" id="toc-first---a-bit-about-what-a-jupyter-notebook-is-made-up-of" class="nav-link" data-scroll-target="#first---a-bit-about-what-a-jupyter-notebook-is-made-up-of">First - a bit about what a Jupyter notebook is made up of</a></li>
+  </ul></li>
+  <li><a href="#version-control-and-jupyter-notebook" id="toc-version-control-and-jupyter-notebook" class="nav-link" data-scroll-target="#version-control-and-jupyter-notebook">Version control and Jupyter notebook</a></li>
+  </ul></li>
+  <li><a href="#time-travelling-with-git-reset" id="toc-time-travelling-with-git-reset" class="nav-link" data-scroll-target="#time-travelling-with-git-reset">Time travelling with <code>git reset</code></a></li>
+  <li><a href="#stashing-local-non-committed-changes-before-pulling" id="toc-stashing-local-non-committed-changes-before-pulling" class="nav-link" data-scroll-target="#stashing-local-non-committed-changes-before-pulling">4. Stashing local non-committed changes before pulling</a></li>
+  <li><a href="#tell-git-to-ignore-irrelevant-files-using-a-.gitignore-file" id="toc-tell-git-to-ignore-irrelevant-files-using-a-.gitignore-file" class="nav-link" data-scroll-target="#tell-git-to-ignore-irrelevant-files-using-a-.gitignore-file">5. Tell Git to ignore irrelevant files using a <code>.gitignore</code> file</a>
+  <ul class="collapse">
+  <li><a href="#create-a-.gitignore-file" id="toc-create-a-.gitignore-file" class="nav-link" data-scroll-target="#create-a-.gitignore-file">5. Create a <code>.gitignore</code> file</a></li>
+  <li><a href="#gitignore-tips-and-tricks" id="toc-gitignore-tips-and-tricks" class="nav-link" data-scroll-target="#gitignore-tips-and-tricks"><code>.gitignore</code> tips and tricks</a>
+  <ul class="collapse">
+  <li><a href="#steps-to-follow-3" id="toc-steps-to-follow-3" class="nav-link" data-scroll-target="#steps-to-follow-3">Steps to follow:</a></li>
+  </ul></li>
+  <li><a href="#syncing-with-a-remote-after-resetting" id="toc-syncing-with-a-remote-after-resetting" class="nav-link" data-scroll-target="#syncing-with-a-remote-after-resetting">Syncing with a remote after resetting</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Getting grovy with Git and GitHub</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="lecture-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-objectives">Lecture objectives</h2>
+<ol type="1">
+<li>Explore the Git history via <code>git log</code> in the terminal and GitHub.</li>
+<li>Compare commits using <code>git diff</code> in the terminal and GitHub.</li>
+<li>Solve merge conflicts at the command line and in VS Code.</li>
+<li>Save transitory changes with <code>git stash</code>.</li>
+<li>Manage to avoid pushing specific local files by including a <code>.gitignore</code>.</li>
+<li>Differenciate among different ways to restore your project history (<code>git reset --hard/--soft</code>, <code>git revert</code>) when working on an older version of a project.</li>
+</ol>
+<p><strong>Lecture 3 </strong></p>
+<p>You clone a project you want to start collaborating in. How you can see the</p>
+</section>
+<section id="viewing-your-git-history-and-restoring-an-older-version-of-the-file" class="level1">
+<h1>Viewing your Git history and restoring an older version of the file</h1>
+<p>Do you remember the commit messages that we used to write at the time of making a commit, for saving the state of a project? It is possible to have a look at the history of the full project with any of these 3 different methods</p>
+<p>There are two ways you can view the Git history of a project:</p>
+<p><strong>On the remote</strong> 1. On GitHub through the repo’s code commit view <strong>On your computer</strong> 2. In Jupyter Lab through the repo’s code commit view 3. In the terminal using <code>git log</code></p>
+<p>Notes: Now we have a project, but only 2 commits (the initial creation and adding us as the author). Let’s now add a couple more commits to generate a history that we can view and experiment with by editing our <code>README.md</code>.</p>
+<section id="steps-to-follow" class="level3">
+<h3 class="anchored" data-anchor-id="steps-to-follow">Steps to follow:</h3>
+<ol type="1">
+<li><p>Use the pen tool to change the README header from the default (repo name) to a more proper English title for the project. Click on the big green button “Commit changes” to save your work.</p></li>
+<li><p>Use the pen tool to add today’s date as the project start date to the README. Click on the big green button “Commit changes” to save your work.</p></li>
+<li><p>Use the pen tool to add a fictional list of software dependencies for your project (e.g.&nbsp;R and Python) to the README. Click on the big green button “Commit changes” to save your work.</p></li>
+<li><p>“Accidentally” delete the list of dependencies you just created. Click on the big green button “Commit changes” to save your work.</p></li>
+<li><p>Bring all these changes down to your local computer by typing <code>git pull</code> from inside the cloned repo on your laptop using Git Bash/terminal (hint - open the file locally to see that it looks as expected to ensure you did things correctly).</p></li>
+</ol>
+<p>On GitHub, on the repo’s landing page click “<em>N</em> commits” link (where <em>N</em> is the number of commits made on the repo). Now we have a project, but only 3 commits. You can identify all parts of each commit, including the day it was made, author, hash. You can also go back to the repository at the moment of making this change by clicking the <code>&lt;&gt;</code> button.</p>
+<p>If you want to access your project information using the terminal you can use the <code>git log</code> command. Pay attention that here you are looking at the long version of the hash and not the 7-character long version displayed by default in Jupyter Lab or GitHub. In both cases, you will be able to identify the commit using its hash.</p>
+<p>Adding the flag <code>--oneline</code> to the command <code>git log</code> will provide you a different format for the output, in this case, you get a succint version of the information of each commit.</p>
+<p>The terminal allows greater flexibility when it comes to obtaining information about your project. If you would like to know what other possibilities you have for using the <code>git log</code> command, you can access the help by typing the command <code>git log --help</code>.</p>
+<p>We have covered three distinct methods for viewing your project’s history. Prior to starting the activities, give them a try yourself in an example Git repository!</p>
+<p>What are the changes introduced between two commits? Whe have already learned three different ways to check your project history. Basically your project history is a temporary line with the changes (commits) made in your project along with its message and commit id or hash. We can have access to this information on GitHub, and locally using the terminal and Jupyter Lab.</p>
+<p>But what if we want to go more into the detail and see exactly what have changed between two commits? What lines have been modified?</p>
+<p>In the image you can see the comparison between two commits. In read is the old commit and in green is the most recent one. On the commit on the right has been introduced the phrase <em>“I have changed!</em> in line number 3 between the commits 35c218 and 89e195.</p>
+<p>This is the way we compare commits, let’s see how we can access this view in the different platforms.</p>
+</section>
+<section id="viewing-the-history-of-a-project" class="level2">
+<h2 class="anchored" data-anchor-id="viewing-the-history-of-a-project">Viewing the history of a project</h2>
+<p>There are two ways you can view the Git history of a project:</p>
+<ol type="1">
+<li>On GitHub through the repo’s code commit view</li>
+<li>On your local machine using <code>git log</code></li>
+</ol>
+<section id="steps-to-follow-1" class="level3">
+<h3 class="anchored" data-anchor-id="steps-to-follow-1">Steps to follow:</h3>
+<ol type="1">
+<li>On GitHub, on the repo’s landing page click “<span class="math inline">\(N\)</span> commit” link (where <span class="math inline">\(N\)</span> is the number of commits made on the repo, yours should be around 6).</li>
+<li>On your laptop, from inside your Git repository type <code>git log</code> at the command line. You can use <code>git log --oneline</code> for more succinct output or the alias shortcut <code>gl</code> that we created.
+<ul>
+<li>You can navigate this log by scrolling with the mouse, arrow keys, or by the same commands we used with <code>man</code> in the first lecture
+<ul>
+<li><code>q</code> = quit</li>
+<li><code>b</code>/<code>space</code> = up/down</li>
+<li><code>/</code> + search term + enter = search for a word</li>
+<li><code>n</code>/<code>N</code> got to next/previous match for the search term
+<ul>
+<li>You don’t need to memorize these commands, they’re here as a resource if you wish to use them instead of the mouse and arrow keys.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol>
+</section>
+<section id="reflection-point" class="level3">
+<h3 class="anchored" data-anchor-id="reflection-point">Reflection point</h3>
+<p>How similar are the local and webpage log views?? Do you get the same information from both? Which seems easier to read/navigate?</p>
+</section>
+</section>
+<section id="restoring-an-older-version-of-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="restoring-an-older-version-of-a-file">Restoring an older version of a file</h2>
+<p>Oh no! We realize by viewing the history that we made a mistake! We didn’t mean to delete our list of dependencies. Worry not! We can now take advantage that we have been tracking this file under version control by using <code>git restore</code> to retrieve an older version of the file to replace the current version.</p>
+<p>Let’s restore the version of the file BEFORE we deleted the software dependency list.</p>
+<section id="steps-to-follow-2" class="level3">
+<h3 class="anchored" data-anchor-id="steps-to-follow-2">Steps to follow:</h3>
+<ol type="1">
+<li><p>Look at the log to see which version of the file we want to go back to and get its Short SHA-1 (the first characters of the commit ID, we’ll need this to know which point in time to retrieve the file from).</p></li>
+<li><p>Then we use <code>git restore</code> in the command line to grab it: <code>git restore --source SHORT_SHA-1 FILENAME</code> (you can also use <code>-s</code> instead of <code>--source</code>.</p></li>
+<li><p>When restoring the file, it is added to the working area. If we want to save the restored version of the file to the git repo, we need to <code>add</code> and <code>commit</code> it, just like with any other modifications.</p></li>
+<li><p>Don’t forget <code>git push</code> to get the file backed up on GitHub!</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="deal-with-merge-conflicts-at-the-command-line" class="level1">
+<h1>3. Deal with merge conflicts at the command line</h1>
+<p>When you run <code>git pull</code> git will do two things for you: it will <code>fetch</code> the content from the remote and then <code>merge</code> it into your repository. When you are working alone on a repository git will likely be able to do these two things automatically every time you <code>pull</code>, and you don’t need to intervene manually.</p>
+<p>However, when working with collaborators there are usually changes made in more than one place (e.g., you made changes in the local repo on your laptop at the same time as your collaborator updated the remote repo on GitHub). Eventually, the same document will have been changed in different places and this can create issues for git regarding how to consolidate and <code>merge</code> these changes together. There are two distinct merge scenarios for when a document is changed in two places:</p>
+<ol type="1">
+<li>Changes to a document where different lines are modified (Git can automatically merge these and will do so when you <code>pull</code>).</li>
+<li>Changes to a document where the same line(s) are modified (Git CANNOT automatically merge these and will complain that you have a “merge conflict” when you <code>pull</code>).</li>
+</ol>
+<p>In the second case, you have to help git by telling it which changes you want to keep. Git kindly points you to where the problem is in the output from <code>git pull</code> where it mentions which files have been modified from two source. You will need to edit this file to make it look how you want and then <code>add</code> it to the staging area and <code>commit</code>.</p>
+<section id="how-do-you-know-you-have-a-merge-conflict" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-you-know-you-have-a-merge-conflict">How do you know you have a merge conflict?</h2>
+<p>If you have committed some changes locally, you might see something like this when you try to <code>push</code> them:</p>
+<pre><code>To https://github.com/joelostblom/DSCI_521_lab1_jostblom
+ ! [rejected]        master -&gt; master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/joelostblom/DSCI_521_lab1_jostblom'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code></pre>
+<p>As the message tells you, there are new changes to the remote repo that you need to <code>pull</code> down from GitHub before you are allowed to <code>push</code> up your changes. If there are no conflicts when you <code>pull</code>, Git will say that everything went OK and you can <code>push</code> up your new changes. If there are conflicts, you will see something like this:</p>
+<pre><code>remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 3 (delta 1)
+Unpacking objects: 100% (3/3), done.
+From https://github.com/joelostblom/DSCI_521_lab1_jostblom
+ * branch            master     -&gt; FETCH_HEAD
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre>
+<p>You have a merge conflict. Merge conflicts are not bad, they happen to everyone and you will need to know how to instruct git what to do.</p>
+</section>
+<div class="activity">
+<section id="lecture-3-activity-1" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-3-activity-1">Lecture 3 Activity 1</h2>
+</section>
+<div class="activity-container">
+<p><strong>Lecture activity</strong></p>
+<p>1 - What of the following practices do you think could be a good idea in order to avoid having merge conflicts?</p>
+<p>A. Push changes to the remote repository daily before starting to work on your local changes. B. Pull changes to the remote repository daily before starting to work on your local changes. C. Stash changes using the terminal before pulling potentially new conflicting information from the remote repository. D. Work only locally or only in the remote repository.</p>
+</div>
+</div>
+<section id="what-do-you-do-to-fix-a-merge-conflict" class="level2">
+<h2 class="anchored" data-anchor-id="what-do-you-do-to-fix-a-merge-conflict">What do you do to fix a merge conflict?</h2>
+<ol type="1">
+<li>Open the file that has a conflict (the output of <code>git pull</code> will tell you which files) in a plain text editor (e.g., VS code)</li>
+<li>Look for the conflict (hint - search for <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>)</li>
+<li>Fix the conflict by deleting everything you don’t want to keep in the file, including the <code>&lt;&lt;&lt;&lt;&lt;</code> etc that git added.
+<ul>
+<li><strong>Note</strong> VS Code will help you with this by color highlighting the changes and providing buttons you can click to accept either the current or incoming change (or both). Using these buttons instead of modifying the file manually can save you from mistakes that can take a lot of time to troubleshoot and fix so we <strong>highly recommend</strong> that you use this feature.</li>
+</ul></li>
+<li>After the file looks like you want it, <code>add</code> it and <code>commit</code> your changes. Then you can <code>push</code> them up to GitHub.</li>
+</ol>
+<p>Here’s an example of a text file with a conflict and how it can look after you have resolved it:</p>
+<pre><code>Some text up here
+that is not part of the merge conflict,
+but just included for context.
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+We added this line in our last commit
+=======
+This line was added somewhere else
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d</code></pre>
+<ul>
+<li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> precedes the change you made (that you couldn’t push)</li>
+<li><code>=======</code> is a separator between the conflicting changes</li>
+<li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d</code> flags the end of the conflicting change you pulled from GitHub</li>
+</ul>
+</section>
+<div class="activity">
+<section id="lecture-3-activity-2" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-3-activity-2">Lecture 3 Activity 2</h2>
+</section>
+<div class="activity-container">
+<p>True or False?</p>
+<p>You can solve a merge conflict not accepting neither the current nor the incoming changes</p>
+</div>
+</div>
+<section id="what-about-merge-conflicts-of-jupyter-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="what-about-merge-conflicts-of-jupyter-notebooks">What about merge conflicts of Jupyter notebooks?</h2>
+<section id="first---a-bit-about-what-a-jupyter-notebook-is-made-up-of" class="level3">
+<h3 class="anchored" data-anchor-id="first---a-bit-about-what-a-jupyter-notebook-is-made-up-of">First - a bit about what a Jupyter notebook is made up of</h3>
+<ul>
+<li><code>.ipynb</code> files are “plain” text files, and we can view them in a plain text editor and make some sense of them</li>
+<li>The contents of the notebook are encoded in JSON format, which means that there are many brackets in the file, which can make it hard to read for humans (but easy for machines).</li>
+</ul>
+<p>For example, this notebook of 2 cells:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/sample_notebook.png" class="img-fluid figure-img"></p>
+<figcaption>alt tag</figcaption>
+</figure>
+</div>
+<p>is encoded by the following JSON:</p>
+<pre><code>{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# A Markdown header cell\n",
+    "\n",
+    "Below is a simple example of some code in Python:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "15\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = 5\n",
+    "y = 10\n",
+    "\n",
+    "print(x + y)"
+   ]
+  }
+ ],
+ "metadata": {
+  "anaconda-cloud": {},
+  "kernelspec": {
+   "display_name": "Python [Root]",
+   "language": "python",
+   "name": "Python [Root]"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}</code></pre>
+</section>
+</section>
+<section id="version-control-and-jupyter-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-and-jupyter-notebook">Version control and Jupyter notebook</h2>
+<p>Because the notebooks are stored as plain text, we can use them for version control, but this is not without issues, since the JSON format can make it difficult to interpret difference between files and to manually fix conflicts.</p>
+<p>JupyterLab IDE has made really easy now fix merge conflicts. …</p>
+</section>
+</section>
+<section id="time-travelling-with-git-reset" class="level1">
+<h1>Time travelling with <code>git reset</code></h1>
+<p>If we chose to write something new to replace both commits, it could look like this:</p>
+<pre><code>Some text up here
+that is not part of the merge conflict,
+but just included for context.
+We added this combined line after manually modification during the merge conflict.</code></pre>
+<p>You then need to <code>git add</code>, <code>git commit</code> and <code>git push</code> the file to have these changes reflected on GitHub.</p>
+</section>
+<section id="stashing-local-non-committed-changes-before-pulling" class="level1">
+<h1>4. Stashing local non-committed changes before pulling</h1>
+<p>We have learned that if there are changes on your remote repo in GitHub and you already have local committed changes, you will need to <code>pull</code> before you can <code>push</code>. If the local and remote changes are in the same lines, you will have to resolve the resulting merge conflict, otherwise git will merge automatically. But what if you have just started to make changes to a file when you realize that you forgot to pull before you started to work? The first thing to do is to try to <code>pull</code>, if you’re lucky there are either no new changes or they are not in the same file you modified. If they are in the same file, you will get an error message like this:</p>
+<pre><code>error: Your local changes to the following files would be overwritten by merge:
+        README.md
+Please commit your changes or stash them before you merge.
+Aborting</code></pre>
+<p>As you can see, you could finish off your changes, <code>add</code> them, <code>commit</code> them, and then <code>pull</code>. This is possible if the changes you are about to make locally will not affect the files that have been updated remotely. However, if you’re about to change some of the files that have also been changed remotely it is better to run <code>git stash</code>, which removes your local changes from the working area and and saves them in another location (you can think of this as a secrete pocket which git does not care about when pulling from the remote repo, and from which you can take out the changes again when you need them). You can then do <code>git pull</code>, and follow up with a <code>git stash pop</code> to put your changes back from the stash to the working area, and then carry on working.</p>
+<p>This workflow can save you from running into merge conflicts, as long as you have not already made modifications to the same lines as you are pulling down. If you have already modified the same file that was updated remotely, you will still run into a merge conflict when you do <code>git stash pop</code>. Stashing is also great when you are working on one feature but realize that you should actually work on another unrelated feature first, you can stash your existing work (instead of manually saving it elsewhere) and finish working on the most urgent feature first.</p>
+</section>
+<section id="tell-git-to-ignore-irrelevant-files-using-a-.gitignore-file" class="level1">
+<h1>5. Tell Git to ignore irrelevant files using a <code>.gitignore</code> file</h1>
+<p>You may have encountered this before:</p>
+<pre><code>git status</code></pre>
+<pre><code>On branch timberst-master
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+    .ipynb_checkpoints/
+    .DS_Store
+
+no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
+<p>Git is letting us know about untracked files (ones we have never committed before). We don’t care about these files. We’d prefer not to have them clutter our view (so we can pay attention to files we do want to track). What do we do?</p>
+<section id="create-a-.gitignore-file" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-.gitignore-file">5. Create a <code>.gitignore</code> file</h2>
+<p>Using the plain text editor of your choice (mine is VS Code) create a file called <code>.gitignore</code> inside your Git repo. To do this with VS Code, I would type:</p>
+<pre><code>code .gitignore</code></pre>
+<p>Inside the text file, list the files and folders you would like to ignore, one per line. For example:</p>
+<pre><code>.ipynb_checkpoints/
+.DS_Store</code></pre>
+<p>Save the file, and <code>add</code> and <code>commit</code> it with Git. Then try <code>git status</code> again. You should see:</p>
+<pre><code>On branch timberst-master
+nothing to commit, working tree clean</code></pre>
+</section>
+<section id="gitignore-tips-and-tricks" class="level2">
+<h2 class="anchored" data-anchor-id="gitignore-tips-and-tricks"><code>.gitignore</code> tips and tricks</h2>
+<ul>
+<li>append <code>**/</code> to the beginning of any file/folder names listed in the <code>.gitignore</code> file to have them ignored in subdirectories within the repo as well</li>
+<li>create a <a href="https://help.github.com/articles/ignoring-files/#create-a-global-gitignore">global <code>.gitignore</code> file</a> so that you do not have to create the same <code>.gitignore</code> for all your homework repos</li>
+</ul>
+<p>Let’s create a <code>gitignore</code> file in our 521 lab 2 repo.</p>
+<section id="steps-to-follow-3" class="level3">
+<h3 class="anchored" data-anchor-id="steps-to-follow-3">Steps to follow:</h3>
+<ol type="1">
+<li>Use a text editor (e.g., VS Code, nano, Jupyter) to create a file called <code>.gitignore</code> in your 521 lab 2 repo</li>
+<li>Add <code>**/.ipynb_checkpoints/</code> to that file and save it</li>
+<li><code>add</code> and <code>commit</code> it with Git</li>
+<li>Type <code>git status</code> and see if you no longer see <code>.ipynb_checkpoints/</code> as a untracked file</li>
+</ol>
+<ul>
+<li>We can do anything we want:
+<ul>
+<li>keep the change made in the local repository,</li>
+<li>keep the change made in the remote repository,</li>
+<li>write something new to replace both,</li>
+<li>or get rid of the change entirely.</li>
+</ul></li>
+</ul>
+<p>To move the branch we are currently back to a previously created commit, we can use the <code>git reset</code> command. Let’s say that we are currently on the master branch of a repo where the output of <code>git log --oneline</code> looks like this:</p>
+<pre><code>fb962e0 (HEAD -&gt; master) Add md demo
+bcb541e Make heading more precise
+5c01f2f Initial commit</code></pre>
+<p>We can move the location of the master branch back in the commit history by typing <code>git reset &lt;sha&gt;</code>. So to move to the previous commit, we would type <code>git reset bcb541e</code>. Our git log would now show this:</p>
+<pre><code>bcb541e (HEAD -&gt; master) Make heading more precise
+5c01f2f Initial commit</code></pre>
+<p>What happened to the changes that were made in commit <code>fb962e0</code>? The default behavior is to move them back into the working area, which was indicated by this message that showed up after we did <code>git reset bcb541e</code>:</p>
+<pre><code>Unstaged changes after reset:
+M       README.md</code></pre>
+<p>That means we could now make any modification we wish and then commit again with a new commit message. If we want to discard the changes instead of moving them to the working area, we can add the <code>--hard</code> flag. Typing <code>git reset --hard 5c01f2f</code> will not show us any message, since the changes are not unstaged, they are discarded. Our log now looks like this</p>
+<pre><code>5c01f2f (HEAD -&gt; master) Initial commit</code></pre>
+<p>Are the previous changes lost forever? Not yet, git keeps a backup of everything that happens in the repo in its “reflog”. Commits that are not part of any branch are referred to as being “dangling”, and are cleared out at regular intervals, rather than immediately. So if we realize that we made a mistake right away, we could get our changes back by doing <code>git reset bcb541e</code>, which would move us forward to the commit we just “deleted”. <strong>This behavior should not be relied upon</strong> because when the reflog is automatically cleared by git, your changes are gone forever.</p>
+</section>
+</section>
+<div class="activity">
+<section id="lecture-3-activity-3" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-3-activity-3">Lecture 3 Activity 3</h2>
+</section>
+<div class="activity-container">
+<p>True or false?</p>
+<p>The <code>.gitignore</code> file itself can be committed and pushed to a remote repository.</p>
+</div>
+</div>
+<section id="syncing-with-a-remote-after-resetting" class="level2">
+<h2 class="anchored" data-anchor-id="syncing-with-a-remote-after-resetting">Syncing with a remote after resetting</h2>
+<p><strong>This is a dangerous operation that can delete all your work.</strong> If we want to get rid of a commit on a remote, we will need to push our changes. But as we have seen before, git will refuse to push changes when the remote is ahead of the local branch. To override this warning and force git to push to the remote we can use the <code>-f/--force</code> flag.</p>
+<p>Force pushing is dangerous, and you should never do this on the master branch of a repository that you share with collaborators unless you have all discussed this and they are aware of what you are doing. The reason is that by force pushing, you will make it so that everyone else who is using this repository are now out of sync with the master branch, since you have reset master to a previous state. <strong>Be careful, better safe than sorry</strong></p>
+<p>Times when a force push is legitimate includes when you have have rebased a feature branch to syn it with master or if you are working alone and you are 100% sure that you want to remove a commit from GitHub. A safer way to undo a change in a commit, is to make a new commit that removes the content of the old one. You can do this manually, or use <code>git revert &lt;sha&gt;</code> to automatically create a new commit that undoes an old one.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Organization of Data Science projects and some useful tools – DSCI 521: Computing Platforms for Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSCI 521: Computing Platforms for Data Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/8-regex-filenames-project-organization.html">Lecture 8: Organization of Data Science projects and some useful tools</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/0-jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 0: JupyterLab Orientation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/1-MDStools-bash-filesystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 1: Introduction to MDS software and Bash</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/2-git-github-ssh-basic-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 2: Introduction to version control with Git and GitHub</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/3-git-history-merge-conflicts-stash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 3: Getting grovy with Git and GitHub</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/4-quarto_github_pages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 4: Introduction to Quarto and Github Pages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/5-rstudio-projects-notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 5: Dynamic documents: from markdown to Rmarkdown documents</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/6-rmarkdown-quarto-slides-ghpages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 6: Quarto, RMarkdown, and Jupyter Slides</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/7-virtual-environments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 7: Virtual environments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/8-regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lecture 8: Organization of Data Science projects and some useful tools</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lecture-objectives" id="toc-lecture-objectives" class="nav-link active" data-scroll-target="#lecture-objectives">Lecture objectives</a></li>
+  <li><a href="#project-organization" id="toc-project-organization" class="nav-link" data-scroll-target="#project-organization">Project organization</a></li>
+  <li><a href="#filenames---best-practices" id="toc-filenames---best-practices" class="nav-link" data-scroll-target="#filenames---best-practices">Filenames - best practices</a>
+  <ul class="collapse">
+  <li><a href="#names-matter" id="toc-names-matter" class="nav-link" data-scroll-target="#names-matter">Names matter</a></li>
+  <li><a href="#what-works-what-doesnt" id="toc-what-works-what-doesnt" class="nav-link" data-scroll-target="#what-works-what-doesnt">What works, what doesn’t?</a></li>
+  <li><a href="#three-principles-for-file-names" id="toc-three-principles-for-file-names" class="nav-link" data-scroll-target="#three-principles-for-file-names">Three principles for (file) names</a></li>
+  <li><a href="#awesome-file-names" id="toc-awesome-file-names" class="nav-link" data-scroll-target="#awesome-file-names">Awesome file names :)</a></li>
+  </ul></li>
+  <li><a href="#machine-readable" id="toc-machine-readable" class="nav-link" data-scroll-target="#machine-readable">Machine readable</a>
+  <ul class="collapse">
+  <li><a href="#machine-readable-1" id="toc-machine-readable-1" class="nav-link" data-scroll-target="#machine-readable-1">Machine readable</a></li>
+  <li><a href="#globbing" id="toc-globbing" class="nav-link" data-scroll-target="#globbing">Globbing</a></li>
+  <li><a href="#same-using-mac-os-finder-search-facilities" id="toc-same-using-mac-os-finder-search-facilities" class="nav-link" data-scroll-target="#same-using-mac-os-finder-search-facilities">Same using Mac OS Finder search facilities</a></li>
+  <li><a href="#same-using-regex-in-r" id="toc-same-using-regex-in-r" class="nav-link" data-scroll-target="#same-using-regex-in-r">Same using regex in R</a></li>
+  <li><a href="#punctuation" id="toc-punctuation" class="nav-link" data-scroll-target="#punctuation">Punctuation</a></li>
+  <li><a href="#recap-machine-readable" id="toc-recap-machine-readable" class="nav-link" data-scroll-target="#recap-machine-readable">Recap: machine readable</a></li>
+  </ul></li>
+  <li><a href="#human-readable" id="toc-human-readable" class="nav-link" data-scroll-target="#human-readable">Human readable</a>
+  <ul class="collapse">
+  <li><a href="#human-readable-1" id="toc-human-readable-1" class="nav-link" data-scroll-target="#human-readable-1">Human readable</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#embrace-the-slug" id="toc-embrace-the-slug" class="nav-link" data-scroll-target="#embrace-the-slug">Embrace the slug</a></li>
+  <li><a href="#recap-human-readable" id="toc-recap-human-readable" class="nav-link" data-scroll-target="#recap-human-readable">Recap: Human readable</a></li>
+  </ul></li>
+  <li><a href="#plays-well-with-default-ordering" id="toc-plays-well-with-default-ordering" class="nav-link" data-scroll-target="#plays-well-with-default-ordering">Plays well with default ordering</a>
+  <ul class="collapse">
+  <li><a href="#plays-well-with-default-ordering-1" id="toc-plays-well-with-default-ordering-1" class="nav-link" data-scroll-target="#plays-well-with-default-ordering-1">Plays well with default ordering</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#dates" id="toc-dates" class="nav-link" data-scroll-target="#dates">Dates</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#comprehensive-map-of-all-countries-in-the-world-that-use-the-mm-dd-yyyy-format" id="toc-comprehensive-map-of-all-countries-in-the-world-that-use-the-mm-dd-yyyy-format" class="nav-link" data-scroll-target="#comprehensive-map-of-all-countries-in-the-world-that-use-the-mm-dd-yyyy-format">Comprehensive map of all countries in the world that use the MM-DD-YYYY format</a></li>
+  <li><a href="#left-pad-other-numbers-with-zeros" id="toc-left-pad-other-numbers-with-zeros" class="nav-link" data-scroll-target="#left-pad-other-numbers-with-zeros">Left pad other numbers with zeros</a></li>
+  <li><a href="#recap-plays-well-with-default-ordering" id="toc-recap-plays-well-with-default-ordering" class="nav-link" data-scroll-target="#recap-plays-well-with-default-ordering">Recap: Plays well with default ordering</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#three-principles-for-file-names-1" id="toc-three-principles-for-file-names-1" class="nav-link" data-scroll-target="#three-principles-for-file-names-1">Three principles for (file) names</a></li>
+  <li><a href="#pros" id="toc-pros" class="nav-link" data-scroll-target="#pros">Pros</a></li>
+  <li><a href="#go-forth-and-use-awesome-file-names" id="toc-go-forth-and-use-awesome-file-names" class="nav-link" data-scroll-target="#go-forth-and-use-awesome-file-names">Go forth and use awesome file names :)</a></li>
+  </ul></li>
+  <li><a href="#asking-effective-questions" id="toc-asking-effective-questions" class="nav-link" data-scroll-target="#asking-effective-questions">Asking effective questions</a>
+  <ul class="collapse">
+  <li><a href="#why-even-bother" id="toc-why-even-bother" class="nav-link" data-scroll-target="#why-even-bother">Why even bother?</a></li>
+  <li><a href="#how-to-ask-effectively" id="toc-how-to-ask-effectively" class="nav-link" data-scroll-target="#how-to-ask-effectively">How to ask effectively</a>
+  <ul class="collapse">
+  <li><a href="#minimal-reproducible-example" id="toc-minimal-reproducible-example" class="nav-link" data-scroll-target="#minimal-reproducible-example">Minimal reproducible example</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#introduction-to-regular-expressions-regex" id="toc-introduction-to-regular-expressions-regex" class="nav-link" data-scroll-target="#introduction-to-regular-expressions-regex">Introduction to Regular Expressions (REGEX)</a>
+  <ul class="collapse">
+  <li><a href="#basic-matching" id="toc-basic-matching" class="nav-link" data-scroll-target="#basic-matching">Basic matching</a></li>
+  <li><a href="#the-square-brackets" id="toc-the-square-brackets" class="nav-link" data-scroll-target="#the-square-brackets">The square brackets: <code>[]</code></a>
+  <ul class="collapse">
+  <li><a href="#ranges-within" id="toc-ranges-within" class="nav-link" data-scroll-target="#ranges-within">Ranges within <code>[]</code></a></li>
+  </ul></li>
+  <li><a href="#special-matching-characters" id="toc-special-matching-characters" class="nav-link" data-scroll-target="#special-matching-characters">Special matching characters</a></li>
+  <li><a href="#anchors" id="toc-anchors" class="nav-link" data-scroll-target="#anchors">Anchors</a></li>
+  <li><a href="#repetitions" id="toc-repetitions" class="nav-link" data-scroll-target="#repetitions">Repetitions</a>
+  <ul class="collapse">
+  <li><a href="#special-repetition-characters" id="toc-special-repetition-characters" class="nav-link" data-scroll-target="#special-repetition-characters">Special repetition characters</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Organization of Data Science projects and some useful tools</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="lecture-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-objectives">Lecture objectives</h2>
+<ol type="1">
+<li>Understand what is a computational environment and how can ensure the reproducibility of a project</li>
+<li>Differenciate Python, Anaconda, MiniConda, Conda and <code>pip</code></li>
+<li>Manage packages and environments in Python using Conda</li>
+<li>Manage packages and environments in R using <code>renv</code></li>
+</ol>
+</section>
+<div class="activity">
+<section id="lecture-8-activity-1" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-8-activity-1">Lecture 8 Activity 1</h2>
+</section>
+<div class="activity-container">
+<p>Let’s remember some concepts from last class</p>
+<p>True or False 1. The command <code>pwd</code> prints the working directory as a relative path 2. The home directory can be the current working directory 3. In general, your home directory is the root directory</p>
+</div>
+</div>
+<section id="project-organization" class="level1">
+<h1>Project organization</h1>
+<p>Broadly speaking you will find two different ways of organizing a project: as a data analysis project and code project. Neither of this options is rigid enough to can give you here a exhaustive list of folder types and files you would expect on this projects. You will spend some time exploring different examples. However, we can work with a general structure:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">project/</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> data/              <span class="pp">*</span>.csv</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── processed/</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── raw/</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> reports/           <span class="pp">*</span>.ipynb <span class="pp">*</span>.Rmd</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> src/               <span class="pp">*</span>.py <span class="pp">*</span>.R</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> doc/               <span class="pp">*</span>.md</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> environment.yaml <span class="er">(</span><span class="ex">or</span> renv.lock<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>data</strong> If your original data file is stored as part of the repository and should never be overriden. That is why the original files are stored in a sub-folder called <code>raw</code>.</p>
+<p><strong>reports</strong> The documentation is the biggest difference between data analysis projects and software projects. Would you expect a report on a software project? In general notebooks and other literate programming documents (that prioritize narrative and storytelling) are the favourite options to share data analysis results [1]. We will learn more about reports literate programming documents in lecture 7. You will create your first data science project in DSCI 522. Software projects are mostly focused in the development of tools and in this cases other types of documentation (docstrings, vignettes, readtheDocs, JupyterBooks) are the favourite source of documentation for this kinf of projects. We will learn more about them in DSCI 524.</p>
+<p><strong><code>src</code></strong> and for R the <code>src</code> directory is often just called <code>R/</code>, whereas for Python is has the same name as the project (<code>project</code>). You will learn more about project hierarchy when making packages.</p>
+<p><strong>doc</strong> Documentation</p>
+<p><strong>README.md</strong> The README file is probably the first file a potential user/contributor will read when you</p>
+<p><strong>environment</strong> Speficying the computational environment will help you to ensure the reproducibility of yuour analysis. We will learn how to create this environments in lecture 6 and practice on lab 3.</p>
+<!--
+A place for everything, everything in its place.
+
+Benjamin Franklin
+
+
+
+---
+
+![beer_messy_tidy](img/beer_messy_tidy.png)
+
+---
+
+![files_messy_tidy](img/files_messy_tidy.png)
+
+## Face it...
+
+- There are going to be files
+
+- LOTS of files
+
+- The files will change over time
+
+- The files will have relationships to each other
+
+- It'll probably get complicated
+
+## Mighty weapon
+
+- File organization and naming is a mighty weapon against chaos
+
+- Make a file's name and location VERY INFORMATIVE about what it is, why it exists, how it relates to other things
+
+- The more things are self-explanatory, the better
+
+- READMEs are great, but don't document something if you could just make that thing self-documenting by definition
+
+
+## Attribution:
+
+- Slides borrowed from the [Data Carpentry](https://datacarpentry.org/) [Reproducible Science Workshop](https://datacarpentry.org/rr-organization1/)
+
+-->
+<hr>
+<div class="activity">
+<section id="lecture-8-activity-2" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-8-activity-2">Lecture 8 Activity 2</h2>
+</section>
+<div class="activity-container">
+<p>Which set of file(name)s do you want at 3 a.m. before a deadline?</p>
+<p>A. <code>Joe’s Filenames Use Spaces and Punctuation.xlsx</code> B. <code>figure 1.png</code> C. <code>JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt</code> D. <code>2014-06-08_abstract-for-sla.docx</code> E. <code>myabstract.docx</code></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="filenames---best-practices" class="level1">
+<h1>Filenames - best practices</h1>
+<section id="names-matter" class="level2">
+<h2 class="anchored" data-anchor-id="names-matter">Names matter</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/cheers.png" class="img-fluid figure-img"></p>
+<figcaption>cheers</figcaption>
+</figure>
+</div>
+</section>
+<section id="what-works-what-doesnt" class="level2">
+<h2 class="anchored" data-anchor-id="what-works-what-doesnt">What works, what doesn’t?</h2>
+<p><strong>NO</strong></p>
+<pre><code>myabstract.docx
+Joe’s Filenames Use Spaces and Punctuation.xlsx
+figure 1.png
+fig 2.png
+JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt</code></pre>
+<p><strong>YES</strong></p>
+<pre><code>2014-06-08_abstract-for-sla.docx
+joes-filenames-are-getting-better.xlsx
+fig01_talk-scatterplot-length-vs-interest.png
+fig02_talk-histogram-attendance.png
+1986-01-28_raw-data-from-challenger-o-rings.txt</code></pre>
+</section>
+<section id="three-principles-for-file-names" class="level2">
+<h2 class="anchored" data-anchor-id="three-principles-for-file-names">Three principles for (file) names</h2>
+<ol type="1">
+<li><p>Machine readable</p></li>
+<li><p>Human readable</p></li>
+<li><p>Plays well with default ordering</p></li>
+</ol>
+</section>
+<section id="awesome-file-names" class="level2">
+<h2 class="anchored" data-anchor-id="awesome-file-names">Awesome file names :)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/awesome_names.png" class="img-fluid figure-img"></p>
+<figcaption>awesome_names</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="machine-readable" class="level1">
+<h1>Machine readable</h1>
+<section id="machine-readable-1" class="level2">
+<h2 class="anchored" data-anchor-id="machine-readable-1">Machine readable</h2>
+<ul>
+<li>Regular expression and globbing friendly
+<ul>
+<li>Avoid spaces, punctuation, accented characters, case sensitivity</li>
+</ul></li>
+<li>Easy to compute on
+<ul>
+<li>Deliberate use of delimiters</li>
+</ul></li>
+</ul>
+</section>
+<section id="globbing" class="level2">
+<h2 class="anchored" data-anchor-id="globbing">Globbing</h2>
+<p><strong>Excerpt of complete file listing:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plasmid_names.png" class="img-fluid figure-img"></p>
+<figcaption>plasmid_names</figcaption>
+</figure>
+</div>
+<hr>
+<p><strong>Example of globbing to narrow file listing:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plasmid_glob.png" class="img-fluid figure-img"></p>
+<figcaption>plasmid_names</figcaption>
+</figure>
+</div>
+</section>
+<section id="same-using-mac-os-finder-search-facilities" class="level2">
+<h2 class="anchored" data-anchor-id="same-using-mac-os-finder-search-facilities">Same using Mac OS Finder search facilities</h2>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plasmid_mac_os_search.png" class="img-fluid figure-img"></p>
+<figcaption>plasmid_mac_os_search</figcaption>
+</figure>
+</div>
+</center>
+</section>
+<section id="same-using-regex-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="same-using-regex-in-r">Same using regex in R</h2>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plasmid_regex.png" class="img-fluid figure-img"></p>
+<figcaption>plasmid_regex</figcaption>
+</figure>
+</div>
+</center>
+</section>
+<section id="punctuation" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="punctuation">Punctuation</h2>
+<p>Deliberate use of <code>"-"</code> and <code>"_"</code> allows recovery of meta-data from the filenames:</p>
+<ul>
+<li><code>"_"</code> underscore used to delimit units of meta-data I want later</li>
+<li><code>"-"</code> hyphen used to delimit words so my eyes don’t bleed</li>
+</ul>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plasmid_delimiters.png" class="img-fluid figure-img"></p>
+<figcaption>plasmid_delimiters</figcaption>
+</figure>
+</div>
+</center>
+<hr>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plasmid_delimiters_code.png" class="img-fluid figure-img"></p>
+<figcaption>plasmid_delimiters_code</figcaption>
+</figure>
+</div>
+</center>
+<p>This happens to be R but also possible in the shell, Python, etc.</p>
+</section>
+<section id="recap-machine-readable" class="level2">
+<h2 class="anchored" data-anchor-id="recap-machine-readable">Recap: machine readable</h2>
+<ul>
+<li><p>Easy to search for files later</p></li>
+<li><p>Easy to narrow file lists based on names</p></li>
+<li><p>Easy to extract info from file names, e.g.&nbsp;by splitting</p></li>
+<li><p>New to regular expressions and globbing? be kind to yourself and avoid</p>
+<ul>
+<li>Spaces in file names</li>
+<li>Punctuation</li>
+<li>Accented characters</li>
+<li>Different files named <code>foo</code> and <code>Foo</code></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="human-readable" class="level1">
+<h1>Human readable</h1>
+<section id="human-readable-1" class="level2">
+<h2 class="anchored" data-anchor-id="human-readable-1">Human readable</h2>
+<ul>
+<li><p>Name contains info on content</p></li>
+<li><p>Connects to concept of a <em>slug</em> from semantic URLs</p></li>
+</ul>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p><strong>Which set of file(name)s do you want at 3 a.m. before a deadline?</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/human_readable_not_options.png" class="img-fluid figure-img"></p>
+<figcaption>human_readable_not_options</figcaption>
+</figure>
+</div>
+</section>
+<section id="embrace-the-slug" class="level2">
+<h2 class="anchored" data-anchor-id="embrace-the-slug">Embrace the slug</h2>
+<div class="columns-2">
+<p>slug filenames <img src="img/slug_filenames.png" class="img-fluid"></p>
+<p>slug <img src="img/slug.jpg" class="img-fluid"></p>
+</div>
+</section>
+<section id="recap-human-readable" class="level2">
+<h2 class="anchored" data-anchor-id="recap-human-readable">Recap: Human readable</h2>
+<p>Easy to figure out what the heck something is, based on its name</p>
+</section>
+</section>
+<section id="plays-well-with-default-ordering" class="level1">
+<h1>Plays well with default ordering</h1>
+<section id="plays-well-with-default-ordering-1" class="level2">
+<h2 class="anchored" data-anchor-id="plays-well-with-default-ordering-1">Plays well with default ordering</h2>
+<ul>
+<li><p>Put something numeric first</p></li>
+<li><p>Use the ISO 8601 standard for dates</p></li>
+<li><p>Left pad other numbers with zeros</p></li>
+</ul>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<p><strong>Chronological order:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/chronological_order.png" class="img-fluid figure-img"></p>
+<figcaption>chronological_order</figcaption>
+</figure>
+</div>
+<hr>
+<p><strong>Logical order:</strong> Put something numeric first</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/logical_order.png" class="img-fluid figure-img"></p>
+<figcaption>logical_order</figcaption>
+</figure>
+</div>
+</section>
+<section id="dates" class="level2">
+<h2 class="anchored" data-anchor-id="dates">Dates</h2>
+<p>Use the ISO 8601 standard for dates: YYYY-MM-DD</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img//chronological_order.png" class="img-fluid figure-img"></p>
+<figcaption>chronological_order</figcaption>
+</figure>
+</div>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/iso_8601.tiff" class="img-fluid figure-img"></p>
+<figcaption>iso_psa</figcaption>
+</figure>
+</div>
+</center>
+</section>
+<section id="comprehensive-map-of-all-countries-in-the-world-that-use-the-mm-dd-yyyy-format" class="level2">
+<h2 class="anchored" data-anchor-id="comprehensive-map-of-all-countries-in-the-world-that-use-the-mm-dd-yyyy-format">Comprehensive map of all countries in the world that use the MM-DD-YYYY format</h2>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/map_mmddyyy.tiff" class="img-fluid figure-img"></p>
+<figcaption>map_mmddyyy</figcaption>
+</figure>
+</div>
+</center>
+<p><br></p>
+<p>From https://twitter.com/donohoe/status/597876118688026624.</p>
+</section>
+<section id="left-pad-other-numbers-with-zeros" class="level2">
+<h2 class="anchored" data-anchor-id="left-pad-other-numbers-with-zeros">Left pad other numbers with zeros</h2>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/logical_order.png" class="img-fluid figure-img"></p>
+<figcaption>logical_order</figcaption>
+</figure>
+</div>
+</center>
+<p><br></p>
+<p>If you don’t left pad, you get this:</p>
+<pre><code>10_final-figs-for-publication.R
+1_data-cleaning.R
+2_fit-model.R</code></pre>
+<p>which is just sad :(</p>
+</section>
+<section id="recap-plays-well-with-default-ordering" class="level2">
+<h2 class="anchored" data-anchor-id="recap-plays-well-with-default-ordering">Recap: Plays well with default ordering</h2>
+<ul>
+<li><p>Put something numeric first</p></li>
+<li><p>Use the ISO 8601 standard for dates</p></li>
+<li><p>Left pad other numbers with zeros</p></li>
+</ul>
+</section>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+</section>
+<section id="three-principles-for-file-names-1" class="level2">
+<h2 class="anchored" data-anchor-id="three-principles-for-file-names-1">Three principles for (file) names</h2>
+<ol type="1">
+<li><p>Machine readable</p></li>
+<li><p>Human readable</p></li>
+<li><p>Plays well with default ordering</p></li>
+</ol>
+</section>
+<section id="pros" class="level2">
+<h2 class="anchored" data-anchor-id="pros">Pros</h2>
+<ul>
+<li><p>Easy to implement NOW</p></li>
+<li><p>Payoffs accumulate as your skills evolve and projects get more complex</p></li>
+</ul>
+</section>
+<section id="go-forth-and-use-awesome-file-names" class="level2">
+<h2 class="anchored" data-anchor-id="go-forth-and-use-awesome-file-names">Go forth and use awesome file names :)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/chronological_order.png" class="img-fluid figure-img"></p>
+<figcaption>chronological_order</figcaption>
+</figure>
+</div>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/logical_order.png" class="img-fluid figure-img"></p>
+<figcaption>logical_order</figcaption>
+</figure>
+</div>
+<hr>
+<p><strong>Lecture Activities</strong></p>
+<ol type="1">
+<li>Which of the following items describe three important rules for naming files on a computer? Select all correct answers.</li>
+</ol>
+<p>A. File name parts should be easy to extract programmatically B. Humans would understand something about file contents by looking at their names C. Files with appropriate names would be nicely organized by default D. File names should always use lower-case letters E. Underscores are the only allowed separator in file names F. Human understanding of file names should be prioritized over machine understanding</p>
+<ol start="2" type="1">
+<li>Match each explanation with its corresponding file naming principle:</li>
+</ol>
+<ol start="7" type="A">
+<li>By following this principle, we are able to use tools such as regular expressions and file-name globbing to search, select and manipulate files using tools such as the unix shell, R and Python.</li>
+</ol>
+<p>H. By following this principle, we can have a good idea of what is inside files without having to open them (saves us time) and when we come back to work on a project we haven’t worked on in a while it is much easier for us to remember what we were working on and get started again.</p>
+<p>I. By following this principle, we can make our files more organized and understandable, and files more findable. Ordered lists will be sorted into a logical order and so it is easy to orient yourself in the directory and find the files you want to find.</p>
+<p>J. By following this principle, we will be sure that our files have the appropriate formatting in terms of their content. Such files will be ready for subsequent analysis in a data science pipeline.</p>
+<ol start="3" type="1">
+<li>Which of the following are GOOD date formats to use in a filename?</li>
+</ol>
+<p>K. 2020-01-26T0233 L. 20200126T0233 M. 2020-01-26</p>
+<hr>
+</section>
+</section>
+<section id="asking-effective-questions" class="level1">
+<h1>Asking effective questions</h1>
+<section id="why-even-bother" class="level2">
+<h2 class="anchored" data-anchor-id="why-even-bother">Why even bother?</h2>
+<p>Asking questions effectively means that the person helping you will be able to answer your question better and quicker. Being able to answer a question quicker means more time to help others, including your future self. When questions require clarification, fewer people will be helped overall. Sometimes this in unavoidable because the question is complex, but all too often it if because the person trying to help is not able to reproduce problem, or the question is unclear.</p>
+<p>When you are asking for help online, e.g.&nbsp;on StackOverflow or on GitHub, remember that you are often receiving help from people who are volunteering their time. So please make it as easy as possible for them to help you.</p>
+<p>You might be frustrated by a problem to the point where you just want to ask something like.</p>
+<blockquote class="blockquote">
+<p>WHY IS THIS **** CODE NOT WORKING??????</p>
+</blockquote>
+<p>Don’t do this. No one will help you. You will get more frustrated.</p>
+<p>When I feel like this, I find it really helpful and calming to sit down and type out a proper question. You can start banging out words in the beginning, but as you slowly adhere to the format of asking properly, it will become like a meditative practice which also calms you down.</p>
+<p>In addition to your mental wellbeing, writing down questions properly has another superb quality: they help you solve your own problems. The act of formulating a question in either speech or text helps you uncover what you missed while the problem was a mere thought. This is so common that it has a name: “Rubber duck debugging” allegedly from a software developer who put a rubber duck on their desk and whenever they had a problem they couldn’t solve, they starting talking to the toy duck, and often came upon the resolution during while describing the problem.</p>
+</section>
+<section id="how-to-ask-effectively" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-ask-effectively">How to ask effectively</h2>
+<p>In essence, you want to make your question as easy to understand as possible and your specific problem as easy to reproduce as possible. If you just include a screenshot and title your question “Help”, the person helping you has to spend time trying to figure out what you actually want help with instead of helping, Instead include a succinct, clear description of your problem and the minimal code needed to reproduce it. If you are asking your question on stack overflow you can use tags to categorize it, and these can then be used to search for an answer via the syntax <code>[tag-name]</code>. This can be especially useful for R, since the name is just one letter and it can be hard to find relevant matches otherwise.</p>
+<section id="minimal-reproducible-example" class="level3">
+<h3 class="anchored" data-anchor-id="minimal-reproducible-example">Minimal reproducible example</h3>
+<p>There is a Swedish expression: “beloved child has many names”. No, it does not translate very well to English, but the message is that someone or something that many people like, will be referred to differently by different people. This is true for minimal reproducible examples, which you might find referred to by any of the following:</p>
+<ul>
+<li>MRE Minimal Reproducible Example</li>
+<li>MCVE Minimal Complete Verifiable Example</li>
+<li>MWE Minimal Working Example</li>
+<li>reprex REPRoducible EXample</li>
+</ul>
+<p>There have been great articles written on what goes into an MRE, and here are some of them that I recommend that you check out:</p>
+<ul>
+<li>https://stackoverflow.com/help/how-to-ask</li>
+<li>https://stackoverflow.com/help/minimal-reproducible-example</li>
+<li>https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-do-one/5219</li>
+<li>https://reprex.tidyverse.org/ (an R package to help creating MREs from code)</li>
+</ul>
+<p>In summary, asking effectively and creating an MRE includes the following tasks:</p>
+<ol start="0" type="1">
+<li>Search for other questions similar to yours.</li>
+<li>Describe the issue clearly in the title and elaborate briefly in the text body.</li>
+<li>Reduce the code to the minimum required to recreate your error, and paste it as text.
+<ul>
+<li>If your code includes functions or classes, include their definitions.</li>
+<li>Create small toy dataset instead of using real data.</li>
+<li>Use markdown code blocks for proper indentation and syntax highlighting.</li>
+</ul></li>
+<li>Describe what you have tried so far, what you don’t understand or what went wrong, including any error messages and their full traceback.</li>
+</ol>
+<p>The points are elaborated on below:</p>
+<ol start="0" type="1">
+<li>Search for other questions similar to yours. Many questions already have an answer, and finding it is faster both for you and for others. If the answer to an existing question is not good enough, improve it by adding the missing info!</li>
+<li>Write the tile as a summary of your issue. Think about what you would want the title to say if you were searching the issue list for help. Just “Error” or “Question” is not helpful, but “How to list content in a folder?” is.</li>
+<li>Introduce the problem by briefly describing what you want to do.</li>
+<li>Show what you have tried, explain what you expected to happen, and what went wrong. It is often critical that the person helping you can reproduce the problem, so include both the code or command you tried to run and the error message.
+<ul>
+<li>For coding questions, text is preferred over a screenshot since it is easy to copy and paste, which facilitates reproducing your problem.</li>
+<li>Inline code should be surrounded by single backticks for clarity. Longer blocks of code with multiple lines should be surrounded by triple backticks.</li>
+</ul></li>
+<li>Include versions of any packages you are using, and the operating system if relevant, e.g.&nbsp;Win10, Python 3.8, pandas 1.0.2. On R you can use <code>devtools::session_info()</code> to see this information (after <code>install.packages("devtools")</code>). and on Python you can use <code>sinfo()</code> (after importing: <code>from sinfo import sinfo</code>, needs to be installed via <code>pip install sinfo</code>).</li>
+<li>When your problem is solved, acknowledge the solution, close the issue/ticket/question. If you found the solution yourself, post it in a comment before closing, so that others can find it.</li>
+</ol>
+<hr>
+</section>
+</section>
+<div class="activity">
+<section id="lecture-8-activity-3" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-8-activity-3">Lecture 8 Activity 3</h2>
+</section>
+<div class="activity-container">
+<p>What is wrong with the following</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="introduction-to-regular-expressions-regex" class="level1">
+<h1>Introduction to Regular Expressions (REGEX)</h1>
+<p>Like with most things, the best way for you to learn Regex is to get practice using it. There are a few exercises included in the notebook, and at the end I have also included links interactive online exercises with are great to practice your regexes!</p>
+<p>To see what a particular regex is matching and how, you can use one of these two webpages, which both do a great job visualizing and explaining the different parts of a regex match:</p>
+<ul>
+<li>https://regexr.com/
+<ul>
+<li>regexr interprets text input as one big string by default, so you need to check “multiline” under “flags” (top right) for it to behave as expected with beginning and end of line matches (it hints at this in the output for both ^ and $).</li>
+</ul></li>
+<li>https://regex101.com/
+<ul>
+<li>regex101 has the “multiline” flag set by default.</li>
+</ul></li>
+</ul>
+<section id="basic-matching" class="level2">
+<h2 class="anchored" data-anchor-id="basic-matching">Basic matching</h2>
+<ul>
+<li>Basic matching: if you look for a regular string, like <code>banana</code>, regex will match the exact string (including its upper/lower case).</li>
+<li>Both JupyterLab and VS Code have built in regex functionality (bring up the search box and click the <code>.*</code> symbol to use regex rather than the default search).</li>
+<li>When learning regex it is helpful to use one of the two webtools mentioned in the previous cell in order to visualize how your regex is matching the text.</li>
+<li>For this lecture, we will use a list of fruits to learn about regex.</li>
+</ul>
+<p>applesas apple apricot banana bilberry blackberry blackcurrant blood orange blueberry canary melon cantaloupe cherry clementine cloudberry coconut cranberry cucumber currant dragonfruit durian elderberry gooseberry grape grapefruit papaya passionfruit peach orange oranges unripe persimmon pineapple pomegranate pomelo purple mangosteen rock melon salal berry satsuma star fruit strawberry watermelon</p>
+</section>
+<section id="the-square-brackets" class="level2">
+<h2 class="anchored" data-anchor-id="the-square-brackets">The square brackets: <code>[]</code></h2>
+<ul>
+<li>If you want to specify the set of possible characters you can use square brackets <code>[]</code>;</li>
+<li>For example, <code>[Aa]pple</code> would match <code>Apple</code> and <code>apple</code>.</li>
+</ul>
+<div class="exercise">
+<section id="lecture-8-exercise-1" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-1">Lecture 8 Exercise 1</h3>
+</section>
+<div class="exercise-container">
+<p>Find all the pairs of vowels in the fruit list.</p>
+<p>Highlight the black box below to see than correct answer (the black box will not show up on GitHub, so download the notebook unless you want the answer displayed) Remember to use one of the websites linked above to help you understand what your regex is matching (https://regexr.com/ or https://regex101.com/).</p>
+<div style="background-color:black">
+<p>[aeiou][aeiou]</p>
+</div>
+</div>
+</div>
+<section id="ranges-within" class="level3">
+<h3 class="anchored" data-anchor-id="ranges-within">Ranges within <code>[]</code></h3>
+<ul>
+<li><p>You can also define ranges when using brackets. For example:</p>
+<ul>
+<li><code>[A-Z]</code>: will match any upper case letter</li>
+<li><code>[a-z]</code>: will match any lower case letter</li>
+<li><code>[0-9]</code>: will match any digit</li>
+<li><code>[0-5]</code>: will match any digit between 0 and 5</li>
+</ul></li>
+<li><p>The order cannot be reversed, <code>[z-A]</code> does not work.</p></li>
+<li><p>You can combine ranges: <code>[A-Za-z]</code>.</p></li>
+<li><p>You can use square brackets starting with a caret. For example:</p>
+<ul>
+<li><code>[^A-Z]</code>: will match anything that is not an upper case letter</li>
+<li><code>[^0-9]</code>: will match anything that is not a digit</li>
+<li>Note that the caret needs to be inside the bracket, if it is outside it will match the beginning of a line as described under the “Anchors” section below.</li>
+</ul></li>
+<li><p>For the curious, these ranges are ordered based on <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">ASCI codes</a> where every character is represented by a number. The first character in the list is <code></code> (space) and the last is <code>~</code> (tilde). The full list is shown below:</p>
+<pre><code> !"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~</code></pre></li>
+</ul>
+</section>
+</section>
+<section id="special-matching-characters" class="level2">
+<h2 class="anchored" data-anchor-id="special-matching-characters">Special matching characters</h2>
+<ul>
+<li>A common operation is to match any character (e.g.&nbsp;between two important characters).</li>
+<li>Instead of writing out the full range <code>[ -~]</code> (space to tilde), the special character <code>.</code> can be used to match any character in the list above.
+<ul>
+<li>Note that <code>.</code> does not match the newline character, so if you have an expression that continues on the next line it will not be matched.</li>
+</ul></li>
+<li>To match a literal <code>.</code> (the period character), you can “escape” its special meaning by prefacing it with a backslash <code>\.</code> (most common) or surrounding it with square brackets <code>[.]</code>.</li>
+<li>Another useful special character is <code>\w</code>, which matches any character that normally occurs inside a word (so it does not match spaces, underlines, etc)</li>
+</ul>
+<div class="exercise">
+<section id="lecture-8-exercise-2" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-2">Lecture 8 Exercise 2</h3>
+</section>
+<div class="exercise-container">
+<p>What is the difference between writing <code>[A-Za-z]</code> and [<code>A-z</code>]?</p>
+<div style="background-color:black">
+<p>[A-z] will also match the characters <code>[/]^_</code>, as you can see in the list above.</p>
+</div>
+</div>
+</div>
+<div class="exercise">
+<section id="lecture-8-exercise-3" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-3">Lecture 8 Exercise 3</h3>
+</section>
+<div class="exercise-container">
+<p>Match any characters between two <code>_</code>.</p>
+<div style="background-color:black">
+<p>_.*_</p>
+</div>
+</div>
+</div>
+</section>
+<section id="anchors" class="level2">
+<h2 class="anchored" data-anchor-id="anchors">Anchors</h2>
+<ul>
+<li>The caret outside the brackets means beginning of line. For example, <code>^apple</code> will match all lines that start with <code>apple</code>, including <code>apple sauce</code> and <code>apples</code>.</li>
+<li>The dollar sign <code>$</code> means end of line, e.g., <code>fruit$</code> will match lines that end with <code>fruit</code>.</li>
+<li>To remember this, you can use the mnemonic “Start with power (<code>^</code>) and end with money (<code>$</code>)” (originally from Jenny Bryan).</li>
+<li>Another useful anchor is <code>\b</code>, which matches end of word.</li>
+</ul>
+<div class="exercise">
+<section id="lecture-8-exercise-4" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-4">Lecture 8 Exercise 4</h3>
+</section>
+<div class="exercise-container">
+<p>Write a regex that will match a line that contains only pineapple. (Hint: you cannot just write <code>pineapple</code> - it will not work - why?)</p>
+<div style="background-color:black">
+<p>^pineapple$ <br>note that if you use just <code>pineapple</code>, lines that also contain other words would match too.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="repetitions" class="level2">
+<h2 class="anchored" data-anchor-id="repetitions">Repetitions</h2>
+<ul>
+<li>To match multiple of the same character, you can either repeat it or use the following syntax:
+<ul>
+<li><code>{n}</code>: exactly <code>n</code> occurrences</li>
+<li><code>{n,}</code>: at least <code>n</code> occurrences</li>
+<li><code>{0,m}</code>: at most <code>m</code> occurrences</li>
+<li><code>{n,m}</code>: between <code>n</code> and <code>m</code> (inclusive) occurrences</li>
+</ul></li>
+</ul>
+<section id="special-repetition-characters" class="level3">
+<h3 class="anchored" data-anchor-id="special-repetition-characters">Special repetition characters</h3>
+<ul>
+<li>There are some shortcuts for the most common repetitions:
+<ul>
+<li><code>?</code>: means 0 or 1 time (<code>{0,1}</code>)</li>
+<li><code>*</code>: means 0 or more time (<code>{0,}</code>)</li>
+<li><code>+</code>: means 1 or more time (<code>{1,}</code>)</li>
+</ul></li>
+<li>For example, <code>apples?</code> will match <code>apple</code> and <code>apples</code>.
+<ul>
+<li>But <code>apples+</code> will not match <code>apple</code> or <code>appplesq</code>, but it will match <code>apples</code>, <code>appless</code>, <code>applesss</code>, etc.</li>
+</ul></li>
+</ul>
+</section>
+<div class="exercise">
+<section id="lecture-8-exercise-5" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-5">Lecture 8 Exercise 5</h3>
+</section>
+<div class="exercise-container">
+<p>Find the fruits with names between 10 and 12 characters.</p>
+<div style="background-color:black">
+<p>.{10,12}</p>
+</div>
+</div>
+</div>
+<div class="exercise">
+<section id="lecture-8-exercise-6" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-6">Lecture 8 Exercise 6</h3>
+</section>
+<div class="exercise-container">
+<p>Find the lines with no more than 4 letters.</p>
+<div style="background-color:black">
+<p>^.{0,4}$</p>
+</div>
+</div>
+</div>
+<div class="exercise">
+<section id="lecture-8-exercise-7" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-7">Lecture 8 Exercise 7</h3>
+</section>
+<div class="exercise-container">
+<p>Find all the words that contain at least two consecutive vowels.</p>
+<div style="background-color:black">
+<p>[aeiou]{2,} <br>or<br> [aeiou][aeiou]+</p>
+</div>
+</div>
+</div>
+<div class="exercise">
+<section id="lecture-8-exercise-8" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-8">Lecture 8 Exercise 8</h3>
+</section>
+<div class="exercise-container">
+<p>This is a bit harder and derives from all previous sections: Match entire words that end in <code>_</code>.</p>
+<div style="background-color:black">
+<p>\w*_\b</p>
+</div>
+</div>
+</div>
+<div class="exercise">
+<section id="additional-exercises" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="additional-exercises">Additional exercises</h3>
+</section>
+<div class="exercise-container">
+<ul>
+<li>Go through the interactive tutorials and practice sessions at https://regexone.com/ that correspond to the topics we have covered during class.</li>
+<li>The Library Carpentry organization has many regex exercises in all sections of their regex course here https://librarycarpentry.org/lc-data-intro/ (you can just to do the exercises).</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>[1] Kery, M. B., Radensky, M., Arya, M., John, B. E., &amp; Myers, B. A. (2018, April). The story in the notebook: Exploratory data science using a literate programming tool. In Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems (pp.&nbsp;1-11).</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
