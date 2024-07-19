@@ -3,7 +3,7 @@ title: Introduction to Quarto and Github Pages
 jupyter: python3
 ---
 
-## Lecture objectives
+## Learning outcomes
 
 {{< include ../learning_objectives/lo-ch-04.qmd >}}
 

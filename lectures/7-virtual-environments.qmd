@@ -3,7 +3,7 @@ title: Virtual environments
 jupyter: python3
 ---
 
-## Lecture objectives
+## Learning outcomes
 
 {{< include ../learning_objectives/lo-ch-07.qmd >}}
 

@@ -3,7 +3,7 @@ title: 'Quarto, RMarkdown, and Jupyter Slides'
 jupyter: python3
 ---
 
-## Lecture objectives
+## Learning outcomes
 
 {{< include ../learning_objectives/lo-ch-06.qmd >}}
 

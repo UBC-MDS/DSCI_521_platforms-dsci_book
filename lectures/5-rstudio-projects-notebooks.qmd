@@ -3,7 +3,7 @@ title: 'Dynamic documents: from markdown to Rmarkdown documents'
 jupyter: python3
 ---
 
-## Lecture objectives
+## Learning outcomes
 
 {{< include ../learning_objectives/lo-ch-05.qmd >}}
 
