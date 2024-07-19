@@ -1,0 +1,3 @@
+- [R Markdown presentations with xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html)
+- [Jupyter presentations](https://jupyterlab.readthedocs.io/en/stable/user/export.html?highlight=slides#reveal-js-slides)
+- [Quarto Presentations](https://quarto.org/docs/presentations/)

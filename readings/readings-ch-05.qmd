@@ -1,0 +1,8 @@
+- [Using RStudio Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
+- [R Markdown Cheat Sheet](https://rmarkdown.rstudio.com/lesson-15.html)
+- [R Markdown home page](https://rmarkdown.rstudio.com/docs/)
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+- [R Markdown code chunk options](https://yihui.name/knitr/options/)
+- [What they forgot to teach you about R](https://rstats.wtf/)
+- [Connect RStudio to Git and GitHub](http://happygitwithr.com/rstudio-git-github.html)
+- [R-cubed rostools workshop](https://r-cubed.rostools.org/)

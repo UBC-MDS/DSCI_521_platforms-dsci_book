@@ -39,25 +39,37 @@ Lesson 3
 
 {{< include learning_objectives/lo-ch-03.qmd >}}
 
+{{< include readings/readings-ch-03.qmd >}}
+
 Lesson 4
 
 {{< include learning_objectives/lo-ch-04.qmd >}}
+
+{{< include readings/readings-ch-04.qmd >}}
 
 Lesson 5
 
 {{< include learning_objectives/lo-ch-05.qmd >}}
 
+{{< include readings/readings-ch-05.qmd >}}
+
 Lesson 6
 
 {{< include learning_objectives/lo-ch-06.qmd >}}
+
+{{< include readings/readings-ch-06.qmd >}}
 
 Lesson 7
 
 {{< include learning_objectives/lo-ch-07.qmd >}}
 
+{{< include readings/readings-ch-07.qmd >}}
+
 Lesson 8
 
 {{< include learning_objectives/lo-ch-08.qmd >}}
+
+{{< include readings/readings-ch-08.qmd >}}
 
 ## Attributions
 

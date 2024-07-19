@@ -1,0 +1,3 @@
+- [Comparing commits across time](https://help.github.com/articles/comparing-commits-across-time/)
+- [Resolving a merge conflict using the command line](https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/)
+- [nbdime – diffing and merging of Jupyter Notebooks](https://nbdime.readthedocs.io/en/stable/)
