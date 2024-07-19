@@ -34,11 +34,12 @@ website:
 
 format:
   html:
-    theme: 
+    theme:
       light: [cosmo, customstyle.scss]
       dark: [slate, customstyle.scss]
     toc: true
 
 editor:
+  render-on-save: true
   markdown:
     wrap: sentence
