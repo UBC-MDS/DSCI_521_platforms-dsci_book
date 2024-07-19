@@ -334,30 +334,38 @@ in you terminal to see a list of all commands we use in MDS.
 
 ### Useful shell special characters
 
-| Symbol | Definition |
-|--|-|
-| `.` | Current working directory |
-| `..` | Parent directory |
-| `~` | HOME directory |
-
+| Symbol | Definition                |
+|--------|---------------------------|
+| `.`    | Current working directory |
+| `..`   | Parent directory          |
+| `~`    | HOME directory            |
 
 :::{.activity}
 ::::{.activity-header}
 ## Lecture 1 Activity 4
 ::::
 ::::{.activity-container}
-1. What would the following commands do?
-   Would them be possible to use with the command `ls` instead of `cd`?
+What would the following commands do?
+Would them be possible to use with the command `ls` instead of `cd`?
 
+```
 A. `cd .`
 B. `cd ..`
 C. `cd ~`
 D. `cd`
+```
+::::
+:::
 
-2. Run the following commands in your home directory.
+:::{.activity}
+::::{.activity-header}
+## Lecture 1 Activity 5
+::::
+::::{.activity-container}
+Run the following commands in your home directory.
 Explore the content of the folder `example_521`
 using your favourite favourite file manager
-(`Finder` for Mac), `File Explorer` for Windows, and any file manager in Linux)
+(`Finder` for Mac, `File Explorer` for Windows, and any file manager in Linux)
 Can you draw a diagram with the content of that folder?
 What command should you run in the shell to find the folder `find_me`.
 ::::
@@ -424,7 +432,7 @@ ls -F notes
 ```
 
 Let’s change our working directory to `notes`,
-then use the `VS Code` editor to create a file called `my-first-note.md`.
+then use the VS Code editor to create a file called `my-first-note.md`.
 The command to invoke VS Code from the command line is `code`,
 and if we pass it a filename as an argument,
 the file will be created in the current directory.
@@ -437,32 +445,36 @@ code my-first-note.md
 
 The `.md` syntax means that we want to create a markdown file.
 File extensions like `.md` and `.py` don't change anything about the content of the file,
-but they are an indicator to other program such as `VS Code` what type of content
+but they are an indicator to other program such as VS Code what type of content
 we are going to put inside the file.
 These program can then activate special functions for certain files,
 such as using the appropriate colors to highlight headings and functions.
 
-Let's move on to the next slide to see how it looks when we are editing file in `VS Code`.
+Let's move on to the next slide to see how it looks when we are editing file in VS Code.
 
 ### Editing a file in VS Code
 
-This is what it looks like to edit a text file in `VS Code`.
+This is what it looks like to edit a text file in VS Code.
 You will see that there is a small white circle next to the file name.
 This is an indication that the file is not saved yet.
 
 When we are done adding our edits,
-we can hit `Ctrl` + `s` to save the file,
+we can hit
+<kbd>Ctrl</kbd> + <kbd>s</kbd> (Windows/Linux) <kbd>⌘</kbd> + <kbd>s</kbd> (Mac)
+to save the file,
 which will make the white circle disappear.
 After saving the file,
-you can optionally close `VS Code` before returning to the terminal.
+you can optionally close VS Code before returning to the terminal.
 
-We are only using `VS Code` as a simple text editor here,
+We are only using VS Code as a simple text editor here,
 but it is worth knowing that you can use use it as a powerful editor for code as well.
 
 
-## Viewing the content of a file in the terminal
+### Viewing the content of a file in the terminal
 
-```sh
+If we now type `ls` we will see the name of the file we just created in VS Code.
+
+```bash
 ls
 ```
 
@@ -470,9 +482,14 @@ ls
 my-first-note.md
 ```
 
-<br>
+To see the content of the file,
+we can use the `head` command.
+`head` show the first few lines of a file
+(just as when we use `df.head()` in pandas),
+and optionally takes an argument for how many lines to show:
+`head -n 10` (the default is five).
 
-```sh
+```bash
 head my-first-note.md
 ```
 
@@ -482,25 +499,24 @@ few lines of content
 in the file.
 ```
 
-Notes:
-If we now type `ls` we will see the name of the file we just created in VS Code.
-To see the content of the file,
-we can use the `head` command.
-`head` show the first few lines of a file
-(just as when we use `df.head()` in pandas),
-and optionally takes an argument for how many lines to show:
-`head -n 10` (the default is five).
-
 `head` works with all plain text files,
 such as code and markdown files,
-but not with binary files
+your results will vary with binary files
 such as word documents, spreadsheets, or images.
+Generally, binary file output will be incomprehensible.
+
 To see the last few lines,
 you can use `tail` instead of `head`.
 
-## Moving files and directories
+### Moving files and directories
 
-```sh
+To **m**o**v**e a file around,
+we can use the `mv` command.
+For example,
+to move the text file we just created to the parent directory,
+we would type:
+
+```bash
 mv my-first-note.md ..
 ls ..
 ```
@@ -511,52 +527,36 @@ Documents/    todo.txt
 Pictures/     my_program*
 ```
 
-<br>
-
-```sh
-mv ../my-fist-note.md .
-ls
-```
-
-```out
-my-fist-note.md
-```
-
-
-To **m**o**v**e a file around,
-we can use the `mv` command.
-For example,
-to move the text file we just created to the parent directory,
-we would type:
-
-```shell
-mv my-first-note.md ..
-```
-
 This moves it to the parent directory,
 and keeps the name the same as we can see if we do `ls ..`
 
 If we want to move the file back to the current directory,
 we can use the `.` shortcut:
 
-```shell
+```bash
 mv ../my-fist-note.md .
 ```
 
-## Renaming a file
+### Renaming a file
 
-```sh
-mv my-fist-note.md note_2022-06-20.md
-ls
+Renaming a file can be thought of as moving it to a new filename
+either in the same or a different directory.
+This might initially seem a bit different from a graphical file browser,
+where renaming and moving are two distinct functions,
+but the underlying operation is actually the same.
+
+To give our file a more descriptive name,
+we can use `mv` to include the date we created this file,
+
+```bash
+mv my-fist-note.md notte_2022-06-20.md # intensional typo
 ```
 
-```out
-note_2022-06-20.md
-```
+We intentionally made a typo here,
+let's fix it while showing off the functionality of the `-v` (verbose) option,
+which prints what was moved/renamed so that it is easier to keep track of.
 
-<br>
-
-```sh
+```bash
 mv -v notte_2022-06-20.md note_2022-06-20.md
 ```
 
@@ -564,35 +564,29 @@ mv -v notte_2022-06-20.md note_2022-06-20.md
 renamed 'notte_2022-06-20.md' -> 'note_2022-06-20.md'
 ```
 
-Notes:
-Renaming a file can be thought of as moving it to a new filename
-either in the same or a different directory.
-This might initially seem a bit different from a graphical file browser,
-where renaming and moving are two distinct functions,
-but the underlying operation is actually the same.
-
-To give our file a more descriptive name that includes the date we created this file,
-we would type `mv my-fist-note.md notte_2022-06-20.md`.
-We intentionally made a typo here,
-let's fix it while showing off the functionality of the `-v` (verbose) option,
-which prints what was moved/renamed so that it is easier to keep track of
-`renamed 'notte_2022-06-20.md' -> 'note_2022-06-20.md'`.
-
 We must be careful when specifying the destination
 because `mv` will overwrite existing files without warning.
 The option `-i` ("interactive") makes `mv` ask us for confirmation before overwriting,.
 `mv` also works on directories where it renames the directory without changing its contents.
 
-## Copying files and directories
+### Copying files and directories
 
-```sh
+The `cp` command create a **c**o**p**y of a file.
+Just as with `mv`,
+we optionally rename the file as we are copying it.
+
+Here, we first copy the note we created to the parent directory and then
+show how we could use `cp` to create a backup of our file in the same directory.
+Remember that the file extension does not change the content of the file,
+so this is only a visual indicator for the file type,
+and helps the computer pick a default program when you open it.
+
+```bash
 # Copy the file to the parent directory
 cp note_2022-06-20.md ..
 ```
 
-<br>
-
-```sh
+```bash
 # Create a backup copy in the same directory
 cp note_2022-06-20.md note_2022-06-20.md.bkp
 ls
@@ -603,43 +597,12 @@ note_2022-06-20.md
 note_2022-06-20.md.bkp
 ```
 
-Notes:
-The `cp` command create a **c**o**p**y of a file.
-Just as with `mv`,
-we optionally rename the file as we are copying it.
-
-Here we first copy the note we created to the parent directory and then
-show how we could use `cp` to create a backup of our file in the same directory.
-Remember that the file extension does not change the content of the file,
-so this is just a visual indicator to us for what type of file this is.
-
 If we ever wanted to copy a directory,
 we would have to specify the `-r` flag,
 which indicates that we want to copy the directory recursively,
 i.e. also making a copy of all the directory contents.
 
-## Wildcards
-
-```sh
-touch note_2022-06-20.md.bkp note_2022-07-02.md note_2022-07-02.md.bkp
-ls *.bkp
-```
-
-```out
-note_2022-06-20.md.bkp
-note_2022-07-02.md.bkp
-```
-
-<br>
-
-```sh
-ls *07*
-```
-
-```out
-note_2022-07-02.md
-note_2022-07-02.md.bkp
-```
+### Wildcards
 
 Wildcards (also called "globbing") simplifies targeting multiple files with similar names
 in the same command.
@@ -657,9 +620,39 @@ they all have some characters after.
 Using wildcards is helpful when we want to delete, move, or copy files
 with a predictable naming pattern.
 
-## Searching for text patterns in files
+<!-- TODO: not particularly happy with this example, because it's forcing you
+           to use + learn touch (another thing we'd have to explain)
+           if we start off from the swcarpentry bash directory,
+           we can show this example much easier.
+-->
 
-```sh
+```bash
+touch note_2022-06-20.md.bkp note_2022-07-02.md note_2022-07-02.md.bkp
+ls *.bkp
+```
+
+```out
+note_2022-06-20.md.bkp
+note_2022-07-02.md.bkp
+```
+
+```bash
+ls *07*
+```
+
+```out
+note_2022-07-02.md
+note_2022-07-02.md.bkp
+```
+
+### Searching for text patterns in files
+
+We can use the `grep` command to search for text in files.
+To search for the word "the" in our notes file,
+we can type `grep "the" note_2022-06-22.md`.
+This will return every line in the file that contains the word "the".
+
+```bash
 grep "the" note_2022-06-22.md
 ```
 
@@ -668,14 +661,16 @@ note_2022-06-22.md:These are the first
 note_2022-06-22.md:in the file.
 ```
 
-We can use the `grep` command to search for text in files.
-To search for the word "the" in our notes file,
-we can type `grep "the" note_2022-06-22.md`.
-This will return every line in the file that contains the word "the".
+### Seeing the history of commands
 
-## Seeing the history of commands
+Occasionally,
+we might want to re-use a command that we used in the past,
+but don't remember exactly what it was.
+The `history` command can help us with this
+as it lists all the previous commands we have run
+and in which order we ran them.
 
-```sh
+```bash
 history
 ```
 
@@ -688,16 +683,15 @@ history
 6  history
 ```
 
-Occasionally,
-we might want to re-use a command that we used in the past,
-but don't remember exactly what it was.
-The `history` command can help us with this
-as it lists all the previous commands we have run
-and in which order we ran them.
+### Reading the manual
 
-## Reading the manual
+How can we find out what options like `-t` and `-r` do if we don't know of them already?
+By reading the built-in help manual!
+Typing `man ls` brings up the manual help page for the `ls` command.
+For some systems, you may need to run `--help` instead of `man`, e.g., `ls --help`.
 
-```sh
+
+```bash
 man ls
 ```
 
@@ -736,25 +730,36 @@ DESCRIPTION
 ...
 ```
 
-How can we find out what options like `-t` and `-r` do if we don't know of them already?
-By reading the built-in help manual!
-Typing `man ls` brings up the manual help page for the `ls` command.
-You can navigate these pages with `Space` to go down and `b` to go **B**ack up.
-`q` quits the manual and takes you back to the shell prompt.
+Some helpful commands while navigating the manual pages in `less`
 
-Typing `/` starts a search.
-Type in the search term and press `Enter`
-to be taken to the first hit.
-To continue to the **n**ext search hit,
-press `n`,
-and to go to the previous,
-press `shift` + `n`.
+<!-- TODO: paste in the keyboard up and down arrow -->
 
-## Relative vs absolute path
+- <kbd>q</kbd>: Quits the manual and takes you back to the shell prompt
+- <kbd>Space</kbd>: Go down the page
+- <kbd>b</kbd>: Go **B**ack up the page
+- <kbd>Up Arrow</kbd> / <kbd>Down Arrow</kbd>: you can also use the arrow keys to go up and down the page
+- <kbd>/</kbd>: starts a search
+    - Type in the search term and press <kbd>Enter</kbd> to go to the first hit
+    - <kbd>n</kbd>: To continue to the **n**ext search hit
+    - <kbd>Shift</kbd> + <kbd>n</kbd>.: Go to the previous hit
 
-You are here:
+:::{.callout-note}
+If you notice a `:` in the bottom left of your terminal,
+you are browsing the file in a program called `less`.
+To quit, you can press the letter <kbd>q</kbd> on your keyboard.
 
-```
+You can enter `less` in multiple ways when working in the terminal,
+it is not exclusive to only looking at the `man` pages.
+:::
+
+### Relative vs absolute path
+
+We've seen a bit of usage around `.` and `..`.
+Let's talk a bit more on how to reference files and directories.
+
+Let's say you are here:
+
+```bash
 pwd
 ```
 
@@ -763,7 +768,8 @@ pwd
 ```
 
 These are the files in your current working directory:
-```
+
+```bash
 ls
 ```
 
@@ -773,27 +779,41 @@ DSCI-100  MDS-2018-19   textbooks   research
 
 You can navigate to the research directory using one of two options, a relative path:
 
-```
+```bash
 cd research
 ```
 
 or, using an absolute path:
-```
+
+```bash
 cd /Users/timberst/Documents/research
 ```
 
-What is the difference? When you use a relative path with a command like `ls` or `cd`, it tries to find that location from where we are, rather than from the root of the file system. However, when you specify the absolute path to a directory by including its entire path from the root directory, which is indicated by a leading slash, The leading `/` tells the computer to follow the path from the root of the file system, so it always refers to exactly one directory, no matter where we are when we run the command.
+What is the difference?
+
+When you use a relative path with a command like `ls` or `cd`,
+it tries to find that location from where we are,
+rather than from the root of the file system.
+However, when you specify the absolute path to a directory
+by including its entire path from the root directory,
+which is indicated by a leading slash,
+the leading `/` tells the computer to follow the path from the root of the file system,
+so it always refers to exactly one directory,
+no matter where we are when we run the command.
 
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 1 Activity 5
+## Lecture 1 Activity 6
 ::::
 ::::{.activity-container}
 My home directory is: `/Users/Varada/`
-The output of running `pwd` in the command line is: `/Users/Varada/canadian_languages`
+The output of running `pwd` in the command line is:
+`/Users/Varada/canadian_languages`
 
-What is the problem if I run the command: `cd Users/Varada`. How can I solve it?
+What is the problem if I run the command:
+`cd Users/Varada`.
+How can I solve it?
 
 Select the correct option(s)
 
@@ -808,6 +828,7 @@ D. cd /Users/Varada
 
 
 ## References
+
 * https://merely-useful.tech/py-rse/bash-tools.html
 * https://missing.csail.mit.edu/
 * https://datascienceatthecommandline.com/2e/chapter-1-introduction.html
