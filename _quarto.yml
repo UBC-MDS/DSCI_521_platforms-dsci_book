@@ -39,6 +39,8 @@ format:
       light: [cosmo, styles.scss]
       dark: [slate, styles.scss]
     toc: true
+    toc-depth: 3
+    toc-expand: 3
 
 editor:
   render-on-save: true
