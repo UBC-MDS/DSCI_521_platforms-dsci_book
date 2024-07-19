@@ -37,3 +37,17 @@ You can also render the final static site using `quarto`
 ```
 quarto render
 ```
+
+## Features of this repository
+
+Technical features of this reporitory
+
+- Built using `quarto`
+- Uses `includes` to specify all the learning objectives and readings in a separate file
+  so it can be included in multiple places
+- custom css/scss for lecture activities and exercises
+
+TODO:
+
+- [ ] Auto build the book using github actions
+- [ ] provide dockerfile for course packages and execution environment
