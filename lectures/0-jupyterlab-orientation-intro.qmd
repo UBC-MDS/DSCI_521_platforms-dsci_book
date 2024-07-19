@@ -300,6 +300,8 @@ we would still retain the interactivity of the plots we created!
 Now that you know the basics of how to work inside Jupyter Notebooks,
 let's continue explorer the JupyterLab user interface.
 
+![](img/jupyterlab-sidebars.png)
+
 **Left sidebar**
 
 - Extension Manager
