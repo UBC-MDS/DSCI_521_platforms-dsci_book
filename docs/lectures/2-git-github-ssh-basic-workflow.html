@@ -300,7 +300,7 @@ window.Quarto = {
 <p>Let’s start with some definitions:</p>
 <section id="definitions" class="level3">
 <h3 class="anchored" data-anchor-id="definitions">Definitions</h3>
-<p><strong>Secure SHell (SSH) or <code>sh</code></strong> is a secure method commonly used for remotely logging into another computer.</p>
+<p><strong>Secure SHell (SSH) <code>ssh</code></strong> is a secure method commonly used for remotely logging into another computer.</p>
 <p><strong>The server</strong> is the machine you are connecting to via SSH, which passively waits for incoming connections.</p>
 <p><strong>The client</strong> is usually your own machine, which initiates the contact with the server.</p>
 </section>
@@ -315,11 +315,7 @@ window.Quarto = {
 </section>
 <section id="understanding-public-key-private-key-concepts" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-public-key-private-key-concepts">Understanding public key private key concepts</h2>
-<ul>
-<li>Think of a public key, not as a key, but as a padlock that you can make copies of and put anywhere you want.</li>
-<li>To put your ‘padlock’ on an another machine, you would copy it to <code>authorized_keys</code> in the <code>~/.ssh</code> folder.</li>
-<li>Think of a private key as an actual key, it can open the padlock that is stored on the other machine.</li>
-</ul>
+<p>Consider the public key not as a key but as a padlock. You can make copies of this padlock and place them wherever you like. To secure another machine with your padlock, you would copy it to the <code>authorized_keys</code> file in the <code>~/.ssh</code> folder on that machine. Conversely, think of the private key as an actual key, which is used to unlock the padlock stored on the other machine. This arrangement ensures secure access to the machine that holds the corresponding padlock.</p>
 <p><img src="img/keys_1.png" class="img-fluid"></p>
 <p><em>source: http://blakesmith.me/2010/02/08/understanding-public-key-private-key-concepts.html</em></p>
 </section>
@@ -330,12 +326,7 @@ window.Quarto = {
 </section>
 <section id="how-the-lock-works" class="level2">
 <h2 class="anchored" data-anchor-id="how-the-lock-works">How the lock works</h2>
-<ul>
-<li>Keys are generated using <code>ssh-keygen</code>, to make private key (usually called <code>id_rsa</code>) and a public key (usually called <code>id_rsa.pub</code>)</li>
-<li>You can make copies of <code>id_rsa.pub</code> (public key/padlock) and distribute them to other machines</li>
-<li>The other machine uses the public key to encrypt a challenge message to you</li>
-<li>You need to show that you can decrypt the message to demonstrate that you are in possesion of the associated private key</li>
-</ul>
+<p>SSH keys are generated using the <code>ssh-keygen</code> command, which creates a pair consisting of a private key (usually named <code>id_rsa</code>) and a public key (typically called <code>id_rsa.pub</code>). You can distribute copies of the public key, which acts like a padlock, to other machines. When you attempt to connect, the other machine encrypts a challenge message using your public key. To gain access, you must demonstrate that you can decrypt this message, thereby proving possession of the corresponding private key. This process ensures that the connection is both secure and authorized.</p>
 </section>
 <section id="why-ssh-keys-over-passwords" class="level2">
 <h2 class="anchored" data-anchor-id="why-ssh-keys-over-passwords">Why SSH keys over passwords</h2>
@@ -359,18 +350,8 @@ window.Quarto = {
 <p>The general premice to SSH keys is the same, there is a private key that stays on your machine and is never shared with other people, and the public key you can freely share that will be used to authenticate the machine with the private key on it.</p>
 <section id="authentication-vs.-encryption" class="level3">
 <h3 class="anchored" data-anchor-id="authentication-vs.-encryption">Authentication vs.&nbsp;encryption</h3>
-<ul>
-<li>The system described above is purely for <em>authentication</em>
-<ul>
-<li>the client needs to prove to the server that the client is authorized to access the server</li>
-<li>Someone with authority has put the public key in <code>~/.ssh/authorized_keys</code> on the server</li>
-<li>The server now grants access to anyone possessing a private key matching one of these public keys</li>
-</ul></li>
-<li>This is separate from <em>encryption</em> of the data flowing between the client and server.
-<ul>
-<li>This prevents eavesdroppers from listening to client-server communications</li>
-</ul></li>
-</ul>
+<p>The system described above focuses solely on authentication. In this process, the client must demonstrate to the server that it is authorized to access the server. This is established when someone with the necessary authority adds the client’s public key to the <code>~/.ssh/authorized_keys</code> on the server. Once this is done, the server will grant access to anyone who possesses a private key that matches one of the public keys listed.</p>
+<p>This authentication process is distinct from the encryption of data transmitted between the client and server. Encryption ensures that the communication between the client and server remains confidential, preventing any potential eavesdroppers from intercepting or listening to the exchange.</p>
 </section>
 </section>
 <div class="activity">
@@ -398,76 +379,53 @@ window.Quarto = {
 </div>
 <section id="cloning-repositories-from-github" class="level2">
 <h2 class="anchored" data-anchor-id="cloning-repositories-from-github">Cloning repositories from GitHub</h2>
-<ul>
-<li>If you only have minor edits to perform, you don’t need to clone and can edit files directly on GitHub via their online editor.</li>
-<li>However, if you want to be able to run the code on your own machine, and modify it there, we need to “clone” the repository.</li>
-<li>To clone it:
-<ol type="1">
-<li>go into the repository</li>
-<li>click on the green “Clone or download” button (make sure the pop-up says “Clone with HTTPS”)
-<ul>
-<li>note - we will learn to use SSH authentication later…</li>
-</ul></li>
-<li>copy the URL to the clipboard</li>
-<li>open Bash on your laptop</li>
-<li>navigate to the directory you want to clone into by using the <code>cd</code> command.</li>
-<li>type <code>git clone</code> followed by the URL, e.g.&nbsp;<code>git clone https://github.com/github_username/repository_name.git</code>, and press enter.</li>
-<li>Once the download has finished you can use <code>cd</code> to navigate into the directory you just clones and <code>ls</code> to confirm that the content is the same as you saw online.</li>
-</ol></li>
-</ul>
+<p>If you only need to make minor edits, you can directly edit files on GitHub using their online editor, eliminating the need to clone the repository.</p>
+<p>However, if you intend to run the code on your own machine and make modifications there, you will need to clone the repository to facilitate these changes.</p>
+<p>To clone a repository, follow these steps!</p>
+<p><em>Step 1:</em> start by navigating to the specific repository on GitHub.</p>
+<p><em>Step 2:</em> Click the green “Clone or download” button, ensuring the pop-up indicates “Clone with HTTPS” (we will cover SSH authentication later).</p>
+<p><em>Step 3:</em> Copy the provided URL to your clipboard.</p>
+<p><em>Step 4:</em> Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command.</p>
+<p><em>Step 5:</em> Type git clone followed by the URL, such as git clone https://github.com/github_username/repository_name.git, and press enter.</p>
+<p><em>Step 6:</em> After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.</p>
 <p>For more details, see Github’s docs on <a href="https://help.github.com/articles/cloning-a-repository/">cloning</a>.</p>
 <p><strong>Be Careful</strong>: do not nest git repositoies. That is, there should not be one git repository inside another git repositoiry. Be careful that when you are using <code>git clone</code> (or <code>git init</code></p>
 </section>
 <section id="creating-a-repository-from-github-method-1-above" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-repository-from-github-method-1-above">Creating a repository from GitHub (method 1 above)</h2>
-<p>I recommend that you follow along with these steps on your own machine to practice the commands as you are reading about them. If it is sometimes unclear where to click or what the output should look like from a command, refer to the corresponding sections of the videos to see exactly what to do (The git workflow one and the ones from lecture 2). You can create however many repositories on GitHub that you would like and remove them after, so you don’t need to worry about experimenting and creating several new ones.</p>
+<p>I recommend that you follow along with these steps on your own machine to practice the commands as you are reading about them.</p>
+<p>If it is sometimes unclear where to click or what the output should look like from a command, refer to the corresponding sections of the videos to see exactly what to do (The git workflow one and the ones from lecture 2).</p>
+<p>You can create however many repositories on GitHub that you would like and remove them after, so you don’t need to worry about experimenting and creating several new ones.</p>
 <section id="steps-to-follow" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow">Steps to follow:</h3>
-<ol type="1">
-<li><p>Go to https://github.ubc.ca and make sure you are logged in.</p></li>
-<li><p>Click green “New repository” button. Or, if you are on your own profile page, click on “Repositories”, then click the green “New” button.</p></li>
-<li><p>Enter a repository name</p>
-<ul>
-<li>Choose between a public or private repo.
-<ul>
-<li>If you choose public, anyone can see and clone you repo (but it is still only you that can push to it).</li>
-</ul></li>
-<li>Check “Initialize this repository with a README”
-<ul>
-<li>This makes it possible to clone the repo without adding a file manually later.</li>
-</ul></li>
-</ul></li>
-<li><p>Click big green button “Create repository”.</p></li>
-<li><p>That’s it! You now have a new repository on GitHub!</p></li>
-</ol>
+<p><em>Step 1:</em> Start by navigating to https://github.ubc.ca and ensure you are logged in.</p>
+<p><em>Step 2:</em> Click the green “New repository” button. Alternatively, if you are on your profile page, select “Repositories” and then click the green “New” button.</p>
+<p><em>Step 3:</em> Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.</p>
+<p><em>Step 4:</em> Check the box labeled “Initialize this repository with a README.” This step allows the repository to be cloned immediately without needing to add a file manually later.</p>
+<p><em>Step 5:</em> Click the big green “Create repository” button.</p>
+<p><em>Step 6:</em> That’s it! You now have a new repository on GitHub!</p>
 </section>
 </section>
 <section id="what-is-a-git-repository" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-git-repository">What is a Git repository?</h2>
 <p>A Git repository stores all the necessary information for version control your project in a hidden folder called <code>.git</code>. If you want to know if you are working in a Git repo using the terminal you can use the bash command <code>ls -a</code> as you can see in the image. The <code>-a</code> flag will include into the lists of files displayed on the terminal the hidden folders. If <code>.git</code> is included you are working in a Git repository.</p>
 <p>By cloning a repository from GitHub to your computer, you are automatically getting a copy of <code>.git</code> and thus, working on a Git.</p>
+<p><img src="img/github-workflow.png" class="img-fluid"></p>
 </section>
 <section id="adding-committing-changes-to-version-controlled-files" class="level2">
 <h2 class="anchored" data-anchor-id="adding-committing-changes-to-version-controlled-files">Adding &amp; committing changes to version controlled files</h2>
 <p>There are two ways to make changes to your files in the remote repo on GitHub:</p>
-<ol type="1">
-<li>Edit files directly on Github via the web interface.
-<ul>
-<li>Note that there is no step for adding to the staging area on GitHub. This gives less flexibility, but is convenient when working via the web interface where you probably only are making small changes.</li>
-</ul></li>
-<li>Make changes on files you have cloned locally to your computer, <code>add</code> them to the staging area, <code>commit</code> and then <code>push</code> the changes up to Github.</li>
-</ol>
-<p>Let’s try out method 1 by editing the file called <code>README.md</code> that contains some basic information.</p>
+<p>The first approach involves editing files directly through GitHub’s web interface. This method is streamlined as it bypasses the need to stage files, offering a convenient option for minor edits. It’s especially suited for quick updates where the lack of staging flexibility isn’t a concern.</p>
+<p>Alternatively, if you prefer to work locally, you can modify files on your computer. This method involves a few more steps: first, you <code>add</code> the changes to the staging area, then <code>commit</code> them to your local repository, and finally <code>push</code> the updates back to GitHub.</p>
+<p>To demonstrate the first method, let’s edit the README.md file in your GitHub repository. Here are the steps to follow:</p>
 <section id="steps-to-follow-1" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow-1">Steps to follow:</h3>
-<ol type="1">
-<li><p>Click on the <code>README.md</code> file link in your repo on GitHub.</p></li>
-<li><p>Click on the pen tool (right-hand side of document)</p></li>
-<li><p>Add your name as the author to the document (e.g., “author: Roald Dahl”)</p></li>
-<li><p>Provide a commit message (e.g.&nbsp;“Add author info”).</p></li>
-<li><p>Click on the big green button “Commit changes” to save your work (this is essentially <code>git add</code> + <code>git commit</code> in one click).</p></li>
-<li><p>Download this repo to your local computer by cloning it (<code>git clone</code> + the remote’s URL)</p></li>
-</ol>
+<p>Step 1: Click on the README.md file link in your repository on GitHub.</p>
+<p>Step 2: Click on the pen tool located on the right-hand side of the document.</p>
+<p>Step 3: Add your name as the author to the document (e.g., “author: Roald Dahl”).</p>
+<p>Step 4: Provide a commit message, such as “Add author info.”</p>
+<p>Step 5: Click the big green button “Commit changes” to save your work. This action combines git add and git commit into one step.</p>
+<p>Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository’s URL.</p>
 </section>
 </section>
 <section id="changing-and-saving-version-controlled-files" class="level2">
