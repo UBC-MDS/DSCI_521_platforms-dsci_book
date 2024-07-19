@@ -1,9 +1,7 @@
 ---
-title: DSCI 521 Lecture 8 - Organization of Data Science projects and some useful tools
+title: Organization of Data Science projects and some useful tools
 jupyter: python3
 ---
-
-
 
 ## Lecture objectives
 
@@ -26,16 +24,16 @@ True or False
 ---
 
 # Project organization
- 
+
 Broadly speaking you will find two different ways of organizing a project: as a data analysis project and code project. Neither of this options is rigid enough to can give you here a exhaustive list of folder types and files you would expect on this projects. You will spend some time exploring different examples.
 However, we can work with a general structure:
 
 
 ```bash
-project/          
-├── data/              *.csv        
+project/
+├── data/              *.csv
 │   ├── processed/
-│   └── raw/     
+│   └── raw/
 ├── reports/           *.ipynb *.Rmd
 ├── src/               *.py *.R
 ├── doc/               *.md
@@ -43,7 +41,7 @@ project/
 └── environment.yaml (or renv.lock)
 ```
 
-**data** 
+**data**
 If your original data file is stored as part of the repository and should never be overriden. That is why the original files are stored in a sub-folder called `raw`.
 
 **reports**
@@ -59,7 +57,7 @@ You will learn more about project hierarchy when making packages.
 Documentation
 
 **README.md**
-The README file is probably the first file a potential user/contributor will read when you 
+The README file is probably the first file a potential user/contributor will read when you
 
 **environment**
 Speficying the computational environment will help you to ensure the reproducibility of yuour analysis. We will learn how to create this environments in lecture 6 and practice on lab 3.
@@ -118,11 +116,11 @@ Benjamin Franklin
 ::::{.activity-container}
 Which set of file(name)s do you want at 3 a.m. before a deadline?
 
-A. `Joe’s Filenames Use Spaces and Punctuation.xlsx`  
-B. `figure 1.png`  
-C. `JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt`  
-D. `2014-06-08_abstract-for-sla.docx`  
-E. `myabstract.docx`  
+A. `Joe’s Filenames Use Spaces and Punctuation.xlsx`
+B. `figure 1.png`
+C. `JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt`
+D. `2014-06-08_abstract-for-sla.docx`
+E. `myabstract.docx`
 ::::
 :::
 
@@ -180,7 +178,7 @@ fig02_talk-histogram-attendance.png
 
 - Easy to compute on
     + Deliberate use of delimiters
-    
+
 ## Globbing
 
 **Excerpt of complete file listing:**
@@ -238,7 +236,7 @@ This happens to be R but also possible in the shell, Python, etc.
     + Punctuation
     + Accented characters
     + Different files named `foo` and `Foo`
-    
+
 # Human readable
 
 ## Human readable
@@ -423,9 +421,9 @@ to the point where you just want to ask something like.
 
 > WHY IS THIS \*\*\*\* CODE NOT WORKING??????
 
-Don't do this.  
-No one will help you.  
-You will get more frustrated.  
+Don't do this.
+No one will help you.
+You will get more frustrated.
 
 When I feel like this,
 I find it really helpful and calming to sit down
@@ -462,7 +460,7 @@ If you are asking your question on stack overflow
 you can use tags to categorize it,
 and these can then be used to search for an answer via the syntax `[tag-name]`.
 This can be especially useful for R,
-since the name is just one letter 
+since the name is just one letter
 and it can be hard to find relevant matches otherwise.
 
 ### Minimal reproducible example
@@ -490,7 +488,7 @@ and here are some of them that I recommend that you check out:
 - https://reprex.tidyverse.org/ (an R package to help creating MREs from code)
 
 In summary,
-asking effectively 
+asking effectively
 and creating an MRE includes the following tasks:
 
 0. Search for other questions similar to yours.
@@ -502,7 +500,7 @@ and creating an MRE includes the following tasks:
 3. Describe what you have tried so far,
    what you don't understand or what went wrong,
    including any error messages and their full traceback.
-   
+
 The points are elaborated on below:
 
 0. Search for other questions similar to yours.
@@ -533,7 +531,7 @@ The points are elaborated on below:
    (after `install.packages("devtools")`).
    and on Python you can use `sinfo()`
    (after importing: `from sinfo import sinfo`,
-   needs to be installed via `pip install sinfo`). 
+   needs to be installed via `pip install sinfo`).
 5. When your problem is solved,
    acknowledge the solution,
    close the issue/ticket/question.
@@ -586,46 +584,46 @@ which both do a great job visualizing and explaining the different parts of a re
   in order to visualize how your regex is matching the text.
 - For this lecture, we will use a list of fruits to learn about regex.
 
-applesas  
-apple  
-apricot  
-banana  
-bilberry  
-blackberry  
-blackcurrant  
-blood orange  
-blueberry  
-canary melon  
-cantaloupe  
-cherry  
-clementine  
-cloudberry  
-coconut  
-cranberry  
-cucumber 
-currant  
-dragonfruit  
-durian  
-elderberry  
-gooseberry  
-grape  
-grapefruit  
-papaya  
-passionfruit  
-peach  
-orange  
-oranges unripe  
-persimmon  
-pineapple  
-pomegranate  
-pomelo  
-purple mangosteen  
-rock melon  
-salal berry  
-satsuma  
-star fruit  
-strawberry  
-watermelon  
+applesas
+apple
+apricot
+banana
+bilberry
+blackberry
+blackcurrant
+blood orange
+blueberry
+canary melon
+cantaloupe
+cherry
+clementine
+cloudberry
+coconut
+cranberry
+cucumber
+currant
+dragonfruit
+durian
+elderberry
+gooseberry
+grape
+grapefruit
+papaya
+passionfruit
+peach
+orange
+oranges unripe
+persimmon
+pineapple
+pomegranate
+pomelo
+purple mangosteen
+rock melon
+salal berry
+satsuma
+star fruit
+strawberry
+watermelon
 
 ## The square brackets: `[]`
 
@@ -662,7 +660,7 @@ what your regex is matching
     - `[a-z]`: will match any lower case letter
     - `[0-9]`: will match any digit
     - `[0-5]`: will match any digit between 0 and 5
-- The order cannot be reversed, `[z-A]` does not work.    
+- The order cannot be reversed, `[z-A]` does not work.
 - You can combine ranges: `[A-Za-z]`.
 - You can use square brackets starting with a caret. For example:
     - `[^A-Z]`: will match anything that is not an upper case letter
@@ -755,7 +753,7 @@ Write a regex that will match a line that contains only pineapple. (Hint: you ca
     - `{n,}`: at least `n` occurrences
     - `{0,m}`: at most `m` occurrences
     - `{n,m}`: between `n` and `m` (inclusive) occurrences
-    
+
 
 ### Special repetition characters
 

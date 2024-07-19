@@ -1,9 +1,7 @@
 ---
-title: DSCI 521 Lecture 2 - Introduction to version control with Git and GitHub
+title: Introduction to version control with Git and GitHub
 jupyter: python3
 ---
-
-
 
 ## Lecture objectives
 
@@ -30,7 +28,7 @@ By the end of the lecture you will be able to:
 *source: “Piled Higher and Deeper” by Jorge Cham, http://www.phdcomics.com*
 
 To **version control** a project, you generally need two things:
-(1) a version control system and 
+(1) a version control system and
 (2) a repository hosting service.
 
 The version control system is the software responsible for tracking changes, sharing changes you make with others, obtaining changes from others, and resolving conflicting edits. The repository hosting service is responsible for storing a copy of the version-controlled project online (a repository), where you and your collaborators can access it remotely, discuss issues and bugs, and distribute your final product. For both of these items, there is a wide variety of choices. In this textbook we’ll use Git for version control, and GitHub for repository hosting, because both are currently the most widely used platforms.
@@ -39,7 +37,7 @@ Technically you don’t have to use a repository hosting service. You can, for e
 
 # Set up keys for SSH for use with GitHub
 
-## Remotely accessing another computer using SSH 
+## Remotely accessing another computer using SSH
 
 Let's start with some definitions:
 
@@ -48,7 +46,7 @@ Let's start with some definitions:
 **Secure SHell (SSH)** - a common method for remote login to another computer which is secure.
 
 **server** - a machine you are SSHing into. The server sits and waits to be contacted.
- 
+
 **client** - usually your machine. The client initiates contact with the server.
 
 ## Review - password-based authentication
@@ -62,7 +60,7 @@ Let's start with some definitions:
 
 ## SSH key-based authentication
 
-Two components: 
+Two components:
 
 1. public key
 2. private key
@@ -92,7 +90,7 @@ you will be able to open it with the same private key.
 
 ## How the lock works
 
-- Keys are generated using `ssh-keygen`, to make private key (usually called `id_rsa`) and a public key (usually called `id_rsa.pub`) 
+- Keys are generated using `ssh-keygen`, to make private key (usually called `id_rsa`) and a public key (usually called `id_rsa.pub`)
 - You can make copies of `id_rsa.pub` (public key/padlock) and distribute them to other machines
 - The other machine uses the public key to encrypt a challenge message to you
 - You need to show that you can decrypt the message to demonstrate that you are in possesion of the associated private key
@@ -109,7 +107,7 @@ Aside: Quantum computers will be able to break RSA encryption. It is very hard t
 
 - `ssh-keygen` allows you to put a password or passphrase on the private key
 - this should be shared with NO ONE!
-- if your private key does fall into the wrong hands, the person must still know the password or passphrase to use the private key 
+- if your private key does fall into the wrong hands, the person must still know the password or passphrase to use the private key
 
 ![alt tag](img/password_strength.png)
 *source - https://xkcd.com/936/*
@@ -130,7 +128,7 @@ and the public key you can freely share that will be used to authenticate the ma
   * the client needs to prove to the server that the client is authorized to access the server
   * Someone with authority has put the public key in `~/.ssh/authorized_keys` on the server
   * The server now grants access to anyone possessing a private key matching one of these public keys
-  
+
 * This is separate from _encryption_ of the data flowing between the client and server.
   * This prevents eavesdroppers from listening to client-server communications
 
@@ -168,7 +166,7 @@ Is a repository the same as a directory? Can be a Git repository your current wo
 ## Cloning repositories from GitHub
 
 - If you only have minor edits to perform, you don't need to clone and can edit files directly on GitHub via their online editor.
-- However, if you want to be able to run the code on your own machine, and modify it there, we need to "clone" the repository. 
+- However, if you want to be able to run the code on your own machine, and modify it there, we need to "clone" the repository.
 - To clone it:
     1. go into the repository
     2. click on the green "Clone or download" button (make sure the pop-up says "Clone with HTTPS")
@@ -178,11 +176,11 @@ Is a repository the same as a directory? Can be a Git repository your current wo
     5. navigate to the directory you want to clone into by using the `cd` command.
     6. type `git clone` followed by the URL, e.g. `git clone https://github.com/github_username/repository_name.git`, and press enter.
     7. Once the download has finished you can use `cd` to navigate into the directory you just clones and `ls` to confirm that the content is the same as you saw online.
-    
+
 For more details, see Github's docs on [cloning](https://help.github.com/articles/cloning-a-repository/).
 
 **Be Careful**: do not nest git repositoies. That is, there should not be one git repository inside another git repositoiry.
-Be careful that when you are using `git clone` (or `git init` 
+Be careful that when you are using `git clone` (or `git init`
 
 ## Creating a repository from GitHub (method 1 above)
 
@@ -211,15 +209,15 @@ and creating several new ones.
 
 ## What is a Git repository?
 
-A Git repository stores all the necessary information 
+A Git repository stores all the necessary information
 for version control your project in a hidden folder called `.git`.
-If you want to know if you are working in a Git repo using the terminal 
+If you want to know if you are working in a Git repo using the terminal
 you can use the bash command `ls -a` as you can see in the image.
 The `-a` flag will include into the lists of files
-displayed on the terminal the hidden folders. 
+displayed on the terminal the hidden folders.
 If `.git` is included you are working in a Git repository.
 
-By cloning a repository from GitHub to your computer, 
+By cloning a repository from GitHub to your computer,
 you are automatically getting a copy of `.git` and thus, working on a Git.
 
 ## Adding & committing changes to version controlled files
@@ -232,7 +230,7 @@ There are two ways to make changes to your files in the remote repo on GitHub:
 
 Let's try out method 1 by editing the file called `README.md` that contains some basic information.
 
-### Steps to follow: 
+### Steps to follow:
 
 1. Click on the `README.md` file link in your repo on GitHub.
 
@@ -260,11 +258,11 @@ Let's try out method 1 by editing the file called `README.md` that contains some
 - This is what it looks like when adding and committing:
 
     1. Add changes to staging area
-    
+
     `git add file-name(s)`
-        
+
     2. Commit the changes together with a descriptive message
-    
+
     `git commit -m "Clarify the README installation instructions"`
 
 For more details, see Software Carpentry's lesson on [tracking local changes with Git](http://swcarpentry.github.io/git-novice/04-changes/).
@@ -275,16 +273,16 @@ For more details, see Software Carpentry's lesson on [tracking local changes wit
 
 Once you reach a point that you want Git
 to keep a record of the current version of your work,
-you need to commit (i.e., snapshot) your changes. 
-A prerequisite to this is telling Git which files 
-should be included in that snapshot. 
-We call this step adding the files to the **staging area**. 
+you need to commit (i.e., snapshot) your changes.
+A prerequisite to this is telling Git which files
+should be included in that snapshot.
+We call this step adding the files to the **staging area**.
 
 Note that the staging area is not a real physical location on your computer;
- it is instead a conceptual placeholder for these files until they are committed. 
- The benefit of the Git version control system using a staging area is 
- that you can choose to commit changes in only certain files. 
- For example, we add only the two files that are important 
+ it is instead a conceptual placeholder for these files until they are committed.
+ The benefit of the Git version control system using a staging area is
+ that you can choose to commit changes in only certain files.
+ For example, we add only the two files that are important
  to the analysis project (`analysis.ipynb` and `README.md`) and
   not our personal scratch notes for the project (`notes.txt`).
 
@@ -318,8 +316,8 @@ you can type `git restore --staged name-of-your-file.txt`
 
 ## Commit your files
 
-To include a description in your commit using the terminal, 
-you should write the command `git commit` and press ENTER. 
+To include a description in your commit using the terminal,
+you should write the command `git commit` and press ENTER.
 After doing that, a file called `COMMIT_EDITMSG` will open in your editor.
 There you can write the title and body of the commit message
 that you want to associate with your changes.
@@ -340,21 +338,21 @@ For more details, see Github's doc on [pushing changes to Github](https://help.g
 ## Pull your changes from a remote repository
 
 Changes pushed by collaborators, or created directly on GitHub
-will not be automatically sent to your local repository. 
+will not be automatically sent to your local repository.
 
 If you are working on a project with collaborators,
 they will also be making changes to files (e.g., to the analysis code in a Jupyter notebook and the project’s `README` file),
 committing them to their own local repository, and pushing their commits to the remote GitHub repository
 to share them with you. When they push their changes, those changes will only initially exist
-in the remote GitHub repository and not in your local repository. 
+in the remote GitHub repository and not in your local repository.
 
-To obtain the new changes from the remote repository on GitHub, 
-you will need to pull those changes to your own local repository. 
-By pulling changes, you synchronize your local repository to what is present on GitHub. 
-Additionally, until you pull changes from the remote repository, you will not be able 
+To obtain the new changes from the remote repository on GitHub,
+you will need to pull those changes to your own local repository.
+By pulling changes, you synchronize your local repository to what is present on GitHub.
+Additionally, until you pull changes from the remote repository, you will not be able
 to push any more changes yourself (though you will still be able to work and make commits in your own local repository)
 
-If you want to do this with the terminal, 
+If you want to do this with the terminal,
 you have to pull from the terminal you should use the command `git pull`.
 
 
@@ -394,7 +392,7 @@ where `yourCWL` should be replaced by your CWL.
 
 
 
-## Attribution 
+## Attribution
 1. [Happy Git and GitHub for the useR by Jenny Bryan and the STAT 545 TAs](http://happygitwithr.com/)
 2. [Software Carpentry](https://software-carpentry.org/), specifically the Unix Shell and Git lessons
 

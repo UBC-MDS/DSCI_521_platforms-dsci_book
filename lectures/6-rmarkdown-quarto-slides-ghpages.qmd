@@ -1,11 +1,7 @@
 ---
-title: 'DSCI 521 Lecture 6: Quarto, RMarkdown, and Jupyter Slides'
+title: 'Quarto, RMarkdown, and Jupyter Slides'
 jupyter: python3
 ---
-
-
-
-
 
 ## Lecture objectives
 
@@ -15,7 +11,7 @@ By the end of the lecture you will be able to:
 2. Explore different data science products to communicate your results: slides, blogs and books.
 3. Create slides using Jupyter Notebook and Quarto slides with `reveal.js`
 4. Create a Jupyter Book and a Quarto books.
-5. Create a Quarto Blog. 
+5. Create a Quarto Blog.
 6. Sharing rendered HTML files publicly via GitHub Pages.
 
 **Platform in focus** RStudio IDE + Quarto
@@ -25,7 +21,7 @@ By the end of the lecture you will be able to:
 ## Lecture 6 Activity 1
 ::::
 ::::{.activity-container}
- Check the following data science analysis. 
+ Check the following data science analysis.
 ::::
 :::
 
@@ -38,11 +34,11 @@ In brief we are going to learn that you can create a `gfm` formatted document in
 
 #### Jupyter Notebooks for Python and RMarkdown for R?
 
-Even if the purpose of using a Jupyter Notebook and an RMarkdown is similar there are major differences to be considered. The first one is that Jupyter Notebooks has been created for Python (even if there exist an R ikernel) and that RMarkdown has been created for R (even if can be used with Python through the `reticulate` package). There is a third new option, **Quarto documents** (`.qmd`), that can be open in RStudio, VS Code and JupyterLab at the same time and be used with Python, R or Julia. 
+Even if the purpose of using a Jupyter Notebook and an RMarkdown is similar there are major differences to be considered. The first one is that Jupyter Notebooks has been created for Python (even if there exist an R ikernel) and that RMarkdown has been created for R (even if can be used with Python through the `reticulate` package). There is a third new option, **Quarto documents** (`.qmd`), that can be open in RStudio, VS Code and JupyterLab at the same time and be used with Python, R or Julia.
 
 A single `.qmd` file is processed by a single engine running R, Python, or Julia. The trick is that an `.qmd` file running R can run Python via the `reticulate` R package meanwhile a `.qmd` running Python can run R via the `rpy2` Python package. We will learn more about Quarto soon, but first let's think a bit about how we write text in the notebooks.
 
-This being said you have to consider that: 
+This being said you have to consider that:
 > Note that if you are using either the Jupyter or Knitr computational engine you will likely be better off using JupyterLab or VS Code (for .ipynb notebooks) or RStudio (for .qmd documents) as these environments provide code-completion, incremental cell execution, and other useful tools for working with executable code.
 
 > Quarto Docs - Text editors (https://quarto.org/docs/tools/text-editors.html)
@@ -75,14 +71,14 @@ Why using R Markdown and Quarto documents can make your work more reproducible?
 
 ## Presentations with JupyterLab, RMarkdown and Quarto
 
-You can create a great set of slides to share your results with others! We are going to use the framework `reveal.js`. RMarkdown most popular slides are created with a package called `xaringan`. Since Quarto appear, it is possible to create slides using `reveal.js` that is the same framework that is available by default in Jupyter Notebooks. Anyway, it would be possible to generate `reveal.js` presentations with RMarkdown if you install the `revealjs` package and follow [these instructions](https://bookdown.org/yihui/rmarkdown/revealjs.html). 
+You can create a great set of slides to share your results with others! We are going to use the framework `reveal.js`. RMarkdown most popular slides are created with a package called `xaringan`. Since Quarto appear, it is possible to create slides using `reveal.js` that is the same framework that is available by default in Jupyter Notebooks. Anyway, it would be possible to generate `reveal.js` presentations with RMarkdown if you install the `revealjs` package and follow [these instructions](https://bookdown.org/yihui/rmarkdown/revealjs.html).
 
 
 
 #### Create your slides using Quarto
 
 If you are using Jupyter Notebooks it is quite straightforward to create your slides.
-You can use Jupyter Lab interface too with the same purpose. 
+You can use Jupyter Lab interface too with the same purpose.
 You can read more [about it here](https://towardsdatascience.com/5-slides-for-tips-on-presentation-mode-in-jupyter-notebook-f858b15fff4f)
 
 ![Jupyter Slides](img/jupyter-slides.gif)
@@ -130,7 +126,7 @@ and have class labels:
 - `inverse` inverts the colors
 - `center` centers horizontally
 - `middle` centers vertically
-    
+
 Inside the slides,
 you can use R Markdown syntax
 with some special syntax,
@@ -184,11 +180,11 @@ and keep all files that should be available to the public on this branch,
 but if you just want to experiment in and otherwise empty repo,
 it is fine to use the master branch.
 
-By default, 
+By default,
 GitHub pages will render a `README.md` file or an `index.html` file
 if you have these at the root of your repo.
 So in our case,
-we could name our presentation file `index.html` 
+we could name our presentation file `index.html`
 and put it at the root of the repo,
 and then share the GH Pages link of the repo with others
 (you can find this link in the settings page where you enabled GH Pages).

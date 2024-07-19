@@ -1,9 +1,7 @@
 ---
-title: DSCI 521 Lecture 3 - Getting grovy with Git and GitHub
+title: Getting grovy with Git and GitHub
 jupyter: python3
 ---
-
-
 
 ## Lecture objectives
 
@@ -20,7 +18,7 @@ By the end of the lecture you will be able to:
 
 **Lecture 3 **
 
-You clone a project you want to start collaborating in. How you can see the 
+You clone a project you want to start collaborating in. How you can see the
 
 
 
@@ -41,7 +39,7 @@ There are two ways you can view the Git history of a project:
 3. In the terminal using `git log`
 
 
-Notes: 
+Notes:
 Now we have a project, but only 2 commits (the initial creation and adding us as the author). Let's now add a couple more commits to generate a history that we can view and experiment with by editing our `README.md`.
 
 ### Steps to follow:
@@ -58,25 +56,25 @@ Now we have a project, but only 2 commits (the initial creation and adding us as
 
 On GitHub, on the repo's landing page click "*N* commits" link
 (where *N* is the number of commits made on the repo).
-Now we have a project, but only 3 commits. You can identify all parts of each commit, 
-including the day it was made, author, hash. 
-You can also go back to the repository at the moment of making this change 
+Now we have a project, but only 3 commits. You can identify all parts of each commit,
+including the day it was made, author, hash.
+You can also go back to the repository at the moment of making this change
 by clicking the `<>` button.
 
 If you want to access your project information using the terminal you can use the `git log` command.
-Pay attention that here you are looking at the long version of the hash 
-and not the 7-character long version displayed by default in Jupyter Lab or GitHub. 
+Pay attention that here you are looking at the long version of the hash
+and not the 7-character long version displayed by default in Jupyter Lab or GitHub.
 In both cases, you will be able to identify the commit using its hash.
 
-Adding the flag `--oneline` to the command `git log` will provide you a different format 
-for the output, in this case, you get a succint version of the information of each commit. 
+Adding the flag `--oneline` to the command `git log` will provide you a different format
+for the output, in this case, you get a succint version of the information of each commit.
 
-The terminal allows greater flexibility when it comes to obtaining information about your project. 
-If you would like to know what other possibilities you have for using the `git log` command, 
+The terminal allows greater flexibility when it comes to obtaining information about your project.
+If you would like to know what other possibilities you have for using the `git log` command,
 you can access the help by typing the command `git log --help`.
 
 We have covered three distinct methods for viewing your project's history.
-Prior to starting the activities, give them a try yourself in an example Git repository! 
+Prior to starting the activities, give them a try yourself in an example Git repository!
 
 What are the changes introduced between two commits? Whe have already learned three different ways to check your project history. Basically your project history is a temporary line with the changes (commits) made in your project along with its message and commit id or hash.
 We can have access to this information on GitHub, and locally using the terminal and Jupyter Lab.
@@ -94,9 +92,9 @@ There are two ways you can view the Git history of a project:
 1. On GitHub through the repo's code commit view
 2. On your local machine using `git log`
 
-### Steps to follow: 
+### Steps to follow:
 
-1. On GitHub, on the repo's landing page click "$N$ commit" link (where $N$ is the number of commits made on the repo, yours should be around 6). 
+1. On GitHub, on the repo's landing page click "$N$ commit" link (where $N$ is the number of commits made on the repo, yours should be around 6).
 2. On your laptop, from inside your Git repository type `git log` at the command line. You can use `git log --oneline` for more succinct output or the alias shortcut `gl` that we created.
    - You can navigate this log by scrolling with the mouse, arrow keys, or by the same commands we used with `man` in the first lecture
        - `q` = quit
@@ -115,7 +113,7 @@ Oh no! We realize by viewing the history that we made a mistake! We didn't mean 
 
 Let's restore the version of the file BEFORE we deleted the software dependency list.
 
-### Steps to follow: 
+### Steps to follow:
 
 1. Look at the log to see which version of the file we want to go back to and get its Short SHA-1 (the first characters of the commit ID, we'll need this to know which point in time to retrieve the file from).
 
@@ -135,7 +133,7 @@ However, when working with collaborators there are usually changes made in more 
 1. Changes to a document where different lines are modified (Git can automatically merge these and will do so when you `pull`).
 2. Changes to a document where the same line(s) are modified (Git CANNOT automatically merge these and will complain that you have a "merge conflict" when you `pull`).
 
-In the second case, you have to help git by telling it which changes you want to keep. Git kindly points you to where the problem is in the output from `git pull` where it mentions which files have been modified from two source. You will need to edit this file to make it look how you want and then `add` it to the staging area and `commit`. 
+In the second case, you have to help git by telling it which changes you want to keep. Git kindly points you to where the problem is in the output from `git pull` where it mentions which files have been modified from two source. You will need to edit this file to make it look how you want and then `add` it to the staging area and `commit`.
 
 ## How do you know you have a merge conflict?
 
@@ -204,7 +202,7 @@ D. Work only locally or only in the remote repository.
 2. Look for the conflict (hint - search for `<<<<<<< HEAD`)
 3. Fix the conflict by deleting everything you don't want to keep in the file,
    including the `<<<<<` etc that git added.
-    - **Note** VS Code will help you with this by color highlighting the changes and providing buttons you can click to accept either the current or incoming change (or both). Using these buttons instead of modifying the file manually can save you from mistakes that can take a lot of time to troubleshoot and fix so we **highly recommend** that you use this feature. 
+    - **Note** VS Code will help you with this by color highlighting the changes and providing buttons you can click to accept either the current or incoming change (or both). Using these buttons instead of modifying the file manually can save you from mistakes that can take a lot of time to troubleshoot and fix so we **highly recommend** that you use this feature.
 4. After the file looks like you want it, `add` it and `commit` your changes. Then you can `push` them up to GitHub.
 
 Here's an example of a text file with a conflict and how it can look after you have resolved it:
@@ -221,7 +219,7 @@ This line was added somewhere else
 ```
 
 - `<<<<<<< HEAD` precedes the change you made (that you couldn't push)
-- `=======` is a separator between the conflicting changes 
+- `=======` is a separator between the conflicting changes
 - `>>>>>>> dabb4c8c450e8475aee9b14b4383acc99f42af1d` flags the end of the conflicting change you pulled from GitHub
 
 
@@ -312,7 +310,7 @@ is encoded by the following JSON:
 
 ## Version control and Jupyter notebook
 
-Because the notebooks are stored as plain text, we can use them for version control, but this is not without issues, since the JSON format can make it difficult to interpret difference between files and to manually fix conflicts. 
+Because the notebooks are stored as plain text, we can use them for version control, but this is not without issues, since the JSON format can make it difficult to interpret difference between files and to manually fix conflicts.
 
 JupyterLab IDE has made really easy now fix merge conflicts. ...
 
@@ -343,7 +341,7 @@ before you started to work?
 The first thing to do is to try to `pull`,
 if you're lucky there are either no new changes
 or they are not in the same file you modified.
-If they are in the same file, 
+If they are in the same file,
 you will get an error message like this:
 
 ```
@@ -428,21 +426,21 @@ nothing to commit, working tree clean
 - append `**/` to the beginning of any file/folder names listed in the `.gitignore` file to have them ignored in subdirectories within the repo as well
 - create a [global `.gitignore` file](https://help.github.com/articles/ignoring-files/#create-a-global-gitignore) so that you do not have to create the same `.gitignore` for all your homework repos
 
-Let's create a `gitignore` file in our 521 lab 2 repo. 
+Let's create a `gitignore` file in our 521 lab 2 repo.
 
-### Steps to follow: 
+### Steps to follow:
 1. Use a text editor (e.g., VS Code, nano, Jupyter) to create a file called `.gitignore` in your 521 lab 2 repo
 2. Add `**/.ipynb_checkpoints/` to that file and save it
 3. `add` and `commit` it with Git
 4. Type `git status` and see if you no longer see `.ipynb_checkpoints/` as a untracked file
 
-- We can do anything we want: 
-    - keep the change made in the local repository, 
-    - keep the change made in the remote repository, 
-    - write something new to replace both, 
+- We can do anything we want:
+    - keep the change made in the local repository,
+    - keep the change made in the remote repository,
+    - write something new to replace both,
     - or get rid of the change entirely.
 
-To move the branch we are currently 
+To move the branch we are currently
 back to a previously created commit,
 we can use the `git reset` command.
 Let's say that we are currently on the master branch of a repo
@@ -480,7 +478,7 @@ If we want to discard the changes instead of moving them to the working area,
 we can add the `--hard` flag.
 Typing `git reset --hard 5c01f2f`
 will not show us any message,
-since the changes are not unstaged, 
+since the changes are not unstaged,
 they are discarded.
 Our log now looks like this
 
@@ -493,10 +491,10 @@ Not yet,
 git keeps a backup of everything that happens in the repo
 in its "reflog".
 Commits that are not part of any branch are referred to as being "dangling",
-and are cleared out at regular intervals, 
+and are cleared out at regular intervals,
 rather than immediately.
 So if we realize that we made a mistake right away,
-we could get our changes back by doing 
+we could get our changes back by doing
 `git reset bcb541e`,
 which would move us forward to the commit we just "deleted".
 **This behavior should not be relied upon**
@@ -526,15 +524,15 @@ that can delete all your work.**
 If we want to get rid of a commit on a remote,
 we will need to push our changes.
 But as we have seen before,
-git will refuse to push changes 
+git will refuse to push changes
 when the remote is ahead of the local branch.
 To override this warning and force git to push to the remote
 we can use the `-f/--force` flag.
 
 Force pushing is dangerous,
 and you should never do this on the master branch of a repository
-that you share with collaborators 
-unless you have all discussed this 
+that you share with collaborators
+unless you have all discussed this
 and they are aware of what you are doing.
 The reason is that by force pushing,
 you will make it so that everyone else who is using this repository

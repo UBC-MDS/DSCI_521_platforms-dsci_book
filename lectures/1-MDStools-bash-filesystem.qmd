@@ -1,15 +1,14 @@
 ---
-title: DSCI 521 Lecture 1 - Introduction to MDS software and Bash
+title: Introduction to MDS software and Bash
 jupyter: python3
 ---
-
 
 ## Learning outcomes
 
 By the end of this lecture, you will have learned how to:
 
 1. Recognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.
-2. Distinguish common operators and representations of the different filesystem elements typically used in Bash. 
+2. Distinguish common operators and representations of the different filesystem elements typically used in Bash.
 3. Explore the filesystem using Bash commands as `ls`, `pwd` and `cd`.
 4. Translate an absolute path into a relative path and vice versa.
 5. Use command-line arguments to produce alternative outputs of commands.
@@ -19,7 +18,7 @@ By the end of this lecture, you will have learned how to:
 
 # Introduction
 
-Welcome to Computer Platforms in Data Science! 
+Welcome to Computer Platforms in Data Science!
 
 This week we are going to learn about exploring the filesystem, using the command line, and some other useful tools.
 
@@ -30,11 +29,11 @@ This week we are going to learn about exploring the filesystem, using the comman
 ::::{.activity-container}
 What is a Data Scientist?
 
-Someone whose job is to  
-A.  extract value from data through reproducible and auditable processes. X  
-B.  apply machine learning algorithms.  
-C.  analyze large volumes of often unstructured data to produce meaningful insights. (https://www.springboard.com/blog/data-science/data-science-definition/)  
-D.  get well paid.  
+Someone whose job is to
+A.  extract value from data through reproducible and auditable processes. X
+B.  apply machine learning algorithms.
+C.  analyze large volumes of often unstructured data to produce meaningful insights. (https://www.springboard.com/blog/data-science/data-science-definition/)
+D.  get well paid.
 ::::
 :::
 
@@ -81,7 +80,7 @@ such as
 ## Lecture 1 Activity 2
 ::::
 ::::{.activity-container}
-You have already learn how to use some commands using JupyterLab IDE. Do you find it easier to use the command line or JupyterLab user interfase? 
+You have already learn how to use some commands using JupyterLab IDE. Do you find it easier to use the command line or JupyterLab user interfase?
 
 Why might one be better than the other? And in what scenarios?
 
@@ -95,11 +94,11 @@ Note: Command palette
 #### Computer communication
 
 Before we get into the different applications,
-let's talk about computing. 
+let's talk about computing.
 Essentially, computing is about humans communicating
 with machines to modulate flows of current in hardware.
 Early examples of human computer communication were quite primitive
-and included actually disconnecting a wire 
+and included actually disconnecting a wire
 and connecting it again in a different spot.
 
 Luckily,
@@ -285,10 +284,10 @@ the shell might also use colors to indicate whether each entry is a file or dire
 ::::{.activity-container}
 Can you recognize the following folders in the picture?
 
-1. home directory  
-2. parent directory  
-3. working directory  
-4. root directory  
+1. home directory
+2. parent directory
+3. working directory
+4. root directory
 
 ![](img/diagram-files-activity.png)
 ::::
@@ -321,7 +320,7 @@ Remember that you can press `TAB` to automatically complete commands and file na
 | `pwd` | Print Working Directory | `pwd` |
 | `ls` | LiSt contents | `ls Documents` |
 | `cd` | Change Directory | `cd Desktop` |
-| `mkdir` | MaKe a DIRectory | `mkdir my-new-directory`| 
+| `mkdir` | MaKe a DIRectory | `mkdir my-new-directory`|
 | `rm` | ReMove a file | `rm file-to-remove`|
 | `mv` | MoVe a file | `mv file-to-move new-location`|
 | `cp` | CoPy a file | `cp file-to-copy copy-location`|
@@ -333,7 +332,7 @@ we have also included a few shortcuts (also called "aliases"),
 to make it easier to type commonly used commands.
 The two relevant ones for this section are
 
-- `l` which lists details of all the files in the current directory 
+- `l` which lists details of all the files in the current directory
 and sorts them by modification time.
 - `jl` which is an alias for `jupyter lab`.
 
@@ -364,7 +363,7 @@ B. `cd ..`
 C. `cd ~`
 D. `cd`
 
-2. Run the following commands in your home directory. 
+2. Run the following commands in your home directory.
 Explore the content of the folder `example_521` using your favourite favourite file manager (`Finder` (Mac), `File Explorer` (Windows), Linux (Linux))? Can you draw a diagram with the content of that folder? What command should you run in the shell to find the folder `find_me`.
 ::::
 :::
@@ -398,7 +397,7 @@ What does the `./` and `../` folders represent as output of this command?
 # Working with Files and Directories
 
 
-We now know how to explore files and directories, but how do we create them? 
+We now know how to explore files and directories, but how do we create them?
 That's what we will find out in this chapter.
 
 ```sh
@@ -718,34 +717,34 @@ man ls
 
 ```out
 LS(1)                                                    User Commands
- 
+
 NAME
        ls - list directory contents
- 
+
 SYNOPSIS
        ls [OPTION]... [FILE]...
- 
+
 DESCRIPTION
        List  information  about the FILEs (the current directory by default).  Sort entries alphabetically if none of -cftuvSUX
        nor --sort is specified.
- 
+
        Mandatory arguments to long options are mandatory for short options too.
- 
+
        -a, --all
               do not ignore entries starting with .
- 
+
        -A, --almost-all
               do not list implied . and ..
- 
+
        --author
               with -l, print the author of each file
- 
+
        -b, --escape
               print C-style escapes for nongraphic characters
- 
+
        --block-size=SIZE
               with -l, scale sizes by SIZE when printing them; e.g., '--block-size=M'; see SIZE format below
- 
+
        -B, --ignore-backups
               do not list implied entries ending with ~
 ...

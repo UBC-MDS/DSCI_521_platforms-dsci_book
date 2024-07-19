@@ -1,9 +1,7 @@
 ---
-title: 'DSCI 521 Lecture 5 - Dynamic documents: from markdown to Rmarkdown documents'
+title: 'Dynamic documents: from markdown to Rmarkdown documents'
 jupyter: python3
 ---
-
-
 
 ## Lecture objectives
 
@@ -20,7 +18,7 @@ By the end of the lecture you will be able to:
 
 
 
-**Platform in focus** RStudio IDE 
+**Platform in focus** RStudio IDE
 
 
 :::{.activity}
@@ -56,8 +54,8 @@ we'll use it mostly for R in MDS.
 
 ## The RStudio interface
 
-The default panel layout is shown below. 
-You can customize where the individual panels go, 
+The default panel layout is shown below.
+You can customize where the individual panels go,
 and if you have opend RStudio earlier,
 they might not be arranged in exactly this layout.
 Each panel has multiple tabs
@@ -110,7 +108,7 @@ the keyboard shortcut is <kbd>Ctrl</kbd> + <kbd>Enter</kbd>).
 If a plot is generate from the executed code,
 it will show up in the "Plots" tab in the bottom left panel.
 You can try it by adding the following line to the script
-and clicking to run it 
+and clicking to run it
 (it uses a built-in data set called "cars"):
 
 ```R
@@ -124,7 +122,7 @@ R asks us to save workspace data and load it when we start a new session.
 In general,
 we NEVER want to save our workspace (or load a previous one).
 We can avoid accidentally doing this
-through turning it off in the RStudio global options in the Tools menu. 
+through turning it off in the RStudio global options in the Tools menu.
 
 ## Where are we?
 
@@ -145,11 +143,11 @@ So, where are you when you open RStudio? You can find out one of two ways:
 
 You can set the working directory using the following 3 ways:
 
-1. Use an RStudio project (more on this below) 
+1. Use an RStudio project (more on this below)
 
 2. In the files pane, navigate the file structure to where you want the working directory to be. Then click the cog/More button and then click "Set As Working Directory"
 
-3. In the Session menu, click Set Working Directory and then Choose Directory. Navigate the opened file browser to choose the directory. 
+3. In the Session menu, click Set Working Directory and then Choose Directory. Navigate the opened file browser to choose the directory.
 
 4. Type `setwd("PATH")` in the console (should be used with care though - see [Jenny's article](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) about it.)
 
@@ -195,8 +193,8 @@ but feel free to use the RStudio (or VS Code) interfaces as a complement.
 
 Our journey to understand what is a dynamic document is linked with the literate programming paradigm [2] proposed bu Knuth in 1984 [1].
 
-> *I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be works of literature. Hence, my title: "Literate Programming."*  
-> *Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do."...*  
+> *I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be works of literature. Hence, my title: "Literate Programming."*
+> *Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do."...*
 >
 > --Donald Knuth. "Literate Programming (1984)" in Literate Programming. CSLI, 1992, pg. 99.
 
@@ -204,7 +202,7 @@ In the literate programming paradigm, an author has two (equally important) task
 1. write program code to do computing, and
 2. write narratives to explain what is being done by the program code
 
-Going back to our first example in lecture 5 activity 1, we could agree to only mantain the code used to generate the plots and results produced as part of the analysis. But we will also agree that this code, even if we include comments and docstrings, it is not possible to be easily read for an human. Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.  
+Going back to our first example in lecture 5 activity 1, we could agree to only mantain the code used to generate the plots and results produced as part of the analysis. But we will also agree that this code, even if we include comments and docstrings, it is not possible to be easily read for an human. Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.
 
 The idea of accompanying the code with so much detailed text, was not widely adopted for software projects [3] but turn into an amazing tool for data scientists who frecquently uses these documents as reports products of their analysis. The rendering of the plots as figures next to the text in a manuscript allows giving valuable context to the visualizations.
 
@@ -232,9 +230,9 @@ From the two elements that compose the dynamic documents, there are three princi
 ## Lecture 5 Activity 2
 ::::
 ::::{.activity-container}
-Let's go back to the document of the first activity.  
-(1) Convert it in a dynamic document using RMarkdown  
-(2) Are `.Rmd` documents technically considered notebooks?  
+Let's go back to the document of the first activity.
+(1) Convert it in a dynamic document using RMarkdown
+(2) Are `.Rmd` documents technically considered notebooks?
 
 ::::
 :::
@@ -242,56 +240,56 @@ Let's go back to the document of the first activity.
 ## ~~R~~Markdown
 
 > The overriding design goal for Markdown’s formatting syntax
- is to make it as readable as possible. 
+ is to make it as readable as possible.
  The idea is that a Markdown-formatted document should be publishable as-is,
   as plain text, without looking like
    it’s been marked up with tags or formatting instructions. --John Gruber
 
-Jupyter Notebooks and RMarkdown documents 
+Jupyter Notebooks and RMarkdown documents
 use markdown to format the text,
-but markdown has it's own identity! 
+but markdown has it's own identity!
 You already known markdown files really well,
 at least you are using them as the `README.md` file
-of most of the project you have created. 
+of most of the project you have created.
 Let's start by describing it and then we can talk about RMarkdown.
-  
-[Markdown](https://glosario.carpentries.org/en/#markdown) is basically a [markup language](https://glosario.carpentries.org/en/#markup_language) 
+
+[Markdown](https://glosario.carpentries.org/en/#markdown) is basically a [markup language](https://glosario.carpentries.org/en/#markup_language)
 that you can use to add formatting elements to easy
 to read plain-text text documents [4,5].
 Markdown files have their own file extension (`.md`)
 that could be easily converted to [`HTML`](https://glosario.carpentries.org/en/#html)
-and because of that, rendered as a web page. 
+and because of that, rendered as a web page.
 
-Now we can start to understand markdown power: 
-  
+Now we can start to understand markdown power:
+
 1.  Its simple **formatting syntax** allows translation of content to `HTML`
- without having to be an expert. 
-  
-2.  It is **human readable**. 
+ without having to be an expert.
+
+2.  It is **human readable**.
 Compare markdown and `HTML`, which one
- is easier to understand by reading only the code? 
-  
-3.  It is a **plain-text document**. 
+ is easier to understand by reading only the code?
+
+3.  It is a **plain-text document**.
 This means that it is open by mostly any editor,
  making `.md` files quite reproducible.
 
 Converting the `.md` files to `HTML` documents (`.html`)
- involves the use of specific designed software for that purpuse. 
- One of the most popular markdown converters is called [pandoc](https://pandoc.org/). 
+ involves the use of specific designed software for that purpuse.
+ One of the most popular markdown converters is called [pandoc](https://pandoc.org/).
  Pandoc can not only convert markdown to `HTML`
   if not to other popular and widely used formats
-   as Word documents (`.docx`) and PDFs (`.pdf`). 
+   as Word documents (`.docx`) and PDFs (`.pdf`).
 
 If your goal is to render the final `HTML` document,
-keep in mind that you will need an extra step to view the file in a web browser. 
-Also, `HTML` documents can not only be render as web pages, 
-you can create with them blogs, books, articles. 
+keep in mind that you will need an extra step to view the file in a web browser.
+Also, `HTML` documents can not only be render as web pages,
+you can create with them blogs, books, articles.
 At the end of lecture 8 we will learn how to use GitHub Pages
-to render part of the `HTML` documents that we are going to generate. 
+to render part of the `HTML` documents that we are going to generate.
 Therefore, some editors as RStudio, JupyterLab and VS Code
-will resume many steps at the same time 
+will resume many steps at the same time
 rendering and displaying the `.md` file directly on the console.
-GitHub does something similar with the `README.md` file 
+GitHub does something similar with the `README.md` file
 that appears automatically rendered as the first page of your GitHub repository.
 
 
@@ -307,7 +305,7 @@ Image extracted from: https://www.markdownguide.org/getting-started/
 ::::{.activity-container}
 *work in pairs*
 
-Let's have a quick reminder of markdown. How would you recreate a potential original Markdown file of the [following HTML document]()?   
+Let's have a quick reminder of markdown. How would you recreate a potential original Markdown file of the [following HTML document]()?
 How can you check if you have done it correctly?
 ::::
 :::
@@ -316,46 +314,46 @@ How can you check if you have done it correctly?
 
 ## Markdown and its flavours
 
-We love markdown! But not all are good news...   
+We love markdown! But not all are good news...
 
 First, we will mention that the official markdown syntax documentation
  is not unambiguosly specified.
-What does this means? That there some implementations of [markdown have diverged](https://babelmark.github.io/faq/) [6]. 
-Meaning that the same markdown syntax 
-can render different outputs in relation to the technology you are using. 
+What does this means? That there some implementations of [markdown have diverged](https://babelmark.github.io/faq/) [6].
+Meaning that the same markdown syntax
+can render different outputs in relation to the technology you are using.
 How a `README.md` file renders on GitHub could not be equal
-as how it will look like after being converted by `pandoc`.  
-The webpage [Babelmark III](https://babelmark.github.io) 
-enable to detect this differences through many implementations, 
+as how it will look like after being converted by `pandoc`.
+The webpage [Babelmark III](https://babelmark.github.io)
+enable to detect this differences through many implementations,
 also listing some of the most well known pitfalls.
 
 Secondly, other way in which Markdown has diverged
- it is reflected in the number of **extensions**. 
-This means that there is specific markdown syntax 
+ it is reflected in the number of **extensions**.
+This means that there is specific markdown syntax
 created for some implementations that will not work for other technologies.
 
-Don't panic! In MDS we handle a limited number 
-of markdown flavours (in order of appeareance in DSCI 521): 
+Don't panic! In MDS we handle a limited number
+of markdown flavours (in order of appeareance in DSCI 521):
 
-1.  [Jupyter Notebook (and Jupyter Book) Markdown](https://jupyterbook.org/en/stable/file-types/markdown.html): is an extension of a Markdown flavour 
-called [CommonMark Markdown](https://commonmark.org/). 
-If you completed the tutorial that we were recommending on lecture 0 
-you have some practice on it! https://commonmark.org/help/tutorial/    
-  
-2. [GitHub flavoured Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-). 
-To write issues, pull request, render your `README.md` file in the first page of your repository 
+1.  [Jupyter Notebook (and Jupyter Book) Markdown](https://jupyterbook.org/en/stable/file-types/markdown.html): is an extension of a Markdown flavour
+called [CommonMark Markdown](https://commonmark.org/).
+If you completed the tutorial that we were recommending on lecture 0
+you have some practice on it! https://commonmark.org/help/tutorial/
+
+2. [GitHub flavoured Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-).
+To write issues, pull request, render your `README.md` file in the first page of your repository
 you will be using this Markdown flavour.
-It is a (different) extension of the CommonMark Spec 
-also used for Jupyter Notebooks. 
-    
+It is a (different) extension of the CommonMark Spec
+also used for Jupyter Notebooks.
+
 Read how to use it [here!](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
 
-3. [R Markdown documents](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html). R Markdown is an implementation of [Pandoc Markdown (with a wide list of interesting extensions!)](https://pandoc.org/MANUAL.html#pandocs-markdown) 
+3. [R Markdown documents](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html). R Markdown is an implementation of [Pandoc Markdown (with a wide list of interesting extensions!)](https://pandoc.org/MANUAL.html#pandocs-markdown)
 
 Don't panic! The important take-home message of this
 is that you should always check the documentation of the technology you are using.
-Even if for most of the cases could be quite similar, 
+Even if for most of the cases could be quite similar,
 there is not an universal markdown cheatsheet or proceeding
 that will possible to be used with all of them!
 
@@ -376,7 +374,7 @@ that will possible to be used with all of them!
 >
 > — Brian W. Kernighan, 1974 [9]
 
-You need 2 spaces to create a line break using markdown. 
+You need 2 spaces to create a line break using markdown.
 This means that you can actually break a line
 without creating a line break in the rendered file.
 
@@ -389,7 +387,7 @@ The use of shorter phrases could be a benefit when you are version controlling f
 ## Lecture 5 Activity 4
 ::::
 ::::{.activity-container}
-1. Check the documentation of [Pandoc Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown) and [GitHub Flavour Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-).   
+1. Check the documentation of [Pandoc Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown) and [GitHub Flavour Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-).
 Find an example that will render on gitHub but nor in RMarkdown and/or viceversa.
 Will emojis work in R Markdown?
 You can use [Babelmark III](https://babelmark.github.io) to check this (be careful because it is not updated, better to check directly on GitHub and R Markdown)
@@ -433,8 +431,8 @@ and then will be able to easily identify and fix your errors.
 Analogous to the Jupyter Notebook cells, the R Markdown code chunks
 after being render will be embedded in your final report.
 
-When you run render, R Markdown feeds the `.Rmd` file to `knitr`, 
-which executes all of the code chunks and creates a new markdown (`.md`) document 
+When you run render, R Markdown feeds the `.Rmd` file to `knitr`,
+which executes all of the code chunks and creates a new markdown (`.md`) document
 containing the code and its outputs.
 
 The markdown file generated by `knitr` is then processed by `pandoc`
@@ -448,16 +446,16 @@ which is responsible for creating the finished format.
 ## Lecture 5 Activity 5
 ::::
 ::::{.activity-container}
-1. Go back to the `.md` file from the activity 3. 
+1. Go back to the `.md` file from the activity 3.
 Can you recreate the `.Rmd` file that will generate the same `HTML` when rendered?
 
-You can check that this is true 
+You can check that this is true
 running the following line of code
 `rmarkdown::render("lecture7_example.Rmd", clean = FALSE)`
-adding the argument `clean = FALSE` 
+adding the argument `clean = FALSE`
 will keep the intermidiate file `lecture7_example.knit.md` created by `knitr`.
 
-2. Can you think of advantages of using the `.Rmd` 
+2. Can you think of advantages of using the `.Rmd`
 instead of the `.md` file to create the final `HTML` document?
 
 ::::
@@ -468,11 +466,11 @@ instead of the `.md` file to create the final `HTML` document?
 ## R Markdown and R Notebooks
 
 R Markdown is a "flavor" of Markdown
-that allows you to run R code in addition to 
+that allows you to run R code in addition to
 supporting all the Markdown syntax that you have already learned.
 R Markdown documents (`.Rmd`) are most commonly run via `R Notebooks`
 which work similarly to Jupyter notebooks
-in the sense that you can interleave writing code, 
+in the sense that you can interleave writing code,
 formatted narrative text,
 and view output all in the same document.
 These are both examples of what it called "literate programming"
@@ -670,7 +668,7 @@ cor( c( 1 , 1 ), c( 2 , 3 ) )
   is support for citations and bibliographies.
     - Let's cite the R-package by typing `citation()` into the console,
       and copying the BibTex citation into a new document
-      that we call `rstudio-demo.bib 
+      that we call `rstudio-demo.bib
       and adding an identifier string (a key) before the first comma,
       e.g. `r-lang`.
     - Include the following field in the YAML metadata
@@ -687,9 +685,9 @@ cor( c( 1 , 1 ), c( 2 , 3 ) )
   ```
   a = “This string”
   ```
-  
+
   It should look like this instead:
-  
+
   ```
   a = "This string"
   ```
@@ -759,18 +757,18 @@ What would you use the `github_document` option for?
 
 
 ## References
-1 - D. E. Knuth, Literate Programming, The Computer Journal, Volume 27, Issue 2, 1984, Pages 97–111, https://doi.org/10.1093/comjnl/27.2.97  
-2 - Y. Xie Dynamic Documents with R and knitr  
-3 - 
-4 -  https://www.markdownguide.org/   
-5- https://daringfireball.net/projects/markdown/  
+1 - D. E. Knuth, Literate Programming, The Computer Journal, Volume 27, Issue 2, 1984, Pages 97–111, https://doi.org/10.1093/comjnl/27.2.97
+2 - Y. Xie Dynamic Documents with R and knitr
+3 -
+4 -  https://www.markdownguide.org/
+5- https://daringfireball.net/projects/markdown/
 6 -  https://babelmark.github.io/faq/
-7 - RStudio Conf 2022 - Quarto Workshop  
-8 -  
+7 - RStudio Conf 2022 - Quarto Workshop
+8 -
 9 - https://rhodesmill.org/brandon/2012/one-sentence-per-line/ UNIX for Beginners
 
 
-NOT INCLUDED FOR NOW: 
+NOT INCLUDED FOR NOW:
 
 ### Code snippets
 

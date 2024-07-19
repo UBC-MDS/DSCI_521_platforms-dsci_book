@@ -1,10 +1,7 @@
 ---
-title: DSCI 521 Lecture 4 - Introduction to Quarto and Github Pages
+title: Introduction to Quarto and Github Pages
 jupyter: python3
 ---
-
-
-
 
 ## Lecture objectives
 
@@ -67,7 +64,7 @@ $ quarto --version
 ```shell
 $ quarto --help
 
-  Usage:   quarto 
+  Usage:   quarto
   Version: 1.4.358
 
   Description:
@@ -76,24 +73,24 @@ $ quarto --help
 
   Options:
 
-    -h, --help     - Show this help.                            
-    -V, --version  - Show the version number for this program.  
+    -h, --help     - Show this help.
+    -V, --version  - Show the version number for this program.
 
   Commands:
 
-    render          [input] [args...]     - Render files or projects to various document types.        
-    preview         [file] [args...]      - Render and preview a document or website project.          
-    serve           [input]               - Serve a Shiny interactive document.                        
-    create          [type] [commands...]  - Create a Quarto project or extension                       
-    create-project  [dir]                 - Create a project for rendering multiple documents          
-    convert         <input>               - Convert documents to alternate representations.            
-    pandoc          [args...]             - Run the version of Pandoc embedded within Quarto.          
-    typst           [args...]             - Run the version of Typst embedded within Quarto.           
-    run             [script] [args...]    - Run a TypeScript, R, Python, or Lua script.                
-    add             <extension>           - Add an extension to this folder or project                 
-    install         [target...]           - Installs an extension or global dependency.                
+    render          [input] [args...]     - Render files or projects to various document types.
+    preview         [file] [args...]      - Render and preview a document or website project.
+    serve           [input]               - Serve a Shiny interactive document.
+    create          [type] [commands...]  - Create a Quarto project or extension
+    create-project  [dir]                 - Create a project for rendering multiple documents
+    convert         <input>               - Convert documents to alternate representations.
+    pandoc          [args...]             - Run the version of Pandoc embedded within Quarto.
+    typst           [args...]             - Run the version of Typst embedded within Quarto.
+    run             [script] [args...]    - Run a TypeScript, R, Python, or Lua script.
+    add             <extension>           - Add an extension to this folder or project
+    install         [target...]           - Installs an extension or global dependency.
     publish         [provider] [path]     - Publish a document or project. Available providers include:
-    check           [target]              - Verify correct functioning of Quarto installation.         
+    check           [target]              - Verify correct functioning of Quarto installation.
     help            [command]             - Show this help or the help of a sub-command.
 ```
 
@@ -108,7 +105,7 @@ These template files and code is also known as "boilerplate".
 $ quarto create --help
 
   Usage:   quarto create [type] [commands...]
-  Version: 1.4.358                           
+  Version: 1.4.358
 
   Description:
 
@@ -116,15 +113,15 @@ $ quarto create --help
 
   Options:
 
-    -h, --help              - Show this help.                                    
-    --open        [editor]  - Open new artifact in this editor (vscode,rstudio)  
-    --no-open               - Do not open in an editor                           
-    --no-prompt             - Do not prompt to confirm actions                   
-    --log         <level>   - Path to log file                                   
-    --log-level   <level>   - Log level (info, warning, error, critical)         
-    --log-format  <format>  - Log format (plain, json-stream)                    
-    --quiet                 - Suppress console output.                           
-    --profile               - Active project profile(s)                          
+    -h, --help              - Show this help.
+    --open        [editor]  - Open new artifact in this editor (vscode,rstudio)
+    --no-open               - Do not open in an editor
+    --no-prompt             - Do not prompt to confirm actions
+    --log         <level>   - Path to log file
+    --log-level   <level>   - Log level (info, warning, error, critical)
+    --log-format  <format>  - Log format (plain, json-stream)
+    --quiet                 - Suppress console output.
+    --profile               - Active project profile(s)
 
   Commands:
 
@@ -153,7 +150,7 @@ It will then ask you for a directory:
 ```shell
 $ quarto create project
  ? Type › website
- ? Directory › 
+ ? Directory ›
 
 ```
 
@@ -359,7 +356,7 @@ if other methods are not working.
 $ quarto help render
 
   Usage:   quarto render [input] [args...]
-  Version: 1.4.358                        
+  Version: 1.4.358
 
   Description:
 
@@ -367,30 +364,30 @@ $ quarto help render
 
   Options:
 
-    -h, --help                          - Show this help.                                                   
-    -t, --to                            - Specify output format(s).                                         
-    -o, --output                        - Write output to FILE (use '--output -' for stdout).               
-    --output-dir                        - Write project output to DIR (path is project relative)            
-    -M, --metadata                      - Metadata value (KEY:VALUE).                                       
-    --site-url                          - Override site-url for website or book output                      
-    --execute                           - Execute code (--no-execute to skip execution).                    
-    -P, --execute-param                 - Execution parameter (KEY:VALUE).                                  
-    --execute-params                    - YAML file with execution parameters.                              
-    --execute-dir                       - Working directory for code execution.                             
-    --execute-daemon                    - Keep Jupyter kernel alive (defaults to 300 seconds).              
-    --execute-daemon-restart            - Restart keepalive Jupyter kernel before render.                   
-    --execute-debug                     - Show debug output for Jupyter kernel.                             
-    --use-freezer                       - Force use of frozen computations for an incremental file render.  
-    --cache                             - Cache execution output (--no-cache to prevent cache).             
-    --cache-refresh                     - Force refresh of execution cache.                                 
-    --no-clean                          - Do not clean project output-dir prior to render                   
-    --debug                             - Leave intermediate files in place after render.                   
-    pandoc-args...                      - Additional pandoc command line arguments.                         
-    --log                     <level>   - Path to log file                                                  
-    --log-level               <level>   - Log level (info, warning, error, critical)                        
-    --log-format              <format>  - Log format (plain, json-stream)                                   
-    --quiet                             - Suppress console output.                                          
-    --profile                           - Active project profile(s)                                         
+    -h, --help                          - Show this help.
+    -t, --to                            - Specify output format(s).
+    -o, --output                        - Write output to FILE (use '--output -' for stdout).
+    --output-dir                        - Write project output to DIR (path is project relative)
+    -M, --metadata                      - Metadata value (KEY:VALUE).
+    --site-url                          - Override site-url for website or book output
+    --execute                           - Execute code (--no-execute to skip execution).
+    -P, --execute-param                 - Execution parameter (KEY:VALUE).
+    --execute-params                    - YAML file with execution parameters.
+    --execute-dir                       - Working directory for code execution.
+    --execute-daemon                    - Keep Jupyter kernel alive (defaults to 300 seconds).
+    --execute-daemon-restart            - Restart keepalive Jupyter kernel before render.
+    --execute-debug                     - Show debug output for Jupyter kernel.
+    --use-freezer                       - Force use of frozen computations for an incremental file render.
+    --cache                             - Cache execution output (--no-cache to prevent cache).
+    --cache-refresh                     - Force refresh of execution cache.
+    --no-clean                          - Do not clean project output-dir prior to render
+    --debug                             - Leave intermediate files in place after render.
+    pandoc-args...                      - Additional pandoc command line arguments.
+    --log                     <level>   - Path to log file
+    --log-level               <level>   - Log level (info, warning, error, critical)
+    --log-format              <format>  - Log format (plain, json-stream)
+    --quiet                             - Suppress console output.
+    --profile                           - Active project profile(s)
 
   Commands:
 
@@ -398,17 +395,17 @@ $ quarto help render
 
   Examples:
 
-    Render Markdown:    quarto render document.qmd                  
-                        quarto render document.qmd --to html        
-                        quarto render document.qmd --to pdf --toc   
-    Render Notebook:    quarto render notebook.ipynb                
-                        quarto render notebook.ipynb --to docx      
-                        quarto render notebook.ipynb --to pdf --toc 
-    Render Project:     quarto render                               
-                        quarto render projdir                       
-    Render w/ Metadata: quarto render document.qmd -M echo:false    
+    Render Markdown:    quarto render document.qmd
+                        quarto render document.qmd --to html
+                        quarto render document.qmd --to pdf --toc
+    Render Notebook:    quarto render notebook.ipynb
+                        quarto render notebook.ipynb --to docx
+                        quarto render notebook.ipynb --to pdf --toc
+    Render Project:     quarto render
+                        quarto render projdir
+    Render w/ Metadata: quarto render document.qmd -M echo:false
                         quarto render document.qmd -M code-fold:true
-    Render to Stdout:   quarto render document.qmd --output -       
+    Render to Stdout:   quarto render document.qmd --output -
 ```
 
 You can also use `quarto render --help` to get the same help output.
