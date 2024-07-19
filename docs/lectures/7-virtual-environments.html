@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Virtual environments – DSCI 521: Computing Platforms for Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSCI 521: Computing Platforms for Data Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/7-virtual-environments.html">Lecture 7: Virtual environments</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/0-jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 0: JupyterLab Orientation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/1-MDStools-bash-filesystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 1: Introduction to MDS software and Bash</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/2-git-github-ssh-basic-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 2: Introduction to version control with Git and GitHub</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/3-git-history-merge-conflicts-stash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 3: Getting grovy with Git and GitHub</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/4-quarto_github_pages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 4: Introduction to Quarto and Github Pages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/5-rstudio-projects-notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 5: Dynamic documents: from markdown to Rmarkdown documents</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/6-rmarkdown-quarto-slides-ghpages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 6: Quarto, RMarkdown, and Jupyter Slides</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/7-virtual-environments.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lecture 7: Virtual environments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/8-regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 8: Organization of Data Science projects and some useful tools</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lecture-objectives" id="toc-lecture-objectives" class="nav-link active" data-scroll-target="#lecture-objectives">Lecture objectives</a></li>
+  <li><a href="#virtual-environments" id="toc-virtual-environments" class="nav-link" data-scroll-target="#virtual-environments">Virtual environments</a>
+  <ul class="collapse">
+  <li><a href="#conda" id="toc-conda" class="nav-link" data-scroll-target="#conda">Conda</a>
+  <ul class="collapse">
+  <li><a href="#managing-conda" id="toc-managing-conda" class="nav-link" data-scroll-target="#managing-conda">Managing Conda</a></li>
+  </ul></li>
+  <li><a href="#managing-environments" id="toc-managing-environments" class="nav-link" data-scroll-target="#managing-environments">Managing Environments</a>
+  <ul class="collapse">
+  <li><a href="#what-is-a-conda-environment-and-why-is-it-so-useful" id="toc-what-is-a-conda-environment-and-why-is-it-so-useful" class="nav-link" data-scroll-target="#what-is-a-conda-environment-and-why-is-it-so-useful">What is a conda environment and why is it so useful?</a></li>
+  <li><a href="#creating-environment-by-manually-specifying-packages" id="toc-creating-environment-by-manually-specifying-packages" class="nav-link" data-scroll-target="#creating-environment-by-manually-specifying-packages">Creating environment by manually specifying packages</a></li>
+  <li><a href="#sharing-environments-with-others" id="toc-sharing-environments-with-others" class="nav-link" data-scroll-target="#sharing-environments-with-others">Sharing Environments with others</a></li>
+  <li><a href="#creating-environment-from-an-environment-file" id="toc-creating-environment-from-an-environment-file" class="nav-link" data-scroll-target="#creating-environment-from-an-environment-file">Creating environment from an environment file</a></li>
+  <li><a href="#copying-an-environment" id="toc-copying-an-environment" class="nav-link" data-scroll-target="#copying-an-environment">Copying an environment</a></li>
+  <li><a href="#deleting-an-environment" id="toc-deleting-an-environment" class="nav-link" data-scroll-target="#deleting-an-environment">Deleting an environment</a></li>
+  <li><a href="#making-environments-work-well-with-jupyterlab" id="toc-making-environments-work-well-with-jupyterlab" class="nav-link" data-scroll-target="#making-environments-work-well-with-jupyterlab">Making environments work well with JupyterLab</a></li>
+  </ul></li>
+  <li><a href="#managing-packages" id="toc-managing-packages" class="nav-link" data-scroll-target="#managing-packages">Managing Packages</a>
+  <ul class="collapse">
+  <li><a href="#seeing-what-packages-are-available" id="toc-seeing-what-packages-are-available" class="nav-link" data-scroll-target="#seeing-what-packages-are-available">Seeing what packages are available</a></li>
+  <li><a href="#searching-for-a-certain-package" id="toc-searching-for-a-certain-package" class="nav-link" data-scroll-target="#searching-for-a-certain-package">Searching for a certain package</a></li>
+  <li><a href="#installing-conda-package" id="toc-installing-conda-package" class="nav-link" data-scroll-target="#installing-conda-package">Installing conda package</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#r-environments" id="toc-r-environments" class="nav-link" data-scroll-target="#r-environments">R environments</a>
+  <ul class="collapse">
+  <li><a href="#attribution" id="toc-attribution" class="nav-link" data-scroll-target="#attribution">Attribution</a></li>
+  </ul></li>
+  <li><a href="#r-markdown-repetition-and-a-few-tips" id="toc-r-markdown-repetition-and-a-few-tips" class="nav-link" data-scroll-target="#r-markdown-repetition-and-a-few-tips">R Markdown repetition and a few tips</a></li>
+  <li><a href="#r-markdown-yaml-header" id="toc-r-markdown-yaml-header" class="nav-link" data-scroll-target="#r-markdown-yaml-header">R Markdown YAML header</a>
+  <ul class="collapse">
+  <li><a href="#attribution-1" id="toc-attribution-1" class="nav-link" data-scroll-target="#attribution-1">Attribution</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Virtual environments</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="lecture-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-objectives">Lecture objectives</h2>
+<ol type="1">
+<li>Understand what is a computational environment and how can ensure the reproducibility of a project</li>
+<li>Differenciate Python, Anaconda, MiniConda, Conda and <code>pip</code></li>
+<li>Manage packages and environments in Python using Conda</li>
+<li>Manage packages and environments in R using <code>renv</code></li>
+</ol>
+</section>
+<div class="activity">
+<section id="lecture-7-activity-1" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-7-activity-1">Lecture 7 Activity 1</h2>
+</section>
+<div class="activity-container">
+<p>Try to run this code. What do you think it is going on?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> palmerpenguins <span class="im">import</span> load_penguins</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> load_penguins()</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>penguins.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<hr>
+<section id="virtual-environments" class="level1">
+<h1>Virtual environments</h1>
+<p>Virtual environments let’s you have multiple versions of packages and programs on the same computer without them creating conflicts with each other. You will be using virtual Python and R environments throughout the program to setup your packages for different courses.</p>
+<hr>
+<p>Which of the following items is NOT a benefit of using Conda environments?</p>
+<pre><code>A. Increase code performance
+B. Helping with reproducibility
+C. Using different versions of the same package
+D. Creating isolated computational environment for testing new packages</code></pre>
+<hr>
+<section id="conda" class="level2">
+<h2 class="anchored" data-anchor-id="conda">Conda</h2>
+<p><a href="http://conda.pydata.org/docs/"><strong>conda</strong></a> is an <strong>open source <code>package</code> and <code>environment</code> management system for any programming language</strong>; though it is the most popular in the python community. <a href="https://www.continuum.io/why-anaconda">Anaconda</a> is a data science platform for Python that comes with a lot of packages by default. Unlike Anaconda, Miniconda doesn’t come with any installed packages by default, and we can pick and choose which ones we want. Both include Python and conda.</p>
+<p>For example, the <a href="https://ubc-mds.github.io/resources_pages/install_ds_stack_mac/#python-conda-and-jupyterlab">MDS Python installation instructions</a> had you install Miniconda. All flavors of <code>*conda</code> give you the <code>conda</code> function in the terminal.</p>
+<section id="managing-conda" class="level3">
+<h3 class="anchored" data-anchor-id="managing-conda">Managing Conda</h3>
+<p>Let’s first start by checking if conda is installed.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">--version</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> conda</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To see which conda commands are available, type <code>conda --help</code>. To see the full documentation for any command of these commands, type the command followed by <code>--help</code>. For example, to learn about the conda update command:</p>
+<pre><code>conda update --help</code></pre>
+<p>Let’s update our conda to the latest version. Note that you might already have the latest version since we downloaded it recently.</p>
+<pre><code>conda update conda</code></pre>
+<p>You will see some information about what there is to update and be asked if you want to confirm. The default choice is indicated with <code>[]</code>, and you can press <kbd>Enter</kbd> to accept it. It would look similar to this:</p>
+<pre><code>Using Anaconda Cloud api site https://api.anaconda.org
+Fetching package metadata: ....
+.Solving package specifications: .........
+
+Package plan for installation in environment //anaconda:
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    conda-env-2.6.0            |                0          601 B
+    ruamel_yaml-0.11.14        |           py27_0         184 KB
+    conda-4.2.12               |           py27_0         376 KB
+    ------------------------------------------------------------
+                                           Total:         560 KB
+
+The following NEW packages will be INSTALLED:
+
+    ruamel_yaml: 0.11.14-py27_0
+
+The following packages will be UPDATED:
+
+    conda:       4.0.7-py27_0 --&gt; 4.2.12-py27_0
+    conda-env:   2.4.5-py27_0 --&gt; 2.6.0-0
+    python:      2.7.11-0     --&gt; 2.7.12-1
+    sqlite:      3.9.2-0      --&gt; 3.13.0-0
+
+Proceed ([y]/n)? y
+
+Fetching packages ...
+conda-env-2.6. 100% |################################| Time: 0:00:00 360.78 kB/s
+ruamel_yaml-0. 100% |################################| Time: 0:00:00   5.53 MB/s
+conda-4.2.12-p 100% |################################| Time: 0:00:00   5.84 MB/s
+Extracting packages ...
+[      COMPLETE      ]|###################################################| 100%
+Unlinking packages ...
+[      COMPLETE      ]|###################################################| 100%
+Linking packages ...
+[      COMPLETE      ]|###################################################| 100%</code></pre>
+<p>In this case, conda itself needed to be updated, and along with this update some dependencies also needed to be updated. There is also a NEW package that was INSTALLED in order to update conda. You don’t need to worry about remembering to update conda, it will let you know if it is out of date when you are installing new packages.</p>
+</section>
+</section>
+<section id="managing-environments" class="level2">
+<h2 class="anchored" data-anchor-id="managing-environments">Managing Environments</h2>
+<section id="what-is-a-conda-environment-and-why-is-it-so-useful" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-a-conda-environment-and-why-is-it-so-useful">What is a conda environment and why is it so useful?</h3>
+<p>Using <code>conda</code>, you can create an isolated python <em>environment</em> for your project. An environment is a set of packages that can be used in one or multiple projects. There are several major benefits of using environments:</p>
+<ul>
+<li>You can guarantee that someone else can reproduce your project by specifying which package versions your used and making it easy for others to install the same versions.</li>
+<li>If two of your projects relies on different versions of the same package, you can install these in different environments.</li>
+<li>If you want to play around with a new package, you don’t have to change the packages you use for your data analysis and risk messing something up.</li>
+<li>When you develop your own packages, it is essential to use environments, since you want to to make sure you know exactly which packages yours depend on, so that it runs on other systems than your own.</li>
+</ul>
+<p>The default environment is the <code>base</code> environment, which contains only the essential packages from Miniconda (assuming you installed Miniconda). You can see that your shell’s prompt string is prefaced with <code>(base)</code> when you are inside this environment. In the setup guide, we gave your instructions for how to activate this environment by default every time you open Bash. There are two ways of creating a conda environment.</p>
+<ol type="1">
+<li>Manual specifications of packages.</li>
+<li>An environment file in YAML format (<code>environment.yaml</code>).</li>
+</ol>
+</section>
+<section id="creating-environment-by-manually-specifying-packages" class="level3">
+<h3 class="anchored" data-anchor-id="creating-environment-by-manually-specifying-packages">Creating environment by manually specifying packages</h3>
+<p>We can create <code>test_env</code> conda environment by typing <code>conda -n &lt;name-of-env&gt;</code>. However, it is often useful to specify more than just the name of the environment, e.g.&nbsp;the channel from which to install packages, the Python version, and a list of packages to install into the new env. In the example below, I am creating the <code>test_env</code> environment that uses python 3.7 and a list of libraries: <code>jupyterlab</code> and <code>pandas</code>. I am explicitely installing my packages from the <code>conda-forge</code> repository (also part of the MDS setup instructions).</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> test_env <span class="at">-c</span> conda-forge python=3.7 jupyterlab pandas=1.0.2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>conda will solve any dependencies between the packages like before and create a new environment with those packages. Usually, we don’t need to specify the channel, but in this case I want to get the very latest version of these packages, and they are made available in <code>conda-forge</code> before they reach the default conda channel.</p>
+<p>To activate this new environment, you can type <code>conda activate test_env</code> (and <code>conda deactivate</code> for deactivating). Since you will do this often, we created an alias shortcut <code>ca</code> that you can use to activate environments. To know the current environment that you’re in you can look at the prefix of the prompt string in your shell which now changed to (<code>test_env</code>). And to see all your environments, you can type <code>conda env list</code>.</p>
+<section id="removing-enviornments" class="level4">
+<h4 class="anchored" data-anchor-id="removing-enviornments">Removing enviornments</h4>
+<p>If you are creating environments for practice, or you want to recreate an environment you can delete your conda enviornments by:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look for all the installed enviornments</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># delete an enviornment</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="at">--name</span> ENV_NAME <span class="at">--all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Similiarly, all your enviornments are installed within your <code>miniconda3</code> folder, which is typically located in <code>~/miniconda3</code> In here you will see an <code>env</code> folder. If you delete the folder with the corresponging enviornment name (e.g., with <code>rm</code>) you can also delete an enviornment this way too.</p>
+</section>
+</section>
+<section id="sharing-environments-with-others" class="level3">
+<h3 class="anchored" data-anchor-id="sharing-environments-with-others">Sharing Environments with others</h3>
+<p>To share an environment, you can export your conda environment to an environment file, which will list each package and its version in the format <code>package=version=build</code>.</p>
+<p>Exporting your environment to a file called <code>environment.yaml</code> (it could be called anything, but this is the conventional name and using it makes it easy for others to recognize that this is a conda env file, the extension can be either <code>.yaml</code> or <code>.yml</code>):</p>
+<pre><code>conda env export -f environment.yaml</code></pre>
+<p>Remember that <code>.yaml</code> files are plain text, so you can use a text editor such as VS Code to open them. If you do, you will realize that this environment file has A LOT more packages than <code>jupyterlab</code> and <code>pandas</code>. This is because the default behavior is to also list the dependencies that were installed together with these packages, e.g.&nbsp;<code>numpy</code>. This is good in the sense that it gives an exact copy of <em>everything</em> in your environment.</p>
+<p>However, some dependencies might differ between operating systems, so this file <em>might</em> not work with someone from a different OS. To remedy this, you can append the <code>--from-history</code> flag, which look at the history of the packages you explicitly told conda to install and only list those in the export. The required dependencies will then be handled in an OS-specific manner during the installation, which guarantees that they will work across OSes. This <code>environment.yaml</code> file would be much shorter and look something like this:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> test_env</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">channels</span><span class="kw">:</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> conda-forge</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> defaults</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dependencies</span><span class="kw">:</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> conda</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> python=3.7</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> pandas==1.0.2</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> jupyterlab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Importantly, this will not include the package version unless you included it when you installed with the <code>package==version</code> syntax. For an environment to be reproducible, you <strong>NEED</strong> to add the version string manually.</p>
+<hr>
+<p><strong>Lecture</strong></p>
+<hr>
+</section>
+<section id="creating-environment-from-an-environment-file" class="level3">
+<h3 class="anchored" data-anchor-id="creating-environment-from-an-environment-file">Creating environment from an environment file</h3>
+<p>Now, let’s install <code>environment.yaml</code> environment file above so that we can create a conda environment called <code>test_env</code>.</p>
+<pre><code>$ conda env create --file environment.yaml</code></pre>
+</section>
+<section id="copying-an-environment" class="level3">
+<h3 class="anchored" data-anchor-id="copying-an-environment">Copying an environment</h3>
+<p>We can make an exact copy of an environment to an environment with a different name. This maybe useful for any testing versus live environments or different Python 2.7 versions for the same packages. In this example, <code>test_env</code> is cloned to create <code>live_env</code>.</p>
+<pre><code>conda create --name live_env --clone test_env</code></pre>
+</section>
+<section id="deleting-an-environment" class="level3">
+<h3 class="anchored" data-anchor-id="deleting-an-environment">Deleting an environment</h3>
+<p>Since we are only testing out our environment, we will delete <code>live_env</code> to remove some clutter. <em>Make sure that you are not currently using <code>live_env</code>.</em></p>
+<pre><code>conda env remove -n live_env</code></pre>
+</section>
+<section id="making-environments-work-well-with-jupyterlab" class="level3">
+<h3 class="anchored" data-anchor-id="making-environments-work-well-with-jupyterlab">Making environments work well with JupyterLab</h3>
+<p>In brief, you need to install the <code>ipykernel</code> package in any new environment your create, and the <code>nb_conda_kernels</code> package needs to be installed in the environment where JupyterLab is installed.</p>
+<p>By default, JupyterLab only sees the conda environment where it is installed. Since it is quite annoying to install JupyterLab and its extensions separately in each environment, there is a package called <code>nb_conda_kernels</code> that makes it possible to have a single installation of JupyterLab access kernels in other conda environments. This package needs to be installed in the conda environment where JupyterLab is installed.</p>
+<p>Lastly, you also need to install a kernel in the new conda environment so that it can be detected by <code>nb_conda_kernels</code>. This kernel can be installed via the package <code>ipykernel</code> for Python and the <code>r-irkernel</code> package for R (<a href="https://github.com/Anaconda-Platform/nb_conda_kernels#installation">more info in the nb_conda_kernels README</a>).</p>
+</section>
+</section>
+<section id="managing-packages" class="level2">
+<h2 class="anchored" data-anchor-id="managing-packages">Managing Packages</h2>
+<section id="seeing-what-packages-are-available" class="level3">
+<h3 class="anchored" data-anchor-id="seeing-what-packages-are-available">Seeing what packages are available</h3>
+<p>We will now check packages that are available to us. The command below will list all the packages in an environment, in this case <code>test_env</code>. The list will include versions of each package, the specific build, and the channel that the package was downloaded from. <code>conda list</code> is also useful to ensure that you have installed the packages that you desire.</p>
+<pre><code>conda list</code></pre>
+<pre><code># packages in environment at //miniconda/envs/test_env:
+#
+Using Anaconda Cloud api site https://api.anaconda.org
+blas                      1.1                    openblas    conda-forge
+ca-certificates           2016.9.26                     0    conda-forge
+certifi                   2016.9.26                py27_0    conda-forge
+cycler                    0.10.0                   py27_0    conda-forge
+freetype                  2.6.3                         1    conda-forge
+functools32               3.2.3.2                  py27_1    conda-forge
+libgfortran               3.0.0                         0    conda-forge</code></pre>
+</section>
+<section id="searching-for-a-certain-package" class="level3">
+<h3 class="anchored" data-anchor-id="searching-for-a-certain-package">Searching for a certain package</h3>
+<p>Some packages might not be available in conda, but are available in <a href="https://pypi.python.org/pypi">pypi</a>. For example, we will search for rasterio within the <a href="https://anaconda.org/">anaconda cloud</a>. <em>It is not necessary to create an account with anaconda cloud, unless you’d like to contribute in the future when you are pro with conda.</em></p>
+<p>In this example, we will use rasterio from conda-forge. The anaconda cloud page for rasterio will show how to install the package, compatible OS, individual files for that package, etc.</p>
+<p>With conda you can do this search within the command line:</p>
+<pre><code>conda search rasterio</code></pre>
+<pre><code>Using Anaconda Cloud api site https://api.anaconda.org
+Run 'anaconda show &lt;USER/PACKAGE&gt;' to get more details:
+Packages:
+     Name                      |  Version | Package Types   | Platforms
+     ------------------------- |   ------ | --------------- | ---------------
+     IOOS/rasterio             |    1.0a2 | conda           | linux-64, win-32, win-64, osx-64
+     Terradue/rasterio         |   0.32.0 | conda           | linux-64
+                                          : Fast and direct raster I/O for use with Numpy and SciPy
+     anaconda/rasterio         |   0.36.0 | conda           | linux-64, win-32, win-64, linux-32, osx-64
+     conda-forge/rasterio      |    1.0a2 | conda           | linux-64, win-32, win-64, osx-64
+                                          : Rasterio reads and writes geospatial raster datasets
+     dharhas/rasterio          |   0.23.0 | conda           | win-64
+                                          : Rasterio reads and writes geospatial raster datasets.
+     erdc/rasterio             |   0.23.0 | conda           | win-64
+                                          : Rasterio reads and writes geospatial raster datasets.
+     jesserobertson/rasterio   |   0.23.0 | conda           | linux-64, linux-32, osx-64
+     jhamman/rasterio_to_xarray | 2016.03.16-1558 | ipynb           |
+                                          : IPython notebook
+     krisvanneste/rasterio     |   0.26.0 | conda           | win-64
+     ocefpaf/rasterio          |   0.19.1 | conda           | linux-64, osx-64
+     omgarcia/rasterio         |   0.25.0 | conda           | linux-64
+     pypi/rasterio             |   0.13.2 | pypi            |
+                                          : Fast and direct raster I/O for Python programmers who use Numpy
+     robintw/rasterio          |   0.35.1 | conda           | osx-64
+                                          : Rasterio reads and writes geospatial raster datasets
+     sgillies/rasterio         |     0.15 | conda           | osx-64
+     ztessler/rasterio         |   0.31.0 | conda           | osx-64
+                                          : Fast and direct raster I/O for use with Numpy and SciPy
+Found 15 packages</code></pre>
+</section>
+<section id="installing-conda-package" class="level3">
+<h3 class="anchored" data-anchor-id="installing-conda-package">Installing conda package</h3>
+<p>Under the name column of the result in the terminal or the package column in the Anaconda Cloud listing, shows the necessary information to install the package. e.g.&nbsp;conda-forge/rasterio. The first word list the channel that this package is from and the second part shows the name of the package.</p>
+<p>To install the latest version available within the channel, do not specify in the install command. We will install version 0.35 of <code>rasterio</code> from conda-forge into <code>test_env</code> in this example. Conda will also automatically install the dependencies for this package.</p>
+<pre><code>conda install -c conda-forge rasterio=0.35</code></pre>
+<p>If you have a few trusted channels that you prefer to use, you can pre-configure these so that everytime you are creating an environment, you won’t need to explicitly declare the channel.</p>
+<pre><code>conda config --add channels conda-forge</code></pre>
+<section id="removing-a-conda-package" class="level4">
+<h4 class="anchored" data-anchor-id="removing-a-conda-package">Removing a conda Package</h4>
+<p>We decided that rasterio is not needed in this tutorial, so we will remove it from <code>test_env</code>. Note that this will remove the main package rasterio and its dependencies (unless a dependency was installed explicitly at an earlier point in time or is required be another package).</p>
+<pre><code>conda remove -n test_env rasterio</code></pre>
+<pre><code>Using Anaconda Cloud api site https://api.anaconda.org
+Fetching package metadata .........
+Solving package specifications: ..........
+
+Package plan for package removal in environment //anaconda/envs/test_env:
+
+The following packages will be REMOVED:
+
+    rasterio: 0.35.1-np111py27_1 conda-forge
+
+Proceed ([y]/n)? y
+
+Unlinking packages ...
+[      COMPLETE      ]|#######################################################################################################| 100%</code></pre>
+<hr>
+<p>Select all the correct answers</p>
+<p>Which of the following sentences are true about Conda?</p>
+<pre><code>A. It is a command line tool
+B. It is a package manager
+C. It is a Python package
+D. It is installed as part of Anaconda and Miniconda
+E. It is a metapackage
+F. It installs Python
+G. Using it you can handle Python packages only</code></pre>
+<hr>
+</section>
+</section>
+</section>
+</section>
+<section id="r-environments" class="level1">
+<h1>R environments</h1>
+<p>In R, environments are managed by <code>renv</code>, which works with similar principles as <code>conda</code>, and other virtual environment managers, but the commands are different. To see which commands are used in <code>renv</code>, you can <a href="https://rstudio.github.io/renv/articles/renv.html">visit the project website</a>. Briefly, <code>renv::init()</code> is used to create a new env, <code>renv::snapshot</code> is used to save/export the environment to a file (<code>renv.lock</code>), and installing and removing packages are done as usual via the <code>install.packages()</code> and <code>remove.packages()</code> commands.</p>
+<section id="attribution" class="level2">
+<h2 class="anchored" data-anchor-id="attribution">Attribution</h2>
+<p>The conda virtual environment section of this guide was originally published at http://geohackweek.github.io/ under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.</p>
+</section>
+</section>
+<section id="r-markdown-repetition-and-a-few-tips" class="level1">
+<h1>R Markdown repetition and a few tips</h1>
+<p>Let’s start with creating an r project again. To use this with an existing git repo, with can select “Existing dir”. You can also create an empty one and move your git repo in here later, as long as there is an <code>.git</code> folder RStudio will show you the context menu for git.</p>
+<p>Next, let’s create an R Notebook. We could have a create an R Markdown document also, but the notebook offers a few conveniences. Mostly that it has a preview option <code>html_notebook</code> that renders the notebook to HTML in its curent state. In contrast, knitting the notebook to HTML via <code>html_document</code> will run all cells so this takes longer.</p>
+<p><strong>Note that it is important to knit to HTML before sharing so that you are sure everything works from scratch.</strong> This is the same reason we should do “Run all” in Jupyter Lab before sharing and why we don’t want to store our R workspace sessions. We need to make sure that someone new can run this from it’s current state. Another useful tool for this in R is to use <code>devtools::session_info()</code> at the top or bottom of your document (I put it at the end of the chunk where I load libraries) to ensure that you have included information about the versions of the packages you are running so that someone else can use the same version. There are more robust ways of version control that we will get into later in MDS, but this is a good minimum measure that is easy for you to get into the habit of doing.</p>
+<p>A couple of features that are good to know in addition to those we learnt last time, are block commenting and automatic code reformatting. If I type a few lines where I for example forget to add whitespace around an operator or assignment, going to <code>Code -&gt; Reformat code</code> (Ctrl + Shift + a) will fix this automatically for all highlighted lines. If I want to toogle commenting for some lines, I can click <code>Code -&gt; Comment/Uncomment line</code> (Ctrl + Shift + c), instead of manually adding <code>#</code> in front of each line.</p>
+<p>One final tip is the use of the <code>here</code> package for file paths. We have already solved the part of setting working directory by creating an R proj. If you only plant on using R Markdown file, you would be fine writing relative paths (e.g.&nbsp;<code>../data/cars.csv</code>) the same way you would write them in Python because they look relative their own location. However, if you also need to run something from a script or the console, note that the working directory path will now be used as the current directory, rather than the directoy of the script so the same relative path will not work (you would need <code>data/cars.csv</code> instead). <code>here</code> solves this by allowing you to type <code>here::here('data', 'cars.csv')</code> from wherever you are which also makes sure that file paths work across operating systems (<a href="https://malco.io/2018/11/05/why-should-i-use-the-here-package-when-i-m-already-using-projects/">more info on <code>here</code> here</a>.</p>
+</section>
+<section id="r-markdown-yaml-header" class="level1">
+<h1>R Markdown YAML header</h1>
+<p>The YAML header (also called the “front matter”) is where we can specify metadata about our project. It is delimited by two <code>---</code> (three hyphens) and we create a new notebook, it looks like this:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"R Notebook"</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_notebook</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In YAML, data is stored as a <code>key: value</code> pair, just like a Python dictionary. We can add new values, for example the author name and the date.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"R Notebook"</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_notebook</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Joel Ostblom</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 2020-09-23</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>R code can be evaluated inside the YAML header, so if we wanted the date to be updated every time we stitch the document, we could instead write <code>date: `r Sys.Date()`</code>. Other useful options include the ones for numbering headings, adding a table of contents, and placing the table of contents on the side of the document. Since these are options to the output document, they are indented under that section with two or four spaces:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_notebook</span><span class="kw">:</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc_float</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Another useful option is to fold away your code, but still having it available for view if someone desires to see it.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code_folding</span><span class="kw">:</span><span class="at"> hide</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="attribution-1" class="level2">
+<h2 class="anchored" data-anchor-id="attribution-1">Attribution</h2>
+<p>The conda virtual environment section of this guide was originally published at http://geohackweek.github.io/ under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
