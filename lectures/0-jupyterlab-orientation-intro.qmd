@@ -57,7 +57,7 @@ If you have already completed the
 [installation instructions](https://ubc-mds.github.io/resources_pages/installation_instructions/),
 you can open the terminal and run:
 
-``` shell
+```bash
 jupyter lab
 ```
 
@@ -263,7 +263,7 @@ In the terminal, go to where your notebook file is, and create a new terminal
 
 In the terminal use the `quarto render` command and specify the output to `pdf`.
 
-``` shell
+```bash
 quarto render Untitled.ipynb --to pdf
 ```
 
