@@ -3,7 +3,7 @@ title: Getting grovy with Git and GitHub
 jupyter: python3
 ---
 
-## Lecture objectives
+## Learning outcomes
 
 {{< include ../learning_objectives/lo-ch-03.qmd >}}
 

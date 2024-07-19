@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.1">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -214,29 +214,27 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lecture-objectives" id="toc-lecture-objectives" class="nav-link active" data-scroll-target="#lecture-objectives">Lecture objectives</a></li>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
   <li><a href="#why-version-control" id="toc-why-version-control" class="nav-link" data-scroll-target="#why-version-control">Why version control?</a></li>
-  <li><a href="#set-up-keys-for-ssh-for-use-with-github" id="toc-set-up-keys-for-ssh-for-use-with-github" class="nav-link" data-scroll-target="#set-up-keys-for-ssh-for-use-with-github">Set up keys for SSH for use with GitHub</a>
-  <ul class="collapse">
-  <li><a href="#remotely-accessing-another-computer-using-ssh" id="toc-remotely-accessing-another-computer-using-ssh" class="nav-link" data-scroll-target="#remotely-accessing-another-computer-using-ssh">Remotely accessing another computer using SSH</a>
+  <li><a href="#setting-up-and-remotely-accessing-ssh-keys-for-use-with-github" id="toc-setting-up-and-remotely-accessing-ssh-keys-for-use-with-github" class="nav-link" data-scroll-target="#setting-up-and-remotely-accessing-ssh-keys-for-use-with-github">Setting Up and Remotely Accessing SSH Keys for Use with GitHub</a>
   <ul class="collapse">
   <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions">Definitions</a></li>
   </ul></li>
-  <li><a href="#review---password-based-authentication" id="toc-review---password-based-authentication" class="nav-link" data-scroll-target="#review---password-based-authentication">Review - password-based authentication</a></li>
+  <li><a href="#what-are-some-password-based-authentication" id="toc-what-are-some-password-based-authentication" class="nav-link" data-scroll-target="#what-are-some-password-based-authentication">What are some password-based authentication</a></li>
   <li><a href="#ssh-key-based-authentication" id="toc-ssh-key-based-authentication" class="nav-link" data-scroll-target="#ssh-key-based-authentication">SSH key-based authentication</a></li>
   <li><a href="#understanding-public-key-private-key-concepts" id="toc-understanding-public-key-private-key-concepts" class="nav-link" data-scroll-target="#understanding-public-key-private-key-concepts">Understanding public key private key concepts</a></li>
   <li><a href="#you-can-put-your-lock-at-many-places" id="toc-you-can-put-your-lock-at-many-places" class="nav-link" data-scroll-target="#you-can-put-your-lock-at-many-places">You can put your lock at many places</a></li>
   <li><a href="#how-the-lock-works" id="toc-how-the-lock-works" class="nav-link" data-scroll-target="#how-the-lock-works">How the lock works</a></li>
   <li><a href="#why-ssh-keys-over-passwords" id="toc-why-ssh-keys-over-passwords" class="nav-link" data-scroll-target="#why-ssh-keys-over-passwords">Why SSH keys over passwords</a></li>
   <li><a href="#keeping-your-private-key-safe" id="toc-keeping-your-private-key-safe" class="nav-link" data-scroll-target="#keeping-your-private-key-safe">Keeping your private key safe</a></li>
-  </ul></li>
   <li><a href="#different-type-of-keys" id="toc-different-type-of-keys" class="nav-link" data-scroll-target="#different-type-of-keys">Different type of keys</a>
   <ul class="collapse">
   <li><a href="#authentication-vs.-encryption" id="toc-authentication-vs.-encryption" class="nav-link" data-scroll-target="#authentication-vs.-encryption">Authentication vs.&nbsp;encryption</a></li>
+  </ul></li>
   <li><a href="#cloning-repositories-from-github" id="toc-cloning-repositories-from-github" class="nav-link" data-scroll-target="#cloning-repositories-from-github">Cloning repositories from GitHub</a></li>
   <li><a href="#creating-a-repository-from-github-method-1-above" id="toc-creating-a-repository-from-github-method-1-above" class="nav-link" data-scroll-target="#creating-a-repository-from-github-method-1-above">Creating a repository from GitHub (method 1 above)</a>
   <ul class="collapse">
@@ -255,7 +253,6 @@ window.Quarto = {
   <li><a href="#push-local-changes-to-github" id="toc-push-local-changes-to-github" class="nav-link" data-scroll-target="#push-local-changes-to-github">Push local changes to GitHub</a></li>
   <li><a href="#pull-your-changes-from-a-remote-repository" id="toc-pull-your-changes-from-a-remote-repository" class="nav-link" data-scroll-target="#pull-your-changes-from-a-remote-repository">Pull your changes from a remote repository</a></li>
   <li><a href="#attribution" id="toc-attribution" class="nav-link" data-scroll-target="#attribution">Attribution</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -281,8 +278,8 @@ window.Quarto = {
 </header>
 
 
-<section id="lecture-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="lecture-objectives">Lecture objectives</h2>
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
 <ol type="1">
 <li>Implement SSH authentication</li>
 <li>Differentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.</li>
@@ -294,54 +291,27 @@ window.Quarto = {
 </section>
 <section id="why-version-control" class="level2">
 <h2 class="anchored" data-anchor-id="why-version-control">Why version control?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/phd101212s.png" class="img-fluid figure-img"></p>
-<figcaption>alt tag</figcaption>
-</figure>
-</div>
+<p><img src="img/phd101212s.png" class="img-fluid"></p>
 <p><em>source: “Piled Higher and Deeper” by Jorge Cham, http://www.phdcomics.com</em></p>
-<p>To <strong>version control</strong> a project, you generally need two things: (1) a version control system and (2) a repository hosting service.</p>
-<p>The version control system is the software responsible for tracking changes, sharing changes you make with others, obtaining changes from others, and resolving conflicting edits. The repository hosting service is responsible for storing a copy of the version-controlled project online (a repository), where you and your collaborators can access it remotely, discuss issues and bugs, and distribute your final product. For both of these items, there is a wide variety of choices. In this textbook we’ll use Git for version control, and GitHub for repository hosting, because both are currently the most widely used platforms.</p>
-<p>Technically you don’t have to use a repository hosting service. You can, for example, version control a project that is stored only in a folder on your computer—never sharing it on a repository hosting service. But using a repository hosting service provides a few big benefits, including managing collaborator access permissions, tools to discuss and track bugs, and the ability to have external collaborators contribute work, not to mention the safety of having your work backed up in the cloud. Since most repository hosting services now offer free accounts, there are not many situations in which you wouldn’t want to use one for your project.</p>
+<p>To <strong>version control</strong> a project, you need two main components: a version control system and a repository hosting service. <em>The version control system</em>, like Git, manages changes to the project, allowing you to share updates, receive contributions, and resolve conflicts. <em>A repository hosting service</em>, such as GitHub, stores your project online, facilitating remote access, collaboration, and distribution of your final product. While technically optional, using a hosting service offers significant advantages like access management, bug tracking, external contributions, and secure cloud backup. Given their benefits and the availability of free accounts, there are few reasons not to utilize a hosting service for your project.</p>
 </section>
-<section id="set-up-keys-for-ssh-for-use-with-github" class="level1">
-<h1>Set up keys for SSH for use with GitHub</h1>
-<section id="remotely-accessing-another-computer-using-ssh" class="level2">
-<h2 class="anchored" data-anchor-id="remotely-accessing-another-computer-using-ssh">Remotely accessing another computer using SSH</h2>
+<section id="setting-up-and-remotely-accessing-ssh-keys-for-use-with-github" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-and-remotely-accessing-ssh-keys-for-use-with-github">Setting Up and Remotely Accessing SSH Keys for Use with GitHub</h2>
 <p>Let’s start with some definitions:</p>
 <section id="definitions" class="level3">
 <h3 class="anchored" data-anchor-id="definitions">Definitions</h3>
-<p><strong>Secure SHell (SSH)</strong> - a common method for remote login to another computer which is secure.</p>
-<p><strong>server</strong> - a machine you are SSHing into. The server sits and waits to be contacted.</p>
-<p><strong>client</strong> - usually your machine. The client initiates contact with the server.</p>
+<p><strong>Secure SHell (SSH) or <code>sh</code></strong> is a secure method commonly used for remotely logging into another computer.</p>
+<p><strong>The server</strong> is the machine you are connecting to via SSH, which passively waits for incoming connections.</p>
+<p><strong>The client</strong> is usually your own machine, which initiates the contact with the server.</p>
 </section>
 </section>
-<section id="review---password-based-authentication" class="level2">
-<h2 class="anchored" data-anchor-id="review---password-based-authentication">Review - password-based authentication</h2>
-<ul>
-<li>Passwords are short and tend to be somewhat easy to “break” (guess).
-<ul>
-<li>Say your password contains 12 characters</li>
-<li>each character is one of 26 uppercase letters, 26 lowercase letters, 10 digits, or ~10 special characters</li>
-<li>total probably around ~70 possibilities per character, so <span class="math inline">\(70^{12}\approx 10^{22}\)</span></li>
-<li>This is a HUGE number, except that there are patterns within passwords that make them easier to guess</li>
-<li>More on security and privacy in future courses</li>
-</ul></li>
-</ul>
+<section id="what-are-some-password-based-authentication" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-some-password-based-authentication">What are some password-based authentication</h2>
+<p>Passwords are often short and relatively easy to guess or “break.” For instance, consider a password with 12 characters, where each character can be one of 26 uppercase letters, 26 lowercase letters, 10 digits, or approximately 10 special characters. This results in around 70 possible choices per character, making the total number of possible combinations approximately <span class="math inline">\(70^{12}\approx 10^{22}\)</span>. While this is an extraordinarily large number, patterns in password creation can make them more predictable and easier to guess. More detailed discussions on security and privacy will be covered in future courses.</p>
 </section>
 <section id="ssh-key-based-authentication" class="level2">
 <h2 class="anchored" data-anchor-id="ssh-key-based-authentication">SSH key-based authentication</h2>
-<p>Two components:</p>
-<ol type="1">
-<li>public key</li>
-<li>private key</li>
-</ol>
-<p>These files have an asymmetrical relationship:</p>
-<ul>
-<li>the public key CANNOT decrypt messages generated by the private key</li>
-<li>the private key CAN decrypt messages generated by the public key</li>
-</ul>
+<p>SSH key-based authentication involves two components: <em>a public key</em> and a <em>private key</em>. These keys have an asymmetrical relationship. <em>The public key</em> cannot decrypt messages that are encrypted using the <em>private key</em>. Conversely, the <em>private key</em> can decrypt messages that are encrypted using the <em>public key</em>. This setup ensures secure communication by allowing only the holder of the private key to access messages encrypted with the <em>public key</em>.</p>
 </section>
 <section id="understanding-public-key-private-key-concepts" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-public-key-private-key-concepts">Understanding public key private key concepts</h2>
@@ -350,18 +320,13 @@ window.Quarto = {
 <li>To put your ‘padlock’ on an another machine, you would copy it to <code>authorized_keys</code> in the <code>~/.ssh</code> folder.</li>
 <li>Think of a private key as an actual key, it can open the padlock that is stored on the other machine.</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/keys_1.png" class="img-fluid figure-img"></p>
-<figcaption>alt tag</figcaption>
-</figure>
-</div>
+<p><img src="img/keys_1.png" class="img-fluid"></p>
 <p><em>source: http://blakesmith.me/2010/02/08/understanding-public-key-private-key-concepts.html</em></p>
 </section>
 <section id="you-can-put-your-lock-at-many-places" class="level2">
 <h2 class="anchored" data-anchor-id="you-can-put-your-lock-at-many-places">You can put your lock at many places</h2>
 <p>As long as you are using the same lock (public key), you will be able to open it with the same private key.</p>
-<p><img src="img/keys_2.png" class="img-fluid" alt="alt tag"> <em>source: http://blakesmith.me/2010/02/08/understanding-public-key-private-key-concepts.html</em></p>
+<p><img src="img/keys_2.png" class="img-fluid"> <em>source: http://blakesmith.me/2010/02/08/understanding-public-key-private-key-concepts.html</em></p>
 </section>
 <section id="how-the-lock-works" class="level2">
 <h2 class="anchored" data-anchor-id="how-the-lock-works">How the lock works</h2>
@@ -385,11 +350,10 @@ window.Quarto = {
 <li>this should be shared with NO ONE!</li>
 <li>if your private key does fall into the wrong hands, the person must still know the password or passphrase to use the private key</li>
 </ul>
-<p><img src="img/password_strength.png" class="img-fluid" alt="alt tag"> <em>source - https://xkcd.com/936/</em></p>
+<p><img src="img/password_strength.png" class="img-fluid"> <em>source - https://xkcd.com/936/</em></p>
 </section>
-</section>
-<section id="different-type-of-keys" class="level1">
-<h1>Different type of keys</h1>
+<section id="different-type-of-keys" class="level2">
+<h2 class="anchored" data-anchor-id="different-type-of-keys">Different type of keys</h2>
 <p>There may be different methods of how to generate private-public key pairs.</p>
 <p>The <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">GitHub SSH key generation instructions</a> uses the <code>-t</code> flag to indicate the “type” of key to create, in thier instructions they use the <code>ed25519</code> algorithm to create private and public values.</p>
 <p>The general premice to SSH keys is the same, there is a private key that stays on your machine and is never shared with other people, and the public key you can freely share that will be used to authenticate the machine with the private key on it.</p>
@@ -408,12 +372,13 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
+</section>
 <div class="activity">
 <section id="lecture-2-activity-1" class="level2 activity-header">
 <h2 class="anchored" data-anchor-id="lecture-2-activity-1">Lecture 2 Activity 1</h2>
 </section>
-<section id="creating-a-repository" class="level1 activity-container">
-<h1>Creating a Repository</h1>
+<section id="creating-a-repository" class="level2 activity-container">
+<h2 class="anchored" data-anchor-id="creating-a-repository">Creating a Repository</h2>
 <p>We can create a repository one of two ways:</p>
 <ol type="1">
 <li>Start on GitHub and <strong>then</strong> clone the repository to your local computer using Git.</li>
@@ -527,12 +492,7 @@ window.Quarto = {
 <p>For more details, see Software Carpentry’s lesson on <a href="http://swcarpentry.github.io/git-novice/04-changes/">tracking local changes with Git</a>.</p>
 <section id="what-is-the-staging-area-and-why-is-it-there" class="level3">
 <h3 class="anchored" data-anchor-id="what-is-the-staging-area-and-why-is-it-there">What is the staging area, and why is it there?</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/staging_area.png" class="img-fluid figure-img"></p>
-<figcaption>alt tag</figcaption>
-</figure>
-</div>
+<p><img src="img/staging_area.png" class="img-fluid"></p>
 <p>Once you reach a point that you want Git to keep a record of the current version of your work, you need to commit (i.e., snapshot) your changes. A prerequisite to this is telling Git which files should be included in that snapshot. We call this step adding the files to the <strong>staging area</strong>.</p>
 <p>Note that the staging area is not a real physical location on your computer; it is instead a conceptual placeholder for these files until they are committed. The benefit of the Git version control system using a staging area is that you can choose to commit changes in only certain files. For example, we add only the two files that are important to the analysis project (<code>analysis.ipynb</code> and <code>README.md</code>) and not our personal scratch notes for the project (<code>notes.txt</code>).</p>
 <p>The staging area allows more control over what you are about to commit, allowing you to commit parts of a file or multiple files together with a single descriptive message. To add parts of a file instead of everything type <code>git add -p</code> and then interactively choose which parts you want by typing either <code>n</code> (no) or <code>y</code> (yes) followed by pressing enter for each chunk of code. This workflow is great for reviewing the changes as you add them to the staging area, which ensures you don’t commit anything by mistake. Note that you must omit<code>-p</code> when adding new files, so you would type <code>git add &lt;filename&gt;</code>.</p>
@@ -592,7 +552,6 @@ window.Quarto = {
 </ol>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

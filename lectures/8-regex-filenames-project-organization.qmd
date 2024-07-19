@@ -3,7 +3,7 @@ title: Organization of Data Science projects and some useful tools
 jupyter: python3
 ---
 
-## Lecture objectives
+## Learning outcomes
 
 {{< include ../learning_objectives/lo-ch-07.qmd >}}
 
