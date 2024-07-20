@@ -65,12 +65,11 @@ Aside: Quantum computers will be able to break RSA encryption. It is very hard t
 
 ## Keeping your private key safe
 
-- `ssh-keygen` allows you to put a password or passphrase on the private key
-- this should be shared with NO ONE!
-- if your private key does fall into the wrong hands, the person must still know the password or passphrase to use the private key
+The `ssh-keygen` command allows you to add a layer of security to your private key by setting a password or passphrase. 
 
-![](img/password_strength.png)
-*source - https://xkcd.com/936/*
+It's crucial that this passphrase remains confidential and not shared with anyone. 
+
+If your private key were to fall into the wrong hands, the passphrase would still be required to use it, providing an additional level of security.
 
 ## Different type of keys
 
@@ -88,14 +87,31 @@ The system described above focuses solely on authentication. In this process, th
 
 This authentication process is distinct from the encryption of data transmitted between the client and server. Encryption ensures that the communication between the client and server remains confidential, preventing any potential eavesdroppers from intercepting or listening to the exchange.
 
+![](img/password_strength.png)
+*source - https://xkcd.com/936/*
+
+## What is a Git repository?
+
+A Git repository stores all the necessary information
+for version control your project in a hidden folder called `.git`.
+If you want to know if you are working in a Git repo using the terminal
+you can use the bash command `ls -a` as you can see in the image.
+The `-a` flag will include into the lists of files
+displayed on the terminal the hidden folders.
+If `.git` is included you are working in a Git repository.
+
+By cloning a repository from GitHub to your computer,
+you are automatically getting a copy of `.git` and thus, working on a Git.
+
+![](img/github.png)
+
+## Creating a Repository
+
 :::{.activity}
 ::::{.activity-header}
 ## Lecture 2 Activity 1
 ::::
 ::::{.activity-container}
-
-## Creating a Repository
-
 We can create a repository one of two ways:
 
 1. Start on GitHub and **then** clone the repository to your local computer using Git.
@@ -168,19 +184,6 @@ and creating several new ones.
 *Step 5:* Click the big green "Create repository" button.
 
 *Step 6:* That's it! You now have a new repository on GitHub!
-
-## What is a Git repository?
-
-A Git repository stores all the necessary information
-for version control your project in a hidden folder called `.git`.
-If you want to know if you are working in a Git repo using the terminal
-you can use the bash command `ls -a` as you can see in the image.
-The `-a` flag will include into the lists of files
-displayed on the terminal the hidden folders.
-If `.git` is included you are working in a Git repository.
-
-By cloning a repository from GitHub to your computer,
-you are automatically getting a copy of `.git` and thus, working on a Git.
 
 
 ![](img/github-workflow.png)

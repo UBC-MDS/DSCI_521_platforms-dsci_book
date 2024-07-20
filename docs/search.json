@@ -1063,7 +1063,7 @@
     "href": "lectures/2-git-github-ssh-basic-workflow.html#keeping-your-private-key-safe",
     "title": "Introduction to version control with Git and GitHub",
     "section": "Keeping your private key safe",
-    "text": "Keeping your private key safe\n\nssh-keygen allows you to put a password or passphrase on the private key\nthis should be shared with NO ONE!\nif your private key does fall into the wrong hands, the person must still know the password or passphrase to use the private key\n\n source - https://xkcd.com/936/",
+    "text": "Keeping your private key safe\nThe ssh-keygen command allows you to add a layer of security to your private key by setting a password or passphrase.\nIt’s crucial that this passphrase remains confidential and not shared with anyone.\nIf your private key were to fall into the wrong hands, the passphrase would still be required to use it, providing an additional level of security.",
     "crumbs": [
       "Home",
       "Lecture 2: Introduction to version control with Git and GitHub"
@@ -1823,7 +1823,7 @@
     "href": "lectures/2-git-github-ssh-basic-workflow.html#different-type-of-keys",
     "title": "Introduction to version control with Git and GitHub",
     "section": "Different type of keys",
-    "text": "Different type of keys\nThere may be different methods of how to generate private-public key pairs.\nThe GitHub SSH key generation instructions uses the -t flag to indicate the “type” of key to create, in thier instructions they use the ed25519 algorithm to create private and public values.\nThe general premice to SSH keys is the same, there is a private key that stays on your machine and is never shared with other people, and the public key you can freely share that will be used to authenticate the machine with the private key on it.\n\nAuthentication vs. encryption\nThe system described above focuses solely on authentication. In this process, the client must demonstrate to the server that it is authorized to access the server. This is established when someone with the necessary authority adds the client’s public key to the ~/.ssh/authorized_keys on the server. Once this is done, the server will grant access to anyone who possesses a private key that matches one of the public keys listed.\nThis authentication process is distinct from the encryption of data transmitted between the client and server. Encryption ensures that the communication between the client and server remains confidential, preventing any potential eavesdroppers from intercepting or listening to the exchange.",
+    "text": "Different type of keys\nThere may be different methods of how to generate private-public key pairs.\nThe GitHub SSH key generation instructions uses the -t flag to indicate the “type” of key to create, in thier instructions they use the ed25519 algorithm to create private and public values.\nThe general premice to SSH keys is the same, there is a private key that stays on your machine and is never shared with other people, and the public key you can freely share that will be used to authenticate the machine with the private key on it.\n\nAuthentication vs. encryption\nThe system described above focuses solely on authentication. In this process, the client must demonstrate to the server that it is authorized to access the server. This is established when someone with the necessary authority adds the client’s public key to the ~/.ssh/authorized_keys on the server. Once this is done, the server will grant access to anyone who possesses a private key that matches one of the public keys listed.\nThis authentication process is distinct from the encryption of data transmitted between the client and server. Encryption ensures that the communication between the client and server remains confidential, preventing any potential eavesdroppers from intercepting or listening to the exchange.\n source - https://xkcd.com/936/",
     "crumbs": [
       "Home",
       "Lecture 2: Introduction to version control with Git and GitHub"
@@ -1920,6 +1920,17 @@
   {
     "objectID": "lectures/2-git-github-ssh-basic-workflow.html#creating-a-repository",
     "href": "lectures/2-git-github-ssh-basic-workflow.html#creating-a-repository",
+    "title": "Introduction to version control with Git and GitHub",
+    "section": "Creating a Repository",
+    "text": "Creating a Repository",
+    "crumbs": [
+      "Home",
+      "Lecture 2: Introduction to version control with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/2-git-github-ssh-basic-workflow.html#creating-a-repository-1",
+    "href": "lectures/2-git-github-ssh-basic-workflow.html#creating-a-repository-1",
     "title": "Introduction to version control with Git and GitHub",
     "section": "Creating a Repository",
     "text": "Creating a Repository\nWe can create a repository one of two ways:\n\nStart on GitHub and then clone the repository to your local computer using Git.\nStart in a folder on your local computer, use Git to initialize it as a Git repository (by typing git init inside the directory). Then create a new repository on GitHub without adding any files. Then use Git to tell your local computer where the remote is (i.e., the location of the empty GitHub repository on GitHub).\n\nYou can see the second method requires more work. So the first method is usually the most convenient and it is sufficient for you to only use this approach.",

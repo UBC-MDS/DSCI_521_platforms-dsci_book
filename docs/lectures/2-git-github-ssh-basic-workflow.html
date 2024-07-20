@@ -235,12 +235,13 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#authentication-vs.-encryption" id="toc-authentication-vs.-encryption" class="nav-link" data-scroll-target="#authentication-vs.-encryption">Authentication vs.&nbsp;encryption</a></li>
   </ul></li>
+  <li><a href="#what-is-a-git-repository" id="toc-what-is-a-git-repository" class="nav-link" data-scroll-target="#what-is-a-git-repository">What is a Git repository?</a></li>
+  <li><a href="#creating-a-repository" id="toc-creating-a-repository" class="nav-link" data-scroll-target="#creating-a-repository">Creating a Repository</a></li>
   <li><a href="#cloning-repositories-from-github" id="toc-cloning-repositories-from-github" class="nav-link" data-scroll-target="#cloning-repositories-from-github">Cloning repositories from GitHub</a></li>
   <li><a href="#creating-a-repository-from-github-method-1-above" id="toc-creating-a-repository-from-github-method-1-above" class="nav-link" data-scroll-target="#creating-a-repository-from-github-method-1-above">Creating a repository from GitHub (method 1 above)</a>
   <ul class="collapse">
   <li><a href="#steps-to-follow" id="toc-steps-to-follow" class="nav-link" data-scroll-target="#steps-to-follow">Steps to follow:</a></li>
   </ul></li>
-  <li><a href="#what-is-a-git-repository" id="toc-what-is-a-git-repository" class="nav-link" data-scroll-target="#what-is-a-git-repository">What is a Git repository?</a></li>
   <li><a href="#adding-committing-changes-to-version-controlled-files" id="toc-adding-committing-changes-to-version-controlled-files" class="nav-link" data-scroll-target="#adding-committing-changes-to-version-controlled-files">Adding &amp; committing changes to version controlled files</a>
   <ul class="collapse">
   <li><a href="#steps-to-follow-1" id="toc-steps-to-follow-1" class="nav-link" data-scroll-target="#steps-to-follow-1">Steps to follow:</a></li>
@@ -336,12 +337,9 @@ window.Quarto = {
 </section>
 <section id="keeping-your-private-key-safe" class="level2">
 <h2 class="anchored" data-anchor-id="keeping-your-private-key-safe">Keeping your private key safe</h2>
-<ul>
-<li><code>ssh-keygen</code> allows you to put a password or passphrase on the private key</li>
-<li>this should be shared with NO ONE!</li>
-<li>if your private key does fall into the wrong hands, the person must still know the password or passphrase to use the private key</li>
-</ul>
-<p><img src="img/password_strength.png" class="img-fluid"> <em>source - https://xkcd.com/936/</em></p>
+<p>The <code>ssh-keygen</code> command allows you to add a layer of security to your private key by setting a password or passphrase.</p>
+<p>It’s crucial that this passphrase remains confidential and not shared with anyone.</p>
+<p>If your private key were to fall into the wrong hands, the passphrase would still be required to use it, providing an additional level of security.</p>
 </section>
 <section id="different-type-of-keys" class="level2">
 <h2 class="anchored" data-anchor-id="different-type-of-keys">Different type of keys</h2>
@@ -352,21 +350,30 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="authentication-vs.-encryption">Authentication vs.&nbsp;encryption</h3>
 <p>The system described above focuses solely on authentication. In this process, the client must demonstrate to the server that it is authorized to access the server. This is established when someone with the necessary authority adds the client’s public key to the <code>~/.ssh/authorized_keys</code> on the server. Once this is done, the server will grant access to anyone who possesses a private key that matches one of the public keys listed.</p>
 <p>This authentication process is distinct from the encryption of data transmitted between the client and server. Encryption ensures that the communication between the client and server remains confidential, preventing any potential eavesdroppers from intercepting or listening to the exchange.</p>
+<p><img src="img/password_strength.png" class="img-fluid"> <em>source - https://xkcd.com/936/</em></p>
 </section>
+</section>
+<section id="what-is-a-git-repository" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-git-repository">What is a Git repository?</h2>
+<p>A Git repository stores all the necessary information for version control your project in a hidden folder called <code>.git</code>. If you want to know if you are working in a Git repo using the terminal you can use the bash command <code>ls -a</code> as you can see in the image. The <code>-a</code> flag will include into the lists of files displayed on the terminal the hidden folders. If <code>.git</code> is included you are working in a Git repository.</p>
+<p>By cloning a repository from GitHub to your computer, you are automatically getting a copy of <code>.git</code> and thus, working on a Git.</p>
+<p><img src="img/github.png" class="img-fluid"></p>
+</section>
+<section id="creating-a-repository" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-repository">Creating a Repository</h2>
 </section>
 <div class="activity">
 <section id="lecture-2-activity-1" class="level2 activity-header">
 <h2 class="anchored" data-anchor-id="lecture-2-activity-1">Lecture 2 Activity 1</h2>
 </section>
-<section id="creating-a-repository" class="level2 activity-container">
-<h2 class="anchored" data-anchor-id="creating-a-repository">Creating a Repository</h2>
+<div class="activity-container">
 <p>We can create a repository one of two ways:</p>
 <ol type="1">
 <li>Start on GitHub and <strong>then</strong> clone the repository to your local computer using Git.</li>
 <li>Start in a folder on your local computer, use Git to initialize it as a Git repository (by typing <code>git init</code> inside the directory). <strong>Then</strong> create a new repository on GitHub without adding any files. <strong>Then</strong> use Git to tell your local computer where the remote is (i.e., the location of the empty GitHub repository on GitHub).</li>
 </ol>
 <p>You can see the second method requires more work. So the first method is usually the most convenient and it is sufficient for you to only use this approach.</p>
-</section>
+</div>
 </div>
 <div class="exercise">
 <section id="lecture-2-activity-1-1" class="level3 exercise-header">
@@ -404,13 +411,8 @@ window.Quarto = {
 <p><em>Step 4:</em> Check the box labeled “Initialize this repository with a README.” This step allows the repository to be cloned immediately without needing to add a file manually later.</p>
 <p><em>Step 5:</em> Click the big green “Create repository” button.</p>
 <p><em>Step 6:</em> That’s it! You now have a new repository on GitHub!</p>
-</section>
-</section>
-<section id="what-is-a-git-repository" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-a-git-repository">What is a Git repository?</h2>
-<p>A Git repository stores all the necessary information for version control your project in a hidden folder called <code>.git</code>. If you want to know if you are working in a Git repo using the terminal you can use the bash command <code>ls -a</code> as you can see in the image. The <code>-a</code> flag will include into the lists of files displayed on the terminal the hidden folders. If <code>.git</code> is included you are working in a Git repository.</p>
-<p>By cloning a repository from GitHub to your computer, you are automatically getting a copy of <code>.git</code> and thus, working on a Git.</p>
 <p><img src="img/github-workflow.png" class="img-fluid"></p>
+</section>
 </section>
 <section id="adding-committing-changes-to-version-controlled-files" class="level2">
 <h2 class="anchored" data-anchor-id="adding-committing-changes-to-version-controlled-files">Adding &amp; committing changes to version controlled files</h2>
