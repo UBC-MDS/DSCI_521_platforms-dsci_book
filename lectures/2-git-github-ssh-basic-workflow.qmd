@@ -7,6 +7,10 @@ jupyter: python3
 
 {{< include ../learning_objectives/lo-ch-02.qmd >}}
 
+## Introduction
+
+In this lecture, you'll learn how to manage project changes, collaborate effectively, and maintain a complete project history using Git and GitHub. Let's get started!
+
 ## Why version control?
 
 ![](img/phd101212s.png)
@@ -122,18 +126,6 @@ You can see the second method requires more work. So the first method is usually
 ::::
 :::
 
-:::{.exercise}
-::::{.exercise-header}
-### Lecture 2 Activity 1
-::::
-::::{.exercise-container}
-
-Check that your cloned repo it is a Git repository. How can you check that you are working on a Git repository?
-
-Is a repository the same as a directory? Can be a Git repository your current working directory?
-
-::::
-:::
 
 ## Cloning repositories from GitHub
 
@@ -143,22 +135,23 @@ However, if you intend to run the code on your own machine and make modification
 
 To clone a repository, follow these steps! 
 
-*Step 1:*  start by navigating to the specific repository on GitHub. 
+    Step 1: start by navigating to the specific repository on GitHub. 
 
-*Step 2:*  Click the green "Clone or download" button, ensuring the pop-up indicates "Clone with HTTPS" (we will cover SSH authentication later). 
+    Step 2: Click the green "Clone or download" button, ensuring the pop-up indicates "Clone with HTTPS" (we will cover SSH authentication later). 
 
-*Step 3:* Copy the provided URL to your clipboard. 
+    Step 3: Copy the provided URL to your clipboard. 
 
-*Step 4:* Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command. 
+    Step 4: Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command. 
 
-*Step 5:* Type git clone followed by the URL, such as git clone https://github.com/github_username/repository_name.git, and press enter. 
+    Step 5: Type git clone followed by the URL, such as git clone https://github.com/github_username/repository_name.git, and press enter. 
 
-*Step 6:* After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.
+    Step 6: After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.
 
 For more details, see Github's docs on [cloning](https://help.github.com/articles/cloning-a-repository/).
 
 **Be Careful**: do not nest git repositoies. That is, there should not be one git repository inside another git repositoiry.
-Be careful that when you are using `git clone` (or `git init`
+Be careful that when you are using `git clone` (or `git init`)
+
 
 ## Creating a repository from GitHub (method 1 above)
 
@@ -173,20 +166,33 @@ and creating several new ones.
 
 ### Steps to follow:
 
-*Step 1:* Start by navigating to https://github.ubc.ca and ensure you are logged in.
+    Step 1: Start by navigating to https://github.ubc.ca and ensure you are logged in.
 
-*Step 2:* Click the green "New repository" button. Alternatively, if you are on your profile page, select "Repositories" and then click the green "New" button.
+    Step 2: Click the green "New repository" button. Alternatively, if you are on your profile page, select "Repositories" and then click the green "New" button.
 
-*Step 3:* Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.
+    Step 3: Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.
 
-*Step 4:* Check the box labeled "Initialize this repository with a README." This step allows the repository to be cloned immediately without needing to add a file manually later.
+    Step 4: Check the box labeled "Initialize this repository with a README." This step allows the repository to be cloned immediately without needing to add a file manually later.
 
-*Step 5:* Click the big green "Create repository" button.
+    Step 5: Click the big green "Create repository" button.
 
-*Step 6:* That's it! You now have a new repository on GitHub!
+    Step 6: That's it! You now have a new repository on GitHub!
 
 
 ![](img/github-workflow.png)
+
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 2 Exercise 1
+::::
+::::{.exercise-container}
+
+Check that your cloned repo it is a Git repository. How can you check that you are working on a Git repository?
+
+Is a repository the same as a directory? Can be a Git repository your current working directory?
+
+::::
+:::
 
 ## Adding & committing changes to version controlled files
 
@@ -200,38 +206,33 @@ To demonstrate the first method, let's edit the README.md file in your GitHub re
 
 ### Steps to follow:
 
-Step 1: Click on the README.md file link in your repository on GitHub.
+    Step 1: Click on the README.md file link in your repository on GitHub.
 
-Step 2: Click on the pen tool located on the right-hand side of the document.
+    Step 2: Click on the pen tool located on the right-hand side of the document.
 
-Step 3: Add your name as the author to the document (e.g., "author: Roald Dahl").
+    Step 3: Add your name as the author to the document (e.g., "author: Roald Dahl").
 
-Step 4: Provide a commit message, such as "Add author info."
+    Step 4: Provide a commit message, such as "Add author info."
 
-Step 5: Click the big green button "Commit changes" to save your work. This action combines git add and git commit into one step.
+    Step 5: Click the big green button "Commit changes" to save your work. This action combines git add and git commit into one step.
 
-Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository's URL.
+    Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository's URL.
 
 ## Changing and saving version controlled files
 
-- To make a change to a file inside a Git repository,
-  edit it as you would with any other local file,
-  e.g. `code name-of-file.txt`.
+To make a change to a file inside a Git repository, start by editing it as you would any other local file. For example, you can use a text editor with a command like `code name-of-file.txt`.
 
-- Once you have made changes to a file in a local Git repository (such as on your laptop), you need to tell Git that you want to record these changes in the version history.
+Once you have made changes to a file in a local Git repository (such as on your laptop), you need to tell Git that you want to record these changes in the version history. This process involves two main steps: **adding** the changes to the staging area and then **committing** them. 
 
-- This is a two step process where you first **add** the changes to the stanging area and then **committ** them, which saves the differences between the current and previous version of the file together with your message describing what you did.
-    - These changes are saved in the hidden `.git` directory in the Git repository.
+Committing saves the differences between the current and previous version of the file along with a message describing what you did. These changes are saved in the hidden .git directory within the Git repository.
 
-- This is what it looks like when adding and committing:
+Here's a step-by-step guide on how to add and commit changes:
 
-    1. Add changes to staging area
+    Step 1: Add changes to the staging area:
+    Use the command git add file-name(s) to move the changes to the staging area.
 
-    `git add file-name(s)`
-
-    2. Commit the changes together with a descriptive message
-
-    `git commit -m "Clarify the README installation instructions"`
+    Step 2: Commit the changes with a descriptive message:
+    Use the command git commit -m "Clarify the README installation instructions" to commit the changes along with a message that describes what you did.`
 
 For more details, see Software Carpentry's lesson on [tracking local changes with Git](http://swcarpentry.github.io/git-novice/04-changes/).
 
@@ -344,7 +345,7 @@ where `yourCWL` should be replaced by your CWL.
 
 :::{.exercise}
 ::::{.exercise-header}
-### Lecture 2 Exercise 2
+### Lecture 2 Exercise 3
 ::::
 ::::{.exercise-container}
 

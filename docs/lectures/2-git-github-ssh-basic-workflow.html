@@ -219,6 +219,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#why-version-control" id="toc-why-version-control" class="nav-link" data-scroll-target="#why-version-control">Why version control?</a></li>
   <li><a href="#setting-up-and-remotely-accessing-ssh-keys-for-use-with-github" id="toc-setting-up-and-remotely-accessing-ssh-keys-for-use-with-github" class="nav-link" data-scroll-target="#setting-up-and-remotely-accessing-ssh-keys-for-use-with-github">Setting Up and Remotely Accessing SSH Keys for Use with GitHub</a>
   <ul class="collapse">
@@ -289,6 +290,10 @@ window.Quarto = {
 <li>Understand what implies using the staging area in a Git workflow.</li>
 <li>Recognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier.</li>
 </ol>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In this lecture, you’ll learn how to manage project changes, collaborate effectively, and maintain a complete project history using Git and GitHub. Let’s get started!</p>
 </section>
 <section id="why-version-control" class="level2">
 <h2 class="anchored" data-anchor-id="why-version-control">Why version control?</h2>
@@ -375,28 +380,24 @@ window.Quarto = {
 <p>You can see the second method requires more work. So the first method is usually the most convenient and it is sufficient for you to only use this approach.</p>
 </div>
 </div>
-<div class="exercise">
-<section id="lecture-2-activity-1-1" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-2-activity-1-1">Lecture 2 Activity 1</h3>
-</section>
-<div class="exercise-container">
-<p>Check that your cloned repo it is a Git repository. How can you check that you are working on a Git repository?</p>
-<p>Is a repository the same as a directory? Can be a Git repository your current working directory?</p>
-</div>
-</div>
 <section id="cloning-repositories-from-github" class="level2">
 <h2 class="anchored" data-anchor-id="cloning-repositories-from-github">Cloning repositories from GitHub</h2>
 <p>If you only need to make minor edits, you can directly edit files on GitHub using their online editor, eliminating the need to clone the repository.</p>
 <p>However, if you intend to run the code on your own machine and make modifications there, you will need to clone the repository to facilitate these changes.</p>
 <p>To clone a repository, follow these steps!</p>
-<p><em>Step 1:</em> start by navigating to the specific repository on GitHub.</p>
-<p><em>Step 2:</em> Click the green “Clone or download” button, ensuring the pop-up indicates “Clone with HTTPS” (we will cover SSH authentication later).</p>
-<p><em>Step 3:</em> Copy the provided URL to your clipboard.</p>
-<p><em>Step 4:</em> Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command.</p>
-<p><em>Step 5:</em> Type git clone followed by the URL, such as git clone https://github.com/github_username/repository_name.git, and press enter.</p>
-<p><em>Step 6:</em> After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.</p>
+<pre><code>Step 1: start by navigating to the specific repository on GitHub. 
+
+Step 2: Click the green "Clone or download" button, ensuring the pop-up indicates "Clone with HTTPS" (we will cover SSH authentication later). 
+
+Step 3: Copy the provided URL to your clipboard. 
+
+Step 4: Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command. 
+
+Step 5: Type git clone followed by the URL, such as git clone https://github.com/github_username/repository_name.git, and press enter. 
+
+Step 6: After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.</code></pre>
 <p>For more details, see Github’s docs on <a href="https://help.github.com/articles/cloning-a-repository/">cloning</a>.</p>
-<p><strong>Be Careful</strong>: do not nest git repositoies. That is, there should not be one git repository inside another git repositoiry. Be careful that when you are using <code>git clone</code> (or <code>git init</code></p>
+<p><strong>Be Careful</strong>: do not nest git repositoies. That is, there should not be one git repository inside another git repositoiry. Be careful that when you are using <code>git clone</code> (or <code>git init</code>)</p>
 </section>
 <section id="creating-a-repository-from-github-method-1-above" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-repository-from-github-method-1-above">Creating a repository from GitHub (method 1 above)</h2>
@@ -405,14 +406,28 @@ window.Quarto = {
 <p>You can create however many repositories on GitHub that you would like and remove them after, so you don’t need to worry about experimenting and creating several new ones.</p>
 <section id="steps-to-follow" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow">Steps to follow:</h3>
-<p><em>Step 1:</em> Start by navigating to https://github.ubc.ca and ensure you are logged in.</p>
-<p><em>Step 2:</em> Click the green “New repository” button. Alternatively, if you are on your profile page, select “Repositories” and then click the green “New” button.</p>
-<p><em>Step 3:</em> Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.</p>
-<p><em>Step 4:</em> Check the box labeled “Initialize this repository with a README.” This step allows the repository to be cloned immediately without needing to add a file manually later.</p>
-<p><em>Step 5:</em> Click the big green “Create repository” button.</p>
-<p><em>Step 6:</em> That’s it! You now have a new repository on GitHub!</p>
+<pre><code>Step 1: Start by navigating to https://github.ubc.ca and ensure you are logged in.
+
+Step 2: Click the green "New repository" button. Alternatively, if you are on your profile page, select "Repositories" and then click the green "New" button.
+
+Step 3: Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.
+
+Step 4: Check the box labeled "Initialize this repository with a README." This step allows the repository to be cloned immediately without needing to add a file manually later.
+
+Step 5: Click the big green "Create repository" button.
+
+Step 6: That's it! You now have a new repository on GitHub!</code></pre>
 <p><img src="img/github-workflow.png" class="img-fluid"></p>
 </section>
+<div class="exercise">
+<section id="lecture-2-exercise-1" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-2-exercise-1">Lecture 2 Exercise 1</h3>
+</section>
+<div class="exercise-container">
+<p>Check that your cloned repo it is a Git repository. How can you check that you are working on a Git repository?</p>
+<p>Is a repository the same as a directory? Can be a Git repository your current working directory?</p>
+</div>
+</div>
 </section>
 <section id="adding-committing-changes-to-version-controlled-files" class="level2">
 <h2 class="anchored" data-anchor-id="adding-committing-changes-to-version-controlled-files">Adding &amp; committing changes to version controlled files</h2>
@@ -422,33 +437,30 @@ window.Quarto = {
 <p>To demonstrate the first method, let’s edit the README.md file in your GitHub repository. Here are the steps to follow:</p>
 <section id="steps-to-follow-1" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow-1">Steps to follow:</h3>
-<p>Step 1: Click on the README.md file link in your repository on GitHub.</p>
-<p>Step 2: Click on the pen tool located on the right-hand side of the document.</p>
-<p>Step 3: Add your name as the author to the document (e.g., “author: Roald Dahl”).</p>
-<p>Step 4: Provide a commit message, such as “Add author info.”</p>
-<p>Step 5: Click the big green button “Commit changes” to save your work. This action combines git add and git commit into one step.</p>
-<p>Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository’s URL.</p>
+<pre><code>Step 1: Click on the README.md file link in your repository on GitHub.
+
+Step 2: Click on the pen tool located on the right-hand side of the document.
+
+Step 3: Add your name as the author to the document (e.g., "author: Roald Dahl").
+
+Step 4: Provide a commit message, such as "Add author info."
+
+Step 5: Click the big green button "Commit changes" to save your work. This action combines git add and git commit into one step.
+
+Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository's URL.</code></pre>
 </section>
 </section>
 <section id="changing-and-saving-version-controlled-files" class="level2">
 <h2 class="anchored" data-anchor-id="changing-and-saving-version-controlled-files">Changing and saving version controlled files</h2>
-<ul>
-<li><p>To make a change to a file inside a Git repository, edit it as you would with any other local file, e.g.&nbsp;<code>code name-of-file.txt</code>.</p></li>
-<li><p>Once you have made changes to a file in a local Git repository (such as on your laptop), you need to tell Git that you want to record these changes in the version history.</p></li>
-<li><p>This is a two step process where you first <strong>add</strong> the changes to the stanging area and then <strong>committ</strong> them, which saves the differences between the current and previous version of the file together with your message describing what you did.</p>
-<ul>
-<li>These changes are saved in the hidden <code>.git</code> directory in the Git repository.</li>
-</ul></li>
-<li><p>This is what it looks like when adding and committing:</p>
-<ol type="1">
-<li>Add changes to staging area</li>
-</ol>
-<p><code>git add file-name(s)</code></p>
-<ol start="2" type="1">
-<li>Commit the changes together with a descriptive message</li>
-</ol>
-<p><code>git commit -m "Clarify the README installation instructions"</code></p></li>
-</ul>
+<p>To make a change to a file inside a Git repository, start by editing it as you would any other local file. For example, you can use a text editor with a command like <code>code name-of-file.txt</code>.</p>
+<p>Once you have made changes to a file in a local Git repository (such as on your laptop), you need to tell Git that you want to record these changes in the version history. This process involves two main steps: <strong>adding</strong> the changes to the staging area and then <strong>committing</strong> them.</p>
+<p>Committing saves the differences between the current and previous version of the file along with a message describing what you did. These changes are saved in the hidden .git directory within the Git repository.</p>
+<p>Here’s a step-by-step guide on how to add and commit changes:</p>
+<pre><code>Step 1: Add changes to the staging area:
+Use the command git add file-name(s) to move the changes to the staging area.
+
+Step 2: Commit the changes with a descriptive message:
+Use the command git commit -m "Clarify the README installation instructions" to commit the changes along with a message that describes what you did.`</code></pre>
 <p>For more details, see Software Carpentry’s lesson on <a href="http://swcarpentry.github.io/git-novice/04-changes/">tracking local changes with Git</a>.</p>
 <section id="what-is-the-staging-area-and-why-is-it-there" class="level3">
 <h3 class="anchored" data-anchor-id="what-is-the-staging-area-and-why-is-it-there">What is the staging area, and why is it there?</h3>
@@ -489,8 +501,8 @@ window.Quarto = {
 </div>
 </div>
 <div class="exercise">
-<section id="lecture-2-exercise-2-1" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-2-exercise-2-1">Lecture 2 Exercise 2</h3>
+<section id="lecture-2-exercise-3" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-2-exercise-3">Lecture 2 Exercise 3</h3>
 </section>
 <div class="exercise-container">
 <ul>

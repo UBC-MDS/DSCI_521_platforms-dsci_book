@@ -7,11 +7,9 @@ jupyter: python3
 
 {{< include ../learning_objectives/lo-ch-03.qmd >}}
 
-**Lecture 3 **
+## Introduction
 
-You clone a project you want to start collaborating in. How you can see the
-
-
+In this lecture, we'll explore how to view your Git history and restore older versions of files. Understanding your project's history is crucial for tracking changes and fixing mistakes. Let's dive into the different methods for accessing your commit history and how to revert to previous file versions when needed.
 
 # Viewing your Git history and restoring an older version of the file
 
