@@ -16,15 +16,11 @@ In this lecture, we'll explore how to view your Git history and restore older ve
 Do you remember the commit messages that we used to write at the time of making a commit, for saving the state of a project?
 It is possible to have a look at the history of the full project with any of these 3 different methods
 
+You can view the Git history of a project in two main ways. 
 
-There are two ways you can view the Git history of a project:
+On the remote, you can use GitHub through the repository's code commit view. 
 
-**On the remote**
-1. On GitHub through the repo's code commit view
-**On your computer**
-2. In Jupyter Lab through the repo's code commit view
-3. In the terminal using `git log`
-
+On your computer, you can use Jupyter Lab through the repository's code commit view or the terminal by using the git log command.
 
 Notes:
 Now we have a project, but only 2 commits (the initial creation and adding us as the author). Let's now add a couple more commits to generate a history that we can view and experiment with by editing our `README.md`.
@@ -121,6 +117,8 @@ However, when working with collaborators there are usually changes made in more 
 2. Changes to a document where the same line(s) are modified (Git CANNOT automatically merge these and will complain that you have a "merge conflict" when you `pull`).
 
 In the second case, you have to help git by telling it which changes you want to keep. Git kindly points you to where the problem is in the output from `git pull` where it mentions which files have been modified from two source. You will need to edit this file to make it look how you want and then `add` it to the staging area and `commit`.
+
+![](img/fetchvspull.png)
 
 ## How do you know you have a merge conflict?
 

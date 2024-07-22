@@ -297,8 +297,9 @@ window.Quarto = {
 <section id="viewing-your-git-history-and-restoring-an-older-version-of-the-file" class="level1">
 <h1>Viewing your Git history and restoring an older version of the file</h1>
 <p>Do you remember the commit messages that we used to write at the time of making a commit, for saving the state of a project? It is possible to have a look at the history of the full project with any of these 3 different methods</p>
-<p>There are two ways you can view the Git history of a project:</p>
-<p><strong>On the remote</strong> 1. On GitHub through the repo’s code commit view <strong>On your computer</strong> 2. In Jupyter Lab through the repo’s code commit view 3. In the terminal using <code>git log</code></p>
+<p>You can view the Git history of a project in two main ways.</p>
+<p>On the remote, you can use GitHub through the repository’s code commit view.</p>
+<p>On your computer, you can use Jupyter Lab through the repository’s code commit view or the terminal by using the git log command.</p>
 <p>Notes: Now we have a project, but only 2 commits (the initial creation and adding us as the author). Let’s now add a couple more commits to generate a history that we can view and experiment with by editing our <code>README.md</code>.</p>
 <section id="steps-to-follow" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow">Steps to follow:</h3>
@@ -374,6 +375,7 @@ window.Quarto = {
 <li>Changes to a document where the same line(s) are modified (Git CANNOT automatically merge these and will complain that you have a “merge conflict” when you <code>pull</code>).</li>
 </ol>
 <p>In the second case, you have to help git by telling it which changes you want to keep. Git kindly points you to where the problem is in the output from <code>git pull</code> where it mentions which files have been modified from two source. You will need to edit this file to make it look how you want and then <code>add</code> it to the staging area and <code>commit</code>.</p>
+<p><img src="img/fetchvspull.png" class="img-fluid"></p>
 <section id="how-do-you-know-you-have-a-merge-conflict" class="level2">
 <h2 class="anchored" data-anchor-id="how-do-you-know-you-have-a-merge-conflict">How do you know you have a merge conflict?</h2>
 <p>If you have committed some changes locally, you might see something like this when you try to <code>push</code> them:</p>
