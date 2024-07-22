@@ -384,18 +384,15 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="cloning-repositories-from-github">Cloning repositories from GitHub</h2>
 <p>If you only need to make minor edits, you can directly edit files on GitHub using their online editor, eliminating the need to clone the repository.</p>
 <p>However, if you intend to run the code on your own machine and make modifications there, you will need to clone the repository to facilitate these changes.</p>
-<p>To clone a repository, follow these steps!</p>
-<pre><code>Step 1: start by navigating to the specific repository on GitHub. 
-
-Step 2: Click the green "Clone or download" button, ensuring the pop-up indicates "Clone with HTTPS" (we will cover SSH authentication later). 
-
-Step 3: Copy the provided URL to your clipboard. 
-
-Step 4: Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command. 
-
-Step 5: Type git clone followed by the URL, such as git clone https://github.com/github_username/repository_name.git, and press enter. 
-
-Step 6: After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.</code></pre>
+<p>To clone a repository, follow these steps:</p>
+<ul>
+<li><p>Step 1: start by navigating to the specific repository on GitHub.</p></li>
+<li><p>Step 2: Click the green “Clone or download” button, ensuring the pop-up indicates “Clone with HTTPS” (we will cover SSH authentication later).</p></li>
+<li><p>Step 3: Copy the provided URL to your clipboard.</p></li>
+<li><p>Step 4: Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command.</p></li>
+<li><p>Step 5: Type git clone followed by the URL, for example <code>git clone https://github.com/github_username/repository_name.git</code>and press enter.</p></li>
+<li><p>Step 6: After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.</p></li>
+</ul>
 <p>For more details, see Github’s docs on <a href="https://help.github.com/articles/cloning-a-repository/">cloning</a>.</p>
 <p><strong>Be Careful</strong>: do not nest git repositoies. That is, there should not be one git repository inside another git repositoiry. Be careful that when you are using <code>git clone</code> (or <code>git init</code>)</p>
 </section>
@@ -406,17 +403,14 @@ Step 6: After the download completes, you can use cd to enter the cloned directo
 <p>You can create however many repositories on GitHub that you would like and remove them after, so you don’t need to worry about experimenting and creating several new ones.</p>
 <section id="steps-to-follow" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow">Steps to follow:</h3>
-<pre><code>Step 1: Start by navigating to https://github.ubc.ca and ensure you are logged in.
-
-Step 2: Click the green "New repository" button. Alternatively, if you are on your profile page, select "Repositories" and then click the green "New" button.
-
-Step 3: Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.
-
-Step 4: Check the box labeled "Initialize this repository with a README." This step allows the repository to be cloned immediately without needing to add a file manually later.
-
-Step 5: Click the big green "Create repository" button.
-
-Step 6: That's it! You now have a new repository on GitHub!</code></pre>
+<ul>
+<li><p>Step 1: Start by navigating to https://github.ubc.ca and ensure you are logged in.</p></li>
+<li><p>Step 2: Click the green “New repository” button. Alternatively, if you are on your profile page, select “Repositories” and then click the green “New” button.</p></li>
+<li><p>Step 3: Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.</p></li>
+<li><p>Step 4: Check the box labeled “Initialize this repository with a README.” This step allows the repository to be cloned immediately without needing to add a file manually later.</p></li>
+<li><p>Step 5: Click the big green “Create repository” button.</p></li>
+<li><p>Step 6: That’s it! You now have a new repository on GitHub!</p></li>
+</ul>
 <p><img src="img/github-workflow.png" class="img-fluid"></p>
 </section>
 <div class="exercise">
@@ -437,17 +431,14 @@ Step 6: That's it! You now have a new repository on GitHub!</code></pre>
 <p>To demonstrate the first method, let’s edit the README.md file in your GitHub repository. Here are the steps to follow:</p>
 <section id="steps-to-follow-1" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow-1">Steps to follow:</h3>
-<pre><code>Step 1: Click on the README.md file link in your repository on GitHub.
-
-Step 2: Click on the pen tool located on the right-hand side of the document.
-
-Step 3: Add your name as the author to the document (e.g., "author: Roald Dahl").
-
-Step 4: Provide a commit message, such as "Add author info."
-
-Step 5: Click the big green button "Commit changes" to save your work. This action combines git add and git commit into one step.
-
-Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository's URL.</code></pre>
+<ul>
+<li><p>Step 1: Click on the README.md file link in your repository on GitHub.</p></li>
+<li><p>Step 2: Click on the pen tool located on the right-hand side of the document.</p></li>
+<li><p>Step 3: Add your name as the author to the document (e.g., “author: Roald Dahl”).</p></li>
+<li><p>Step 4: Provide a commit message, such as “Add author info.”</p></li>
+<li><p>Step 5: Click the big green button “Commit changes” to save your work. This action combines git add and git commit into one step.</p></li>
+<li><p>Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository’s URL.</p></li>
+</ul>
 </section>
 </section>
 <section id="changing-and-saving-version-controlled-files" class="level2">

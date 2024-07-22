@@ -133,19 +133,19 @@ If you only need to make minor edits, you can directly edit files on GitHub usin
 
 However, if you intend to run the code on your own machine and make modifications there, you will need to clone the repository to facilitate these changes.
 
-To clone a repository, follow these steps! 
+### Steps to follow:
 
-    Step 1: start by navigating to the specific repository on GitHub. 
+* Step 1: start by navigating to the specific repository on GitHub. 
 
-    Step 2: Click the green "Clone or download" button, ensuring the pop-up indicates "Clone with HTTPS" (we will cover SSH authentication later). 
+* Step 2: Click the green "Clone or download" button, ensuring the pop-up indicates "Clone with HTTPS" (we will cover SSH authentication later). 
 
-    Step 3: Copy the provided URL to your clipboard. 
+* Step 3: Copy the provided URL to your clipboard. 
 
-    Step 4: Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command. 
+* Step 4: Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command. 
 
-    Step 5: Type git clone followed by the URL, such as git clone https://github.com/github_username/repository_name.git, and press enter. 
+* Step 5: Type git clone followed by the URL, for example `git clone https://github.com/github_username/repository_name.git`and press enter. 
 
-    Step 6: After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.
+* Step 6: After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.
 
 For more details, see Github's docs on [cloning](https://help.github.com/articles/cloning-a-repository/).
 
@@ -166,17 +166,17 @@ and creating several new ones.
 
 ### Steps to follow:
 
-    Step 1: Start by navigating to https://github.ubc.ca and ensure you are logged in.
+* Step 1: Start by navigating to https://github.ubc.ca and ensure you are logged in.
 
-    Step 2: Click the green "New repository" button. Alternatively, if you are on your profile page, select "Repositories" and then click the green "New" button.
+* Step 2: Click the green "New repository" button. Alternatively, if you are on your profile page, select "Repositories" and then click the green "New" button.
 
-    Step 3: Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.
+* Step 3: Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.
 
-    Step 4: Check the box labeled "Initialize this repository with a README." This step allows the repository to be cloned immediately without needing to add a file manually later.
+* Step 4: Check the box labeled "Initialize this repository with a README." This step allows the repository to be cloned immediately without needing to add a file manually later.
 
-    Step 5: Click the big green "Create repository" button.
+* Step 5: Click the big green "Create repository" button.
 
-    Step 6: That's it! You now have a new repository on GitHub!
+* Step 6: That's it! You now have a new repository on GitHub!
 
 
 ![](img/github-workflow.png)
@@ -206,17 +206,17 @@ To demonstrate the first method, let's edit the README.md file in your GitHub re
 
 ### Steps to follow:
 
-    Step 1: Click on the README.md file link in your repository on GitHub.
+* Step 1: Click on the README.md file link in your repository on GitHub.
 
-    Step 2: Click on the pen tool located on the right-hand side of the document.
+* Step 2: Click on the pen tool located on the right-hand side of the document.
 
-    Step 3: Add your name as the author to the document (e.g., "author: Roald Dahl").
+* Step 3: Add your name as the author to the document (e.g., "author: Roald Dahl").
 
-    Step 4: Provide a commit message, such as "Add author info."
+* Step 4: Provide a commit message, such as "Add author info."
 
-    Step 5: Click the big green button "Commit changes" to save your work. This action combines git add and git commit into one step.
+* Step 5: Click the big green button "Commit changes" to save your work. This action combines git add and git commit into one step.
 
-    Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository's URL.
+* Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository's URL.
 
 ## Changing and saving version controlled files
 

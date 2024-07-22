@@ -303,15 +303,16 @@ window.Quarto = {
 <p>Notes: Now we have a project, but only 2 commits (the initial creation and adding us as the author). Let’s now add a couple more commits to generate a history that we can view and experiment with by editing our <code>README.md</code>.</p>
 <section id="steps-to-follow" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow">Steps to follow:</h3>
-<ol type="1">
-<li><p>Use the pen tool to change the README header from the default (repo name) to a more proper English title for the project. Click on the big green button “Commit changes” to save your work.</p></li>
-<li><p>Use the pen tool to add today’s date as the project start date to the README. Click on the big green button “Commit changes” to save your work.</p></li>
-<li><p>Use the pen tool to add a fictional list of software dependencies for your project (e.g.&nbsp;R and Python) to the README. Click on the big green button “Commit changes” to save your work.</p></li>
-<li><p>“Accidentally” delete the list of dependencies you just created. Click on the big green button “Commit changes” to save your work.</p></li>
-<li><p>Bring all these changes down to your local computer by typing <code>git pull</code> from inside the cloned repo on your laptop using Git Bash/terminal (hint - open the file locally to see that it looks as expected to ensure you did things correctly).</p></li>
-</ol>
+<ul>
+<li><p>Step 1: Use the pen tool to change the README header from the default (repo name) to a more proper English title for the project. Click on the big green button “Commit changes” to save your work.</p></li>
+<li><p>Step 2: Use the pen tool to add today’s date as the project start date to the README. Click on the big green button “Commit changes” to save your work.</p></li>
+<li><p>Step 3: Use the pen tool to add a fictional list of software dependencies for your project (e.g.&nbsp;R and Python) to the README. Click on the big green button “Commit changes” to save your work.</p></li>
+<li><p>Step 4: “Accidentally” delete the list of dependencies you just created. Click on the big green button “Commit changes” to save your work.</p></li>
+<li><p>Step 5: Bring all these changes down to your local computer by typing <code>git pull</code> from inside the cloned repo on your laptop using Git Bash/terminal (hint - open the file locally to see that it looks as expected to ensure you did things correctly).</p></li>
+</ul>
 <p>On GitHub, on the repo’s landing page click “<em>N</em> commits” link (where <em>N</em> is the number of commits made on the repo). Now we have a project, but only 3 commits. You can identify all parts of each commit, including the day it was made, author, hash. You can also go back to the repository at the moment of making this change by clicking the <code>&lt;&gt;</code> button.</p>
 <p>If you want to access your project information using the terminal you can use the <code>git log</code> command. Pay attention that here you are looking at the long version of the hash and not the 7-character long version displayed by default in Jupyter Lab or GitHub. In both cases, you will be able to identify the commit using its hash.</p>
+<p><img src="img/gitlog.png" class="img-fluid"></p>
 <p>Adding the flag <code>--oneline</code> to the command <code>git log</code> will provide you a different format for the output, in this case, you get a succint version of the information of each commit.</p>
 <p>The terminal allows greater flexibility when it comes to obtaining information about your project. If you would like to know what other possibilities you have for using the <code>git log</code> command, you can access the help by typing the command <code>git log --help</code>.</p>
 <p>We have covered three distinct methods for viewing your project’s history. Prior to starting the activities, give them a try yourself in an example Git repository!</p>
@@ -322,16 +323,12 @@ window.Quarto = {
 </section>
 <section id="viewing-the-history-of-a-project" class="level2">
 <h2 class="anchored" data-anchor-id="viewing-the-history-of-a-project">Viewing the history of a project</h2>
-<p>There are two ways you can view the Git history of a project:</p>
-<ol type="1">
-<li>On GitHub through the repo’s code commit view</li>
-<li>On your local machine using <code>git log</code></li>
-</ol>
+<p>There are two ways to view the Git history of a project: you can either use the repository’s code commit view on GitHub, or you can use the <code>git log</code> command on your local machine.</p>
 <section id="steps-to-follow-1" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow-1">Steps to follow:</h3>
-<ol type="1">
-<li>On GitHub, on the repo’s landing page click “<span class="math inline">\(N\)</span> commit” link (where <span class="math inline">\(N\)</span> is the number of commits made on the repo, yours should be around 6).</li>
-<li>On your laptop, from inside your Git repository type <code>git log</code> at the command line. You can use <code>git log --oneline</code> for more succinct output or the alias shortcut <code>gl</code> that we created.
+<ul>
+<li>Step 1: On GitHub, on the repo’s landing page click “<span class="math inline">\(N\)</span> commit” link (where <span class="math inline">\(N\)</span> is the number of commits made on the repo, yours should be around 6).</li>
+<li>Step 2: On your laptop, from inside your Git repository type <code>git log</code> at the command line. You can use <code>git log --oneline</code> for more succinct output or the alias shortcut <code>gl</code> that we created.
 <ul>
 <li>You can navigate this log by scrolling with the mouse, arrow keys, or by the same commands we used with <code>man</code> in the first lecture
 <ul>
@@ -344,7 +341,7 @@ window.Quarto = {
 </ul></li>
 </ul></li>
 </ul></li>
-</ol>
+</ul>
 </section>
 <section id="reflection-point" class="level3">
 <h3 class="anchored" data-anchor-id="reflection-point">Reflection point</h3>
@@ -357,12 +354,12 @@ window.Quarto = {
 <p>Let’s restore the version of the file BEFORE we deleted the software dependency list.</p>
 <section id="steps-to-follow-2" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow-2">Steps to follow:</h3>
-<ol type="1">
-<li><p>Look at the log to see which version of the file we want to go back to and get its Short SHA-1 (the first characters of the commit ID, we’ll need this to know which point in time to retrieve the file from).</p></li>
-<li><p>Then we use <code>git restore</code> in the command line to grab it: <code>git restore --source SHORT_SHA-1 FILENAME</code> (you can also use <code>-s</code> instead of <code>--source</code>.</p></li>
-<li><p>When restoring the file, it is added to the working area. If we want to save the restored version of the file to the git repo, we need to <code>add</code> and <code>commit</code> it, just like with any other modifications.</p></li>
-<li><p>Don’t forget <code>git push</code> to get the file backed up on GitHub!</p></li>
-</ol>
+<ul>
+<li><p>Step 1: Examine the log to identify the version of the file you want to revert to and note its short SHA-1 (the first few characters of the commit ID). You’ll need this to specify the exact point in time from which to retrieve the file.</p></li>
+<li><p>Step 2: Next, use the <code>git restore</code> command in the terminal to retrieve the file: <code>git restore --source SHORT_SHA-1 FILENAME</code> (you can also use <code>-s</code> as a shorthand for <code>--source</code>).</p></li>
+<li><p>Step 3: When restoring the file, it is added to the working area. To save the restored version of the file to the Git repository, you need to <code>add</code> and <code>commit</code> it, just like any other modification.</p></li>
+<li><p>Step 4: Don’t forget to run <code>git push</code> to back up the file on GitHub!</p></li>
+</ul>
 </section>
 </section>
 </section>
@@ -370,10 +367,10 @@ window.Quarto = {
 <h1>3. Deal with merge conflicts at the command line</h1>
 <p>When you run <code>git pull</code> git will do two things for you: it will <code>fetch</code> the content from the remote and then <code>merge</code> it into your repository. When you are working alone on a repository git will likely be able to do these two things automatically every time you <code>pull</code>, and you don’t need to intervene manually.</p>
 <p>However, when working with collaborators there are usually changes made in more than one place (e.g., you made changes in the local repo on your laptop at the same time as your collaborator updated the remote repo on GitHub). Eventually, the same document will have been changed in different places and this can create issues for git regarding how to consolidate and <code>merge</code> these changes together. There are two distinct merge scenarios for when a document is changed in two places:</p>
-<ol type="1">
-<li>Changes to a document where different lines are modified (Git can automatically merge these and will do so when you <code>pull</code>).</li>
-<li>Changes to a document where the same line(s) are modified (Git CANNOT automatically merge these and will complain that you have a “merge conflict” when you <code>pull</code>).</li>
-</ol>
+<ul>
+<li><p>Place 1: Changes to a document where different lines are modified (Git can automatically merge these and will do so when you <code>pull</code>).</p></li>
+<li><p>Place 2: Changes to a document where the same line(s) are modified (Git CANNOT automatically merge these and will complain that you have a “merge conflict” when you <code>pull</code>).</p></li>
+</ul>
 <p>In the second case, you have to help git by telling it which changes you want to keep. Git kindly points you to where the problem is in the output from <code>git pull</code> where it mentions which files have been modified from two source. You will need to edit this file to make it look how you want and then <code>add</code> it to the staging area and <code>commit</code>.</p>
 <p><img src="img/fetchvspull.png" class="img-fluid"></p>
 <section id="how-do-you-know-you-have-a-merge-conflict" class="level2">
@@ -411,15 +408,12 @@ Automatic merge failed; fix conflicts and then commit the result.
 </div>
 <section id="what-do-you-do-to-fix-a-merge-conflict" class="level2">
 <h2 class="anchored" data-anchor-id="what-do-you-do-to-fix-a-merge-conflict">What do you do to fix a merge conflict?</h2>
-<ol type="1">
-<li>Open the file that has a conflict (the output of <code>git pull</code> will tell you which files) in a plain text editor (e.g., VS code)</li>
-<li>Look for the conflict (hint - search for <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>)</li>
-<li>Fix the conflict by deleting everything you don’t want to keep in the file, including the <code>&lt;&lt;&lt;&lt;&lt;</code> etc that git added.
 <ul>
-<li><strong>Note</strong> VS Code will help you with this by color highlighting the changes and providing buttons you can click to accept either the current or incoming change (or both). Using these buttons instead of modifying the file manually can save you from mistakes that can take a lot of time to troubleshoot and fix so we <strong>highly recommend</strong> that you use this feature.</li>
-</ul></li>
-<li>After the file looks like you want it, <code>add</code> it and <code>commit</code> your changes. Then you can <code>push</code> them up to GitHub.</li>
-</ol>
+<li><p>Step 1: Open the file that has a conflict (the output of <code>git pull</code> will tell you which files) in a plain text editor (e.g., VS Code).</p></li>
+<li><p>Step 2: Look for the conflict (hint: search for <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>).</p></li>
+<li><p>Step 3: Fix the conflict by deleting everything you don’t want to keep in the file, including the <code>&lt;&lt;&lt;&lt;&lt;</code>, <code>=====</code>, and <code>&gt;&gt;&gt;&gt;&gt;</code> markers that Git added. Note: VS Code will help you with this by color highlighting the changes and providing buttons you can click to accept either the current or incoming change (or both). Using these buttons instead of modifying the file manually can save you from mistakes that can take a lot of time to troubleshoot and fix, so we highly recommend using this feature.</p></li>
+<li><p>Step 4: After the file looks as you want it, <code>add</code> it and <code>commit</code> your changes. Then you can <code>push</code> them up to GitHub.</p></li>
+</ul>
 <p>Here’s an example of a text file with a conflict and how it can look after you have resolved it:</p>
 <pre><code>Some text up here
 that is not part of the merge conflict,
@@ -570,32 +564,23 @@ nothing to commit, working tree clean</code></pre>
 </section>
 <section id="gitignore-tips-and-tricks" class="level2">
 <h2 class="anchored" data-anchor-id="gitignore-tips-and-tricks"><code>.gitignore</code> tips and tricks</h2>
-<ul>
-<li>append <code>**/</code> to the beginning of any file/folder names listed in the <code>.gitignore</code> file to have them ignored in subdirectories within the repo as well</li>
-<li>create a <a href="https://help.github.com/articles/ignoring-files/#create-a-global-gitignore">global <code>.gitignore</code> file</a> so that you do not have to create the same <code>.gitignore</code> for all your homework repos</li>
-</ul>
+<p>To have files or folders ignored in subdirectories within the repo, append <code>**/</code> to the beginning of their names listed in the <code>.gitignore</code> file. Additionally, consider creating a <a href="https://help.github.com/articles/ignoring-files/#create-a-global-gitignore">global <code>.gitignore</code> file</a> so that you do not have to create the same <code>.gitignore</code> for all your repositories.</p>
 <p>Let’s create a <code>gitignore</code> file in our 521 lab 2 repo.</p>
 <section id="steps-to-follow-3" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow-3">Steps to follow:</h3>
-<ol type="1">
-<li>Use a text editor (e.g., VS Code, nano, Jupyter) to create a file called <code>.gitignore</code> in your 521 lab 2 repo</li>
-<li>Add <code>**/.ipynb_checkpoints/</code> to that file and save it</li>
-<li><code>add</code> and <code>commit</code> it with Git</li>
-<li>Type <code>git status</code> and see if you no longer see <code>.ipynb_checkpoints/</code> as a untracked file</li>
-</ol>
+<p>Sure, here it is in prose form:</p>
 <ul>
-<li>We can do anything we want:
-<ul>
-<li>keep the change made in the local repository,</li>
-<li>keep the change made in the remote repository,</li>
-<li>write something new to replace both,</li>
-<li>or get rid of the change entirely.</li>
-</ul></li>
+<li><p>Step 1: Use a text editor (e.g., VS Code, nano, Jupyter) to create a file called <code>.gitignore</code> in your 521 lab 2 repo.</p></li>
+<li><p>Step 2: Add <code>**/.ipynb_checkpoints/</code> to that file and save it.</p></li>
+<li><p>Step 3: Add and commit it with Git.</p></li>
+<li><p>Step 4: Type <code>git status</code> and see if you no longer see <code>.ipynb_checkpoints/</code> as an untracked file.</p></li>
 </ul>
-<p>To move the branch we are currently back to a previously created commit, we can use the <code>git reset</code> command. Let’s say that we are currently on the master branch of a repo where the output of <code>git log --oneline</code> looks like this:</p>
+<p>In Git, we have the flexibility to handle changes in several ways. We can choose to keep the change made in the local repository, keep the change made in the remote repository, write something new to replace both, or get rid of the change entirely.</p>
+<p>To move the branch we are currently on back to a previously created commit, we can use the <code>git reset</code> command. For example, let’s say we are on the master branch of a repository and the output of <code>git log --oneline</code> looks like this:</p>
 <pre><code>fb962e0 (HEAD -&gt; master) Add md demo
 bcb541e Make heading more precise
 5c01f2f Initial commit</code></pre>
+<p>To reset the branch to the commit with the message “Make heading more precise,” we would use the command <code>git reset bcb541e</code>. This command repositions the branch to the specified commit, effectively discarding any changes made after that commit.</p>
 <p>We can move the location of the master branch back in the commit history by typing <code>git reset &lt;sha&gt;</code>. So to move to the previous commit, we would type <code>git reset bcb541e</code>. Our git log would now show this:</p>
 <pre><code>bcb541e (HEAD -&gt; master) Make heading more precise
 5c01f2f Initial commit</code></pre>
