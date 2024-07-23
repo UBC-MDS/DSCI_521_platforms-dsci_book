@@ -160,6 +160,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
+ <span class="menu-text"><div style="text-align: center;">
+  <img src="MDSlogo.png" alt="MDS Logo" style="width: 100%; height: auto;">
+</div>
+</span>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/0-jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 0: JupyterLab Orientation</span></a>
@@ -219,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -232,6 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#where-are-we" id="toc-where-are-we" class="nav-link" data-scroll-target="#where-are-we">Where are we?</a>
   <ul class="collapse">
   <li><a href="#setting-the-working-directory" id="toc-setting-the-working-directory" class="nav-link" data-scroll-target="#setting-the-working-directory">Setting the working directory</a></li>
+  <li><a href="#three-ways-to-follow" id="toc-three-ways-to-follow" class="nav-link" data-scroll-target="#three-ways-to-follow">Three Ways to follow:</a></li>
   </ul></li>
   <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio projects</a></li>
   <li><a href="#creating-rstudio-projects" id="toc-creating-rstudio-projects" class="nav-link" data-scroll-target="#creating-rstudio-projects">Creating RStudio projects</a></li>
@@ -308,12 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="the-rstudio-interface">The RStudio interface</h2>
 <p>The default panel layout is shown below. You can customize where the individual panels go, and if you have opend RStudio earlier, they might not be arranged in exactly this layout. Each panel has multiple tabs and here we are highlighting the tabs we will use the most in each panel.</p>
 <p><img src="img/rstudio_ide.png" class="img-fluid"></p>
-<ul>
-<li>The “Editor” tab is where you write R code that will be saved as a file.</li>
-<li>The “Console” tab is where R commands are sent and evaluated by R. No R code written here is saved.</li>
-<li>The “Environment” tab shows the currently defined variables.</li>
-<li>The “Files” tab let’s you navigate your file system. This panel also has the “Plots” and “Help” tabs which show figures you create and function documentation, respectively.</li>
-</ul>
+<p>The “Editor” tab is where you can write R code that will be saved as a file. In contrast, the “Console” tab is where R commands are sent and evaluated by R, but any R code written here is not saved. The “Environment” tab displays the currently defined variables, providing a snapshot of your workspace. The “Files” tab allows you to navigate your file system, and this panel also includes the “Plots” and “Help” tabs, which show figures you create and provide function documentation, respectively.</p>
 </section>
 <section id="r-scripts" class="level2">
 <h2 class="anchored" data-anchor-id="r-scripts">R Scripts</h2>
@@ -341,13 +343,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <section id="setting-the-working-directory" class="level3">
 <h3 class="anchored" data-anchor-id="setting-the-working-directory">Setting the working directory</h3>
-<p>You can set the working directory using the following 3 ways:</p>
-<ol type="1">
-<li><p>Use an RStudio project (more on this below)</p></li>
-<li><p>In the files pane, navigate the file structure to where you want the working directory to be. Then click the cog/More button and then click “Set As Working Directory”</p></li>
-<li><p>In the Session menu, click Set Working Directory and then Choose Directory. Navigate the opened file browser to choose the directory.</p></li>
-<li><p>Type <code>setwd("PATH")</code> in the console (should be used with care though - see <a href="https://www.tidyverse.org/articles/2017/12/workflow-vs-script/">Jenny’s article</a> about it.)</p></li>
-</ol>
+</section>
+<section id="three-ways-to-follow" class="level3">
+<h3 class="anchored" data-anchor-id="three-ways-to-follow">Three Ways to follow:</h3>
+<ul>
+<li><p>Way 1. <em>Use an RStudio project</em>: RStudio projects help organize your work and manage your files and settings. More details on RStudio projects are provided below.</p></li>
+<li><p>Way 2. <em>Set the working directory through the Files pane</em>: Navigate to the desired location in your file structure using the Files pane. Once there, click the cog/More button and select “Set As Working Directory”.</p></li>
+<li><p>Way 3. <em>Set the working directory via the Session menu</em>: Go to the Session menu, click “Set Working Directory”, and then choose “Choose Directory”. This will open a file browser where you can navigate to and select the desired directory.</p></li>
+<li><p>Way 4. <em>Set the working directory using the console</em>: Type <code>setwd("PATH")</code> in the console, replacing “PATH” with the path to your desired directory. Use this method with care, as explained in Jenny’s <a href="https://www.tidyverse.org/articles/2017/12/workflow-vs-script/">article on workflow vs.&nbsp;script</a>.</p></li>
+</ul>
 </section>
 </section>
 <section id="rstudio-projects" class="level2">

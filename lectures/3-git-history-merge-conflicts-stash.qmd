@@ -177,6 +177,7 @@ D. Work only locally or only in the remote repository.
 
 
 ## What do you do to fix a merge conflict?
+### Steps to follow:
 
 * Step 1: Open the file that has a conflict (the output of `git pull` will tell you which files) in a plain text editor (e.g., VS Code).
 
