@@ -423,7 +423,7 @@
     "href": "lectures/3-git-history-merge-conflicts-stash.html#viewing-the-history-of-a-project",
     "title": "Getting grovy with Git and GitHub",
     "section": "Viewing the history of a project",
-    "text": "Viewing the history of a project\nThere are two ways to view the Git history of a project: you can either use the repository’s code commit view on GitHub, or you can use the git log command on your local machine.\n\nSteps to follow:\n\nStep 1: On GitHub, on the repo’s landing page click “\\(N\\) commit” link (where \\(N\\) is the number of commits made on the repo, yours should be around 6).\nStep 2: On your laptop, from inside your Git repository type git log at the command line. You can use git log --oneline for more succinct output or the alias shortcut gl that we created.\n\nYou can navigate this log by scrolling with the mouse, arrow keys, or by the same commands we used with man in the first lecture\n\nq = quit\nb/space = up/down\n/ + search term + enter = search for a word\nn/N got to next/previous match for the search term\n\nYou don’t need to memorize these commands, they’re here as a resource if you wish to use them instead of the mouse and arrow keys.\n\n\n\n\n\n\nReflection point\nHow similar are the local and webpage log views?? Do you get the same information from both? Which seems easier to read/navigate?",
+    "text": "Viewing the history of a project\nThere are two ways to view the Git history of a project: you can either use the repository’s code commit view on GitHub, or you can use the git log command on your local machine.\n\nSteps to follow:\n\nStep 1: On GitHub, on the repo’s landing page click “\\(N\\) commit” link (where \\(N\\) is the number of commits made on the repo, yours should be around 6).\nStep 2: On your laptop, from inside your Git repository type git log at the command line. You can use git log --oneline for more succinct output or the alias shortcut gl that we created.\n\nYou can navigate this log by scrolling with the mouse, arrow keys, or by the same commands we used with man in the first lecture\n\nq = quit\nb/space = up/down\n/ + search term + enter = search for a word\nn/N got to next/previous match for the search term\n\nYou don’t need to memorize these commands, they’re here as a resource if you wish to use them instead of the mouse and arrow keys.",
     "crumbs": [
       "Home",
       "Lecture 3: Getting grovy with Git and GitHub"
@@ -467,7 +467,7 @@
     "href": "lectures/3-git-history-merge-conflicts-stash.html#what-do-you-do-to-fix-a-merge-conflict",
     "title": "Getting grovy with Git and GitHub",
     "section": "What do you do to fix a merge conflict?",
-    "text": "What do you do to fix a merge conflict?\n\nStep 1: Open the file that has a conflict (the output of git pull will tell you which files) in a plain text editor (e.g., VS Code).\nStep 2: Look for the conflict (hint: search for &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD).\nStep 3: Fix the conflict by deleting everything you don’t want to keep in the file, including the &lt;&lt;&lt;&lt;&lt;, =====, and &gt;&gt;&gt;&gt;&gt; markers that Git added. Note: VS Code will help you with this by color highlighting the changes and providing buttons you can click to accept either the current or incoming change (or both). Using these buttons instead of modifying the file manually can save you from mistakes that can take a lot of time to troubleshoot and fix, so we highly recommend using this feature.\nStep 4: After the file looks as you want it, add it and commit your changes. Then you can push them up to GitHub.\n\nHere’s an example of a text file with a conflict and how it can look after you have resolved it:\nSome text up here\nthat is not part of the merge conflict,\nbut just included for context.\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nWe added this line in our last commit\n=======\nThis line was added somewhere else\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD precedes the change you made (that you couldn’t push)\n======= is a separator between the conflicting changes\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d flags the end of the conflicting change you pulled from GitHub",
+    "text": "What do you do to fix a merge conflict?\n\nSteps to follow:\n\nStep 1: Open the file that has a conflict (the output of git pull will tell you which files) in a plain text editor (e.g., VS Code).\nStep 2: Look for the conflict (hint: search for &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD).\nStep 3: Fix the conflict by deleting everything you don’t want to keep in the file, including the &lt;&lt;&lt;&lt;&lt;, =====, and &gt;&gt;&gt;&gt;&gt; markers that Git added. Note: VS Code will help you with this by color highlighting the changes and providing buttons you can click to accept either the current or incoming change (or both). Using these buttons instead of modifying the file manually can save you from mistakes that can take a lot of time to troubleshoot and fix, so we highly recommend using this feature.\nStep 4: After the file looks as you want it, add it and commit your changes. Then you can push them up to GitHub.\n\nHere’s an example of a text file with a conflict and how it can look after you have resolved it:\nSome text up here\nthat is not part of the merge conflict,\nbut just included for context.\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nWe added this line in our last commit\n=======\nThis line was added somewhere else\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD precedes the change you made (that you couldn’t push)\n======= is a separator between the conflicting changes\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d flags the end of the conflicting change you pulled from GitHub",
     "crumbs": [
       "Home",
       "Lecture 3: Getting grovy with Git and GitHub"
@@ -1959,6 +1959,17 @@
     "crumbs": [
       "Home",
       "Lecture 2: Introduction to version control with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-exercise-1",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-exercise-1",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "Lecture 3 Exercise 1",
+    "text": "Lecture 3 Exercise 1",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
     ]
   }
 ]

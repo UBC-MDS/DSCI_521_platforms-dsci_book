@@ -85,6 +85,24 @@ There are two ways to view the Git history of a project: you can either use the 
        - `n`/`N` got to next/previous match for the search term
            - You don't need to memorize these commands, they're here as a resource if you wish to use them instead of the mouse and arrow keys.
 
+:::{.exercise}
+::::{.exercise-header}
+## Lecture 3 Exercise 1
+::::
+::::{.exercise-container}
+
+1 - Question: What are the main methods to view your Git history?
+
+A. Using GitHub through the repository’s code commit view
+
+B. Using Jupyter Lab through the repository’s code commit view
+
+C. Using the terminal with the `git log` command
+
+D. All of the above
+::::
+:::
+
 ### Reflection point
 
 How similar are the local and webpage log views?? Do you get the same information from both? Which seems easier to read/navigate?
@@ -164,14 +182,16 @@ they happen to everyone and you will need to know how to instruct git what to do
 ## Lecture 3 Activity 1
 ::::
 ::::{.activity-container}
-**Lecture activity**
-
 1 - What of the following practices do you think could be a good idea in order to avoid having merge conflicts?
 
 A. Push changes to the remote repository daily before starting to work on your local changes.
+
 B. Pull changes to the remote repository daily before starting to work on your local changes.
+
 C. Stash changes using the terminal before pulling potentially new conflicting information from the remote repository.
+
 D. Work only locally or only in the remote repository.
+
 ::::
 :::
 

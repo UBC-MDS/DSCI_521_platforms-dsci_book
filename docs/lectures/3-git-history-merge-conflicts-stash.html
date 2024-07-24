@@ -155,6 +155,12 @@ window.Quarto = {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
+ <span class="menu-text"><div style="text-align: center;">
+  <img src="MDSlogo.png" alt="MDS Logo" style="width: 100%; height: auto;">
+</div>
+</span>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/0-jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 0: JupyterLab Orientation</span></a>
@@ -226,8 +232,8 @@ window.Quarto = {
   <li><a href="#viewing-the-history-of-a-project" id="toc-viewing-the-history-of-a-project" class="nav-link" data-scroll-target="#viewing-the-history-of-a-project">Viewing the history of a project</a>
   <ul class="collapse">
   <li><a href="#steps-to-follow-1" id="toc-steps-to-follow-1" class="nav-link" data-scroll-target="#steps-to-follow-1">Steps to follow:</a></li>
-  <li><a href="#reflection-point" id="toc-reflection-point" class="nav-link" data-scroll-target="#reflection-point">Reflection point</a></li>
   </ul></li>
+  <li><a href="#reflection-point" id="toc-reflection-point" class="nav-link" data-scroll-target="#reflection-point">Reflection point</a></li>
   <li><a href="#restoring-an-older-version-of-a-file" id="toc-restoring-an-older-version-of-a-file" class="nav-link" data-scroll-target="#restoring-an-older-version-of-a-file">Restoring an older version of a file</a>
   <ul class="collapse">
   <li><a href="#steps-to-follow-2" id="toc-steps-to-follow-2" class="nav-link" data-scroll-target="#steps-to-follow-2">Steps to follow:</a></li>
@@ -236,7 +242,10 @@ window.Quarto = {
   <li><a href="#deal-with-merge-conflicts-at-the-command-line" id="toc-deal-with-merge-conflicts-at-the-command-line" class="nav-link" data-scroll-target="#deal-with-merge-conflicts-at-the-command-line">3. Deal with merge conflicts at the command line</a>
   <ul class="collapse">
   <li><a href="#how-do-you-know-you-have-a-merge-conflict" id="toc-how-do-you-know-you-have-a-merge-conflict" class="nav-link" data-scroll-target="#how-do-you-know-you-have-a-merge-conflict">How do you know you have a merge conflict?</a></li>
-  <li><a href="#what-do-you-do-to-fix-a-merge-conflict" id="toc-what-do-you-do-to-fix-a-merge-conflict" class="nav-link" data-scroll-target="#what-do-you-do-to-fix-a-merge-conflict">What do you do to fix a merge conflict?</a></li>
+  <li><a href="#what-do-you-do-to-fix-a-merge-conflict" id="toc-what-do-you-do-to-fix-a-merge-conflict" class="nav-link" data-scroll-target="#what-do-you-do-to-fix-a-merge-conflict">What do you do to fix a merge conflict?</a>
+  <ul class="collapse">
+  <li><a href="#steps-to-follow-3" id="toc-steps-to-follow-3" class="nav-link" data-scroll-target="#steps-to-follow-3">Steps to follow:</a></li>
+  </ul></li>
   <li><a href="#what-about-merge-conflicts-of-jupyter-notebooks" id="toc-what-about-merge-conflicts-of-jupyter-notebooks" class="nav-link" data-scroll-target="#what-about-merge-conflicts-of-jupyter-notebooks">What about merge conflicts of Jupyter notebooks?</a>
   <ul class="collapse">
   <li><a href="#first---a-bit-about-what-a-jupyter-notebook-is-made-up-of" id="toc-first---a-bit-about-what-a-jupyter-notebook-is-made-up-of" class="nav-link" data-scroll-target="#first---a-bit-about-what-a-jupyter-notebook-is-made-up-of">First - a bit about what a Jupyter notebook is made up of</a></li>
@@ -250,7 +259,7 @@ window.Quarto = {
   <li><a href="#create-a-.gitignore-file" id="toc-create-a-.gitignore-file" class="nav-link" data-scroll-target="#create-a-.gitignore-file">5. Create a <code>.gitignore</code> file</a></li>
   <li><a href="#gitignore-tips-and-tricks" id="toc-gitignore-tips-and-tricks" class="nav-link" data-scroll-target="#gitignore-tips-and-tricks"><code>.gitignore</code> tips and tricks</a>
   <ul class="collapse">
-  <li><a href="#steps-to-follow-3" id="toc-steps-to-follow-3" class="nav-link" data-scroll-target="#steps-to-follow-3">Steps to follow:</a></li>
+  <li><a href="#steps-to-follow-4" id="toc-steps-to-follow-4" class="nav-link" data-scroll-target="#steps-to-follow-4">Steps to follow:</a></li>
   </ul></li>
   <li><a href="#syncing-with-a-remote-after-resetting" id="toc-syncing-with-a-remote-after-resetting" class="nav-link" data-scroll-target="#syncing-with-a-remote-after-resetting">Syncing with a remote after resetting</a></li>
   </ul></li>
@@ -343,10 +352,22 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
+</section>
+<div class="exercise">
+<section id="lecture-3-exercise-1" class="level2 exercise-header">
+<h2 class="anchored" data-anchor-id="lecture-3-exercise-1">Lecture 3 Exercise 1</h2>
+</section>
+<div class="exercise-container">
+<p>1 - Question: What are the main methods to view your Git history?</p>
+<p>A. Using GitHub through the repository’s code commit view</p>
+<p>B. Using Jupyter Lab through the repository’s code commit view</p>
+<p>C. Using the terminal with the <code>git log</code> command</p>
+<p>D. All of the above</p>
+</div>
+</div>
 <section id="reflection-point" class="level3">
 <h3 class="anchored" data-anchor-id="reflection-point">Reflection point</h3>
 <p>How similar are the local and webpage log views?? Do you get the same information from both? Which seems easier to read/navigate?</p>
-</section>
 </section>
 <section id="restoring-an-older-version-of-a-file" class="level2">
 <h2 class="anchored" data-anchor-id="restoring-an-older-version-of-a-file">Restoring an older version of a file</h2>
@@ -401,13 +422,17 @@ Automatic merge failed; fix conflicts and then commit the result.
 <h2 class="anchored" data-anchor-id="lecture-3-activity-1">Lecture 3 Activity 1</h2>
 </section>
 <div class="activity-container">
-<p><strong>Lecture activity</strong></p>
 <p>1 - What of the following practices do you think could be a good idea in order to avoid having merge conflicts?</p>
-<p>A. Push changes to the remote repository daily before starting to work on your local changes. B. Pull changes to the remote repository daily before starting to work on your local changes. C. Stash changes using the terminal before pulling potentially new conflicting information from the remote repository. D. Work only locally or only in the remote repository.</p>
+<p>A. Push changes to the remote repository daily before starting to work on your local changes.</p>
+<p>B. Pull changes to the remote repository daily before starting to work on your local changes.</p>
+<p>C. Stash changes using the terminal before pulling potentially new conflicting information from the remote repository.</p>
+<p>D. Work only locally or only in the remote repository.</p>
 </div>
 </div>
 <section id="what-do-you-do-to-fix-a-merge-conflict" class="level2">
 <h2 class="anchored" data-anchor-id="what-do-you-do-to-fix-a-merge-conflict">What do you do to fix a merge conflict?</h2>
+<section id="steps-to-follow-3" class="level3">
+<h3 class="anchored" data-anchor-id="steps-to-follow-3">Steps to follow:</h3>
 <ul>
 <li><p>Step 1: Open the file that has a conflict (the output of <code>git pull</code> will tell you which files) in a plain text editor (e.g., VS Code).</p></li>
 <li><p>Step 2: Look for the conflict (hint: search for <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>).</p></li>
@@ -428,6 +453,7 @@ This line was added somewhere else
 <li><code>=======</code> is a separator between the conflicting changes</li>
 <li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d</code> flags the end of the conflicting change you pulled from GitHub</li>
 </ul>
+</section>
 </section>
 <div class="activity">
 <section id="lecture-3-activity-2" class="level2 activity-header">
@@ -566,8 +592,8 @@ nothing to commit, working tree clean</code></pre>
 <h2 class="anchored" data-anchor-id="gitignore-tips-and-tricks"><code>.gitignore</code> tips and tricks</h2>
 <p>To have files or folders ignored in subdirectories within the repo, append <code>**/</code> to the beginning of their names listed in the <code>.gitignore</code> file. Additionally, consider creating a <a href="https://help.github.com/articles/ignoring-files/#create-a-global-gitignore">global <code>.gitignore</code> file</a> so that you do not have to create the same <code>.gitignore</code> for all your repositories.</p>
 <p>Let’s create a <code>gitignore</code> file in our 521 lab 2 repo.</p>
-<section id="steps-to-follow-3" class="level3">
-<h3 class="anchored" data-anchor-id="steps-to-follow-3">Steps to follow:</h3>
+<section id="steps-to-follow-4" class="level3">
+<h3 class="anchored" data-anchor-id="steps-to-follow-4">Steps to follow:</h3>
 <p>Sure, here it is in prose form:</p>
 <ul>
 <li><p>Step 1: Use a text editor (e.g., VS Code, nano, Jupyter) to create a file called <code>.gitignore</code> in your 521 lab 2 repo.</p></li>
