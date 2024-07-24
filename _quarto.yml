@@ -15,7 +15,7 @@ website:
     contents:
       - text: |
           <div style="text-align: center;">
-            <img src="MDSlogo.png" alt="MDS Logo" style="width: 100%; height: auto;">
+            <img src="lectures/img/MDSlogo.png" alt="MDS Logo" style="width: 100%; height: auto;">
           </div>
       - text: "Lecture 0: JupyterLab Orientation"
         href: lectures/0-jupyterlab-orientation-intro.qmd
@@ -45,7 +45,7 @@ format:
     toc: true
     toc-depth: 3
     toc-expand: 3
-
+    
 editor:
   render-on-save: true
   markdown:
