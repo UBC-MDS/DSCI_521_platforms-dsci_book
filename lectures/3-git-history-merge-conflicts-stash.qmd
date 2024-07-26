@@ -85,13 +85,13 @@ There are two ways to view the Git history of a project: you can either use the 
        - `n`/`N` got to next/previous match for the search term
            - You don't need to memorize these commands, they're here as a resource if you wish to use them instead of the mouse and arrow keys.
 
-:::{.exercise}
-::::{.exercise-header}
-## Lecture 3 Exercise 1
+:::{.activity}
+::::{.activity-header}
+## Lecture 3 Activity 1
 ::::
-::::{.exercise-container}
+::::{.activity-container}
 
-1 - Question: What are the main methods to view your Git history?
+What are the main methods to view your Git history?
 
 A. Using GitHub through the repository’s code commit view
 
@@ -182,7 +182,8 @@ they happen to everyone and you will need to know how to instruct git what to do
 ## Lecture 3 Activity 1
 ::::
 ::::{.activity-container}
-1 - What of the following practices do you think could be a good idea in order to avoid having merge conflicts?
+
+What of the following practices do you think could be a good idea in order to avoid having merge conflicts?
 
 A. Push changes to the remote repository daily before starting to work on your local changes.
 
@@ -232,7 +233,7 @@ This line was added somewhere else
 ::::{.activity-container}
 True or False?
 
-You can solve a merge conflict not accepting neither the current nor the incoming changes
+You can solve a merge conflict by not accepting either the current changes or the incoming changes.
 ::::
 :::
 
@@ -514,9 +515,6 @@ The `.gitignore` file itself can be committed and pushed to a remote repository.
 :::
 
 
-
-
-
 ## Syncing with a remote after resetting
 
 **This is a dangerous operation
@@ -551,3 +549,130 @@ You can do this manually,
 or use `git revert <sha>` to automatically create a new commit
 that undoes an old one.
 
+
+### Exercise: Accessing and Working with GitHub
+
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 3 Exercise 1
+::::
+::::{.exercise-container}
+
+**Accessing and Working with GitHub**
+
+**Objective:** By completing this exercise, students will gain hands-on experience in accessing their GitHub home for MDS, creating, cloning, modifying, and pushing changes to a GitHub repository.
+
+**Instructions:**
+
+1. **Access Your GitHub Home for MDS:**
+   - Open your web browser and navigate to:
+
+   ```https://github.ubc.ca/MDS-2021-22/yourCWL_home```
+
+   - Replace `yourCWL` with your actual CWL.
+   - Here you will find links to all the courses' repositories and labs' repositories.
+   - **Hint:** Bookmark this page for easy access to all relevant courses' repositories.
+
+2. **Create a New Repository on GitHub:**
+   - Visit [GitHub.com](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
+   - Create a new repository and ensure you add a README file during the setup process.
+
+3. **Clone the Repository:**
+   - Clone the newly created repository to your local machine.
+   - Note: If your GitHub username is different from the username on your computer, you will need to configure your Git settings accordingly.
+
+   ```bash
+   git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git
+   ```
+
+4. **Make Changes to the README File:**
+   - Open the README file in a text editor.
+   - Add some content or modify the existing content.
+   - Save your changes.
+
+5. **Add and Commit Your Changes:**
+   - Stage the changes you made to the README file.
+
+   ```bash
+   git add README.md
+   ```
+
+   - Commit the changes with a descriptive message.
+
+   ```bash
+   git commit -m "Updated README with new content"
+   ```
+
+6. **Create a New File, Add, and Commit It:**
+   - Create a new file in the repository (e.g., `newfile.txt`).
+   - Add some content to the new file and save it.
+   - Stage the new file.
+
+   ```bash
+   git add newfile.txt
+   ```
+
+   - Commit the new file with a descriptive message.
+
+   ```bash
+   git commit -m "Added newfile.txt with initial content"
+   ```
+
+7. **Push Your Changes to GitHub:**
+   - Push the changes from your local repository to the remote repository on GitHub.
+
+   ```bash
+   git push origin main
+   ```
+
+8. **Confirm Your Changes on GitHub:**
+   - Go to your GitHub repository page.
+   - Confirm that the changes to the README file and the new file (`newfile.txt`) are reflected in the repository.
+
+9. **View Your Git History:**
+   - On GitHub, click on the "Commits" link on the repository’s landing page.
+   - On your local machine, use the `git log` command to view the commit history.
+
+   ```bash
+   git log
+   ```
+
+   - Use the `git log --oneline` command for a more concise view.
+
+   ```bash
+   git log --oneline
+   ```
+
+10. **Restore an Older Version of a File:**
+    - Identify the commit hash for the version you want to restore.
+    - Use the `git restore` command to revert to that version.
+
+    ```bash
+    git restore --source SHORT_SHA-1 FILENAME
+    ```
+
+    - Stage and commit the restored file.
+
+    ```bash
+    git add FILENAME
+    git commit -m "Restored FILENAME to previous version"
+    ```
+
+    - Push the changes to GitHub.
+
+    ```bash
+    git push origin main
+    ```
+
+**Questions:**
+
+1. What are the steps to access your GitHub home for MDS?
+2. What are the steps to create a new repository on GitHub?
+3. What command do you use to clone a repository to your local computer?
+4. How do you add and commit changes to a file in a Git repository?
+5. What command do you use to push changes to GitHub?
+6. How do you view your Git history?
+7. How do you restore an older version of a file in a Git repository?
+
+::::
+:::

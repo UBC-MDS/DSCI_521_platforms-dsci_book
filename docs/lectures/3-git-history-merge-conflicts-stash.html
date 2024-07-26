@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -261,7 +295,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#steps-to-follow-4" id="toc-steps-to-follow-4" class="nav-link" data-scroll-target="#steps-to-follow-4">Steps to follow:</a></li>
   </ul></li>
-  <li><a href="#syncing-with-a-remote-after-resetting" id="toc-syncing-with-a-remote-after-resetting" class="nav-link" data-scroll-target="#syncing-with-a-remote-after-resetting">Syncing with a remote after resetting</a></li>
+  <li><a href="#syncing-with-a-remote-after-resetting" id="toc-syncing-with-a-remote-after-resetting" class="nav-link" data-scroll-target="#syncing-with-a-remote-after-resetting">Syncing with a remote after resetting</a>
+  <ul class="collapse">
+  <li><a href="#exercise-accessing-and-working-with-github" id="toc-exercise-accessing-and-working-with-github" class="nav-link" data-scroll-target="#exercise-accessing-and-working-with-github">Exercise: Accessing and Working with GitHub</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -353,12 +390,12 @@ window.Quarto = {
 </ul>
 </section>
 </section>
-<div class="exercise">
-<section id="lecture-3-exercise-1" class="level2 exercise-header">
-<h2 class="anchored" data-anchor-id="lecture-3-exercise-1">Lecture 3 Exercise 1</h2>
+<div class="activity">
+<section id="lecture-3-activity-1" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-3-activity-1">Lecture 3 Activity 1</h2>
 </section>
-<div class="exercise-container">
-<p>1 - Question: What are the main methods to view your Git history?</p>
+<div class="activity-container">
+<p>What are the main methods to view your Git history?</p>
 <p>A. Using GitHub through the repository’s code commit view</p>
 <p>B. Using Jupyter Lab through the repository’s code commit view</p>
 <p>C. Using the terminal with the <code>git log</code> command</p>
@@ -418,11 +455,11 @@ Automatic merge failed; fix conflicts and then commit the result.
 <p>You have a merge conflict. Merge conflicts are not bad, they happen to everyone and you will need to know how to instruct git what to do.</p>
 </section>
 <div class="activity">
-<section id="lecture-3-activity-1" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-3-activity-1">Lecture 3 Activity 1</h2>
+<section id="lecture-3-activity-1-1" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-3-activity-1-1">Lecture 3 Activity 1</h2>
 </section>
 <div class="activity-container">
-<p>1 - What of the following practices do you think could be a good idea in order to avoid having merge conflicts?</p>
+<p>What of the following practices do you think could be a good idea in order to avoid having merge conflicts?</p>
 <p>A. Push changes to the remote repository daily before starting to work on your local changes.</p>
 <p>B. Pull changes to the remote repository daily before starting to work on your local changes.</p>
 <p>C. Stash changes using the terminal before pulling potentially new conflicting information from the remote repository.</p>
@@ -461,7 +498,7 @@ This line was added somewhere else
 </section>
 <div class="activity-container">
 <p>True or False?</p>
-<p>You can solve a merge conflict not accepting neither the current nor the incoming changes</p>
+<p>You can solve a merge conflict by not accepting either the current changes or the incoming changes.</p>
 </div>
 </div>
 <section id="what-about-merge-conflicts-of-jupyter-notebooks" class="level2">
@@ -632,6 +669,113 @@ M       README.md</code></pre>
 <p><strong>This is a dangerous operation that can delete all your work.</strong> If we want to get rid of a commit on a remote, we will need to push our changes. But as we have seen before, git will refuse to push changes when the remote is ahead of the local branch. To override this warning and force git to push to the remote we can use the <code>-f/--force</code> flag.</p>
 <p>Force pushing is dangerous, and you should never do this on the master branch of a repository that you share with collaborators unless you have all discussed this and they are aware of what you are doing. The reason is that by force pushing, you will make it so that everyone else who is using this repository are now out of sync with the master branch, since you have reset master to a previous state. <strong>Be careful, better safe than sorry</strong></p>
 <p>Times when a force push is legitimate includes when you have have rebased a feature branch to syn it with master or if you are working alone and you are 100% sure that you want to remove a commit from GitHub. A safer way to undo a change in a commit, is to make a new commit that removes the content of the old one. You can do this manually, or use <code>git revert &lt;sha&gt;</code> to automatically create a new commit that undoes an old one.</p>
+<section id="exercise-accessing-and-working-with-github" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-accessing-and-working-with-github">Exercise: Accessing and Working with GitHub</h3>
+</section>
+<div class="exercise">
+<section id="lecture-3-exercise-1" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-3-exercise-1">Lecture 3 Exercise 1</h3>
+</section>
+<div class="exercise-container">
+<p><strong>Accessing and Working with GitHub</strong></p>
+<p><strong>Objective:</strong> By completing this exercise, students will gain hands-on experience in accessing their GitHub home for MDS, creating, cloning, modifying, and pushing changes to a GitHub repository.</p>
+<p><strong>Instructions:</strong></p>
+<ol type="1">
+<li><p><strong>Access Your GitHub Home for MDS:</strong></p>
+<ul>
+<li>Open your web browser and navigate to:</li>
+</ul>
+<p><code>https://github.ubc.ca/MDS-2021-22/yourCWL_home</code></p>
+<ul>
+<li>Replace <code>yourCWL</code> with your actual CWL.</li>
+<li>Here you will find links to all the courses’ repositories and labs’ repositories.</li>
+<li><strong>Hint:</strong> Bookmark this page for easy access to all relevant courses’ repositories.</li>
+</ul></li>
+<li><p><strong>Create a New Repository on GitHub:</strong></p>
+<ul>
+<li>Visit <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository">GitHub.com</a>.</li>
+<li>Create a new repository and ensure you add a README file during the setup process.</li>
+</ul></li>
+<li><p><strong>Clone the Repository:</strong></p>
+<ul>
+<li>Clone the newly created repository to your local machine.</li>
+<li>Note: If your GitHub username is different from the username on your computer, you will need to configure your Git settings accordingly.</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Make Changes to the README File:</strong></p>
+<ul>
+<li>Open the README file in a text editor.</li>
+<li>Add some content or modify the existing content.</li>
+<li>Save your changes.</li>
+</ul></li>
+<li><p><strong>Add and Commit Your Changes:</strong></p>
+<ul>
+<li>Stage the changes you made to the README file.</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Commit the changes with a descriptive message.</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Updated README with new content"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Create a New File, Add, and Commit It:</strong></p>
+<ul>
+<li>Create a new file in the repository (e.g., <code>newfile.txt</code>).</li>
+<li>Add some content to the new file and save it.</li>
+<li>Stage the new file.</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add newfile.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Commit the new file with a descriptive message.</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Added newfile.txt with initial content"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Push Your Changes to GitHub:</strong></p>
+<ul>
+<li>Push the changes from your local repository to the remote repository on GitHub.</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Confirm Your Changes on GitHub:</strong></p>
+<ul>
+<li>Go to your GitHub repository page.</li>
+<li>Confirm that the changes to the README file and the new file (<code>newfile.txt</code>) are reflected in the repository.</li>
+</ul></li>
+<li><p><strong>View Your Git History:</strong></p>
+<ul>
+<li>On GitHub, click on the “Commits” link on the repository’s landing page.</li>
+<li>On your local machine, use the <code>git log</code> command to view the commit history.</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Use the <code>git log --oneline</code> command for a more concise view.</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Restore an Older Version of a File:</strong></p>
+<ul>
+<li>Identify the commit hash for the version you want to restore.</li>
+<li>Use the <code>git restore</code> command to revert to that version.</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore <span class="at">--source</span> SHORT_SHA-1 FILENAME</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Stage and commit the restored file.</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add FILENAME</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Restored FILENAME to previous version"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Push the changes to GitHub.</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<p><strong>Questions:</strong></p>
+<ol type="1">
+<li>What are the steps to access your GitHub home for MDS?</li>
+<li>What are the steps to create a new repository on GitHub?</li>
+<li>What command do you use to clone a repository to your local computer?</li>
+<li>How do you add and commit changes to a file in a Git repository?</li>
+<li>What command do you use to push changes to GitHub?</li>
+<li>How do you view your Git history?</li>
+<li>How do you restore an older version of a file in a Git repository?</li>
+</ol>
+</div>
+</div>
 
 
 </section>

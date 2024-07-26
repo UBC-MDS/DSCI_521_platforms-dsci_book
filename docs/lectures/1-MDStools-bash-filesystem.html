@@ -308,13 +308,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <div class="activity-container">
 <p>What is a Data Scientist?</p>
-<p>Someone whose job is to:</p>
-<ol type="1">
-<li>Extract value from data through reproducible and auditable processes.</li>
-<li>Apply machine learning algorithms.</li>
-<li>Analyze large volumes of often unstructured data to produce meaningful insights. <a href="https://www.springboard.com/blog/data-science/data-science-definition/" class="uri">https://www.springboard.com/blog/data-science/data-science-definition/</a></li>
-<li>Get well paid.</li>
-</ol>
+<p>A. Someone whose job is to extract value from data through reproducible and auditable processes.</p>
+<p>B. Someone whose job is to apply machine learning algorithms.</p>
+<p>C. Someone whose job is to analyze large volumes of often unstructured data to produce meaningful insights. <a href="https://www.springboard.com/blog/data-science/data-science-definition/" class="uri">https://www.springboard.com/blog/data-science/data-science-definition/</a></p>
+<p>D. All of the above.</p>
+<p>E. Someone whose job is to get well paid.</p>
 </div>
 </div>
 <p>Most of the tools we are going to learn during DSCI 521 are tools that programmers used. Programming involves interacting with the system using commands</p>
@@ -341,9 +339,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="lecture-1-activity-2">Lecture 1 Activity 2</h2>
 </section>
 <div class="activity-container">
-<p>You have already learn how to use some commands using JupyterLab IDE. Do you find it easier to use the command line or JupyterLab user interfase?</p>
+<p>You have already learned how to use some commands using JupyterLab IDE. Do you find it easier to use the command line or JupyterLab user interface?</p>
 <p>Why might one be better than the other? And in what scenarios?</p>
-<p>Note: Command palette</p>
+<p>A. The command line is better for scripting and automation because it allows for quick execution of commands and integration into automated workflows.</p>
+<p>B. JupyterLab is better for interactive data exploration and visualization because it provides a rich user interface with features like the command palette and inline plotting.</p>
+<p>C. The command line is better for beginners because it has a simpler interface.</p>
+<p>D. JupyterLab is better for large-scale data processing because it handles more data efficiently.</p>
+<p>E. Both command line and JupyterLab are equally easy and effective in all scenarios.</p>
 </div>
 </div>
 <section id="introduction-to-computing" class="level2">
@@ -508,7 +510,7 @@ Pictures/     my_program*</code></pre>
 <h2 class="anchored" data-anchor-id="lecture-1-activity-4">Lecture 1 Activity 4</h2>
 </section>
 <div class="activity-container">
-<p>What would the following commands do? Would them be possible to use with the command <code>ls</code> instead of <code>cd</code>?</p>
+<p>What would the following commands do? Would they be possible to use with the command <code>ls</code> instead of <code>cd</code>?</p>
 <pre><code>A. `cd .`
 B. `cd ..`
 C. `cd ~`
@@ -520,7 +522,12 @@ D. `cd`</code></pre>
 <h2 class="anchored" data-anchor-id="lecture-1-activity-5">Lecture 1 Activity 5</h2>
 </section>
 <div class="activity-container">
-<p>Run the following commands in your home directory. Explore the content of the folder <code>example_521</code> using your favourite favourite file manager (<code>Finder</code> for Mac, <code>File Explorer</code> for Windows, and any file manager in Linux) Can you draw a diagram with the content of that folder? What command should you run in the shell to find the folder <code>find_me</code>.</p>
+<p>You are asked to run the following commands in your home directory and explore the content of the folder example_521 using your favorite file manager (Finder for Mac, File Explorer for Windows, and any file manager in Linux). Can you draw a diagram with the content of that folder?</p>
+<p>What command should you run in the shell to find the folder find_me?</p>
+<p>A. ls find_me</p>
+<p>B. search find_me</p>
+<p>C. find . -name find_me</p>
+<p>D. locate find_me</p>
 </div>
 </div>
 <div class="exercise">
@@ -528,11 +535,30 @@ D. `cd`</code></pre>
 <h3 class="anchored" data-anchor-id="lecture-1-exercise-1">Lecture 1 Exercise 1</h3>
 </section>
 <div class="exercise-container">
-<p>Use command line to:</p>
+<p>Here’s an exercise for students to follow after the lecture:</p>
+<hr>
+<p><strong>Exercise: Navigating the Command Line</strong></p>
+<p><strong>Instructions:</strong></p>
 <ol type="1">
-<li>figure out where you are when you open your command line</li>
-<li>navigate to your Documents folder</li>
-<li>navigate from your Documents folder to your Desktop</li>
+<li><p><strong>Figure Out Where You Are When You Open Your Command Line:</strong></p>
+<ul>
+<li>Open your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).</li>
+<li>Use the command to display your current directory.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This command will print the working directory you are currently in.</p></li>
+<li><p><strong>Navigate to Your Documents Folder:</strong></p>
+<ul>
+<li>Change your directory to the Documents folder. Use the appropriate command based on your operating system.</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Documents</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This command changes your directory to the Documents folder located in your home directory.</p></li>
+<li><p><strong>Navigate from Your Documents Folder to Your Desktop:</strong></p>
+<ul>
+<li>From the Documents folder, change your directory to the Desktop folder.</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../Desktop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This command uses <code>..</code> to move up one level to the home directory and then enters the Desktop folder.</p></li>
 </ol>
 </div>
 </div>
@@ -547,10 +573,10 @@ D. `cd`</code></pre>
 <section id="working-with-files-and-directories" class="level2">
 <h2 class="anchored" data-anchor-id="working-with-files-and-directories">Working with Files and Directories</h2>
 <p>We now know how to explore files and directories, but how do we create them? That’s what we will find out in this chapter.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Documents</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># MaKe Directory</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> notes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Documents</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># MaKe Directory</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> notes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="naming-guidelines" class="level3">
 <h3 class="anchored" data-anchor-id="naming-guidelines">Naming guidelines</h3>
 <p>Let’s go back to the <code>~/Documents</code> directory and create a subfolder called <code>notes</code>. For this we first use the <code>~</code> home directory shortcut, and then the <code>mkdir</code> command.</p>
@@ -564,10 +590,10 @@ D. `cd`</code></pre>
 <section id="creating-a-file" class="level3">
 <h3 class="anchored" data-anchor-id="creating-a-file">Creating a file</h3>
 <p>Since we just created the <code>notes</code> directory, <code>ls</code> doesn’t display anything when we ask for a listing of its contents.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-F</span> notes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-F</span> notes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Let’s change our working directory to <code>notes</code>, then use the VS Code editor to create a file called <code>my-first-note.md</code>. The command to invoke VS Code from the command line is <code>code</code>, and if we pass it a filename as an argument, the file will be created in the current directory. Now try launching it yourself!</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> notes</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> my-first-note.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> notes</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> my-first-note.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>.md</code> syntax means that we want to create a markdown file. File extensions like <code>.md</code> and <code>.py</code> don’t change anything about the content of the file, but they are an indicator to other program such as VS Code what type of content we are going to put inside the file. These program can then activate special functions for certain files, such as using the appropriate colors to highlight headings and functions.</p>
 <p>Let’s move on to the next slide to see how it looks when we are editing file in VS Code.</p>
 </section>
@@ -580,10 +606,10 @@ D. `cd`</code></pre>
 <section id="viewing-the-content-of-a-file-in-the-terminal" class="level3">
 <h3 class="anchored" data-anchor-id="viewing-the-content-of-a-file-in-the-terminal">Viewing the content of a file in the terminal</h3>
 <p>If we now type <code>ls</code> we will see the name of the file we just created in VS Code.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="out"><code>my-first-note.md</code></pre>
 <p>To see the content of the file, we can use the <code>head</code> command. <code>head</code> show the first few lines of a file (just as when we use <code>df.head()</code> in pandas), and optionally takes an argument for how many lines to show: <code>head -n 10</code> (the default is five).</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> my-first-note.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> my-first-note.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="out"><code>These are the first
 few lines of content
 in the file.</code></pre>
@@ -593,22 +619,22 @@ in the file.</code></pre>
 <section id="moving-files-and-directories" class="level3">
 <h3 class="anchored" data-anchor-id="moving-files-and-directories">Moving files and directories</h3>
 <p>To <strong>m</strong>o<strong>v</strong>e a file around, we can use the <code>mv</code> command. For example, to move the text file we just created to the parent directory, we would type:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> my-first-note.md ..</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ..</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> my-first-note.md ..</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ..</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="out"><code>Downloads/    Music/        my-first-note.md
 Documents/    todo.txt
 Pictures/     my_program*</code></pre>
 <p>This moves it to the parent directory, and keeps the name the same as we can see if we do <code>ls ..</code></p>
 <p>If we want to move the file back to the current directory, we can use the <code>.</code> shortcut:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> ../my-fist-note.md .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> ../my-fist-note.md .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="renaming-a-file" class="level3">
 <h3 class="anchored" data-anchor-id="renaming-a-file">Renaming a file</h3>
 <p>Renaming a file can be thought of as moving it to a new filename either in the same or a different directory. This might initially seem a bit different from a graphical file browser, where renaming and moving are two distinct functions, but the underlying operation is actually the same.</p>
 <p>To give our file a more descriptive name, we can use <code>mv</code> to include the date we created this file,</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> my-fist-note.md notte_2022-06-20.md <span class="co"># intensional typo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> my-fist-note.md notte_2022-06-20.md <span class="co"># intensional typo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We intentionally made a typo here, let’s fix it while showing off the functionality of the <code>-v</code> (verbose) option, which prints what was moved/renamed so that it is easier to keep track of.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> <span class="at">-v</span> notte_2022-06-20.md note_2022-06-20.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> <span class="at">-v</span> notte_2022-06-20.md note_2022-06-20.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="out"><code>renamed 'notte_2022-06-20.md' -&gt; 'note_2022-06-20.md'</code></pre>
 <p>We must be careful when specifying the destination because <code>mv</code> will overwrite existing files without warning. The option <code>-i</code> (“interactive”) makes <code>mv</code> ask us for confirmation before overwriting,. <code>mv</code> also works on directories where it renames the directory without changing its contents.</p>
 </section>
@@ -616,11 +642,11 @@ Pictures/     my_program*</code></pre>
 <h3 class="anchored" data-anchor-id="copying-files-and-directories">Copying files and directories</h3>
 <p>The <code>cp</code> command create a <strong>c</strong>o<strong>p</strong>y of a file. Just as with <code>mv</code>, we optionally rename the file as we are copying it.</p>
 <p>Here, we first copy the note we created to the parent directory and then show how we could use <code>cp</code> to create a backup of our file in the same directory. Remember that the file extension does not change the content of the file, so this is only a visual indicator for the file type, and helps the computer pick a default program when you open it.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy the file to the parent directory</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> note_2022-06-20.md ..</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a backup copy in the same directory</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> note_2022-06-20.md note_2022-06-20.md.bkp</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy the file to the parent directory</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> note_2022-06-20.md ..</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a backup copy in the same directory</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> note_2022-06-20.md note_2022-06-20.md.bkp</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="out"><code>note_2022-06-20.md
 note_2022-06-20.md.bkp</code></pre>
 <p>If we ever wanted to copy a directory, we would have to specify the <code>-r</code> flag, which indicates that we want to copy the directory recursively, i.e.&nbsp;also making a copy of all the directory contents.</p>
@@ -635,25 +661,25 @@ note_2022-06-20.md.bkp</code></pre>
            if we start off from the swcarpentry bash directory,
            we can show this example much easier.
 -->
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> note_2022-06-20.md.bkp note_2022-07-02.md note_2022-07-02.md.bkp</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.bkp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> note_2022-06-20.md.bkp note_2022-07-02.md note_2022-07-02.md.bkp</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.bkp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="out"><code>note_2022-06-20.md.bkp
 note_2022-07-02.md.bkp</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>07<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>07<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="out"><code>note_2022-07-02.md
 note_2022-07-02.md.bkp</code></pre>
 </section>
 <section id="searching-for-text-patterns-in-files" class="level3">
 <h3 class="anchored" data-anchor-id="searching-for-text-patterns-in-files">Searching for text patterns in files</h3>
 <p>We can use the <code>grep</code> command to search for text in files. To search for the word “the” in our notes file, we can type <code>grep "the" note_2022-06-22.md</code>. This will return every line in the file that contains the word “the”.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"the"</span> note_2022-06-22.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"the"</span> note_2022-06-22.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="out"><code>note_2022-06-22.md:These are the first
 note_2022-06-22.md:in the file.</code></pre>
 </section>
 <section id="seeing-the-history-of-commands" class="level3">
 <h3 class="anchored" data-anchor-id="seeing-the-history-of-commands">Seeing the history of commands</h3>
 <p>Occasionally, we might want to re-use a command that we used in the past, but don’t remember exactly what it was. The <code>history</code> command can help us with this as it lists all the previous commands we have run and in which order we ran them.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">history</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">history</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="out"><code>1  pwd
 2  ls
 3  cd Documents/
@@ -664,7 +690,7 @@ note_2022-06-22.md:in the file.</code></pre>
 <section id="reading-the-manual" class="level3">
 <h3 class="anchored" data-anchor-id="reading-the-manual">Reading the manual</h3>
 <p>How can we find out what options like <code>-t</code> and <code>-r</code> do if we don’t know of them already? By reading the built-in help manual! Typing <code>man ls</code> brings up the manual help page for the <code>ls</code> command. For some systems, you may need to run <code>--help</code> instead of <code>man</code>, e.g., <code>ls --help</code>.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="out"><code>LS(1)                                                    User Commands
 
 NAME
@@ -730,15 +756,15 @@ Note
 <h3 class="anchored" data-anchor-id="relative-vs-absolute-path">Relative vs absolute path</h3>
 <p>We’ve seen a bit of usage around <code>.</code> and <code>..</code>. Let’s talk a bit more on how to reference files and directories.</p>
 <p>Let’s say you are here:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>/Users/timberst/Documents</code></pre>
 <p>These are the files in your current working directory:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>DSCI-100  MDS-2018-19   textbooks   research</code></pre>
 <p>You can navigate to the research directory using one of two options, a relative path:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> research</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> research</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>or, using an absolute path:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /Users/timberst/Documents/research</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /Users/timberst/Documents/research</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>What is the difference?</p>
 <p>When you use a relative path with a command like <code>ls</code> or <code>cd</code>, it tries to find that location from where we are, rather than from the root of the file system. However, when you specify the absolute path to a directory by including its entire path from the root directory, which is indicated by a leading slash, the leading <code>/</code> tells the computer to follow the path from the root of the file system, so it always refers to exactly one directory, no matter where we are when we run the command.</p>
 </section>

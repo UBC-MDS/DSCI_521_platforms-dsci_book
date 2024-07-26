@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -375,20 +409,81 @@ window.Quarto = {
 </section>
 <section id="creating-a-repository" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-repository">Creating a Repository</h2>
+<div class="exercise">
+<section id="lecture-2-exercise-1" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-2-exercise-1">Lecture 2 Exercise 1</h3>
 </section>
-<div class="activity">
-<section id="lecture-2-activity-1" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-2-activity-1">Lecture 2 Activity 1</h2>
-</section>
-<div class="activity-container">
-<p>We can create a repository one of two ways:</p>
+<div class="exercise-container">
+<p><strong>Creating a GitHub Repository</strong></p>
+<p><strong>Objective:</strong> By completing this exercise, students will learn how to create a repository on GitHub and clone it to their local computer.</p>
+<p><strong>Instructions:</strong></p>
 <ol type="1">
-<li>Start on GitHub and <strong>then</strong> clone the repository to your local computer using Git.</li>
-<li>Start in a folder on your local computer, use Git to initialize it as a Git repository (by typing <code>git init</code> inside the directory). <strong>Then</strong> create a new repository on GitHub without adding any files. <strong>Then</strong> use Git to tell your local computer where the remote is (i.e., the location of the empty GitHub repository on GitHub).</li>
+<li><strong>Create a Repository on GitHub:</strong>
+<ul>
+<li>Go to <a href="https://github.com">GitHub.com</a>.</li>
+<li>Sign in to your account (or create one if you don’t have one).</li>
+<li>Click on the “New” button to create a new repository.</li>
+<li>Provide a name for your repository.</li>
+<li>Optionally, add a description.</li>
+<li>Ensure that “Initialize this repository with a README” is checked.</li>
+<li>Click on the “Create repository” button.</li>
+</ul></li>
+<li><strong>Clone the Repository to Your Local Computer:</strong>
+<ul>
+<li>Open your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).</li>
+<li>Navigate to the directory where you want to clone the repository.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/your/directory</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Use the <code>git clone</code> command followed by the URL of your newly created GitHub repository.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Verify the Cloning Process:</strong>
+<ul>
+<li>Change into the newly cloned repository directory.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> YOUR_REPOSITORY_NAME</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>List the files to ensure the README file is present.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Create a <code>.gitignore</code> File:</strong>
+<ul>
+<li>Open your text editor and create a file named <code>.gitignore</code> in the root of your repository.</li>
+<li>Add entries to ignore files and directories such as:</li>
+</ul>
+<pre class="plaintext"><code>**/.ipynb_checkpoints/
+.DS_Store
+node_modules/</code></pre>
+<ul>
+<li>Save the <code>.gitignore</code> file.</li>
+<li>Stage and commit the <code>.gitignore</code> file.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .gitignore</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add .gitignore file to ignore unnecessary files"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Use <code>git add -p</code> for Interactive Staging:</strong>
+<ul>
+<li>Make additional changes to the <code>README.md</code> file or another file in the repository.</li>
+<li>Use the <code>git add -p</code> command to interactively stage changes.</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p>Review each change and decide whether to stage it by typing <code>y</code> (yes), <code>n</code> (no), <code>s</code> (split the change), or <code>q</code> (quit).</p></li>
+<li><p>Commit the changes with a descriptive message.</p></li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Interactively staged changes using git add -p"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
-<p>You can see the second method requires more work. So the first method is usually the most convenient and it is sufficient for you to only use this approach.</p>
+<p><strong>Questions:</strong></p>
+<ol type="1">
+<li>What are the steps to create a new repository on GitHub?</li>
+<li>What command do you use to clone a repository to your local computer?</li>
+<li>How do you verify that the repository was successfully cloned?</li>
+<li>How do you create and use a <code>.gitignore</code> file?</li>
+<li>What is the purpose of the <code>git add -p</code> command, and how do you use it?</li>
+</ol>
 </div>
 </div>
+</section>
 <section id="cloning-repositories-from-github" class="level2">
 <h2 class="anchored" data-anchor-id="cloning-repositories-from-github">Cloning repositories from GitHub</h2>
 <p>If you only need to make minor edits, you can directly edit files on GitHub using their online editor, eliminating the need to clone the repository.</p>
@@ -424,13 +519,28 @@ window.Quarto = {
 </ul>
 <p><img src="img/github-workflow.png" class="img-fluid"></p>
 </section>
-<div class="exercise">
-<section id="lecture-2-exercise-1" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-2-exercise-1">Lecture 2 Exercise 1</h3>
+<div class="activity">
+<section id="lecture-2-activity-1" class="level3 activity-header">
+<h3 class="anchored" data-anchor-id="lecture-2-activity-1">Lecture 2 Activity 1</h3>
 </section>
-<div class="exercise-container">
-<p>Check that your cloned repo it is a Git repository. How can you check that you are working on a Git repository?</p>
-<p>Is a repository the same as a directory? Can be a Git repository your current working directory?</p>
+<div class="activity-container">
+<p>How can you check that you are working on a Git repository?</p>
+<p>A. By checking if the repository contains a .git directory.</p>
+<p>B. By verifying if the current directory has a .repo file.</p>
+<p>C. By using the command git status and checking for an error message.</p>
+<p>D. By ensuring that the current directory name ends with “.git”.</p>
+</div>
+</div>
+<div class="activity">
+<section id="lecture-2-activity-1-1" class="level3 activity-header">
+<h3 class="anchored" data-anchor-id="lecture-2-activity-1-1">Lecture 2 Activity 1</h3>
+</section>
+<div class="activity-container">
+<p>Is a repository the same as a directory? Can a Git repository be your current working directory?</p>
+<p>A. Yes, a repository is the same as a directory, and it can be your current working directory.</p>
+<p>B. No, a repository is not the same as a directory, and it cannot be your current working directory.</p>
+<p>C. A repository can be your current working directory, but it is not necessarily the same as a directory.</p>
+<p>D. A directory is always a repository, but a repository cannot be your current working directory.</p>
 </div>
 </div>
 </section>
@@ -491,32 +601,6 @@ Use the command git commit -m "Clarify the README installation instructions" to 
 <p>If you are working on a project with collaborators, they will also be making changes to files (e.g., to the analysis code in a Jupyter notebook and the project’s <code>README</code> file), committing them to their own local repository, and pushing their commits to the remote GitHub repository to share them with you. When they push their changes, those changes will only initially exist in the remote GitHub repository and not in your local repository.</p>
 <p>To obtain the new changes from the remote repository on GitHub, you will need to pull those changes to your own local repository. By pulling changes, you synchronize your local repository to what is present on GitHub. Additionally, until you pull changes from the remote repository, you will not be able to push any more changes yourself (though you will still be able to work and make commits in your own local repository)</p>
 <p>If you want to do this with the terminal, you have to pull from the terminal you should use the command <code>git pull</code>.</p>
-<div class="exercise">
-<section id="lecture-2-exercise-2" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-2-exercise-2">Lecture 2 Exercise 2</h3>
-</section>
-<div class="exercise-container">
-<p>Let’s access your own GitHub home for MDS. There you can find the links for all the courses’ repositories, as well as, the labs’ repositories. Your home is located at:</p>
-<p><code>https://github.ubc.ca/MDS-2021-22/yourCWL_home</code></p>
-<p>where <code>yourCWL</code> should be replaced by your CWL.</p>
-<p>(<strong>Hint:</strong> you might want to bookmark this page as it gives you easy access to all relevant courses’ repositories).</p>
-</div>
-</div>
-<div class="exercise">
-<section id="lecture-2-exercise-3" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-2-exercise-3">Lecture 2 Exercise 3</h3>
-</section>
-<div class="exercise-container">
-<ul>
-<li><a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository">Create a new repository at GitHub.com</a> and choose to add a README file in this process.</li>
-<li>Clone this repository (note that you will need to change your username on your computer if you use a different one than for GitHub.ubc.ca).</li>
-<li>Make changes to the README.</li>
-<li>Add and commit your changes</li>
-<li>Create a new file, add and commit it</li>
-<li>Push your previous changes to GitHub and confirm that they are there.</li>
-</ul>
-</div>
-</div>
 </section>
 <section id="attribution" class="level2">
 <h2 class="anchored" data-anchor-id="attribution">Attribution</h2>

@@ -111,17 +111,95 @@ you are automatically getting a copy of `.git` and thus, working on a Git.
 
 ## Creating a Repository
 
-:::{.activity}
-::::{.activity-header}
-## Lecture 2 Activity 1
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 2 Exercise 1
 ::::
-::::{.activity-container}
-We can create a repository one of two ways:
+::::{.exercise-container}
 
-1. Start on GitHub and **then** clone the repository to your local computer using Git.
-2. Start in a folder on your local computer, use Git to initialize it as a Git repository (by typing `git init` inside the directory). **Then** create a new repository on GitHub without adding any files. **Then** use Git to tell your local computer where the remote is (i.e., the location of the empty GitHub repository on GitHub).
+**Creating a GitHub Repository**
 
-You can see the second method requires more work. So the first method is usually the most convenient and it is sufficient for you to only use this approach.
+**Objective:** By completing this exercise, students will learn how to create a repository on GitHub and clone it to their local computer.
+
+**Instructions:**
+
+1. **Create a Repository on GitHub:**
+   - Go to [GitHub.com](https://github.com).
+   - Sign in to your account (or create one if you don’t have one).
+   - Click on the “New” button to create a new repository.
+   - Provide a name for your repository.
+   - Optionally, add a description.
+   - Ensure that “Initialize this repository with a README” is checked.
+   - Click on the “Create repository” button.
+
+2. **Clone the Repository to Your Local Computer:**
+   - Open your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).
+   - Navigate to the directory where you want to clone the repository.
+
+   ```bash
+   cd path/to/your/directory
+   ```
+
+   - Use the `git clone` command followed by the URL of your newly created GitHub repository.
+
+   ```bash
+   git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git
+   ```
+
+3. **Verify the Cloning Process:**
+   - Change into the newly cloned repository directory.
+
+   ```bash
+   cd YOUR_REPOSITORY_NAME
+   ```
+
+   - List the files to ensure the README file is present.
+
+   ```bash
+   ls
+   ```
+
+4. **Create a `.gitignore` File:**
+   - Open your text editor and create a file named `.gitignore` in the root of your repository.
+   - Add entries to ignore files and directories such as:
+
+   ```plaintext
+   **/.ipynb_checkpoints/
+   .DS_Store
+   node_modules/
+   ```
+
+   - Save the `.gitignore` file.
+   - Stage and commit the `.gitignore` file.
+
+   ```bash
+   git add .gitignore
+   git commit -m "Add .gitignore file to ignore unnecessary files"
+   ```
+
+5. **Use `git add -p` for Interactive Staging:**
+    - Make additional changes to the `README.md` file or another file in the repository.
+    - Use the `git add -p` command to interactively stage changes.
+
+    ```bash
+    git add -p
+    ```
+
+    - Review each change and decide whether to stage it by typing `y` (yes), `n` (no), `s` (split the change), or `q` (quit).
+
+    - Commit the changes with a descriptive message.
+
+    ```bash
+    git commit -m "Interactively staged changes using git add -p"
+    ```
+
+**Questions:**
+
+1. What are the steps to create a new repository on GitHub?
+2. What command do you use to clone a repository to your local computer?
+3. How do you verify that the repository was successfully cloned?
+4. How do you create and use a `.gitignore` file?
+5. What is the purpose of the `git add -p` command, and how do you use it?
 
 ::::
 :::
@@ -181,18 +259,44 @@ and creating several new ones.
 
 ![](img/github-workflow.png)
 
-:::{.exercise}
-::::{.exercise-header}
-### Lecture 2 Exercise 1
+:::{.activity}
+::::{.activity-header}
+### Lecture 2 Activity 1
 ::::
-::::{.exercise-container}
+::::{.activity-container}
 
-Check that your cloned repo it is a Git repository. How can you check that you are working on a Git repository?
+How can you check that you are working on a Git repository?
 
-Is a repository the same as a directory? Can be a Git repository your current working directory?
+A. By checking if the repository contains a .git directory.
+
+B. By verifying if the current directory has a .repo file.
+
+C. By using the command git status and checking for an error message.
+
+D. By ensuring that the current directory name ends with ".git".
 
 ::::
 :::
+
+:::{.activity}
+::::{.activity-header}
+### Lecture 2 Activity 1
+::::
+::::{.activity-container}
+
+Is a repository the same as a directory? Can a Git repository be your current working directory?
+
+A. Yes, a repository is the same as a directory, and it can be your current working directory.
+
+B. No, a repository is not the same as a directory, and it cannot be your current working directory.
+
+C. A repository can be your current working directory, but it is not necessarily the same as a directory.
+
+D. A directory is always a repository, but a repository cannot be your current working directory.
+
+::::
+:::
+
 
 ## Adding & committing changes to version controlled files
 
@@ -323,42 +427,6 @@ to push any more changes yourself (though you will still be able to work and mak
 
 If you want to do this with the terminal,
 you have to pull from the terminal you should use the command `git pull`.
-
-
-:::{.exercise}
-::::{.exercise-header}
-### Lecture 2 Exercise 2
-::::
-::::{.exercise-container}
-
-Let's access your own GitHub home for MDS. There you can find the links for all the courses' repositories, as well as, the labs' repositories. Your home is located at:
-
-```https://github.ubc.ca/MDS-2021-22/yourCWL_home```
-
-where `yourCWL` should be replaced by your CWL.
-
-(**Hint:** you might want to bookmark this page as it gives you easy access to all relevant courses' repositories).
-
-::::
-:::
-
-
-:::{.exercise}
-::::{.exercise-header}
-### Lecture 2 Exercise 3
-::::
-::::{.exercise-container}
-
-- [Create a new repository at GitHub.com](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository) and choose to add a README file in this process.
-- Clone this repository (note that you will need to change your username on your computer if you use a different one than for GitHub.ubc.ca).
-- Make changes to the README.
-- Add and commit your changes
-- Create a new file, add and commit it
-- Push your previous changes to GitHub and confirm that they are there.
-
-::::
-:::
-
 
 
 ## Attribution

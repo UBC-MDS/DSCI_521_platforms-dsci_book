@@ -21,13 +21,15 @@ the filesystem, using the command line, and some other useful tools.
 ::::{.activity-container}
 What is a Data Scientist?
 
-Someone whose job is to:
+A. Someone whose job is to extract value from data through reproducible and auditable processes.
 
-1. Extract value from data through reproducible and auditable processes.
-2. Apply machine learning algorithms.
-3. Analyze large volumes of often unstructured data to produce meaningful insights.
-   <https://www.springboard.com/blog/data-science/data-science-definition/>
-4. Get well paid.
+B. Someone whose job is to apply machine learning algorithms.
+
+C. Someone whose job is to analyze large volumes of often unstructured data to produce meaningful insights. <https://www.springboard.com/blog/data-science/data-science-definition/>
+
+D. All of the above.
+
+E. Someone whose job is to get well paid.
 ::::
 :::
 
@@ -74,12 +76,19 @@ such as
 ## Lecture 1 Activity 2
 ::::
 ::::{.activity-container}
-You have already learn how to use some commands using JupyterLab IDE.
-Do you find it easier to use the command line or JupyterLab user interfase?
+You have already learned how to use some commands using JupyterLab IDE. Do you find it easier to use the command line or JupyterLab user interface?
 
 Why might one be better than the other? And in what scenarios?
 
-Note: Command palette
+A. The command line is better for scripting and automation because it allows for quick execution of commands and integration into automated workflows.
+
+B. JupyterLab is better for interactive data exploration and visualization because it provides a rich user interface with features like the command palette and inline plotting.
+
+C. The command line is better for beginners because it has a simpler interface.
+
+D. JupyterLab is better for large-scale data processing because it handles more data efficiently.
+
+E. Both command line and JupyterLab are equally easy and effective in all scenarios.
 ::::
 :::
 
@@ -346,7 +355,7 @@ in you terminal to see a list of all commands we use in MDS.
 ::::
 ::::{.activity-container}
 What would the following commands do?
-Would them be possible to use with the command `ls` instead of `cd`?
+Would they be possible to use with the command `ls` instead of `cd`?
 
 ```
 A. `cd .`
@@ -362,12 +371,17 @@ D. `cd`
 ## Lecture 1 Activity 5
 ::::
 ::::{.activity-container}
-Run the following commands in your home directory.
-Explore the content of the folder `example_521`
-using your favourite favourite file manager
-(`Finder` for Mac, `File Explorer` for Windows, and any file manager in Linux)
-Can you draw a diagram with the content of that folder?
-What command should you run in the shell to find the folder `find_me`.
+You are asked to run the following commands in your home directory and explore the content of the folder example_521 using your favorite file manager (Finder for Mac, File Explorer for Windows, and any file manager in Linux). Can you draw a diagram with the content of that folder?
+
+What command should you run in the shell to find the folder find_me?
+
+A. ls find_me
+
+B. search find_me
+
+C. find . -name find_me
+
+D. locate find_me
 ::::
 :::
 
@@ -376,13 +390,44 @@ What command should you run in the shell to find the folder `find_me`.
 ### Lecture 1 Exercise 1
 ::::
 ::::{.exercise-container}
-Use command line to:
 
-1. figure out where you are when you open your command line
-2. navigate to your Documents folder
-3. navigate from your Documents folder to your Desktop
+**Navigating the Command Line**
+
+**Objective:** By completing this exercise, students will practice basic navigation commands in the command line interface.
+
+**Instructions:**
+
+1. **Figure Out Where You Are When You Open Your Command Line:**
+   - Open your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).
+   - Use the command to display your current directory.
+
+   ```bash
+   pwd
+   ```
+
+   This command will print the working directory you are currently in.
+
+2. **Navigate to Your Documents Folder:**
+   - Change your directory to the Documents folder. Use the appropriate command based on your operating system.
+
+   ```bash
+   cd ~/Documents
+   ```
+
+   This command changes your directory to the Documents folder located in your home directory.
+
+3. **Navigate from Your Documents Folder to Your Desktop:**
+   - From the Documents folder, change your directory to the Desktop folder.
+
+   ```bash
+   cd ../Desktop
+   ```
+
+   This command uses `..` to move up one level to the home directory and then enters the Desktop folder.
+
 ::::
 :::
+
 
 
 :::{.exercise}
@@ -390,8 +435,54 @@ Use command line to:
 ### Lecture 1 Exercise 2
 ::::
 ::::{.exercise-container}
-Let's check out the documentation of `ls`. What does the option `-a` do?
-What does the `./` and `../` folders represent as output of this command?
+
+**Understanding the `ls` Command and Directory Navigation**
+
+**Objective:** By completing this exercise, students will learn to use the `ls` command with options and understand directory structures.
+
+**Instructions:**
+
+1. **Check the Documentation of the `ls` Command:**
+   - Open your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell with Git Bash on Windows).
+   - View the manual or help documentation for the `ls` command to understand its options.
+
+   ```bash
+   man ls
+   ```
+   
+   or
+
+   ```bash
+   ls --help
+   ```
+
+   - Identify what the `-a` option does.
+
+2. **Use the `ls -a` Command:**
+   - In your command line, navigate to your home directory (if not already there).
+
+   ```bash
+   cd ~
+   ```
+
+   - List all files, including hidden files, using the `-a` option with the `ls` command.
+
+   ```bash
+   ls -a
+   ```
+
+   - Note the presence of `./` and `../` in the output.
+
+3. **Understand `./` and `../`:**
+   - Explain what `./` and `../` represent in the context of the directory structure.
+
+**Questions:**
+
+1. What does the `-a` option do in the `ls` command?
+
+2. What do the `./` and `../` folders represent as output of the `ls -a` command?
+
+
 ::::
 :::
 
