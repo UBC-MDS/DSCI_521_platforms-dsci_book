@@ -234,6 +234,25 @@ Output created: _site/index.html
 Always `render` your site before your final deployment,
 not all changes to your quarto files will trigger an automatic regeneration + rendering.
 
+:::{.activity}
+::::{.activity-header}
+## Lecture 4 Activity 1
+::::
+::::{.activity-container}
+
+Which command would you use to look at a Quarto file when changes are made?
+
+A. `quarto render --preview`
+
+B. `quarto render --watch`
+
+C. `quarto preview`
+
+D. `quarto serve`
+
+::::
+:::
+
 ## GitHub Pages
 
 GitHub (public and enterprise) have mechanims that can turn static website content and render them into an actual website.
@@ -404,6 +423,98 @@ $ quarto help render
 ```
 
 You can also use `quarto render --help` to get the same help output.
+
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 4 Exercise 1
+::::
+::::{.exercise-container}
+
+**Creating and Deploying a Quarto Website**
+
+**Objective:** By completing this exercise, students will gain hands-on experience in creating a Quarto website and deploying it using GitHub Pages.
+
+**Instructions:**
+
+1. **Create a New Quarto Website Project:**
+   - Open your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).
+   - Use the `quarto create project` command to create a new Quarto website project.
+
+   ```bash
+   quarto create project
+   ```
+
+   - Select "website" as the project type and provide a directory name for your project.
+
+2. **Navigate to Your Project Directory:**
+   - Change into the newly created project directory.
+
+   ```bash
+   cd your_project_directory
+   ```
+
+3. **Customize Your Quarto Website:**
+   - Open the `_quarto.yml` file in a text editor and customize the settings as needed.
+
+   ```yml
+   project:
+     type: website
+     output-dir: docs
+   ```
+
+   - Modify the content of the `index.qmd` and `about.qmd` files to personalize your website.
+
+4. **Render Your Quarto Website:**
+   - Use the `quarto render` command to generate the HTML files for your website.
+
+   ```bash
+   quarto render
+   ```
+
+   - Verify that the output is created in the `docs` directory.
+
+5. **Initialize a Git Repository:**
+   - If you haven't already, initialize a Git repository in your project directory.
+
+   ```bash
+   git init
+   ```
+
+   - Add all files to the Git repository and commit them.
+
+   ```bash
+   git add .
+   git commit -m "Initial commit of Quarto website"
+   ```
+
+6. **Push Your Project to GitHub:**
+   - Create a new repository on GitHub and follow the instructions to push your local repository to GitHub.
+
+   ```bash
+   git remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+7. **Enable GitHub Pages:**
+   - Go to the settings of your GitHub repository.
+   - Under the "Pages" section, set the source to the `docs` folder on the `main` branch.
+   - Save the settings and wait for GitHub to publish your website.
+
+8. **Verify Your Website:**
+   - Navigate to `https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPOSITORY_NAME` to see your published Quarto website.
+
+**Questions:**
+
+1. What command do you use to create a new Quarto website project?
+2. How do you customize the settings for your Quarto website?
+3. What steps do you take to render your Quarto website and generate the HTML files?
+4. How do you initialize a Git repository and push it to GitHub?
+5. What settings do you need to change in GitHub to enable GitHub Pages for your website?
+
+::::
+:::
+
 
 ## Improving your quarto experience
 
