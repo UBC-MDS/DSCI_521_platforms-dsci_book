@@ -300,17 +300,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p><strong>Platform in focus</strong> RStudio IDE</p>
 </section>
-<div class="activity">
-<section id="lecture-5-activity-1" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-1">Lecture 5 Activity 1</h2>
-</section>
-<div class="activity-container">
-<p>You have the <a href="">following report</a> and you have realized that there was an error in one of the calculus you did to generate it. This means that several results are going to be modified. Let’s run the scripts again and replace the plots and results affected. I hope not to have more errors! Do you think that should be other way to solve this?</p>
-</div>
-</div>
 <section id="rstudio" class="level1">
 <h1>RStudio</h1>
-<p>RStudio is an Interactive Development Environment (IDE), just like JupyterLab. This means it comes with some conveniences, such as code completion when pressing <kbd>TAB</kbd>, highlighting of syntax errors, and debugging tools. The interface is also similar to JupyterLab (and many other IDEs) as it has panels for browsing files, reading help documentation, and running code in a console. You are already familiar with the concept of many of these from running JupyterLab, but they are arranged slightly different in RStudio, so you’ll need to familiarize yourself with this new interface. While you can write both R and Python code in RStudio, we’ll use it mostly for R in MDS.</p>
+<p>You have the <a href="">following report</a> and you have realized that there was an error in one of the calculations you did to generate it. This means that several results are going to be modified. Let’s run the scripts again and replace the plots and results affected. I hope not to have more errors! Do you think that should be other way to solve this?</p>
+<p>Introducing RStudio! An Interactive Development Environment (IDE), just like JupyterLab. This means it comes with some conveniences, such as code completion when pressing <kbd>TAB</kbd>, highlighting of syntax errors, and debugging tools. The interface is also similar to JupyterLab (and many other IDEs) as it has panels for browsing files, reading help documentation, and running code in a console. You are already familiar with the concept of many of these from running JupyterLab, but they are arranged slightly different in RStudio, so you’ll need to familiarize yourself with this new interface. While you can write both R and Python code in RStudio, we’ll use it mostly for R in MDS.</p>
 <section id="the-rstudio-interface" class="level2">
 <h2 class="anchored" data-anchor-id="the-rstudio-interface">The RStudio interface</h2>
 <p>The default panel layout is shown below. You can customize where the individual panels go, and if you have opend RStudio earlier, they might not be arranged in exactly this layout. Each panel has multiple tabs and here we are highlighting the tabs we will use the most in each panel.</p>
@@ -384,7 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>–Donald Knuth. “Literate Programming (1984)” in Literate Programming. CSLI, 1992, pg. 99.</p>
 </blockquote>
 <p>In the literate programming paradigm, an author has two (equally important) tasks [2]: 1. write program code to do computing, and 2. write narratives to explain what is being done by the program code</p>
-<p>Going back to our first example in lecture 5 activity 1, we could agree to only mantain the code used to generate the plots and results produced as part of the analysis. But we will also agree that this code, even if we include comments and docstrings, it is not possible to be easily read for an human. Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.</p>
+<p>Going back to our first question in lecture 5, we could agree to only mantain the code used to generate the plots and results produced as part of the analysis. But we will also agree that this code, even if we include comments and docstrings, it is not possible to be easily read for an human. Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.</p>
 <p>The idea of accompanying the code with so much detailed text, was not widely adopted for software projects [3] but turn into an amazing tool for data scientists who frecquently uses these documents as reports products of their analysis. The rendering of the plots as figures next to the text in a manuscript allows giving valuable context to the visualizations.</p>
 <p>Most of you are probably familiarized with dynamic documents as notebooks, our well known <strong>Jupyter Notebooks</strong> (<code>.ipynb</code>) and <strong>RMarkdown documents</strong> (<code>.Rmd</code>) .</p>
 <p>From the two elements that compose the dynamic documents, there are three principal components that are the similar for Jupyter Notebooks and RMarkdown documents:</p>
@@ -399,11 +392,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="img/rmd-inline.png" class="img-fluid" alt="alttag"> <em>example inline code in RMarkdown</em> - https://rmarkdown.rstudio.com/articles_intro.html <img src="img/rmd-code.png" class="img-fluid" alt="alttag"> <em>example code chunk in RMarkdown</em> - https://rmarkdown.rstudio.com/articles_intro.html</p>
 </section>
 <div class="activity">
-<section id="lecture-5-activity-2" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-2">Lecture 5 Activity 2</h2>
+<section id="lecture-5-activity-1" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-5-activity-1">Lecture 5 Activity 1</h2>
 </section>
 <div class="activity-container">
-<p>Let’s go back to the document of the first activity. (1) Convert it in a dynamic document using RMarkdown (2) Are <code>.Rmd</code> documents technically considered notebooks?</p>
+<p>Let’s go back to the document of the first activity. How can we make changes to one of the calculation?</p>
+<p>A. Yes, by using dynamic documents to automatically update the results</p>
+<p>B. No, manually rerunning the scripts is the only way</p>
+<p>C. Yes, by creating a new report from scratch each time</p>
+<p>D. No, it’s best to keep the original report unchanged</p>
 </div>
 </div>
 <section id="rmarkdown" class="level2">
@@ -424,12 +421,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="img/markdown-flowchart.png" class="img-fluid"> Image extracted from: https://www.markdownguide.org/getting-started/</p>
 </section>
 <div class="activity">
-<section id="lecture-5-activity-3" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-3">Lecture 5 Activity 3</h2>
+<section id="lecture-5-activity-2" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-5-activity-2">Lecture 5 Activity 2</h2>
 </section>
 <div class="activity-container">
-<p><em>work in pairs</em></p>
-<p>Let’s have a quick reminder of markdown. How would you recreate a potential original Markdown file of the <a href="">following HTML document</a>? How can you check if you have done it correctly?</p>
+<p>What are the primary benefits of using Markdown for formatting text documents?</p>
+<p>A. It requires complex software to edit</p>
+<p>B. It is human-readable and easily converted to HTML</p>
+<p>C. It cannot be opened by most editors</p>
+<p>D. It is not suitable for web pages</p>
 </div>
 </div>
 <section id="markdown-and-its-flavours" class="level2">
@@ -460,14 +460,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <div class="activity">
-<section id="lecture-5-activity-4" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-4">Lecture 5 Activity 4</h2>
+<section id="lecture-5-activity-3" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-5-activity-3">Lecture 5 Activity 3</h2>
 </section>
-<div class="activity-container">
-<ol type="1">
-<li>Check the documentation of <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc Markdown</a> and <a href="https://github.github.com/gfm/#what-is-github-flavored-markdown-">GitHub Flavour Markdown</a>. Find an example that will render on gitHub but nor in RMarkdown and/or viceversa. Will emojis work in R Markdown? You can use <a href="https://babelmark.github.io">Babelmark III</a> to check this (be careful because it is not updated, better to check directly on GitHub and R Markdown)</li>
-</ol>
-</div>
+<section id="activities" class="level3 activity-container">
+<h3 class="anchored" data-anchor-id="activities">Activities</h3>
+<p>Question: Check the documentation of <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc Markdown</a> and <a href="https://github.github.com/gfm/#what-is-github-flavored-markdown-">GitHub Flavour Markdown</a>. Which of the following is true?</p>
+<p>A. Pandoc Markdown and GitHub Flavour Markdown render the same way.</p>
+<p>B. GitHub Flavour Markdown supports emojis, while Pandoc Markdown does not.</p>
+<p>C. Pandoc Markdown cannot be converted to HTML.</p>
+<p>D. Both render exactly the same across all platforms.</p>
+</section>
 </div>
 <section id="text-and-rendering-r-markdown-documents" class="level2">
 <h2 class="anchored" data-anchor-id="text-and-rendering-r-markdown-documents">Text and rendering R Markdown documents</h2>
@@ -485,18 +488,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <div class="activity">
-<section id="lecture-5-activity-5" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-5">Lecture 5 Activity 5</h2>
+<section id="lecture-5-activity-4" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-5-activity-4">Lecture 5 Activity 4</h2>
 </section>
-<div class="activity-container">
-<ol type="1">
-<li>Go back to the <code>.md</code> file from the activity 3. Can you recreate the <code>.Rmd</code> file that will generate the same <code>HTML</code> when rendered?</li>
-</ol>
-<p>You can check that this is true running the following line of code <code>rmarkdown::render("lecture7_example.Rmd", clean = FALSE)</code> adding the argument <code>clean = FALSE</code> will keep the intermidiate file <code>lecture7_example.knit.md</code> created by <code>knitr</code>.</p>
-<ol start="2" type="1">
-<li>Can you think of advantages of using the <code>.Rmd</code> instead of the <code>.md</code> file to create the final <code>HTML</code> document?</li>
-</ol>
-</div>
+<section id="activities-1" class="level3 activity-container">
+<h3 class="anchored" data-anchor-id="activities-1">Activities</h3>
+<p>What is the primary advantage of using an <code>.Rmd</code> file over a <code>.md</code> file to create the final HTML document?</p>
+<p>A. <code>.Rmd</code> files do not support code chunks.</p>
+<p>B. <code>.Rmd</code> files allow for the inclusion of executable code chunks, producing dynamic documents.</p>
+<p>C. <code>.md</code> files are easier to edit.</p>
+<p>D. There is no difference between <code>.Rmd</code> and <code>.md</code> files in terms of functionality.</p>
+</section>
 </div>
 <section id="r-markdown-and-r-notebooks" class="level2">
 <h2 class="anchored" data-anchor-id="r-markdown-and-r-notebooks">R Markdown and R Notebooks</h2>
@@ -504,11 +506,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Let’s see an example of this by creating a new R Notebook via <code>File -&gt; New -&gt; R Notebook</code>. As you can see, there is a default template for Notebooks, which include useful info on how to use them. We can see the keyboard shortcuts for running and inserting cells, and when we execute the plot code the plot shows up inside the notebook rather than in the side panel as when we ran the same line from within the script script.</p>
 </section>
 <div class="activity">
-<section id="lecture-5-activity-6" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-6">Lecture 5 Activity 6</h2>
+<section id="lecture-5-activity-5" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-5-activity-5">Lecture 5 Activity 5</h2>
 </section>
 <div class="activity-container">
-<p>Is it the same an Rnotebook than a <code>.Rmd</code> document?</p>
+<p>Is an R Notebook the same as an .Rmd document?</p>
+<pre><code>a) True
+b) False</code></pre>
 </div>
 </div>
 <section id="running-editing-and-creating-code-chunks" class="level3">
@@ -522,11 +526,15 @@ x
 <p>All code cells are run when you knit/render the entire document (like pressing “Run all” in JupyterLab). By default, the code in the chunk and the code output will be included in your rendered document. You can also run the code by clicking the green play button on the right-hand side of the code chunk.</p>
 </section>
 <div class="activity">
-<section id="lecture-5-activity-7" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-7">Lecture 5 Activity 7</h2>
+<section id="lecture-5-activity-6" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-5-activity-6">Lecture 5 Activity 6</h2>
 </section>
 <div class="activity-container">
-<p>Clone this folder and try to render de <code>.Rmd</code> file. What happen? Try to use <code>here()</code> for the filepath</p>
+<p>Clone a folder and try to render the .Rmd file. What happens? Try to use here() for the filepath.</p>
+<pre><code>a) The file renders without any issues.
+b) The file fails to render due to incorrect file paths.
+c) The file renders but with missing plots.
+d) The file cannot be opened in RStudio.</code></pre>
 </div>
 </div>
 <section id="naming-code-chunks-and-r-markdown-document-sections" class="level3">
@@ -536,25 +544,65 @@ x
 <p><img src="img/menu1.png" class="img-fluid"></p>
 <p>By clicking on any of the headings in the pop-up-like menu, RStudio will navigate you to that section of the R Markdown document. Try clicking on one to see how it works.</p>
 <p>In addition to Markdown headings, RStudio also keeps track of code chunks in that menu. By default RStudio names the chunks by their position (e.g.&nbsp;Chunk 1, Chunk 2, etc). But in reality those names are not that useful and it is more helpful to give code chunks meaningful names. For example, in the code chunk below where we use a for loop to sum the numbers from 1 to 10, we name the chunk “for loop sum”.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r for loop sum}</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at"># initialize sum to 0</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">loop_sum &lt;- 0</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at"># loop of a sequence from 1 to 10 and calculate the sum</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">for (i in seq(1:10)){</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">  loop_sum &lt;- loop_sum + i</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">}</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">print(loop_sum)</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r for loop sum}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at"># initialize sum to 0</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">loop_sum &lt;- 0</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="at"># loop of a sequence from 1 to 10 and calculate the sum</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">for (i in seq(1:10)){</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="at">  loop_sum &lt;- loop_sum + i</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="at">}</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">print(loop_sum)</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<div class="activity">
-<section id="lecture-5-activity-8" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-8">Lecture 5 Activity 8</h2>
+<div class="exercise">
+<section id="lecture-5-exercise-1" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-5-exercise-1">Lecture 5 Exercise 1</h3>
 </section>
-<div class="activity-container">
-<p><code>lecture7_act6.Rmd</code> it is not rendering. Can you fix it?</p>
-<p><strong>Do not duplicate code chunk names, this will break the rendering of your document!</strong></p>
+<div class="exercise-container">
+<p><strong>Convert Markdown to R Markdown and Generate a Plot</strong></p>
+<p><strong>Objective:</strong> Convert a given Markdown file into an R Markdown document. Ensure that the document includes at least one plot generated from a built-in R dataset. Submit the .Rmd file and the rendered HTML output. Additionally, discuss the advantages of using .Rmd over .md for generating dynamic documents.</p>
+<p><strong>Instructions:</strong></p>
+<ol type="1">
+<li><strong>Markdown to R Markdown Conversion:</strong>
+<ul>
+<li>Start with a provided Markdown file (e.g., <code>example.md</code>).</li>
+<li>Convert this Markdown file into an R Markdown document (<code>example.Rmd</code>).</li>
+<li>Ensure to include a necessary YAML header at the beginning of the document for proper rendering.</li>
+</ul></li>
+<li><strong>Adding a Plot:</strong>
+<ul>
+<li>Use a built-in R dataset (e.g., <code>mtcars</code>, <code>iris</code>) to generate a plot.</li>
+<li>Include the plot within a code chunk in your R Markdown document.</li>
+<li>Ensure that the plot renders correctly in the final HTML output.</li>
+</ul></li>
+<li><strong>Rendering the Document:</strong>
+<ul>
+<li>Render the <code>.Rmd</code> file to HTML format.</li>
+<li>Ensure all code chunks, plots, and narrative content are properly displayed in the rendered HTML document.</li>
+</ul></li>
+<li><strong>Discussion:</strong>
+<ul>
+<li>Write a section in your R Markdown document discussing the advantages of using <code>.Rmd</code> over <code>.md</code> for generating dynamic documents.</li>
+<li>Consider aspects such as reproducibility, integration of code and narrative, and the ability to produce various output formats.</li>
+</ul></li>
+<li><strong>Submission:</strong>
+<ul>
+<li>Submit the following:
+<ul>
+<li>The original Markdown file (<code>example.md</code>).</li>
+<li>The converted R Markdown file (<code>example.Rmd</code>).</li>
+<li>The rendered HTML output (<code>example.html</code>).</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Questions:</p>
+<ol type="1">
+<li>What are the advantages of using .Rmd over .md for generating dynamic documents?</li>
+<li>How do you include and render a plot from a built-in R dataset in an R Markdown document?</li>
+<li>What are the necessary steps to convert a Markdown file to an R Markdown document?</li>
+</ol>
 </div>
 </div>
 <section id="code-chunk-options" class="level3">
@@ -563,15 +611,15 @@ x
 <p><img src="img/chunk_options.jpeg" class="img-fluid"></p>
 <p>You can set the chunk options at either a global level (once set they will be applied to all code chunks in the <code>.Rmd</code> file) or locally for a specific chunk (these will override the global chunk options if they are contradictory).</p>
 <p>Global options are usually set in one chunk at the top of the document and looks like this (this is a screenshot):</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r setup, include=FALSE}</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">knitr::opts_chunk$set(echo = FALSE)</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r setup, include=FALSE}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">knitr::opts_chunk$set(echo = FALSE)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Global chunk options are set by adding them as arguments to <code>knitr::opts_chunk$set(...)</code> (put them in place of <code>...</code> and separate multiple options with a comma). The only global chunk options set in this document is <code>echo = FALSE</code>, which hides the code chunks and only shows the output, something that can be useful for non-technical reports.</p>
 <p>Local chunk options are set by adding the options in the curly braces of a code chunk after the language engine and code chunk name. For example, to not display warnings in a single code chunk we would use the <code>warning = FALSE</code> code chunk as follows:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r correlation no warning, warning = FALSE}</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at"># some R code that throws a warning</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">cor( c( 1 , 1 ), c( 2 , 3 ) )</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r correlation no warning, warning = FALSE}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at"># some R code that throws a warning</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">cor( c( 1 , 1 ), c( 2 , 3 ) )</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="a-few-tips-and-tricks" class="level3">
 <h3 class="anchored" data-anchor-id="a-few-tips-and-tricks">A few tips and tricks</h3>
@@ -594,23 +642,73 @@ x
 <section id="r-markdown-templates" class="level1">
 <h1>R Markdown templates</h1>
 <p>We have seen how to use the output formats <code>html_document</code> and <code>pdf_document</code>, but as noted in lab3 during the lab, there are many more. A commonly used one is <code>github_document</code>, which both saves a <code>.md</code> markdown file and creates a temporary <code>.html</code> files for preview of how it will look on GitHub, which is stored in a temporary folder and later deleted. This format does not have as many options as HTML, and you can use it like this:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Another way of creating a a <code>github_document</code> is to go to <code>New -&gt; R Markdown -&gt; From Template -&gt; GitHub Document</code>. As you can see there are other useful templates here. We will see how to create a presentation soon, but first lets see how to work with a word template. A word document can be created with this YAML header:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> word_document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We can modify the style of a word document by opening one of our previously exported word files (it must have been created with R Studio / Pandoc), <a href="https://bookdown.org/yihui/rmarkdown-cookbook/word-template.html">changing the styling options as shown here</a>, saving this under a new name, and then using it as a template:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">reference_docx</span><span class="kw">:</span><span class="at"> </span><span class="st">"our-style-doc.docx"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Another way of creating a a <code>github_document</code> is to go to <code>New -&gt; R Markdown -&gt; From Template -&gt; GitHub Document</code>. As you can see there are other useful templates here. We will see how to create a presentation soon, but first lets see how to work with a word template. A word document can be created with this YAML header:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> word_document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can modify the style of a word document by opening one of our previously exported word files (it must have been created with R Studio / Pandoc), <a href="https://bookdown.org/yihui/rmarkdown-cookbook/word-template.html">changing the styling options as shown here</a>, saving this under a new name, and then using it as a template:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">reference_docx</span><span class="kw">:</span><span class="at"> </span><span class="st">"our-style-doc.docx"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>There are <a href="https://bookdown.org/yihui/rmarkdown/document-templates.html">more details in this article</a>, including how to create your own custom template, for example for a CV.</p>
-<div class="activity">
-<section id="lecture-5-activity-9" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-9">Lecture 5 Activity 9</h2>
+<div class="exercise">
+<section id="lecture-5-exercise-2" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-5-exercise-2">Lecture 5 Exercise 2</h3>
 </section>
-<div class="activity-container">
-<p>What would you use the <code>github_document</code> option for?</p>
+<div class="exercise-container">
+<p><strong>Creating an RStudio Project and Generating an R Markdown Report</strong></p>
+<p><strong>Objective:</strong> Create an RStudio project, write a script to analyze a dataset of your choice, and generate a report in R Markdown. The report should include a narrative, code chunks, and visualizations. Submit the RStudio project folder along with the .Rmd file and the rendered HTML output. Additionally, include a section comparing R Notebooks and .Rmd documents, highlighting their similarities and differences.</p>
+<p><strong>Instructions:</strong></p>
+<ol type="1">
+<li><strong>Create an RStudio Project:</strong>
+<ul>
+<li>Open RStudio and create a new project (e.g., <code>Data_Analysis_Project</code>).</li>
+<li>Organize the project with appropriate folders for data, scripts, and reports.</li>
+</ul></li>
+<li><strong>Dataset Selection and Analysis:</strong>
+<ul>
+<li>Choose a dataset of your choice. This can be a built-in R dataset or an external dataset.</li>
+<li>Write an R script (<code>analysis.R</code>) to perform the data analysis. The script should include data loading, cleaning, analysis, and visualization.</li>
+</ul></li>
+<li><strong>Generate an R Markdown Report:</strong>
+<ul>
+<li>Create an R Markdown document (<code>report.Rmd</code>) within the project.</li>
+<li>The report should include:
+<ul>
+<li>A narrative explaining the analysis.</li>
+<li>Code chunks displaying the R code used for analysis.</li>
+<li>Visualizations generated from the analysis (e.g., plots, charts).</li>
+</ul></li>
+</ul></li>
+<li><strong>Rendering the Report:</strong>
+<ul>
+<li>Render the <code>.Rmd</code> file to HTML format.</li>
+<li>Ensure all code chunks, plots, and narrative content are properly displayed in the rendered HTML document.</li>
+</ul></li>
+<li><strong>Comparison Section:</strong>
+<ul>
+<li>Include a section in your report comparing R Notebooks and .Rmd documents.</li>
+<li>Highlight their similarities and differences, focusing on aspects such as interactivity, use cases, and workflow integration.</li>
+</ul></li>
+<li><strong>Submission:</strong>
+<ul>
+<li>Submit the following:
+<ul>
+<li>The entire RStudio project folder.</li>
+<li>The R script (<code>analysis.R</code>).</li>
+<li>The R Markdown file (<code>report.Rmd</code>).</li>
+<li>The rendered HTML output (<code>report.html</code>).</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Questions:</p>
+<ol type="1">
+<li>What are the key steps in setting up an RStudio project and organizing it for data analysis?</li>
+<li>How do you include and render visualizations in an R Markdown report?</li>
+<li>What are the similarities and differences between R Notebooks and .Rmd documents?</li>
+</ol>
 </div>
 </div>
 <section id="references" class="level2">

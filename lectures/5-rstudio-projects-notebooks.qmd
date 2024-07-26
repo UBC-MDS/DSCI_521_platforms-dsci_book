@@ -9,23 +9,13 @@ jupyter: python3
 
 **Platform in focus** RStudio IDE
 
-
-:::{.activity}
-::::{.activity-header}
-## Lecture 5 Activity 1
-::::
-::::{.activity-container}
-You have the [following report]() and you have realized that there was an error in one of the calculus you did to generate it. This means that several results are going to be modified.
-Let's run the scripts again and replace the plots and results affected. I hope not to have more errors!
-Do you think that should be other way to solve this?
-::::
-:::
-
-
-
 # RStudio
 
-RStudio is an Interactive Development Environment (IDE),
+You have the [following report]() and you have realized that there was an error in one of the calculations you did to generate it. This means that several results are going to be modified.
+Let's run the scripts again and replace the plots and results affected. I hope not to have more errors!
+Do you think that should be other way to solve this?
+
+Introducing RStudio! An Interactive Development Environment (IDE),
 just like JupyterLab.
 This means it comes with some conveniences,
 such as code completion when pressing <kbd>TAB</kbd>,
@@ -184,7 +174,7 @@ In the literate programming paradigm, an author has two (equally important) task
 1. write program code to do computing, and
 2. write narratives to explain what is being done by the program code
 
-Going back to our first example in lecture 5 activity 1, we could agree to only mantain the code used to generate the plots and results produced as part of the analysis. But we will also agree that this code, even if we include comments and docstrings, it is not possible to be easily read for an human. Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.
+Going back to our first question in lecture 5, we could agree to only mantain the code used to generate the plots and results produced as part of the analysis. But we will also agree that this code, even if we include comments and docstrings, it is not possible to be easily read for an human. Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.
 
 The idea of accompanying the code with so much detailed text, was not widely adopted for software projects [3] but turn into an amazing tool for data scientists who frecquently uses these documents as reports products of their analysis. The rendering of the plots as figures next to the text in a manuscript allows giving valuable context to the visualizations.
 
@@ -209,12 +199,18 @@ From the two elements that compose the dynamic documents, there are three princi
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 5 Activity 2
+## Lecture 5 Activity 1
 ::::
 ::::{.activity-container}
-Let's go back to the document of the first activity.
-(1) Convert it in a dynamic document using RMarkdown
-(2) Are `.Rmd` documents technically considered notebooks?
+Let's go back to the document of the first activity. How can we make changes to one of the calculation?
+
+A. Yes, by using dynamic documents to automatically update the results
+
+B. No, manually rerunning the scripts is the only way
+
+C. Yes, by creating a new report from scratch each time
+
+D. No, it's best to keep the original report unchanged
 
 ::::
 :::
@@ -282,13 +278,18 @@ Image extracted from: https://www.markdownguide.org/getting-started/
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 5 Activity 3
+## Lecture 5 Activity 2
 ::::
 ::::{.activity-container}
-*work in pairs*
+What are the primary benefits of using Markdown for formatting text documents?
 
-Let's have a quick reminder of markdown. How would you recreate a potential original Markdown file of the [following HTML document]()?
-How can you check if you have done it correctly?
+A. It requires complex software to edit
+
+B. It is human-readable and easily converted to HTML
+
+C. It cannot be opened by most editors
+
+D. It is not suitable for web pages
 ::::
 :::
 
@@ -366,13 +367,22 @@ The use of shorter phrases could be a benefit when you are version controlling f
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 5 Activity 4
+## Lecture 5 Activity 3
 ::::
 ::::{.activity-container}
-1. Check the documentation of [Pandoc Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown) and [GitHub Flavour Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-).
-Find an example that will render on gitHub but nor in RMarkdown and/or viceversa.
-Will emojis work in R Markdown?
-You can use [Babelmark III](https://babelmark.github.io) to check this (be careful because it is not updated, better to check directly on GitHub and R Markdown)
+### Activities
+
+Question: Check the documentation of [Pandoc Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown) and [GitHub Flavour Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-). Which of the following is true?
+    
+A. Pandoc Markdown and GitHub Flavour Markdown render the same way.
+
+B. GitHub Flavour Markdown supports emojis, while Pandoc Markdown does not.
+    
+C. Pandoc Markdown cannot be converted to HTML.
+    
+D. Both render exactly the same across all platforms.
+
+
 ::::
 :::
 
@@ -425,20 +435,20 @@ which is responsible for creating the finished format.
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 5 Activity 5
+## Lecture 5 Activity 4
 ::::
 ::::{.activity-container}
-1. Go back to the `.md` file from the activity 3.
-Can you recreate the `.Rmd` file that will generate the same `HTML` when rendered?
+### Activities
 
-You can check that this is true
-running the following line of code
-`rmarkdown::render("lecture7_example.Rmd", clean = FALSE)`
-adding the argument `clean = FALSE`
-will keep the intermidiate file `lecture7_example.knit.md` created by `knitr`.
+What is the primary advantage of using an `.Rmd` file over a `.md` file to create the final HTML document?
 
-2. Can you think of advantages of using the `.Rmd`
-instead of the `.md` file to create the final `HTML` document?
+A. `.Rmd` files do not support code chunks.
+
+B. `.Rmd` files allow for the inclusion of executable code chunks, producing dynamic documents.
+
+C. `.md` files are easier to edit.
+
+D. There is no difference between `.Rmd` and `.md` files in terms of functionality.
 
 ::::
 :::
@@ -473,10 +483,13 @@ as when we ran the same line from within the script script.
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 5 Activity 6
+## Lecture 5 Activity 5
 ::::
 ::::{.activity-container}
-Is it the same an Rnotebook than a `.Rmd` document?
+Is an R Notebook the same as an .Rmd document?
+
+    a) True
+    b) False
 ::::
 :::
 
@@ -519,10 +532,15 @@ You can also run the code by clicking the green play button on the right-hand si
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 5 Activity 7
+## Lecture 5 Activity 6
 ::::
 ::::{.activity-container}
-Clone this folder and try to render de `.Rmd` file. What happen? Try to use `here()` for the filepath
+Clone a folder and try to render the .Rmd file. What happens? Try to use here() for the filepath.
+
+    a) The file renders without any issues.
+    b) The file fails to render due to incorrect file paths.
+    c) The file renders but with missing plots.
+    d) The file cannot be opened in RStudio.
 ::::
 :::
 
@@ -571,18 +589,52 @@ print(loop_sum)
 ```
 ````
 
-:::{.activity}
-::::{.activity-header}
-## Lecture 5 Activity 8
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 5 Exercise 1
 ::::
-::::{.activity-container}
-`lecture7_act6.Rmd` it is not rendering. Can you fix it?
+::::{.exercise-container}
 
-**Do not duplicate code chunk names,
-this will break the rendering of your document!**
+**Convert Markdown to R Markdown and Generate a Plot**
+
+**Objective:** Convert a given Markdown file into an R Markdown document. Ensure that the document includes at least one plot generated from a built-in R dataset. Submit the .Rmd file and the rendered HTML output. Additionally, discuss the advantages of using .Rmd over .md for generating dynamic documents.
+
+**Instructions:**
+
+1. **Markdown to R Markdown Conversion:**
+   - Start with a provided Markdown file (e.g., `example.md`).
+   - Convert this Markdown file into an R Markdown document (`example.Rmd`).
+   - Ensure to include a necessary YAML header at the beginning of the document for proper rendering.
+
+2. **Adding a Plot:**
+   - Use a built-in R dataset (e.g., `mtcars`, `iris`) to generate a plot.
+   - Include the plot within a code chunk in your R Markdown document.
+   - Ensure that the plot renders correctly in the final HTML output.
+
+3. **Rendering the Document:**
+   - Render the `.Rmd` file to HTML format.
+   - Ensure all code chunks, plots, and narrative content are properly displayed in the rendered HTML document.
+
+4. **Discussion:**
+   - Write a section in your R Markdown document discussing the advantages of using `.Rmd` over `.md` for generating dynamic documents.
+   - Consider aspects such as reproducibility, integration of code and narrative, and the ability to produce various output formats.
+
+5. **Submission:**
+   - Submit the following:
+     - The original Markdown file (`example.md`).
+     - The converted R Markdown file (`example.Rmd`).
+     - The rendered HTML output (`example.html`).
+
+Questions:
+
+1. What are the advantages of using .Rmd over .md for generating dynamic documents?
+2. How do you include and render a plot from a built-in R dataset in an R Markdown document?
+3. What are the necessary steps to convert a Markdown file to an R Markdown document?
 
 ::::
 :::
+
+
 
 
 ### 1.4. Code chunk options
@@ -726,12 +778,54 @@ including how to create your own custom template,
 for example for a CV.
 
 
-:::{.activity}
-::::{.activity-header}
-## Lecture 5 Activity 9
+:::{.exercise}
+::::{.exercise-header}
+### Lecture 5 Exercise 2
 ::::
-::::{.activity-container}
-What would you use the `github_document` option for?
+::::{.exercise-container}
+
+**Creating an RStudio Project and Generating an R Markdown Report**
+
+**Objective:** Create an RStudio project, write a script to analyze a dataset of your choice, and generate a report in R Markdown. The report should include a narrative, code chunks, and visualizations. Submit the RStudio project folder along with the .Rmd file and the rendered HTML output. Additionally, include a section comparing R Notebooks and .Rmd documents, highlighting their similarities and differences.
+
+**Instructions:**
+
+1. **Create an RStudio Project:**
+   - Open RStudio and create a new project (e.g., `Data_Analysis_Project`).
+   - Organize the project with appropriate folders for data, scripts, and reports.
+
+2. **Dataset Selection and Analysis:**
+   - Choose a dataset of your choice. This can be a built-in R dataset or an external dataset.
+   - Write an R script (`analysis.R`) to perform the data analysis. The script should include data loading, cleaning, analysis, and visualization.
+
+3. **Generate an R Markdown Report:**
+   - Create an R Markdown document (`report.Rmd`) within the project.
+   - The report should include:
+     - A narrative explaining the analysis.
+     - Code chunks displaying the R code used for analysis.
+     - Visualizations generated from the analysis (e.g., plots, charts).
+
+4. **Rendering the Report:**
+   - Render the `.Rmd` file to HTML format.
+   - Ensure all code chunks, plots, and narrative content are properly displayed in the rendered HTML document.
+
+5. **Comparison Section:**
+   - Include a section in your report comparing R Notebooks and .Rmd documents.
+   - Highlight their similarities and differences, focusing on aspects such as interactivity, use cases, and workflow integration.
+
+6. **Submission:**
+   - Submit the following:
+     - The entire RStudio project folder.
+     - The R script (`analysis.R`).
+     - The R Markdown file (`report.Rmd`).
+     - The rendered HTML output (`report.html`).
+
+Questions:
+
+1. What are the key steps in setting up an RStudio project and organizing it for data analysis?
+2. How do you include and render visualizations in an R Markdown report?
+3. What are the similarities and differences between R Notebooks and .Rmd documents?
+
 ::::
 :::
 
