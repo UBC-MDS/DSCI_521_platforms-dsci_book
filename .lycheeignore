@@ -3,3 +3,7 @@
 https://ubc-mds.github.io/lectures*
 https://ubc-mds.github.io/site_libs*
 https://ubc-mds.github.io/MDSlogo.png
+
+# ignore posit support pages, has a 403 forbidden error
+# they might be blocking robots
+https://support.posit.co/*
