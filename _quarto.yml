@@ -1,6 +1,5 @@
 project:
   type: website
-  output-dir: docs
 
 website:
   title: "DSCI 521: Computing Platforms for Data Science"
@@ -45,7 +44,7 @@ format:
     toc: true
     toc-depth: 3
     toc-expand: 3
-    
+
 editor:
   render-on-save: true
   markdown:

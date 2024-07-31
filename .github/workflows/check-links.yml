@@ -1,0 +1,35 @@
+name: Check Links
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Quarto Publish"]
+    types:
+      - completed
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: site
+          path: ./_site  # Ensure this path matches the upload path in Workflow 1
+
+      - name: Restore lychee cache
+        uses: actions/cache@v3
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v1.8.0
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          args: '--cache --max-cache-age 1d ./_site/**/*.html'
+          fail: true
