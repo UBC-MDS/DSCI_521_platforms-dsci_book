@@ -1,4 +1,4 @@
-@PHONY: preview render setup_python_venv clean
+@PHONY: preview render setup_python_venv publish_manual clean
 
 preview:
 	quarto preview . --no-browser --port 54321
@@ -16,4 +16,5 @@ publish_manual:
 	quarto publish gh-pages
 
 clean:
-	rm -rf docs _site
+	# you can pass a --dry-run flag to do it as a dry run
+	git clean -dfx --exclude "venv/" --exclude ".conda/"
