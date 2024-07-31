@@ -34,9 +34,3 @@ jobs:
 
       - name: Display structure of files
         run: ls -R
-
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: site
-          path: ./_site  # Adjust this to your Quarto output directory

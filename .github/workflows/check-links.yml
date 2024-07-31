@@ -15,13 +15,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: site
-          path: ./_site  # Ensure this path matches the upload path in Workflow 1
-          github-token: ${{ secrets.GH_PAT }}
-
       - name: Display structure of downloaded files
         run: ls -R
 
@@ -38,5 +31,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
-          args: '--cache --max-cache-age 1d ./_site/**/*.html'
+          args: '--cache --max-cache-age 7d https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/'
           fail: true
