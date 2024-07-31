@@ -3,7 +3,7 @@
 
 /.quarto/
 _site/
-docs
+docs/*
 
 # default R and python git ignores below
 
