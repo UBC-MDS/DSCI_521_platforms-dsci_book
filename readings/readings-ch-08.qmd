@@ -1,7 +1,0 @@
-- [Regex](https://regexone.com/lesson/introduction_abcs)
-- [Regex test](https://regex101.com)
-- [Practicing Regex](https://regexcrossword.com/)
-- [Three tips for posting good questions to R-help and Stack Overflow](https://www.r-bloggers.com/three-tips-for-posting-good-questions-to-r-help-and-stack-overflow/)
-- [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
-- [Good Enough Practices in Scientific Computing](https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
-- [.gitignore](https://www.atlassian.com/git/tutorials/saving-changes/gitignore)

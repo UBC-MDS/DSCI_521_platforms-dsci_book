@@ -1,4 +1,0 @@
-1. Understand what is a computational environment and how can ensure the reproducibility of a project
-2. Differenciate Python, Anaconda, MiniConda, Conda and `pip`
-3. Manage packages and environments in Python using Conda
-4. Manage packages and environments in R using `renv`

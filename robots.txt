@@ -1,0 +1,1 @@
+Sitemap: https://UBC-MDS.github.io/DSCI_521_platforms-dsci_book/sitemap.xml

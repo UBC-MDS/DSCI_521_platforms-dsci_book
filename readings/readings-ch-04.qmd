@@ -1,2 +1,0 @@
-- [Quarto Guides](https://quarto.org/docs/guide/)
-- [Getting Started with GitHub Pages](https://guides.github.com/features/pages/)
