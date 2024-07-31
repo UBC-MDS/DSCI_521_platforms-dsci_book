@@ -16,4 +16,4 @@ publish_manual:
 	quarto publish gh-pages
 
 clean:
-	rm -rf docs
+	rm -rf docs _site
