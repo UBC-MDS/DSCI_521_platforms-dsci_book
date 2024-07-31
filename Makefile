@@ -4,4 +4,6 @@ preview:
 	quarto preview . --no-browser --port 54321
 
 setup_python_venv:
-	pip install jupyter numpy matplotlib
+	pip freeze | xargs pip uninstall -y
+	pip install ipykernel jupyter numpy matplotlib
+	pip freeze > requirements.txt
