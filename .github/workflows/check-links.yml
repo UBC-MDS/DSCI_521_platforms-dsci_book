@@ -6,7 +6,7 @@ on:
   schedule:
     - cron: "5 8 * * Sun" # once a week every sunday at 8:05
   workflow_run:
-    workflows: ["Build and Publish Quarto Website"]
+    workflows: ["pages-build-deployment"]
     types:
       - completed
 
