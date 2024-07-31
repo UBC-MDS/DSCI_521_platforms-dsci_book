@@ -9,13 +9,11 @@ website:
         text: Home
 
   sidebar:
+    logo: MDSlogo.png
+    logo-alt: "MDS Logo Image"
     style: "docked"
     search: true
     contents:
-      - text: |
-          <div style="text-align: center;">
-            <img src="MDSlogo.png" alt="MDS Logo" style="width: 100%; height: auto;">
-          </div>
       - text: "Lecture 0: JupyterLab Orientation"
         href: lectures/0-jupyterlab-orientation-intro.qmd
       - text: "Lecture 1: Introduction to MDS software and Bash"
