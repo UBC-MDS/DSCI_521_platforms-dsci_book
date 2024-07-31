@@ -32,6 +32,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Display structure of files
+        run: ls -R
+
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:

@@ -21,6 +21,9 @@ jobs:
           name: site
           path: ./_site  # Ensure this path matches the upload path in Workflow 1
 
+      - name: Display structure of downloaded files
+        run: ls -R
+
       - name: Restore lychee cache
         uses: actions/cache@v3
         with:
