@@ -20,6 +20,7 @@ jobs:
         with:
           name: site
           path: ./_site  # Ensure this path matches the upload path in Workflow 1
+          github-token: ${{ secrets.GH_PAT }}
 
       - name: Display structure of downloaded files
         run: ls -R
