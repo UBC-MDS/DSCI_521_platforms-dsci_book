@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.54">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Dynamic documents: from markdown to Rmarkdown documents – DSCI 521: Computing Platforms for Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSCI 521: Computing Platforms for Data Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/5-rstudio-projects-notebooks.html">Lecture 5: Dynamic documents: from markdown to Rmarkdown documents</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+ <span class="menu-text"><div style="text-align: center;">
+  <img src="../site_libs/img/MDSlogo.png" alt="MDS Logo" style="width: 100%; height: auto;">
+</div>
+</span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/0-jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 0: JupyterLab Orientation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/1-MDStools-bash-filesystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 1: Introduction to MDS software and Bash</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/2-git-github-ssh-basic-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 2: Introduction to version control with Git and GitHub</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/3-git-history-merge-conflicts-stash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 3: Getting grovy with Git and GitHub</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/4-quarto_github_pages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 4: Introduction to Quarto and Github Pages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/5-rstudio-projects-notebooks.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lecture 5: Dynamic documents: from markdown to Rmarkdown documents</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/6-rmarkdown-quarto-slides-ghpages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 6: Quarto, RMarkdown, and Jupyter Slides</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/7-virtual-environments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 7: Virtual environments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/8-regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 8: Organization of Data Science projects and some useful tools</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a>
+  <ul class="collapse">
+  <li><a href="#the-rstudio-interface" id="toc-the-rstudio-interface" class="nav-link" data-scroll-target="#the-rstudio-interface">The RStudio interface</a></li>
+  <li><a href="#r-scripts" id="toc-r-scripts" class="nav-link" data-scroll-target="#r-scripts">R Scripts</a></li>
+  <li><a href="#editing-rstudio-settings-to-not-save-workspace-data" id="toc-editing-rstudio-settings-to-not-save-workspace-data" class="nav-link" data-scroll-target="#editing-rstudio-settings-to-not-save-workspace-data">Editing RStudio settings to not save workspace data</a></li>
+  <li><a href="#where-are-we" id="toc-where-are-we" class="nav-link" data-scroll-target="#where-are-we">Where are we?</a>
+  <ul class="collapse">
+  <li><a href="#setting-the-working-directory" id="toc-setting-the-working-directory" class="nav-link" data-scroll-target="#setting-the-working-directory">Setting the working directory</a></li>
+  <li><a href="#three-ways-to-follow" id="toc-three-ways-to-follow" class="nav-link" data-scroll-target="#three-ways-to-follow">Three Ways to follow:</a></li>
+  </ul></li>
+  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio projects</a></li>
+  <li><a href="#creating-rstudio-projects" id="toc-creating-rstudio-projects" class="nav-link" data-scroll-target="#creating-rstudio-projects">Creating RStudio projects</a></li>
+  <li><a href="#dynamic-documents-with-jupyter-notebooks-and-rmarkdown" id="toc-dynamic-documents-with-jupyter-notebooks-and-rmarkdown" class="nav-link" data-scroll-target="#dynamic-documents-with-jupyter-notebooks-and-rmarkdown">Dynamic documents with Jupyter Notebooks and RMarkdown</a></li>
+  <li><a href="#rmarkdown" id="toc-rmarkdown" class="nav-link" data-scroll-target="#rmarkdown"><del>R</del>Markdown</a></li>
+  <li><a href="#markdown-and-its-flavours" id="toc-markdown-and-its-flavours" class="nav-link" data-scroll-target="#markdown-and-its-flavours">Markdown and its flavours</a></li>
+  <li><a href="#text-and-rendering-r-markdown-documents" id="toc-text-and-rendering-r-markdown-documents" class="nav-link" data-scroll-target="#text-and-rendering-r-markdown-documents">Text and rendering R Markdown documents</a>
+  <ul class="collapse">
+  <li><a href="#a-helpful-hint-for-successfully-working-with-r-markdown-documents" id="toc-a-helpful-hint-for-successfully-working-with-r-markdown-documents" class="nav-link" data-scroll-target="#a-helpful-hint-for-successfully-working-with-r-markdown-documents">A helpful hint for successfully working with R Markdown documents</a></li>
+  </ul></li>
+  <li><a href="#r-markdown-and-r-notebooks" id="toc-r-markdown-and-r-notebooks" class="nav-link" data-scroll-target="#r-markdown-and-r-notebooks">R Markdown and R Notebooks</a></li>
+  <li><a href="#running-editing-and-creating-code-chunks" id="toc-running-editing-and-creating-code-chunks" class="nav-link" data-scroll-target="#running-editing-and-creating-code-chunks">1.2. Running, editing and creating code chunks</a></li>
+  <li><a href="#naming-code-chunks-and-r-markdown-document-sections" id="toc-naming-code-chunks-and-r-markdown-document-sections" class="nav-link" data-scroll-target="#naming-code-chunks-and-r-markdown-document-sections">1.3. Naming code chunks and R Markdown document sections</a></li>
+  <li><a href="#code-chunk-options" id="toc-code-chunk-options" class="nav-link" data-scroll-target="#code-chunk-options">1.4. Code chunk options</a></li>
+  <li><a href="#a-few-tips-and-tricks" id="toc-a-few-tips-and-tricks" class="nav-link" data-scroll-target="#a-few-tips-and-tricks">A few tips and tricks</a></li>
+  </ul></li>
+  <li><a href="#r-markdown-templates" id="toc-r-markdown-templates" class="nav-link" data-scroll-target="#r-markdown-templates">R Markdown templates</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a>
+  <ul class="collapse">
+  <li><a href="#code-snippets" id="toc-code-snippets" class="nav-link" data-scroll-target="#code-snippets">Code snippets</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Dynamic documents: from markdown to Rmarkdown documents</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
+<ol type="1">
+<li>Create RProjects in Rstudio using <code>here</code> to define robust file paths.</li>
+<li>Detect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown</li>
+<li>Explain markdown usage in relation to dynamic documents</li>
+<li>Differentiate between code chunks and code cells in Rmarkdown and Jupyter Notebooks.</li>
+<li>Select appropiate code chunk options for RMarkdown.</li>
+<li>Use semantic line breaks for version control files</li>
+<li>Specify metadata in the YAML header block</li>
+</ol>
+<p><strong>Platform in focus</strong> RStudio IDE</p>
+</section>
+<section id="rstudio" class="level1">
+<h1>RStudio</h1>
+<p>You have the <a href="">following report</a> and you have realized that there was an error in one of the calculations you did to generate it. This means that several results are going to be modified. Let’s run the scripts again and replace the plots and results affected. I hope not to have more errors! Do you think that should be other way to solve this?</p>
+<p>Introducing RStudio! An Interactive Development Environment (IDE), just like JupyterLab. This means it comes with some conveniences, such as code completion when pressing <kbd>TAB</kbd>, highlighting of syntax errors, and debugging tools. The interface is also similar to JupyterLab (and many other IDEs) as it has panels for browsing files, reading help documentation, and running code in a console. You are already familiar with the concept of many of these from running JupyterLab, but they are arranged slightly different in RStudio, so you’ll need to familiarize yourself with this new interface. While you can write both R and Python code in RStudio, we’ll use it mostly for R in MDS.</p>
+<section id="the-rstudio-interface" class="level2">
+<h2 class="anchored" data-anchor-id="the-rstudio-interface">The RStudio interface</h2>
+<p>The default panel layout is shown below. You can customize where the individual panels go, and if you have opend RStudio earlier, they might not be arranged in exactly this layout. Each panel has multiple tabs and here we are highlighting the tabs we will use the most in each panel.</p>
+<p><img src="img/rstudio_ide.png" class="img-fluid"></p>
+<p>The “Editor” tab is where you can write R code that will be saved as a file. In contrast, the “Console” tab is where R commands are sent and evaluated by R, but any R code written here is not saved. The “Environment” tab displays the currently defined variables, providing a snapshot of your workspace. The “Files” tab allows you to navigate your file system, and this panel also includes the “Plots” and “Help” tabs, which show figures you create and provide function documentation, respectively.</p>
+</section>
+<section id="r-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="r-scripts">R Scripts</h2>
+<p>A script is a text file that contains multiple commands that you want to be executed all together. In DSCI-511, you have seen how you can use VS Code to create Python scripts in <code>.py</code> files. Here, we will use RStudio to create an R script and save it in a <code>.R</code> file.</p>
+<p>To create a new R Script, navigate to <code>New File -&gt; R Script</code>. Write a few lines of code, e.g.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"y = "</span>, y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can press the “Source” button to run the entire script (running a script is often referred to as “sourcing” it, hence the name). As you can see, the Console shows you what line it ran in order to source the script (you could also type this out yourself), and then displayed any output from the script in the end. You can run just part of a script by pressing the “Run” button, which runs any highlighted lines (the current line by default, the keyboard shortcut is <kbd>Ctrl</kbd> + <kbd>Enter</kbd>).</p>
+<p>If a plot is generate from the executed code, it will show up in the “Plots” tab in the bottom left panel. You can try it by adding the following line to the script and clicking to run it (it uses a built-in data set called “cars”):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="editing-rstudio-settings-to-not-save-workspace-data" class="level2">
+<h2 class="anchored" data-anchor-id="editing-rstudio-settings-to-not-save-workspace-data">Editing RStudio settings to not save workspace data</h2>
+<p>By default, R asks us to save workspace data and load it when we start a new session. In general, we NEVER want to save our workspace (or load a previous one). We can avoid accidentally doing this through turning it off in the RStudio global options in the Tools menu.</p>
+</section>
+<section id="where-are-we" class="level2">
+<h2 class="anchored" data-anchor-id="where-are-we">Where are we?</h2>
+<p>Different from JupyterLab, when you open RStudio you open a <code>.R</code> or <code>.Rmd</code> file the RStudio, the current working directory is <strong>not</strong> neccesarily the project working directory, or the directory of the file you opened.</p>
+<p><strong>EVERY SESSION</strong> you need to tell RStudio where you are working. Especially if you are loading other files outside of your <code>.R</code> or <code>.Rmd</code> file.</p>
+<p>So, where are you when you open RStudio? You can find out one of two ways:</p>
+<ol type="1">
+<li><p>type <code>getwd()</code> in the console</p></li>
+<li><p>In the files pane, click the cog/More button and then click “Go To Working Directory”</p></li>
+</ol>
+<section id="setting-the-working-directory" class="level3">
+<h3 class="anchored" data-anchor-id="setting-the-working-directory">Setting the working directory</h3>
+</section>
+<section id="three-ways-to-follow" class="level3">
+<h3 class="anchored" data-anchor-id="three-ways-to-follow">Three Ways to follow:</h3>
+<ul>
+<li><p>Way 1. <em>Use an RStudio project</em>: RStudio projects help organize your work and manage your files and settings. More details on RStudio projects are provided below.</p></li>
+<li><p>Way 2. <em>Set the working directory through the Files pane</em>: Navigate to the desired location in your file structure using the Files pane. Once there, click the cog/More button and select “Set As Working Directory”.</p></li>
+<li><p>Way 3. <em>Set the working directory via the Session menu</em>: Go to the Session menu, click “Set Working Directory”, and then choose “Choose Directory”. This will open a file browser where you can navigate to and select the desired directory.</p></li>
+<li><p>Way 4. <em>Set the working directory using the console</em>: Type <code>setwd("PATH")</code> in the console, replacing “PATH” with the path to your desired directory. Use this method with care, as explained in Jenny’s <a href="https://www.tidyverse.org/articles/2017/12/workflow-vs-script/">article on workflow vs.&nbsp;script</a>.</p></li>
+</ul>
+</section>
+</section>
+<section id="rstudio-projects" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-projects">RStudio projects</h2>
+<p>An RStudio project is essentially a directory containing a special file: <code>*.Rproj</code>, which holds metadata for R about this project. RProjects set the working directory by default to be the root of the project and we recommend using it together with the <code>here()</code> package, which can easily create paths relative to root project dir:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"here"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If you data is in project_root/files/data/</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># this will make sure that anyone using your project</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># will get the correct path</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>(<span class="st">"files"</span>, <span class="st">"data"</span>, <span class="st">"iris.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="creating-rstudio-projects" class="level2">
+<h2 class="anchored" data-anchor-id="creating-rstudio-projects">Creating RStudio projects</h2>
+<p>You can either create an empty RStudio project, or clone an existing GitHub repo, which also allows you to use the RStudio interface to control Git.</p>
+<ol type="1">
+<li>Start by making a GitHub repo</li>
+<li>Copy the URL needed to clone that repo from GitHub</li>
+<li>Then select <strong>File &gt; New Project &gt; Version Control &gt; Git</strong> and fill in.</li>
+</ol>
+<p>Now you can use RStudio as a Git client via the colorful icon in the toolbar of the edit panel. This includes adding parts of a document do the staging area, committing, pushing, pulling, and more. Using terminal Git will still be more reliable, since it is available anywhere Git is installed, but feel free to use the RStudio (or VS Code) interfaces as a complement.</p>
+<p><img src="img/new_project.png" class="img-fluid"></p>
+</section>
+<section id="dynamic-documents-with-jupyter-notebooks-and-rmarkdown" class="level2">
+<h2 class="anchored" data-anchor-id="dynamic-documents-with-jupyter-notebooks-and-rmarkdown">Dynamic documents with Jupyter Notebooks and RMarkdown</h2>
+<p>Our journey to understand what is a dynamic document is linked with the literate programming paradigm [2] proposed bu Knuth in 1984 [1].</p>
+<blockquote class="blockquote">
+<p><em>I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be works of literature. Hence, my title: “Literate Programming.”</em> <em>Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.”…</em></p>
+<p>–Donald Knuth. “Literate Programming (1984)” in Literate Programming. CSLI, 1992, pg. 99.</p>
+</blockquote>
+<p>In the literate programming paradigm, an author has two (equally important) tasks [2]: 1. write program code to do computing, and 2. write narratives to explain what is being done by the program code</p>
+<p>Going back to our first question in lecture 5, we could agree to only mantain the code used to generate the plots and results produced as part of the analysis. But we will also agree that this code, even if we include comments and docstrings, it is not possible to be easily read for an human. Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.</p>
+<p>The idea of accompanying the code with so much detailed text, was not widely adopted for software projects [3] but turn into an amazing tool for data scientists who frecquently uses these documents as reports products of their analysis. The rendering of the plots as figures next to the text in a manuscript allows giving valuable context to the visualizations.</p>
+<p>Most of you are probably familiarized with dynamic documents as notebooks, our well known <strong>Jupyter Notebooks</strong> (<code>.ipynb</code>) and <strong>RMarkdown documents</strong> (<code>.Rmd</code>) .</p>
+<p>From the two elements that compose the dynamic documents, there are three principal components that are the similar for Jupyter Notebooks and RMarkdown documents:</p>
+<ul>
+<li>The narrative is created with text formatted with <strong>markdown</strong></li>
+<li>The code can be run and it is combined with the text in two different ways:
+<ul>
+<li>Interleaved as part of the text, called <strong>inline code</strong> (only present in RMarkdown documents).</li>
+<li>In separated code blocks called <strong>code cells</strong> (Jupyter Notebooks) or <strong>code chunks</strong> (RMarkdown) that allow rendering code.</li>
+</ul></li>
+</ul>
+<p><img src="img/rmd-inline.png" class="img-fluid" alt="alttag"> <em>example inline code in RMarkdown</em> - https://rmarkdown.rstudio.com/articles_intro.html <img src="img/rmd-code.png" class="img-fluid" alt="alttag"> <em>example code chunk in RMarkdown</em> - https://rmarkdown.rstudio.com/articles_intro.html</p>
+</section>
+<div class="activity">
+<section id="lecture-5-activity-1" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-5-activity-1">Lecture 5 Activity 1</h2>
+</section>
+<div class="activity-container">
+<p>Let’s go back to the document of the first activity. How can we make changes to one of the calculation?</p>
+<p>A. Yes, by using dynamic documents to automatically update the results</p>
+<p>B. No, manually rerunning the scripts is the only way</p>
+<p>C. Yes, by creating a new report from scratch each time</p>
+<p>D. No, it’s best to keep the original report unchanged</p>
+</div>
+</div>
+<section id="rmarkdown" class="level2">
+<h2 class="anchored" data-anchor-id="rmarkdown"><del>R</del>Markdown</h2>
+<blockquote class="blockquote">
+<p>The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions. –John Gruber</p>
+</blockquote>
+<p>Jupyter Notebooks and RMarkdown documents use markdown to format the text, but markdown has it’s own identity! You already known markdown files really well, at least you are using them as the <code>README.md</code> file of most of the project you have created. Let’s start by describing it and then we can talk about RMarkdown.</p>
+<p><a href="https://glosario.carpentries.org/en/#markdown">Markdown</a> is basically a <a href="https://glosario.carpentries.org/en/#markup_language">markup language</a> that you can use to add formatting elements to easy to read plain-text text documents [4,5]. Markdown files have their own file extension (<code>.md</code>) that could be easily converted to <a href="https://glosario.carpentries.org/en/#html"><code>HTML</code></a> and because of that, rendered as a web page.</p>
+<p>Now we can start to understand markdown power:</p>
+<ol type="1">
+<li><p>Its simple <strong>formatting syntax</strong> allows translation of content to <code>HTML</code> without having to be an expert.</p></li>
+<li><p>It is <strong>human readable</strong>. Compare markdown and <code>HTML</code>, which one is easier to understand by reading only the code?</p></li>
+<li><p>It is a <strong>plain-text document</strong>. This means that it is open by mostly any editor, making <code>.md</code> files quite reproducible.</p></li>
+</ol>
+<p>Converting the <code>.md</code> files to <code>HTML</code> documents (<code>.html</code>) involves the use of specific designed software for that purpuse. One of the most popular markdown converters is called <a href="https://pandoc.org/">pandoc</a>. Pandoc can not only convert markdown to <code>HTML</code> if not to other popular and widely used formats as Word documents (<code>.docx</code>) and PDFs (<code>.pdf</code>).</p>
+<p>If your goal is to render the final <code>HTML</code> document, keep in mind that you will need an extra step to view the file in a web browser. Also, <code>HTML</code> documents can not only be render as web pages, you can create with them blogs, books, articles. At the end of lecture 8 we will learn how to use GitHub Pages to render part of the <code>HTML</code> documents that we are going to generate. Therefore, some editors as RStudio, JupyterLab and VS Code will resume many steps at the same time rendering and displaying the <code>.md</code> file directly on the console. GitHub does something similar with the <code>README.md</code> file that appears automatically rendered as the first page of your GitHub repository.</p>
+<p><img src="img/markdown-flowchart.png" class="img-fluid"> Image extracted from: https://www.markdownguide.org/getting-started/</p>
+</section>
+<div class="activity">
+<section id="lecture-5-activity-2" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-5-activity-2">Lecture 5 Activity 2</h2>
+</section>
+<div class="activity-container">
+<p>What are the primary benefits of using Markdown for formatting text documents?</p>
+<p>A. It requires complex software to edit</p>
+<p>B. It is human-readable and easily converted to HTML</p>
+<p>C. It cannot be opened by most editors</p>
+<p>D. It is not suitable for web pages</p>
+</div>
+</div>
+<section id="markdown-and-its-flavours" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-and-its-flavours">Markdown and its flavours</h2>
+<p>We love markdown! But not all are good news…</p>
+<p>First, we will mention that the official markdown syntax documentation is not unambiguosly specified. What does this means? That there some implementations of <a href="https://babelmark.github.io/faq/">markdown have diverged</a> [6]. Meaning that the same markdown syntax can render different outputs in relation to the technology you are using. How a <code>README.md</code> file renders on GitHub could not be equal as how it will look like after being converted by <code>pandoc</code>. The webpage <a href="https://babelmark.github.io">Babelmark III</a> enable to detect this differences through many implementations, also listing some of the most well known pitfalls.</p>
+<p>Secondly, other way in which Markdown has diverged it is reflected in the number of <strong>extensions</strong>. This means that there is specific markdown syntax created for some implementations that will not work for other technologies.</p>
+<p>Don’t panic! In MDS we handle a limited number of markdown flavours (in order of appeareance in DSCI 521):</p>
+<ol type="1">
+<li><p><a href="https://jupyterbook.org/en/stable/file-types/markdown.html">Jupyter Notebook (and Jupyter Book) Markdown</a>: is an extension of a Markdown flavour called <a href="https://commonmark.org/">CommonMark Markdown</a>. If you completed the tutorial that we were recommending on lecture 0 you have some practice on it! https://commonmark.org/help/tutorial/</p></li>
+<li><p><a href="https://github.github.com/gfm/#what-is-github-flavored-markdown-">GitHub flavoured Markdown</a>. To write issues, pull request, render your <code>README.md</code> file in the first page of your repository you will be using this Markdown flavour. It is a (different) extension of the CommonMark Spec also used for Jupyter Notebooks.</p></li>
+</ol>
+<p>Read how to use it <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">here!</a></p>
+<ol start="3" type="1">
+<li><a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">R Markdown documents</a>. R Markdown is an implementation of <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc Markdown (with a wide list of interesting extensions!)</a></li>
+</ol>
+<p>Don’t panic! The important take-home message of this is that you should always check the documentation of the technology you are using. Even if for most of the cases could be quite similar, there is not an universal markdown cheatsheet or proceeding that will possible to be used with all of them!</p>
+<section id="a-good-practice-when-writting-in-markdown-semantic-line-breaks" class="level4">
+<h4 class="anchored" data-anchor-id="a-good-practice-when-writting-in-markdown-semantic-line-breaks">A good practice when writting in markdown: <strong>semantic line breaks</strong></h4>
+<blockquote class="blockquote">
+<p><strong>Hints for Preparing Documents</strong></p>
+<p>Most documents go through several versions (always more than you expected) before they are finally finished. Accordingly, you should do whatever possible to make the job of changing them easy.</p>
+<p>First, when you do the purely mechanical operations of typing, type so subsequent editing will be easy. Start each sentence on a new line. Make lines short, and break lines at natural places, such as after commas and semicolons, rather than randomly. Since most people change documents by rewriting phrases and adding, deleting and rearranging sentences, these precautions simplify any editing you have to do later.</p>
+<p>— Brian W. Kernighan, 1974 [9]</p>
+</blockquote>
+<p>You need 2 spaces to create a line break using markdown. This means that you can actually break a line without creating a line break in the rendered file.</p>
+<p>The use of shorter phrases could be a benefit when you are version controlling files.</p>
+</section>
+</section>
+<div class="activity">
+<section id="lecture-5-activity-3" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-5-activity-3">Lecture 5 Activity 3</h2>
+</section>
+<section id="activities" class="level3 activity-container">
+<h3 class="anchored" data-anchor-id="activities">Activities</h3>
+<p>Question: Check the documentation of <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc Markdown</a> and <a href="https://github.github.com/gfm/#what-is-github-flavored-markdown-">GitHub Flavour Markdown</a>. Which of the following is true?</p>
+<p>A. Pandoc Markdown and GitHub Flavour Markdown render the same way.</p>
+<p>B. GitHub Flavour Markdown supports emojis, while Pandoc Markdown does not.</p>
+<p>C. Pandoc Markdown cannot be converted to HTML.</p>
+<p>D. Both render exactly the same across all platforms.</p>
+</section>
+</div>
+<section id="text-and-rendering-r-markdown-documents" class="level2">
+<h2 class="anchored" data-anchor-id="text-and-rendering-r-markdown-documents">Text and rendering R Markdown documents</h2>
+<p>In a R Markdown document any line of text not in a code chunk (like this line of text) will be formatted using Markdown. Similar to JupyterLab, you can also use HTML and LaTeX here to do more advanced formatting. Unlike JupyterLab, you do not get to see these Markdown sections rendered on their own. To see this text rendered, <strong>you need to render the whole document</strong>. You can do that clicking the “Knit” or “Preview” button on the top. The difference between these two is that “Preview” creates a HTML version of your document as it looks right now, whereas “Knit” first restarts the R session and runs through the entire document from the beginning to make sure it will work when you send it to someone else.</p>
+<section id="a-helpful-hint-for-successfully-working-with-r-markdown-documents" class="level3">
+<h3 class="anchored" data-anchor-id="a-helpful-hint-for-successfully-working-with-r-markdown-documents">A helpful hint for successfully working with R Markdown documents</h3>
+<p>Given that you need to render the entire document to see your Markdown and LaTeX rendered, <strong>it is important to “knit” often as you make changes</strong>. If you make an error in a LaTeX equation for example, it will stop the knitting/rendering process and you will not get to see the rendered document. So by knitting/rendering often you will know where the last changes you made are and then will be able to easily identify and fix your errors.</p>
+<section id="r-markdown-.rmd---markdown-.md" class="level4">
+<h4 class="anchored" data-anchor-id="r-markdown-.rmd---markdown-.md">R Markdown (<code>.Rmd</code>) -&gt; Markdown (<code>.md</code>)</h4>
+<p>Analogous to the Jupyter Notebook cells, the R Markdown code chunks after being render will be embedded in your final report.</p>
+<p>When you run render, R Markdown feeds the <code>.Rmd</code> file to <code>knitr</code>, which executes all of the code chunks and creates a new markdown (<code>.md</code>) document containing the code and its outputs.</p>
+<p>The markdown file generated by <code>knitr</code> is then processed by <code>pandoc</code> which is responsible for creating the finished format.</p>
+<p><img src="img/rstudio-conf-2022-rmarkdown.png" class="img-fluid" alt="alttag"> <em>Rmarkdown documents are created from text and R code</em></p>
+</section>
+</section>
+</section>
+<div class="activity">
+<section id="lecture-5-activity-4" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-5-activity-4">Lecture 5 Activity 4</h2>
+</section>
+<section id="activities-1" class="level3 activity-container">
+<h3 class="anchored" data-anchor-id="activities-1">Activities</h3>
+<p>What is the primary advantage of using an <code>.Rmd</code> file over a <code>.md</code> file to create the final HTML document?</p>
+<p>A. <code>.Rmd</code> files do not support code chunks.</p>
+<p>B. <code>.Rmd</code> files allow for the inclusion of executable code chunks, producing dynamic documents.</p>
+<p>C. <code>.md</code> files are easier to edit.</p>
+<p>D. There is no difference between <code>.Rmd</code> and <code>.md</code> files in terms of functionality.</p>
+</section>
+</div>
+<section id="r-markdown-and-r-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-and-r-notebooks">R Markdown and R Notebooks</h2>
+<p>R Markdown is a “flavor” of Markdown that allows you to run R code in addition to supporting all the Markdown syntax that you have already learned. R Markdown documents (<code>.Rmd</code>) are most commonly run via <code>R Notebooks</code> which work similarly to Jupyter notebooks in the sense that you can interleave writing code, formatted narrative text, and view output all in the same document. These are both examples of what it called “literate programming” where the goal is to mix code and paragraph text seamlessly.</p>
+<p>Let’s see an example of this by creating a new R Notebook via <code>File -&gt; New -&gt; R Notebook</code>. As you can see, there is a default template for Notebooks, which include useful info on how to use them. We can see the keyboard shortcuts for running and inserting cells, and when we execute the plot code the plot shows up inside the notebook rather than in the side panel as when we ran the same line from within the script script.</p>
+</section>
+<div class="activity">
+<section id="lecture-5-activity-5" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-5-activity-5">Lecture 5 Activity 5</h2>
+</section>
+<div class="activity-container">
+<p>Is an R Notebook the same as an .Rmd document?</p>
+<pre><code>a) True
+b) False</code></pre>
+</div>
+</div>
+<section id="running-editing-and-creating-code-chunks" class="level3">
+<h3 class="anchored" data-anchor-id="running-editing-and-creating-code-chunks">1.2. Running, editing and creating code chunks</h3>
+<p>Just like Jupyter notebooks, R Markdown has code cells, although they’re more commonly referred to as code “chunks” or “blocks”. These are based off fenced Markdown code blocks and always start and end with 3 backticks (```), just like in Markdown. Unique to R Markdown is that the leading three backticks are followed by curly braces containing the language engine you want to run, which for r looks like this <code>{r}</code>. Additional metadata can be included, for example a name to reference the code chunk:</p>
+<pre><code>```{r my first code chunk}
+x &lt;- 5
+x
+```</code></pre>
+<p>There are other language engines that can be used in RMarkdown, you can learn more about that <a href="https://bookdown.org/yihui/rmarkdown/language-engines.html">here</a>.</p>
+<p>All code cells are run when you knit/render the entire document (like pressing “Run all” in JupyterLab). By default, the code in the chunk and the code output will be included in your rendered document. You can also run the code by clicking the green play button on the right-hand side of the code chunk.</p>
+</section>
+<div class="activity">
+<section id="lecture-5-activity-6" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-5-activity-6">Lecture 5 Activity 6</h2>
+</section>
+<div class="activity-container">
+<p>Clone a folder and try to render the .Rmd file. What happens? Try to use here() for the filepath.</p>
+<pre><code>a) The file renders without any issues.
+b) The file fails to render due to incorrect file paths.
+c) The file renders but with missing plots.
+d) The file cannot be opened in RStudio.</code></pre>
+</div>
+</div>
+<section id="naming-code-chunks-and-r-markdown-document-sections" class="level3">
+<h3 class="anchored" data-anchor-id="naming-code-chunks-and-r-markdown-document-sections">1.3. Naming code chunks and R Markdown document sections</h3>
+<p>When you include Markdown headers (using the <code>#</code> symbol) R Studio automatically creates a pop-up-like menu for you to use to navigate the document, which you can access by clicking the bar below this editor panel. It looks like:</p>
+<p><img src="img/menu0.png" class="img-fluid"></p>
+<p><img src="img/menu1.png" class="img-fluid"></p>
+<p>By clicking on any of the headings in the pop-up-like menu, RStudio will navigate you to that section of the R Markdown document. Try clicking on one to see how it works.</p>
+<p>In addition to Markdown headings, RStudio also keeps track of code chunks in that menu. By default RStudio names the chunks by their position (e.g.&nbsp;Chunk 1, Chunk 2, etc). But in reality those names are not that useful and it is more helpful to give code chunks meaningful names. For example, in the code chunk below where we use a for loop to sum the numbers from 1 to 10, we name the chunk “for loop sum”.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r for loop sum}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at"># initialize sum to 0</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">loop_sum &lt;- 0</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="at"># loop of a sequence from 1 to 10 and calculate the sum</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">for (i in seq(1:10)){</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="at">  loop_sum &lt;- loop_sum + i</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="at">}</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">print(loop_sum)</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<div class="exercise">
+<section id="lecture-5-exercise-1" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-5-exercise-1">Lecture 5 Exercise 1</h3>
+</section>
+<div class="exercise-container">
+<p><strong>Convert Markdown to R Markdown and Generate a Plot</strong></p>
+<p><strong>Objective:</strong> Convert a given Markdown file into an R Markdown document. Ensure that the document includes at least one plot generated from a built-in R dataset. Submit the .Rmd file and the rendered HTML output. Additionally, discuss the advantages of using .Rmd over .md for generating dynamic documents.</p>
+<p><strong>Instructions:</strong></p>
+<ol type="1">
+<li><strong>Markdown to R Markdown Conversion:</strong>
+<ul>
+<li>Start with a provided Markdown file (e.g., <code>example.md</code>).</li>
+<li>Convert this Markdown file into an R Markdown document (<code>example.Rmd</code>).</li>
+<li>Ensure to include a necessary YAML header at the beginning of the document for proper rendering.</li>
+</ul></li>
+<li><strong>Adding a Plot:</strong>
+<ul>
+<li>Use a built-in R dataset (e.g., <code>mtcars</code>, <code>iris</code>) to generate a plot.</li>
+<li>Include the plot within a code chunk in your R Markdown document.</li>
+<li>Ensure that the plot renders correctly in the final HTML output.</li>
+</ul></li>
+<li><strong>Rendering the Document:</strong>
+<ul>
+<li>Render the <code>.Rmd</code> file to HTML format.</li>
+<li>Ensure all code chunks, plots, and narrative content are properly displayed in the rendered HTML document.</li>
+</ul></li>
+<li><strong>Discussion:</strong>
+<ul>
+<li>Write a section in your R Markdown document discussing the advantages of using <code>.Rmd</code> over <code>.md</code> for generating dynamic documents.</li>
+<li>Consider aspects such as reproducibility, integration of code and narrative, and the ability to produce various output formats.</li>
+</ul></li>
+<li><strong>Submission:</strong>
+<ul>
+<li>Submit the following:
+<ul>
+<li>The original Markdown file (<code>example.md</code>).</li>
+<li>The converted R Markdown file (<code>example.Rmd</code>).</li>
+<li>The rendered HTML output (<code>example.html</code>).</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Questions:</p>
+<ol type="1">
+<li>What are the advantages of using .Rmd over .md for generating dynamic documents?</li>
+<li>How do you include and render a plot from a built-in R dataset in an R Markdown document?</li>
+<li>What are the necessary steps to convert a Markdown file to an R Markdown document?</li>
+</ol>
+</div>
+</div>
+<section id="code-chunk-options" class="level3">
+<h3 class="anchored" data-anchor-id="code-chunk-options">1.4. Code chunk options</h3>
+<p>There are many code chunk options that you can set. These options let you customize chunk behavior, including whether a chunk is evaluated, whether to include the output in the rendered document, etc. A short list of code chunk options is shown below, but you can find an extensive list starting on the second page of <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">this</a> document.</p>
+<p><img src="img/chunk_options.jpeg" class="img-fluid"></p>
+<p>You can set the chunk options at either a global level (once set they will be applied to all code chunks in the <code>.Rmd</code> file) or locally for a specific chunk (these will override the global chunk options if they are contradictory).</p>
+<p>Global options are usually set in one chunk at the top of the document and looks like this (this is a screenshot):</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r setup, include=FALSE}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">knitr::opts_chunk$set(echo = FALSE)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Global chunk options are set by adding them as arguments to <code>knitr::opts_chunk$set(...)</code> (put them in place of <code>...</code> and separate multiple options with a comma). The only global chunk options set in this document is <code>echo = FALSE</code>, which hides the code chunks and only shows the output, something that can be useful for non-technical reports.</p>
+<p>Local chunk options are set by adding the options in the curly braces of a code chunk after the language engine and code chunk name. For example, to not display warnings in a single code chunk we would use the <code>warning = FALSE</code> code chunk as follows:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r correlation no warning, warning = FALSE}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at"># some R code that throws a warning</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">cor( c( 1 , 1 ), c( 2 , 3 ) )</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="a-few-tips-and-tricks" class="level3">
+<h3 class="anchored" data-anchor-id="a-few-tips-and-tricks">A few tips and tricks</h3>
+<ul>
+<li><p>R Markdown support inline evaluated code via the following syntax <code>Adding 3 to 4 gives `r 4 + 3`.     The value of `x` is currently `r x`.</code></p></li>
+<li><p>Latex equations can be written the same way as in Jupyter notebooks and standard markdown documents. - <code>$\alpha = 5$</code> for inline latex and <code>$$\alpha = 5$$</code> for a math block. - When hovering over equations, R will display the rendered equation in a pop up.</p></li>
+<li><p>R Markdown is built upon the Pandoc Markdown engine. This is useful to know since the <a href="https://pandoc.org/MANUAL.html">Pandoc manual</a> is a great exhaustive resource for looking up anything Markdown related.</p></li>
+<li><p>One of the features made available thanks to Pandoc is support for citations and bibliographies.</p>
+<ul>
+<li>Let’s cite the R-package by typing <code>citation()</code> into the console, and copying the BibTex citation into a new document that we call <code>rstudio-demo.bib     and adding an identifier string (a key) before the first comma,     e.g.</code>r-lang`.</li>
+<li>Include the following field in the YAML metadata in the beginning of the document: <code>bibliography: rstudio-demo.bib</code>, then cite it somewhere in the text by adding <code>[@r-lang]</code>. The bibliography will be appended to the document, so it is advisable to add a heading saying <code># References</code> at the very end.</li>
+</ul></li>
+<li><p>When working with R Markdown (and code in general) be careful that you don’t copy stylized quotation marks because these will not work. For example, this will throw an error:</p>
+<pre><code>a = “This string”</code></pre>
+<p>It should look like this instead:</p>
+<pre><code>a = "This string"</code></pre></li>
+</ul>
+</section>
+</section>
+<section id="r-markdown-templates" class="level1">
+<h1>R Markdown templates</h1>
+<p>We have seen how to use the output formats <code>html_document</code> and <code>pdf_document</code>, but as noted in lab3 during the lab, there are many more. A commonly used one is <code>github_document</code>, which both saves a <code>.md</code> markdown file and creates a temporary <code>.html</code> files for preview of how it will look on GitHub, which is stored in a temporary folder and later deleted. This format does not have as many options as HTML, and you can use it like this:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Another way of creating a a <code>github_document</code> is to go to <code>New -&gt; R Markdown -&gt; From Template -&gt; GitHub Document</code>. As you can see there are other useful templates here. We will see how to create a presentation soon, but first lets see how to work with a word template. A word document can be created with this YAML header:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> word_document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can modify the style of a word document by opening one of our previously exported word files (it must have been created with R Studio / Pandoc), <a href="https://bookdown.org/yihui/rmarkdown-cookbook/word-template.html">changing the styling options as shown here</a>, saving this under a new name, and then using it as a template:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">reference_docx</span><span class="kw">:</span><span class="at"> </span><span class="st">"our-style-doc.docx"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There are <a href="https://bookdown.org/yihui/rmarkdown/document-templates.html">more details in this article</a>, including how to create your own custom template, for example for a CV.</p>
+<div class="exercise">
+<section id="lecture-5-exercise-2" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-5-exercise-2">Lecture 5 Exercise 2</h3>
+</section>
+<div class="exercise-container">
+<p><strong>Creating an RStudio Project and Generating an R Markdown Report</strong></p>
+<p><strong>Objective:</strong> Create an RStudio project, write a script to analyze a dataset of your choice, and generate a report in R Markdown. The report should include a narrative, code chunks, and visualizations. Submit the RStudio project folder along with the .Rmd file and the rendered HTML output. Additionally, include a section comparing R Notebooks and .Rmd documents, highlighting their similarities and differences.</p>
+<p><strong>Instructions:</strong></p>
+<ol type="1">
+<li><strong>Create an RStudio Project:</strong>
+<ul>
+<li>Open RStudio and create a new project (e.g., <code>Data_Analysis_Project</code>).</li>
+<li>Organize the project with appropriate folders for data, scripts, and reports.</li>
+</ul></li>
+<li><strong>Dataset Selection and Analysis:</strong>
+<ul>
+<li>Choose a dataset of your choice. This can be a built-in R dataset or an external dataset.</li>
+<li>Write an R script (<code>analysis.R</code>) to perform the data analysis. The script should include data loading, cleaning, analysis, and visualization.</li>
+</ul></li>
+<li><strong>Generate an R Markdown Report:</strong>
+<ul>
+<li>Create an R Markdown document (<code>report.Rmd</code>) within the project.</li>
+<li>The report should include:
+<ul>
+<li>A narrative explaining the analysis.</li>
+<li>Code chunks displaying the R code used for analysis.</li>
+<li>Visualizations generated from the analysis (e.g., plots, charts).</li>
+</ul></li>
+</ul></li>
+<li><strong>Rendering the Report:</strong>
+<ul>
+<li>Render the <code>.Rmd</code> file to HTML format.</li>
+<li>Ensure all code chunks, plots, and narrative content are properly displayed in the rendered HTML document.</li>
+</ul></li>
+<li><strong>Comparison Section:</strong>
+<ul>
+<li>Include a section in your report comparing R Notebooks and .Rmd documents.</li>
+<li>Highlight their similarities and differences, focusing on aspects such as interactivity, use cases, and workflow integration.</li>
+</ul></li>
+<li><strong>Submission:</strong>
+<ul>
+<li>Submit the following:
+<ul>
+<li>The entire RStudio project folder.</li>
+<li>The R script (<code>analysis.R</code>).</li>
+<li>The R Markdown file (<code>report.Rmd</code>).</li>
+<li>The rendered HTML output (<code>report.html</code>).</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Questions:</p>
+<ol type="1">
+<li>What are the key steps in setting up an RStudio project and organizing it for data analysis?</li>
+<li>How do you include and render visualizations in an R Markdown report?</li>
+<li>What are the similarities and differences between R Notebooks and .Rmd documents?</li>
+</ol>
+</div>
+</div>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>1 - D. E. Knuth, Literate Programming, The Computer Journal, Volume 27, Issue 2, 1984, Pages 97–111, https://doi.org/10.1093/comjnl/27.2.97 2 - Y. Xie Dynamic Documents with R and knitr 3 - 4 - https://www.markdownguide.org/ 5- https://daringfireball.net/projects/markdown/ 6 - https://babelmark.github.io/faq/ 7 - RStudio Conf 2022 - Quarto Workshop 8 - 9 - https://rhodesmill.org/brandon/2012/one-sentence-per-line/ UNIX for Beginners</p>
+<p>NOT INCLUDED FOR NOW:</p>
+<section id="code-snippets" class="level3">
+<h3 class="anchored" data-anchor-id="code-snippets">Code snippets</h3>
+<p>As we started to type <code>for</code> above, the code completion popped up and the first entry said “snippet”, what is that? A code snippet is a text macro, which means that you can type a short string of characters to insert a template or snippet of text by pressing <kbd>TAB</kbd>. You can see all the default snippets and define your own by going to <code>Tools -&gt; Global options -&gt; Code -&gt; Edit snippets</code>. Snippets are available anywhere in RStudio, not just in R Markdown documents.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

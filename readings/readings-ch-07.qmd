@@ -1,0 +1,3 @@
+- [conda environemnts](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+- [renv](https://blog.rstudio.com/2019/11/06/renv-project-environments-for-r/)
+- [Workflow: projects](http://r4ds.had.co.nz/workflow-projects.html)

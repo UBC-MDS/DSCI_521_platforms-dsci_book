@@ -1,0 +1,3 @@
+1. Launch JupyterLab
+2. Use the Notebook interface inside Jupyterlab
+3. Know your way around the JupyterLab user interface

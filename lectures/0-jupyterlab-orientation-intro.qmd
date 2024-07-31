@@ -1,0 +1,364 @@
+---
+title: "JupyterLab Orientation"
+jupyter: python3
+---
+
+## Learning Objectives
+
+{{< include ../learning_objectives/lo-ch-00.qmd >}}
+
+## What is JupyterLab
+
+The most rudimentary interaction with programming languages
+such as R and Python is via interactive shells run from a terminal.
+This provides access to the full functionality of the language,
+but is a barebones experience without any conveniences added.
+If you want to edit a script or view a plot that you created,
+you need to open a text editor and image viewer separately.
+
+If you prefer a more holistic experience,
+with many of conveniences nicely organized in the same interface,
+you can use an integrated development environment (or IDE for short).
+IDEs often include a
+shell,
+a file browser,
+debugging tools,
+version control,
+a text editor with autocompletion and syntax highlighting,
+and an area where plots show up.
+A core idea of IDEs is to provide all the tools you need in one place.
+Commons IDEs that you might have heard of include Visual Studio Code and RStudio.
+This lesson will discuss JupyterLab,
+which is and IDE to work with many programming languages,
+including R, Python, Julia, and many more.
+A core concept tightly linked to JupyterLab are Jupyter Notebooks,
+which will be one of the main topics in this talk. Let's see how we can launch them.
+
+## How to Access JupyterLab
+
+You can access JupyterLab from an online remote server or a local machine.
+
+### Online Server
+
+We could install and run JupyterLab
+just like any other program on Windows, MacOS, or Linux.
+However,
+one of the advantages of JupyterLab
+is that it is easy to use without installing anything.
+To try JupyterLab, use your web browser to visit the
+[UBC Jupyter Server](https://ubc.syzygy.ca/)
+and login with your CWL (Firefox, and Chrome are supported).
+You can also try JupyterLab throught Porject Jupyter:
+<https://jupyter.org/try>
+
+### Local Machine
+
+If you have already completed the
+[installation instructions](https://ubc-mds.github.io/resources_pages/installation_instructions/),
+you can open the terminal and run:
+
+```bash
+jupyter lab
+```
+
+JupyterLab will open in a browser whether you run it locally or you are using it through UBC server.
+Note that if you are running JupyterLab in your machine,
+the URL could be similar to `https://localhost:8888/lab`.
+In this case `localhost` is referring to your computer, not to a webpage.
+
+## Using Jupyter Notebooks
+
+![](img/jupyterlab-start.png)
+
+We're greeted by the launcher tab
+where we see that we can start either a Notebook or Console for Python or R,
+as well as some other utility programs.
+Let's start by explaining one of the most popular options, the Jupyter Notebook.
+The Notebook provides and interface where you can mix
+text, code, mathematical expressions, plot output, videos, and more, all in the same file.
+So instead of the traditional IDE experience where you would write code in a text file
+and then have figures pop up in a different panel,
+this information now all resides in the same document,
+which facilitates reproducibility and collaboration.
+The Notebooks can be exported to many formats, including PDF and HTML,
+which makes it easy to share your project with anyone.
+The cell that is encircled in blue is where we can input Python code,
+click here and type any mathematical expression,
+and then run the cell by clicking the play button in the top toolbar:
+
+```{python}
+3 + 4
+```
+
+![](img/jupyterlab-run-cell.png)
+
+As you can see, the output is returned just under input, and a new input cell was created.
+We could also have clicked the plus sign to create a new cell.
+Here, we can do anything we can do in Python, e.g. variable assignment:
+
+```{python}
+a = 5
+```
+
+There is no output because we just assigned a value to a variable,
+without asking for the value of that variable,
+which we can do by typing out the variable name:
+
+```{python}
+a
+```
+
+Jupyter Notebooks also supports editing code on multiple lines,
+so we could have done this instead:
+
+```{python}
+a = 3
+a
+```
+
+![](img/jupyterlab-cell-count.png)
+
+You might have noticed that there is a little counter on the left of each cell.
+This counter keeps track of in which order the cells were executed,
+so that you are aware if cells have been run out of sequential order.
+The counter symbol changes to an \* when a computation is running,
+to indicate that Python is busy and won't be able to execute new cells
+until the current one finishes (the delay is only noticeable for longer computations).
+
+We can also click this blue bar to the left to collapse and expand the output and input.
+This can be handy if we have a long code cell, or some notes that we're planning on moving later.
+
+![](img/jupyterlab-cell-hide.png)
+
+The notebook is saved automatically every two minutes,
+and it can be saved manually by clicking the floppy disk symbol in the toolbar,
+or by hitting `Ctrl + s`.
+Both input and output cells are saved,
+so any plots that you make will be present in the notebook next time you open it,
+without needing to rerun the code cells.
+
+Other important icons in the toolbar are the ones to cut, copy, and paste a cell.
+If you want to get rid of a cell, you can cut it out without pasting in back in.
+
+The remaining icons are:
+
+- play: to run a cell (which we already used),
+- stop: which we can use if a cells has gotten stuck running some code and we want to interrupt it,
+- restart: which restarts the background Python process that is connected to the notebook
+  (so if we click this, our variables will need to be redefined),
+- restart and run all:
+  this is really important and should always be executed before sharing a notebook,
+  to make sure that everything will work when someone else runs it from top to bottom,
+  since the cells can be executed out of order.
+
+You can also access these by right clicking on a cell.
+
+### Working with text via Markdown cells
+
+You can change the input cell type from Python code to Markdown
+by clicking on the little dropdown menu in the toolbar that reads `Code`.
+
+![](img/jupyterlab-code-markdown.png)
+
+Markdown is a simple formatting system
+which allows you to document your analysis within the notebook.
+This is also great for creating tutorials and even books as we will see later.
+It is a plain text format that includes brief markup tags that indicates how text should be rendered,
+e.g. \* indicates italics and \*\* indicates bold typeface.
+If you have commented on online forums or used a chat application,
+you might already be familiar with markdown.
+Below is a short example of the syntax:
+
+``` markdown
+#### Markdown Example: Heading Level Four
+
+- A bullet point
+- *Emphasis in italics*
+- **Strong emphasis in bold**
+- This is a [link to learn more about markdown](https://guides.github.com/features/mastering-markdown/).
+- Support for $\LaTeX$ equations:
+$$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}$$
+```
+
+will be rendered as:
+
+#### Markdown Example: Heading Level Four
+
+- A bullet point
+- *Emphasis in italics*
+- **Strong emphasis in bold**
+- This is a [link to learn more about markdown](https://guides.github.com/features/mastering-markdown/).
+- Support for $\LaTeX$ equations:
+$$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}$$
+
+:::{.activity}
+::::{.activity-header}
+## Lecture 0 Activity 1
+::::
+::::{.activity-container}
+Let's create a cell with a heading for this tutorial `# JupyterLab tutorial`,
+and then click and drag to position it on the top of the notebook.
+:::
+::::
+:::
+
+### Static figure creation
+
+To show an example of how plots are rendered,
+we will use the `seaborn` plotting package
+which is a high level interface to the more widely known `matplotlib` package.
+This is only to illustrate how plots show up in the notebook,
+rather than a tutorial on how to plot in Python,
+so I will not go into details on what these commands mean.
+
+```{python}
+# You don't have to understand what is going on in this cell
+# it is only to show you how a static plot looks inside JupyterLab
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+np.random.seed(42)
+
+N = 50
+x = np.random.rand(N)
+y = np.random.rand(N)
+colors = np.random.rand(N)
+area = (30 * np.random.rand(N))**2  # 0 to 15 point radii
+
+plt.scatter(x, y, s=area, c=colors, alpha=0.5)
+```
+
+The above is a static figure,
+which means an image is created and included in the notebook.
+To save this image,
+you can either use a save command in the plotting library
+or you can hold shift and right click.
+Just right clicking is the JupyterLab menu,
+but holding the `shift` key brings up the browser menu,
+which includes the common options for images such as open in new tab and save.
+
+![](img/jupyterlab-save_fig.png)
+
+### Exporting notebooks
+
+The combination of code, plots, and markdown is powerful.
+With these three elements,
+you can keep all your analysis code and interpretations in the same document,
+instead of spread across different files.
+Notebooks are excellent tools to build entire reports,
+since they can contain formatting such as a table of contents,
+links to sections and files, footnotes, images, bibliographies, and even videos,
+which we will learn more about later.
+There are a few ways we can export jupyter notebooks into a PDF file.
+The method will depend on which packages are successfuly installed and working from the
+[MDS installation instructions](https://ubc-mds.github.io/resources_pages/installation_instructions/).
+
+#### Export with Quarto
+
+This will be our prefered way to create PDFs.
+In the terminal, go to where your notebook file is, and create a new terminal
+
+![](img/jupyterlab-create-terminal.png)
+
+In the terminal use the `quarto render` command and specify the output to `pdf`.
+
+```bash
+quarto render Untitled.ipynb --to pdf
+```
+
+:::{.callout-note}
+The commands are case-sensitive,
+make sure you are typing the file exacatly as it is named.
+:::
+
+You can also change the `--to pdf` to `--to html`,
+and any interactive figures will be retained.
+
+#### Export in JupyterLab: PDF
+
+You can export the notebook to different file types via
+`File > Save and Export Notebook As... > PDF`
+When you export to PDF for the first time on your own machine,
+you might be asked to download the Latex packages,
+which are needed to create the PDF.
+
+#### Export in JupyterLab: WebPDF
+
+An alternative to exporting to PDF via latex is to use the `WebPDF` option,
+`File > Save and Export Notebook As... > WebPDF`
+which makes the exported PDF have a more similar style to how the notebook looks in JupyterLab.
+If we would export this notebook to HTML,
+we would still retain the interactivity of the plots we created!
+
+## JupyterLab sidebars
+
+Now that you know the basics of how to work inside Jupyter Notebooks,
+let's continue explorer the JupyterLab user interface.
+
+![](img/jupyterlab-sidebars.png)
+
+**Left sidebar**
+
+- Extension Manager
+  - The puzzle piece at the bottom is where you can install extensions.
+- Table of Contents
+  - It allows navigate the structure of the document easily.
+- Git
+  - Git version control interface.
+- Running terminals and kernels
+  - Overview of all running applications.
+- File browser
+  - The topmost icon in the sidebar to the left shows the file tree of your current folder,
+    highlights include:
+    - the icon for uploading files from your computer to the UBC Jupyter server
+      (or your folder if you run locally)
+    - right clicking a file to download it to your computer
+    - clicking the `+` sign takes us back to the launcher menu where we started
+
+**Right sidebar**
+
+- Property Inspector:
+  - This is a bit more advanced as it allows you to add metadata to cells.
+  - One aspect worth highlighting here is the ability to denote cells as part of a slide show,
+    that you can download via `File -> Export notebook as`.
+- Debugger
+
+## Additional JupyterLab applications
+
+JupyterLab can run applications other than notebooks,
+e.g. there is a Python console, a text editor, and a terminal emulator.
+These can be opened via the launcher page or
+`File --> New`.
+Applications can be placed side by side by dragging and dropping their windows,
+so we could be running a terminal and notebook next to each other.
+
+The Command palette enable users to invoke commands directly:
+
+- Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>
+- Mac: <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>
+- `View --> Activate Command Palette`
+
+### How to get help in the notebook
+
+One application that is especially helpful to run next to a notebook is the Contextual Help.
+This application displays documentation automatically as you type.
+When you're using unfamiliar packages and functions,
+it is a good habit to leave the Contextual Help open next to the notebook.
+If you don't like having a split screen,
+you can instead press
+<kbd>Shift</kbd> + <kbd>Tab</kbd>
+to bring up a help dialogue.
+JupyterLab also supports tab completion,
+you can start typing a name and then press tab to see suggestions to expand to.
+Additional help is available via the "Help" menu,
+which links to useful online resources (for example `Help --> JupyterLab Reference`).
+
+:::{.callout-note}
+Note about UBC Jupyter Server:
+
+All your files will be saved between restarts,
+but any Python packages you have installed yourself will be reset,
+so you need to contact UBC IT
+to have additional Python packages installed with persistence.
+:::

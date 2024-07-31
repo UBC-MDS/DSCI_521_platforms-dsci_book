@@ -1,0 +1,6 @@
+1. Recognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.
+2. Distinguish common operators and representations of the different filesystem elements typically used in Bash.
+3. Explore the filesystem using Bash commands as `ls`, `pwd` and `cd`.
+4. Translate an absolute path into a relative path and vice versa.
+5. Use command-line arguments to produce alternative outputs of commands.
+6. Create, edit, move, and delete files and folders using the command line and VS Code.
