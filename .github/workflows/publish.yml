@@ -1,4 +1,4 @@
-name: Quarto Publish
+name: Build and Publish Quarto Website
 
 on:
   workflow_dispatch:

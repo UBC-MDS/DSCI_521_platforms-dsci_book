@@ -3,7 +3,7 @@ name: Check Links
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["Quarto Publish"]
+    workflows: ["Build and Publish Quarto Website"]
     types:
       - completed
 
@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Download build artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: site
           path: ./_site  # Ensure this path matches the upload path in Workflow 1
