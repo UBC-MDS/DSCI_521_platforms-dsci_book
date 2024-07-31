@@ -7,6 +7,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: https://ubc-mds.github.io/resources_pages/installation_instructions/
+        text: Installation Guide
 
   sidebar:
     logo: MDSlogo.png
