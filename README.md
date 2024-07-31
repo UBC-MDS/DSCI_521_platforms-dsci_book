@@ -1,5 +1,11 @@
 # DSCI_521_platforms-dsci_book
 
+[![Build and Publish Quarto Website](https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/actions/workflows/publish.yml/badge.svg)](https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/actions/workflows/publish.yml)
+
+[![pages-build-deployment](https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/actions/workflows/pages/pages-build-deployment)
+
+[![Check Links](https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/actions/workflows/check-links.yml/badge.svg)](https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/actions/workflows/check-links.yml)
+
 ## For the instructor
 
 A few instructions/references for the instructor
