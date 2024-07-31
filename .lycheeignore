@@ -1,0 +1,5 @@
+# the gh action is currently checking the published site
+# these are manual ignore checks of the published site
+https://ubc-mds.github.io/lectures*
+https://ubc-mds.github.io/site_libs*
+https://ubc-mds.github.io/MDSlogo.png
