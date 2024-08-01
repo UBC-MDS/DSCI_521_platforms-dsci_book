@@ -1,6 +1,5 @@
 ---
 title: Introduction to Quarto and Github Pages
-jupyter: python3
 ---
 
 ## Learning outcomes
@@ -36,7 +35,7 @@ There are a few ways you can always check if a terminal program exists and can b
   The `....` will list all the locations (paths) that your `$PATH` variable defines.
   This is the order where your computer is looking for programs.
 
-```shell
+```bash
 $ which quarto
 /usr/bin/quarto
 ```
@@ -45,9 +44,9 @@ $ which quarto
   If the binary (i.e., program) exists, then it will return the version number back.
   If the program does not exist you will see a `command not found` message.
 
-```shell
+```bash
 $ quarto --version
-1.4.358
+1.5.55
 ```
 
 - You can also access the help pages for `quarto` with the `--help` flag.
@@ -56,37 +55,41 @@ $ quarto --version
   This will also differ from system to system.
   For quarto we can use the `--help` flag to also confirm that things are working
 
-```shell
+```bash
 $ quarto --help
 
-  Usage:   quarto
-  Version: 1.4.358
+Usage:   quarto
+Version: 1.5.55
 
-  Description:
+Description:
 
-    Quarto CLI
+  Quarto CLI
 
-  Options:
+Options:
 
-    -h, --help     - Show this help.
-    -V, --version  - Show the version number for this program.
+  -h, --help     - Show this help.
+  -V, --version  - Show the version number for this program.
 
-  Commands:
+Commands:
 
-    render          [input] [args...]     - Render files or projects to various document types.
-    preview         [file] [args...]      - Render and preview a document or website project.
-    serve           [input]               - Serve a Shiny interactive document.
-    create          [type] [commands...]  - Create a Quarto project or extension
-    create-project  [dir]                 - Create a project for rendering multiple documents
-    convert         <input>               - Convert documents to alternate representations.
-    pandoc          [args...]             - Run the version of Pandoc embedded within Quarto.
-    typst           [args...]             - Run the version of Typst embedded within Quarto.
-    run             [script] [args...]    - Run a TypeScript, R, Python, or Lua script.
-    add             <extension>           - Add an extension to this folder or project
-    install         [target...]           - Installs an extension or global dependency.
-    publish         [provider] [path]     - Publish a document or project. Available providers include:
-    check           [target]              - Verify correct functioning of Quarto installation.
-    help            [command]             - Show this help or the help of a sub-command.
+  render     [input] [args...]     - Render files or projects to various document types.
+  preview    [file] [args...]      - Render and preview a document or website project.
+  serve      [input]               - Serve a Shiny interactive document.
+  create     [type] [commands...]  - Create a Quarto project or extension
+  use        <type> [target]       - Automate document or project setup tasks.
+  add        <extension>           - Add an extension to this folder or project
+  update     [target...]           - Updates an extension or global dependency.
+  remove     [target...]           - Removes an extension.
+  convert    <input>               - Convert documents to alternate representations.
+  pandoc     [args...]             - Run the version of Pandoc embedded within Quarto.
+  typst      [args...]             - Run the version of Typst embedded within Quarto.
+  run        [script] [args...]    - Run a TypeScript, R, Python, or Lua script.
+  install    [target...]           - Installs a global dependency (TinyTex or Chromium).
+  uninstall  [tool]                - Removes an extension.
+  tools                            - Display the status of Quarto installed dependencies
+  publish    [provider] [path]     - Publish a document or project to a provider.
+  check      [target]              - Verify correct functioning of Quarto installation.
+  help       [command]             - Show this help or the help of a sub-command.
 ```
 
 
@@ -96,37 +99,37 @@ $ quarto --help
 We can use `quarto create` to aid in creating the template files for a website.
 These template files and code is also known as "boilerplate".
 
-```shell
+```bash
 $ quarto create --help
 
-  Usage:   quarto create [type] [commands...]
-  Version: 1.4.358
+Usage:   quarto create [type] [commands...]
+Version: 1.5.55
 
-  Description:
+Description:
 
-    Create a Quarto project or extension
+  Create a Quarto project or extension
 
-  Options:
+Options:
 
-    -h, --help              - Show this help.
-    --open        [editor]  - Open new artifact in this editor (vscode,rstudio)
-    --no-open               - Do not open in an editor
-    --no-prompt             - Do not prompt to confirm actions
-    --log         <level>   - Path to log file
-    --log-level   <level>   - Log level (info, warning, error, critical)
-    --log-format  <format>  - Log format (plain, json-stream)
-    --quiet                 - Suppress console output.
-    --profile               - Active project profile(s)
+  -h, --help              - Show this help.
+  --open        [editor]  - Open new artifact in this editor (vscode,rstudio)
+  --no-open               - Do not open in an editor
+  --no-prompt             - Do not prompt to confirm actions
+  --log         <file>    - Path to log file
+  --log-level   <level>   - Log level (info, warning, error, critical)
+  --log-format  <format>  - Log format (plain, json-stream)
+  --quiet                 - Suppress console output.
+  --profile               - Active project profile(s)
 
-  Commands:
+Commands:
 
-    help  [command]  - Show this help or the help of a sub-command.
+  help  [command]  - Show this help or the help of a sub-command.
 ```
 
 We are going to create a quarto project, but we may still need to know the type of project we will create.
 When we run `quarto create project` we get a terminal option to pick what kind of type.
 
-```shell
+```bash
 $ quarto create project
  ? Type
  ❯ default
@@ -142,7 +145,7 @@ We'll use `website` in this lecture.
 
 It will then ask you for a directory:
 
-```shell
+```bash
 $ quarto create project
  ? Type › website
  ? Directory ›
@@ -154,7 +157,7 @@ dump all its files.
 
 You will see how it created a few files, and prompt you to open the directory in a text editor:
 
-```shell
+```bash
   - Created _quarto.yml
   - Created index.qmd
   - Created about.qmd
@@ -163,6 +166,15 @@ You will see how it created a few files, and prompt you to open the directory in
  ❯ vscode
    (don't open)
 ```
+
+:::{.callout-note}
+If you already created a new folder and `cd` into it.
+You can use `.` to have the files created in the current location.
+Otherwise, you can specify a new folder name, and it will create a new folder with
+the new files in it for you.
+
+If you do create a new folder, remember you will need to `cd` into it.
+:::
 
 The most important file is the `_quarto.yml` file,
 this is how quarto knows you are using a quarto project.
@@ -199,10 +211,30 @@ There are 2 commands that will be helpful for us here:
 - `quarto preview`: will "preview" the website, any changes to the files will automatically regnerate and refresh the website files
 - `quarto render`: will generate all the html files
 
-This of `preview` as a way to quickly see how the website changes as you are working, and `render` as creating the "final" website from scratch.
+Think of `preview` as a way to quickly see how the website changes as you are working, and `render` as creating the "final" website from scratch.
 When using `quarto preview` your current terminal will be used to look for changes and re-render your site.
 
-```shell
+:::{.callout-tip}
+If you are using VSCode, and use the `Quarto: Preview` command from the command pallete (you will need the VSCode Quarto extension),
+this will run `quarto preview ` with the `--no-watch-inputs` by defualt.
+This will prevent saving the file to auto complile the project.
+
+If you sill want to have `preview` auto render on save you can do it in one of 3 ways:
+
+1. Not use the quarto extension to use `Quarto: Preview`
+2. Change your VSCode quarto extension option to have Render on Save as a default
+3. Add the option to the `_quarto.yml` file or individual document YAML header with:
+
+```yaml
+editor:
+  render-on-save: true
+```
+
+See this page in the quarto help documentaion on
+[Render on Save](https://quarto.org/docs/tools/vscode.html#render-on-save).
+:::
+
+```bash
 $ quarto preview
 Preparing to preview
 
@@ -216,14 +248,14 @@ Here you can see we can navigate to `http://localhost:4463/` in our browser and 
 The URL essentially says to look at port `4463` on our local machine (i.e., `localhost`).
 Your port number may differ and change, so always pay attention to what port your current site is running on.
 If something is not updating after you make a change,
-try exiting out of `preview` with `CTRL + c` and re-`preview`-ing.
+try exiting out of `preview` with <kbd>CTRL</kbd> + <kbd>c</kbd> (Windows/Linux) or <kbd>⌘</kbd> + <kbd>c</kbd> (Mac) and re-`preview`-ing.
 
 
 
 When we use `quarto render` it will create the website `html` files and give our terminal back.
 We will have to manually navigate to the `index.html` file to see the website changes as we go.
 
-```shell
+```bash
 $ quarto render
 [1/2] about.qmd
 [2/2] index.qmd
@@ -310,7 +342,7 @@ and their accompanying repository:
 
 https://github.com/mrnabiz/mrnabiz
 
-### Github Pages <> Quarto
+### Github Pages and Quarto
 
 Now that we've seen how to use `quarto` to create a website locally,
 we can leverage it in publishing the website.
@@ -344,7 +376,7 @@ project:
 
 When you re-render your site now, the output should reflect your new output directory:
 
-```shell
+```bash
 $ quarto render
 [1/2] about.qmd
 [2/2] index.qmd
@@ -366,60 +398,60 @@ For more information you can explore how `quarto render` works by calling the he
 This can be particularly useful when trying to export out `pdf` documents from a jupyter notebook
 if other methods are not working.
 
-```shell
+```bash
 $ quarto help render
 
-  Usage:   quarto render [input] [args...]
-  Version: 1.4.358
+Usage:   quarto render [input] [args...]
+Version: 1.5.55
 
-  Description:
+Description:
 
-    Render files or projects to various document types.
+  Render files or projects to various document types.
 
-  Options:
+Options:
 
-    -h, --help                          - Show this help.
-    -t, --to                            - Specify output format(s).
-    -o, --output                        - Write output to FILE (use '--output -' for stdout).
-    --output-dir                        - Write project output to DIR (path is project relative)
-    -M, --metadata                      - Metadata value (KEY:VALUE).
-    --site-url                          - Override site-url for website or book output
-    --execute                           - Execute code (--no-execute to skip execution).
-    -P, --execute-param                 - Execution parameter (KEY:VALUE).
-    --execute-params                    - YAML file with execution parameters.
-    --execute-dir                       - Working directory for code execution.
-    --execute-daemon                    - Keep Jupyter kernel alive (defaults to 300 seconds).
-    --execute-daemon-restart            - Restart keepalive Jupyter kernel before render.
-    --execute-debug                     - Show debug output for Jupyter kernel.
-    --use-freezer                       - Force use of frozen computations for an incremental file render.
-    --cache                             - Cache execution output (--no-cache to prevent cache).
-    --cache-refresh                     - Force refresh of execution cache.
-    --no-clean                          - Do not clean project output-dir prior to render
-    --debug                             - Leave intermediate files in place after render.
-    pandoc-args...                      - Additional pandoc command line arguments.
-    --log                     <level>   - Path to log file
-    --log-level               <level>   - Log level (info, warning, error, critical)
-    --log-format              <format>  - Log format (plain, json-stream)
-    --quiet                             - Suppress console output.
-    --profile                           - Active project profile(s)
+  -h, --help                          - Show this help.
+  -t, --to                            - Specify output format(s).
+  -o, --output                        - Write output to FILE (use '--output -' for stdout).
+  --output-dir                        - Write output to DIR (path is input/project relative)
+  -M, --metadata                      - Metadata value (KEY:VALUE).
+  --site-url                          - Override site-url for website or book output
+  --execute                           - Execute code (--no-execute to skip execution).
+  -P, --execute-param                 - Execution parameter (KEY:VALUE).
+  --execute-params                    - YAML file with execution parameters.
+  --execute-dir                       - Working directory for code execution.
+  --execute-daemon                    - Keep Jupyter kernel alive (defaults to 300 seconds).
+  --execute-daemon-restart            - Restart keepalive Jupyter kernel before render.
+  --execute-debug                     - Show debug output when executing computations.
+  --use-freezer                       - Force use of frozen computations for an incremental file render.
+  --cache                             - Cache execution output (--no-cache to prevent cache).
+  --cache-refresh                     - Force refresh of execution cache.
+  --no-clean                          - Do not clean project output-dir prior to render
+  --debug                             - Leave intermediate files in place after render.
+  pandoc-args...                      - Additional pandoc command line arguments.
+  --log                     <file>    - Path to log file
+  --log-level               <level>   - Log level (info, warning, error, critical)
+  --log-format              <format>  - Log format (plain, json-stream)
+  --quiet                             - Suppress console output.
+  --profile                           - Active project profile(s)
 
-  Commands:
+Commands:
 
-    help  [command]  - Show this help or the help of a sub-command.
+  help  [command]  - Show this help or the help of a sub-command.
 
-  Examples:
+Examples:
 
-    Render Markdown:    quarto render document.qmd
-                        quarto render document.qmd --to html
-                        quarto render document.qmd --to pdf --toc
-    Render Notebook:    quarto render notebook.ipynb
-                        quarto render notebook.ipynb --to docx
-                        quarto render notebook.ipynb --to pdf --toc
-    Render Project:     quarto render
-                        quarto render projdir
-    Render w/ Metadata: quarto render document.qmd -M echo:false
-                        quarto render document.qmd -M code-fold:true
-    Render to Stdout:   quarto render document.qmd --output -
+  Render Markdown:    quarto render document.qmd
+                      quarto render document.qmd --to html
+                      quarto render document.qmd --to pdf --toc
+  Render Notebook:    quarto render notebook.ipynb
+                      quarto render notebook.ipynb --to docx
+                      quarto render notebook.ipynb --to pdf --toc
+  Render Project:     quarto render
+                      quarto render projdir
+  Render w/ Metadata: quarto render document.qmd -M echo:false
+                      quarto render document.qmd -M code-fold:true
+  Render to Stdout:   quarto render document.qmd --output -
 ```
 
 You can also use `quarto render --help` to get the same help output.
