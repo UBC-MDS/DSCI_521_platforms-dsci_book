@@ -549,10 +549,19 @@ in addition to those we learnt last time,
 are block commenting and automatic code reformatting.
 If I type a few lines where I for example forget to add whitespace
 around an operator or assignment,
-going to `Code -> Reformat code` (Ctrl + Shift + a) will fix this automatically
+going to `Code -> Reformat code`
+(
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> on Windows/Linux or
+<kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> on a Mac
+)
+will fix this automatically
 for all highlighted lines.
 If I want to toogle commenting for some lines,
-I can click `Code -> Comment/Uncomment line` (Ctrl + Shift + c),
+I can click `Code -> Comment/Uncomment line`
+(
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> on Windows/Linux or
+<kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> on a Mac
+),
 instead of manually adding `#` in front of each line.
 
 One final tip is the use of the `here` package for file paths.
