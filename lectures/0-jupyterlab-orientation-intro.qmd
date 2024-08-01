@@ -132,7 +132,7 @@ This can be handy if we have a long code cell, or some notes that we're planning
 
 The notebook is saved automatically every two minutes,
 and it can be saved manually by clicking the floppy disk symbol in the toolbar,
-or by hitting `Ctrl + s`.
+or by hitting <kbd>Ctrl</kbd> + <kbd>s</kbd> (Windows/Linux) or <kbd>⌘</kbd> + <kbd>s</kbd> (Mac).
 Both input and output cells are saved,
 so any plots that you make will be present in the notebook next time you open it,
 without needing to rerun the code cells.
