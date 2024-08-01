@@ -449,7 +449,7 @@ D. locate find_me
    ```bash
    man ls
    ```
-   
+
    or
 
    ```bash
@@ -493,7 +493,7 @@ We now know how to explore files and directories,
 but how do we create them?
 That's what we will find out in this chapter.
 
-```sh
+```bash
 cd ~/Documents
 
 # MaKe Directory

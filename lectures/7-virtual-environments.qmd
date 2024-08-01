@@ -75,14 +75,14 @@ type the command followed by `--help`.
 For example,
 to learn about the conda update command:
 
-```
+```bash
 conda update --help
 ```
 
 Let's update our conda to the latest version.
 Note that you might already have the latest version since we downloaded it recently.
 
-```
+```bash
 conda update conda
 ```
 
@@ -92,7 +92,7 @@ The default choice is indicated with `[]`,
 and you can press <kbd>Enter</kbd> to accept it.
 It would look similar to this:
 
-```
+```bash
 Using Anaconda Cloud api site https://api.anaconda.org
 Fetching package metadata: ....
 .Solving package specifications: .........
@@ -245,7 +245,7 @@ and using it makes it easy for others
 to recognize that this is a conda env file,
 the extension can be either `.yaml` or `.yml`):
 
-```
+```bash
 conda env export -f environment.yaml
 ```
 
@@ -300,7 +300,7 @@ you **NEED** to add the version string manually.
 
 Now, let's install `environment.yaml` environment file above so that we can create a conda environment called `test_env`.
 
-```
+```bash
 $ conda env create --file environment.yaml
 ```
 
@@ -310,7 +310,7 @@ We can make an exact copy of an environment to an environment with a different n
 This maybe useful for any testing versus live environments or different Python 2.7 versions for the same packages.
 In this example, `test_env` is cloned to create `live_env`.
 
-```
+```bash
 conda create --name live_env --clone test_env
 ```
 
@@ -320,7 +320,7 @@ Since we are only testing out our environment,
 we will delete `live_env` to remove some clutter.
 *Make sure that you are not currently using `live_env`.*
 
-```
+```bash
 conda env remove -n live_env
 ```
 
@@ -357,11 +357,11 @@ The list will include versions of each package, the specific build,
 and the channel that the package was downloaded from.
 `conda list` is also useful to ensure that you have installed the packages that you desire.
 
-```
+```bash
 conda list
 ```
 
-```
+```bash
 # packages in environment at //miniconda/envs/test_env:
 #
 Using Anaconda Cloud api site https://api.anaconda.org
@@ -384,11 +384,11 @@ In this example, we will use rasterio from conda-forge. The anaconda cloud page 
 
 With conda you can do this search within the command line:
 
-```
+```bash
 conda search rasterio
 ```
 
-```
+```bash
 Using Anaconda Cloud api site https://api.anaconda.org
 Run 'anaconda show <USER/PACKAGE>' to get more details:
 Packages:
@@ -429,13 +429,13 @@ The first word list the channel that this package is from and the second part sh
 
 To install the latest version available within the channel, do not specify in the install command. We will install version 0.35 of `rasterio` from conda-forge into `test_env` in this example. Conda will also automatically install the dependencies for this package.
 
-```
+```bash
 conda install -c conda-forge rasterio=0.35
 ```
 
 If you have a few trusted channels that you prefer to use, you can pre-configure these so that everytime you are creating an environment, you won't need to explicitly declare the channel.
 
-```
+```bash
 conda config --add channels conda-forge
 ```
 
@@ -444,11 +444,11 @@ conda config --add channels conda-forge
 We decided that rasterio is not needed in this tutorial, so we will remove it from `test_env`.
 Note that this will remove the main package rasterio and its dependencies (unless a dependency was installed explicitly at an earlier point in time or is required be another package).
 
-```
+```bash
 conda remove -n test_env rasterio
 ```
 
-```
+```bash
 Using Anaconda Cloud api site https://api.anaconda.org
 Fetching package metadata .........
 Solving package specifications: ..........
