@@ -246,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#github-pages" id="toc-github-pages" class="nav-link" data-scroll-target="#github-pages">GitHub Pages</a>
   <ul class="collapse">
   <li><a href="#github-pages-and-repositories" id="toc-github-pages-and-repositories" class="nav-link" data-scroll-target="#github-pages-and-repositories">Github Pages and repositories</a></li>
-  <li><a href="#github-pages-quarto" id="toc-github-pages-quarto" class="nav-link" data-scroll-target="#github-pages-quarto">Github Pages &lt;&gt; Quarto</a></li>
+  <li><a href="#github-pages-and-quarto" id="toc-github-pages-and-quarto" class="nav-link" data-scroll-target="#github-pages-and-quarto">Github Pages and Quarto</a></li>
   </ul></li>
   <li><a href="#quarto-for-rendering-your-mds-assignments" id="toc-quarto-for-rendering-your-mds-assignments" class="nav-link" data-scroll-target="#quarto-for-rendering-your-mds-assignments">Quarto for rendering your MDS assignments</a></li>
   <li><a href="#improving-your-quarto-experience" id="toc-improving-your-quarto-experience" class="nav-link" data-scroll-target="#improving-your-quarto-experience">Improving your quarto experience</a></li>
@@ -298,99 +298,116 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>The <code>which</code> command in the shell will give you the path to where the program is found. If you have multiple versions of an application installed on your machine, <code>which</code> will tell you which one is <em>acually</em> going to be used. If the path returned is not what you expect, then it typically means you need to adjust your <code>$PATH</code> variable. If the program cannot be found, you will get an <code>which: no quarto in ....</code> message. The <code>....</code> will list all the locations (paths) that your <code>$PATH</code> variable defines. This is the order where your computer is looking for programs.</li>
 </ul>
-<pre class="shell"><code>$ which quarto
-/usr/bin/quarto</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> which quarto</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/bin/quarto</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Many terminal programs provide a <code>--version</code> flag that will return the version of the program installed. If the binary (i.e., program) exists, then it will return the version number back. If the program does not exist you will see a <code>command not found</code> message.</li>
 </ul>
-<pre class="shell"><code>$ quarto --version
-1.4.358</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto <span class="at">--version</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">1.5.55</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>You can also access the help pages for <code>quarto</code> with the <code>--help</code> flag. This is similar to many terminal programs where you can either use the <code>--help</code> flag or call <code>man</code> (for manual) of a program. Not every program implments a <code>--help</code> and <code>man</code>. This will also differ from system to system. For quarto we can use the <code>--help</code> flag to also confirm that things are working</li>
 </ul>
-<pre class="shell"><code>$ quarto --help
-
-  Usage:   quarto
-  Version: 1.4.358
-
-  Description:
-
-    Quarto CLI
-
-  Options:
-
-    -h, --help     - Show this help.
-    -V, --version  - Show the version number for this program.
-
-  Commands:
-
-    render          [input] [args...]     - Render files or projects to various document types.
-    preview         [file] [args...]      - Render and preview a document or website project.
-    serve           [input]               - Serve a Shiny interactive document.
-    create          [type] [commands...]  - Create a Quarto project or extension
-    create-project  [dir]                 - Create a project for rendering multiple documents
-    convert         &lt;input&gt;               - Convert documents to alternate representations.
-    pandoc          [args...]             - Run the version of Pandoc embedded within Quarto.
-    typst           [args...]             - Run the version of Typst embedded within Quarto.
-    run             [script] [args...]    - Run a TypeScript, R, Python, or Lua script.
-    add             &lt;extension&gt;           - Add an extension to this folder or project
-    install         [target...]           - Installs an extension or global dependency.
-    publish         [provider] [path]     - Publish a document or project. Available providers include:
-    check           [target]              - Verify correct functioning of Quarto installation.
-    help            [command]             - Show this help or the help of a sub-command.</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto <span class="at">--help</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Usage:</span>   quarto</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Version:</span> 1.5.55</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Description:</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Quarto</span> CLI</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Options:</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-h,</span> <span class="at">--help</span>     <span class="at">-</span> Show this help.</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-V,</span> <span class="at">--version</span>  <span class="at">-</span> Show the version number for this program.</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ex">Commands:</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="ex">render</span>     <span class="pp">[</span><span class="ss">input</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">args...</span><span class="pp">]</span>     <span class="at">-</span> Render files or projects to various document types.</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">preview</span>    <span class="pp">[</span><span class="ss">file</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">args...</span><span class="pp">]</span>      <span class="at">-</span> Render and preview a document or website project.</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="ex">serve</span>      <span class="pp">[</span><span class="ss">input</span><span class="pp">]</span>               <span class="at">-</span> Serve a Shiny interactive document.</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="ex">create</span>     <span class="pp">[</span><span class="ss">type</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">commands...</span><span class="pp">]</span>  <span class="at">-</span> Create a Quarto project or extension</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="ex">use</span>        <span class="op">&lt;</span>type<span class="op">&gt;</span> <span class="pp">[</span><span class="ss">target</span><span class="pp">]</span>       <span class="at">-</span> Automate document or project setup tasks.</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="ex">add</span>        <span class="op">&lt;</span>extension<span class="op">&gt;</span>           - Add an extension to this folder or project</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="ex">update</span>     <span class="pp">[</span><span class="ss">target...</span><span class="pp">]</span>           <span class="at">-</span> Updates an extension or global dependency.</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="ex">remove</span>     <span class="pp">[</span><span class="ss">target...</span><span class="pp">]</span>           <span class="at">-</span> Removes an extension.</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="ex">convert</span>    <span class="op">&lt;</span>input<span class="op">&gt;</span>               - Convert documents to alternate representations.</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="ex">pandoc</span>     <span class="pp">[</span><span class="ss">args...</span><span class="pp">]</span>             <span class="at">-</span> Run the version of Pandoc embedded within Quarto.</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="ex">typst</span>      <span class="pp">[</span><span class="ss">args...</span><span class="pp">]</span>             <span class="at">-</span> Run the version of Typst embedded within Quarto.</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="ex">run</span>        <span class="pp">[</span><span class="ss">script</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">args...</span><span class="pp">]</span>    <span class="at">-</span> Run a TypeScript, R, Python, or Lua script.</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install</span>    <span class="pp">[</span><span class="ss">target...</span><span class="pp">]</span>           <span class="at">-</span> Installs a global dependency <span class="er">(</span><span class="ex">TinyTex</span> or Chromium<span class="kw">)</span><span class="bu">.</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="ex">uninstall</span>  <span class="pp">[</span><span class="ss">tool</span><span class="pp">]</span>                <span class="at">-</span> Removes an extension.</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="ex">tools</span>                            <span class="at">-</span> Display the status of Quarto installed dependencies</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="ex">publish</span>    <span class="pp">[</span><span class="ss">provider</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">path</span><span class="pp">]</span>     <span class="at">-</span> Publish a document or project to a provider.</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="ex">check</span>      <span class="pp">[</span><span class="ss">target</span><span class="pp">]</span>              <span class="at">-</span> Verify correct functioning of Quarto installation.</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="bu">help</span>       <span class="pp">[</span><span class="ss">command</span><span class="pp">]</span>             <span class="at">-</span> Show this help or the help of a sub-command.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="your-first-quarto-website" class="level2">
 <h2 class="anchored" data-anchor-id="your-first-quarto-website">Your first Quarto website</h2>
 <p>We can use <code>quarto create</code> to aid in creating the template files for a website. These template files and code is also known as “boilerplate”.</p>
-<pre class="shell"><code>$ quarto create --help
-
-  Usage:   quarto create [type] [commands...]
-  Version: 1.4.358
-
-  Description:
-
-    Create a Quarto project or extension
-
-  Options:
-
-    -h, --help              - Show this help.
-    --open        [editor]  - Open new artifact in this editor (vscode,rstudio)
-    --no-open               - Do not open in an editor
-    --no-prompt             - Do not prompt to confirm actions
-    --log         &lt;level&gt;   - Path to log file
-    --log-level   &lt;level&gt;   - Log level (info, warning, error, critical)
-    --log-format  &lt;format&gt;  - Log format (plain, json-stream)
-    --quiet                 - Suppress console output.
-    --profile               - Active project profile(s)
-
-  Commands:
-
-    help  [command]  - Show this help or the help of a sub-command.</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto create <span class="at">--help</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Usage:</span>   quarto create <span class="pp">[</span><span class="ss">type</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">commands...</span><span class="pp">]</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Version:</span> 1.5.55</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Description:</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Create</span> a Quarto project or extension</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Options:</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-h,</span> <span class="at">--help</span>              <span class="at">-</span> Show this help.</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--open</span>        <span class="pp">[</span><span class="ss">editor</span><span class="pp">]</span>  <span class="at">-</span> Open new artifact in this editor <span class="er">(</span><span class="ex">vscode,rstudio</span><span class="kw">)</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--no-open</span>               <span class="at">-</span> Do not open in an editor</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--no-prompt</span>             <span class="at">-</span> Do not prompt to confirm actions</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--log</span>         <span class="op">&lt;</span>file<span class="op">&gt;</span>    - Path to log file</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--log-level</span>   <span class="op">&lt;</span>level<span class="op">&gt;</span>   - Log level <span class="er">(</span><span class="ex">info,</span> warning, error, critical<span class="kw">)</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--log-format</span>  <span class="op">&lt;</span>format<span class="op">&gt;</span>  - Log format <span class="er">(</span><span class="ex">plain,</span> json-stream<span class="kw">)</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--quiet</span>                 <span class="at">-</span> Suppress console output.</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--profile</span>               <span class="at">-</span> Active project profile<span class="er">(</span><span class="ex">s</span><span class="kw">)</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ex">Commands:</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="bu">help</span>  <span class="pp">[</span><span class="ss">command</span><span class="pp">]</span>  <span class="at">-</span> Show this help or the help of a sub-command.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We are going to create a quarto project, but we may still need to know the type of project we will create. When we run <code>quarto create project</code> we get a terminal option to pick what kind of type.</p>
-<pre class="shell"><code>$ quarto create project
- ? Type
- ❯ default
-   website
-   blog
-   manuscript
-   book
-   confluence</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto create project</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> <span class="ex">?</span> Type</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">❯</span> default</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">website</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>   <span class="ex">blog</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>   <span class="ex">manuscript</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>   <span class="ex">book</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>   <span class="ex">confluence</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We can use our arrow keys to select the project type we want, and hit enter to create the skeleton for that project. We’ll use <code>website</code> in this lecture.</p>
 <p>It will then ask you for a directory:</p>
-<pre class="shell"><code>$ quarto create project
- ? Type › website
- ? Directory ›
-</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto create project</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> <span class="ex">?</span> Type › website</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">?</span> Directory ›</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Here we can provide the <strong>relative</strong> path from your current working directory (i.e., <code>pwd</code>) where <code>quarto</code> will dump all its files.</p>
 <p>You will see how it created a few files, and prompt you to open the directory in a text editor:</p>
-<pre class="shell"><code>  - Created _quarto.yml
-  - Created index.qmd
-  - Created about.qmd
-  - Created styles.css
- ? Open With
- ❯ vscode
-   (don't open)</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created _quarto.yml</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created index.qmd</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created about.qmd</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created styles.css</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> <span class="ex">?</span> Open With</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a> <span class="ex">❯</span> vscode</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>   <span class="kw">(</span><span class="ex">don</span><span class="st">'t open)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you already created a new folder and <code>cd</code> into it. You can use <code>.</code> to have the files created in the current location. Otherwise, you can specify a new folder name, and it will create a new folder with the new files in it for you.</p>
+<p>If you do create a new folder, remember you will need to <code>cd</code> into it.</p>
+</div>
+</div>
 <p>The most important file is the <code>_quarto.yml</code> file, this is how quarto knows you are using a quarto project. Some quarto commands and options may need to run in a quarto project. The contents of the <code>_qquarto.yml</code> (in this example) file tells quarto that we are going to be creating a website.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -407,21 +424,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>quarto preview</code>: will “preview” the website, any changes to the files will automatically regnerate and refresh the website files</li>
 <li><code>quarto render</code>: will generate all the html files</li>
 </ul>
-<p>This of <code>preview</code> as a way to quickly see how the website changes as you are working, and <code>render</code> as creating the “final” website from scratch. When using <code>quarto preview</code> your current terminal will be used to look for changes and re-render your site.</p>
-<pre class="shell"><code>$ quarto preview
-Preparing to preview
-
-Watching files for changes
-Browse at http://localhost:4463/
-Opening in existing browser session.
-GET: /</code></pre>
-<p>Here you can see we can navigate to <code>http://localhost:4463/</code> in our browser and see our website locally. The URL essentially says to look at port <code>4463</code> on our local machine (i.e., <code>localhost</code>). Your port number may differ and change, so always pay attention to what port your current site is running on. If something is not updating after you make a change, try exiting out of <code>preview</code> with <code>CTRL + c</code> and re-<code>preview</code>-ing.</p>
+<p>Think of <code>preview</code> as a way to quickly see how the website changes as you are working, and <code>render</code> as creating the “final” website from scratch. When using <code>quarto preview</code> your current terminal will be used to look for changes and re-render your site.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are using VSCode, and use the <code>Quarto: Preview</code> command from the command pallete (you will need the VSCode Quarto extension), this will run <code>quarto preview</code> with the <code>--no-watch-inputs</code> by defualt. This will prevent saving the file to auto complile the project.</p>
+<p>If you sill want to have <code>preview</code> auto render on save you can do it in one of 3 ways:</p>
+<ol type="1">
+<li>Not use the quarto extension to use <code>Quarto: Preview</code></li>
+<li>Change your VSCode quarto extension option to have Render on Save as a default</li>
+<li>Add the option to the <code>_quarto.yml</code> file or individual document YAML header with:</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">render-on-save</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>See this page in the quarto help documentaion on <a href="https://quarto.org/docs/tools/vscode.html#render-on-save">Render on Save</a>.</p>
+</div>
+</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto preview</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Preparing</span> to preview</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Watching</span> files for changes</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Browse</span> at http://localhost:4463/</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Opening</span> in existing browser session.</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="ex">GET:</span> /</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here you can see we can navigate to <code>http://localhost:4463/</code> in our browser and see our website locally. The URL essentially says to look at port <code>4463</code> on our local machine (i.e., <code>localhost</code>). Your port number may differ and change, so always pay attention to what port your current site is running on. If something is not updating after you make a change, try exiting out of <code>preview</code> with <kbd>CTRL</kbd> + <kbd>c</kbd> (Windows/Linux) or <kbd>⌘</kbd> + <kbd>c</kbd> (Mac) and re-<code>preview</code>-ing.</p>
 <p>When we use <code>quarto render</code> it will create the website <code>html</code> files and give our terminal back. We will have to manually navigate to the <code>index.html</code> file to see the website changes as we go.</p>
-<pre class="shell"><code>$ quarto render
-[1/2] about.qmd
-[2/2] index.qmd
-
-Output created: _site/index.html</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto render</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[1/2]</span> about.qmd</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[2/2]</span> index.qmd</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Output</span> created: _site/index.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Always <code>render</code> your site before your final deployment, not all changes to your quarto files will trigger an automatic regeneration + rendering.</p>
 </section>
 </section>
@@ -469,8 +508,8 @@ Output created: _site/index.html</code></pre>
 </section>
 </section>
 </section>
-<section id="github-pages-quarto" class="level3">
-<h3 class="anchored" data-anchor-id="github-pages-quarto">Github Pages &lt;&gt; Quarto</h3>
+<section id="github-pages-and-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="github-pages-and-quarto">Github Pages and Quarto</h3>
 <p>Now that we’ve seen how to use <code>quarto</code> to create a website locally, we can leverage it in publishing the website.</p>
 <p>We’ve talked in the past how we should ignore generated files in a git repository, but this is an exception where we actually need to keep the rendered <code>html</code> files from <code>quarto</code>. Otherwise github pages will not have anything to render.</p>
 <p>We can use any of the git methods we’ve learned to get our quarto files into a github repository.</p>
@@ -485,15 +524,15 @@ Output created: _site/index.html</code></pre>
 </ol>
 <p>We have a few options to tell github how to render a webssite. Currently, our files are in the <code>main</code> branch, but the only options for deploying from <code>main</code> is under <code>/</code> root or <code>/docs</code>. This is a problem because our quarto website defaults to putting all the website files into <code>_site/</code></p>
 <p>We can change the directory <code>quarto</code> renders the files into by editing our <code>_quarto.yml</code> file. Let’s have it render the website files into a folder github understands.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>When you re-render your site now, the output should reflect your new output directory:</p>
-<pre class="shell"><code>$ quarto render
-[1/2] about.qmd
-[2/2] index.qmd
-
-Output created: docs/index.html</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto render</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[1/2]</span> about.qmd</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[2/2]</span> index.qmd</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Output</span> created: docs/index.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dont forget to save your <code>yaaml</code> file, re-<code>render</code>, remove the old <code>_site</code> folder, <code>add</code>, <code>commit</code>, and <code>push</code> your changes.</p>
 <p>On your main github repo, you’ll notice a burnt orange dot next to the latest commit hash. This is github’s continuous integration / deployment system creating and publishing your site. When the icon is green, you can navibate to your site and behold publishing somethign on the internet!</p>
 </section>
@@ -501,59 +540,59 @@ Output created: docs/index.html</code></pre>
 <section id="quarto-for-rendering-your-mds-assignments" class="level2">
 <h2 class="anchored" data-anchor-id="quarto-for-rendering-your-mds-assignments">Quarto for rendering your MDS assignments</h2>
 <p>You can use <code>quarto render</code> to render your MDS documents into different output formats, e.g., <code>pdf</code> or <code>html</code>. For more information you can explore how <code>quarto render</code> works by calling the help page for <code>render</code>. This can be particularly useful when trying to export out <code>pdf</code> documents from a jupyter notebook if other methods are not working.</p>
-<pre class="shell"><code>$ quarto help render
-
-  Usage:   quarto render [input] [args...]
-  Version: 1.4.358
-
-  Description:
-
-    Render files or projects to various document types.
-
-  Options:
-
-    -h, --help                          - Show this help.
-    -t, --to                            - Specify output format(s).
-    -o, --output                        - Write output to FILE (use '--output -' for stdout).
-    --output-dir                        - Write project output to DIR (path is project relative)
-    -M, --metadata                      - Metadata value (KEY:VALUE).
-    --site-url                          - Override site-url for website or book output
-    --execute                           - Execute code (--no-execute to skip execution).
-    -P, --execute-param                 - Execution parameter (KEY:VALUE).
-    --execute-params                    - YAML file with execution parameters.
-    --execute-dir                       - Working directory for code execution.
-    --execute-daemon                    - Keep Jupyter kernel alive (defaults to 300 seconds).
-    --execute-daemon-restart            - Restart keepalive Jupyter kernel before render.
-    --execute-debug                     - Show debug output for Jupyter kernel.
-    --use-freezer                       - Force use of frozen computations for an incremental file render.
-    --cache                             - Cache execution output (--no-cache to prevent cache).
-    --cache-refresh                     - Force refresh of execution cache.
-    --no-clean                          - Do not clean project output-dir prior to render
-    --debug                             - Leave intermediate files in place after render.
-    pandoc-args...                      - Additional pandoc command line arguments.
-    --log                     &lt;level&gt;   - Path to log file
-    --log-level               &lt;level&gt;   - Log level (info, warning, error, critical)
-    --log-format              &lt;format&gt;  - Log format (plain, json-stream)
-    --quiet                             - Suppress console output.
-    --profile                           - Active project profile(s)
-
-  Commands:
-
-    help  [command]  - Show this help or the help of a sub-command.
-
-  Examples:
-
-    Render Markdown:    quarto render document.qmd
-                        quarto render document.qmd --to html
-                        quarto render document.qmd --to pdf --toc
-    Render Notebook:    quarto render notebook.ipynb
-                        quarto render notebook.ipynb --to docx
-                        quarto render notebook.ipynb --to pdf --toc
-    Render Project:     quarto render
-                        quarto render projdir
-    Render w/ Metadata: quarto render document.qmd -M echo:false
-                        quarto render document.qmd -M code-fold:true
-    Render to Stdout:   quarto render document.qmd --output -</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto help render</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Usage:</span>   quarto render <span class="pp">[</span><span class="ss">input</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">args...</span><span class="pp">]</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Version:</span> 1.5.55</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Description:</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Render</span> files or projects to various document types.</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Options:</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-h,</span> <span class="at">--help</span>                          <span class="at">-</span> Show this help.</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-t,</span> <span class="at">--to</span>                            <span class="at">-</span> Specify output format<span class="er">(</span><span class="ex">s</span><span class="kw">)</span><span class="bu">.</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-o,</span> <span class="at">--output</span>                        <span class="at">-</span> Write output to FILE <span class="er">(</span><span class="ex">use</span> <span class="st">'--output -'</span> for stdout<span class="kw">)</span><span class="bu">.</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--output-dir</span>                        <span class="at">-</span> Write output to DIR <span class="er">(</span><span class="ex">path</span> is input/project relative<span class="kw">)</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-M,</span> <span class="at">--metadata</span>                      <span class="at">-</span> Metadata value <span class="er">(</span><span class="ex">KEY:VALUE</span><span class="kw">)</span><span class="bu">.</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--site-url</span>                          <span class="at">-</span> Override site-url for website or book output</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--execute</span>                           <span class="at">-</span> Execute code <span class="er">(</span><span class="ex">--no-execute</span> to skip execution<span class="kw">)</span><span class="bu">.</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-P,</span> <span class="at">--execute-param</span>                 <span class="at">-</span> Execution parameter <span class="er">(</span><span class="ex">KEY:VALUE</span><span class="kw">)</span><span class="bu">.</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--execute-params</span>                    <span class="at">-</span> YAML file with execution parameters.</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--execute-dir</span>                       <span class="at">-</span> Working directory for code execution.</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--execute-daemon</span>                    <span class="at">-</span> Keep Jupyter kernel alive <span class="er">(</span><span class="ex">defaults</span> to 300 seconds<span class="kw">)</span><span class="bu">.</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--execute-daemon-restart</span>            <span class="at">-</span> Restart keepalive Jupyter kernel before render.</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--execute-debug</span>                     <span class="at">-</span> Show debug output when executing computations.</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--use-freezer</span>                       <span class="at">-</span> Force use of frozen computations for an incremental file render.</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--cache</span>                             <span class="at">-</span> Cache execution output <span class="er">(</span><span class="ex">--no-cache</span> to prevent cache<span class="kw">)</span><span class="bu">.</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--cache-refresh</span>                     <span class="at">-</span> Force refresh of execution cache.</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--no-clean</span>                          <span class="at">-</span> Do not clean project output-dir prior to render</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--debug</span>                             <span class="at">-</span> Leave intermediate files in place after render.</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>  <span class="ex">pandoc-args...</span>                      <span class="at">-</span> Additional pandoc command line arguments.</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--log</span>                     <span class="op">&lt;</span>file<span class="op">&gt;</span>    - Path to log file</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--log-level</span>               <span class="op">&lt;</span>level<span class="op">&gt;</span>   - Log level <span class="er">(</span><span class="ex">info,</span> warning, error, critical<span class="kw">)</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--log-format</span>              <span class="op">&lt;</span>format<span class="op">&gt;</span>  - Log format <span class="er">(</span><span class="ex">plain,</span> json-stream<span class="kw">)</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--quiet</span>                             <span class="at">-</span> Suppress console output.</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--profile</span>                           <span class="at">-</span> Active project profile<span class="er">(</span><span class="ex">s</span><span class="kw">)</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="ex">Commands:</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>  <span class="bu">help</span>  <span class="pp">[</span><span class="ss">command</span><span class="pp">]</span>  <span class="at">-</span> Show this help or the help of a sub-command.</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a><span class="ex">Examples:</span></span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Render</span> Markdown:    quarto render document.qmd</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>                      <span class="ex">quarto</span> render document.qmd <span class="at">--to</span> html</span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>                      <span class="ex">quarto</span> render document.qmd <span class="at">--to</span> pdf <span class="at">--toc</span></span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Render</span> Notebook:    quarto render notebook.ipynb</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>                      <span class="ex">quarto</span> render notebook.ipynb <span class="at">--to</span> docx</span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>                      <span class="ex">quarto</span> render notebook.ipynb <span class="at">--to</span> pdf <span class="at">--toc</span></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Render</span> Project:     quarto render</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>                      <span class="ex">quarto</span> render projdir</span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Render</span> w/ Metadata: quarto render document.qmd <span class="at">-M</span> echo:false</span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>                      <span class="ex">quarto</span> render document.qmd <span class="at">-M</span> code-fold:true</span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Render</span> to Stdout:   quarto render document.qmd <span class="at">--output</span> <span class="at">-</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You can also use <code>quarto render --help</code> to get the same help output.</p>
 <div class="exercise">
 <section id="lecture-4-exercise-1" class="level3 exercise-header">
@@ -569,7 +608,7 @@ Output created: docs/index.html</code></pre>
 <li>Open your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).</li>
 <li>Use the <code>quarto create project</code> command to create a new Quarto website project.</li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> create project</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> create project</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Select “website” as the project type and provide a directory name for your project.</li>
 </ul></li>
@@ -577,14 +616,14 @@ Output created: docs/index.html</code></pre>
 <ul>
 <li>Change into the newly created project directory.</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> your_project_directory</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> your_project_directory</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><strong>Customize Your Quarto Website:</strong>
 <ul>
 <li>Open the <code>_quarto.yml</code> file in a text editor and customize the settings as needed.</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Modify the content of the <code>index.qmd</code> and <code>about.qmd</code> files to personalize your website.</li>
 </ul></li>
@@ -592,7 +631,7 @@ Output created: docs/index.html</code></pre>
 <ul>
 <li>Use the <code>quarto render</code> command to generate the HTML files for your website.</li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Verify that the output is created in the <code>docs</code> directory.</li>
 </ul></li>
@@ -600,19 +639,19 @@ Output created: docs/index.html</code></pre>
 <ul>
 <li>If you haven’t already, initialize a Git repository in your project directory.</li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Add all files to the Git repository and commit them.</li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit of Quarto website"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit of Quarto website"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><strong>Push Your Project to GitHub:</strong>
 <ul>
 <li>Create a new repository on GitHub and follow the instructions to push your local repository to GitHub.</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><strong>Enable GitHub Pages:</strong>
 <ul>
 <li>Go to the settings of your GitHub repository.</li>
