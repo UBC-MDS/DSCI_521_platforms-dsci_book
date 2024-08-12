@@ -362,20 +362,3 @@ but any Python packages you have installed yourself will be reset,
 so you need to contact UBC IT
 to have additional Python packages installed with persistence.
 :::
-
-
-<script src="https://giscus.app/client.js"
-        data-repo="andytai7/-DSCI_521_platforms-dsci_book_giscus"
-        data-repo-id="R_kgDOMitbtw"
-        data-category="General"
-        data-category-id="DIC_kwDOMitbt84ChkhM"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-</script>
