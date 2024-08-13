@@ -9,9 +9,6 @@ website:
         text: Home
       - href: https://ubc-mds.github.io/resources_pages/installation_instructions/
         text: Installation Guide
-  comments:
-    giscus:
-      repo: andytai7/-DSCI_521_platforms-dsci_book_giscus
 
   sidebar:
     logo: MDSlogo.png
