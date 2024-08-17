@@ -1,0 +1,4 @@
+1. Understand the basic syntax and functionality of regular expressions (regex) for pattern matching.
+2. Explore the use of special characters, ranges, and anchors in regex to match specific patterns within text.
+3. Apply regex to search, extract, and manipulate data in various formats using practical examples.
+4. Use regular expressions to navigate and organize files within the filesystem.
