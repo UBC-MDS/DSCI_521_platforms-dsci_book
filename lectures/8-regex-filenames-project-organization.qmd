@@ -5,7 +5,7 @@ jupyter: python3
 
 ## Learning outcomes
 
-{{< include ../learning_objectives/lo-ch-07.qmd >}}
+{{< include ../learning_objectives/lo-ch-08.qmd >}}
 
 :::{.activity}
 ::::{.activity-header}
