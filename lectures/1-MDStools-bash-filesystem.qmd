@@ -76,19 +76,17 @@ such as
 ## Lecture 1 Activity 2
 ::::
 ::::{.activity-container}
-You have already learned how to use some commands using JupyterLab IDE. Do you find it easier to use the command line or JupyterLab user interface?
+In what scenario is the command line preferable over JupyterLab?
 
-Why might one be better than the other? And in what scenarios?
+A. When scripting and automating tasks due to its quick execution of commands and ease of integration into workflows.
 
-A. The command line is better for scripting and automation because it allows for quick execution of commands and integration into automated workflows.
+B. For interactive data exploration due to its rich user interface.
 
-B. JupyterLab is better for interactive data exploration and visualization because it provides a rich user interface with features like the command palette and inline plotting.
+C. For beginners because of its simpler interface.
 
-C. The command line is better for beginners because it has a simpler interface.
+D. For large-scale data processing due to its efficiency in handling data.
 
-D. JupyterLab is better for large-scale data processing because it handles more data efficiently.
-
-E. Both command line and JupyterLab are equally easy and effective in all scenarios.
+E. Both are equally effective.
 ::::
 :::
 
@@ -354,14 +352,13 @@ in you terminal to see a list of all commands we use in MDS.
 ## Lecture 1 Activity 4
 ::::
 ::::{.activity-container}
-What would the following commands do?
-Would they be possible to use with the command `ls` instead of `cd`?
+Which command would move you to the parent directory?
 
 ```
-A. `cd .`
-B. `cd ..`
-C. `cd ~`
-D. `cd`
+A. cd .
+B. cd .. 
+C. cd ~
+D. cd
 ```
 ::::
 :::
@@ -371,9 +368,7 @@ D. `cd`
 ## Lecture 1 Activity 5
 ::::
 ::::{.activity-container}
-You are asked to run the following commands in your home directory and explore the content of the folder example_521 using your favorite file manager (Finder for Mac, File Explorer for Windows, and any file manager in Linux). Can you draw a diagram with the content of that folder?
-
-What command should you run in the shell to find the folder find_me?
+Which command should you run to search for a folder named find_me within the current directory and its subdirectories?
 
 A. ls find_me
 
@@ -898,13 +893,8 @@ no matter where we are when we run the command.
 ## Lecture 1 Activity 6
 ::::
 ::::{.activity-container}
-My home directory is: `/Users/Varada/`
-The output of running `pwd` in the command line is:
-`/Users/Varada/canadian_languages`
-
-What is the problem if I run the command:
-`cd Users/Varada`.
-How can I solve it?
+Given that your current directory is /Users/Varada/canadian_languages, 
+what is the correct command to navigate directly to /Users/Varada?
 
 Select the correct option(s)
 
