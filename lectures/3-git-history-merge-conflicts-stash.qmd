@@ -179,7 +179,7 @@ they happen to everyone and you will need to know how to instruct git what to do
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 3 Activity 1
+## Lecture 3 Activity 2
 ::::
 ::::{.activity-container}
 
@@ -228,7 +228,7 @@ This line was added somewhere else
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 3 Activity 2
+## Lecture 3 Activity 3
 ::::
 ::::{.activity-container}
 True or False?
@@ -505,7 +505,7 @@ your changes are gone forever.
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 3 Activity 3
+## Lecture 3 Activity 4
 ::::
 ::::{.activity-container}
 True or false?
