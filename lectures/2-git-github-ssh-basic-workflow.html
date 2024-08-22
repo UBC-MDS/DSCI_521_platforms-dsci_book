@@ -534,18 +534,6 @@ node_modules/</code></pre>
 <p>D. By ensuring that the current directory name ends with “.git”.</p>
 </div>
 </div>
-<div class="activity">
-<section id="lecture-2-activity-1-1" class="level3 activity-header">
-<h3 class="anchored" data-anchor-id="lecture-2-activity-1-1">Lecture 2 Activity 1</h3>
-</section>
-<div class="activity-container">
-<p>Is a repository the same as a directory? Can a Git repository be your current working directory?</p>
-<p>A. Yes, a repository is the same as a directory, and it can be your current working directory.</p>
-<p>B. No, a repository is not the same as a directory, and it cannot be your current working directory.</p>
-<p>C. A repository can be your current working directory, but it is not necessarily the same as a directory.</p>
-<p>D. A directory is always a repository, but a repository cannot be your current working directory.</p>
-</div>
-</div>
 </section>
 <section id="adding-committing-changes-to-version-controlled-files" class="level2">
 <h2 class="anchored" data-anchor-id="adding-committing-changes-to-version-controlled-files">Adding &amp; committing changes to version controlled files</h2>
@@ -564,6 +552,18 @@ node_modules/</code></pre>
 <li><p>Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository’s URL.</p></li>
 </ul>
 </section>
+<div class="activity">
+<section id="lecture-2-activity-2" class="level3 activity-header">
+<h3 class="anchored" data-anchor-id="lecture-2-activity-2">Lecture 2 Activity 2</h3>
+</section>
+<div class="activity-container">
+<p>Is a repository the same as a directory? Can a Git repository be your current working directory?</p>
+<p>A. Yes, a repository is the same as a directory, and it can be your current working directory.</p>
+<p>B. No, a repository is not the same as a directory, and it cannot be your current working directory.</p>
+<p>C. A repository can be your current working directory, but it is not necessarily the same as a directory.</p>
+<p>D. A directory is always a repository, but a repository cannot be your current working directory.</p>
+</div>
+</div>
 </section>
 <section id="changing-and-saving-version-controlled-files" class="level2">
 <h2 class="anchored" data-anchor-id="changing-and-saving-version-controlled-files">Changing and saving version controlled files</h2>
@@ -583,10 +583,22 @@ Use the command git commit -m "Clarify the README installation instructions" to 
 <p>Once you reach a point that you want Git to keep a record of the current version of your work, you need to commit (i.e., snapshot) your changes. A prerequisite to this is telling Git which files should be included in that snapshot. We call this step adding the files to the <strong>staging area</strong>.</p>
 <p>Note that the staging area is not a real physical location on your computer; it is instead a conceptual placeholder for these files until they are committed. The benefit of the Git version control system using a staging area is that you can choose to commit changes in only certain files. For example, we add only the two files that are important to the analysis project (<code>analysis.ipynb</code> and <code>README.md</code>) and not our personal scratch notes for the project (<code>notes.txt</code>).</p>
 <p>The staging area allows more control over what you are about to commit, allowing you to commit parts of a file or multiple files together with a single descriptive message. To add parts of a file instead of everything type <code>git add -p</code> and then interactively choose which parts you want by typing either <code>n</code> (no) or <code>y</code> (yes) followed by pressing enter for each chunk of code. This workflow is great for reviewing the changes as you add them to the staging area, which ensures you don’t commit anything by mistake. Note that you must omit<code>-p</code> when adding new files, so you would type <code>git add &lt;filename&gt;</code>.</p>
+</section>
+<div class="activity">
+<section id="lecture-2-activity-3" class="level3 activity-header">
+<h3 class="anchored" data-anchor-id="lecture-2-activity-3">Lecture 2 Activity 3</h3>
+</section>
+<div class="activity-container">
+<p>What is the purpose of the staging area in Git?</p>
+<p>A. It allows you to preview and control which changes you want to commit.</p>
+<p>B. It automatically commits all changes in the repository.</p>
+<p>C. It creates a backup of your files before committing.</p>
+<p>D. It permanently deletes files that are not staged.</p>
+</div>
+</div>
 <p><strong>Commands</strong></p>
 <p>To add all updated, new, and deleted files in the git repo you can type <code>git add --all</code>. To only add all updated and new files in the git repo you can type <code>git add .</code>. To only add all updated and deleted files in the git repo you can type <code>git add -u</code>, this is very useful.</p>
 <p>To see which files you have staged, before committing them, you can use <code>git status</code>. To see the exact changes you have staged instead of just the file names, use <code>git diff --staged</code>. Finally, if you change your mind and want to removea file from the staging area, you can type <code>git restore --staged name-of-your-file.txt</code></p>
-</section>
 </section>
 <section id="commit-your-files" class="level2">
 <h2 class="anchored" data-anchor-id="commit-your-files">Commit your files</h2>
@@ -604,6 +616,18 @@ Use the command git commit -m "Clarify the README installation instructions" to 
 <p>If you are working on a project with collaborators, they will also be making changes to files (e.g., to the analysis code in a Jupyter notebook and the project’s <code>README</code> file), committing them to their own local repository, and pushing their commits to the remote GitHub repository to share them with you. When they push their changes, those changes will only initially exist in the remote GitHub repository and not in your local repository.</p>
 <p>To obtain the new changes from the remote repository on GitHub, you will need to pull those changes to your own local repository. By pulling changes, you synchronize your local repository to what is present on GitHub. Additionally, until you pull changes from the remote repository, you will not be able to push any more changes yourself (though you will still be able to work and make commits in your own local repository)</p>
 <p>If you want to do this with the terminal, you have to pull from the terminal you should use the command <code>git pull</code>.</p>
+<div class="activity">
+<section id="lecture-2-activity-4" class="level3 activity-header">
+<h3 class="anchored" data-anchor-id="lecture-2-activity-4">Lecture 2 Activity 4</h3>
+</section>
+<div class="activity-container">
+<p>Which command would you use to commit all changes with a message?</p>
+<p>A. git add -p</p>
+<p>B. git commit -m “Your message here”</p>
+<p>C. git push</p>
+<p>D. git status</p>
+</div>
+</div>
 </section>
 <section id="attribution" class="level2">
 <h2 class="anchored" data-anchor-id="attribution">Attribution</h2>
