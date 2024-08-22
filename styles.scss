@@ -1,6 +1,6 @@
 /*-- scss:rules --*/
 
-// Define UBC and MDS colors
+/* Color Variables */
 $ubc-blue: #136ecf;
 $white: #FFFFFF;
 $light-blue: #97D4E9;
@@ -10,6 +10,15 @@ $exercise-dark-green: #005f56;
 $exercise-light-green: #88d4ab;
 $exercise-dark-gray: #2f4f4f;
 $exercise-light-gray: #dcdcdc;
+$blue-light: #d0e7ff;
+$blue-medium: #7fbfff;
+$blue-dark: #136ecf;
+$blue-darker: #0b4b91;
+$blue-lightest: #eaf4ff;
+$blue-medium-light: #a9d1ff;
+$blue-dark-light: #4d97e0;
+$grey-medium: #999999;
+
 
 .activity {
   margin: 0.5em 0;
@@ -56,6 +65,100 @@ $exercise-light-gray: #dcdcdc;
 .exercise-container {
   padding: 5px 10px;
   color: $exercise-dark-green;
+  background-color: $white;
+  border-bottom-right-radius: 5px;
+}
+
+.note {
+  margin: 0.5em 0;
+  border: 1px solid $blue-dark;
+  border-radius: 5px;
+}
+
+.note-header {
+  margin-left: 0em;
+  padding-left: 60px;
+  padding-top: 5px;
+  padding-bottom: 0.1em;
+  color: $white;
+  background-color: $blue-dark-light;
+  border-top-right-radius: 5px;
+  font-size: 0.8em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  background-image: url("lectures/img/note.png");
+}
+
+.note-container {
+  padding: 15px 20px; /* Increased padding inside the container */
+  color: $grey-medium;
+  background-color: $white;
+  border-bottom-right-radius: 5px;
+}
+
+.warning {
+  margin: 0.5em 0;
+  border: 1px solid $blue-medium;
+  border-radius: 5px;
+}
+
+.warning-header {
+  margin-left: 0em;
+  padding-left:  60px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: $white;
+  background-color: $blue-medium-light;
+  border-top-right-radius: 5px;
+  font-size: 0.8em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  background-image: url("lectures/img/warning.png");
+}
+
+.warning-container {
+  padding: 15px 20px; /* Increased padding inside the container */
+  color: $grey-medium;
+  background-color: $white;
+  border-bottom-right-radius: 5px;
+}
+
+/* Tip */
+.tip {
+  margin: 0.5em 0;
+  border: 1px solid $blue-light;
+  border-radius: 5px;
+}
+
+.tip-header {
+  margin-left: 0em;
+  padding-left:  60px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: $blue-darker;
+  background-color: $blue-lightest;
+  border-top-right-radius: 5px;
+  font-size: 0.8em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  background-image: url("lectures/img/tip.png");
+}
+
+.tip-container {
+  padding: 15px 20px; /* Increased padding inside the container */
+  color: $grey-medium;
   background-color: $white;
   border-bottom-right-radius: 5px;
 }
