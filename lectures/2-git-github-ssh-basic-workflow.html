@@ -412,9 +412,10 @@ window.Quarto = {
 </section>
 <section id="creating-a-repository" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-repository">Creating a Repository</h2>
+</section>
 <div class="exercise">
-<section id="lecture-2-exercise-1" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-2-exercise-1">Lecture 2 Exercise 1</h3>
+<section id="lecture-2-exercise-1" class="level2 exercise-header">
+<h2 class="anchored" data-anchor-id="lecture-2-exercise-1">Lecture 2 Exercise 1</h2>
 </section>
 <div class="exercise-container">
 <p><strong>Creating a GitHub Repository</strong></p>
@@ -486,7 +487,6 @@ node_modules/</code></pre>
 </ol>
 </div>
 </div>
-</section>
 <section id="cloning-repositories-from-github" class="level2">
 <h2 class="anchored" data-anchor-id="cloning-repositories-from-github">Cloning repositories from GitHub</h2>
 <p>If you only need to make minor edits, you can directly edit files on GitHub using their online editor, eliminating the need to clone the repository.</p>
@@ -552,9 +552,10 @@ node_modules/</code></pre>
 <li><p>Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository’s URL.</p></li>
 </ul>
 </section>
+</section>
 <div class="activity">
-<section id="lecture-2-activity-2" class="level3 activity-header">
-<h3 class="anchored" data-anchor-id="lecture-2-activity-2">Lecture 2 Activity 2</h3>
+<section id="lecture-2-activity-2" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-2-activity-2">Lecture 2 Activity 2</h2>
 </section>
 <div class="activity-container">
 <p>Is a repository the same as a directory? Can a Git repository be your current working directory?</p>
@@ -564,7 +565,6 @@ node_modules/</code></pre>
 <p>D. A directory is always a repository, but a repository cannot be your current working directory.</p>
 </div>
 </div>
-</section>
 <section id="changing-and-saving-version-controlled-files" class="level2">
 <h2 class="anchored" data-anchor-id="changing-and-saving-version-controlled-files">Changing and saving version controlled files</h2>
 <p>To make a change to a file inside a Git repository, start by editing it as you would any other local file. For example, you can use a text editor with a command like <code>code name-of-file.txt</code>.</p>
@@ -584,9 +584,10 @@ Use the command git commit -m "Clarify the README installation instructions" to 
 <p>Note that the staging area is not a real physical location on your computer; it is instead a conceptual placeholder for these files until they are committed. The benefit of the Git version control system using a staging area is that you can choose to commit changes in only certain files. For example, we add only the two files that are important to the analysis project (<code>analysis.ipynb</code> and <code>README.md</code>) and not our personal scratch notes for the project (<code>notes.txt</code>).</p>
 <p>The staging area allows more control over what you are about to commit, allowing you to commit parts of a file or multiple files together with a single descriptive message. To add parts of a file instead of everything type <code>git add -p</code> and then interactively choose which parts you want by typing either <code>n</code> (no) or <code>y</code> (yes) followed by pressing enter for each chunk of code. This workflow is great for reviewing the changes as you add them to the staging area, which ensures you don’t commit anything by mistake. Note that you must omit<code>-p</code> when adding new files, so you would type <code>git add &lt;filename&gt;</code>.</p>
 </section>
+</section>
 <div class="activity">
-<section id="lecture-2-activity-3" class="level3 activity-header">
-<h3 class="anchored" data-anchor-id="lecture-2-activity-3">Lecture 2 Activity 3</h3>
+<section id="lecture-2-activity-3" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-2-activity-3">Lecture 2 Activity 3</h2>
 </section>
 <div class="activity-container">
 <p>What is the purpose of the staging area in Git?</p>
@@ -599,7 +600,6 @@ Use the command git commit -m "Clarify the README installation instructions" to 
 <p><strong>Commands</strong></p>
 <p>To add all updated, new, and deleted files in the git repo you can type <code>git add --all</code>. To only add all updated and new files in the git repo you can type <code>git add .</code>. To only add all updated and deleted files in the git repo you can type <code>git add -u</code>, this is very useful.</p>
 <p>To see which files you have staged, before committing them, you can use <code>git status</code>. To see the exact changes you have staged instead of just the file names, use <code>git diff --staged</code>. Finally, if you change your mind and want to removea file from the staging area, you can type <code>git restore --staged name-of-your-file.txt</code></p>
-</section>
 <section id="commit-your-files" class="level2">
 <h2 class="anchored" data-anchor-id="commit-your-files">Commit your files</h2>
 <p>To include a description in your commit using the terminal, you should write the command <code>git commit</code> and press ENTER. After doing that, a file called <code>COMMIT_EDITMSG</code> will open in your editor. There you can write the title and body of the commit message that you want to associate with your changes.</p>

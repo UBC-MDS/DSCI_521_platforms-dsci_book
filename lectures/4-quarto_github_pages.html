@@ -238,11 +238,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#checking-your-installation" id="toc-checking-your-installation" class="nav-link" data-scroll-target="#checking-your-installation">Checking your installation</a></li>
   </ul></li>
-  <li><a href="#your-first-quarto-website" id="toc-your-first-quarto-website" class="nav-link" data-scroll-target="#your-first-quarto-website">Your first Quarto website</a>
-  <ul class="collapse">
+  <li><a href="#your-first-quarto-website" id="toc-your-first-quarto-website" class="nav-link" data-scroll-target="#your-first-quarto-website">Your first Quarto website</a></li>
   <li><a href="#tweaking-your-website" id="toc-tweaking-your-website" class="nav-link" data-scroll-target="#tweaking-your-website">Tweaking your website</a></li>
   <li><a href="#renering-your-website" id="toc-renering-your-website" class="nav-link" data-scroll-target="#renering-your-website">Renering your website</a></li>
-  </ul></li>
   <li><a href="#github-pages" id="toc-github-pages" class="nav-link" data-scroll-target="#github-pages">GitHub Pages</a>
   <ul class="collapse">
   <li><a href="#github-pages-and-repositories" id="toc-github-pages-and-repositories" class="nav-link" data-scroll-target="#github-pages-and-repositories">Github Pages and repositories</a></li>
@@ -284,6 +282,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Modify a GitHub repository to publish a website</li>
 </ol>
 </section>
+<div class="activity">
+<section id="lecture-4-activity-1" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-4-activity-1">Lecture 4 Activity 1</h2>
+</section>
+<div class="activity-container">
+<p>Have you ever considered creating a website to showcase your projects, research, or personal brand?</p>
+</div>
+</div>
 <section id="what-is-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-quarto">What is Quarto</h2>
 <p>Quarto is a tool that can be used to create scientific or technical content. It comes with a collection of tools and templates to create many differnt types of data products, e.g., websites, articles, blogs, presentations, books, etc. Quarto works out of the box with the main data science languages: Python, R, Julia, and Observable (Javascript).</p>
@@ -394,16 +400,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> <span class="ex">?</span> Open With</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a> <span class="ex">❯</span> vscode</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>   <span class="kw">(</span><span class="ex">don</span><span class="st">'t open)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="note">
+<div class="note-header">
+<p>Note</p>
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="note-container">
 <p>If you already created a new folder and <code>cd</code> into it. You can use <code>.</code> to have the files created in the current location. Otherwise, you can specify a new folder name, and it will create a new folder with the new files in it for you.</p>
 <p>If you do create a new folder, remember you will need to <code>cd</code> into it.</p>
 </div>
@@ -411,6 +412,19 @@ Note
 <p>The most important file is the <code>_quarto.yml</code> file, this is how quarto knows you are using a quarto project. Some quarto commands and options may need to run in a quarto project. The contents of the <code>_qquarto.yml</code> (in this example) file tells quarto that we are going to be creating a website.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<div class="activity">
+<section id="lecture-4-activity-2" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-4-activity-2">Lecture 4 Activity 2</h2>
+</section>
+<div class="activity-container">
+<p>Which file is crucial for Quarto to recognize that you are working on a Quarto project, such as a website?</p>
+<p>A. index.qmd</p>
+<p>B. about.qmd</p>
+<p>C. _quarto.yml</p>
+<p>D. styles.css</p>
+</div>
+</div>
 <section id="tweaking-your-website" class="level3">
 <h3 class="anchored" data-anchor-id="tweaking-your-website">Tweaking your website</h3>
 <p>The <code>_quarto.yml</code> file defines many (if not all) of the options you can use to tweak how your website (or project) renders or behaves. This file is a YAML another mfile. This is a common format many tools use to provide configuration settings. Just note the indentation, white space, and dashes <code>-</code> are all really imporatnat and implies different things. YAML is a “recursive acronum”, it stands for “YAML Ain’t Markup Language”.</p>
@@ -425,16 +439,11 @@ Note
 <li><code>quarto render</code>: will generate all the html files</li>
 </ul>
 <p>Think of <code>preview</code> as a way to quickly see how the website changes as you are working, and <code>render</code> as creating the “final” website from scratch. When using <code>quarto preview</code> your current terminal will be used to look for changes and re-render your site.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="tip">
+<div class="tip-header">
+<p>Tip</p>
 </div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="tip-container">
 <p>If you are using VSCode, and use the <code>Quarto: Preview</code> command from the command pallete (you will need the VSCode Quarto extension), this will run <code>quarto preview</code> with the <code>--no-watch-inputs</code> by defualt. This will prevent saving the file to auto complile the project.</p>
 <p>If you sill want to have <code>preview</code> auto render on save you can do it in one of 3 ways:</p>
 <ol type="1">
@@ -463,10 +472,9 @@ Tip
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Output</span> created: _site/index.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Always <code>render</code> your site before your final deployment, not all changes to your quarto files will trigger an automatic regeneration + rendering.</p>
 </section>
-</section>
 <div class="activity">
-<section id="lecture-4-activity-1" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-4-activity-1">Lecture 4 Activity 1</h2>
+<section id="lecture-4-activity-3" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="lecture-4-activity-3">Lecture 4 Activity 3</h2>
 </section>
 <div class="activity-container">
 <p>Which command would you use to look at a Quarto file when changes are made?</p>
@@ -593,7 +601,14 @@ Tip
 <span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Render</span> w/ Metadata: quarto render document.qmd <span class="at">-M</span> echo:false</span>
 <span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>                      <span class="ex">quarto</span> render document.qmd <span class="at">-M</span> code-fold:true</span>
 <span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Render</span> to Stdout:   quarto render document.qmd <span class="at">--output</span> <span class="at">-</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can also use <code>quarto render --help</code> to get the same help output.</p>
+<p>You can also use <code>quarto render --help</code> to get the same help output. :::{.activity} ::::{.activity-header} ## Lecture 4 Activity 4</p>
+<p>:::: ::::{.activity-container}</p>
+<p>Which GitHub repository name allows you to create a personal website with the URL https://USERNAME.github.io/?</p>
+<p>A. README.md</p>
+<p>B. USERNAME.github.io</p>
+<p>C. index.html</p>
+<p>D. docs</p>
+<p>:::: :::</p>
 <div class="exercise">
 <section id="lecture-4-exercise-1" class="level3 exercise-header">
 <h3 class="anchored" data-anchor-id="lecture-4-exercise-1">Lecture 4 Exercise 1</h3>
