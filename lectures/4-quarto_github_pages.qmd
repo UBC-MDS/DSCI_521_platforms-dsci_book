@@ -6,6 +6,15 @@ title: Introduction to Quarto and Github Pages
 
 {{< include ../learning_objectives/lo-ch-04.qmd >}}
 
+:::{.activity}
+::::{.activity-header}
+## Lecture 4 Activity 1
+::::
+::::{.activity-container}
+Have you ever considered creating a website to showcase your projects, research, or personal brand? 
+::::
+:::
+
 ## What is Quarto
 
 Quarto is a tool that can be used to create scientific or technical content.
@@ -167,14 +176,20 @@ You will see how it created a few files, and prompt you to open the directory in
    (don't open)
 ```
 
-:::{.callout-note}
+::: {.note}
+::::{.note-header}
+Note
+::::
+::::{.note-container}
 If you already created a new folder and `cd` into it.
 You can use `.` to have the files created in the current location.
 Otherwise, you can specify a new folder name, and it will create a new folder with
 the new files in it for you.
 
 If you do create a new folder, remember you will need to `cd` into it.
+::::
 :::
+
 
 The most important file is the `_quarto.yml` file,
 this is how quarto knows you are using a quarto project.
@@ -186,6 +201,26 @@ creating a website.
 project:
   type: website
 ```
+
+:::{.activity}
+::::{.activity-header}
+## Lecture 4 Activity 2
+
+::::
+::::{.activity-container}
+
+Which file is crucial for Quarto to recognize that you are working on a Quarto project, such as a website?
+
+A. index.qmd
+
+B. about.qmd
+
+C. _quarto.yml
+
+D. styles.css
+
+::::
+:::
 
 ### Tweaking your website
 
@@ -214,7 +249,11 @@ There are 2 commands that will be helpful for us here:
 Think of `preview` as a way to quickly see how the website changes as you are working, and `render` as creating the "final" website from scratch.
 When using `quarto preview` your current terminal will be used to look for changes and re-render your site.
 
-:::{.callout-tip}
+::: {.tip}
+::::{.tip-header}
+Tip
+::::
+::::{.tip-container}
 If you are using VSCode, and use the `Quarto: Preview` command from the command pallete (you will need the VSCode Quarto extension),
 this will run `quarto preview ` with the `--no-watch-inputs` by defualt.
 This will prevent saving the file to auto complile the project.
@@ -232,6 +271,7 @@ editor:
 
 See this page in the quarto help documentaion on
 [Render on Save](https://quarto.org/docs/tools/vscode.html#render-on-save).
+::::
 :::
 
 ```bash
@@ -268,7 +308,7 @@ not all changes to your quarto files will trigger an automatic regeneration + re
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 4 Activity 1
+## Lecture 4 Activity 3
 ::::
 ::::{.activity-container}
 
@@ -455,6 +495,25 @@ Examples:
 ```
 
 You can also use `quarto render --help` to get the same help output.
+:::{.activity}
+::::{.activity-header}
+## Lecture 4 Activity 4
+
+::::
+::::{.activity-container}
+
+Which GitHub repository name allows you to create a personal website with the URL https://USERNAME.github.io/?
+
+A. README.md
+
+B. USERNAME.github.io
+
+C. index.html
+
+D. docs
+
+::::
+:::
 
 :::{.exercise}
 ::::{.exercise-header}

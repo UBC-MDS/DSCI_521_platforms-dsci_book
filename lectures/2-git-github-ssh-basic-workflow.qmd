@@ -113,7 +113,7 @@ you are automatically getting a copy of `.git` and thus, working on a Git.
 
 :::{.exercise}
 ::::{.exercise-header}
-### Lecture 2 Exercise 1
+## Lecture 2 Exercise 1
 ::::
 ::::{.exercise-container}
 
@@ -305,7 +305,7 @@ To demonstrate the first method, let's edit the README.md file in your GitHub re
 
 :::{.activity}
 ::::{.activity-header}
-### Lecture 2 Activity 2
+## Lecture 2 Activity 2
 ::::
 ::::{.activity-container}
 
@@ -374,7 +374,7 @@ so you would type `git add <filename>`.
 
 :::{.activity}
 ::::{.activity-header}
-### Lecture 2 Activity 3
+## Lecture 2 Activity 3
 ::::
 ::::{.activity-container}
 
