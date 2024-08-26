@@ -14,6 +14,10 @@ Welcome to Computer Platforms in Data Science!
 This week we are going to learn about exploring
 the filesystem, using the command line, and some other useful tools.
 
+## Instructions for Accessing iClicker
+
+Please follow these instructions for accessing iClicker: [iClicker Cloud Student Guide](https://lthub.ubc.ca/guides/iclicker-cloud-student-guide/)
+
 :::{.activity}
 ::::{.activity-header}
 ## Lecture 1 Activity 1
