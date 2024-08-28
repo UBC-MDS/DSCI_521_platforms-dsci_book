@@ -18,7 +18,7 @@
     "href": "index.html#lesson-learning-objectives-and-readings",
     "title": "DSCI 521: Computing Platforms for Data Science",
     "section": "Lesson Learning Objectives and Readings",
-    "text": "Lesson Learning Objectives and Readings\nLesson 0\n\nLaunch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface\n\nLesson 1\n\nRecognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.\nDistinguish common operators and representations of the different filesystem elements typically used in Bash.\nExplore the filesystem using Bash commands as ls, pwd and cd.\nTranslate an absolute path into a relative path and vice versa.\nUse command-line arguments to produce alternative outputs of commands.\nCreate, edit, move, and delete files and folders using the command line and VS Code.\n\n\nThe Unix Shell: Navigating Files and Directories or The shell\nIntroduce yourself to Git\nConnect to GitHub\nJupyter Notebook Tutorial: The Definitive Guide\n\nLesson 2\n\nImplement SSH authentication\nDifferentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.\nCreate a Git repository.\nImplement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in VS Code.\nUnderstand what implies using the staging area in a Git workflow.\nRecognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier.\n\n\nExcuse me, do you have a moment to talk about version control? by Jenny Bryan\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks\n\nLesson 3\n\nExplore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project.\n\n\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks\n\nLesson 4\n\nUse the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website\n\n\nQuarto Guides\nGetting Started with GitHub Pages\n\nLesson 5\n\nCreate RProjects in Rstudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown\nExplain markdown usage in relation to dynamic documents\nDifferentiate between code chunks and code cells in Rmarkdown and Jupyter Notebooks.\nSelect appropiate code chunk options for RMarkdown.\nUse semantic line breaks for version control files\nSpecify metadata in the YAML header block\n\n\nUsing RStudio Projects\nR Markdown Cheat Sheet\nR Markdown home page\nR Markdown: The Definitive Guide\nR Markdown code chunk options\nWhat they forgot to teach you about R\nConnect RStudio to Git and GitHub\nR-cubed rostools workshop\n\nLesson 6\n\nUnderstand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages.\n\n\nR Markdown presentations with xaringan\nJupyter presentations\nQuarto Presentations\n\nLesson 7\n\nUnderstand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv\n\n\nconda environemnts\nrenv\nWorkflow: projects\n\nLesson 8\n\nUnderstand the basic syntax and functionality of regular expressions (regex) for pattern matching.\nExplore the use of special characters, ranges, and anchors in regex to match specific patterns within text.\nApply regex to search, extract, and manipulate data in various formats using practical examples.\nUse regular expressions to navigate and organize files within the filesystem.\n\n\nRegex\nRegex test\nPracticing Regex\nThree tips for posting good questions to R-help and Stack Overflow\nHow to create a Minimal, Complete, and Verifiable example\nGood Enough Practices in Scientific Computing\n.gitignore"
+    "text": "Lesson Learning Objectives and Readings\nLesson 0\n\nLaunch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface\nLaunch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface\n\nLesson 1\n\nRecognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.\nDistinguish common operators and representations of the different filesystem elements typically used in Bash.\nExplore the filesystem using Bash commands as ls, pwd and cd.\nTranslate an absolute path into a relative path and vice versa.\nUse command-line arguments to produce alternative outputs of commands.\nCreate, edit, move, and delete files and folders using the command line and VS Code.\n\n\nThe Unix Shell: Navigating Files and Directories or The shell\nIntroduce yourself to Git\nConnect to GitHub\nJupyter Notebook Tutorial: The Definitive Guide\n\nLesson 2\n\nImplement SSH authentication\nDifferentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.\nCreate a Git repository.\nImplement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in VS Code.\nUnderstand what implies using the staging area in a Git workflow.\nRecognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier.\n\n\nExcuse me, do you have a moment to talk about version control? by Jenny Bryan\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks\n\nLesson 3\n\nExplore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project.\n\n\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks\n\nLesson 4\n\nUse the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website\n\n\nQuarto Guides\nGetting Started with GitHub Pages\n\nLesson 5\n\nCreate RProjects in Rstudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown\nExplain markdown usage in relation to dynamic documents\nDifferentiate between code chunks and code cells in Rmarkdown and Jupyter Notebooks.\nSelect appropiate code chunk options for RMarkdown.\nUse semantic line breaks for version control files\nSpecify metadata in the YAML header block\n\n\nUsing RStudio Projects\nR Markdown Cheat Sheet\nR Markdown home page\nR Markdown: The Definitive Guide\nR Markdown code chunk options\nWhat they forgot to teach you about R\nConnect RStudio to Git and GitHub\nR-cubed rostools workshop\n\nLesson 6\n\nUnderstand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages.\n\n\nR Markdown presentations with xaringan\nJupyter presentations\nQuarto Presentations\n\nLesson 7\n\nUnderstand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv\n\n\nconda environemnts\nrenv\nWorkflow: projects\n\nLesson 8\n\nUnderstand the basic syntax and functionality of regular expressions (regex) for pattern matching.\nExplore the use of special characters, ranges, and anchors in regex to match specific patterns within text.\nApply regex to search, extract, and manipulate data in various formats using practical examples.\nUse regular expressions to navigate and organize files within the filesystem.\n\n\nRegex\nRegex test\nPracticing Regex\nThree tips for posting good questions to R-help and Stack Overflow\nHow to create a Minimal, Complete, and Verifiable example\nGood Enough Practices in Scientific Computing\n.gitignore"
   },
   {
     "objectID": "index.html#attributions",
@@ -827,6 +827,286 @@
     ]
   },
   {
+    "objectID": "lectures/0-rstudio-orientation-intro.html",
+    "href": "lectures/0-rstudio-orientation-intro.html",
+    "title": "RStudio Orientation",
+    "section": "",
+    "text": "Launch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#learning-objectives",
+    "href": "lectures/0-rstudio-orientation-intro.html#learning-objectives",
+    "title": "RStudio Orientation",
+    "section": "",
+    "text": "Launch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#what-is-rstudio",
+    "href": "lectures/0-rstudio-orientation-intro.html#what-is-rstudio",
+    "title": "RStudio Orientation",
+    "section": "What is RStudio",
+    "text": "What is RStudio\nRStudio is another integrated development environment (IDE), primary used for the R programming language. It has all the same features of JupyterLab, but follows a “Four-Panel data science” layout.\n\nMany concepts in working with RStudio are similar to those in working in Jupyter Lab",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#how-to-access-rstudio",
+    "href": "lectures/0-rstudio-orientation-intro.html#how-to-access-rstudio",
+    "title": "RStudio Orientation",
+    "section": "How to Access RStudio",
+    "text": "How to Access RStudio\nYou can access RStudio from an online remote server or on a local machine as a web or desktop application.\n\nOnline Server\nYou can install RStudio Server locally on your machine and access it as as a local web application or connect to an already installed web instance. You can have access to a online version of the RStudio IDE on Posit Cloud (https://posit.cloud/).\n\n\nLocal Machine\nIf you have already completed the installation instructions, you can run RStudio as a desktop application.",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#rstudio-panes",
+    "href": "lectures/0-rstudio-orientation-intro.html#rstudio-panes",
+    "title": "RStudio Orientation",
+    "section": "RStudio Panes",
+    "text": "RStudio Panes\nRStudio follows a “four-pane datascience” IDE view:\n\nEditor: Where you will type your code and work with other source documents\nEnvironment: Contains the variables in your current session\n\nThere are other tabs here for the code history, database connections, git (if applicable) and tutorials (provided in some R packages)\n\nConsole: Where you can run and see R code output, access to a terminal, and see background jobs\nFiles and Viewer: See the files in your system, rendered plots, and some rendered output. You can also install packages in this area too.",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#using-rstudio-r-scripts-.r",
+    "href": "lectures/0-rstudio-orientation-intro.html#using-rstudio-r-scripts-.r",
+    "title": "RStudio Orientation",
+    "section": "Using RStudio: R Scripts (.R)",
+    "text": "Using RStudio: R Scripts (.R)\nThe top-left corner of the 4-pane data science setup in RStudio is where you will write code in an editor. If you are using an .R script file, you can write your R code in here directly. You can create a new R Script file by going to File &gt; New &gt; R Script. If you want to mix code with prose code, you will need to use RMarkdown .Rmd files.",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#using-rstudio-rmarkdown-files-.rmd",
+    "href": "lectures/0-rstudio-orientation-intro.html#using-rstudio-rmarkdown-files-.rmd",
+    "title": "RStudio Orientation",
+    "section": "Using RStudio: RMarkdown Files (.Rmd)",
+    "text": "Using RStudio: RMarkdown Files (.Rmd)\nRMarkdown files typically have .Rmd extension. They allow you to interweave prose with code. The prose text takes markdown formatting, and code is executed in code chunks.\nMost of the time in MDS, you will be working with RMarkdown files. You may also see Quarto documents that follow a very similar syntax as RMarkdown files (Fun fact: this website is created with Quarto).\nYou can create a new RMarkdown file by going to File &gt; New &gt; R Markdown. This will open a new document creation wizard. For now you can leave all the defaults, you can change them later.\n\n\nRendering RMarkdown files\nWhen we open a new RMarkdown file it will be pre-populated with a boilerplate template.\nThere are 3 main parts to an RMarkdown file:\n\nThe YAML header: where you can add and change any of the settings from the new file wizard\nMarkdown: The formatted prose text you want in the document\nCode Chunks: Where you specify the compute engine and run and return results (more on this later).\n\n\nTo render an RMarkdown document you can click the Knit button on the IDE. By default, it will render the output specified in your YAML header, but you can also choose to render it to another format (e.g., PDF).\n\n\n\nMarkdown\nThe markdown syntax is the same as you saw with Jupyter Notebook markdown cells\n#### Markdown Example: Heading Level Four\n\n- A bullet point\n- *Emphasis in italics*\n- **Strong emphasis in bold**\n- This is a [link to learn more about markdown](https://guides.github.com/features/mastering-markdown/).\n- Support for $\\LaTeX$ equations:\n$$f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x-a}$$\nwill be rendered as:\n\nMarkdown Example: Heading Level Four\n\nA bullet point\nEmphasis in italics\nStrong emphasis in bold\nThis is a link to learn more about markdown.\nSupport for \\(\\LaTeX\\) equations: \\[f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x-a}\\]\n\n\n\n\nCode Chunks\n\n```{r}\n3 + 4\n```\n\n[1] 7\n\n\n\n```{r}\na = 5\n```\n\n\n```{r}\na\n```\n\n[1] 5\n\n\nFor the remainder of this lesson, we’ll assume you are working in an RMarkdown document. If you want to work in an R script, you can use the code directly without the markdown code chunk elements.\n\n\nStatic figure creation\nTo show an example of how plots are rendered, we will use the seaborn plotting package which is a high level interface to the more widely known matplotlib package. This is only to illustrate how plots show up in the notebook, rather than a tutorial on how to plot in Python, so I will not go into details on what these commands mean.\n\n```{r}\n# You don't have to understand what is going on in this cell\n# it is only to show you how a static plot looks inside RMarkdown\n\nset.seed(42)\n\nN = 50\nx = runif(N)\ny = runif(N)\ncols = round(runif(N) * 100)\narea = (2 * runif(N))**2\n\nplot(x, y, cex=area, col=colors()[cols])\n```\n\n\n\n\n\n\n\n\n\n\nHow to get help in RStudio",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#recommended-rstudio-setup",
+    "href": "lectures/0-rstudio-orientation-intro.html#recommended-rstudio-setup",
+    "title": "RStudio Orientation",
+    "section": "Recommended RStudio Setup",
+    "text": "Recommended RStudio Setup\nThere are 2 highly recommended setting within RStudio that you should set up to help with reproducibility and making sure that when you “turn things off and turn it back on again” that you actually end up with a clean session.\nIn the Tools &gt; Global Options &gt; General Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no .RData is saved when you quit RStudio, and to never save the .RData (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "",
+    "text": "Understand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages.\n\nPlatform in focus RStudio IDE + Quarto",
+    "crumbs": [
+      "Home",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#learning-outcomes",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#learning-outcomes",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "",
+    "text": "Understand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages.\n\nPlatform in focus RStudio IDE + Quarto",
+    "crumbs": [
+      "Home",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-1",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-1",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "Lecture 6 Activity 1",
+    "text": "Lecture 6 Activity 1",
+    "crumbs": [
+      "Home",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#quarto-documents-markdown-flavour",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#quarto-documents-markdown-flavour",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "Quarto documents markdown flavour",
+    "text": "Quarto documents markdown flavour\nIn lecture 7 we have been learning about RMarkdown. Recently, has been released Quarto. Adding capabilities to R Markdown it also uses Pandoc Markdown, but we will talk about it later: https://quarto.org/docs/authoring/markdown-basics.html\nIn brief we are going to learn that you can create a gfm formatted document in Quarto. This means that you can use this type of file to create a README.md that will perfectly render on GitHub.\n\nJupyter Notebooks for Python and RMarkdown for R?\nEven if the purpose of using a Jupyter Notebook and an RMarkdown is similar there are major differences to be considered. The first one is that Jupyter Notebooks has been created for Python (even if there exist an R ikernel) and that RMarkdown has been created for R (even if can be used with Python through the reticulate package). There is a third new option, Quarto documents (.qmd), that can be open in RStudio, VS Code and JupyterLab at the same time and be used with Python, R or Julia.\nA single .qmd file is processed by a single engine running R, Python, or Julia. The trick is that an .qmd file running R can run Python via the reticulate R package meanwhile a .qmd running Python can run R via the rpy2 Python package. We will learn more about Quarto soon, but first let’s think a bit about how we write text in the notebooks.\nThis being said you have to consider that: &gt; Note that if you are using either the Jupyter or Knitr computational engine you will likely be better off using JupyterLab or VS Code (for .ipynb notebooks) or RStudio (for .qmd documents) as these environments provide code-completion, incremental cell execution, and other useful tools for working with executable code.\n\nQuarto Docs - Text editors (https://quarto.org/docs/tools/text-editors.html)\n\n Quarto documents are created with text and Python, R and/or Julia code",
+    "crumbs": [
+      "Home",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-2",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-2",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "Lecture 6 Activity 2",
+    "text": "Lecture 6 Activity 2",
+    "crumbs": [
+      "Home",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#presentations-with-jupyterlab-rmarkdown-and-quarto",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#presentations-with-jupyterlab-rmarkdown-and-quarto",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "Presentations with JupyterLab, RMarkdown and Quarto",
+    "text": "Presentations with JupyterLab, RMarkdown and Quarto\nYou can create a great set of slides to share your results with others! We are going to use the framework reveal.js. RMarkdown most popular slides are created with a package called xaringan. Since Quarto appear, it is possible to create slides using reveal.js that is the same framework that is available by default in Jupyter Notebooks. Anyway, it would be possible to generate reveal.js presentations with RMarkdown if you install the revealjs package and follow these instructions.\n\nCreate your slides using Quarto\nIf you are using Jupyter Notebooks it is quite straightforward to create your slides. You can use Jupyter Lab interface too with the same purpose. You can read more about it here\n\n\n\nJupyter Slides\n\n\nYou can crea\nClicking here you can have an example of what you can do with Quarto presentations using reveal.js framework.\nLecture x\nTake 5 minutes of the class and convert one of your .Rmd, .qmd or .ipynb to a set of slides.\nYou can convert the slides manually or look into the jupytext or quarto convert tools to do an initial file conversion.",
+    "crumbs": [
+      "Home",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
+    "objectID": "readings/readings-ch-01.html",
+    "href": "readings/readings-ch-01.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "The Unix Shell: Navigating Files and Directories or The shell\nIntroduce yourself to Git\nConnect to GitHub\nJupyter Notebook Tutorial: The Definitive Guide"
+  },
+  {
+    "objectID": "readings/readings-ch-04.html",
+    "href": "readings/readings-ch-04.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Quarto Guides\nGetting Started with GitHub Pages"
+  },
+  {
+    "objectID": "readings/readings-ch-07.html",
+    "href": "readings/readings-ch-07.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "conda environemnts\nrenv\nWorkflow: projects"
+  },
+  {
+    "objectID": "readings/readings-ch-06.html",
+    "href": "readings/readings-ch-06.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "R Markdown presentations with xaringan\nJupyter presentations\nQuarto Presentations"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-00.html",
+    "href": "learning_objectives/lo-ch-00.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-05.html",
+    "href": "learning_objectives/lo-ch-05.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Create RProjects in Rstudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown\nExplain markdown usage in relation to dynamic documents\nDifferentiate between code chunks and code cells in Rmarkdown and Jupyter Notebooks.\nSelect appropiate code chunk options for RMarkdown.\nUse semantic line breaks for version control files\nSpecify metadata in the YAML header block"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-07.html",
+    "href": "learning_objectives/lo-ch-07.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-02.html",
+    "href": "learning_objectives/lo-ch-02.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Implement SSH authentication\nDifferentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.\nCreate a Git repository.\nImplement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in VS Code.\nUnderstand what implies using the staging area in a Git workflow.\nRecognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-01.html",
+    "href": "learning_objectives/lo-ch-01.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Recognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.\nDistinguish common operators and representations of the different filesystem elements typically used in Bash.\nExplore the filesystem using Bash commands as ls, pwd and cd.\nTranslate an absolute path into a relative path and vice versa.\nUse command-line arguments to produce alternative outputs of commands.\nCreate, edit, move, and delete files and folders using the command line and VS Code."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-04.html",
+    "href": "learning_objectives/lo-ch-04.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Use the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-03.html",
+    "href": "learning_objectives/lo-ch-03.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Explore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-06.html",
+    "href": "learning_objectives/lo-ch-06.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Understand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-08.html",
+    "href": "learning_objectives/lo-ch-08.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Understand the basic syntax and functionality of regular expressions (regex) for pattern matching.\nExplore the use of special characters, ranges, and anchors in regex to match specific patterns within text.\nApply regex to search, extract, and manipulate data in various formats using practical examples.\nUse regular expressions to navigate and organize files within the filesystem."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-00-rstudio.html",
+    "href": "learning_objectives/lo-ch-00-rstudio.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Launch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface"
+  },
+  {
+    "objectID": "readings/readings-ch-08.html",
+    "href": "readings/readings-ch-08.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Regex\nRegex test\nPracticing Regex\nThree tips for posting good questions to R-help and Stack Overflow\nHow to create a Minimal, Complete, and Verifiable example\nGood Enough Practices in Scientific Computing\n.gitignore"
+  },
+  {
+    "objectID": "readings/readings-ch-03.html",
+    "href": "readings/readings-ch-03.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Comparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks"
+  },
+  {
+    "objectID": "readings/readings-ch-05.html",
+    "href": "readings/readings-ch-05.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Using RStudio Projects\nR Markdown Cheat Sheet\nR Markdown home page\nR Markdown: The Definitive Guide\nR Markdown code chunk options\nWhat they forgot to teach you about R\nConnect RStudio to Git and GitHub\nR-cubed rostools workshop"
+  },
+  {
+    "objectID": "readings/readings-ch-02.html",
+    "href": "readings/readings-ch-02.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Excuse me, do you have a moment to talk about version control? by Jenny Bryan\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks"
+  },
+  {
     "objectID": "lectures/1-MDStools-bash-filesystem.html",
     "href": "lectures/1-MDStools-bash-filesystem.html",
     "title": "Introduction to MDS software and Bash",
@@ -1000,191 +1280,6 @@
     "crumbs": [
       "Home",
       "Lecture 1: Introduction to MDS software and Bash"
-    ]
-  },
-  {
-    "objectID": "readings/readings-ch-02.html",
-    "href": "readings/readings-ch-02.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Excuse me, do you have a moment to talk about version control? by Jenny Bryan\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks"
-  },
-  {
-    "objectID": "readings/readings-ch-05.html",
-    "href": "readings/readings-ch-05.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Using RStudio Projects\nR Markdown Cheat Sheet\nR Markdown home page\nR Markdown: The Definitive Guide\nR Markdown code chunk options\nWhat they forgot to teach you about R\nConnect RStudio to Git and GitHub\nR-cubed rostools workshop"
-  },
-  {
-    "objectID": "readings/readings-ch-03.html",
-    "href": "readings/readings-ch-03.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Comparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks"
-  },
-  {
-    "objectID": "readings/readings-ch-08.html",
-    "href": "readings/readings-ch-08.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Regex\nRegex test\nPracticing Regex\nThree tips for posting good questions to R-help and Stack Overflow\nHow to create a Minimal, Complete, and Verifiable example\nGood Enough Practices in Scientific Computing\n.gitignore"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-00.html",
-    "href": "learning_objectives/lo-ch-00.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-05.html",
-    "href": "learning_objectives/lo-ch-05.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Create RProjects in Rstudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown\nExplain markdown usage in relation to dynamic documents\nDifferentiate between code chunks and code cells in Rmarkdown and Jupyter Notebooks.\nSelect appropiate code chunk options for RMarkdown.\nUse semantic line breaks for version control files\nSpecify metadata in the YAML header block"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-07.html",
-    "href": "learning_objectives/lo-ch-07.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-02.html",
-    "href": "learning_objectives/lo-ch-02.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Implement SSH authentication\nDifferentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.\nCreate a Git repository.\nImplement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in VS Code.\nUnderstand what implies using the staging area in a Git workflow.\nRecognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-01.html",
-    "href": "learning_objectives/lo-ch-01.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Recognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.\nDistinguish common operators and representations of the different filesystem elements typically used in Bash.\nExplore the filesystem using Bash commands as ls, pwd and cd.\nTranslate an absolute path into a relative path and vice versa.\nUse command-line arguments to produce alternative outputs of commands.\nCreate, edit, move, and delete files and folders using the command line and VS Code."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-04.html",
-    "href": "learning_objectives/lo-ch-04.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Use the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-03.html",
-    "href": "learning_objectives/lo-ch-03.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Explore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-06.html",
-    "href": "learning_objectives/lo-ch-06.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Understand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-08.html",
-    "href": "learning_objectives/lo-ch-08.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Understand the basic syntax and functionality of regular expressions (regex) for pattern matching.\nExplore the use of special characters, ranges, and anchors in regex to match specific patterns within text.\nApply regex to search, extract, and manipulate data in various formats using practical examples.\nUse regular expressions to navigate and organize files within the filesystem."
-  },
-  {
-    "objectID": "readings/readings-ch-06.html",
-    "href": "readings/readings-ch-06.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "R Markdown presentations with xaringan\nJupyter presentations\nQuarto Presentations"
-  },
-  {
-    "objectID": "readings/readings-ch-07.html",
-    "href": "readings/readings-ch-07.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "conda environemnts\nrenv\nWorkflow: projects"
-  },
-  {
-    "objectID": "readings/readings-ch-04.html",
-    "href": "readings/readings-ch-04.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Quarto Guides\nGetting Started with GitHub Pages"
-  },
-  {
-    "objectID": "readings/readings-ch-01.html",
-    "href": "readings/readings-ch-01.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "The Unix Shell: Navigating Files and Directories or The shell\nIntroduce yourself to Git\nConnect to GitHub\nJupyter Notebook Tutorial: The Definitive Guide"
-  },
-  {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html",
-    "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "",
-    "text": "Understand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages.\n\nPlatform in focus RStudio IDE + Quarto",
-    "crumbs": [
-      "Home",
-      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
-    ]
-  },
-  {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#learning-outcomes",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#learning-outcomes",
-    "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "",
-    "text": "Understand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages.\n\nPlatform in focus RStudio IDE + Quarto",
-    "crumbs": [
-      "Home",
-      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
-    ]
-  },
-  {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-1",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-1",
-    "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Lecture 6 Activity 1",
-    "text": "Lecture 6 Activity 1",
-    "crumbs": [
-      "Home",
-      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
-    ]
-  },
-  {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#quarto-documents-markdown-flavour",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#quarto-documents-markdown-flavour",
-    "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Quarto documents markdown flavour",
-    "text": "Quarto documents markdown flavour\nIn lecture 7 we have been learning about RMarkdown. Recently, has been released Quarto. Adding capabilities to R Markdown it also uses Pandoc Markdown, but we will talk about it later: https://quarto.org/docs/authoring/markdown-basics.html\nIn brief we are going to learn that you can create a gfm formatted document in Quarto. This means that you can use this type of file to create a README.md that will perfectly render on GitHub.\n\nJupyter Notebooks for Python and RMarkdown for R?\nEven if the purpose of using a Jupyter Notebook and an RMarkdown is similar there are major differences to be considered. The first one is that Jupyter Notebooks has been created for Python (even if there exist an R ikernel) and that RMarkdown has been created for R (even if can be used with Python through the reticulate package). There is a third new option, Quarto documents (.qmd), that can be open in RStudio, VS Code and JupyterLab at the same time and be used with Python, R or Julia.\nA single .qmd file is processed by a single engine running R, Python, or Julia. The trick is that an .qmd file running R can run Python via the reticulate R package meanwhile a .qmd running Python can run R via the rpy2 Python package. We will learn more about Quarto soon, but first let’s think a bit about how we write text in the notebooks.\nThis being said you have to consider that: &gt; Note that if you are using either the Jupyter or Knitr computational engine you will likely be better off using JupyterLab or VS Code (for .ipynb notebooks) or RStudio (for .qmd documents) as these environments provide code-completion, incremental cell execution, and other useful tools for working with executable code.\n\nQuarto Docs - Text editors (https://quarto.org/docs/tools/text-editors.html)\n\n Quarto documents are created with text and Python, R and/or Julia code",
-    "crumbs": [
-      "Home",
-      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
-    ]
-  },
-  {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-2",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-2",
-    "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Lecture 6 Activity 2",
-    "text": "Lecture 6 Activity 2",
-    "crumbs": [
-      "Home",
-      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
-    ]
-  },
-  {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#presentations-with-jupyterlab-rmarkdown-and-quarto",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#presentations-with-jupyterlab-rmarkdown-and-quarto",
-    "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Presentations with JupyterLab, RMarkdown and Quarto",
-    "text": "Presentations with JupyterLab, RMarkdown and Quarto\nYou can create a great set of slides to share your results with others! We are going to use the framework reveal.js. RMarkdown most popular slides are created with a package called xaringan. Since Quarto appear, it is possible to create slides using reveal.js that is the same framework that is available by default in Jupyter Notebooks. Anyway, it would be possible to generate reveal.js presentations with RMarkdown if you install the revealjs package and follow these instructions.\n\nCreate your slides using Quarto\nIf you are using Jupyter Notebooks it is quite straightforward to create your slides. You can use Jupyter Lab interface too with the same purpose. You can read more about it here\n\n\n\nJupyter Slides\n\n\nYou can crea\nClicking here you can have an example of what you can do with Quarto presentations using reveal.js framework.\nLecture x\nTake 5 minutes of the class and convert one of your .Rmd, .qmd or .ipynb to a set of slides.\nYou can convert the slides manually or look into the jupytext or quarto convert tools to do an initial file conversion.",
-    "crumbs": [
-      "Home",
-      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
     ]
   },
   {
@@ -1536,7 +1631,7 @@
     "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface\n:::",
     "crumbs": [
       "Home",
-      "Lecture 0: JupyterLab Orientation"
+      "Lecture 0a: JupyterLab Orientation"
     ]
   },
   {
@@ -1547,7 +1642,7 @@
     "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface",
     "crumbs": [
       "Home",
-      "Lecture 0: JupyterLab Orientation"
+      "Lecture 0a: JupyterLab Orientation"
     ]
   },
   {
@@ -1558,7 +1653,7 @@
     "text": "What is JupyterLab\nThe most rudimentary interaction with programming languages such as R and Python is via interactive shells run from a terminal. This provides access to the full functionality of the language, but is a barebones experience without any conveniences added. If you want to edit a script or view a plot that you created, you need to open a text editor and image viewer separately.\nIf you prefer a more holistic experience, with many of conveniences nicely organized in the same interface, you can use an integrated development environment (or IDE for short). IDEs often include a shell, a file browser, debugging tools, version control, a text editor with autocompletion and syntax highlighting, and an area where plots show up. A core idea of IDEs is to provide all the tools you need in one place. Commons IDEs that you might have heard of include Visual Studio Code and RStudio. This lesson will discuss JupyterLab, which is and IDE to work with many programming languages, including R, Python, Julia, and many more. A core concept tightly linked to JupyterLab are Jupyter Notebooks, which will be one of the main topics in this talk. Let’s see how we can launch them.",
     "crumbs": [
       "Home",
-      "Lecture 0: JupyterLab Orientation"
+      "Lecture 0a: JupyterLab Orientation"
     ]
   },
   {
@@ -1566,10 +1661,10 @@
     "href": "lectures/0-jupyterlab-orientation-intro.html#how-to-access-jupyterlab",
     "title": "JupyterLab Orientation",
     "section": "How to Access JupyterLab",
-    "text": "How to Access JupyterLab\nYou can access JupyterLab from an online remote server or a local machine.\n\nOnline Server\nWe could install and run JupyterLab just like any other program on Windows, MacOS, or Linux. However, one of the advantages of JupyterLab is that it is easy to use without installing anything. To try JupyterLab, use your web browser to visit the UBC Jupyter Server and login with your CWL (Firefox, and Chrome are supported). You can also try JupyterLab throught Porject Jupyter: https://jupyter.org/try\n\n\nLocal Machine\nIf you have already completed the installation instructions, you can open the terminal and run:\njupyter lab\nJupyterLab will open in a browser whether you run it locally or you are using it through UBC server. Note that if you are running JupyterLab in your machine, the URL could be similar to https://localhost:8888/lab. In this case localhost is referring to your computer, not to a webpage.",
+    "text": "How to Access JupyterLab\nYou can access JupyterLab from an online remote server or a local machine.\n\nOnline Server\nWe could install and run JupyterLab just like any other program on Windows, MacOS, or Linux. However, one of the advantages of JupyterLab is that it is easy to use without installing anything. To try JupyterLab, use your web browser to visit the UBC Jupyter Server and login with your CWL (Firefox, and Chrome are supported). You can also try JupyterLab through Project Jupyter (https://jupyter.org/try) or Posit Cloud (https://posit.cloud/).\n\n\nLocal Machine\nIf you have already completed the installation instructions, you can open the terminal and run:\njupyter lab\nJupyterLab will open in a browser whether you run it locally or you are using it through UBC server. Note that if you are running JupyterLab in your machine, the URL could be similar to https://localhost:8888/lab. In this case localhost is referring to your computer, not to a webpage.",
     "crumbs": [
       "Home",
-      "Lecture 0: JupyterLab Orientation"
+      "Lecture 0a: JupyterLab Orientation"
     ]
   },
   {
@@ -1580,7 +1675,7 @@
     "text": "Using Jupyter Notebooks\n\nWe’re greeted by the launcher tab where we see that we can start either a Notebook or Console for Python or R, as well as some other utility programs. Let’s start by explaining one of the most popular options, the Jupyter Notebook. The Notebook provides and interface where you can mix text, code, mathematical expressions, plot output, videos, and more, all in the same file. So instead of the traditional IDE experience where you would write code in a text file and then have figures pop up in a different panel, this information now all resides in the same document, which facilitates reproducibility and collaboration. The Notebooks can be exported to many formats, including PDF and HTML, which makes it easy to share your project with anyone. The cell that is encircled in blue is where we can input Python code, click here and type any mathematical expression, and then run the cell by clicking the play button in the top toolbar:\n\n3 + 4\n\n7\n\n\n\nAs you can see, the output is returned just under input, and a new input cell was created. We could also have clicked the plus sign to create a new cell. Here, we can do anything we can do in Python, e.g. variable assignment:\n\na = 5\n\nThere is no output because we just assigned a value to a variable, without asking for the value of that variable, which we can do by typing out the variable name:\n\na\n\n5\n\n\nJupyter Notebooks also supports editing code on multiple lines, so we could have done this instead:\n\na = 3\na\n\n3\n\n\n\nYou might have noticed that there is a little counter on the left of each cell. This counter keeps track of in which order the cells were executed, so that you are aware if cells have been run out of sequential order. The counter symbol changes to an * when a computation is running, to indicate that Python is busy and won’t be able to execute new cells until the current one finishes (the delay is only noticeable for longer computations).\nWe can also click this blue bar to the left to collapse and expand the output and input. This can be handy if we have a long code cell, or some notes that we’re planning on moving later.\n\nThe notebook is saved automatically every two minutes, and it can be saved manually by clicking the floppy disk symbol in the toolbar, or by hitting Ctrl + s (Windows/Linux) or ⌘ + s (Mac). Both input and output cells are saved, so any plots that you make will be present in the notebook next time you open it, without needing to rerun the code cells.\nOther important icons in the toolbar are the ones to cut, copy, and paste a cell. If you want to get rid of a cell, you can cut it out without pasting in back in.\nThe remaining icons are:\n\nplay: to run a cell (which we already used),\nstop: which we can use if a cells has gotten stuck running some code and we want to interrupt it,\nrestart: which restarts the background Python process that is connected to the notebook (so if we click this, our variables will need to be redefined),\nrestart and run all: this is really important and should always be executed before sharing a notebook, to make sure that everything will work when someone else runs it from top to bottom, since the cells can be executed out of order.\n\nYou can also access these by right clicking on a cell.\n\nWorking with text via Markdown cells\nYou can change the input cell type from Python code to Markdown by clicking on the little dropdown menu in the toolbar that reads Code.\n\nMarkdown is a simple formatting system which allows you to document your analysis within the notebook. This is also great for creating tutorials and even books as we will see later. It is a plain text format that includes brief markup tags that indicates how text should be rendered, e.g. * indicates italics and ** indicates bold typeface. If you have commented on online forums or used a chat application, you might already be familiar with markdown. Below is a short example of the syntax:\n#### Markdown Example: Heading Level Four\n\n- A bullet point\n- *Emphasis in italics*\n- **Strong emphasis in bold**\n- This is a [link to learn more about markdown](https://guides.github.com/features/mastering-markdown/).\n- Support for $\\LaTeX$ equations:\n$$f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x-a}$$\nwill be rendered as:\n\nMarkdown Example: Heading Level Four\n\nA bullet point\nEmphasis in italics\nStrong emphasis in bold\nThis is a link to learn more about markdown.\nSupport for \\(\\LaTeX\\) equations: \\[f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x-a}\\]",
     "crumbs": [
       "Home",
-      "Lecture 0: JupyterLab Orientation"
+      "Lecture 0a: JupyterLab Orientation"
     ]
   },
   {
@@ -1591,7 +1686,7 @@
     "text": "Lecture 0 Activity 1",
     "crumbs": [
       "Home",
-      "Lecture 0: JupyterLab Orientation"
+      "Lecture 0a: JupyterLab Orientation"
     ]
   },
   {
@@ -1602,7 +1697,7 @@
     "text": "JupyterLab sidebars\nNow that you know the basics of how to work inside Jupyter Notebooks, let’s continue explorer the JupyterLab user interface.\n\nLeft sidebar\n\nExtension Manager\n\nThe puzzle piece at the bottom is where you can install extensions.\n\nTable of Contents\n\nIt allows navigate the structure of the document easily.\n\nGit\n\nGit version control interface.\n\nRunning terminals and kernels\n\nOverview of all running applications.\n\nFile browser\n\nThe topmost icon in the sidebar to the left shows the file tree of your current folder, highlights include:\n\nthe icon for uploading files from your computer to the UBC Jupyter server (or your folder if you run locally)\nright clicking a file to download it to your computer\nclicking the + sign takes us back to the launcher menu where we started\n\n\n\nRight sidebar\n\nProperty Inspector:\n\nThis is a bit more advanced as it allows you to add metadata to cells.\nOne aspect worth highlighting here is the ability to denote cells as part of a slide show, that you can download via File -&gt; Export notebook as.\n\nDebugger",
     "crumbs": [
       "Home",
-      "Lecture 0: JupyterLab Orientation"
+      "Lecture 0a: JupyterLab Orientation"
     ]
   },
   {
@@ -1613,7 +1708,7 @@
     "text": "Additional JupyterLab applications\nJupyterLab can run applications other than notebooks, e.g. there is a Python console, a text editor, and a terminal emulator. These can be opened via the launcher page or File --&gt; New. Applications can be placed side by side by dragging and dropping their windows, so we could be running a terminal and notebook next to each other.\nThe Command palette enable users to invoke commands directly:\n\nWindows/Linux: Ctrl + Shift + C\nMac: ⌘ + Shift + C\nView --&gt; Activate Command Palette\n\n\nHow to get help in the notebook\nOne application that is especially helpful to run next to a notebook is the Contextual Help. This application displays documentation automatically as you type. When you’re using unfamiliar packages and functions, it is a good habit to leave the Contextual Help open next to the notebook. If you don’t like having a split screen, you can instead press Shift + Tab to bring up a help dialogue. JupyterLab also supports tab completion, you can start typing a name and then press tab to see suggestions to expand to. Additional help is available via the “Help” menu, which links to useful online resources (for example Help --&gt; JupyterLab Reference).\n\n\n\n\n\n\nNote\n\n\n\nNote about UBC Jupyter Server:\nAll your files will be saved between restarts, but any Python packages you have installed yourself will be reset, so you need to contact UBC IT to have additional Python packages installed with persistence.",
     "crumbs": [
       "Home",
-      "Lecture 0: JupyterLab Orientation"
+      "Lecture 0a: JupyterLab Orientation"
     ]
   },
   {

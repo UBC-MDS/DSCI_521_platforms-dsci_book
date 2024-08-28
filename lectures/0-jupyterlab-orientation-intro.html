@@ -172,7 +172,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/0-jupyterlab-orientation-intro.html">Lecture 0: JupyterLab Orientation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/0-jupyterlab-orientation-intro.html">Lecture 0a: JupyterLab Orientation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -200,7 +200,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/0-jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Lecture 0: JupyterLab Orientation</span></a>
+ <span class="menu-text">Lecture 0a: JupyterLab Orientation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/0-rstudio-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 0b: RStudio Orientation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -322,7 +328,7 @@ window.Quarto = {
 <p>You can access JupyterLab from an online remote server or a local machine.</p>
 <section id="online-server" class="level3">
 <h3 class="anchored" data-anchor-id="online-server">Online Server</h3>
-<p>We could install and run JupyterLab just like any other program on Windows, MacOS, or Linux. However, one of the advantages of JupyterLab is that it is easy to use without installing anything. To try JupyterLab, use your web browser to visit the <a href="https://ubc.syzygy.ca/">UBC Jupyter Server</a> and login with your CWL (Firefox, and Chrome are supported). You can also try JupyterLab throught Porject Jupyter: <a href="https://jupyter.org/try" class="uri">https://jupyter.org/try</a></p>
+<p>We could install and run JupyterLab just like any other program on Windows, MacOS, or Linux. However, one of the advantages of JupyterLab is that it is easy to use without installing anything. To try JupyterLab, use your web browser to visit the <a href="https://ubc.syzygy.ca/">UBC Jupyter Server</a> and login with your CWL (Firefox, and Chrome are supported). You can also try JupyterLab through Project Jupyter (<a href="https://jupyter.org/try" class="uri">https://jupyter.org/try</a>) or Posit Cloud (<a href="https://posit.cloud/" class="uri">https://posit.cloud/</a>).</p>
 </section>
 <section id="local-machine" class="level3">
 <h3 class="anchored" data-anchor-id="local-machine">Local Machine</h3>
@@ -335,7 +341,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="using-jupyter-notebooks">Using Jupyter Notebooks</h2>
 <p><img src="img/jupyterlab-start.png" class="img-fluid"></p>
 <p>We’re greeted by the launcher tab where we see that we can start either a Notebook or Console for Python or R, as well as some other utility programs. Let’s start by explaining one of the most popular options, the Jupyter Notebook. The Notebook provides and interface where you can mix text, code, mathematical expressions, plot output, videos, and more, all in the same file. So instead of the traditional IDE experience where you would write code in a text file and then have figures pop up in a different panel, this information now all resides in the same document, which facilitates reproducibility and collaboration. The Notebooks can be exported to many formats, including PDF and HTML, which makes it easy to share your project with anyone. The cell that is encircled in blue is where we can input Python code, click here and type any mathematical expression, and then run the cell by clicking the play button in the top toolbar:</p>
-<div id="2437ea12" class="cell" data-execution_count="1">
+<div id="bcb07f4e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>7</code></pre>
@@ -343,18 +349,18 @@ window.Quarto = {
 </div>
 <p><img src="img/jupyterlab-run-cell.png" class="img-fluid"></p>
 <p>As you can see, the output is returned just under input, and a new input cell was created. We could also have clicked the plus sign to create a new cell. Here, we can do anything we can do in Python, e.g.&nbsp;variable assignment:</p>
-<div id="c8f5ff95" class="cell" data-execution_count="2">
+<div id="ef432c1a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There is no output because we just assigned a value to a variable, without asking for the value of that variable, which we can do by typing out the variable name:</p>
-<div id="905d0ac5" class="cell" data-execution_count="3">
+<div id="07639d8e" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>5</code></pre>
 </div>
 </div>
 <p>Jupyter Notebooks also supports editing code on multiple lines, so we could have done this instead:</p>
-<div id="8ac61bf7" class="cell" data-execution_count="4">
+<div id="93793c9f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -413,7 +419,7 @@ window.Quarto = {
 <section id="static-figure-creation" class="level3">
 <h3 class="anchored" data-anchor-id="static-figure-creation">Static figure creation</h3>
 <p>To show an example of how plots are rendered, we will use the <code>seaborn</code> plotting package which is a high level interface to the more widely known <code>matplotlib</code> package. This is only to illustrate how plots show up in the notebook, rather than a tutorial on how to plot in Python, so I will not go into details on what these commands mean.</p>
-<div id="927e53d1" class="cell" data-execution_count="5">
+<div id="9fc908fd" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You don't have to understand what is going on in this cell</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># it is only to show you how a static plot looks inside JupyterLab</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -442,10 +448,10 @@ window.Quarto = {
 </section>
 <section id="exporting-notebooks" class="level3">
 <h3 class="anchored" data-anchor-id="exporting-notebooks">Exporting notebooks</h3>
-<p>The combination of code, plots, and markdown is powerful. With these three elements, you can keep all your analysis code and interpretations in the same document, instead of spread across different files. Notebooks are excellent tools to build entire reports, since they can contain formatting such as a table of contents, links to sections and files, footnotes, images, bibliographies, and even videos, which we will learn more about later. There are a few ways we can export jupyter notebooks into a PDF file. The method will depend on which packages are successfuly installed and working from the <a href="https://ubc-mds.github.io/resources_pages/installation_instructions/">MDS installation instructions</a>.</p>
+<p>The combination of code, plots, and markdown is powerful. With these three elements, you can keep all your analysis code and interpretations in the same document, instead of spread across different files. Notebooks are excellent tools to build entire reports, since they can contain formatting such as a table of contents, links to sections and files, footnotes, images, bibliographies, and even videos, which we will learn more about later. There are a few ways we can export jupyter notebooks into a PDF file. The method will depend on which packages are successfully installed and working from the <a href="https://ubc-mds.github.io/resources_pages/installation_instructions/">MDS installation instructions</a>.</p>
 <section id="export-with-quarto" class="level4">
 <h4 class="anchored" data-anchor-id="export-with-quarto">Export with Quarto</h4>
-<p>This will be our prefered way to create PDFs. In the terminal, go to where your notebook file is, and create a new terminal</p>
+<p>This will be our preferred way to create PDFs. In the terminal, go to where your notebook file is, and create a new terminal</p>
 <p><img src="img/jupyterlab-create-terminal.png" class="img-fluid"></p>
 <p>In the terminal use the <code>quarto render</code> command and specify the output to <code>pdf</code>.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render Untitled.ipynb <span class="at">--to</span> pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

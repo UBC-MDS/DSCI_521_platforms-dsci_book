@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>readings-ch-01 – DSCI 521: Computing Platforms for Data Science</title>
+<title>RStudio Orientation – DSCI 521: Computing Platforms for Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,6 +103,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -109,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/0-rstudio-orientation-intro.html">Lecture 0b: RStudio Orientation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -142,7 +205,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/0-rstudio-orientation-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/0-rstudio-orientation-intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lecture 0b: RStudio Orientation</span></a>
   </div>
 </li>
@@ -199,23 +262,203 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#what-is-rstudio" id="toc-what-is-rstudio" class="nav-link" data-scroll-target="#what-is-rstudio">What is RStudio</a></li>
+  <li><a href="#how-to-access-rstudio" id="toc-how-to-access-rstudio" class="nav-link" data-scroll-target="#how-to-access-rstudio">How to Access RStudio</a>
+  <ul class="collapse">
+  <li><a href="#online-server" id="toc-online-server" class="nav-link" data-scroll-target="#online-server">Online Server</a></li>
+  <li><a href="#local-machine" id="toc-local-machine" class="nav-link" data-scroll-target="#local-machine">Local Machine</a></li>
+  </ul></li>
+  <li><a href="#rstudio-panes" id="toc-rstudio-panes" class="nav-link" data-scroll-target="#rstudio-panes">RStudio Panes</a></li>
+  <li><a href="#using-rstudio-r-scripts-.r" id="toc-using-rstudio-r-scripts-.r" class="nav-link" data-scroll-target="#using-rstudio-r-scripts-.r">Using RStudio: R Scripts (<code>.R</code>)</a></li>
+  <li><a href="#using-rstudio-rmarkdown-files-.rmd" id="toc-using-rstudio-rmarkdown-files-.rmd" class="nav-link" data-scroll-target="#using-rstudio-rmarkdown-files-.rmd">Using RStudio: RMarkdown Files (<code>.Rmd</code>)</a>
+  <ul class="collapse">
+  <li><a href="#rendering-rmarkdown-files" id="toc-rendering-rmarkdown-files" class="nav-link" data-scroll-target="#rendering-rmarkdown-files">Rendering RMarkdown files</a></li>
+  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown">Markdown</a></li>
+  <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks">Code Chunks</a></li>
+  <li><a href="#static-figure-creation" id="toc-static-figure-creation" class="nav-link" data-scroll-target="#static-figure-creation">Static figure creation</a></li>
+  <li><a href="#how-to-get-help-in-rstudio" id="toc-how-to-get-help-in-rstudio" class="nav-link" data-scroll-target="#how-to-get-help-in-rstudio">How to get help in RStudio</a></li>
+  </ul></li>
+  <li><a href="#recommended-rstudio-setup" id="toc-recommended-rstudio-setup" class="nav-link" data-scroll-target="#recommended-rstudio-setup">Recommended RStudio Setup</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">RStudio Orientation</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<ol type="1">
+<li>Launch RStudio</li>
+<li>Use the <code>.R</code> script and RMarkdown <code>.Rmd</code> interface inside RStudio</li>
+<li>Know your way around the RStudio user interface</li>
+</ol>
+</section>
+<section id="what-is-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-rstudio">What is RStudio</h2>
+<p>RStudio is another integrated development environment (IDE), primary used for the R programming language. It has all the same features of JupyterLab, but follows a “Four-Panel data science” layout.</p>
+<p><img src="img/rstudio_ide.png" class="img-fluid"></p>
+<p>Many concepts in working with RStudio are similar to those in working in <a href="0-jupyterlab-orientation-intro.html">Jupyter Lab</a></p>
+</section>
+<section id="how-to-access-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-access-rstudio">How to Access RStudio</h2>
+<p>You can access RStudio from an online remote server or on a local machine as a web or desktop application.</p>
+<section id="online-server" class="level3">
+<h3 class="anchored" data-anchor-id="online-server">Online Server</h3>
+<p>You can install RStudio Server locally on your machine and access it as as a local web application or connect to an already installed web instance. You can have access to a online version of the RStudio IDE on Posit Cloud (<a href="https://posit.cloud/" class="uri">https://posit.cloud/</a>).</p>
+</section>
+<section id="local-machine" class="level3">
+<h3 class="anchored" data-anchor-id="local-machine">Local Machine</h3>
+<p>If you have already completed the <a href="https://ubc-mds.github.io/resources_pages/installation_instructions/">installation instructions</a>, you can run RStudio as a desktop application.</p>
+</section>
+</section>
+<section id="rstudio-panes" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-panes">RStudio Panes</h2>
+<p>RStudio follows a “four-pane datascience” IDE view:</p>
+<ol type="1">
+<li>Editor: Where you will type your code and work with other source documents</li>
+<li>Environment: Contains the variables in your current session
 <ul>
-<li><a href="https://swcarpentry.github.io/shell-novice/02-filedir/index.html">The Unix Shell: Navigating Files and Directories</a> or <a href="http://happygitwithr.com/shell.html">The shell</a></li>
-<li><a href="http://happygitwithr.com/hello-git.html">Introduce yourself to Git</a></li>
-<li><a href="http://happygitwithr.com/push-pull-github.html">Connect to GitHub</a></li>
-<li><a href="https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook?utm_source=adwords_ppc">Jupyter Notebook Tutorial: The Definitive Guide</a></li>
+<li>There are other tabs here for the code history, database connections, git (if applicable) and tutorials (provided in some R packages)</li>
+</ul></li>
+<li>Console: Where you can run and see R code output, access to a terminal, and see background jobs</li>
+<li>Files and Viewer: See the files in your system, rendered plots, and some rendered output. You can also install packages in this area too.</li>
+</ol>
+</section>
+<section id="using-rstudio-r-scripts-.r" class="level2">
+<h2 class="anchored" data-anchor-id="using-rstudio-r-scripts-.r">Using RStudio: R Scripts (<code>.R</code>)</h2>
+<p>The top-left corner of the 4-pane data science setup in RStudio is where you will write code in an editor. If you are using an <code>.R</code> script file, you can write your R code in here directly. You can create a new R Script file by going to <code>File</code> &gt; <code>New</code> &gt; <code>R Script</code>. If you want to mix code with prose code, you will need to use RMarkdown <code>.Rmd</code> files.</p>
+</section>
+<section id="using-rstudio-rmarkdown-files-.rmd" class="level2">
+<h2 class="anchored" data-anchor-id="using-rstudio-rmarkdown-files-.rmd">Using RStudio: RMarkdown Files (<code>.Rmd</code>)</h2>
+<p>RMarkdown files typically have <code>.Rmd</code> extension. They allow you to interweave prose with code. The prose text takes markdown formatting, and code is executed in code chunks.</p>
+<p>Most of the time in MDS, you will be working with RMarkdown files. You may also see Quarto documents that follow a very similar syntax as RMarkdown files (Fun fact: this website is created with Quarto).</p>
+<p>You can create a new RMarkdown file by going to <code>File</code> &gt; <code>New</code> &gt; <code>R Markdown</code>. This will open a new document creation wizard. For now you can leave all the defaults, you can change them later.</p>
+<p><img src="img/rstudio-rmarkdown-wizard.png" class="img-fluid"></p>
+<section id="rendering-rmarkdown-files" class="level3">
+<h3 class="anchored" data-anchor-id="rendering-rmarkdown-files">Rendering RMarkdown files</h3>
+<p>When we open a new RMarkdown file it will be pre-populated with a boilerplate template.</p>
+<p>There are 3 main parts to an RMarkdown file:</p>
+<ol type="1">
+<li>The YAML header: where you can add and change any of the settings from the new file wizard</li>
+<li>Markdown: The formatted prose text you want in the document</li>
+<li>Code Chunks: Where you specify the compute engine and run and return results (more on this later).</li>
+</ol>
+<p><img src="img/rstudio-rmarkdown-parts.png" class="img-fluid"></p>
+<p>To render an RMarkdown document you can click the <code>Knit</code> button on the IDE. By default, it will render the output specified in your YAML header, but you can also choose to render it to another format (e.g., PDF).</p>
+<p><img src="img/rstudio-knitr-button-pdf.png" class="img-fluid"></p>
+</section>
+<section id="markdown" class="level3">
+<h3 class="anchored" data-anchor-id="markdown">Markdown</h3>
+<p>The markdown syntax is the same as you saw with Jupyter Notebook markdown cells</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Markdown Example: Heading Level Four</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A bullet point</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>*Emphasis in italics*</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Strong emphasis in bold**</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This is a <span class="co">[</span><span class="ot">link to learn more about markdown</span><span class="co">](https://guides.github.com/features/mastering-markdown/)</span>.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Support for $\LaTeX$ equations:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>$$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}$$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>will be rendered as:</p>
+<section id="markdown-example-heading-level-four" class="level4">
+<h4 class="anchored" data-anchor-id="markdown-example-heading-level-four">Markdown Example: Heading Level Four</h4>
+<ul>
+<li>A bullet point</li>
+<li><em>Emphasis in italics</em></li>
+<li><strong>Strong emphasis in bold</strong></li>
+<li>This is a <a href="https://guides.github.com/features/mastering-markdown/">link to learn more about markdown</a>.</li>
+<li>Support for <span class="math inline">\(\LaTeX\)</span> equations: <span class="math display">\[f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}\]</span></li>
 </ul>
+</section>
+</section>
+<section id="code-chunks" class="level3">
+<h3 class="anchored" data-anchor-id="code-chunks">Code Chunks</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="in">3 + 4</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="in">a = 5</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="in">a</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>For the remainder of this lesson, we’ll assume you are working in an RMarkdown document. If you want to work in an R script, you can use the code directly without the markdown code chunk elements.</p>
+</section>
+<section id="static-figure-creation" class="level3">
+<h3 class="anchored" data-anchor-id="static-figure-creation">Static figure creation</h3>
+<p>To show an example of how plots are rendered, we will use the <code>seaborn</code> plotting package which is a high level interface to the more widely known <code>matplotlib</code> package. This is only to illustrate how plots show up in the notebook, rather than a tutorial on how to plot in Python, so I will not go into details on what these commands mean.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="in"># You don't have to understand what is going on in this cell</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="in"># it is only to show you how a static plot looks inside RMarkdown</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="in">set.seed(42)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="in">N = 50</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="in">x = runif(N)</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="in">y = runif(N)</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="in">cols = round(runif(N) * 100)</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="in">area = (2 * runif(N))**2</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="in">plot(x, y, cex=area, col=colors()[cols])</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-rstudio-orientation-intro_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-get-help-in-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-get-help-in-rstudio">How to get help in RStudio</h3>
+</section>
+</section>
+<section id="recommended-rstudio-setup" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-rstudio-setup">Recommended RStudio Setup</h2>
+<p>There are 2 highly recommended setting within RStudio that you should set up to help with reproducibility and making sure that when you “turn things off and turn it back on again” that you actually end up with a clean session.</p>
+<p>In the <code>Tools</code> &gt; <code>Global Options</code> &gt; <code>General</code> Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no <code>.RData</code> is saved when you quit RStudio, and to never save the <code>.RData</code> (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).</p>
+<p><img src="img/rstudio-global_options-general.png" class="img-fluid"></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
