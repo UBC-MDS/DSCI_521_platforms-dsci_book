@@ -113,7 +113,7 @@ you are automatically getting a copy of `.git` and thus, working on a Git.
 
 :::{.exercise}
 ::::{.exercise-header}
-### Lecture 2 Exercise 1
+## Lecture 2 Exercise 1
 ::::
 ::::{.exercise-container}
 
@@ -278,25 +278,6 @@ D. By ensuring that the current directory name ends with ".git".
 ::::
 :::
 
-:::{.activity}
-::::{.activity-header}
-### Lecture 2 Activity 1
-::::
-::::{.activity-container}
-
-Is a repository the same as a directory? Can a Git repository be your current working directory?
-
-A. Yes, a repository is the same as a directory, and it can be your current working directory.
-
-B. No, a repository is not the same as a directory, and it cannot be your current working directory.
-
-C. A repository can be your current working directory, but it is not necessarily the same as a directory.
-
-D. A directory is always a repository, but a repository cannot be your current working directory.
-
-::::
-:::
-
 
 ## Adding & committing changes to version controlled files
 
@@ -321,6 +302,25 @@ To demonstrate the first method, let's edit the README.md file in your GitHub re
 * Step 5: Click the big green button "Commit changes" to save your work. This action combines git add and git commit into one step.
 
 * Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository's URL.
+
+:::{.activity}
+::::{.activity-header}
+## Lecture 2 Activity 2
+::::
+::::{.activity-container}
+
+Is a repository the same as a directory? Can a Git repository be your current working directory?
+
+A. Yes, a repository is the same as a directory, and it can be your current working directory.
+
+B. No, a repository is not the same as a directory, and it cannot be your current working directory.
+
+C. A repository can be your current working directory, but it is not necessarily the same as a directory.
+
+D. A directory is always a repository, but a repository cannot be your current working directory.
+
+::::
+:::
 
 ## Changing and saving version controlled files
 
@@ -371,6 +371,25 @@ which ensures you don't commit anything by mistake.
 Note that you must omit`-p`
 when adding new files,
 so you would type `git add <filename>`.
+
+:::{.activity}
+::::{.activity-header}
+## Lecture 2 Activity 3
+::::
+::::{.activity-container}
+
+What is the purpose of the staging area in Git?
+
+A. It allows you to preview and control which changes you want to commit.
+
+B. It automatically commits all changes in the repository.
+
+C. It creates a backup of your files before committing.
+
+D. It permanently deletes files that are not staged.
+
+::::
+:::
 
 **Commands**
 
@@ -428,6 +447,25 @@ to push any more changes yourself (though you will still be able to work and mak
 If you want to do this with the terminal,
 you have to pull from the terminal you should use the command `git pull`.
 
+
+:::{.activity}
+::::{.activity-header}
+### Lecture 2 Activity 4
+::::
+::::{.activity-container}
+
+Which command would you use to commit all changes with a message?
+
+A. git add -p
+
+B. git commit -m "Your message here"
+
+C. git push
+
+D. git status
+
+::::
+:::
 
 ## Attribution
 1. [Happy Git and GitHub for the useR by Jenny Bryan and the STAT 545 TAs](http://happygitwithr.com/)
