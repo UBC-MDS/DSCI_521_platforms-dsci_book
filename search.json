@@ -1628,7 +1628,7 @@
     "href": "lectures/0-jupyterlab-orientation-intro.html",
     "title": "JupyterLab Orientation",
     "section": "",
-    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface\n:::",
+    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface",
     "crumbs": [
       "Home",
       "Lecture 0a: JupyterLab Orientation"
@@ -1679,11 +1679,11 @@
     ]
   },
   {
-    "objectID": "lectures/0-jupyterlab-orientation-intro.html#lecture-0-activity-1",
-    "href": "lectures/0-jupyterlab-orientation-intro.html#lecture-0-activity-1",
+    "objectID": "lectures/0-jupyterlab-orientation-intro.html#lecture-0-exercise-1-creating-and-positioning-a-heading-in-jupyterlab",
+    "href": "lectures/0-jupyterlab-orientation-intro.html#lecture-0-exercise-1-creating-and-positioning-a-heading-in-jupyterlab",
     "title": "JupyterLab Orientation",
-    "section": "Lecture 0 Activity 1",
-    "text": "Lecture 0 Activity 1",
+    "section": "Lecture 0 Exercise 1 : Creating and Positioning a Heading in JupyterLab",
+    "text": "Lecture 0 Exercise 1 : Creating and Positioning a Heading in JupyterLab",
     "crumbs": [
       "Home",
       "Lecture 0a: JupyterLab Orientation"
@@ -1705,7 +1705,7 @@
     "href": "lectures/0-jupyterlab-orientation-intro.html#additional-jupyterlab-applications",
     "title": "JupyterLab Orientation",
     "section": "Additional JupyterLab applications",
-    "text": "Additional JupyterLab applications\nJupyterLab can run applications other than notebooks, e.g. there is a Python console, a text editor, and a terminal emulator. These can be opened via the launcher page or File --&gt; New. Applications can be placed side by side by dragging and dropping their windows, so we could be running a terminal and notebook next to each other.\nThe Command palette enable users to invoke commands directly:\n\nWindows/Linux: Ctrl + Shift + C\nMac: ⌘ + Shift + C\nView --&gt; Activate Command Palette\n\n\nHow to get help in the notebook\nOne application that is especially helpful to run next to a notebook is the Contextual Help. This application displays documentation automatically as you type. When you’re using unfamiliar packages and functions, it is a good habit to leave the Contextual Help open next to the notebook. If you don’t like having a split screen, you can instead press Shift + Tab to bring up a help dialogue. JupyterLab also supports tab completion, you can start typing a name and then press tab to see suggestions to expand to. Additional help is available via the “Help” menu, which links to useful online resources (for example Help --&gt; JupyterLab Reference).\n\n\n\n\n\n\nNote\n\n\n\nNote about UBC Jupyter Server:\nAll your files will be saved between restarts, but any Python packages you have installed yourself will be reset, so you need to contact UBC IT to have additional Python packages installed with persistence.",
+    "text": "Additional JupyterLab applications\nJupyterLab can run applications other than notebooks, e.g. there is a Python console, a text editor, and a terminal emulator. These can be opened via the launcher page or File --&gt; New. Applications can be placed side by side by dragging and dropping their windows, so we could be running a terminal and notebook next to each other.\nThe Command palette enable users to invoke commands directly:\n\nWindows/Linux: Ctrl + Shift + C\nMac: ⌘ + Shift + C\nView --&gt; Activate Command Palette\n\n\nHow to get help in the notebook\nOne application that is especially helpful to run next to a notebook is the Contextual Help. This application displays documentation automatically as you type. When you’re using unfamiliar packages and functions, it is a good habit to leave the Contextual Help open next to the notebook. If you don’t like having a split screen, you can instead press Shift + Tab to bring up a help dialogue. JupyterLab also supports tab completion, you can start typing a name and then press tab to see suggestions to expand to. Additional help is available via the “Help” menu, which links to useful online resources (for example Help --&gt; JupyterLab Reference).\n\n\nNote about UBC Jupyter Server\n\n\nAll your files will be saved between restarts, but any Python packages you have installed yourself will be reset, so you need to contact UBC IT to have additional Python packages installed with persistence.",
     "crumbs": [
       "Home",
       "Lecture 0a: JupyterLab Orientation"
