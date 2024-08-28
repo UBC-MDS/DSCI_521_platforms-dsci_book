@@ -192,14 +192,43 @@ will be rendered as:
 - Support for $\LaTeX$ equations:
 $$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}$$
 
-:::{.activity}
-::::{.activity-header}
-## Lecture 0 Activity 1
+:::{.exercise}
+::::{.exercise-header}
+## Lecture 0 Exercise 1 : Creating and Positioning a Heading in JupyterLab
 ::::
-::::{.activity-container}
-Let's create a cell with a heading for this tutorial `# JupyterLab tutorial`,
-and then click and drag to position it on the top of the notebook.
-:::
+::::{.exercise-container}
+# Objective
+
+To practice creating a Markdown cell with a heading and repositioning it within the JupyterLab notebook interface.
+
+# Instructions
+
+1. **Create a Markdown Cell:**
+   - In your JupyterLab notebook, add a new cell by clicking the "+" button in the toolbar.
+   - Change the cell type to "Markdown" by selecting "Markdown" from the dropdown menu or using the shortcut `Esc + M`.
+   - Type the following text in the Markdown cell:
+
+     ```markdown
+     # JupyterLab Tutorial
+     ```
+
+   - This will create a first-level heading (h1) with the title "JupyterLab Tutorial."
+
+2. **Run the Cell:**
+   - Execute the cell by pressing `Shift + Enter` or clicking the "Run" button. The text should now be formatted as a heading.
+
+3. **Reposition the Cell:**
+   - Click and hold the left mouse button on the cell's input area (the left side of the cell).
+   - Drag the cell to the top of your notebook.
+   - Release the mouse button to place the cell in the new position.
+
+4. **Verify the Position:**
+   - Ensure that the "JupyterLab Tutorial" heading is now at the top of the notebook. This heading will serve as the title for your tutorial.
+
+# Reflection
+
+- Why is it important to use headings in a notebook?
+- How does reorganizing cells in a notebook help in structuring your analysis or tutorial?
 ::::
 :::
 
@@ -267,10 +296,14 @@ In the terminal use the `quarto render` command and specify the output to `pdf`.
 ```bash
 quarto render Untitled.ipynb --to pdf
 ```
-
-:::{.callout-note}
+:::{.note}
+::::{.note-header}
+Note
+::::
+::::{.note-container}
 The commands are case-sensitive,
 make sure you are typing the file exacatly as it is named.
+::::
 :::
 
 You can also change the `--to pdf` to `--to html`,
@@ -355,11 +388,14 @@ you can start typing a name and then press tab to see suggestions to expand to.
 Additional help is available via the "Help" menu,
 which links to useful online resources (for example `Help --> JupyterLab Reference`).
 
-:::{.callout-note}
-Note about UBC Jupyter Server:
-
+:::{.note}
+::::{.note-header}
+Note about UBC Jupyter Server
+::::
+::::{.note-container}
 All your files will be saved between restarts,
 but any Python packages you have installed yourself will be reset,
 so you need to contact UBC IT
 to have additional Python packages installed with persistence.
+::::
 :::
