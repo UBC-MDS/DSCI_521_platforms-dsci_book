@@ -1,4 +1,4 @@
-- [The Unix Shell: Navigating Files and Directories](https://swcarpentry.github.io/shell-novice/02-filedir/index.html) or
+- [The Unix Shell: Navigating Files and Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html) or
   [The shell](http://happygitwithr.com/shell.html)
 - [Introduce yourself to Git](http://happygitwithr.com/hello-git.html)
 - [Connect to GitHub](http://happygitwithr.com/push-pull-github.html)
