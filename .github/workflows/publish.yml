@@ -5,6 +5,9 @@ on:
   push:
     branches: main
 
+env:
+  RENV_PATHS_ROOT: ~/.cache/R/renv
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -23,6 +26,12 @@ jobs:
           python-version: '3.12'
           cache: 'pip'
       - run: pip install -r requirements.txt
+
+      - name: Install R
+        uses: r-lib/actions/setup-r@v2
+
+      - name: Setup renv
+        uses: r-lib/actions/setup-renv@v2
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2

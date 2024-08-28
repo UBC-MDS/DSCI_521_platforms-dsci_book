@@ -8,8 +8,8 @@ render:
 
 setup_python_venv:
 	pip freeze | xargs pip uninstall -y
-	pip install ipykernel jupyter numpy matplotlib
-	pip freeze > requirements.txt
+	pip install -r requirements.txt
+	pip freeze > requirements_snapshot.txt
 
 publish_manual:
 	# use this to manually update gh-pages
@@ -17,4 +17,5 @@ publish_manual:
 
 clean:
 	# you can pass a --dry-run flag to do it as a dry run
+	# delete files in the ignore file
 	git clean -dfx --exclude "venv/" --exclude ".conda/"
