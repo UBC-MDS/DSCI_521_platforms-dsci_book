@@ -48,8 +48,9 @@ is that it is easy to use without installing anything.
 To try JupyterLab, use your web browser to visit the
 [UBC Jupyter Server](https://ubc.syzygy.ca/)
 and login with your CWL (Firefox, and Chrome are supported).
-You can also try JupyterLab throught Porject Jupyter:
-<https://jupyter.org/try>
+You can also try JupyterLab through
+Project Jupyter (<https://jupyter.org/try>) or
+Posit Cloud (<https://posit.cloud/>).
 
 ### Local Machine
 
@@ -251,12 +252,12 @@ since they can contain formatting such as a table of contents,
 links to sections and files, footnotes, images, bibliographies, and even videos,
 which we will learn more about later.
 There are a few ways we can export jupyter notebooks into a PDF file.
-The method will depend on which packages are successfuly installed and working from the
+The method will depend on which packages are successfully installed and working from the
 [MDS installation instructions](https://ubc-mds.github.io/resources_pages/installation_instructions/).
 
 #### Export with Quarto
 
-This will be our prefered way to create PDFs.
+This will be our preferred way to create PDFs.
 In the terminal, go to where your notebook file is, and create a new terminal
 
 ![](img/jupyterlab-create-terminal.png)

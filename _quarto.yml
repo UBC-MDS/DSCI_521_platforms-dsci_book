@@ -16,8 +16,10 @@ website:
     style: "docked"
     search: true
     contents:
-      - text: "Lecture 0: JupyterLab Orientation"
+      - text: "Lecture 0a: JupyterLab Orientation"
         href: lectures/0-jupyterlab-orientation-intro.qmd
+      - text: "Lecture 0b: RStudio Orientation"
+        href: lectures/0-rstudio-orientation-intro.qmd
       - text: "Lecture 1: Introduction to MDS software and Bash"
         href: lectures/1-MDStools-bash-filesystem.qmd
       - text: "Lecture 2: Introduction to version control with Git and GitHub"
