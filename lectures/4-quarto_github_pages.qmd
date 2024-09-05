@@ -495,10 +495,10 @@ Examples:
 ```
 
 You can also use `quarto render --help` to get the same help output.
+
 :::{.activity}
 ::::{.activity-header}
 ## Lecture 4 Activity 4
-
 ::::
 ::::{.activity-container}
 
