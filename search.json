@@ -35,6 +35,34 @@
     "text": "License\nThe UBC Master of Data Science DSCI 521: Computing Platforms for Data Science course materials here are licensed under the Creative Commons Attribution 2.5 Canada License (CC BY 2.5 CA). If re-using/re-mixing please provide attribution and link to this webpage."
   },
   {
+    "objectID": "readings/readings-ch-04.html",
+    "href": "readings/readings-ch-04.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Quarto Guides\nGetting Started with GitHub Pages"
+  },
+  {
+    "objectID": "readings/readings-ch-05.html",
+    "href": "readings/readings-ch-05.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Using RStudio Projects\nR Markdown Cheat Sheet\nR Markdown home page\nR Markdown: The Definitive Guide\nR Markdown code chunk options\nWhat they forgot to teach you about R\nConnect RStudio to Git and GitHub\nR-cubed rostools workshop"
+  },
+  {
+    "objectID": "readings/readings-ch-01.html",
+    "href": "readings/readings-ch-01.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "The Unix Shell: Navigating Files and Directories or The shell\nIntroduce yourself to Git\nConnect to GitHub\nJupyter Notebook Tutorial: The Definitive Guide"
+  },
+  {
+    "objectID": "readings/readings-ch-06.html",
+    "href": "readings/readings-ch-06.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "R Markdown presentations with xaringan\nJupyter presentations\nQuarto Presentations"
+  },
+  {
     "objectID": "lectures/8-regex-filenames-project-organization.html",
     "href": "lectures/8-regex-filenames-project-organization.html",
     "title": "Organization of Data Science projects and some useful tools",
@@ -453,6 +481,336 @@
     ]
   },
   {
+    "objectID": "lectures/0-rstudio-orientation-intro.html",
+    "href": "lectures/0-rstudio-orientation-intro.html",
+    "title": "RStudio Orientation",
+    "section": "",
+    "text": "Launch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#learning-objectives",
+    "href": "lectures/0-rstudio-orientation-intro.html#learning-objectives",
+    "title": "RStudio Orientation",
+    "section": "",
+    "text": "Launch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#what-is-rstudio",
+    "href": "lectures/0-rstudio-orientation-intro.html#what-is-rstudio",
+    "title": "RStudio Orientation",
+    "section": "What is RStudio",
+    "text": "What is RStudio\nRStudio is another integrated development environment (IDE), primary used for the R programming language. It has all the same features of JupyterLab, but follows a “Four-Panel data science” layout.\n\nMany concepts in working with RStudio are similar to those in working in Jupyter Lab",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#how-to-access-rstudio",
+    "href": "lectures/0-rstudio-orientation-intro.html#how-to-access-rstudio",
+    "title": "RStudio Orientation",
+    "section": "How to Access RStudio",
+    "text": "How to Access RStudio\nYou can access RStudio from an online remote server or on a local machine as a web or desktop application.\n\nOnline Server\nYou can install RStudio Server locally on your machine and access it as as a local web application or connect to an already installed web instance. You can have access to a online version of the RStudio IDE on Posit Cloud (https://posit.cloud/).\n\n\nLocal Machine\nIf you have already completed the installation instructions, you can run RStudio as a desktop application.",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#rstudio-panes",
+    "href": "lectures/0-rstudio-orientation-intro.html#rstudio-panes",
+    "title": "RStudio Orientation",
+    "section": "RStudio Panes",
+    "text": "RStudio Panes\nRStudio follows a “four-pane datascience” IDE view:\n\nEditor: Where you will type your code and work with other source documents\nEnvironment: Contains the variables in your current session\n\nThere are other tabs here for the code history, database connections, git (if applicable) and tutorials (provided in some R packages)\n\nConsole: Where you can run and see R code output, access to a terminal, and see background jobs\nFiles and Viewer: See the files in your system, rendered plots, and some rendered output. You can also install packages in this area too.",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#using-rstudio-r-scripts-.r",
+    "href": "lectures/0-rstudio-orientation-intro.html#using-rstudio-r-scripts-.r",
+    "title": "RStudio Orientation",
+    "section": "Using RStudio: R Scripts (.R)",
+    "text": "Using RStudio: R Scripts (.R)\nThe top-left corner of the 4-pane data science setup in RStudio is where you will write code in an editor. If you are using an .R script file, you can write your R code in here directly. You can create a new R Script file by going to File &gt; New &gt; R Script. If you want to mix code with prose code, you will need to use RMarkdown .Rmd files.",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#using-rstudio-rmarkdown-files-.rmd",
+    "href": "lectures/0-rstudio-orientation-intro.html#using-rstudio-rmarkdown-files-.rmd",
+    "title": "RStudio Orientation",
+    "section": "Using RStudio: RMarkdown Files (.Rmd)",
+    "text": "Using RStudio: RMarkdown Files (.Rmd)\nRMarkdown files typically have .Rmd extension. They allow you to interweave prose with code. The prose text takes markdown formatting, and code is executed in code chunks.\nMost of the time in MDS, you will be working with RMarkdown files. You may also see Quarto documents that follow a very similar syntax as RMarkdown files (Fun fact: this website is created with Quarto).\nYou can create a new RMarkdown file by going to File &gt; New &gt; R Markdown. This will open a new document creation wizard. For now you can leave all the defaults, you can change them later.\n\n\nRendering RMarkdown files\nWhen we open a new RMarkdown file it will be pre-populated with a boilerplate template.\nThere are 3 main parts to an RMarkdown file:\n\nThe YAML header: where you can add and change any of the settings from the new file wizard\nMarkdown: The formatted prose text you want in the document\nCode Chunks: Where you specify the compute engine and run and return results (more on this later).\n\n\nTo render an RMarkdown document you can click the Knit button on the IDE. By default, it will render the output specified in your YAML header, but you can also choose to render it to another format (e.g., PDF).\n\n\n\nMarkdown\nThe markdown syntax is the same as you saw with Jupyter Notebook markdown cells\n#### Markdown Example: Heading Level Four\n\n- A bullet point\n- *Emphasis in italics*\n- **Strong emphasis in bold**\n- This is a [link to learn more about markdown](https://guides.github.com/features/mastering-markdown/).\n- Support for $\\LaTeX$ equations:\n$$f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x-a}$$\nwill be rendered as:\n\nMarkdown Example: Heading Level Four\n\nA bullet point\nEmphasis in italics\nStrong emphasis in bold\nThis is a link to learn more about markdown.\nSupport for \\(\\LaTeX\\) equations: \\[f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x-a}\\]\n\n\n\n\nCode Chunks\n\n```{r}\n3 + 4\n```\n\n[1] 7\n\n\n\n```{r}\na = 5\n```\n\n\n```{r}\na\n```\n\n[1] 5\n\n\nFor the remainder of this lesson, we’ll assume you are working in an RMarkdown document. If you want to work in an R script, you can use the code directly without the markdown code chunk elements.\n\n\nStatic figure creation\nTo show an example of how plots are rendered, we will use the seaborn plotting package which is a high level interface to the more widely known matplotlib package. This is only to illustrate how plots show up in the notebook, rather than a tutorial on how to plot in Python, so I will not go into details on what these commands mean.\n\n```{r}\n# You don't have to understand what is going on in this cell\n# it is only to show you how a static plot looks inside RMarkdown\n\nset.seed(42)\n\nN = 50\nx = runif(N)\ny = runif(N)\ncols = round(runif(N) * 100)\narea = (2 * runif(N))**2\n\nplot(x, y, cex=area, col=colors()[cols])\n```\n\n\n\n\n\n\n\n\n\n\nHow to get help in RStudio",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-rstudio-orientation-intro.html#recommended-rstudio-setup",
+    "href": "lectures/0-rstudio-orientation-intro.html#recommended-rstudio-setup",
+    "title": "RStudio Orientation",
+    "section": "Recommended RStudio Setup",
+    "text": "Recommended RStudio Setup\nThere are 2 highly recommended setting within RStudio that you should set up to help with reproducibility and making sure that when you “turn things off and turn it back on again” that you actually end up with a clean session.\nIn the Tools &gt; Global Options &gt; General Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no .RData is saved when you quit RStudio, and to never save the .RData (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).",
+    "crumbs": [
+      "Home",
+      "Lecture 0b: RStudio Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "",
+    "text": "Understand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages.\n\nPlatform in focus RStudio IDE + Quarto",
+    "crumbs": [
+      "Home",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#learning-outcomes",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#learning-outcomes",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "",
+    "text": "Understand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages.\n\nPlatform in focus RStudio IDE + Quarto",
+    "crumbs": [
+      "Home",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-1",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-1",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "Lecture 6 Activity 1",
+    "text": "Lecture 6 Activity 1",
+    "crumbs": [
+      "Home",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#quarto-documents-markdown-flavour",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#quarto-documents-markdown-flavour",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "Quarto documents markdown flavour",
+    "text": "Quarto documents markdown flavour\nIn lecture 7 we have been learning about RMarkdown. Recently, has been released Quarto. Adding capabilities to R Markdown it also uses Pandoc Markdown, but we will talk about it later: https://quarto.org/docs/authoring/markdown-basics.html\nIn brief we are going to learn that you can create a gfm formatted document in Quarto. This means that you can use this type of file to create a README.md that will perfectly render on GitHub.\n\nJupyter Notebooks for Python and RMarkdown for R?\nEven if the purpose of using a Jupyter Notebook and an RMarkdown is similar there are major differences to be considered. The first one is that Jupyter Notebooks has been created for Python (even if there exist an R ikernel) and that RMarkdown has been created for R (even if can be used with Python through the reticulate package). There is a third new option, Quarto documents (.qmd), that can be open in RStudio, VS Code and JupyterLab at the same time and be used with Python, R or Julia.\nA single .qmd file is processed by a single engine running R, Python, or Julia. The trick is that an .qmd file running R can run Python via the reticulate R package meanwhile a .qmd running Python can run R via the rpy2 Python package. We will learn more about Quarto soon, but first let’s think a bit about how we write text in the notebooks.\nThis being said you have to consider that: &gt; Note that if you are using either the Jupyter or Knitr computational engine you will likely be better off using JupyterLab or VS Code (for .ipynb notebooks) or RStudio (for .qmd documents) as these environments provide code-completion, incremental cell execution, and other useful tools for working with executable code.\n\nQuarto Docs - Text editors (https://quarto.org/docs/tools/text-editors.html)\n\n Quarto documents are created with text and Python, R and/or Julia code",
+    "crumbs": [
+      "Home",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-2",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-2",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "Lecture 6 Activity 2",
+    "text": "Lecture 6 Activity 2",
+    "crumbs": [
+      "Home",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#presentations-with-jupyterlab-rmarkdown-and-quarto",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#presentations-with-jupyterlab-rmarkdown-and-quarto",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "Presentations with JupyterLab, RMarkdown and Quarto",
+    "text": "Presentations with JupyterLab, RMarkdown and Quarto\nYou can create a great set of slides to share your results with others! We are going to use the framework reveal.js. RMarkdown most popular slides are created with a package called xaringan. Since Quarto appear, it is possible to create slides using reveal.js that is the same framework that is available by default in Jupyter Notebooks. Anyway, it would be possible to generate reveal.js presentations with RMarkdown if you install the revealjs package and follow these instructions.\n\nCreate your slides using Quarto\nIf you are using Jupyter Notebooks it is quite straightforward to create your slides. You can use Jupyter Lab interface too with the same purpose. You can read more about it here\n\n\n\nJupyter Slides\n\n\nYou can crea\nClicking here you can have an example of what you can do with Quarto presentations using reveal.js framework.\nLecture x\nTake 5 minutes of the class and convert one of your .Rmd, .qmd or .ipynb to a set of slides.\nYou can convert the slides manually or look into the jupytext or quarto convert tools to do an initial file conversion.",
+    "crumbs": [
+      "Home",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "",
+    "text": "Explore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project.",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#learning-outcomes",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#learning-outcomes",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "",
+    "text": "Explore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project.",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#introduction",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#introduction",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "Introduction",
+    "text": "Introduction\nIn this lecture, we’ll explore how to view your Git history and restore older versions of files. Understanding your project’s history is crucial for tracking changes and fixing mistakes. Let’s dive into the different methods for accessing your commit history and how to revert to previous file versions when needed.",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#viewing-the-history-of-a-project",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#viewing-the-history-of-a-project",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "Viewing the history of a project",
+    "text": "Viewing the history of a project\nThere are two ways to view the Git history of a project: you can either use the repository’s code commit view on GitHub, or you can use the git log command on your local machine.\n\nSteps to follow:\n\nStep 1: On GitHub, on the repo’s landing page click “\\(N\\) commit” link (where \\(N\\) is the number of commits made on the repo, yours should be around 6).\nStep 2: On your laptop, from inside your Git repository type git log at the command line. You can use git log --oneline for more succinct output or the alias shortcut gl that we created.\n\nYou can navigate this log by scrolling with the mouse, arrow keys, or by the same commands we used with man in the first lecture\n\nq = quit\nb/space = up/down\n/ + search term + enter = search for a word\nn/N got to next/previous match for the search term\n\nYou don’t need to memorize these commands, they’re here as a resource if you wish to use them instead of the mouse and arrow keys.",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-1",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-1",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "Lecture 3 Activity 1",
+    "text": "Lecture 3 Activity 1",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#restoring-an-older-version-of-a-file",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#restoring-an-older-version-of-a-file",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "Restoring an older version of a file",
+    "text": "Restoring an older version of a file\nOh no! We realize by viewing the history that we made a mistake! We didn’t mean to delete our list of dependencies. Worry not! We can now take advantage that we have been tracking this file under version control by using git restore to retrieve an older version of the file to replace the current version.\nLet’s restore the version of the file BEFORE we deleted the software dependency list.\n\nSteps to follow:\n\nStep 1: Examine the log to identify the version of the file you want to revert to and note its short SHA-1 (the first few characters of the commit ID). You’ll need this to specify the exact point in time from which to retrieve the file.\nStep 2: Next, use the git restore command in the terminal to retrieve the file: git restore --source SHORT_SHA-1 FILENAME (you can also use -s as a shorthand for --source).\nStep 3: When restoring the file, it is added to the working area. To save the restored version of the file to the Git repository, you need to add and commit it, just like any other modification.\nStep 4: Don’t forget to run git push to back up the file on GitHub!",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#how-do-you-know-you-have-a-merge-conflict",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#how-do-you-know-you-have-a-merge-conflict",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "How do you know you have a merge conflict?",
+    "text": "How do you know you have a merge conflict?\nIf you have committed some changes locally, you might see something like this when you try to push them:\nTo https://github.com/joelostblom/DSCI_521_lab1_jostblom\n ! [rejected]        master -&gt; master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/joelostblom/DSCI_521_lab1_jostblom'\nhint: Updates were rejected because the tip of your current branch is behind\nhint: its remote counterpart. Merge the remote changes (e.g. 'git pull')\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\nAs the message tells you, there are new changes to the remote repo that you need to pull down from GitHub before you are allowed to push up your changes. If there are no conflicts when you pull, Git will say that everything went OK and you can push up your new changes. If there are conflicts, you will see something like this:\nremote: Counting objects: 5, done.\nremote: Compressing objects: 100% (2/2), done.\nremote: Total 3 (delta 1), reused 3 (delta 1)\nUnpacking objects: 100% (3/3), done.\nFrom https://github.com/joelostblom/DSCI_521_lab1_jostblom\n * branch            master     -&gt; FETCH_HEAD\nAuto-merging README.md\nCONFLICT (content): Merge conflict in README.md\nAutomatic merge failed; fix conflicts and then commit the result.\n\nYou have a merge conflict. Merge conflicts are not bad, they happen to everyone and you will need to know how to instruct git what to do.",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-2",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-2",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "Lecture 3 Activity 2",
+    "text": "Lecture 3 Activity 2",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#what-do-you-do-to-fix-a-merge-conflict",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#what-do-you-do-to-fix-a-merge-conflict",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "What do you do to fix a merge conflict?",
+    "text": "What do you do to fix a merge conflict?\n\nSteps to follow:\n\nStep 1: Open the file that has a conflict (the output of git pull will tell you which files) in a plain text editor (e.g., VS Code).\nStep 2: Look for the conflict (hint: search for &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD).\nStep 3: Fix the conflict by deleting everything you don’t want to keep in the file, including the &lt;&lt;&lt;&lt;&lt;, =====, and &gt;&gt;&gt;&gt;&gt; markers that Git added. Note: VS Code will help you with this by color highlighting the changes and providing buttons you can click to accept either the current or incoming change (or both). Using these buttons instead of modifying the file manually can save you from mistakes that can take a lot of time to troubleshoot and fix, so we highly recommend using this feature.\nStep 4: After the file looks as you want it, add it and commit your changes. Then you can push them up to GitHub.\n\nHere’s an example of a text file with a conflict and how it can look after you have resolved it:\nSome text up here\nthat is not part of the merge conflict,\nbut just included for context.\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nWe added this line in our last commit\n=======\nThis line was added somewhere else\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD precedes the change you made (that you couldn’t push)\n======= is a separator between the conflicting changes\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d flags the end of the conflicting change you pulled from GitHub",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-3",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-3",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "Lecture 3 Activity 3",
+    "text": "Lecture 3 Activity 3",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#what-about-merge-conflicts-of-jupyter-notebooks",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#what-about-merge-conflicts-of-jupyter-notebooks",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "What about merge conflicts of Jupyter notebooks?",
+    "text": "What about merge conflicts of Jupyter notebooks?\n\nFirst - a bit about what a Jupyter notebook is made up of\n\n.ipynb files are “plain” text files, and we can view them in a plain text editor and make some sense of them\nThe contents of the notebook are encoded in JSON format, which means that there are many brackets in the file, which can make it hard to read for humans (but easy for machines).\n\nFor example, this notebook of 2 cells:\n\n\n\nalt tag\n\n\nis encoded by the following JSON:\n{\n \"cells\": [\n  {\n   \"cell_type\": \"markdown\",\n   \"metadata\": {},\n   \"source\": [\n    \"# A Markdown header cell\\n\",\n    \"\\n\",\n    \"Below is a simple example of some code in Python:\"\n   ]\n  },\n  {\n   \"cell_type\": \"code\",\n   \"execution_count\": 1,\n   \"metadata\": {\n    \"collapsed\": false\n   },\n   \"outputs\": [\n    {\n     \"name\": \"stdout\",\n     \"output_type\": \"stream\",\n     \"text\": [\n      \"15\\n\"\n     ]\n    }\n   ],\n   \"source\": [\n    \"x = 5\\n\",\n    \"y = 10\\n\",\n    \"\\n\",\n    \"print(x + y)\"\n   ]\n  }\n ],\n \"metadata\": {\n  \"anaconda-cloud\": {},\n  \"kernelspec\": {\n   \"display_name\": \"Python [Root]\",\n   \"language\": \"python\",\n   \"name\": \"Python [Root]\"\n  },\n  \"language_info\": {\n   \"codemirror_mode\": {\n    \"name\": \"ipython\",\n    \"version\": 3\n   },\n   \"file_extension\": \".py\",\n   \"mimetype\": \"text/x-python\",\n   \"name\": \"python\",\n   \"nbconvert_exporter\": \"python\",\n   \"pygments_lexer\": \"ipython3\",\n   \"version\": \"3.5.1\"\n  }\n },\n \"nbformat\": 4,\n \"nbformat_minor\": 0\n}",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#version-control-and-jupyter-notebook",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#version-control-and-jupyter-notebook",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "Version control and Jupyter notebook",
+    "text": "Version control and Jupyter notebook\nBecause the notebooks are stored as plain text, we can use them for version control, but this is not without issues, since the JSON format can make it difficult to interpret difference between files and to manually fix conflicts.\nJupyterLab IDE has made really easy now fix merge conflicts. …",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#create-a-.gitignore-file",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#create-a-.gitignore-file",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "5. Create a .gitignore file",
+    "text": "5. Create a .gitignore file\nUsing the plain text editor of your choice (mine is VS Code) create a file called .gitignore inside your Git repo. To do this with VS Code, I would type:\ncode .gitignore\nInside the text file, list the files and folders you would like to ignore, one per line. For example:\n.ipynb_checkpoints/\n.DS_Store\nSave the file, and add and commit it with Git. Then try git status again. You should see:\nOn branch timberst-master\nnothing to commit, working tree clean",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#gitignore-tips-and-tricks",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#gitignore-tips-and-tricks",
+    "title": "Getting grovy with Git and GitHub",
+    "section": ".gitignore tips and tricks",
+    "text": ".gitignore tips and tricks\nTo have files or folders ignored in subdirectories within the repo, append **/ to the beginning of their names listed in the .gitignore file. Additionally, consider creating a global .gitignore file so that you do not have to create the same .gitignore for all your repositories.\nLet’s create a gitignore file in our 521 lab 2 repo.\n\nSteps to follow:\nSure, here it is in prose form:\n\nStep 1: Use a text editor (e.g., VS Code, nano, Jupyter) to create a file called .gitignore in your 521 lab 2 repo.\nStep 2: Add **/.ipynb_checkpoints/ to that file and save it.\nStep 3: Add and commit it with Git.\nStep 4: Type git status and see if you no longer see .ipynb_checkpoints/ as an untracked file.\n\nIn Git, we have the flexibility to handle changes in several ways. We can choose to keep the change made in the local repository, keep the change made in the remote repository, write something new to replace both, or get rid of the change entirely.\nTo move the branch we are currently on back to a previously created commit, we can use the git reset command. For example, let’s say we are on the master branch of a repository and the output of git log --oneline looks like this:\nfb962e0 (HEAD -&gt; master) Add md demo\nbcb541e Make heading more precise\n5c01f2f Initial commit\nTo reset the branch to the commit with the message “Make heading more precise,” we would use the command git reset bcb541e. This command repositions the branch to the specified commit, effectively discarding any changes made after that commit.\nWe can move the location of the master branch back in the commit history by typing git reset &lt;sha&gt;. So to move to the previous commit, we would type git reset bcb541e. Our git log would now show this:\nbcb541e (HEAD -&gt; master) Make heading more precise\n5c01f2f Initial commit\nWhat happened to the changes that were made in commit fb962e0? The default behavior is to move them back into the working area, which was indicated by this message that showed up after we did git reset bcb541e:\nUnstaged changes after reset:\nM       README.md\nThat means we could now make any modification we wish and then commit again with a new commit message. If we want to discard the changes instead of moving them to the working area, we can add the --hard flag. Typing git reset --hard 5c01f2f will not show us any message, since the changes are not unstaged, they are discarded. Our log now looks like this\n5c01f2f (HEAD -&gt; master) Initial commit\nAre the previous changes lost forever? Not yet, git keeps a backup of everything that happens in the repo in its “reflog”. Commits that are not part of any branch are referred to as being “dangling”, and are cleared out at regular intervals, rather than immediately. So if we realize that we made a mistake right away, we could get our changes back by doing git reset bcb541e, which would move us forward to the commit we just “deleted”. This behavior should not be relied upon because when the reflog is automatically cleared by git, your changes are gone forever.",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-4",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-4",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "Lecture 3 Activity 4",
+    "text": "Lecture 3 Activity 4",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#syncing-with-a-remote-after-resetting",
+    "href": "lectures/3-git-history-merge-conflicts-stash.html#syncing-with-a-remote-after-resetting",
+    "title": "Getting grovy with Git and GitHub",
+    "section": "Syncing with a remote after resetting",
+    "text": "Syncing with a remote after resetting\nThis is a dangerous operation that can delete all your work. If we want to get rid of a commit on a remote, we will need to push our changes. But as we have seen before, git will refuse to push changes when the remote is ahead of the local branch. To override this warning and force git to push to the remote we can use the -f/--force flag.\nForce pushing is dangerous, and you should never do this on the master branch of a repository that you share with collaborators unless you have all discussed this and they are aware of what you are doing. The reason is that by force pushing, you will make it so that everyone else who is using this repository are now out of sync with the master branch, since you have reset master to a previous state. Be careful, better safe than sorry\nTimes when a force push is legitimate includes when you have have rebased a feature branch to syn it with master or if you are working alone and you are 100% sure that you want to remove a commit from GitHub. A safer way to undo a change in a commit, is to make a new commit that removes the content of the old one. You can do this manually, or use git revert &lt;sha&gt; to automatically create a new commit that undoes an old one.\n\nExercise: Accessing and Working with GitHub\n\n\n\nLecture 3 Exercise 1\n\n\nAccessing and Working with GitHub\nObjective: By completing this exercise, students will gain hands-on experience in accessing their GitHub home for MDS, creating, cloning, modifying, and pushing changes to a GitHub repository.\nInstructions:\n\nAccess Your GitHub Home for MDS:\n\nOpen your web browser and navigate to:\n\nhttps://github.ubc.ca/MDS-2021-22/yourCWL_home\n\nReplace yourCWL with your actual CWL.\nHere you will find links to all the courses’ repositories and labs’ repositories.\nHint: Bookmark this page for easy access to all relevant courses’ repositories.\n\nCreate a New Repository on GitHub:\n\nVisit GitHub.com.\nCreate a new repository and ensure you add a README file during the setup process.\n\nClone the Repository:\n\nClone the newly created repository to your local machine.\nNote: If your GitHub username is different from the username on your computer, you will need to configure your Git settings accordingly.\n\ngit clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git\nMake Changes to the README File:\n\nOpen the README file in a text editor.\nAdd some content or modify the existing content.\nSave your changes.\n\nAdd and Commit Your Changes:\n\nStage the changes you made to the README file.\n\ngit add README.md\n\nCommit the changes with a descriptive message.\n\ngit commit -m \"Updated README with new content\"\nCreate a New File, Add, and Commit It:\n\nCreate a new file in the repository (e.g., newfile.txt).\nAdd some content to the new file and save it.\nStage the new file.\n\ngit add newfile.txt\n\nCommit the new file with a descriptive message.\n\ngit commit -m \"Added newfile.txt with initial content\"\nPush Your Changes to GitHub:\n\nPush the changes from your local repository to the remote repository on GitHub.\n\ngit push origin main\nConfirm Your Changes on GitHub:\n\nGo to your GitHub repository page.\nConfirm that the changes to the README file and the new file (newfile.txt) are reflected in the repository.\n\nView Your Git History:\n\nOn GitHub, click on the “Commits” link on the repository’s landing page.\nOn your local machine, use the git log command to view the commit history.\n\ngit log\n\nUse the git log --oneline command for a more concise view.\n\ngit log --oneline\nRestore an Older Version of a File:\n\nIdentify the commit hash for the version you want to restore.\nUse the git restore command to revert to that version.\n\ngit restore --source SHORT_SHA-1 FILENAME\n\nStage and commit the restored file.\n\ngit add FILENAME\ngit commit -m \"Restored FILENAME to previous version\"\n\nPush the changes to GitHub.\n\ngit push origin main\n\nQuestions:\n\nWhat are the steps to access your GitHub home for MDS?\nWhat are the steps to create a new repository on GitHub?\nWhat command do you use to clone a repository to your local computer?\nHow do you add and commit changes to a file in a Git repository?\nWhat command do you use to push changes to GitHub?\nHow do you view your Git history?\nHow do you restore an older version of a file in a Git repository?",
+    "crumbs": [
+      "Home",
+      "Lecture 3: Getting grovy with Git and GitHub"
+    ]
+  },
+  {
     "objectID": "lectures/2-git-github-ssh-basic-workflow.html",
     "href": "lectures/2-git-github-ssh-basic-workflow.html",
     "title": "Introduction to version control with Git and GitHub",
@@ -739,309 +1097,11 @@
     ]
   },
   {
-    "objectID": "lectures/7-virtual-environments.html",
-    "href": "lectures/7-virtual-environments.html",
-    "title": "Virtual environments",
-    "section": "",
-    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv",
-    "crumbs": [
-      "Home",
-      "Lecture 7: Virtual environments"
-    ]
-  },
-  {
-    "objectID": "lectures/7-virtual-environments.html#learning-outcomes",
-    "href": "lectures/7-virtual-environments.html#learning-outcomes",
-    "title": "Virtual environments",
-    "section": "",
-    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv",
-    "crumbs": [
-      "Home",
-      "Lecture 7: Virtual environments"
-    ]
-  },
-  {
-    "objectID": "lectures/7-virtual-environments.html#lecture-7-activity-1",
-    "href": "lectures/7-virtual-environments.html#lecture-7-activity-1",
-    "title": "Virtual environments",
-    "section": "Lecture 7 Activity 1",
-    "text": "Lecture 7 Activity 1",
-    "crumbs": [
-      "Home",
-      "Lecture 7: Virtual environments"
-    ]
-  },
-  {
-    "objectID": "lectures/7-virtual-environments.html#conda",
-    "href": "lectures/7-virtual-environments.html#conda",
-    "title": "Virtual environments",
-    "section": "Conda",
-    "text": "Conda\nconda is an open source package and environment management system for any programming language; though it is the most popular in the python community. Anaconda is a data science platform for Python that comes with a lot of packages by default. Unlike Anaconda, Miniconda doesn’t come with any installed packages by default, and we can pick and choose which ones we want. Both include Python and conda.\nFor example, the MDS Python installation instructions had you install Miniconda. All flavors of *conda give you the conda function in the terminal.\n\nManaging Conda\nLet’s first start by checking if conda is installed.\nconda --version\nwhich conda\nTo see which conda commands are available, type conda --help. To see the full documentation for any command of these commands, type the command followed by --help. For example, to learn about the conda update command:\nconda update --help\nLet’s update our conda to the latest version. Note that you might already have the latest version since we downloaded it recently.\nconda update conda\nYou will see some information about what there is to update and be asked if you want to confirm. The default choice is indicated with [], and you can press Enter to accept it. It would look similar to this:\nUsing Anaconda Cloud api site https://api.anaconda.org\nFetching package metadata: ....\n.Solving package specifications: .........\n\nPackage plan for installation in environment //anaconda:\n\nThe following packages will be downloaded:\n\n    package                    |            build\n    ---------------------------|-----------------\n    conda-env-2.6.0            |                0          601 B\n    ruamel_yaml-0.11.14        |           py27_0         184 KB\n    conda-4.2.12               |           py27_0         376 KB\n    ------------------------------------------------------------\n                                           Total:         560 KB\n\nThe following NEW packages will be INSTALLED:\n\n    ruamel_yaml: 0.11.14-py27_0\n\nThe following packages will be UPDATED:\n\n    conda:       4.0.7-py27_0 --&gt; 4.2.12-py27_0\n    conda-env:   2.4.5-py27_0 --&gt; 2.6.0-0\n    python:      2.7.11-0     --&gt; 2.7.12-1\n    sqlite:      3.9.2-0      --&gt; 3.13.0-0\n\nProceed ([y]/n)? y\n\nFetching packages ...\nconda-env-2.6. 100% |################################| Time: 0:00:00 360.78 kB/s\nruamel_yaml-0. 100% |################################| Time: 0:00:00   5.53 MB/s\nconda-4.2.12-p 100% |################################| Time: 0:00:00   5.84 MB/s\nExtracting packages ...\n[      COMPLETE      ]|###################################################| 100%\nUnlinking packages ...\n[      COMPLETE      ]|###################################################| 100%\nLinking packages ...\n[      COMPLETE      ]|###################################################| 100%\nIn this case, conda itself needed to be updated, and along with this update some dependencies also needed to be updated. There is also a NEW package that was INSTALLED in order to update conda. You don’t need to worry about remembering to update conda, it will let you know if it is out of date when you are installing new packages.",
-    "crumbs": [
-      "Home",
-      "Lecture 7: Virtual environments"
-    ]
-  },
-  {
-    "objectID": "lectures/7-virtual-environments.html#managing-environments",
-    "href": "lectures/7-virtual-environments.html#managing-environments",
-    "title": "Virtual environments",
-    "section": "Managing Environments",
-    "text": "Managing Environments\n\nWhat is a conda environment and why is it so useful?\nUsing conda, you can create an isolated python environment for your project. An environment is a set of packages that can be used in one or multiple projects. There are several major benefits of using environments:\n\nYou can guarantee that someone else can reproduce your project by specifying which package versions your used and making it easy for others to install the same versions.\nIf two of your projects relies on different versions of the same package, you can install these in different environments.\nIf you want to play around with a new package, you don’t have to change the packages you use for your data analysis and risk messing something up.\nWhen you develop your own packages, it is essential to use environments, since you want to to make sure you know exactly which packages yours depend on, so that it runs on other systems than your own.\n\nThe default environment is the base environment, which contains only the essential packages from Miniconda (assuming you installed Miniconda). You can see that your shell’s prompt string is prefaced with (base) when you are inside this environment. In the setup guide, we gave your instructions for how to activate this environment by default every time you open Bash. There are two ways of creating a conda environment.\n\nManual specifications of packages.\nAn environment file in YAML format (environment.yaml).\n\n\n\nCreating environment by manually specifying packages\nWe can create test_env conda environment by typing conda -n &lt;name-of-env&gt;. However, it is often useful to specify more than just the name of the environment, e.g. the channel from which to install packages, the Python version, and a list of packages to install into the new env. In the example below, I am creating the test_env environment that uses python 3.7 and a list of libraries: jupyterlab and pandas. I am explicitely installing my packages from the conda-forge repository (also part of the MDS setup instructions).\nconda create -n test_env -c conda-forge python=3.7 jupyterlab pandas=1.0.2\nconda will solve any dependencies between the packages like before and create a new environment with those packages. Usually, we don’t need to specify the channel, but in this case I want to get the very latest version of these packages, and they are made available in conda-forge before they reach the default conda channel.\nTo activate this new environment, you can type conda activate test_env (and conda deactivate for deactivating). Since you will do this often, we created an alias shortcut ca that you can use to activate environments. To know the current environment that you’re in you can look at the prefix of the prompt string in your shell which now changed to (test_env). And to see all your environments, you can type conda env list.\n\nRemoving enviornments\nIf you are creating environments for practice, or you want to recreate an environment you can delete your conda enviornments by:\n# look for all the installed enviornments\nconda env list\n# delete an enviornment\nconda remove --name ENV_NAME --all\nSimiliarly, all your enviornments are installed within your miniconda3 folder, which is typically located in ~/miniconda3 In here you will see an env folder. If you delete the folder with the corresponging enviornment name (e.g., with rm) you can also delete an enviornment this way too.\n\n\n\nSharing Environments with others\nTo share an environment, you can export your conda environment to an environment file, which will list each package and its version in the format package=version=build.\nExporting your environment to a file called environment.yaml (it could be called anything, but this is the conventional name and using it makes it easy for others to recognize that this is a conda env file, the extension can be either .yaml or .yml):\nconda env export -f environment.yaml\nRemember that .yaml files are plain text, so you can use a text editor such as VS Code to open them. If you do, you will realize that this environment file has A LOT more packages than jupyterlab and pandas. This is because the default behavior is to also list the dependencies that were installed together with these packages, e.g. numpy. This is good in the sense that it gives an exact copy of everything in your environment.\nHowever, some dependencies might differ between operating systems, so this file might not work with someone from a different OS. To remedy this, you can append the --from-history flag, which look at the history of the packages you explicitly told conda to install and only list those in the export. The required dependencies will then be handled in an OS-specific manner during the installation, which guarantees that they will work across OSes. This environment.yaml file would be much shorter and look something like this:\nname: test_env\nchannels:\n  - conda-forge\n  - defaults\ndependencies:\n  - conda\n  - python=3.7\n  - pandas==1.0.2\n  - jupyterlab\nImportantly, this will not include the package version unless you included it when you installed with the package==version syntax. For an environment to be reproducible, you NEED to add the version string manually.\n\nLecture\n\n\n\nCreating environment from an environment file\nNow, let’s install environment.yaml environment file above so that we can create a conda environment called test_env.\n$ conda env create --file environment.yaml\n\n\nCopying an environment\nWe can make an exact copy of an environment to an environment with a different name. This maybe useful for any testing versus live environments or different Python 2.7 versions for the same packages. In this example, test_env is cloned to create live_env.\nconda create --name live_env --clone test_env\n\n\nDeleting an environment\nSince we are only testing out our environment, we will delete live_env to remove some clutter. Make sure that you are not currently using live_env.\nconda env remove -n live_env\n\n\nMaking environments work well with JupyterLab\nIn brief, you need to install the ipykernel package in any new environment your create, and the nb_conda_kernels package needs to be installed in the environment where JupyterLab is installed.\nBy default, JupyterLab only sees the conda environment where it is installed. Since it is quite annoying to install JupyterLab and its extensions separately in each environment, there is a package called nb_conda_kernels that makes it possible to have a single installation of JupyterLab access kernels in other conda environments. This package needs to be installed in the conda environment where JupyterLab is installed.\nLastly, you also need to install a kernel in the new conda environment so that it can be detected by nb_conda_kernels. This kernel can be installed via the package ipykernel for Python and the r-irkernel package for R (more info in the nb_conda_kernels README).",
-    "crumbs": [
-      "Home",
-      "Lecture 7: Virtual environments"
-    ]
-  },
-  {
-    "objectID": "lectures/7-virtual-environments.html#managing-packages",
-    "href": "lectures/7-virtual-environments.html#managing-packages",
-    "title": "Virtual environments",
-    "section": "Managing Packages",
-    "text": "Managing Packages\n\nSeeing what packages are available\nWe will now check packages that are available to us. The command below will list all the packages in an environment, in this case test_env. The list will include versions of each package, the specific build, and the channel that the package was downloaded from. conda list is also useful to ensure that you have installed the packages that you desire.\nconda list\n# packages in environment at //miniconda/envs/test_env:\n#\nUsing Anaconda Cloud api site https://api.anaconda.org\nblas                      1.1                    openblas    conda-forge\nca-certificates           2016.9.26                     0    conda-forge\ncertifi                   2016.9.26                py27_0    conda-forge\ncycler                    0.10.0                   py27_0    conda-forge\nfreetype                  2.6.3                         1    conda-forge\nfunctools32               3.2.3.2                  py27_1    conda-forge\nlibgfortran               3.0.0                         0    conda-forge\n\n\nSearching for a certain package\nSome packages might not be available in conda, but are available in pypi. For example, we will search for rasterio within the anaconda cloud. It is not necessary to create an account with anaconda cloud, unless you’d like to contribute in the future when you are pro with conda.\nIn this example, we will use rasterio from conda-forge. The anaconda cloud page for rasterio will show how to install the package, compatible OS, individual files for that package, etc.\nWith conda you can do this search within the command line:\nconda search rasterio\nUsing Anaconda Cloud api site https://api.anaconda.org\nRun 'anaconda show &lt;USER/PACKAGE&gt;' to get more details:\nPackages:\n     Name                      |  Version | Package Types   | Platforms\n     ------------------------- |   ------ | --------------- | ---------------\n     IOOS/rasterio             |    1.0a2 | conda           | linux-64, win-32, win-64, osx-64\n     Terradue/rasterio         |   0.32.0 | conda           | linux-64\n                                          : Fast and direct raster I/O for use with Numpy and SciPy\n     anaconda/rasterio         |   0.36.0 | conda           | linux-64, win-32, win-64, linux-32, osx-64\n     conda-forge/rasterio      |    1.0a2 | conda           | linux-64, win-32, win-64, osx-64\n                                          : Rasterio reads and writes geospatial raster datasets\n     dharhas/rasterio          |   0.23.0 | conda           | win-64\n                                          : Rasterio reads and writes geospatial raster datasets.\n     erdc/rasterio             |   0.23.0 | conda           | win-64\n                                          : Rasterio reads and writes geospatial raster datasets.\n     jesserobertson/rasterio   |   0.23.0 | conda           | linux-64, linux-32, osx-64\n     jhamman/rasterio_to_xarray | 2016.03.16-1558 | ipynb           |\n                                          : IPython notebook\n     krisvanneste/rasterio     |   0.26.0 | conda           | win-64\n     ocefpaf/rasterio          |   0.19.1 | conda           | linux-64, osx-64\n     omgarcia/rasterio         |   0.25.0 | conda           | linux-64\n     pypi/rasterio             |   0.13.2 | pypi            |\n                                          : Fast and direct raster I/O for Python programmers who use Numpy\n     robintw/rasterio          |   0.35.1 | conda           | osx-64\n                                          : Rasterio reads and writes geospatial raster datasets\n     sgillies/rasterio         |     0.15 | conda           | osx-64\n     ztessler/rasterio         |   0.31.0 | conda           | osx-64\n                                          : Fast and direct raster I/O for use with Numpy and SciPy\nFound 15 packages\n\n\nInstalling conda package\nUnder the name column of the result in the terminal or the package column in the Anaconda Cloud listing, shows the necessary information to install the package. e.g. conda-forge/rasterio. The first word list the channel that this package is from and the second part shows the name of the package.\nTo install the latest version available within the channel, do not specify in the install command. We will install version 0.35 of rasterio from conda-forge into test_env in this example. Conda will also automatically install the dependencies for this package.\nconda install -c conda-forge rasterio=0.35\nIf you have a few trusted channels that you prefer to use, you can pre-configure these so that everytime you are creating an environment, you won’t need to explicitly declare the channel.\nconda config --add channels conda-forge\n\nRemoving a conda Package\nWe decided that rasterio is not needed in this tutorial, so we will remove it from test_env. Note that this will remove the main package rasterio and its dependencies (unless a dependency was installed explicitly at an earlier point in time or is required be another package).\nconda remove -n test_env rasterio\nUsing Anaconda Cloud api site https://api.anaconda.org\nFetching package metadata .........\nSolving package specifications: ..........\n\nPackage plan for package removal in environment //anaconda/envs/test_env:\n\nThe following packages will be REMOVED:\n\n    rasterio: 0.35.1-np111py27_1 conda-forge\n\nProceed ([y]/n)? y\n\nUnlinking packages ...\n[      COMPLETE      ]|#######################################################################################################| 100%\n\nSelect all the correct answers\nWhich of the following sentences are true about Conda?\nA. It is a command line tool\nB. It is a package manager\nC. It is a Python package\nD. It is installed as part of Anaconda and Miniconda\nE. It is a metapackage\nF. It installs Python\nG. Using it you can handle Python packages only",
-    "crumbs": [
-      "Home",
-      "Lecture 7: Virtual environments"
-    ]
-  },
-  {
-    "objectID": "lectures/7-virtual-environments.html#attribution",
-    "href": "lectures/7-virtual-environments.html#attribution",
-    "title": "Virtual environments",
-    "section": "Attribution",
-    "text": "Attribution\nThe conda virtual environment section of this guide was originally published at http://geohackweek.github.io/ under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.",
-    "crumbs": [
-      "Home",
-      "Lecture 7: Virtual environments"
-    ]
-  },
-  {
-    "objectID": "lectures/7-virtual-environments.html#attribution-1",
-    "href": "lectures/7-virtual-environments.html#attribution-1",
-    "title": "Virtual environments",
-    "section": "Attribution",
-    "text": "Attribution\nThe conda virtual environment section of this guide was originally published at http://geohackweek.github.io/ under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.",
-    "crumbs": [
-      "Home",
-      "Lecture 7: Virtual environments"
-    ]
-  },
-  {
-    "objectID": "lectures/0-rstudio-orientation-intro.html",
-    "href": "lectures/0-rstudio-orientation-intro.html",
-    "title": "RStudio Orientation",
-    "section": "",
-    "text": "Launch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface",
-    "crumbs": [
-      "Home",
-      "Lecture 0b: RStudio Orientation"
-    ]
-  },
-  {
-    "objectID": "lectures/0-rstudio-orientation-intro.html#learning-objectives",
-    "href": "lectures/0-rstudio-orientation-intro.html#learning-objectives",
-    "title": "RStudio Orientation",
-    "section": "",
-    "text": "Launch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface",
-    "crumbs": [
-      "Home",
-      "Lecture 0b: RStudio Orientation"
-    ]
-  },
-  {
-    "objectID": "lectures/0-rstudio-orientation-intro.html#what-is-rstudio",
-    "href": "lectures/0-rstudio-orientation-intro.html#what-is-rstudio",
-    "title": "RStudio Orientation",
-    "section": "What is RStudio",
-    "text": "What is RStudio\nRStudio is another integrated development environment (IDE), primary used for the R programming language. It has all the same features of JupyterLab, but follows a “Four-Panel data science” layout.\n\nMany concepts in working with RStudio are similar to those in working in Jupyter Lab",
-    "crumbs": [
-      "Home",
-      "Lecture 0b: RStudio Orientation"
-    ]
-  },
-  {
-    "objectID": "lectures/0-rstudio-orientation-intro.html#how-to-access-rstudio",
-    "href": "lectures/0-rstudio-orientation-intro.html#how-to-access-rstudio",
-    "title": "RStudio Orientation",
-    "section": "How to Access RStudio",
-    "text": "How to Access RStudio\nYou can access RStudio from an online remote server or on a local machine as a web or desktop application.\n\nOnline Server\nYou can install RStudio Server locally on your machine and access it as as a local web application or connect to an already installed web instance. You can have access to a online version of the RStudio IDE on Posit Cloud (https://posit.cloud/).\n\n\nLocal Machine\nIf you have already completed the installation instructions, you can run RStudio as a desktop application.",
-    "crumbs": [
-      "Home",
-      "Lecture 0b: RStudio Orientation"
-    ]
-  },
-  {
-    "objectID": "lectures/0-rstudio-orientation-intro.html#rstudio-panes",
-    "href": "lectures/0-rstudio-orientation-intro.html#rstudio-panes",
-    "title": "RStudio Orientation",
-    "section": "RStudio Panes",
-    "text": "RStudio Panes\nRStudio follows a “four-pane datascience” IDE view:\n\nEditor: Where you will type your code and work with other source documents\nEnvironment: Contains the variables in your current session\n\nThere are other tabs here for the code history, database connections, git (if applicable) and tutorials (provided in some R packages)\n\nConsole: Where you can run and see R code output, access to a terminal, and see background jobs\nFiles and Viewer: See the files in your system, rendered plots, and some rendered output. You can also install packages in this area too.",
-    "crumbs": [
-      "Home",
-      "Lecture 0b: RStudio Orientation"
-    ]
-  },
-  {
-    "objectID": "lectures/0-rstudio-orientation-intro.html#using-rstudio-r-scripts-.r",
-    "href": "lectures/0-rstudio-orientation-intro.html#using-rstudio-r-scripts-.r",
-    "title": "RStudio Orientation",
-    "section": "Using RStudio: R Scripts (.R)",
-    "text": "Using RStudio: R Scripts (.R)\nThe top-left corner of the 4-pane data science setup in RStudio is where you will write code in an editor. If you are using an .R script file, you can write your R code in here directly. You can create a new R Script file by going to File &gt; New &gt; R Script. If you want to mix code with prose code, you will need to use RMarkdown .Rmd files.",
-    "crumbs": [
-      "Home",
-      "Lecture 0b: RStudio Orientation"
-    ]
-  },
-  {
-    "objectID": "lectures/0-rstudio-orientation-intro.html#using-rstudio-rmarkdown-files-.rmd",
-    "href": "lectures/0-rstudio-orientation-intro.html#using-rstudio-rmarkdown-files-.rmd",
-    "title": "RStudio Orientation",
-    "section": "Using RStudio: RMarkdown Files (.Rmd)",
-    "text": "Using RStudio: RMarkdown Files (.Rmd)\nRMarkdown files typically have .Rmd extension. They allow you to interweave prose with code. The prose text takes markdown formatting, and code is executed in code chunks.\nMost of the time in MDS, you will be working with RMarkdown files. You may also see Quarto documents that follow a very similar syntax as RMarkdown files (Fun fact: this website is created with Quarto).\nYou can create a new RMarkdown file by going to File &gt; New &gt; R Markdown. This will open a new document creation wizard. For now you can leave all the defaults, you can change them later.\n\n\nRendering RMarkdown files\nWhen we open a new RMarkdown file it will be pre-populated with a boilerplate template.\nThere are 3 main parts to an RMarkdown file:\n\nThe YAML header: where you can add and change any of the settings from the new file wizard\nMarkdown: The formatted prose text you want in the document\nCode Chunks: Where you specify the compute engine and run and return results (more on this later).\n\n\nTo render an RMarkdown document you can click the Knit button on the IDE. By default, it will render the output specified in your YAML header, but you can also choose to render it to another format (e.g., PDF).\n\n\n\nMarkdown\nThe markdown syntax is the same as you saw with Jupyter Notebook markdown cells\n#### Markdown Example: Heading Level Four\n\n- A bullet point\n- *Emphasis in italics*\n- **Strong emphasis in bold**\n- This is a [link to learn more about markdown](https://guides.github.com/features/mastering-markdown/).\n- Support for $\\LaTeX$ equations:\n$$f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x-a}$$\nwill be rendered as:\n\nMarkdown Example: Heading Level Four\n\nA bullet point\nEmphasis in italics\nStrong emphasis in bold\nThis is a link to learn more about markdown.\nSupport for \\(\\LaTeX\\) equations: \\[f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x-a}\\]\n\n\n\n\nCode Chunks\n\n```{r}\n3 + 4\n```\n\n[1] 7\n\n\n\n```{r}\na = 5\n```\n\n\n```{r}\na\n```\n\n[1] 5\n\n\nFor the remainder of this lesson, we’ll assume you are working in an RMarkdown document. If you want to work in an R script, you can use the code directly without the markdown code chunk elements.\n\n\nStatic figure creation\nTo show an example of how plots are rendered, we will use the seaborn plotting package which is a high level interface to the more widely known matplotlib package. This is only to illustrate how plots show up in the notebook, rather than a tutorial on how to plot in Python, so I will not go into details on what these commands mean.\n\n```{r}\n# You don't have to understand what is going on in this cell\n# it is only to show you how a static plot looks inside RMarkdown\n\nset.seed(42)\n\nN = 50\nx = runif(N)\ny = runif(N)\ncols = round(runif(N) * 100)\narea = (2 * runif(N))**2\n\nplot(x, y, cex=area, col=colors()[cols])\n```\n\n\n\n\n\n\n\n\n\n\nHow to get help in RStudio",
-    "crumbs": [
-      "Home",
-      "Lecture 0b: RStudio Orientation"
-    ]
-  },
-  {
-    "objectID": "lectures/0-rstudio-orientation-intro.html#recommended-rstudio-setup",
-    "href": "lectures/0-rstudio-orientation-intro.html#recommended-rstudio-setup",
-    "title": "RStudio Orientation",
-    "section": "Recommended RStudio Setup",
-    "text": "Recommended RStudio Setup\nThere are 2 highly recommended setting within RStudio that you should set up to help with reproducibility and making sure that when you “turn things off and turn it back on again” that you actually end up with a clean session.\nIn the Tools &gt; Global Options &gt; General Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no .RData is saved when you quit RStudio, and to never save the .RData (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).",
-    "crumbs": [
-      "Home",
-      "Lecture 0b: RStudio Orientation"
-    ]
-  },
-  {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html",
-    "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "",
-    "text": "Understand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages.\n\nPlatform in focus RStudio IDE + Quarto",
-    "crumbs": [
-      "Home",
-      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
-    ]
-  },
-  {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#learning-outcomes",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#learning-outcomes",
-    "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "",
-    "text": "Understand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages.\n\nPlatform in focus RStudio IDE + Quarto",
-    "crumbs": [
-      "Home",
-      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
-    ]
-  },
-  {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-1",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-1",
-    "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Lecture 6 Activity 1",
-    "text": "Lecture 6 Activity 1",
-    "crumbs": [
-      "Home",
-      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
-    ]
-  },
-  {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#quarto-documents-markdown-flavour",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#quarto-documents-markdown-flavour",
-    "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Quarto documents markdown flavour",
-    "text": "Quarto documents markdown flavour\nIn lecture 7 we have been learning about RMarkdown. Recently, has been released Quarto. Adding capabilities to R Markdown it also uses Pandoc Markdown, but we will talk about it later: https://quarto.org/docs/authoring/markdown-basics.html\nIn brief we are going to learn that you can create a gfm formatted document in Quarto. This means that you can use this type of file to create a README.md that will perfectly render on GitHub.\n\nJupyter Notebooks for Python and RMarkdown for R?\nEven if the purpose of using a Jupyter Notebook and an RMarkdown is similar there are major differences to be considered. The first one is that Jupyter Notebooks has been created for Python (even if there exist an R ikernel) and that RMarkdown has been created for R (even if can be used with Python through the reticulate package). There is a third new option, Quarto documents (.qmd), that can be open in RStudio, VS Code and JupyterLab at the same time and be used with Python, R or Julia.\nA single .qmd file is processed by a single engine running R, Python, or Julia. The trick is that an .qmd file running R can run Python via the reticulate R package meanwhile a .qmd running Python can run R via the rpy2 Python package. We will learn more about Quarto soon, but first let’s think a bit about how we write text in the notebooks.\nThis being said you have to consider that: &gt; Note that if you are using either the Jupyter or Knitr computational engine you will likely be better off using JupyterLab or VS Code (for .ipynb notebooks) or RStudio (for .qmd documents) as these environments provide code-completion, incremental cell execution, and other useful tools for working with executable code.\n\nQuarto Docs - Text editors (https://quarto.org/docs/tools/text-editors.html)\n\n Quarto documents are created with text and Python, R and/or Julia code",
-    "crumbs": [
-      "Home",
-      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
-    ]
-  },
-  {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-2",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-2",
-    "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Lecture 6 Activity 2",
-    "text": "Lecture 6 Activity 2",
-    "crumbs": [
-      "Home",
-      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
-    ]
-  },
-  {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#presentations-with-jupyterlab-rmarkdown-and-quarto",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#presentations-with-jupyterlab-rmarkdown-and-quarto",
-    "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Presentations with JupyterLab, RMarkdown and Quarto",
-    "text": "Presentations with JupyterLab, RMarkdown and Quarto\nYou can create a great set of slides to share your results with others! We are going to use the framework reveal.js. RMarkdown most popular slides are created with a package called xaringan. Since Quarto appear, it is possible to create slides using reveal.js that is the same framework that is available by default in Jupyter Notebooks. Anyway, it would be possible to generate reveal.js presentations with RMarkdown if you install the revealjs package and follow these instructions.\n\nCreate your slides using Quarto\nIf you are using Jupyter Notebooks it is quite straightforward to create your slides. You can use Jupyter Lab interface too with the same purpose. You can read more about it here\n\n\n\nJupyter Slides\n\n\nYou can crea\nClicking here you can have an example of what you can do with Quarto presentations using reveal.js framework.\nLecture x\nTake 5 minutes of the class and convert one of your .Rmd, .qmd or .ipynb to a set of slides.\nYou can convert the slides manually or look into the jupytext or quarto convert tools to do an initial file conversion.",
-    "crumbs": [
-      "Home",
-      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
-    ]
-  },
-  {
-    "objectID": "readings/readings-ch-01.html",
-    "href": "readings/readings-ch-01.html",
+    "objectID": "learning_objectives/lo-ch-00-rstudio.html",
+    "href": "learning_objectives/lo-ch-00-rstudio.html",
     "title": "DSCI 521: Computing Platforms for Data Science",
     "section": "",
-    "text": "The Unix Shell: Navigating Files and Directories or The shell\nIntroduce yourself to Git\nConnect to GitHub\nJupyter Notebook Tutorial: The Definitive Guide"
-  },
-  {
-    "objectID": "readings/readings-ch-04.html",
-    "href": "readings/readings-ch-04.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Quarto Guides\nGetting Started with GitHub Pages"
-  },
-  {
-    "objectID": "readings/readings-ch-07.html",
-    "href": "readings/readings-ch-07.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "conda environemnts\nrenv\nWorkflow: projects"
-  },
-  {
-    "objectID": "readings/readings-ch-06.html",
-    "href": "readings/readings-ch-06.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "R Markdown presentations with xaringan\nJupyter presentations\nQuarto Presentations"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-00.html",
-    "href": "learning_objectives/lo-ch-00.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-05.html",
-    "href": "learning_objectives/lo-ch-05.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Create RProjects in Rstudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown\nExplain markdown usage in relation to dynamic documents\nDifferentiate between code chunks and code cells in Rmarkdown and Jupyter Notebooks.\nSelect appropiate code chunk options for RMarkdown.\nUse semantic line breaks for version control files\nSpecify metadata in the YAML header block"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-07.html",
-    "href": "learning_objectives/lo-ch-07.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-02.html",
-    "href": "learning_objectives/lo-ch-02.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Implement SSH authentication\nDifferentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.\nCreate a Git repository.\nImplement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in VS Code.\nUnderstand what implies using the staging area in a Git workflow.\nRecognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-01.html",
-    "href": "learning_objectives/lo-ch-01.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Recognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.\nDistinguish common operators and representations of the different filesystem elements typically used in Bash.\nExplore the filesystem using Bash commands as ls, pwd and cd.\nTranslate an absolute path into a relative path and vice versa.\nUse command-line arguments to produce alternative outputs of commands.\nCreate, edit, move, and delete files and folders using the command line and VS Code."
+    "text": "Launch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface"
   },
   {
     "objectID": "learning_objectives/lo-ch-04.html",
@@ -1051,18 +1111,39 @@
     "text": "Use the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website"
   },
   {
+    "objectID": "learning_objectives/lo-ch-07.html",
+    "href": "learning_objectives/lo-ch-07.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-01.html",
+    "href": "learning_objectives/lo-ch-01.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Recognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.\nDistinguish common operators and representations of the different filesystem elements typically used in Bash.\nExplore the filesystem using Bash commands as ls, pwd and cd.\nTranslate an absolute path into a relative path and vice versa.\nUse command-line arguments to produce alternative outputs of commands.\nCreate, edit, move, and delete files and folders using the command line and VS Code."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-05.html",
+    "href": "learning_objectives/lo-ch-05.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Create RProjects in Rstudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown\nExplain markdown usage in relation to dynamic documents\nDifferentiate between code chunks and code cells in Rmarkdown and Jupyter Notebooks.\nSelect appropiate code chunk options for RMarkdown.\nUse semantic line breaks for version control files\nSpecify metadata in the YAML header block"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-00.html",
+    "href": "learning_objectives/lo-ch-00.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface"
+  },
+  {
     "objectID": "learning_objectives/lo-ch-03.html",
     "href": "learning_objectives/lo-ch-03.html",
     "title": "DSCI 521: Computing Platforms for Data Science",
     "section": "",
     "text": "Explore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-06.html",
-    "href": "learning_objectives/lo-ch-06.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Understand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages."
   },
   {
     "objectID": "learning_objectives/lo-ch-08.html",
@@ -1072,39 +1153,238 @@
     "text": "Understand the basic syntax and functionality of regular expressions (regex) for pattern matching.\nExplore the use of special characters, ranges, and anchors in regex to match specific patterns within text.\nApply regex to search, extract, and manipulate data in various formats using practical examples.\nUse regular expressions to navigate and organize files within the filesystem."
   },
   {
-    "objectID": "learning_objectives/lo-ch-00-rstudio.html",
-    "href": "learning_objectives/lo-ch-00-rstudio.html",
+    "objectID": "learning_objectives/lo-ch-02.html",
+    "href": "learning_objectives/lo-ch-02.html",
     "title": "DSCI 521: Computing Platforms for Data Science",
     "section": "",
-    "text": "Launch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface"
+    "text": "Implement SSH authentication\nDifferentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.\nCreate a Git repository.\nImplement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in VS Code.\nUnderstand what implies using the staging area in a Git workflow.\nRecognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier."
   },
   {
-    "objectID": "readings/readings-ch-08.html",
-    "href": "readings/readings-ch-08.html",
+    "objectID": "learning_objectives/lo-ch-06.html",
+    "href": "learning_objectives/lo-ch-06.html",
     "title": "DSCI 521: Computing Platforms for Data Science",
     "section": "",
-    "text": "Regex\nRegex test\nPracticing Regex\nThree tips for posting good questions to R-help and Stack Overflow\nHow to create a Minimal, Complete, and Verifiable example\nGood Enough Practices in Scientific Computing\n.gitignore"
+    "text": "Understand how Quarto extend RMarkdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages."
   },
   {
-    "objectID": "readings/readings-ch-03.html",
-    "href": "readings/readings-ch-03.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
+    "objectID": "lectures/4-quarto_github_pages.html",
+    "href": "lectures/4-quarto_github_pages.html",
+    "title": "Introduction to Quarto and Github Pages",
     "section": "",
-    "text": "Comparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks"
+    "text": "Use the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website",
+    "crumbs": [
+      "Home",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
   },
   {
-    "objectID": "readings/readings-ch-05.html",
-    "href": "readings/readings-ch-05.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
+    "objectID": "lectures/4-quarto_github_pages.html#learning-outcomes",
+    "href": "lectures/4-quarto_github_pages.html#learning-outcomes",
+    "title": "Introduction to Quarto and Github Pages",
     "section": "",
-    "text": "Using RStudio Projects\nR Markdown Cheat Sheet\nR Markdown home page\nR Markdown: The Definitive Guide\nR Markdown code chunk options\nWhat they forgot to teach you about R\nConnect RStudio to Git and GitHub\nR-cubed rostools workshop"
+    "text": "Use the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website",
+    "crumbs": [
+      "Home",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
   },
   {
-    "objectID": "readings/readings-ch-02.html",
-    "href": "readings/readings-ch-02.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
+    "objectID": "lectures/4-quarto_github_pages.html#lecture-4-activity-1",
+    "href": "lectures/4-quarto_github_pages.html#lecture-4-activity-1",
+    "title": "Introduction to Quarto and Github Pages",
+    "section": "Lecture 4 Activity 1",
+    "text": "Lecture 4 Activity 1",
+    "crumbs": [
+      "Home",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
+  },
+  {
+    "objectID": "lectures/4-quarto_github_pages.html#what-is-quarto",
+    "href": "lectures/4-quarto_github_pages.html#what-is-quarto",
+    "title": "Introduction to Quarto and Github Pages",
+    "section": "What is Quarto",
+    "text": "What is Quarto\nQuarto is a tool that can be used to create scientific or technical content. It comes with a collection of tools and templates to create many differnt types of data products, e.g., websites, articles, blogs, presentations, books, etc. Quarto works out of the box with the main data science languages: Python, R, Julia, and Observable (Javascript).\nThe official Quarto website has installation instructions and various guides on getting started with creating the various data products: https://quarto.org/",
+    "crumbs": [
+      "Home",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
+  },
+  {
+    "objectID": "lectures/4-quarto_github_pages.html#installing-quarto",
+    "href": "lectures/4-quarto_github_pages.html#installing-quarto",
+    "title": "Introduction to Quarto and Github Pages",
+    "section": "Installing Quarto",
+    "text": "Installing Quarto\nQuarto should already be installed on your machine as a part of the MDS software installation stack: https://ubc-mds.github.io/resources_pages/installation_instructions/\n\nChecking your installation\nThere are a few ways you can always check if a terminal program exists and can be found on your computer.\n\nThe which command in the shell will give you the path to where the program is found. If you have multiple versions of an application installed on your machine, which will tell you which one is acually going to be used. If the path returned is not what you expect, then it typically means you need to adjust your $PATH variable. If the program cannot be found, you will get an which: no quarto in .... message. The .... will list all the locations (paths) that your $PATH variable defines. This is the order where your computer is looking for programs.\n\n$ which quarto\n/usr/bin/quarto\n\nMany terminal programs provide a --version flag that will return the version of the program installed. If the binary (i.e., program) exists, then it will return the version number back. If the program does not exist you will see a command not found message.\n\n$ quarto --version\n1.5.55\n\nYou can also access the help pages for quarto with the --help flag. This is similar to many terminal programs where you can either use the --help flag or call man (for manual) of a program. Not every program implments a --help and man. This will also differ from system to system. For quarto we can use the --help flag to also confirm that things are working\n\n$ quarto --help\n\nUsage:   quarto\nVersion: 1.5.55\n\nDescription:\n\n  Quarto CLI\n\nOptions:\n\n  -h, --help     - Show this help.\n  -V, --version  - Show the version number for this program.\n\nCommands:\n\n  render     [input] [args...]     - Render files or projects to various document types.\n  preview    [file] [args...]      - Render and preview a document or website project.\n  serve      [input]               - Serve a Shiny interactive document.\n  create     [type] [commands...]  - Create a Quarto project or extension\n  use        &lt;type&gt; [target]       - Automate document or project setup tasks.\n  add        &lt;extension&gt;           - Add an extension to this folder or project\n  update     [target...]           - Updates an extension or global dependency.\n  remove     [target...]           - Removes an extension.\n  convert    &lt;input&gt;               - Convert documents to alternate representations.\n  pandoc     [args...]             - Run the version of Pandoc embedded within Quarto.\n  typst      [args...]             - Run the version of Typst embedded within Quarto.\n  run        [script] [args...]    - Run a TypeScript, R, Python, or Lua script.\n  install    [target...]           - Installs a global dependency (TinyTex or Chromium).\n  uninstall  [tool]                - Removes an extension.\n  tools                            - Display the status of Quarto installed dependencies\n  publish    [provider] [path]     - Publish a document or project to a provider.\n  check      [target]              - Verify correct functioning of Quarto installation.\n  help       [command]             - Show this help or the help of a sub-command.",
+    "crumbs": [
+      "Home",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
+  },
+  {
+    "objectID": "lectures/4-quarto_github_pages.html#your-first-quarto-website",
+    "href": "lectures/4-quarto_github_pages.html#your-first-quarto-website",
+    "title": "Introduction to Quarto and Github Pages",
+    "section": "Your first Quarto website",
+    "text": "Your first Quarto website\nWe can use quarto create to aid in creating the template files for a website. These template files and code is also known as “boilerplate”.\n$ quarto create --help\n\nUsage:   quarto create [type] [commands...]\nVersion: 1.5.55\n\nDescription:\n\n  Create a Quarto project or extension\n\nOptions:\n\n  -h, --help              - Show this help.\n  --open        [editor]  - Open new artifact in this editor (vscode,rstudio)\n  --no-open               - Do not open in an editor\n  --no-prompt             - Do not prompt to confirm actions\n  --log         &lt;file&gt;    - Path to log file\n  --log-level   &lt;level&gt;   - Log level (info, warning, error, critical)\n  --log-format  &lt;format&gt;  - Log format (plain, json-stream)\n  --quiet                 - Suppress console output.\n  --profile               - Active project profile(s)\n\nCommands:\n\n  help  [command]  - Show this help or the help of a sub-command.\nWe are going to create a quarto project, but we may still need to know the type of project we will create. When we run quarto create project we get a terminal option to pick what kind of type.\n$ quarto create project\n ? Type\n ❯ default\n   website\n   blog\n   manuscript\n   book\n   confluence\nWe can use our arrow keys to select the project type we want, and hit enter to create the skeleton for that project. We’ll use website in this lecture.\nIt will then ask you for a directory:\n$ quarto create project\n ? Type › website\n ? Directory ›\nHere we can provide the relative path from your current working directory (i.e., pwd) where quarto will dump all its files.\nYou will see how it created a few files, and prompt you to open the directory in a text editor:\n  - Created _quarto.yml\n  - Created index.qmd\n  - Created about.qmd\n  - Created styles.css\n ? Open With\n ❯ vscode\n   (don't open)\n\n\nNote\n\n\nIf you already created a new folder and cd into it. You can use . to have the files created in the current location. Otherwise, you can specify a new folder name, and it will create a new folder with the new files in it for you.\nIf you do create a new folder, remember you will need to cd into it.\n\n\nThe most important file is the _quarto.yml file, this is how quarto knows you are using a quarto project. Some quarto commands and options may need to run in a quarto project. The contents of the _qquarto.yml (in this example) file tells quarto that we are going to be creating a website.\nproject:\n  type: website",
+    "crumbs": [
+      "Home",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
+  },
+  {
+    "objectID": "lectures/4-quarto_github_pages.html#lecture-4-activity-2",
+    "href": "lectures/4-quarto_github_pages.html#lecture-4-activity-2",
+    "title": "Introduction to Quarto and Github Pages",
+    "section": "Lecture 4 Activity 2",
+    "text": "Lecture 4 Activity 2",
+    "crumbs": [
+      "Home",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
+  },
+  {
+    "objectID": "lectures/4-quarto_github_pages.html#lecture-4-activity-3",
+    "href": "lectures/4-quarto_github_pages.html#lecture-4-activity-3",
+    "title": "Introduction to Quarto and Github Pages",
+    "section": "Lecture 4 Activity 3",
+    "text": "Lecture 4 Activity 3",
+    "crumbs": [
+      "Home",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
+  },
+  {
+    "objectID": "lectures/4-quarto_github_pages.html#github-pages",
+    "href": "lectures/4-quarto_github_pages.html#github-pages",
+    "title": "Introduction to Quarto and Github Pages",
+    "section": "GitHub Pages",
+    "text": "GitHub Pages\nGitHub (public and enterprise) have mechanims that can turn static website content and render them into an actual website. If you’re reading these words from a web URL and not directly in the raw source (i.e., the jupyter notebook) then you are experiencing github pages.\nGithub uses Jekyll by default to render its github pages. However you can manually render your own html files and disable Github’s jekyll rendering and tell Github pages to render your website content exactly as you have it.\n\nGithub Pages and repositories\nAny one of your github repositories can be set up to use github pages. If a repository is github pages enabled to render a website, it is typically published to: USERNAME.github.io/REPO_NAME. where USERNAME is your github username, and REPO_NAME is the actual name of the repository on github.\n\nSpecial github repository names\nThere are 2 other special repository names that github provides that you can use to create a landing page for yourself (i.e., creating your professional presence and profile):\n\nUSERNAME.github.io\nUSERNAME\n\n\nUSERNAME.github.io\nCreating a repository with this name (replacing the text USERNAME with your github username) and having static website files on it will allow you to direct people to your own github website: https://USERNAME.github.io/.\nIf you know your way around HTML + CSS and related tools, you can publish any static content on your own and render it on the site. In this lesson we’re leveraging quarto to help us create the html files.\nHere’s an example of a repository that contains only a index.html file that redirects to a different URL:\nhttps://github.com/chendaniely/chendaniely.github.io\nWhen someone goes to chendaniely.github.io they will be automatically redirected to a different web address.\n\n\nUSERNAME\nIf you create a repository that is just your github username, with only a README.md file in it. Github will render the README.md file into your github landing page.\nHere is an example of a former MDS student’s Github landing page:\nhttps://github.com/mrnabiz/\nand their accompanying repository:\nhttps://github.com/mrnabiz/mrnabiz\n\n\n\n\nGithub Pages and Quarto\nNow that we’ve seen how to use quarto to create a website locally, we can leverage it in publishing the website.\nWe’ve talked in the past how we should ignore generated files in a git repository, but this is an exception where we actually need to keep the rendered html files from quarto. Otherwise github pages will not have anything to render.\nWe can use any of the git methods we’ve learned to get our quarto files into a github repository.\n\ngit init + create the remote repo + connect the remote URLs\ncreate the remote repo + git clone\n\nOnce all our files are on github, we can tell github to render the website files.\n\nGo to the repository settings (not your account settions)\nGoto the “Pages” options\n\nWe have a few options to tell github how to render a webssite. Currently, our files are in the main branch, but the only options for deploying from main is under / root or /docs. This is a problem because our quarto website defaults to putting all the website files into _site/\nWe can change the directory quarto renders the files into by editing our _quarto.yml file. Let’s have it render the website files into a folder github understands.\nproject:\n  type: website\n  output-dir: docs\nWhen you re-render your site now, the output should reflect your new output directory:\n$ quarto render\n[1/2] about.qmd\n[2/2] index.qmd\n\nOutput created: docs/index.html\nDont forget to save your yaaml file, re-render, remove the old _site folder, add, commit, and push your changes.\nOn your main github repo, you’ll notice a burnt orange dot next to the latest commit hash. This is github’s continuous integration / deployment system creating and publishing your site. When the icon is green, you can navibate to your site and behold publishing somethign on the internet!",
+    "crumbs": [
+      "Home",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
+  },
+  {
+    "objectID": "lectures/4-quarto_github_pages.html#quarto-for-rendering-your-mds-assignments",
+    "href": "lectures/4-quarto_github_pages.html#quarto-for-rendering-your-mds-assignments",
+    "title": "Introduction to Quarto and Github Pages",
+    "section": "Quarto for rendering your MDS assignments",
+    "text": "Quarto for rendering your MDS assignments\nYou can use quarto render to render your MDS documents into different output formats, e.g., pdf or html. For more information you can explore how quarto render works by calling the help page for render. This can be particularly useful when trying to export out pdf documents from a jupyter notebook if other methods are not working.\n$ quarto help render\n\nUsage:   quarto render [input] [args...]\nVersion: 1.5.55\n\nDescription:\n\n  Render files or projects to various document types.\n\nOptions:\n\n  -h, --help                          - Show this help.\n  -t, --to                            - Specify output format(s).\n  -o, --output                        - Write output to FILE (use '--output -' for stdout).\n  --output-dir                        - Write output to DIR (path is input/project relative)\n  -M, --metadata                      - Metadata value (KEY:VALUE).\n  --site-url                          - Override site-url for website or book output\n  --execute                           - Execute code (--no-execute to skip execution).\n  -P, --execute-param                 - Execution parameter (KEY:VALUE).\n  --execute-params                    - YAML file with execution parameters.\n  --execute-dir                       - Working directory for code execution.\n  --execute-daemon                    - Keep Jupyter kernel alive (defaults to 300 seconds).\n  --execute-daemon-restart            - Restart keepalive Jupyter kernel before render.\n  --execute-debug                     - Show debug output when executing computations.\n  --use-freezer                       - Force use of frozen computations for an incremental file render.\n  --cache                             - Cache execution output (--no-cache to prevent cache).\n  --cache-refresh                     - Force refresh of execution cache.\n  --no-clean                          - Do not clean project output-dir prior to render\n  --debug                             - Leave intermediate files in place after render.\n  pandoc-args...                      - Additional pandoc command line arguments.\n  --log                     &lt;file&gt;    - Path to log file\n  --log-level               &lt;level&gt;   - Log level (info, warning, error, critical)\n  --log-format              &lt;format&gt;  - Log format (plain, json-stream)\n  --quiet                             - Suppress console output.\n  --profile                           - Active project profile(s)\n\nCommands:\n\n  help  [command]  - Show this help or the help of a sub-command.\n\nExamples:\n\n  Render Markdown:    quarto render document.qmd\n                      quarto render document.qmd --to html\n                      quarto render document.qmd --to pdf --toc\n  Render Notebook:    quarto render notebook.ipynb\n                      quarto render notebook.ipynb --to docx\n                      quarto render notebook.ipynb --to pdf --toc\n  Render Project:     quarto render\n                      quarto render projdir\n  Render w/ Metadata: quarto render document.qmd -M echo:false\n                      quarto render document.qmd -M code-fold:true\n  Render to Stdout:   quarto render document.qmd --output -\nYou can also use quarto render --help to get the same help output.",
+    "crumbs": [
+      "Home",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
+  },
+  {
+    "objectID": "lectures/4-quarto_github_pages.html#lecture-4-activity-4",
+    "href": "lectures/4-quarto_github_pages.html#lecture-4-activity-4",
+    "title": "Introduction to Quarto and Github Pages",
+    "section": "Lecture 4 Activity 4",
+    "text": "Lecture 4 Activity 4",
+    "crumbs": [
+      "Home",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
+  },
+  {
+    "objectID": "lectures/4-quarto_github_pages.html#improving-your-quarto-experience",
+    "href": "lectures/4-quarto_github_pages.html#improving-your-quarto-experience",
+    "title": "Introduction to Quarto and Github Pages",
+    "section": "Improving your quarto experience",
+    "text": "Improving your quarto experience\nQuarto works with a few IDEs and text editors.\n\nVSCode extension: https://marketplace.visualstudio.com/items?itemName=quarto.quarto\nRStudio: Comes with RStudio (you can also manually install it as a terminal application)\nJupyter Lab: there is no official jupyter quarto extension, but quarto can work with jupyter notebooks in the command line tool",
+    "crumbs": [
+      "Home",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
+  },
+  {
+    "objectID": "lectures/0-jupyterlab-orientation-intro.html",
+    "href": "lectures/0-jupyterlab-orientation-intro.html",
+    "title": "JupyterLab Orientation",
     "section": "",
-    "text": "Excuse me, do you have a moment to talk about version control? by Jenny Bryan\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks"
+    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface",
+    "crumbs": [
+      "Home",
+      "Lecture 0a: JupyterLab Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-jupyterlab-orientation-intro.html#learning-objectives",
+    "href": "lectures/0-jupyterlab-orientation-intro.html#learning-objectives",
+    "title": "JupyterLab Orientation",
+    "section": "",
+    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface",
+    "crumbs": [
+      "Home",
+      "Lecture 0a: JupyterLab Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-jupyterlab-orientation-intro.html#what-is-jupyterlab",
+    "href": "lectures/0-jupyterlab-orientation-intro.html#what-is-jupyterlab",
+    "title": "JupyterLab Orientation",
+    "section": "What is JupyterLab",
+    "text": "What is JupyterLab\nThe most rudimentary interaction with programming languages such as R and Python is via interactive shells run from a terminal. This provides access to the full functionality of the language, but is a barebones experience without any conveniences added. If you want to edit a script or view a plot that you created, you need to open a text editor and image viewer separately.\nIf you prefer a more holistic experience, with many of conveniences nicely organized in the same interface, you can use an integrated development environment (or IDE for short). IDEs often include a shell, a file browser, debugging tools, version control, a text editor with autocompletion and syntax highlighting, and an area where plots show up. A core idea of IDEs is to provide all the tools you need in one place. Commons IDEs that you might have heard of include Visual Studio Code and RStudio. This lesson will discuss JupyterLab, which is and IDE to work with many programming languages, including R, Python, Julia, and many more. A core concept tightly linked to JupyterLab are Jupyter Notebooks, which will be one of the main topics in this talk. Let’s see how we can launch them.",
+    "crumbs": [
+      "Home",
+      "Lecture 0a: JupyterLab Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-jupyterlab-orientation-intro.html#how-to-access-jupyterlab",
+    "href": "lectures/0-jupyterlab-orientation-intro.html#how-to-access-jupyterlab",
+    "title": "JupyterLab Orientation",
+    "section": "How to Access JupyterLab",
+    "text": "How to Access JupyterLab\nYou can access JupyterLab from an online remote server or a local machine.\n\nOnline Server\nWe could install and run JupyterLab just like any other program on Windows, MacOS, or Linux. However, one of the advantages of JupyterLab is that it is easy to use without installing anything. To try JupyterLab, use your web browser to visit the UBC Jupyter Server and login with your CWL (Firefox, and Chrome are supported). You can also try JupyterLab through Project Jupyter (https://jupyter.org/try) or Posit Cloud (https://posit.cloud/).\n\n\nLocal Machine\nIf you have already completed the installation instructions, you can open the terminal and run:\njupyter lab\nJupyterLab will open in a browser whether you run it locally or you are using it through UBC server. Note that if you are running JupyterLab in your machine, the URL could be similar to https://localhost:8888/lab. In this case localhost is referring to your computer, not to a webpage.",
+    "crumbs": [
+      "Home",
+      "Lecture 0a: JupyterLab Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-jupyterlab-orientation-intro.html#using-jupyter-notebooks",
+    "href": "lectures/0-jupyterlab-orientation-intro.html#using-jupyter-notebooks",
+    "title": "JupyterLab Orientation",
+    "section": "Using Jupyter Notebooks",
+    "text": "Using Jupyter Notebooks\n\nWe’re greeted by the launcher tab where we see that we can start either a Notebook or Console for Python or R, as well as some other utility programs. Let’s start by explaining one of the most popular options, the Jupyter Notebook. The Notebook provides and interface where you can mix text, code, mathematical expressions, plot output, videos, and more, all in the same file. So instead of the traditional IDE experience where you would write code in a text file and then have figures pop up in a different panel, this information now all resides in the same document, which facilitates reproducibility and collaboration. The Notebooks can be exported to many formats, including PDF and HTML, which makes it easy to share your project with anyone. The cell that is encircled in blue is where we can input Python code, click here and type any mathematical expression, and then run the cell by clicking the play button in the top toolbar:\n\n3 + 4\n\n7\n\n\n\nAs you can see, the output is returned just under input, and a new input cell was created. We could also have clicked the plus sign to create a new cell. Here, we can do anything we can do in Python, e.g. variable assignment:\n\na = 5\n\nThere is no output because we just assigned a value to a variable, without asking for the value of that variable, which we can do by typing out the variable name:\n\na\n\n5\n\n\nJupyter Notebooks also supports editing code on multiple lines, so we could have done this instead:\n\na = 3\na\n\n3\n\n\n\nYou might have noticed that there is a little counter on the left of each cell. This counter keeps track of in which order the cells were executed, so that you are aware if cells have been run out of sequential order. The counter symbol changes to an * when a computation is running, to indicate that Python is busy and won’t be able to execute new cells until the current one finishes (the delay is only noticeable for longer computations).\nWe can also click this blue bar to the left to collapse and expand the output and input. This can be handy if we have a long code cell, or some notes that we’re planning on moving later.\n\nThe notebook is saved automatically every two minutes, and it can be saved manually by clicking the floppy disk symbol in the toolbar, or by hitting Ctrl + s (Windows/Linux) or ⌘ + s (Mac). Both input and output cells are saved, so any plots that you make will be present in the notebook next time you open it, without needing to rerun the code cells.\nOther important icons in the toolbar are the ones to cut, copy, and paste a cell. If you want to get rid of a cell, you can cut it out without pasting in back in.\nThe remaining icons are:\n\nplay: to run a cell (which we already used),\nstop: which we can use if a cells has gotten stuck running some code and we want to interrupt it,\nrestart: which restarts the background Python process that is connected to the notebook (so if we click this, our variables will need to be redefined),\nrestart and run all: this is really important and should always be executed before sharing a notebook, to make sure that everything will work when someone else runs it from top to bottom, since the cells can be executed out of order.\n\nYou can also access these by right clicking on a cell.\n\nWorking with text via Markdown cells\nYou can change the input cell type from Python code to Markdown by clicking on the little dropdown menu in the toolbar that reads Code.\n\nMarkdown is a simple formatting system which allows you to document your analysis within the notebook. This is also great for creating tutorials and even books as we will see later. It is a plain text format that includes brief markup tags that indicates how text should be rendered, e.g. * indicates italics and ** indicates bold typeface. If you have commented on online forums or used a chat application, you might already be familiar with markdown. Below is a short example of the syntax:\n#### Markdown Example: Heading Level Four\n\n- A bullet point\n- *Emphasis in italics*\n- **Strong emphasis in bold**\n- This is a [link to learn more about markdown](https://guides.github.com/features/mastering-markdown/).\n- Support for $\\LaTeX$ equations:\n$$f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x-a}$$\nwill be rendered as:\n\nMarkdown Example: Heading Level Four\n\nA bullet point\nEmphasis in italics\nStrong emphasis in bold\nThis is a link to learn more about markdown.\nSupport for \\(\\LaTeX\\) equations: \\[f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x-a}\\]",
+    "crumbs": [
+      "Home",
+      "Lecture 0a: JupyterLab Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-jupyterlab-orientation-intro.html#lecture-0-exercise-1-creating-and-positioning-a-heading-in-jupyterlab",
+    "href": "lectures/0-jupyterlab-orientation-intro.html#lecture-0-exercise-1-creating-and-positioning-a-heading-in-jupyterlab",
+    "title": "JupyterLab Orientation",
+    "section": "Lecture 0 Exercise 1 : Creating and Positioning a Heading in JupyterLab",
+    "text": "Lecture 0 Exercise 1 : Creating and Positioning a Heading in JupyterLab",
+    "crumbs": [
+      "Home",
+      "Lecture 0a: JupyterLab Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-jupyterlab-orientation-intro.html#jupyterlab-sidebars",
+    "href": "lectures/0-jupyterlab-orientation-intro.html#jupyterlab-sidebars",
+    "title": "JupyterLab Orientation",
+    "section": "JupyterLab sidebars",
+    "text": "JupyterLab sidebars\nNow that you know the basics of how to work inside Jupyter Notebooks, let’s continue explorer the JupyterLab user interface.\n\nLeft sidebar\n\nExtension Manager\n\nThe puzzle piece at the bottom is where you can install extensions.\n\nTable of Contents\n\nIt allows navigate the structure of the document easily.\n\nGit\n\nGit version control interface.\n\nRunning terminals and kernels\n\nOverview of all running applications.\n\nFile browser\n\nThe topmost icon in the sidebar to the left shows the file tree of your current folder, highlights include:\n\nthe icon for uploading files from your computer to the UBC Jupyter server (or your folder if you run locally)\nright clicking a file to download it to your computer\nclicking the + sign takes us back to the launcher menu where we started\n\n\n\nRight sidebar\n\nProperty Inspector:\n\nThis is a bit more advanced as it allows you to add metadata to cells.\nOne aspect worth highlighting here is the ability to denote cells as part of a slide show, that you can download via File -&gt; Export notebook as.\n\nDebugger",
+    "crumbs": [
+      "Home",
+      "Lecture 0a: JupyterLab Orientation"
+    ]
+  },
+  {
+    "objectID": "lectures/0-jupyterlab-orientation-intro.html#additional-jupyterlab-applications",
+    "href": "lectures/0-jupyterlab-orientation-intro.html#additional-jupyterlab-applications",
+    "title": "JupyterLab Orientation",
+    "section": "Additional JupyterLab applications",
+    "text": "Additional JupyterLab applications\nJupyterLab can run applications other than notebooks, e.g. there is a Python console, a text editor, and a terminal emulator. These can be opened via the launcher page or File --&gt; New. Applications can be placed side by side by dragging and dropping their windows, so we could be running a terminal and notebook next to each other.\nThe Command palette enable users to invoke commands directly:\n\nWindows/Linux: Ctrl + Shift + C\nMac: ⌘ + Shift + C\nView --&gt; Activate Command Palette\n\n\nHow to get help in the notebook\nOne application that is especially helpful to run next to a notebook is the Contextual Help. This application displays documentation automatically as you type. When you’re using unfamiliar packages and functions, it is a good habit to leave the Contextual Help open next to the notebook. If you don’t like having a split screen, you can instead press Shift + Tab to bring up a help dialogue. JupyterLab also supports tab completion, you can start typing a name and then press tab to see suggestions to expand to. Additional help is available via the “Help” menu, which links to useful online resources (for example Help --&gt; JupyterLab Reference).\n\n\nNote about UBC Jupyter Server\n\n\nAll your files will be saved between restarts, but any Python packages you have installed yourself will be reset, so you need to contact UBC IT to have additional Python packages installed with persistence.",
+    "crumbs": [
+      "Home",
+      "Lecture 0a: JupyterLab Orientation"
+    ]
   },
   {
     "objectID": "lectures/1-MDStools-bash-filesystem.html",
@@ -1280,127 +1560,6 @@
     "crumbs": [
       "Home",
       "Lecture 1: Introduction to MDS software and Bash"
-    ]
-  },
-  {
-    "objectID": "lectures/4-quarto_github_pages.html",
-    "href": "lectures/4-quarto_github_pages.html",
-    "title": "Introduction to Quarto and Github Pages",
-    "section": "",
-    "text": "Use the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website",
-    "crumbs": [
-      "Home",
-      "Lecture 4: Introduction to Quarto and Github Pages"
-    ]
-  },
-  {
-    "objectID": "lectures/4-quarto_github_pages.html#learning-outcomes",
-    "href": "lectures/4-quarto_github_pages.html#learning-outcomes",
-    "title": "Introduction to Quarto and Github Pages",
-    "section": "",
-    "text": "Use the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website",
-    "crumbs": [
-      "Home",
-      "Lecture 4: Introduction to Quarto and Github Pages"
-    ]
-  },
-  {
-    "objectID": "lectures/4-quarto_github_pages.html#lecture-4-activity-1",
-    "href": "lectures/4-quarto_github_pages.html#lecture-4-activity-1",
-    "title": "Introduction to Quarto and Github Pages",
-    "section": "Lecture 4 Activity 1",
-    "text": "Lecture 4 Activity 1",
-    "crumbs": [
-      "Home",
-      "Lecture 4: Introduction to Quarto and Github Pages"
-    ]
-  },
-  {
-    "objectID": "lectures/4-quarto_github_pages.html#what-is-quarto",
-    "href": "lectures/4-quarto_github_pages.html#what-is-quarto",
-    "title": "Introduction to Quarto and Github Pages",
-    "section": "What is Quarto",
-    "text": "What is Quarto\nQuarto is a tool that can be used to create scientific or technical content. It comes with a collection of tools and templates to create many differnt types of data products, e.g., websites, articles, blogs, presentations, books, etc. Quarto works out of the box with the main data science languages: Python, R, Julia, and Observable (Javascript).\nThe official Quarto website has installation instructions and various guides on getting started with creating the various data products: https://quarto.org/",
-    "crumbs": [
-      "Home",
-      "Lecture 4: Introduction to Quarto and Github Pages"
-    ]
-  },
-  {
-    "objectID": "lectures/4-quarto_github_pages.html#installing-quarto",
-    "href": "lectures/4-quarto_github_pages.html#installing-quarto",
-    "title": "Introduction to Quarto and Github Pages",
-    "section": "Installing Quarto",
-    "text": "Installing Quarto\nQuarto should already be installed on your machine as a part of the MDS software installation stack: https://ubc-mds.github.io/resources_pages/installation_instructions/\n\nChecking your installation\nThere are a few ways you can always check if a terminal program exists and can be found on your computer.\n\nThe which command in the shell will give you the path to where the program is found. If you have multiple versions of an application installed on your machine, which will tell you which one is acually going to be used. If the path returned is not what you expect, then it typically means you need to adjust your $PATH variable. If the program cannot be found, you will get an which: no quarto in .... message. The .... will list all the locations (paths) that your $PATH variable defines. This is the order where your computer is looking for programs.\n\n$ which quarto\n/usr/bin/quarto\n\nMany terminal programs provide a --version flag that will return the version of the program installed. If the binary (i.e., program) exists, then it will return the version number back. If the program does not exist you will see a command not found message.\n\n$ quarto --version\n1.5.55\n\nYou can also access the help pages for quarto with the --help flag. This is similar to many terminal programs where you can either use the --help flag or call man (for manual) of a program. Not every program implments a --help and man. This will also differ from system to system. For quarto we can use the --help flag to also confirm that things are working\n\n$ quarto --help\n\nUsage:   quarto\nVersion: 1.5.55\n\nDescription:\n\n  Quarto CLI\n\nOptions:\n\n  -h, --help     - Show this help.\n  -V, --version  - Show the version number for this program.\n\nCommands:\n\n  render     [input] [args...]     - Render files or projects to various document types.\n  preview    [file] [args...]      - Render and preview a document or website project.\n  serve      [input]               - Serve a Shiny interactive document.\n  create     [type] [commands...]  - Create a Quarto project or extension\n  use        &lt;type&gt; [target]       - Automate document or project setup tasks.\n  add        &lt;extension&gt;           - Add an extension to this folder or project\n  update     [target...]           - Updates an extension or global dependency.\n  remove     [target...]           - Removes an extension.\n  convert    &lt;input&gt;               - Convert documents to alternate representations.\n  pandoc     [args...]             - Run the version of Pandoc embedded within Quarto.\n  typst      [args...]             - Run the version of Typst embedded within Quarto.\n  run        [script] [args...]    - Run a TypeScript, R, Python, or Lua script.\n  install    [target...]           - Installs a global dependency (TinyTex or Chromium).\n  uninstall  [tool]                - Removes an extension.\n  tools                            - Display the status of Quarto installed dependencies\n  publish    [provider] [path]     - Publish a document or project to a provider.\n  check      [target]              - Verify correct functioning of Quarto installation.\n  help       [command]             - Show this help or the help of a sub-command.",
-    "crumbs": [
-      "Home",
-      "Lecture 4: Introduction to Quarto and Github Pages"
-    ]
-  },
-  {
-    "objectID": "lectures/4-quarto_github_pages.html#your-first-quarto-website",
-    "href": "lectures/4-quarto_github_pages.html#your-first-quarto-website",
-    "title": "Introduction to Quarto and Github Pages",
-    "section": "Your first Quarto website",
-    "text": "Your first Quarto website\nWe can use quarto create to aid in creating the template files for a website. These template files and code is also known as “boilerplate”.\n$ quarto create --help\n\nUsage:   quarto create [type] [commands...]\nVersion: 1.5.55\n\nDescription:\n\n  Create a Quarto project or extension\n\nOptions:\n\n  -h, --help              - Show this help.\n  --open        [editor]  - Open new artifact in this editor (vscode,rstudio)\n  --no-open               - Do not open in an editor\n  --no-prompt             - Do not prompt to confirm actions\n  --log         &lt;file&gt;    - Path to log file\n  --log-level   &lt;level&gt;   - Log level (info, warning, error, critical)\n  --log-format  &lt;format&gt;  - Log format (plain, json-stream)\n  --quiet                 - Suppress console output.\n  --profile               - Active project profile(s)\n\nCommands:\n\n  help  [command]  - Show this help or the help of a sub-command.\nWe are going to create a quarto project, but we may still need to know the type of project we will create. When we run quarto create project we get a terminal option to pick what kind of type.\n$ quarto create project\n ? Type\n ❯ default\n   website\n   blog\n   manuscript\n   book\n   confluence\nWe can use our arrow keys to select the project type we want, and hit enter to create the skeleton for that project. We’ll use website in this lecture.\nIt will then ask you for a directory:\n$ quarto create project\n ? Type › website\n ? Directory ›\nHere we can provide the relative path from your current working directory (i.e., pwd) where quarto will dump all its files.\nYou will see how it created a few files, and prompt you to open the directory in a text editor:\n  - Created _quarto.yml\n  - Created index.qmd\n  - Created about.qmd\n  - Created styles.css\n ? Open With\n ❯ vscode\n   (don't open)\n\n\nNote\n\n\nIf you already created a new folder and cd into it. You can use . to have the files created in the current location. Otherwise, you can specify a new folder name, and it will create a new folder with the new files in it for you.\nIf you do create a new folder, remember you will need to cd into it.\n\n\nThe most important file is the _quarto.yml file, this is how quarto knows you are using a quarto project. Some quarto commands and options may need to run in a quarto project. The contents of the _qquarto.yml (in this example) file tells quarto that we are going to be creating a website.\nproject:\n  type: website",
-    "crumbs": [
-      "Home",
-      "Lecture 4: Introduction to Quarto and Github Pages"
-    ]
-  },
-  {
-    "objectID": "lectures/4-quarto_github_pages.html#lecture-4-activity-2",
-    "href": "lectures/4-quarto_github_pages.html#lecture-4-activity-2",
-    "title": "Introduction to Quarto and Github Pages",
-    "section": "Lecture 4 Activity 2",
-    "text": "Lecture 4 Activity 2",
-    "crumbs": [
-      "Home",
-      "Lecture 4: Introduction to Quarto and Github Pages"
-    ]
-  },
-  {
-    "objectID": "lectures/4-quarto_github_pages.html#lecture-4-activity-3",
-    "href": "lectures/4-quarto_github_pages.html#lecture-4-activity-3",
-    "title": "Introduction to Quarto and Github Pages",
-    "section": "Lecture 4 Activity 3",
-    "text": "Lecture 4 Activity 3",
-    "crumbs": [
-      "Home",
-      "Lecture 4: Introduction to Quarto and Github Pages"
-    ]
-  },
-  {
-    "objectID": "lectures/4-quarto_github_pages.html#github-pages",
-    "href": "lectures/4-quarto_github_pages.html#github-pages",
-    "title": "Introduction to Quarto and Github Pages",
-    "section": "GitHub Pages",
-    "text": "GitHub Pages\nGitHub (public and enterprise) have mechanims that can turn static website content and render them into an actual website. If you’re reading these words from a web URL and not directly in the raw source (i.e., the jupyter notebook) then you are experiencing github pages.\nGithub uses Jekyll by default to render its github pages. However you can manually render your own html files and disable Github’s jekyll rendering and tell Github pages to render your website content exactly as you have it.\n\nGithub Pages and repositories\nAny one of your github repositories can be set up to use github pages. If a repository is github pages enabled to render a website, it is typically published to: USERNAME.github.io/REPO_NAME. where USERNAME is your github username, and REPO_NAME is the actual name of the repository on github.\n\nSpecial github repository names\nThere are 2 other special repository names that github provides that you can use to create a landing page for yourself (i.e., creating your professional presence and profile):\n\nUSERNAME.github.io\nUSERNAME\n\n\nUSERNAME.github.io\nCreating a repository with this name (replacing the text USERNAME with your github username) and having static website files on it will allow you to direct people to your own github website: https://USERNAME.github.io/.\nIf you know your way around HTML + CSS and related tools, you can publish any static content on your own and render it on the site. In this lesson we’re leveraging quarto to help us create the html files.\nHere’s an example of a repository that contains only a index.html file that redirects to a different URL:\nhttps://github.com/chendaniely/chendaniely.github.io\nWhen someone goes to chendaniely.github.io they will be automatically redirected to a different web address.\n\n\nUSERNAME\nIf you create a repository that is just your github username, with only a README.md file in it. Github will render the README.md file into your github landing page.\nHere is an example of a former MDS student’s Github landing page:\nhttps://github.com/mrnabiz/\nand their accompanying repository:\nhttps://github.com/mrnabiz/mrnabiz\n\n\n\n\nGithub Pages and Quarto\nNow that we’ve seen how to use quarto to create a website locally, we can leverage it in publishing the website.\nWe’ve talked in the past how we should ignore generated files in a git repository, but this is an exception where we actually need to keep the rendered html files from quarto. Otherwise github pages will not have anything to render.\nWe can use any of the git methods we’ve learned to get our quarto files into a github repository.\n\ngit init + create the remote repo + connect the remote URLs\ncreate the remote repo + git clone\n\nOnce all our files are on github, we can tell github to render the website files.\n\nGo to the repository settings (not your account settions)\nGoto the “Pages” options\n\nWe have a few options to tell github how to render a webssite. Currently, our files are in the main branch, but the only options for deploying from main is under / root or /docs. This is a problem because our quarto website defaults to putting all the website files into _site/\nWe can change the directory quarto renders the files into by editing our _quarto.yml file. Let’s have it render the website files into a folder github understands.\nproject:\n  type: website\n  output-dir: docs\nWhen you re-render your site now, the output should reflect your new output directory:\n$ quarto render\n[1/2] about.qmd\n[2/2] index.qmd\n\nOutput created: docs/index.html\nDont forget to save your yaaml file, re-render, remove the old _site folder, add, commit, and push your changes.\nOn your main github repo, you’ll notice a burnt orange dot next to the latest commit hash. This is github’s continuous integration / deployment system creating and publishing your site. When the icon is green, you can navibate to your site and behold publishing somethign on the internet!",
-    "crumbs": [
-      "Home",
-      "Lecture 4: Introduction to Quarto and Github Pages"
-    ]
-  },
-  {
-    "objectID": "lectures/4-quarto_github_pages.html#quarto-for-rendering-your-mds-assignments",
-    "href": "lectures/4-quarto_github_pages.html#quarto-for-rendering-your-mds-assignments",
-    "title": "Introduction to Quarto and Github Pages",
-    "section": "Quarto for rendering your MDS assignments",
-    "text": "Quarto for rendering your MDS assignments\nYou can use quarto render to render your MDS documents into different output formats, e.g., pdf or html. For more information you can explore how quarto render works by calling the help page for render. This can be particularly useful when trying to export out pdf documents from a jupyter notebook if other methods are not working.\n$ quarto help render\n\nUsage:   quarto render [input] [args...]\nVersion: 1.5.55\n\nDescription:\n\n  Render files or projects to various document types.\n\nOptions:\n\n  -h, --help                          - Show this help.\n  -t, --to                            - Specify output format(s).\n  -o, --output                        - Write output to FILE (use '--output -' for stdout).\n  --output-dir                        - Write output to DIR (path is input/project relative)\n  -M, --metadata                      - Metadata value (KEY:VALUE).\n  --site-url                          - Override site-url for website or book output\n  --execute                           - Execute code (--no-execute to skip execution).\n  -P, --execute-param                 - Execution parameter (KEY:VALUE).\n  --execute-params                    - YAML file with execution parameters.\n  --execute-dir                       - Working directory for code execution.\n  --execute-daemon                    - Keep Jupyter kernel alive (defaults to 300 seconds).\n  --execute-daemon-restart            - Restart keepalive Jupyter kernel before render.\n  --execute-debug                     - Show debug output when executing computations.\n  --use-freezer                       - Force use of frozen computations for an incremental file render.\n  --cache                             - Cache execution output (--no-cache to prevent cache).\n  --cache-refresh                     - Force refresh of execution cache.\n  --no-clean                          - Do not clean project output-dir prior to render\n  --debug                             - Leave intermediate files in place after render.\n  pandoc-args...                      - Additional pandoc command line arguments.\n  --log                     &lt;file&gt;    - Path to log file\n  --log-level               &lt;level&gt;   - Log level (info, warning, error, critical)\n  --log-format              &lt;format&gt;  - Log format (plain, json-stream)\n  --quiet                             - Suppress console output.\n  --profile                           - Active project profile(s)\n\nCommands:\n\n  help  [command]  - Show this help or the help of a sub-command.\n\nExamples:\n\n  Render Markdown:    quarto render document.qmd\n                      quarto render document.qmd --to html\n                      quarto render document.qmd --to pdf --toc\n  Render Notebook:    quarto render notebook.ipynb\n                      quarto render notebook.ipynb --to docx\n                      quarto render notebook.ipynb --to pdf --toc\n  Render Project:     quarto render\n                      quarto render projdir\n  Render w/ Metadata: quarto render document.qmd -M echo:false\n                      quarto render document.qmd -M code-fold:true\n  Render to Stdout:   quarto render document.qmd --output -\nYou can also use quarto render --help to get the same help output. :::{.activity} ::::{.activity-header} ## Lecture 4 Activity 4\n:::: ::::{.activity-container}\nWhich GitHub repository name allows you to create a personal website with the URL https://USERNAME.github.io/?\nA. README.md\nB. USERNAME.github.io\nC. index.html\nD. docs\n:::: :::\n\n\nLecture 4 Exercise 1\n\n\nCreating and Deploying a Quarto Website\nObjective: By completing this exercise, students will gain hands-on experience in creating a Quarto website and deploying it using GitHub Pages.\nInstructions:\n\nCreate a New Quarto Website Project:\n\nOpen your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).\nUse the quarto create project command to create a new Quarto website project.\n\nquarto create project\n\nSelect “website” as the project type and provide a directory name for your project.\n\nNavigate to Your Project Directory:\n\nChange into the newly created project directory.\n\ncd your_project_directory\nCustomize Your Quarto Website:\n\nOpen the _quarto.yml file in a text editor and customize the settings as needed.\n\nproject:\n  type: website\n  output-dir: docs\n\nModify the content of the index.qmd and about.qmd files to personalize your website.\n\nRender Your Quarto Website:\n\nUse the quarto render command to generate the HTML files for your website.\n\nquarto render\n\nVerify that the output is created in the docs directory.\n\nInitialize a Git Repository:\n\nIf you haven’t already, initialize a Git repository in your project directory.\n\ngit init\n\nAdd all files to the Git repository and commit them.\n\ngit add .\ngit commit -m \"Initial commit of Quarto website\"\nPush Your Project to GitHub:\n\nCreate a new repository on GitHub and follow the instructions to push your local repository to GitHub.\n\ngit remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git\ngit branch -M main\ngit push -u origin main\nEnable GitHub Pages:\n\nGo to the settings of your GitHub repository.\nUnder the “Pages” section, set the source to the docs folder on the main branch.\nSave the settings and wait for GitHub to publish your website.\n\nVerify Your Website:\n\nNavigate to https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPOSITORY_NAME to see your published Quarto website.\n\n\nQuestions:\n\nWhat command do you use to create a new Quarto website project?\nHow do you customize the settings for your Quarto website?\nWhat steps do you take to render your Quarto website and generate the HTML files?\nHow do you initialize a Git repository and push it to GitHub?\nWhat settings do you need to change in GitHub to enable GitHub Pages for your website?",
-    "crumbs": [
-      "Home",
-      "Lecture 4: Introduction to Quarto and Github Pages"
-    ]
-  },
-  {
-    "objectID": "lectures/4-quarto_github_pages.html#improving-your-quarto-experience",
-    "href": "lectures/4-quarto_github_pages.html#improving-your-quarto-experience",
-    "title": "Introduction to Quarto and Github Pages",
-    "section": "Improving your quarto experience",
-    "text": "Improving your quarto experience\nQuarto works with a few IDEs and text editors.\n\nVSCode extension: https://marketplace.visualstudio.com/items?itemName=quarto.quarto\nRStudio: Comes with RStudio (you can also manually install it as a terminal application)\nJupyter Lab: there is no official jupyter quarto extension, but quarto can work with jupyter notebooks in the command line tool",
-    "crumbs": [
-      "Home",
-      "Lecture 4: Introduction to Quarto and Github Pages"
     ]
   },
   {
@@ -1624,267 +1783,119 @@
     ]
   },
   {
-    "objectID": "lectures/0-jupyterlab-orientation-intro.html",
-    "href": "lectures/0-jupyterlab-orientation-intro.html",
-    "title": "JupyterLab Orientation",
+    "objectID": "lectures/7-virtual-environments.html",
+    "href": "lectures/7-virtual-environments.html",
+    "title": "Virtual environments",
     "section": "",
-    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface",
+    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv",
     "crumbs": [
       "Home",
-      "Lecture 0a: JupyterLab Orientation"
+      "Lecture 7: Virtual environments"
     ]
   },
   {
-    "objectID": "lectures/0-jupyterlab-orientation-intro.html#learning-objectives",
-    "href": "lectures/0-jupyterlab-orientation-intro.html#learning-objectives",
-    "title": "JupyterLab Orientation",
+    "objectID": "lectures/7-virtual-environments.html#learning-outcomes",
+    "href": "lectures/7-virtual-environments.html#learning-outcomes",
+    "title": "Virtual environments",
     "section": "",
-    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface",
+    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv",
     "crumbs": [
       "Home",
-      "Lecture 0a: JupyterLab Orientation"
+      "Lecture 7: Virtual environments"
     ]
   },
   {
-    "objectID": "lectures/0-jupyterlab-orientation-intro.html#what-is-jupyterlab",
-    "href": "lectures/0-jupyterlab-orientation-intro.html#what-is-jupyterlab",
-    "title": "JupyterLab Orientation",
-    "section": "What is JupyterLab",
-    "text": "What is JupyterLab\nThe most rudimentary interaction with programming languages such as R and Python is via interactive shells run from a terminal. This provides access to the full functionality of the language, but is a barebones experience without any conveniences added. If you want to edit a script or view a plot that you created, you need to open a text editor and image viewer separately.\nIf you prefer a more holistic experience, with many of conveniences nicely organized in the same interface, you can use an integrated development environment (or IDE for short). IDEs often include a shell, a file browser, debugging tools, version control, a text editor with autocompletion and syntax highlighting, and an area where plots show up. A core idea of IDEs is to provide all the tools you need in one place. Commons IDEs that you might have heard of include Visual Studio Code and RStudio. This lesson will discuss JupyterLab, which is and IDE to work with many programming languages, including R, Python, Julia, and many more. A core concept tightly linked to JupyterLab are Jupyter Notebooks, which will be one of the main topics in this talk. Let’s see how we can launch them.",
+    "objectID": "lectures/7-virtual-environments.html#lecture-7-activity-1",
+    "href": "lectures/7-virtual-environments.html#lecture-7-activity-1",
+    "title": "Virtual environments",
+    "section": "Lecture 7 Activity 1",
+    "text": "Lecture 7 Activity 1",
     "crumbs": [
       "Home",
-      "Lecture 0a: JupyterLab Orientation"
+      "Lecture 7: Virtual environments"
     ]
   },
   {
-    "objectID": "lectures/0-jupyterlab-orientation-intro.html#how-to-access-jupyterlab",
-    "href": "lectures/0-jupyterlab-orientation-intro.html#how-to-access-jupyterlab",
-    "title": "JupyterLab Orientation",
-    "section": "How to Access JupyterLab",
-    "text": "How to Access JupyterLab\nYou can access JupyterLab from an online remote server or a local machine.\n\nOnline Server\nWe could install and run JupyterLab just like any other program on Windows, MacOS, or Linux. However, one of the advantages of JupyterLab is that it is easy to use without installing anything. To try JupyterLab, use your web browser to visit the UBC Jupyter Server and login with your CWL (Firefox, and Chrome are supported). You can also try JupyterLab through Project Jupyter (https://jupyter.org/try) or Posit Cloud (https://posit.cloud/).\n\n\nLocal Machine\nIf you have already completed the installation instructions, you can open the terminal and run:\njupyter lab\nJupyterLab will open in a browser whether you run it locally or you are using it through UBC server. Note that if you are running JupyterLab in your machine, the URL could be similar to https://localhost:8888/lab. In this case localhost is referring to your computer, not to a webpage.",
+    "objectID": "lectures/7-virtual-environments.html#conda",
+    "href": "lectures/7-virtual-environments.html#conda",
+    "title": "Virtual environments",
+    "section": "Conda",
+    "text": "Conda\nconda is an open source package and environment management system for any programming language; though it is the most popular in the python community. Anaconda is a data science platform for Python that comes with a lot of packages by default. Unlike Anaconda, Miniconda doesn’t come with any installed packages by default, and we can pick and choose which ones we want. Both include Python and conda.\nFor example, the MDS Python installation instructions had you install Miniconda. All flavors of *conda give you the conda function in the terminal.\n\nManaging Conda\nLet’s first start by checking if conda is installed.\nconda --version\nwhich conda\nTo see which conda commands are available, type conda --help. To see the full documentation for any command of these commands, type the command followed by --help. For example, to learn about the conda update command:\nconda update --help\nLet’s update our conda to the latest version. Note that you might already have the latest version since we downloaded it recently.\nconda update conda\nYou will see some information about what there is to update and be asked if you want to confirm. The default choice is indicated with [], and you can press Enter to accept it. It would look similar to this:\nUsing Anaconda Cloud api site https://api.anaconda.org\nFetching package metadata: ....\n.Solving package specifications: .........\n\nPackage plan for installation in environment //anaconda:\n\nThe following packages will be downloaded:\n\n    package                    |            build\n    ---------------------------|-----------------\n    conda-env-2.6.0            |                0          601 B\n    ruamel_yaml-0.11.14        |           py27_0         184 KB\n    conda-4.2.12               |           py27_0         376 KB\n    ------------------------------------------------------------\n                                           Total:         560 KB\n\nThe following NEW packages will be INSTALLED:\n\n    ruamel_yaml: 0.11.14-py27_0\n\nThe following packages will be UPDATED:\n\n    conda:       4.0.7-py27_0 --&gt; 4.2.12-py27_0\n    conda-env:   2.4.5-py27_0 --&gt; 2.6.0-0\n    python:      2.7.11-0     --&gt; 2.7.12-1\n    sqlite:      3.9.2-0      --&gt; 3.13.0-0\n\nProceed ([y]/n)? y\n\nFetching packages ...\nconda-env-2.6. 100% |################################| Time: 0:00:00 360.78 kB/s\nruamel_yaml-0. 100% |################################| Time: 0:00:00   5.53 MB/s\nconda-4.2.12-p 100% |################################| Time: 0:00:00   5.84 MB/s\nExtracting packages ...\n[      COMPLETE      ]|###################################################| 100%\nUnlinking packages ...\n[      COMPLETE      ]|###################################################| 100%\nLinking packages ...\n[      COMPLETE      ]|###################################################| 100%\nIn this case, conda itself needed to be updated, and along with this update some dependencies also needed to be updated. There is also a NEW package that was INSTALLED in order to update conda. You don’t need to worry about remembering to update conda, it will let you know if it is out of date when you are installing new packages.",
     "crumbs": [
       "Home",
-      "Lecture 0a: JupyterLab Orientation"
+      "Lecture 7: Virtual environments"
     ]
   },
   {
-    "objectID": "lectures/0-jupyterlab-orientation-intro.html#using-jupyter-notebooks",
-    "href": "lectures/0-jupyterlab-orientation-intro.html#using-jupyter-notebooks",
-    "title": "JupyterLab Orientation",
-    "section": "Using Jupyter Notebooks",
-    "text": "Using Jupyter Notebooks\n\nWe’re greeted by the launcher tab where we see that we can start either a Notebook or Console for Python or R, as well as some other utility programs. Let’s start by explaining one of the most popular options, the Jupyter Notebook. The Notebook provides and interface where you can mix text, code, mathematical expressions, plot output, videos, and more, all in the same file. So instead of the traditional IDE experience where you would write code in a text file and then have figures pop up in a different panel, this information now all resides in the same document, which facilitates reproducibility and collaboration. The Notebooks can be exported to many formats, including PDF and HTML, which makes it easy to share your project with anyone. The cell that is encircled in blue is where we can input Python code, click here and type any mathematical expression, and then run the cell by clicking the play button in the top toolbar:\n\n3 + 4\n\n7\n\n\n\nAs you can see, the output is returned just under input, and a new input cell was created. We could also have clicked the plus sign to create a new cell. Here, we can do anything we can do in Python, e.g. variable assignment:\n\na = 5\n\nThere is no output because we just assigned a value to a variable, without asking for the value of that variable, which we can do by typing out the variable name:\n\na\n\n5\n\n\nJupyter Notebooks also supports editing code on multiple lines, so we could have done this instead:\n\na = 3\na\n\n3\n\n\n\nYou might have noticed that there is a little counter on the left of each cell. This counter keeps track of in which order the cells were executed, so that you are aware if cells have been run out of sequential order. The counter symbol changes to an * when a computation is running, to indicate that Python is busy and won’t be able to execute new cells until the current one finishes (the delay is only noticeable for longer computations).\nWe can also click this blue bar to the left to collapse and expand the output and input. This can be handy if we have a long code cell, or some notes that we’re planning on moving later.\n\nThe notebook is saved automatically every two minutes, and it can be saved manually by clicking the floppy disk symbol in the toolbar, or by hitting Ctrl + s (Windows/Linux) or ⌘ + s (Mac). Both input and output cells are saved, so any plots that you make will be present in the notebook next time you open it, without needing to rerun the code cells.\nOther important icons in the toolbar are the ones to cut, copy, and paste a cell. If you want to get rid of a cell, you can cut it out without pasting in back in.\nThe remaining icons are:\n\nplay: to run a cell (which we already used),\nstop: which we can use if a cells has gotten stuck running some code and we want to interrupt it,\nrestart: which restarts the background Python process that is connected to the notebook (so if we click this, our variables will need to be redefined),\nrestart and run all: this is really important and should always be executed before sharing a notebook, to make sure that everything will work when someone else runs it from top to bottom, since the cells can be executed out of order.\n\nYou can also access these by right clicking on a cell.\n\nWorking with text via Markdown cells\nYou can change the input cell type from Python code to Markdown by clicking on the little dropdown menu in the toolbar that reads Code.\n\nMarkdown is a simple formatting system which allows you to document your analysis within the notebook. This is also great for creating tutorials and even books as we will see later. It is a plain text format that includes brief markup tags that indicates how text should be rendered, e.g. * indicates italics and ** indicates bold typeface. If you have commented on online forums or used a chat application, you might already be familiar with markdown. Below is a short example of the syntax:\n#### Markdown Example: Heading Level Four\n\n- A bullet point\n- *Emphasis in italics*\n- **Strong emphasis in bold**\n- This is a [link to learn more about markdown](https://guides.github.com/features/mastering-markdown/).\n- Support for $\\LaTeX$ equations:\n$$f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x-a}$$\nwill be rendered as:\n\nMarkdown Example: Heading Level Four\n\nA bullet point\nEmphasis in italics\nStrong emphasis in bold\nThis is a link to learn more about markdown.\nSupport for \\(\\LaTeX\\) equations: \\[f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x-a}\\]",
+    "objectID": "lectures/7-virtual-environments.html#managing-environments",
+    "href": "lectures/7-virtual-environments.html#managing-environments",
+    "title": "Virtual environments",
+    "section": "Managing Environments",
+    "text": "Managing Environments\n\nWhat is a conda environment and why is it so useful?\nUsing conda, you can create an isolated python environment for your project. An environment is a set of packages that can be used in one or multiple projects. There are several major benefits of using environments:\n\nYou can guarantee that someone else can reproduce your project by specifying which package versions your used and making it easy for others to install the same versions.\nIf two of your projects relies on different versions of the same package, you can install these in different environments.\nIf you want to play around with a new package, you don’t have to change the packages you use for your data analysis and risk messing something up.\nWhen you develop your own packages, it is essential to use environments, since you want to to make sure you know exactly which packages yours depend on, so that it runs on other systems than your own.\n\nThe default environment is the base environment, which contains only the essential packages from Miniconda (assuming you installed Miniconda). You can see that your shell’s prompt string is prefaced with (base) when you are inside this environment. In the setup guide, we gave your instructions for how to activate this environment by default every time you open Bash. There are two ways of creating a conda environment.\n\nManual specifications of packages.\nAn environment file in YAML format (environment.yaml).\n\n\n\nCreating environment by manually specifying packages\nWe can create test_env conda environment by typing conda -n &lt;name-of-env&gt;. However, it is often useful to specify more than just the name of the environment, e.g. the channel from which to install packages, the Python version, and a list of packages to install into the new env. In the example below, I am creating the test_env environment that uses python 3.7 and a list of libraries: jupyterlab and pandas. I am explicitely installing my packages from the conda-forge repository (also part of the MDS setup instructions).\nconda create -n test_env -c conda-forge python=3.7 jupyterlab pandas=1.0.2\nconda will solve any dependencies between the packages like before and create a new environment with those packages. Usually, we don’t need to specify the channel, but in this case I want to get the very latest version of these packages, and they are made available in conda-forge before they reach the default conda channel.\nTo activate this new environment, you can type conda activate test_env (and conda deactivate for deactivating). Since you will do this often, we created an alias shortcut ca that you can use to activate environments. To know the current environment that you’re in you can look at the prefix of the prompt string in your shell which now changed to (test_env). And to see all your environments, you can type conda env list.\n\nRemoving enviornments\nIf you are creating environments for practice, or you want to recreate an environment you can delete your conda enviornments by:\n# look for all the installed enviornments\nconda env list\n# delete an enviornment\nconda remove --name ENV_NAME --all\nSimiliarly, all your enviornments are installed within your miniconda3 folder, which is typically located in ~/miniconda3 In here you will see an env folder. If you delete the folder with the corresponging enviornment name (e.g., with rm) you can also delete an enviornment this way too.\n\n\n\nSharing Environments with others\nTo share an environment, you can export your conda environment to an environment file, which will list each package and its version in the format package=version=build.\nExporting your environment to a file called environment.yaml (it could be called anything, but this is the conventional name and using it makes it easy for others to recognize that this is a conda env file, the extension can be either .yaml or .yml):\nconda env export -f environment.yaml\nRemember that .yaml files are plain text, so you can use a text editor such as VS Code to open them. If you do, you will realize that this environment file has A LOT more packages than jupyterlab and pandas. This is because the default behavior is to also list the dependencies that were installed together with these packages, e.g. numpy. This is good in the sense that it gives an exact copy of everything in your environment.\nHowever, some dependencies might differ between operating systems, so this file might not work with someone from a different OS. To remedy this, you can append the --from-history flag, which look at the history of the packages you explicitly told conda to install and only list those in the export. The required dependencies will then be handled in an OS-specific manner during the installation, which guarantees that they will work across OSes. This environment.yaml file would be much shorter and look something like this:\nname: test_env\nchannels:\n  - conda-forge\n  - defaults\ndependencies:\n  - conda\n  - python=3.7\n  - pandas==1.0.2\n  - jupyterlab\nImportantly, this will not include the package version unless you included it when you installed with the package==version syntax. For an environment to be reproducible, you NEED to add the version string manually.\n\nLecture\n\n\n\nCreating environment from an environment file\nNow, let’s install environment.yaml environment file above so that we can create a conda environment called test_env.\n$ conda env create --file environment.yaml\n\n\nCopying an environment\nWe can make an exact copy of an environment to an environment with a different name. This maybe useful for any testing versus live environments or different Python 2.7 versions for the same packages. In this example, test_env is cloned to create live_env.\nconda create --name live_env --clone test_env\n\n\nDeleting an environment\nSince we are only testing out our environment, we will delete live_env to remove some clutter. Make sure that you are not currently using live_env.\nconda env remove -n live_env\n\n\nMaking environments work well with JupyterLab\nIn brief, you need to install the ipykernel package in any new environment your create, and the nb_conda_kernels package needs to be installed in the environment where JupyterLab is installed.\nBy default, JupyterLab only sees the conda environment where it is installed. Since it is quite annoying to install JupyterLab and its extensions separately in each environment, there is a package called nb_conda_kernels that makes it possible to have a single installation of JupyterLab access kernels in other conda environments. This package needs to be installed in the conda environment where JupyterLab is installed.\nLastly, you also need to install a kernel in the new conda environment so that it can be detected by nb_conda_kernels. This kernel can be installed via the package ipykernel for Python and the r-irkernel package for R (more info in the nb_conda_kernels README).",
     "crumbs": [
       "Home",
-      "Lecture 0a: JupyterLab Orientation"
+      "Lecture 7: Virtual environments"
     ]
   },
   {
-    "objectID": "lectures/0-jupyterlab-orientation-intro.html#lecture-0-exercise-1-creating-and-positioning-a-heading-in-jupyterlab",
-    "href": "lectures/0-jupyterlab-orientation-intro.html#lecture-0-exercise-1-creating-and-positioning-a-heading-in-jupyterlab",
-    "title": "JupyterLab Orientation",
-    "section": "Lecture 0 Exercise 1 : Creating and Positioning a Heading in JupyterLab",
-    "text": "Lecture 0 Exercise 1 : Creating and Positioning a Heading in JupyterLab",
+    "objectID": "lectures/7-virtual-environments.html#managing-packages",
+    "href": "lectures/7-virtual-environments.html#managing-packages",
+    "title": "Virtual environments",
+    "section": "Managing Packages",
+    "text": "Managing Packages\n\nSeeing what packages are available\nWe will now check packages that are available to us. The command below will list all the packages in an environment, in this case test_env. The list will include versions of each package, the specific build, and the channel that the package was downloaded from. conda list is also useful to ensure that you have installed the packages that you desire.\nconda list\n# packages in environment at //miniconda/envs/test_env:\n#\nUsing Anaconda Cloud api site https://api.anaconda.org\nblas                      1.1                    openblas    conda-forge\nca-certificates           2016.9.26                     0    conda-forge\ncertifi                   2016.9.26                py27_0    conda-forge\ncycler                    0.10.0                   py27_0    conda-forge\nfreetype                  2.6.3                         1    conda-forge\nfunctools32               3.2.3.2                  py27_1    conda-forge\nlibgfortran               3.0.0                         0    conda-forge\n\n\nSearching for a certain package\nSome packages might not be available in conda, but are available in pypi. For example, we will search for rasterio within the anaconda cloud. It is not necessary to create an account with anaconda cloud, unless you’d like to contribute in the future when you are pro with conda.\nIn this example, we will use rasterio from conda-forge. The anaconda cloud page for rasterio will show how to install the package, compatible OS, individual files for that package, etc.\nWith conda you can do this search within the command line:\nconda search rasterio\nUsing Anaconda Cloud api site https://api.anaconda.org\nRun 'anaconda show &lt;USER/PACKAGE&gt;' to get more details:\nPackages:\n     Name                      |  Version | Package Types   | Platforms\n     ------------------------- |   ------ | --------------- | ---------------\n     IOOS/rasterio             |    1.0a2 | conda           | linux-64, win-32, win-64, osx-64\n     Terradue/rasterio         |   0.32.0 | conda           | linux-64\n                                          : Fast and direct raster I/O for use with Numpy and SciPy\n     anaconda/rasterio         |   0.36.0 | conda           | linux-64, win-32, win-64, linux-32, osx-64\n     conda-forge/rasterio      |    1.0a2 | conda           | linux-64, win-32, win-64, osx-64\n                                          : Rasterio reads and writes geospatial raster datasets\n     dharhas/rasterio          |   0.23.0 | conda           | win-64\n                                          : Rasterio reads and writes geospatial raster datasets.\n     erdc/rasterio             |   0.23.0 | conda           | win-64\n                                          : Rasterio reads and writes geospatial raster datasets.\n     jesserobertson/rasterio   |   0.23.0 | conda           | linux-64, linux-32, osx-64\n     jhamman/rasterio_to_xarray | 2016.03.16-1558 | ipynb           |\n                                          : IPython notebook\n     krisvanneste/rasterio     |   0.26.0 | conda           | win-64\n     ocefpaf/rasterio          |   0.19.1 | conda           | linux-64, osx-64\n     omgarcia/rasterio         |   0.25.0 | conda           | linux-64\n     pypi/rasterio             |   0.13.2 | pypi            |\n                                          : Fast and direct raster I/O for Python programmers who use Numpy\n     robintw/rasterio          |   0.35.1 | conda           | osx-64\n                                          : Rasterio reads and writes geospatial raster datasets\n     sgillies/rasterio         |     0.15 | conda           | osx-64\n     ztessler/rasterio         |   0.31.0 | conda           | osx-64\n                                          : Fast and direct raster I/O for use with Numpy and SciPy\nFound 15 packages\n\n\nInstalling conda package\nUnder the name column of the result in the terminal or the package column in the Anaconda Cloud listing, shows the necessary information to install the package. e.g. conda-forge/rasterio. The first word list the channel that this package is from and the second part shows the name of the package.\nTo install the latest version available within the channel, do not specify in the install command. We will install version 0.35 of rasterio from conda-forge into test_env in this example. Conda will also automatically install the dependencies for this package.\nconda install -c conda-forge rasterio=0.35\nIf you have a few trusted channels that you prefer to use, you can pre-configure these so that everytime you are creating an environment, you won’t need to explicitly declare the channel.\nconda config --add channels conda-forge\n\nRemoving a conda Package\nWe decided that rasterio is not needed in this tutorial, so we will remove it from test_env. Note that this will remove the main package rasterio and its dependencies (unless a dependency was installed explicitly at an earlier point in time or is required be another package).\nconda remove -n test_env rasterio\nUsing Anaconda Cloud api site https://api.anaconda.org\nFetching package metadata .........\nSolving package specifications: ..........\n\nPackage plan for package removal in environment //anaconda/envs/test_env:\n\nThe following packages will be REMOVED:\n\n    rasterio: 0.35.1-np111py27_1 conda-forge\n\nProceed ([y]/n)? y\n\nUnlinking packages ...\n[      COMPLETE      ]|#######################################################################################################| 100%\n\nSelect all the correct answers\nWhich of the following sentences are true about Conda?\nA. It is a command line tool\nB. It is a package manager\nC. It is a Python package\nD. It is installed as part of Anaconda and Miniconda\nE. It is a metapackage\nF. It installs Python\nG. Using it you can handle Python packages only",
     "crumbs": [
       "Home",
-      "Lecture 0a: JupyterLab Orientation"
+      "Lecture 7: Virtual environments"
     ]
   },
   {
-    "objectID": "lectures/0-jupyterlab-orientation-intro.html#jupyterlab-sidebars",
-    "href": "lectures/0-jupyterlab-orientation-intro.html#jupyterlab-sidebars",
-    "title": "JupyterLab Orientation",
-    "section": "JupyterLab sidebars",
-    "text": "JupyterLab sidebars\nNow that you know the basics of how to work inside Jupyter Notebooks, let’s continue explorer the JupyterLab user interface.\n\nLeft sidebar\n\nExtension Manager\n\nThe puzzle piece at the bottom is where you can install extensions.\n\nTable of Contents\n\nIt allows navigate the structure of the document easily.\n\nGit\n\nGit version control interface.\n\nRunning terminals and kernels\n\nOverview of all running applications.\n\nFile browser\n\nThe topmost icon in the sidebar to the left shows the file tree of your current folder, highlights include:\n\nthe icon for uploading files from your computer to the UBC Jupyter server (or your folder if you run locally)\nright clicking a file to download it to your computer\nclicking the + sign takes us back to the launcher menu where we started\n\n\n\nRight sidebar\n\nProperty Inspector:\n\nThis is a bit more advanced as it allows you to add metadata to cells.\nOne aspect worth highlighting here is the ability to denote cells as part of a slide show, that you can download via File -&gt; Export notebook as.\n\nDebugger",
+    "objectID": "lectures/7-virtual-environments.html#attribution",
+    "href": "lectures/7-virtual-environments.html#attribution",
+    "title": "Virtual environments",
+    "section": "Attribution",
+    "text": "Attribution\nThe conda virtual environment section of this guide was originally published at http://geohackweek.github.io/ under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.",
     "crumbs": [
       "Home",
-      "Lecture 0a: JupyterLab Orientation"
+      "Lecture 7: Virtual environments"
     ]
   },
   {
-    "objectID": "lectures/0-jupyterlab-orientation-intro.html#additional-jupyterlab-applications",
-    "href": "lectures/0-jupyterlab-orientation-intro.html#additional-jupyterlab-applications",
-    "title": "JupyterLab Orientation",
-    "section": "Additional JupyterLab applications",
-    "text": "Additional JupyterLab applications\nJupyterLab can run applications other than notebooks, e.g. there is a Python console, a text editor, and a terminal emulator. These can be opened via the launcher page or File --&gt; New. Applications can be placed side by side by dragging and dropping their windows, so we could be running a terminal and notebook next to each other.\nThe Command palette enable users to invoke commands directly:\n\nWindows/Linux: Ctrl + Shift + C\nMac: ⌘ + Shift + C\nView --&gt; Activate Command Palette\n\n\nHow to get help in the notebook\nOne application that is especially helpful to run next to a notebook is the Contextual Help. This application displays documentation automatically as you type. When you’re using unfamiliar packages and functions, it is a good habit to leave the Contextual Help open next to the notebook. If you don’t like having a split screen, you can instead press Shift + Tab to bring up a help dialogue. JupyterLab also supports tab completion, you can start typing a name and then press tab to see suggestions to expand to. Additional help is available via the “Help” menu, which links to useful online resources (for example Help --&gt; JupyterLab Reference).\n\n\nNote about UBC Jupyter Server\n\n\nAll your files will be saved between restarts, but any Python packages you have installed yourself will be reset, so you need to contact UBC IT to have additional Python packages installed with persistence.",
+    "objectID": "lectures/7-virtual-environments.html#attribution-1",
+    "href": "lectures/7-virtual-environments.html#attribution-1",
+    "title": "Virtual environments",
+    "section": "Attribution",
+    "text": "Attribution\nThe conda virtual environment section of this guide was originally published at http://geohackweek.github.io/ under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.",
     "crumbs": [
       "Home",
-      "Lecture 0a: JupyterLab Orientation"
+      "Lecture 7: Virtual environments"
     ]
   },
   {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html",
-    "title": "Getting grovy with Git and GitHub",
+    "objectID": "readings/readings-ch-08.html",
+    "href": "readings/readings-ch-08.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
     "section": "",
-    "text": "Explore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project.",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
+    "text": "Regex\nRegex test\nPracticing Regex\nThree tips for posting good questions to R-help and Stack Overflow\nHow to create a Minimal, Complete, and Verifiable example\nGood Enough Practices in Scientific Computing\n.gitignore"
   },
   {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#learning-outcomes",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#learning-outcomes",
-    "title": "Getting grovy with Git and GitHub",
+    "objectID": "readings/readings-ch-07.html",
+    "href": "readings/readings-ch-07.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
     "section": "",
-    "text": "Explore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project.",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
+    "text": "conda environemnts\nrenv\nWorkflow: projects"
   },
   {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#introduction",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#introduction",
-    "title": "Getting grovy with Git and GitHub",
-    "section": "Introduction",
-    "text": "Introduction\nIn this lecture, we’ll explore how to view your Git history and restore older versions of files. Understanding your project’s history is crucial for tracking changes and fixing mistakes. Let’s dive into the different methods for accessing your commit history and how to revert to previous file versions when needed.",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
+    "objectID": "readings/readings-ch-02.html",
+    "href": "readings/readings-ch-02.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Excuse me, do you have a moment to talk about version control? by Jenny Bryan\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks"
   },
   {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#viewing-the-history-of-a-project",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#viewing-the-history-of-a-project",
-    "title": "Getting grovy with Git and GitHub",
-    "section": "Viewing the history of a project",
-    "text": "Viewing the history of a project\nThere are two ways to view the Git history of a project: you can either use the repository’s code commit view on GitHub, or you can use the git log command on your local machine.\n\nSteps to follow:\n\nStep 1: On GitHub, on the repo’s landing page click “\\(N\\) commit” link (where \\(N\\) is the number of commits made on the repo, yours should be around 6).\nStep 2: On your laptop, from inside your Git repository type git log at the command line. You can use git log --oneline for more succinct output or the alias shortcut gl that we created.\n\nYou can navigate this log by scrolling with the mouse, arrow keys, or by the same commands we used with man in the first lecture\n\nq = quit\nb/space = up/down\n/ + search term + enter = search for a word\nn/N got to next/previous match for the search term\n\nYou don’t need to memorize these commands, they’re here as a resource if you wish to use them instead of the mouse and arrow keys.",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-1",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-1",
-    "title": "Getting grovy with Git and GitHub",
-    "section": "Lecture 3 Activity 1",
-    "text": "Lecture 3 Activity 1",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#restoring-an-older-version-of-a-file",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#restoring-an-older-version-of-a-file",
-    "title": "Getting grovy with Git and GitHub",
-    "section": "Restoring an older version of a file",
-    "text": "Restoring an older version of a file\nOh no! We realize by viewing the history that we made a mistake! We didn’t mean to delete our list of dependencies. Worry not! We can now take advantage that we have been tracking this file under version control by using git restore to retrieve an older version of the file to replace the current version.\nLet’s restore the version of the file BEFORE we deleted the software dependency list.\n\nSteps to follow:\n\nStep 1: Examine the log to identify the version of the file you want to revert to and note its short SHA-1 (the first few characters of the commit ID). You’ll need this to specify the exact point in time from which to retrieve the file.\nStep 2: Next, use the git restore command in the terminal to retrieve the file: git restore --source SHORT_SHA-1 FILENAME (you can also use -s as a shorthand for --source).\nStep 3: When restoring the file, it is added to the working area. To save the restored version of the file to the Git repository, you need to add and commit it, just like any other modification.\nStep 4: Don’t forget to run git push to back up the file on GitHub!",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#how-do-you-know-you-have-a-merge-conflict",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#how-do-you-know-you-have-a-merge-conflict",
-    "title": "Getting grovy with Git and GitHub",
-    "section": "How do you know you have a merge conflict?",
-    "text": "How do you know you have a merge conflict?\nIf you have committed some changes locally, you might see something like this when you try to push them:\nTo https://github.com/joelostblom/DSCI_521_lab1_jostblom\n ! [rejected]        master -&gt; master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/joelostblom/DSCI_521_lab1_jostblom'\nhint: Updates were rejected because the tip of your current branch is behind\nhint: its remote counterpart. Merge the remote changes (e.g. 'git pull')\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\nAs the message tells you, there are new changes to the remote repo that you need to pull down from GitHub before you are allowed to push up your changes. If there are no conflicts when you pull, Git will say that everything went OK and you can push up your new changes. If there are conflicts, you will see something like this:\nremote: Counting objects: 5, done.\nremote: Compressing objects: 100% (2/2), done.\nremote: Total 3 (delta 1), reused 3 (delta 1)\nUnpacking objects: 100% (3/3), done.\nFrom https://github.com/joelostblom/DSCI_521_lab1_jostblom\n * branch            master     -&gt; FETCH_HEAD\nAuto-merging README.md\nCONFLICT (content): Merge conflict in README.md\nAutomatic merge failed; fix conflicts and then commit the result.\n\nYou have a merge conflict. Merge conflicts are not bad, they happen to everyone and you will need to know how to instruct git what to do.",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-2",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-2",
-    "title": "Getting grovy with Git and GitHub",
-    "section": "Lecture 3 Activity 2",
-    "text": "Lecture 3 Activity 2",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#what-do-you-do-to-fix-a-merge-conflict",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#what-do-you-do-to-fix-a-merge-conflict",
-    "title": "Getting grovy with Git and GitHub",
-    "section": "What do you do to fix a merge conflict?",
-    "text": "What do you do to fix a merge conflict?\n\nSteps to follow:\n\nStep 1: Open the file that has a conflict (the output of git pull will tell you which files) in a plain text editor (e.g., VS Code).\nStep 2: Look for the conflict (hint: search for &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD).\nStep 3: Fix the conflict by deleting everything you don’t want to keep in the file, including the &lt;&lt;&lt;&lt;&lt;, =====, and &gt;&gt;&gt;&gt;&gt; markers that Git added. Note: VS Code will help you with this by color highlighting the changes and providing buttons you can click to accept either the current or incoming change (or both). Using these buttons instead of modifying the file manually can save you from mistakes that can take a lot of time to troubleshoot and fix, so we highly recommend using this feature.\nStep 4: After the file looks as you want it, add it and commit your changes. Then you can push them up to GitHub.\n\nHere’s an example of a text file with a conflict and how it can look after you have resolved it:\nSome text up here\nthat is not part of the merge conflict,\nbut just included for context.\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nWe added this line in our last commit\n=======\nThis line was added somewhere else\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD precedes the change you made (that you couldn’t push)\n======= is a separator between the conflicting changes\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d flags the end of the conflicting change you pulled from GitHub",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-3",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-3",
-    "title": "Getting grovy with Git and GitHub",
-    "section": "Lecture 3 Activity 3",
-    "text": "Lecture 3 Activity 3",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#what-about-merge-conflicts-of-jupyter-notebooks",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#what-about-merge-conflicts-of-jupyter-notebooks",
-    "title": "Getting grovy with Git and GitHub",
-    "section": "What about merge conflicts of Jupyter notebooks?",
-    "text": "What about merge conflicts of Jupyter notebooks?\n\nFirst - a bit about what a Jupyter notebook is made up of\n\n.ipynb files are “plain” text files, and we can view them in a plain text editor and make some sense of them\nThe contents of the notebook are encoded in JSON format, which means that there are many brackets in the file, which can make it hard to read for humans (but easy for machines).\n\nFor example, this notebook of 2 cells:\n\n\n\nalt tag\n\n\nis encoded by the following JSON:\n{\n \"cells\": [\n  {\n   \"cell_type\": \"markdown\",\n   \"metadata\": {},\n   \"source\": [\n    \"# A Markdown header cell\\n\",\n    \"\\n\",\n    \"Below is a simple example of some code in Python:\"\n   ]\n  },\n  {\n   \"cell_type\": \"code\",\n   \"execution_count\": 1,\n   \"metadata\": {\n    \"collapsed\": false\n   },\n   \"outputs\": [\n    {\n     \"name\": \"stdout\",\n     \"output_type\": \"stream\",\n     \"text\": [\n      \"15\\n\"\n     ]\n    }\n   ],\n   \"source\": [\n    \"x = 5\\n\",\n    \"y = 10\\n\",\n    \"\\n\",\n    \"print(x + y)\"\n   ]\n  }\n ],\n \"metadata\": {\n  \"anaconda-cloud\": {},\n  \"kernelspec\": {\n   \"display_name\": \"Python [Root]\",\n   \"language\": \"python\",\n   \"name\": \"Python [Root]\"\n  },\n  \"language_info\": {\n   \"codemirror_mode\": {\n    \"name\": \"ipython\",\n    \"version\": 3\n   },\n   \"file_extension\": \".py\",\n   \"mimetype\": \"text/x-python\",\n   \"name\": \"python\",\n   \"nbconvert_exporter\": \"python\",\n   \"pygments_lexer\": \"ipython3\",\n   \"version\": \"3.5.1\"\n  }\n },\n \"nbformat\": 4,\n \"nbformat_minor\": 0\n}",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#version-control-and-jupyter-notebook",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#version-control-and-jupyter-notebook",
-    "title": "Getting grovy with Git and GitHub",
-    "section": "Version control and Jupyter notebook",
-    "text": "Version control and Jupyter notebook\nBecause the notebooks are stored as plain text, we can use them for version control, but this is not without issues, since the JSON format can make it difficult to interpret difference between files and to manually fix conflicts.\nJupyterLab IDE has made really easy now fix merge conflicts. …",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#create-a-.gitignore-file",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#create-a-.gitignore-file",
-    "title": "Getting grovy with Git and GitHub",
-    "section": "5. Create a .gitignore file",
-    "text": "5. Create a .gitignore file\nUsing the plain text editor of your choice (mine is VS Code) create a file called .gitignore inside your Git repo. To do this with VS Code, I would type:\ncode .gitignore\nInside the text file, list the files and folders you would like to ignore, one per line. For example:\n.ipynb_checkpoints/\n.DS_Store\nSave the file, and add and commit it with Git. Then try git status again. You should see:\nOn branch timberst-master\nnothing to commit, working tree clean",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#gitignore-tips-and-tricks",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#gitignore-tips-and-tricks",
-    "title": "Getting grovy with Git and GitHub",
-    "section": ".gitignore tips and tricks",
-    "text": ".gitignore tips and tricks\nTo have files or folders ignored in subdirectories within the repo, append **/ to the beginning of their names listed in the .gitignore file. Additionally, consider creating a global .gitignore file so that you do not have to create the same .gitignore for all your repositories.\nLet’s create a gitignore file in our 521 lab 2 repo.\n\nSteps to follow:\nSure, here it is in prose form:\n\nStep 1: Use a text editor (e.g., VS Code, nano, Jupyter) to create a file called .gitignore in your 521 lab 2 repo.\nStep 2: Add **/.ipynb_checkpoints/ to that file and save it.\nStep 3: Add and commit it with Git.\nStep 4: Type git status and see if you no longer see .ipynb_checkpoints/ as an untracked file.\n\nIn Git, we have the flexibility to handle changes in several ways. We can choose to keep the change made in the local repository, keep the change made in the remote repository, write something new to replace both, or get rid of the change entirely.\nTo move the branch we are currently on back to a previously created commit, we can use the git reset command. For example, let’s say we are on the master branch of a repository and the output of git log --oneline looks like this:\nfb962e0 (HEAD -&gt; master) Add md demo\nbcb541e Make heading more precise\n5c01f2f Initial commit\nTo reset the branch to the commit with the message “Make heading more precise,” we would use the command git reset bcb541e. This command repositions the branch to the specified commit, effectively discarding any changes made after that commit.\nWe can move the location of the master branch back in the commit history by typing git reset &lt;sha&gt;. So to move to the previous commit, we would type git reset bcb541e. Our git log would now show this:\nbcb541e (HEAD -&gt; master) Make heading more precise\n5c01f2f Initial commit\nWhat happened to the changes that were made in commit fb962e0? The default behavior is to move them back into the working area, which was indicated by this message that showed up after we did git reset bcb541e:\nUnstaged changes after reset:\nM       README.md\nThat means we could now make any modification we wish and then commit again with a new commit message. If we want to discard the changes instead of moving them to the working area, we can add the --hard flag. Typing git reset --hard 5c01f2f will not show us any message, since the changes are not unstaged, they are discarded. Our log now looks like this\n5c01f2f (HEAD -&gt; master) Initial commit\nAre the previous changes lost forever? Not yet, git keeps a backup of everything that happens in the repo in its “reflog”. Commits that are not part of any branch are referred to as being “dangling”, and are cleared out at regular intervals, rather than immediately. So if we realize that we made a mistake right away, we could get our changes back by doing git reset bcb541e, which would move us forward to the commit we just “deleted”. This behavior should not be relied upon because when the reflog is automatically cleared by git, your changes are gone forever.",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-4",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-4",
-    "title": "Getting grovy with Git and GitHub",
-    "section": "Lecture 3 Activity 4",
-    "text": "Lecture 3 Activity 4",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "lectures/3-git-history-merge-conflicts-stash.html#syncing-with-a-remote-after-resetting",
-    "href": "lectures/3-git-history-merge-conflicts-stash.html#syncing-with-a-remote-after-resetting",
-    "title": "Getting grovy with Git and GitHub",
-    "section": "Syncing with a remote after resetting",
-    "text": "Syncing with a remote after resetting\nThis is a dangerous operation that can delete all your work. If we want to get rid of a commit on a remote, we will need to push our changes. But as we have seen before, git will refuse to push changes when the remote is ahead of the local branch. To override this warning and force git to push to the remote we can use the -f/--force flag.\nForce pushing is dangerous, and you should never do this on the master branch of a repository that you share with collaborators unless you have all discussed this and they are aware of what you are doing. The reason is that by force pushing, you will make it so that everyone else who is using this repository are now out of sync with the master branch, since you have reset master to a previous state. Be careful, better safe than sorry\nTimes when a force push is legitimate includes when you have have rebased a feature branch to syn it with master or if you are working alone and you are 100% sure that you want to remove a commit from GitHub. A safer way to undo a change in a commit, is to make a new commit that removes the content of the old one. You can do this manually, or use git revert &lt;sha&gt; to automatically create a new commit that undoes an old one.\n\nExercise: Accessing and Working with GitHub\n\n\n\nLecture 3 Exercise 1\n\n\nAccessing and Working with GitHub\nObjective: By completing this exercise, students will gain hands-on experience in accessing their GitHub home for MDS, creating, cloning, modifying, and pushing changes to a GitHub repository.\nInstructions:\n\nAccess Your GitHub Home for MDS:\n\nOpen your web browser and navigate to:\n\nhttps://github.ubc.ca/MDS-2021-22/yourCWL_home\n\nReplace yourCWL with your actual CWL.\nHere you will find links to all the courses’ repositories and labs’ repositories.\nHint: Bookmark this page for easy access to all relevant courses’ repositories.\n\nCreate a New Repository on GitHub:\n\nVisit GitHub.com.\nCreate a new repository and ensure you add a README file during the setup process.\n\nClone the Repository:\n\nClone the newly created repository to your local machine.\nNote: If your GitHub username is different from the username on your computer, you will need to configure your Git settings accordingly.\n\ngit clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git\nMake Changes to the README File:\n\nOpen the README file in a text editor.\nAdd some content or modify the existing content.\nSave your changes.\n\nAdd and Commit Your Changes:\n\nStage the changes you made to the README file.\n\ngit add README.md\n\nCommit the changes with a descriptive message.\n\ngit commit -m \"Updated README with new content\"\nCreate a New File, Add, and Commit It:\n\nCreate a new file in the repository (e.g., newfile.txt).\nAdd some content to the new file and save it.\nStage the new file.\n\ngit add newfile.txt\n\nCommit the new file with a descriptive message.\n\ngit commit -m \"Added newfile.txt with initial content\"\nPush Your Changes to GitHub:\n\nPush the changes from your local repository to the remote repository on GitHub.\n\ngit push origin main\nConfirm Your Changes on GitHub:\n\nGo to your GitHub repository page.\nConfirm that the changes to the README file and the new file (newfile.txt) are reflected in the repository.\n\nView Your Git History:\n\nOn GitHub, click on the “Commits” link on the repository’s landing page.\nOn your local machine, use the git log command to view the commit history.\n\ngit log\n\nUse the git log --oneline command for a more concise view.\n\ngit log --oneline\nRestore an Older Version of a File:\n\nIdentify the commit hash for the version you want to restore.\nUse the git restore command to revert to that version.\n\ngit restore --source SHORT_SHA-1 FILENAME\n\nStage and commit the restored file.\n\ngit add FILENAME\ngit commit -m \"Restored FILENAME to previous version\"\n\nPush the changes to GitHub.\n\ngit push origin main\n\nQuestions:\n\nWhat are the steps to access your GitHub home for MDS?\nWhat are the steps to create a new repository on GitHub?\nWhat command do you use to clone a repository to your local computer?\nHow do you add and commit changes to a file in a Git repository?\nWhat command do you use to push changes to GitHub?\nHow do you view your Git history?\nHow do you restore an older version of a file in a Git repository?",
-    "crumbs": [
-      "Home",
-      "Lecture 3: Getting grovy with Git and GitHub"
-    ]
+    "objectID": "readings/readings-ch-03.html",
+    "href": "readings/readings-ch-03.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Comparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks"
   }
 ]
