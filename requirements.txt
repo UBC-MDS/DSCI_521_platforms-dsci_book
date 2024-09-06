@@ -3,5 +3,9 @@ jupyter
 numpy
 matplotlib
 
+# supplemental to help run the course
+jupyterlab
+
 # used for instructors in course grading
 otter-grader==5.6.0
+rpy2
