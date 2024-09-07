@@ -273,7 +273,6 @@ window.Quarto = {
   <li><a href="#setting-up-and-remotely-accessing-ssh-keys-for-use-with-github" id="toc-setting-up-and-remotely-accessing-ssh-keys-for-use-with-github" class="nav-link" data-scroll-target="#setting-up-and-remotely-accessing-ssh-keys-for-use-with-github">Setting Up and Remotely Accessing SSH Keys for Use with GitHub</a>
   <ul class="collapse">
   <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions">Definitions</a></li>
-  </ul></li>
   <li><a href="#what-are-some-password-based-authentication" id="toc-what-are-some-password-based-authentication" class="nav-link" data-scroll-target="#what-are-some-password-based-authentication">What are some password-based authentication</a></li>
   <li><a href="#ssh-key-based-authentication" id="toc-ssh-key-based-authentication" class="nav-link" data-scroll-target="#ssh-key-based-authentication">SSH key-based authentication</a></li>
   <li><a href="#understanding-public-key-private-key-concepts" id="toc-understanding-public-key-private-key-concepts" class="nav-link" data-scroll-target="#understanding-public-key-private-key-concepts">Understanding public key private key concepts</a></li>
@@ -281,15 +280,9 @@ window.Quarto = {
   <li><a href="#how-the-lock-works" id="toc-how-the-lock-works" class="nav-link" data-scroll-target="#how-the-lock-works">How the lock works</a></li>
   <li><a href="#why-ssh-keys-over-passwords" id="toc-why-ssh-keys-over-passwords" class="nav-link" data-scroll-target="#why-ssh-keys-over-passwords">Why SSH keys over passwords</a></li>
   <li><a href="#keeping-your-private-key-safe" id="toc-keeping-your-private-key-safe" class="nav-link" data-scroll-target="#keeping-your-private-key-safe">Keeping your private key safe</a></li>
-  <li><a href="#different-type-of-keys" id="toc-different-type-of-keys" class="nav-link" data-scroll-target="#different-type-of-keys">Different type of keys</a>
-  <ul class="collapse">
+  <li><a href="#different-type-of-keys" id="toc-different-type-of-keys" class="nav-link" data-scroll-target="#different-type-of-keys">Different type of keys</a></li>
   <li><a href="#authentication-vs.-encryption" id="toc-authentication-vs.-encryption" class="nav-link" data-scroll-target="#authentication-vs.-encryption">Authentication vs.&nbsp;encryption</a></li>
-  </ul></li>
-  <li><a href="#tldr-ssh-key-setup" id="toc-tldr-ssh-key-setup" class="nav-link" data-scroll-target="#tldr-ssh-key-setup">tl;dr SSH Key Setup</a>
-  <ul class="collapse">
-  <li><a href="#create-your-ssh-key" id="toc-create-your-ssh-key" class="nav-link" data-scroll-target="#create-your-ssh-key">Create your SSH key</a></li>
-  <li><a href="#configure-your-remotes" id="toc-configure-your-remotes" class="nav-link" data-scroll-target="#configure-your-remotes">Configure Your Remotes</a></li>
-  <li><a href="#add-your-key-to-the-remotes" id="toc-add-your-key-to-the-remotes" class="nav-link" data-scroll-target="#add-your-key-to-the-remotes">Add Your Key to the Remotes</a></li>
+  <li><a href="#tldr-ssh-key-setup" id="toc-tldr-ssh-key-setup" class="nav-link" data-scroll-target="#tldr-ssh-key-setup">tl;dr SSH Key Setup</a></li>
   </ul></li>
   <li><a href="#what-is-a-git-repository" id="toc-what-is-a-git-repository" class="nav-link" data-scroll-target="#what-is-a-git-repository">What is a Git repository?</a></li>
   <li><a href="#creating-a-repository" id="toc-creating-a-repository" class="nav-link" data-scroll-target="#creating-a-repository">Creating a Repository</a></li>
@@ -368,63 +361,62 @@ window.Quarto = {
 <p><strong>The server</strong> is the machine you are connecting to via SSH, which passively waits for incoming connections.</p>
 <p><strong>The client</strong> is usually your own machine, which initiates the contact with the server.</p>
 </section>
-</section>
-<section id="what-are-some-password-based-authentication" class="level2">
-<h2 class="anchored" data-anchor-id="what-are-some-password-based-authentication">What are some password-based authentication</h2>
+<section id="what-are-some-password-based-authentication" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-some-password-based-authentication">What are some password-based authentication</h3>
 <p>Passwords are often short and relatively easy to guess or “break.” For instance, consider a password with 12 characters, where each character can be one of 26 uppercase letters, 26 lowercase letters, 10 digits, or approximately 10 special characters. This results in around 70 possible choices per character, making the total number of possible combinations approximately <span class="math inline">\(70^{12}\approx 10^{22}\)</span>. While this is an extraordinarily large number, patterns in password creation can make them more predictable and easier to guess. More detailed discussions on security and privacy will be covered in future courses.</p>
 </section>
-<section id="ssh-key-based-authentication" class="level2">
-<h2 class="anchored" data-anchor-id="ssh-key-based-authentication">SSH key-based authentication</h2>
+<section id="ssh-key-based-authentication" class="level3">
+<h3 class="anchored" data-anchor-id="ssh-key-based-authentication">SSH key-based authentication</h3>
 <p>SSH key-based authentication involves two components: <em>a public key</em> and a <em>private key</em>. These keys have an asymmetrical relationship. <em>The public key</em> cannot decrypt messages that are encrypted using the <em>private key</em>. Conversely, the <em>private key</em> can decrypt messages that are encrypted using the <em>public key</em>. This setup ensures secure communication by allowing only the holder of the private key to access messages encrypted with the <em>public key</em>.</p>
 </section>
-<section id="understanding-public-key-private-key-concepts" class="level2">
-<h2 class="anchored" data-anchor-id="understanding-public-key-private-key-concepts">Understanding public key private key concepts</h2>
+<section id="understanding-public-key-private-key-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-public-key-private-key-concepts">Understanding public key private key concepts</h3>
 <p>Consider the public key not as a key but as a padlock. You can make copies of this padlock and place them wherever you like. To secure another machine with your padlock, you would copy it to the <code>authorized_keys</code> file in the <code>~/.ssh</code> folder on that machine. Conversely, think of the private key as an actual key, which is used to unlock the padlock stored on the other machine. This arrangement ensures secure access to the machine that holds the corresponding padlock.</p>
 <p><img src="img/keys_1.png" class="img-fluid"></p>
 <p><em>source: http://blakesmith.me/2010/02/08/understanding-public-key-private-key-concepts.html</em></p>
 </section>
-<section id="you-can-put-your-lock-at-many-places" class="level2">
-<h2 class="anchored" data-anchor-id="you-can-put-your-lock-at-many-places">You can put your lock at many places</h2>
+<section id="you-can-put-your-lock-at-many-places" class="level3">
+<h3 class="anchored" data-anchor-id="you-can-put-your-lock-at-many-places">You can put your lock at many places</h3>
 <p>As long as you are using the same lock (public key), you will be able to open it with the same private key.</p>
 <p><img src="img/keys_2.png" class="img-fluid"> <em>source: http://blakesmith.me/2010/02/08/understanding-public-key-private-key-concepts.html</em></p>
 </section>
-<section id="how-the-lock-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-the-lock-works">How the lock works</h2>
+<section id="how-the-lock-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-the-lock-works">How the lock works</h3>
 <p>SSH keys are generated using the <code>ssh-keygen</code> command, which creates a pair consisting of a private key (usually named <code>id_rsa</code>) and a public key (typically called <code>id_rsa.pub</code>). You can distribute copies of the public key, which acts like a padlock, to other machines. When you attempt to connect, the other machine encrypts a challenge message using your public key. To gain access, you must demonstrate that you can decrypt this message, thereby proving possession of the corresponding private key. This process ensures that the connection is both secure and authorized.</p>
 </section>
-<section id="why-ssh-keys-over-passwords" class="level2">
-<h2 class="anchored" data-anchor-id="why-ssh-keys-over-passwords">Why SSH keys over passwords</h2>
+<section id="why-ssh-keys-over-passwords" class="level3">
+<h3 class="anchored" data-anchor-id="why-ssh-keys-over-passwords">Why SSH keys over passwords</h3>
 <p>SSH keys use the <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA cryptosystem</a></p>
 <p>The private key is much longer than a password. A standard now is 4096-bit keys, which means <span class="math inline">\(&gt; 10^{1200}\)</span> possibilities. This makes it harder for a hacker to break (guess) the password. More on this when we discuss binary numbers next week.</p>
 <p>Aside: Quantum computers will be able to break RSA encryption. It is very hard to predict whether this is years or decades away.</p>
 </section>
-<section id="keeping-your-private-key-safe" class="level2">
-<h2 class="anchored" data-anchor-id="keeping-your-private-key-safe">Keeping your private key safe</h2>
+<section id="keeping-your-private-key-safe" class="level3">
+<h3 class="anchored" data-anchor-id="keeping-your-private-key-safe">Keeping your private key safe</h3>
 <p>The <code>ssh-keygen</code> command allows you to add a layer of security to your private key by setting a password or passphrase.</p>
 <p>It’s crucial that this passphrase remains confidential and not shared with anyone.</p>
 <p>If your private key were to fall into the wrong hands, the passphrase would still be required to use it, providing an additional level of security.</p>
 </section>
-<section id="different-type-of-keys" class="level2">
-<h2 class="anchored" data-anchor-id="different-type-of-keys">Different type of keys</h2>
+<section id="different-type-of-keys" class="level3">
+<h3 class="anchored" data-anchor-id="different-type-of-keys">Different type of keys</h3>
 <p>There may be different methods of how to generate private-public key pairs.</p>
 <p>The <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">GitHub SSH key generation instructions</a> uses the <code>-t</code> flag to indicate the “type” of key to create, in their instructions they use the <code>ed25519</code> algorithm to create private and public values.</p>
 <p>The general premie to SSH keys is the same, there is a private key that stays on your machine and is never shared with other people, and the public key you can freely share that will be used to authenticate the machine with the private key on it.</p>
+</section>
 <section id="authentication-vs.-encryption" class="level3">
 <h3 class="anchored" data-anchor-id="authentication-vs.-encryption">Authentication vs.&nbsp;encryption</h3>
 <p>The system described above focuses solely on authentication. In this process, the client must demonstrate to the server that it is authorized to access the server. This is established when someone with the necessary authority adds the client’s public key to the <code>~/.ssh/authorized_keys</code> on the server. Once this is done, the server will grant access to anyone who possesses a private key that matches one of the public keys listed.</p>
 <p>This authentication process is distinct from the encryption of data transmitted between the client and server. Encryption ensures that the communication between the client and server remains confidential, preventing any potential eavesdroppers from intercepting or listening to the exchange.</p>
 <p><img src="img/password_strength.png" class="img-fluid"> <em>source - https://xkcd.com/936/</em></p>
 </section>
-</section>
-<section id="tldr-ssh-key-setup" class="level2">
-<h2 class="anchored" data-anchor-id="tldr-ssh-key-setup">tl;dr SSH Key Setup</h2>
+<section id="tldr-ssh-key-setup" class="level3">
+<h3 class="anchored" data-anchor-id="tldr-ssh-key-setup">tl;dr SSH Key Setup</h3>
 <p>The <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">GitHub SSH key generation instructions</a> walks through how to create, configure, and set up your SSH keys. Below is a summary of the steps from the GitHub documentation and uses the default set of configurations.</p>
-<section id="create-your-ssh-key" class="level3">
-<h3 class="anchored" data-anchor-id="create-your-ssh-key">Create your SSH key</h3>
+<section id="create-your-ssh-key" class="level4">
+<h4 class="anchored" data-anchor-id="create-your-ssh-key">Create your SSH key</h4>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"your_email@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="configure-your-remotes" class="level3">
-<h3 class="anchored" data-anchor-id="configure-your-remotes">Configure Your Remotes</h3>
+<section id="configure-your-remotes" class="level4">
+<h4 class="anchored" data-anchor-id="configure-your-remotes">Configure Your Remotes</h4>
 <p>Configure github.com and github.ubc.ca to use your new key.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> ~/.ssh/config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Open the <code>~/.ssh/config</code> and add the following lines:</p>
@@ -454,8 +446,8 @@ Host github.ubc.ca
 </div>
 </div>
 </section>
-<section id="add-your-key-to-the-remotes" class="level3">
-<h3 class="anchored" data-anchor-id="add-your-key-to-the-remotes">Add Your Key to the Remotes</h3>
+<section id="add-your-key-to-the-remotes" class="level4">
+<h4 class="anchored" data-anchor-id="add-your-key-to-the-remotes">Add Your Key to the Remotes</h4>
 <p>Use your <code>~/.ssh/id_ed25519.pub</code> file and copy paste the contents to register your SSH key in <strong>BOTH</strong> the <code>github.com</code> and <code>github.ubc.ca</code> repositories</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -471,6 +463,7 @@ Tip
 <p>You can change these in your account Settings.</p>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="what-is-a-git-repository" class="level2">
