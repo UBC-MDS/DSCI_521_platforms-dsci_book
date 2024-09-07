@@ -25,7 +25,7 @@ Let's start with some definitions:
 
 ### Definitions
 
-**Secure SHell (SSH) `ssh`** is a secure method commonly used for remotely logging into another computer. 
+**Secure SHell (SSH) `ssh`** is a secure method commonly used for remotely logging into another computer.
 
 **The server** is the machine you are connecting to via SSH, which passively waits for incoming connections.
 
@@ -69,9 +69,9 @@ Aside: Quantum computers will be able to break RSA encryption. It is very hard t
 
 ## Keeping your private key safe
 
-The `ssh-keygen` command allows you to add a layer of security to your private key by setting a password or passphrase. 
+The `ssh-keygen` command allows you to add a layer of security to your private key by setting a password or passphrase.
 
-It's crucial that this passphrase remains confidential and not shared with anyone. 
+It's crucial that this passphrase remains confidential and not shared with anyone.
 
 If your private key were to fall into the wrong hands, the passphrase would still be required to use it, providing an additional level of security.
 
@@ -80,9 +80,9 @@ If your private key were to fall into the wrong hands, the passphrase would stil
 There may be different methods of how to generate private-public key pairs.
 
 The [GitHub SSH key generation instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) uses the `-t` flag to indicate the "type" of key to create,
-in thier instructions they use the `ed25519` algorithm to create private and public values.
+in their instructions they use the `ed25519` algorithm to create private and public values.
 
-The general premice to SSH keys is the same, there is a private key that stays on your machine and is never shared with other people,
+The general premie to SSH keys is the same, there is a private key that stays on your machine and is never shared with other people,
 and the public key you can freely share that will be used to authenticate the machine with the private key on it.
 
 ### Authentication vs. encryption
@@ -93,6 +93,72 @@ This authentication process is distinct from the encryption of data transmitted 
 
 ![](img/password_strength.png)
 *source - https://xkcd.com/936/*
+
+
+## tl;dr SSH Key Setup
+
+The [GitHub SSH key generation instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+walks through how to create, configure, and set up your SSH keys.
+Below is a summary of the steps from the GitHub documentation and uses the default set of configurations.
+
+### Create your SSH key
+
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+### Configure Your Remotes
+
+Configure github.com and github.ubc.ca to use your new key.
+
+```bash
+touch ~/.ssh/config
+```
+
+Open the `~/.ssh/config` and add the following lines:
+
+::: {.panel-tabset}
+
+## MacOS + *nix
+
+```
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+
+Host github.ubc.ca
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+```
+
+
+## Git Bash (Windows)
+
+```
+Host github.com
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+
+Host github.ubc.ca
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+```
+:::
+
+### Add Your Key to the Remotes
+
+Use your `~/.ssh/id_ed25519.pub` file and copy paste the contents to register your SSH key
+in **BOTH** the `github.com` and `github.ubc.ca` repositories
+
+:::{.callout-tip}
+We suggest you change the theme for `github.com` and `github.ubc.ca` so one uses
+a light theme and the other uses a dark theme so you can easily recognize which
+site you are using.
+
+You can change these in your account Settings.
+:::
 
 ## What is a Git repository?
 
@@ -207,21 +273,21 @@ you are automatically getting a copy of `.git` and thus, working on a Git.
 
 ## Cloning repositories from GitHub
 
-If you only need to make minor edits, you can directly edit files on GitHub using their online editor, eliminating the need to clone the repository. 
+If you only need to make minor edits, you can directly edit files on GitHub using their online editor, eliminating the need to clone the repository.
 
 However, if you intend to run the code on your own machine and make modifications there, you will need to clone the repository to facilitate these changes.
 
 ### Steps to follow:
 
-* Step 1: start by navigating to the specific repository on GitHub. 
+* Step 1: start by navigating to the specific repository on GitHub.
 
-* Step 2: Click the green "Clone or download" button, ensuring the pop-up indicates "Clone with HTTPS" (we will cover SSH authentication later). 
+* Step 2: Click the green "Clone or download" button, ensuring the pop-up indicates "Clone with HTTPS" (we will cover SSH authentication later).
 
-* Step 3: Copy the provided URL to your clipboard. 
+* Step 3: Copy the provided URL to your clipboard.
 
-* Step 4: Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command. 
+* Step 4: Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command.
 
-* Step 5: Type git clone followed by the URL, for example `git clone https://github.com/github_username/repository_name.git`and press enter. 
+* Step 5: Type git clone followed by the URL, for example `git clone https://github.com/github_username/repository_name.git`and press enter.
 
 * Step 6: After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.
 
@@ -326,7 +392,7 @@ D. A directory is always a repository, but a repository cannot be your current w
 
 To make a change to a file inside a Git repository, start by editing it as you would any other local file. For example, you can use a text editor with a command like `code name-of-file.txt`.
 
-Once you have made changes to a file in a local Git repository (such as on your laptop), you need to tell Git that you want to record these changes in the version history. This process involves two main steps: **adding** the changes to the staging area and then **committing** them. 
+Once you have made changes to a file in a local Git repository (such as on your laptop), you need to tell Git that you want to record these changes in the version history. This process involves two main steps: **adding** the changes to the staging area and then **committing** them.
 
 Committing saves the differences between the current and previous version of the file along with a message describing what you did. These changes are saved in the hidden .git directory within the Git repository.
 
@@ -470,4 +536,3 @@ D. git status
 ## Attribution
 1. [Happy Git and GitHub for the useR by Jenny Bryan and the STAT 545 TAs](http://happygitwithr.com/)
 2. [Software Carpentry](https://software-carpentry.org/), specifically the Unix Shell and Git lessons
-
