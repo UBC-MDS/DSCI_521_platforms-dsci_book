@@ -31,15 +31,15 @@ Let's start with some definitions:
 
 **The client** is usually your own machine, which initiates the contact with the server.
 
-## What are some password-based authentication
+### What are some password-based authentication
 
 Passwords are often short and relatively easy to guess or "break." For instance, consider a password with 12 characters, where each character can be one of 26 uppercase letters, 26 lowercase letters, 10 digits, or approximately 10 special characters. This results in around 70 possible choices per character, making the total number of possible combinations approximately $70^{12}\approx 10^{22}$. While this is an extraordinarily large number, patterns in password creation can make them more predictable and easier to guess. More detailed discussions on security and privacy will be covered in future courses.
 
-## SSH key-based authentication
+### SSH key-based authentication
 
 SSH key-based authentication involves two components: *a public key* and a *private key*. These keys have an asymmetrical relationship. *The public key* cannot decrypt messages that are encrypted using the *private key*. Conversely, the *private key* can decrypt messages that are encrypted using the *public key*. This setup ensures secure communication by allowing only the holder of the private key to access messages encrypted with the *public key*.
 
-## Understanding public key private key concepts
+### Understanding public key private key concepts
 
 Consider the public key not as a key but as a padlock. You can make copies of this padlock and place them wherever you like. To secure another machine with your padlock, you would copy it to the `authorized_keys` file in the `~/.ssh` folder on that machine. Conversely, think of the private key as an actual key, which is used to unlock the padlock stored on the other machine. This arrangement ensures secure access to the machine that holds the corresponding padlock.
 
@@ -47,7 +47,7 @@ Consider the public key not as a key but as a padlock. You can make copies of th
 
 *source: http://blakesmith.me/2010/02/08/understanding-public-key-private-key-concepts.html*
 
-## You can put your lock at many places
+### You can put your lock at many places
 
 As long as you are using the same lock (public key),
 you will be able to open it with the same private key.
@@ -55,11 +55,11 @@ you will be able to open it with the same private key.
 ![](img/keys_2.png)
 *source: http://blakesmith.me/2010/02/08/understanding-public-key-private-key-concepts.html*
 
-## How the lock works
+### How the lock works
 
 SSH keys are generated using the `ssh-keygen` command, which creates a pair consisting of a private key (usually named `id_rsa`) and a public key (typically called `id_rsa.pub`). You can distribute copies of the public key, which acts like a padlock, to other machines. When you attempt to connect, the other machine encrypts a challenge message using your public key. To gain access, you must demonstrate that you can decrypt this message, thereby proving possession of the corresponding private key. This process ensures that the connection is both secure and authorized.
 
-## Why SSH keys over passwords
+### Why SSH keys over passwords
 
 SSH keys use the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
 
@@ -67,7 +67,7 @@ The private key is much longer than a password. A standard now is 4096-bit keys,
 
 Aside: Quantum computers will be able to break RSA encryption. It is very hard to predict whether this is years or decades away.
 
-## Keeping your private key safe
+### Keeping your private key safe
 
 The `ssh-keygen` command allows you to add a layer of security to your private key by setting a password or passphrase.
 
@@ -75,7 +75,7 @@ It's crucial that this passphrase remains confidential and not shared with anyon
 
 If your private key were to fall into the wrong hands, the passphrase would still be required to use it, providing an additional level of security.
 
-## Different type of keys
+### Different type of keys
 
 There may be different methods of how to generate private-public key pairs.
 
@@ -95,19 +95,19 @@ This authentication process is distinct from the encryption of data transmitted 
 *source - https://xkcd.com/936/*
 
 
-## tl;dr SSH Key Setup
+### tl;dr SSH Key Setup
 
 The [GitHub SSH key generation instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 walks through how to create, configure, and set up your SSH keys.
 Below is a summary of the steps from the GitHub documentation and uses the default set of configurations.
 
-### Create your SSH key
+#### Create your SSH key
 
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
-### Configure Your Remotes
+#### Configure Your Remotes
 
 Configure github.com and github.ubc.ca to use your new key.
 
@@ -147,7 +147,7 @@ Host github.ubc.ca
 ```
 :::
 
-### Add Your Key to the Remotes
+#### Add Your Key to the Remotes
 
 Use your `~/.ssh/id_ed25519.pub` file and copy paste the contents to register your SSH key
 in **BOTH** the `github.com` and `github.ubc.ca` repositories
