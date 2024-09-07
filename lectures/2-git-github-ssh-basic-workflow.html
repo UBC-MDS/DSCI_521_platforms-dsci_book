@@ -285,6 +285,12 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#authentication-vs.-encryption" id="toc-authentication-vs.-encryption" class="nav-link" data-scroll-target="#authentication-vs.-encryption">Authentication vs.&nbsp;encryption</a></li>
   </ul></li>
+  <li><a href="#tldr-ssh-key-setup" id="toc-tldr-ssh-key-setup" class="nav-link" data-scroll-target="#tldr-ssh-key-setup">tl;dr SSH Key Setup</a>
+  <ul class="collapse">
+  <li><a href="#create-your-ssh-key" id="toc-create-your-ssh-key" class="nav-link" data-scroll-target="#create-your-ssh-key">Create your SSH key</a></li>
+  <li><a href="#configure-your-remotes" id="toc-configure-your-remotes" class="nav-link" data-scroll-target="#configure-your-remotes">Configure Your Remotes</a></li>
+  <li><a href="#add-your-key-to-the-remotes" id="toc-add-your-key-to-the-remotes" class="nav-link" data-scroll-target="#add-your-key-to-the-remotes">Add Your Key to the Remotes</a></li>
+  </ul></li>
   <li><a href="#what-is-a-git-repository" id="toc-what-is-a-git-repository" class="nav-link" data-scroll-target="#what-is-a-git-repository">What is a Git repository?</a></li>
   <li><a href="#creating-a-repository" id="toc-creating-a-repository" class="nav-link" data-scroll-target="#creating-a-repository">Creating a Repository</a></li>
   <li><a href="#cloning-repositories-from-github" id="toc-cloning-repositories-from-github" class="nav-link" data-scroll-target="#cloning-repositories-from-github">Cloning repositories from GitHub</a>
@@ -401,13 +407,70 @@ window.Quarto = {
 <section id="different-type-of-keys" class="level2">
 <h2 class="anchored" data-anchor-id="different-type-of-keys">Different type of keys</h2>
 <p>There may be different methods of how to generate private-public key pairs.</p>
-<p>The <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">GitHub SSH key generation instructions</a> uses the <code>-t</code> flag to indicate the “type” of key to create, in thier instructions they use the <code>ed25519</code> algorithm to create private and public values.</p>
-<p>The general premice to SSH keys is the same, there is a private key that stays on your machine and is never shared with other people, and the public key you can freely share that will be used to authenticate the machine with the private key on it.</p>
+<p>The <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">GitHub SSH key generation instructions</a> uses the <code>-t</code> flag to indicate the “type” of key to create, in their instructions they use the <code>ed25519</code> algorithm to create private and public values.</p>
+<p>The general premie to SSH keys is the same, there is a private key that stays on your machine and is never shared with other people, and the public key you can freely share that will be used to authenticate the machine with the private key on it.</p>
 <section id="authentication-vs.-encryption" class="level3">
 <h3 class="anchored" data-anchor-id="authentication-vs.-encryption">Authentication vs.&nbsp;encryption</h3>
 <p>The system described above focuses solely on authentication. In this process, the client must demonstrate to the server that it is authorized to access the server. This is established when someone with the necessary authority adds the client’s public key to the <code>~/.ssh/authorized_keys</code> on the server. Once this is done, the server will grant access to anyone who possesses a private key that matches one of the public keys listed.</p>
 <p>This authentication process is distinct from the encryption of data transmitted between the client and server. Encryption ensures that the communication between the client and server remains confidential, preventing any potential eavesdroppers from intercepting or listening to the exchange.</p>
 <p><img src="img/password_strength.png" class="img-fluid"> <em>source - https://xkcd.com/936/</em></p>
+</section>
+</section>
+<section id="tldr-ssh-key-setup" class="level2">
+<h2 class="anchored" data-anchor-id="tldr-ssh-key-setup">tl;dr SSH Key Setup</h2>
+<p>The <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">GitHub SSH key generation instructions</a> walks through how to create, configure, and set up your SSH keys. Below is a summary of the steps from the GitHub documentation and uses the default set of configurations.</p>
+<section id="create-your-ssh-key" class="level3">
+<h3 class="anchored" data-anchor-id="create-your-ssh-key">Create your SSH key</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"your_email@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="configure-your-remotes" class="level3">
+<h3 class="anchored" data-anchor-id="configure-your-remotes">Configure Your Remotes</h3>
+<p>Configure github.com and github.ubc.ca to use your new key.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> ~/.ssh/config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Open the <code>~/.ssh/config</code> and add the following lines:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">MacOS + *nix</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Git Bash (Windows)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<pre><code>Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+
+Host github.ubc.ca
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519</code></pre>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<pre><code>Host github.com
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+
+Host github.ubc.ca
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="add-your-key-to-the-remotes" class="level3">
+<h3 class="anchored" data-anchor-id="add-your-key-to-the-remotes">Add Your Key to the Remotes</h3>
+<p>Use your <code>~/.ssh/id_ed25519.pub</code> file and copy paste the contents to register your SSH key in <strong>BOTH</strong> the <code>github.com</code> and <code>github.ubc.ca</code> repositories</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We suggest you change the theme for <code>github.com</code> and <code>github.ubc.ca</code> so one uses a light theme and the other uses a dark theme so you can easily recognize which site you are using.</p>
+<p>You can change these in your account Settings.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="what-is-a-git-repository" class="level2">
@@ -443,20 +506,20 @@ window.Quarto = {
 <li>Open your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).</li>
 <li>Navigate to the directory where you want to clone the repository.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/your/directory</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/your/directory</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Use the <code>git clone</code> command followed by the URL of your newly created GitHub repository.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><strong>Verify the Cloning Process:</strong>
 <ul>
 <li>Change into the newly cloned repository directory.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> YOUR_REPOSITORY_NAME</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> YOUR_REPOSITORY_NAME</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>List the files to ensure the README file is present.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><strong>Create a <code>.gitignore</code> File:</strong>
 <ul>
 <li>Open your text editor and create a file named <code>.gitignore</code> in the root of your repository.</li>
@@ -469,19 +532,19 @@ node_modules/</code></pre>
 <li>Save the <code>.gitignore</code> file.</li>
 <li>Stage and commit the <code>.gitignore</code> file.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .gitignore</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add .gitignore file to ignore unnecessary files"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .gitignore</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add .gitignore file to ignore unnecessary files"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><strong>Use <code>git add -p</code> for Interactive Staging:</strong>
 <ul>
 <li>Make additional changes to the <code>README.md</code> file or another file in the repository.</li>
 <li>Use the <code>git add -p</code> command to interactively stage changes.</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>Review each change and decide whether to stage it by typing <code>y</code> (yes), <code>n</code> (no), <code>s</code> (split the change), or <code>q</code> (quit).</p></li>
 <li><p>Commit the changes with a descriptive message.</p></li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Interactively staged changes using git add -p"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Interactively staged changes using git add -p"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 <p><strong>Questions:</strong></p>
 <ol type="1">
