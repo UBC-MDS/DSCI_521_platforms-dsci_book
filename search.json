@@ -637,7 +637,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html",
     "href": "lectures/3-git-history-merge-conflicts-stash.html",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "",
     "text": "Explore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project.",
     "crumbs": [
@@ -648,7 +648,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#learning-outcomes",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#learning-outcomes",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "",
     "text": "Explore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project.",
     "crumbs": [
@@ -659,7 +659,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#introduction",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#introduction",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "Introduction",
     "text": "Introduction\nIn this lecture, we’ll explore how to view your Git history and restore older versions of files. Understanding your project’s history is crucial for tracking changes and fixing mistakes. Let’s dive into the different methods for accessing your commit history and how to revert to previous file versions when needed.",
     "crumbs": [
@@ -670,7 +670,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#viewing-the-history-of-a-project",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#viewing-the-history-of-a-project",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "Viewing the history of a project",
     "text": "Viewing the history of a project\nThere are two ways to view the Git history of a project: you can either use the repository’s code commit view on GitHub, or you can use the git log command on your local machine.\n\nSteps to follow:\n\nStep 1: On GitHub, on the repo’s landing page click “\\(N\\) commit” link (where \\(N\\) is the number of commits made on the repo, yours should be around 6).\nStep 2: On your laptop, from inside your Git repository type git log at the command line. You can use git log --oneline for more succinct output or the alias shortcut gl that we created.\n\nYou can navigate this log by scrolling with the mouse, arrow keys, or by the same commands we used with man in the first lecture\n\nq = quit\nb/space = up/down\n/ + search term + enter = search for a word\nn/N got to next/previous match for the search term\n\nYou don’t need to memorize these commands, they’re here as a resource if you wish to use them instead of the mouse and arrow keys.",
     "crumbs": [
@@ -681,7 +681,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-1",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-1",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "Lecture 3 Activity 1",
     "text": "Lecture 3 Activity 1",
     "crumbs": [
@@ -692,7 +692,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#restoring-an-older-version-of-a-file",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#restoring-an-older-version-of-a-file",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "Restoring an older version of a file",
     "text": "Restoring an older version of a file\nOh no! We realize by viewing the history that we made a mistake! We didn’t mean to delete our list of dependencies. Worry not! We can now take advantage that we have been tracking this file under version control by using git restore to retrieve an older version of the file to replace the current version.\nLet’s restore the version of the file BEFORE we deleted the software dependency list.\n\nSteps to follow:\n\nStep 1: Examine the log to identify the version of the file you want to revert to and note its short SHA-1 (the first few characters of the commit ID). You’ll need this to specify the exact point in time from which to retrieve the file.\nStep 2: Next, use the git restore command in the terminal to retrieve the file: git restore --source SHORT_SHA-1 FILENAME (you can also use -s as a shorthand for --source).\nStep 3: When restoring the file, it is added to the working area. To save the restored version of the file to the Git repository, you need to add and commit it, just like any other modification.\nStep 4: Don’t forget to run git push to back up the file on GitHub!",
     "crumbs": [
@@ -703,7 +703,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#how-do-you-know-you-have-a-merge-conflict",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#how-do-you-know-you-have-a-merge-conflict",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "How do you know you have a merge conflict?",
     "text": "How do you know you have a merge conflict?\nIf you have committed some changes locally, you might see something like this when you try to push them:\nTo https://github.com/joelostblom/DSCI_521_lab1_jostblom\n ! [rejected]        master -&gt; master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/joelostblom/DSCI_521_lab1_jostblom'\nhint: Updates were rejected because the tip of your current branch is behind\nhint: its remote counterpart. Merge the remote changes (e.g. 'git pull')\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\nAs the message tells you, there are new changes to the remote repo that you need to pull down from GitHub before you are allowed to push up your changes. If there are no conflicts when you pull, Git will say that everything went OK and you can push up your new changes. If there are conflicts, you will see something like this:\nremote: Counting objects: 5, done.\nremote: Compressing objects: 100% (2/2), done.\nremote: Total 3 (delta 1), reused 3 (delta 1)\nUnpacking objects: 100% (3/3), done.\nFrom https://github.com/joelostblom/DSCI_521_lab1_jostblom\n * branch            master     -&gt; FETCH_HEAD\nAuto-merging README.md\nCONFLICT (content): Merge conflict in README.md\nAutomatic merge failed; fix conflicts and then commit the result.\n\nYou have a merge conflict. Merge conflicts are not bad, they happen to everyone and you will need to know how to instruct git what to do.",
     "crumbs": [
@@ -714,7 +714,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-2",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-2",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "Lecture 3 Activity 2",
     "text": "Lecture 3 Activity 2",
     "crumbs": [
@@ -725,7 +725,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#what-do-you-do-to-fix-a-merge-conflict",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#what-do-you-do-to-fix-a-merge-conflict",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "What do you do to fix a merge conflict?",
     "text": "What do you do to fix a merge conflict?\n\nSteps to follow:\n\nStep 1: Open the file that has a conflict (the output of git pull will tell you which files) in a plain text editor (e.g., VS Code).\nStep 2: Look for the conflict (hint: search for &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD).\nStep 3: Fix the conflict by deleting everything you don’t want to keep in the file, including the &lt;&lt;&lt;&lt;&lt;, =====, and &gt;&gt;&gt;&gt;&gt; markers that Git added. Note: VS Code will help you with this by color highlighting the changes and providing buttons you can click to accept either the current or incoming change (or both). Using these buttons instead of modifying the file manually can save you from mistakes that can take a lot of time to troubleshoot and fix, so we highly recommend using this feature.\nStep 4: After the file looks as you want it, add it and commit your changes. Then you can push them up to GitHub.\n\nHere’s an example of a text file with a conflict and how it can look after you have resolved it:\nSome text up here\nthat is not part of the merge conflict,\nbut just included for context.\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nWe added this line in our last commit\n=======\nThis line was added somewhere else\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD precedes the change you made (that you couldn’t push)\n======= is a separator between the conflicting changes\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d flags the end of the conflicting change you pulled from GitHub",
     "crumbs": [
@@ -736,7 +736,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-3",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-3",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "Lecture 3 Activity 3",
     "text": "Lecture 3 Activity 3",
     "crumbs": [
@@ -747,7 +747,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#what-about-merge-conflicts-of-jupyter-notebooks",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#what-about-merge-conflicts-of-jupyter-notebooks",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "What about merge conflicts of Jupyter notebooks?",
     "text": "What about merge conflicts of Jupyter notebooks?\n\nFirst - a bit about what a Jupyter notebook is made up of\n\n.ipynb files are “plain” text files, and we can view them in a plain text editor and make some sense of them\nThe contents of the notebook are encoded in JSON format, which means that there are many brackets in the file, which can make it hard to read for humans (but easy for machines).\n\nFor example, this notebook of 2 cells:\n\n\n\nalt tag\n\n\nis encoded by the following JSON:\n{\n \"cells\": [\n  {\n   \"cell_type\": \"markdown\",\n   \"metadata\": {},\n   \"source\": [\n    \"# A Markdown header cell\\n\",\n    \"\\n\",\n    \"Below is a simple example of some code in Python:\"\n   ]\n  },\n  {\n   \"cell_type\": \"code\",\n   \"execution_count\": 1,\n   \"metadata\": {\n    \"collapsed\": false\n   },\n   \"outputs\": [\n    {\n     \"name\": \"stdout\",\n     \"output_type\": \"stream\",\n     \"text\": [\n      \"15\\n\"\n     ]\n    }\n   ],\n   \"source\": [\n    \"x = 5\\n\",\n    \"y = 10\\n\",\n    \"\\n\",\n    \"print(x + y)\"\n   ]\n  }\n ],\n \"metadata\": {\n  \"anaconda-cloud\": {},\n  \"kernelspec\": {\n   \"display_name\": \"Python [Root]\",\n   \"language\": \"python\",\n   \"name\": \"Python [Root]\"\n  },\n  \"language_info\": {\n   \"codemirror_mode\": {\n    \"name\": \"ipython\",\n    \"version\": 3\n   },\n   \"file_extension\": \".py\",\n   \"mimetype\": \"text/x-python\",\n   \"name\": \"python\",\n   \"nbconvert_exporter\": \"python\",\n   \"pygments_lexer\": \"ipython3\",\n   \"version\": \"3.5.1\"\n  }\n },\n \"nbformat\": 4,\n \"nbformat_minor\": 0\n}",
     "crumbs": [
@@ -758,7 +758,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#version-control-and-jupyter-notebook",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#version-control-and-jupyter-notebook",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "Version control and Jupyter notebook",
     "text": "Version control and Jupyter notebook\nBecause the notebooks are stored as plain text, we can use them for version control, but this is not without issues, since the JSON format can make it difficult to interpret difference between files and to manually fix conflicts.\nJupyterLab IDE has made really easy now fix merge conflicts. …",
     "crumbs": [
@@ -769,7 +769,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#create-a-.gitignore-file",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#create-a-.gitignore-file",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "5. Create a .gitignore file",
     "text": "5. Create a .gitignore file\nUsing the plain text editor of your choice (mine is VS Code) create a file called .gitignore inside your Git repo. To do this with VS Code, I would type:\ncode .gitignore\nInside the text file, list the files and folders you would like to ignore, one per line. For example:\n.ipynb_checkpoints/\n.DS_Store\nSave the file, and add and commit it with Git. Then try git status again. You should see:\nOn branch timberst-master\nnothing to commit, working tree clean",
     "crumbs": [
@@ -780,7 +780,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#gitignore-tips-and-tricks",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#gitignore-tips-and-tricks",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": ".gitignore tips and tricks",
     "text": ".gitignore tips and tricks\nTo have files or folders ignored in subdirectories within the repo, append **/ to the beginning of their names listed in the .gitignore file. Additionally, consider creating a global .gitignore file so that you do not have to create the same .gitignore for all your repositories.\nLet’s create a gitignore file in our 521 lab 2 repo.\n\nSteps to follow:\nSure, here it is in prose form:\n\nStep 1: Use a text editor (e.g., VS Code, nano, Jupyter) to create a file called .gitignore in your 521 lab 2 repo.\nStep 2: Add **/.ipynb_checkpoints/ to that file and save it.\nStep 3: Add and commit it with Git.\nStep 4: Type git status and see if you no longer see .ipynb_checkpoints/ as an untracked file.\n\nIn Git, we have the flexibility to handle changes in several ways. We can choose to keep the change made in the local repository, keep the change made in the remote repository, write something new to replace both, or get rid of the change entirely.\nTo move the branch we are currently on back to a previously created commit, we can use the git reset command. For example, let’s say we are on the master branch of a repository and the output of git log --oneline looks like this:\nfb962e0 (HEAD -&gt; master) Add md demo\nbcb541e Make heading more precise\n5c01f2f Initial commit\nTo reset the branch to the commit with the message “Make heading more precise,” we would use the command git reset bcb541e. This command repositions the branch to the specified commit, effectively discarding any changes made after that commit.\nWe can move the location of the master branch back in the commit history by typing git reset &lt;sha&gt;. So to move to the previous commit, we would type git reset bcb541e. Our git log would now show this:\nbcb541e (HEAD -&gt; master) Make heading more precise\n5c01f2f Initial commit\nWhat happened to the changes that were made in commit fb962e0? The default behavior is to move them back into the working area, which was indicated by this message that showed up after we did git reset bcb541e:\nUnstaged changes after reset:\nM       README.md\nThat means we could now make any modification we wish and then commit again with a new commit message. If we want to discard the changes instead of moving them to the working area, we can add the --hard flag. Typing git reset --hard 5c01f2f will not show us any message, since the changes are not unstaged, they are discarded. Our log now looks like this\n5c01f2f (HEAD -&gt; master) Initial commit\nAre the previous changes lost forever? Not yet, git keeps a backup of everything that happens in the repo in its “reflog”. Commits that are not part of any branch are referred to as being “dangling”, and are cleared out at regular intervals, rather than immediately. So if we realize that we made a mistake right away, we could get our changes back by doing git reset bcb541e, which would move us forward to the commit we just “deleted”. This behavior should not be relied upon because when the reflog is automatically cleared by git, your changes are gone forever.",
     "crumbs": [
@@ -791,7 +791,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-4",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#lecture-3-activity-4",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "Lecture 3 Activity 4",
     "text": "Lecture 3 Activity 4",
     "crumbs": [
@@ -802,7 +802,7 @@
   {
     "objectID": "lectures/3-git-history-merge-conflicts-stash.html#syncing-with-a-remote-after-resetting",
     "href": "lectures/3-git-history-merge-conflicts-stash.html#syncing-with-a-remote-after-resetting",
-    "title": "Getting grovy with Git and GitHub",
+    "title": "Getting groovy with Git and GitHub",
     "section": "Syncing with a remote after resetting",
     "text": "Syncing with a remote after resetting\nThis is a dangerous operation that can delete all your work. If we want to get rid of a commit on a remote, we will need to push our changes. But as we have seen before, git will refuse to push changes when the remote is ahead of the local branch. To override this warning and force git to push to the remote we can use the -f/--force flag.\nForce pushing is dangerous, and you should never do this on the master branch of a repository that you share with collaborators unless you have all discussed this and they are aware of what you are doing. The reason is that by force pushing, you will make it so that everyone else who is using this repository are now out of sync with the master branch, since you have reset master to a previous state. Be careful, better safe than sorry\nTimes when a force push is legitimate includes when you have have rebased a feature branch to syn it with master or if you are working alone and you are 100% sure that you want to remove a commit from GitHub. A safer way to undo a change in a commit, is to make a new commit that removes the content of the old one. You can do this manually, or use git revert &lt;sha&gt; to automatically create a new commit that undoes an old one.\n\nExercise: Accessing and Working with GitHub\n\n\n\nLecture 3 Exercise 1\n\n\nAccessing and Working with GitHub\nObjective: By completing this exercise, students will gain hands-on experience in accessing their GitHub home for MDS, creating, cloning, modifying, and pushing changes to a GitHub repository.\nInstructions:\n\nAccess Your GitHub Home for MDS:\n\nOpen your web browser and navigate to:\n\nhttps://github.ubc.ca/MDS-2021-22/yourCWL_home\n\nReplace yourCWL with your actual CWL.\nHere you will find links to all the courses’ repositories and labs’ repositories.\nHint: Bookmark this page for easy access to all relevant courses’ repositories.\n\nCreate a New Repository on GitHub:\n\nVisit GitHub.com.\nCreate a new repository and ensure you add a README file during the setup process.\n\nClone the Repository:\n\nClone the newly created repository to your local machine.\nNote: If your GitHub username is different from the username on your computer, you will need to configure your Git settings accordingly.\n\ngit clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git\nMake Changes to the README File:\n\nOpen the README file in a text editor.\nAdd some content or modify the existing content.\nSave your changes.\n\nAdd and Commit Your Changes:\n\nStage the changes you made to the README file.\n\ngit add README.md\n\nCommit the changes with a descriptive message.\n\ngit commit -m \"Updated README with new content\"\nCreate a New File, Add, and Commit It:\n\nCreate a new file in the repository (e.g., newfile.txt).\nAdd some content to the new file and save it.\nStage the new file.\n\ngit add newfile.txt\n\nCommit the new file with a descriptive message.\n\ngit commit -m \"Added newfile.txt with initial content\"\nPush Your Changes to GitHub:\n\nPush the changes from your local repository to the remote repository on GitHub.\n\ngit push origin main\nConfirm Your Changes on GitHub:\n\nGo to your GitHub repository page.\nConfirm that the changes to the README file and the new file (newfile.txt) are reflected in the repository.\n\nView Your Git History:\n\nOn GitHub, click on the “Commits” link on the repository’s landing page.\nOn your local machine, use the git log command to view the commit history.\n\ngit log\n\nUse the git log --oneline command for a more concise view.\n\ngit log --oneline\nRestore an Older Version of a File:\n\nIdentify the commit hash for the version you want to restore.\nUse the git restore command to revert to that version.\n\ngit restore --source SHORT_SHA-1 FILENAME\n\nStage and commit the restored file.\n\ngit add FILENAME\ngit commit -m \"Restored FILENAME to previous version\"\n\nPush the changes to GitHub.\n\ngit push origin main\n\nQuestions:\n\nWhat are the steps to access your GitHub home for MDS?\nWhat are the steps to create a new repository on GitHub?\nWhat command do you use to clone a repository to your local computer?\nHow do you add and commit changes to a file in a Git repository?\nWhat command do you use to push changes to GitHub?\nHow do you view your Git history?\nHow do you restore an older version of a file in a Git repository?",
     "crumbs": [
