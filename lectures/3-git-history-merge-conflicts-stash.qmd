@@ -1,5 +1,5 @@
 ---
-title: Getting grovy with Git and GitHub
+title: Getting groovy with Git and GitHub
 jupyter: python3
 ---
 
