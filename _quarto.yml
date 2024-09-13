@@ -8,7 +8,7 @@ website:
   title: "DSCI 521: Computing Platforms for Data Science"
   site-url: https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/
   issue-url: https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new
-  repo-actions: [edit, issue]
+  repo-actions: [edit, source, issue]
   google-analytics: "G-1RNLL8GPXK"
   open-graph: true
   twitter-card: true
@@ -18,6 +18,10 @@ website:
     show-item-context: true
     type: overlay
   navbar:
+    right:
+      - icon: github
+        href: https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book
+        aria-label: GitHub
     left:
       - href: index.qmd
         text: Home
