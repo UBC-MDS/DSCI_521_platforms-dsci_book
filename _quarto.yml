@@ -1,8 +1,23 @@
 project:
   type: website
+  preview:
+    port: 54321
+    browser: true
 
 website:
   title: "DSCI 521: Computing Platforms for Data Science"
+  search: true
+  site-url: https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/
+  issue-url: https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new
+  repo-actions: [edit, issue]
+  google-analytics: "G-1RNLL8GPXK"
+  open-graph: true
+  twitter-card: true
+  page-navigation: true
+  bread-crumbs: true
+  search:
+    show-item-context: true
+    type: overlay
   navbar:
     left:
       - href: index.qmd
