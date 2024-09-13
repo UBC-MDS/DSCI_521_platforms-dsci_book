@@ -6,7 +6,6 @@ project:
 
 website:
   title: "DSCI 521: Computing Platforms for Data Science"
-  search: true
   site-url: https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/
   issue-url: https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new
   repo-actions: [edit, issue]
