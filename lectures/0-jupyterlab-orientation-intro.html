@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../lectures/0-rstudio-orientation-intro.html" rel="next">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -87,7 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "/",
     "s"
   ],
-  "show-item-context": false,
+  "show-item-context": true,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -102,6 +103,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1RNLL8GPXK"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -133,6 +143,12 @@ window.Quarto = {
 };
 </script>
 
+<meta property="og:title" content="JupyterLab Orientation – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:title" content="JupyterLab Orientation – DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:description" content="">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -286,7 +302,7 @@ window.Quarto = {
   <li><a href="#how-to-get-help-in-the-notebook" id="toc-how-to-get-help-in-the-notebook" class="nav-link" data-scroll-target="#how-to-get-help-in-the-notebook">How to get help in the notebook</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -341,7 +357,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="using-jupyter-notebooks">Using Jupyter Notebooks</h2>
 <p><img src="img/jupyterlab-start.png" class="img-fluid"></p>
 <p>We’re greeted by the launcher tab where we see that we can start either a Notebook or Console for Python or R, as well as some other utility programs. Let’s start by explaining one of the most popular options, the Jupyter Notebook. The Notebook provides and interface where you can mix text, code, mathematical expressions, plot output, videos, and more, all in the same file. So instead of the traditional IDE experience where you would write code in a text file and then have figures pop up in a different panel, this information now all resides in the same document, which facilitates reproducibility and collaboration. The Notebooks can be exported to many formats, including PDF and HTML, which makes it easy to share your project with anyone. The cell that is encircled in blue is where we can input Python code, click here and type any mathematical expression, and then run the cell by clicking the play button in the top toolbar:</p>
-<div id="caf1ba59" class="cell" data-execution_count="1">
+<div id="b3db048d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>7</code></pre>
@@ -349,18 +365,18 @@ window.Quarto = {
 </div>
 <p><img src="img/jupyterlab-run-cell.png" class="img-fluid"></p>
 <p>As you can see, the output is returned just under input, and a new input cell was created. We could also have clicked the plus sign to create a new cell. Here, we can do anything we can do in Python, e.g.&nbsp;variable assignment:</p>
-<div id="259f7445" class="cell" data-execution_count="2">
+<div id="5ad93cdb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There is no output because we just assigned a value to a variable, without asking for the value of that variable, which we can do by typing out the variable name:</p>
-<div id="afff7d17" class="cell" data-execution_count="3">
+<div id="be58e80f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>5</code></pre>
 </div>
 </div>
 <p>Jupyter Notebooks also supports editing code on multiple lines, so we could have done this instead:</p>
-<div id="5595b138" class="cell" data-execution_count="4">
+<div id="30dc5af9" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -455,7 +471,7 @@ window.Quarto = {
 <section id="static-figure-creation" class="level3">
 <h3 class="anchored" data-anchor-id="static-figure-creation">Static figure creation</h3>
 <p>To show an example of how plots are rendered, we will use the <code>seaborn</code> plotting package which is a high level interface to the more widely known <code>matplotlib</code> package. This is only to illustrate how plots show up in the notebook, rather than a tutorial on how to plot in Python, so I will not go into details on what these commands mean.</p>
-<div id="279239eb" class="cell" data-execution_count="5">
+<div id="362eb4bc" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You don't have to understand what is going on in this cell</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># it is only to show you how a static plot looks inside JupyterLab</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -814,7 +830,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/UBC-MDS\.github\.io\/DSCI_521_platforms-dsci_book\/");
+      var filterRegex = new RegExp("https:\/\/ubc-mds\.github\.io\/DSCI_521_platforms-dsci_book\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1142,9 +1158,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../lectures/0-rstudio-orientation-intro.html" class="pagination-link" aria-label="Lecture 0b: RStudio Orientation">
+        <span class="nav-page-text">Lecture 0b: RStudio Orientation</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

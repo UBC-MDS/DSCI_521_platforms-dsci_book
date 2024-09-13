@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../lectures/7-virtual-environments.html" rel="next">
+<link href="../lectures/5-rstudio-projects-notebooks.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -53,7 +55,7 @@ ul.task-list li input[type="checkbox"] {
     "/",
     "s"
   ],
-  "show-item-context": false,
+  "show-item-context": true,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -68,8 +70,23 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1RNLL8GPXK"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
+</script>
 
 
+<meta property="og:title" content="Quarto, RMarkdown, and Jupyter Slides – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:title" content="Quarto, RMarkdown, and Jupyter Slides – DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:description" content="">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -209,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#presentations-with-jupyterlab-rmarkdown-and-quarto" id="toc-presentations-with-jupyterlab-rmarkdown-and-quarto" class="nav-link" data-scroll-target="#presentations-with-jupyterlab-rmarkdown-and-quarto">Presentations with JupyterLab, RMarkdown and Quarto</a></li>
   <li><a href="#creating-presentations-with-jupyterlab" id="toc-creating-presentations-with-jupyterlab" class="nav-link" data-scroll-target="#creating-presentations-with-jupyterlab">Creating presentations with JupyterLab</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -645,7 +662,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/UBC-MDS\.github\.io\/DSCI_521_platforms-dsci_book\/");
+      var filterRegex = new RegExp("https:\/\/ubc-mds\.github\.io\/DSCI_521_platforms-dsci_book\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -973,9 +990,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lectures/5-rstudio-projects-notebooks.html" class="pagination-link" aria-label="Lecture 5: Dynamic documents: from markdown to Rmarkdown documents">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lecture 5: Dynamic documents: from markdown to Rmarkdown documents</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../lectures/7-virtual-environments.html" class="pagination-link" aria-label="Lecture 7: Virtual environments">
+        <span class="nav-page-text">Lecture 7: Virtual environments</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
