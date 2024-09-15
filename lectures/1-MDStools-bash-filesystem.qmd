@@ -7,6 +7,8 @@ jupyter: python3
 
 {{< include ../learning_objectives/lo-ch-01.qmd >}}
 
+**Platform in focus** BASH
+
 ## Introduction
 
 Welcome to Computer Platforms in Data Science!
@@ -360,7 +362,7 @@ Which command would move you to the parent directory?
 
 ```
 A. cd .
-B. cd .. 
+B. cd ..
 C. cd ~
 D. cd
 ```

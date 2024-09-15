@@ -7,6 +7,8 @@ jupyter: python3
 
 {{< include ../learning_objectives/lo-ch-02.qmd >}}
 
+**Platform in focus** Git and GitHub
+
 ## Introduction
 
 In this lecture, you'll learn how to manage project changes, collaborate effectively, and maintain a complete project history using Git and GitHub. Let's get started!

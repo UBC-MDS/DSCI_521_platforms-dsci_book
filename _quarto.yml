@@ -46,23 +46,40 @@ website:
         contents:
           - text: "Lecture 1: Introduction to MDS software and Bash"
             href: lectures/1-MDStools-bash-filesystem.qmd
+
           - text: "Lecture 2: Introduction to version control with Git and GitHub"
             href: lectures/2-git-github-ssh-basic-workflow.qmd
-          - text: "Lecture 3: Getting grovy with Git and GitHub"
+
+          - text: "Lecture 3: Git: History, Conflicts, and Ignores"
             href: lectures/3-git-history-merge-conflicts-stash.qmd
+
           - text: "Lecture 4: Introduction to Quarto and Github Pages"
             href: lectures/4-quarto_github_pages.qmd
-          - text: "Lecture 5: Dynamic documents: From markdown to R Markdown documents"
+
+          - text: "Lecture 5: RStudio Projects and Literate Programming Documents"
             href: lectures/5-rstudio-projects-notebooks.qmd
+
           - text: "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
             href: lectures/6-rmarkdown-quarto-slides-ghpages.qmd
-          - text: "Lecture 7: Virtual environments"
-            href: lectures/7-virtual-environments.qmd
-          - text: "Lecture 8: Organization of Data Science projects and some useful tools"
+
+          - text: "Lecture 7a: Virtual environments: conda"
+            href: lectures/7a-virtual-environments-conda.qmd
+          - text: "Lecture 7b: Virtual environments: renv"
+            href: lectures/7b-virtual-environments-renv.qmd
+
+          - text: "Lecture 8a: Organization of Data Science projects"
             href: lectures/8-regex-filenames-project-organization.qmd
+          - text: "Lecture 8b: Introduction to Regular Expressions (RegEx)"
+            href: lectures/8b-regex.qmd
 
       - section: "Appendix"
         contents:
+          - text: "Git Configuration"
+            href: appendix/git_config.qmd
+          - text: "RStudio Configuration"
+            href: appendix/rstudio_config.qmd
+          - text: "Semantic Line Breaks"
+            href: appendix/semantic_line_breaks.qmd
 
 format:
   html:
