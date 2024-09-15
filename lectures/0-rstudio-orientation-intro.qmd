@@ -6,6 +6,8 @@ title: "RStudio Orientation"
 
 {{< include ../learning_objectives/lo-ch-00-rstudio.qmd >}}
 
+**Platform in focus** RStudio IDE
+
 ## What is RStudio
 
 RStudio is another integrated development environment (IDE),
@@ -38,7 +40,7 @@ you can run RStudio as a desktop application.
 
 ## RStudio Panes
 
-RStudio follows a "four-pane datascience" IDE view:
+RStudio follows a "four-pane data science" IDE view:
 
 1. Editor: Where you will type your code and work with other source documents
 2. Environment: Contains the variables in your current session

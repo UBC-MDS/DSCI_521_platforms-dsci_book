@@ -7,6 +7,8 @@ jupyter: python3
 
 {{< include ../learning_objectives/lo-ch-00.qmd >}}
 
+**Platform in focus** Jupyter Lab
+
 ## What is JupyterLab
 
 The most rudimentary interaction with programming languages

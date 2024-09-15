@@ -1,0 +1,75 @@
+---
+title: "Semantic Line Breaks"
+---
+
+> Most documents go through several versions (always more than you expected) before they are finally finished. Accordingly, you should do whatever possible to make the job of changing them easy.
+>
+> First, when you do the purely mechanical operations of typing, type so subsequent editing will be easy. Start each sentence on a new line. Make lines short, and break lines at natural places, such as after commas and semicolons, rather than randomly. Since most people change documents by rewriting phrases and adding, deleting and rearranging sentences, these precautions simplify any editing you have to do later.
+>
+> — Brian W. Kernighan, 1974 [9]
+
+
+Semantic line breaks utilize how markdown treats line breaks and tries to combine it
+with regular prose text.
+You can read more about semantic line breaks here: <https://sembr.org/>
+
+Here are examples of how it works with markdown syntax
+
+
+```markdown
+this is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf
+```
+
+is rendered as:
+
+this is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf
+
+
+```markdown
+this is a very long line that has
+over 80 characterslasdfja asldfja
+sljf lsd jflkadjsf
+```
+
+is rendered as:
+
+this is a very long line that has
+over 80 characterslasdfja asldfja
+sljf lsd jflkadjsf
+
+
+### Add a line break
+
+Markdown allows 2 spaces at the end of a line for a line break
+
+```markdown
+this is a very long line that has<br/>
+over 80 characterslasdfja asldfja<br/>
+sljf lsd jflkadjsf
+```
+
+this is a very long line that has<br/>
+over 80 characterslasdfja asldfja<br/>
+sljf lsd jflkadjsf
+
+Markdown also allows 2 spaces at the end of a line for a line break.
+THis may not work with many text editor options that strip trailing white space
+
+
+### Add an empty line for a paragraph break
+
+```markdown
+this is a very long line that has
+
+over 80 characterslasdfja asldfja
+
+sljf lsd jflkadjsf
+```
+
+Rendered as:
+
+this is a very long line that has
+
+over 80 characterslasdfja asldfja
+
+sljf lsd jflkadjsf

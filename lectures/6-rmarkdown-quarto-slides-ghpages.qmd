@@ -7,7 +7,7 @@ jupyter: python3
 
 {{< include ../learning_objectives/lo-ch-06.qmd >}}
 
-**Platform in focus** RStudio IDE + Quarto
+**Platform in focus** Jupyter Lab, RStudio IDE, Quarto
 
 :::{.activity}
 ::::{.activity-header}

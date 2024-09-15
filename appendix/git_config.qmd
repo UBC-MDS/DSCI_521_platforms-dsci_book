@@ -1,0 +1,90 @@
+---
+title: "Git Configuration"
+---
+
+A short list of commands for git setup from the installation instructions
+and other settings to get goit working from the course
+
+Configure your git commit messages (User and Email)
+
+Use your email for github.com (not ubc github)
+
+```
+git config --global user.name ""
+git config --global user.email ""
+```
+
+SSH keys
+
+```
+sudo systemctl enable teamviewerd
+```
+
+Edit `~/.ssh/config`
+
+::: {.panel-tabset}
+
+## MacOS + *nix
+
+```
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+
+Host github.ubc.ca
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+```
+
+
+## Git Bash (Windows)
+
+```
+Host github.com
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+
+Host github.ubc.ca
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+```
+:::
+
+
+Use your `~/.ssh/id_ed25519.pub` file and copy paste the contents to register your SSH key
+in **BOTH** the `github.com` and `github.ubc.ca` repositories
+
+## Git pull merge option
+
+If you push and try to pull with changes in the repote,
+you need to tell git how to reconsize the differences
+
+You may see this
+
+```
+hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint:
+hint:   git config pull.rebase false  # merge
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint:
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.
+```
+
+We will use the old git default setting of `rebase false` (the first option).
+
+You can do this as a repo specific setting or as a global setting (add a `--global` flag)
+like you did with `user.name` and `user.email`
+
+- Repo setting: `git config pull.rebase false`
+- Global: `git config --global pull.rebase false`
+
+THen you can `pull` again, where you may or may not see a merge conflict.

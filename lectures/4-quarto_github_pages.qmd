@@ -6,6 +6,8 @@ title: Introduction to Quarto and Github Pages
 
 {{< include ../learning_objectives/lo-ch-04.qmd >}}
 
+**Platform in focus** Quarto and GitHub
+
 :::{.activity}
 ::::{.activity-header}
 ## Lecture 4 Activity 1
