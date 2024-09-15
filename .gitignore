@@ -1,7 +1,7 @@
 **.DS_Store
 
 # temp jupyter notebook used for quarto jupyter execution
-.quarto_ipynb
+**.quarto_ipynb
 
 /.quarto/
 _site/
