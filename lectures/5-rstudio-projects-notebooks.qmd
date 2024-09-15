@@ -1,6 +1,5 @@
 ---
-title: 'Dynamic documents: from markdown to Rmarkdown documents'
-jupyter: python3
+title: 'RStudio Projects and Literate Programming Documents'
 ---
 
 ## Learning outcomes
@@ -9,41 +8,54 @@ jupyter: python3
 
 **Platform in focus** RStudio IDE
 
-# RStudio
-
-You have the [following report]() and you have realized that there was an error in one of the calculations you did to generate it. This means that several results are going to be modified.
+:::{#activity1 .activity}
+::::{.activity-header}
+## Activity 1
+::::
+::::{.activity-container}
+You have the
+[following report](https://ttimbers.github.io/breast_cancer_predictor/doc/breast_cancer_predict_report.html)
+and you have realized that there was an error in one of the calculations you did to generate it. This means that several results are going to be modified.
 Let's run the scripts again and replace the plots and results affected. I hope not to have more errors!
 Do you think that should be other way to solve this?
+::::
+:::
 
-Introducing RStudio! An Interactive Development Environment (IDE),
+## RStudio
+
+We have already seen RStudio in [Lecture 0b](0-rstudio-orientation-intro.html).
+RStudio is an Interactive Development Environment (IDE),
 just like JupyterLab.
 This means it comes with some conveniences,
 such as code completion when pressing <kbd>TAB</kbd>,
 highlighting of syntax errors,
 and debugging tools.
+
+![](img/rstudio_ide.png)
+
 The interface is also similar to JupyterLab
 (and many other IDEs)
 as it has panels for browsing files,
 reading help documentation, and running code in a console.
 You are already familiar with the concept of many of these from running JupyterLab,
-but they are arranged slightly different in RStudio,
-so you'll need to familiarize yourself with this new interface.
+but they are arranged slightly different in RStudio.
 While you can write both R and Python code in RStudio,
 we'll use it mostly for R in MDS.
 
-## The RStudio interface
+Please see the
+[Lecture 0b: Recommended RStudio Setup](0-rstudio-orientation-intro.html#recommended-rstudio-setup)
+to configure the IDE with safe defaults on launch.
 
-The default panel layout is shown below.
-You can customize where the individual panels go,
-and if you have opend RStudio earlier,
-they might not be arranged in exactly this layout.
-Each panel has multiple tabs
-and here we are highlighting the tabs
-we will use the most in each panel.
+![](img/rstudio-global_options-general.png)
 
-![](img/rstudio_ide.png)
+### Editing RStudio settings to not save workspace data
 
-The "Editor" tab is where you can write R code that will be saved as a file. In contrast, the "Console" tab is where R commands are sent and evaluated by R, but any R code written here is not saved. The "Environment" tab displays the currently defined variables, providing a snapshot of your workspace. The "Files" tab allows you to navigate your file system, and this panel also includes the "Plots" and "Help" tabs, which show figures you create and provide function documentation, respectively.
+By default,
+R asks us to save workspace data and load it when we start a new session.
+In general,
+we **NEVER** want to save our workspace (or load a previous one).
+We can avoid accidentally doing this
+through turning it off in the RStudio global options in the Tools menu.
 
 ## R Scripts
 
@@ -88,20 +100,11 @@ and clicking to run it
 plot(cars)
 ```
 
-## Editing RStudio settings to not save workspace data
-
-By default,
-R asks us to save workspace data and load it when we start a new session.
-In general,
-we NEVER want to save our workspace (or load a previous one).
-We can avoid accidentally doing this
-through turning it off in the RStudio global options in the Tools menu.
-
-## Where are we?
+## R Working Directory
 
 Different from JupyterLab,
 when you open RStudio you open a `.R` or `.Rmd` file the RStudio,
-the current working directory is **not** neccesarily the project working directory,
+the current working directory is **not** necessarily the project working directory,
 or the directory of the file you opened.
 
 **EVERY SESSION** you need to tell RStudio where you are working. Especially if you are loading other files outside of your `.R` or `.Rmd` file.
@@ -109,39 +112,73 @@ or the directory of the file you opened.
 So, where are you when you open RStudio? You can find out one of two ways:
 
 1. type `getwd()` in the console
-
-2. In the files pane, click the cog/More button and then click "Go To Working Directory"
+2. In the files pane, click the Cog/More button and then click "Go To Working Directory"
 
 ### Setting the working directory
-### Three Ways to follow:
 
-* Way 1. *Use an RStudio project*: RStudio projects help organize your work and manage your files and settings. More details on RStudio projects are provided below.
+There are three ways to set your working directory:
 
-* Way 2. *Set the working directory through the Files pane*: Navigate to the desired location in your file structure using the Files pane. Once there, click the cog/More button and select "Set As Working Directory".
+* Method 1. *Use an RStudio project* (Best Option): RStudio projects help organize your work and manage your files and settings. More details on RStudio projects are provided below.
 
-* Way 3. *Set the working directory via the Session menu*: Go to the Session menu, click "Set Working Directory", and then choose "Choose Directory". This will open a file browser where you can navigate to and select the desired directory.
+* Method 2. *Set the working directory through the Files pane*: Navigate to the desired location in your file structure using the Files pane. Once there, click the cog/More button and select "Set As Working Directory".
 
-* Way 4. *Set the working directory using the console*: Type `setwd("PATH")` in the console, replacing "PATH" with the path to your desired directory. Use this method with care, as explained in Jenny's [article on workflow vs. script](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/).
+* Method 3. *Set the working directory via the Session menu*: Go to the Session menu, click "Set Working Directory", and then choose "Choose Directory". This will open a file browser where you can navigate to and select the desired directory.
 
-## RStudio projects
+* Method 4. *Set the working directory using the console*: Type `setwd("PATH")` in the console, replacing "PATH" with the path to your desired directory. Use this method with care, as explained in Jenny's [article on workflow vs. script](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/).
+
+:::{.callout-important}
+The RStudio project method (Method 1) is the **only** way you can consistently set
+a working directory that also works in a collaborative workflow.
+:::
+
+## RStudio Projects
 
 An RStudio project is essentially a directory containing a special file: `*.Rproj`,
 which holds metadata for R about this project.
 RProjects set the working directory by default to be the root of the project
-and we recommend using it together with the `here()` package,
-which can easily create paths relative to root project dir:
+and we recommend using it together with the `{here}` package,
+which can easily create paths relative from the root project dir
 
-```R
-install.packages("here")
+### The {here} Package
+
+When you load the `{here}` package,
+it will echo the current project root directory.
+You should always confirm that this is the expected starting location
+for your project.
+
+```{r}
+# install.packages("here")
 library(here)
+```
 
-# If you data is in project_root/files/data/
-# this will make sure that anyone using your project
-# will get the correct path
+If your `iris.csv` data is in `project_root/files/data/`
+this will make sure that anyone using your project
+will get the correct path
+
+```{r}
 here("files", "data", "iris.csv")
 ```
 
-## Creating RStudio projects
+The `{here}` package finds the project root directory,
+and allows you to provide a relative path to any of the files from that
+root project directory.
+In turn, `here::here()` will return the absolute path to the specified
+file or directory.
+
+This method of having the user code always use a relative path,
+and the function resolving to an absolute path is a way
+files can be located across different computers,
+especially when working on a collaborative project.
+
+Another benefit of the `here::here()` function,
+is that if your data location does not change,
+and you move your analysis file into a different folder,
+you would not need to change your code,
+because the relative path to the data from the root directory
+stayed the same.
+
+
+### Creating RStudio projects
 
 You can either create an empty RStudio project,
 or clone an existing GitHub repo,
@@ -151,6 +188,8 @@ which also allows you to use the RStudio interface to control Git.
 2. Copy the URL needed to clone that repo from GitHub
 3. Then select **File > New Project > Version Control > Git** and fill in.
 
+![](img/new_project.png)
+
 Now you can use RStudio as a Git client via the colorful icon in the toolbar of the edit panel.
 This includes adding parts of a document do the staging area,
 committing, pushing, pulling, and more.
@@ -158,10 +197,15 @@ Using terminal Git will still be more reliable,
 since it is available anywhere Git is installed,
 but feel free to use the RStudio (or VS Code) interfaces as a complement.
 
-![](img/new_project.png)
+Creating an RStudio Project this way is the same way as running `git clone`
+on the remote repository and then selecting "Existing Directory"
+in the New Project Wizard.
+The benefit of creating the repository on the remote first,
+is the same reason we discussed in the Git + GitHub chapters,
+and saves us the steps of running `git init` and manually hooking
+up the remote repositories.
 
-## Dynamic documents with Jupyter Notebooks and RMarkdown
-
+## Literate programming documents
 
 Our journey to understand what is a dynamic document is linked with the literate programming paradigm [2] proposed bu Knuth in 1984 [1].
 
@@ -170,36 +214,49 @@ Our journey to understand what is a dynamic document is linked with the literate
 >
 > --Donald Knuth. "Literate Programming (1984)" in Literate Programming. CSLI, 1992, pg. 99.
 
-In the literate programming paradigm, an author has two (equally important) tasks [2]:
-1. write program code to do computing, and
-2. write narratives to explain what is being done by the program code
+In the **literate programming** paradigm, an author has two (equally important) tasks [2]:
 
-Going back to our first question in lecture 5, we could agree to only mantain the code used to generate the plots and results produced as part of the analysis. But we will also agree that this code, even if we include comments and docstrings, it is not possible to be easily read for an human. Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.
+1. Write program code to do computing
+2. Write narratives to explain what is being done by the program code
 
-The idea of accompanying the code with so much detailed text, was not widely adopted for software projects [3] but turn into an amazing tool for data scientists who frecquently uses these documents as reports products of their analysis. The rendering of the plots as figures next to the text in a manuscript allows giving valuable context to the visualizations.
+Going back to [first exercise of this lesson](5-rstudio-projects-notebooks.html#activity-1),
+the best way would be to make sure all the plots and results can be replicated by the code
+and we can reference the generated artifacts in the report.
 
-Most of you are probably familiarized with dynamic documents as notebooks, our well known **Jupyter Notebooks** (`.ipynb`) and **RMarkdown documents** (`.Rmd`) .
+However, code, even with documentation strings (i.e., docstrings),
+may not be easily understandable for people.
+Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.
 
-From the two elements that compose the dynamic documents, there are three principal components that are the similar for Jupyter Notebooks and RMarkdown documents:
+The idea of accompanying the code with so much detailed text,
+was not widely adopted for software projects [3]
+but turn into an amazing tool for data scientists who frequently uses these documents
+as reports products of their analysis.
+The rendering of the plots, figures, and tables next to the text in a manuscript
+allows giving valuable context to the visualizations.
+
+Most of you are probably familiarized with dynamic literate programming documents as **Jupyter Notebooks** (`.ipynb`), **RMarkdown documents** (`.Rmd`), and
+**Quarto documents** (`.qmd`).
+
+From the two elements that compose the dynamic documents, there are three principal components that are the similar for
+Jupyter Notebooks,
+RMarkdown documents,
+and Quarto documents:
 
 * The narrative is created with text formatted with **markdown**
 * The code can be run and it is combined with the text in two different ways:
-    * Interleaved as part of the text, called **inline code** (only present in RMarkdown documents).
-    * In separated code blocks called **code cells** (Jupyter Notebooks) or **code chunks** (RMarkdown) that allow rendering code.
+    * Interleaved as part of the text, called **inline code**.
+    * In separated code blocks called **code cells** (Jupyter Notebooks, Quarto),
+      or **code chunks** (RMarkdown) that allow rendering code.
 
  ![alttag](img/rmd-inline.png)
- *example inline code in RMarkdown* - https://rmarkdown.rstudio.com/articles_intro.html
+ *Example inline code in RMarkdown* - <https://rmarkdown.rstudio.com/articles_intro.html>
  ![alttag](img/rmd-code.png)
- *example code chunk in RMarkdown*  - https://rmarkdown.rstudio.com/articles_intro.html
-
-
-
-
+ *Example code chunk in RMarkdown*  - <https://rmarkdown.rstudio.com/articles_intro.html>
 
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 5 Activity 1
+## Activity 2
 ::::
 ::::{.activity-container}
 Let's go back to the document of the first activity. How can we make changes to one of the calculation?
@@ -215,70 +272,66 @@ D. No, it's best to keep the original report unchanged
 ::::
 :::
 
-## ~~R~~Markdown
+## Markdown
 
 > The overriding design goal for Markdown’s formatting syntax
- is to make it as readable as possible.
- The idea is that a Markdown-formatted document should be publishable as-is,
+  is to make it as readable as possible.
+  The idea is that a Markdown-formatted document should be publishable as-is,
   as plain text, without looking like
-   it’s been marked up with tags or formatting instructions. --John Gruber
+  it’s been marked up with tags or formatting instructions.
+>
+> --John Gruber
 
-Jupyter Notebooks and RMarkdown documents
-use markdown to format the text,
-but markdown has it's own identity!
-You already known markdown files really well,
-at least you are using them as the `README.md` file
-of most of the project you have created.
-Let's start by describing it and then we can talk about RMarkdown.
+Jupyter Notebooks, RMarkdown documents, and Quarto documents
+use markdown to format the text.
+But, markdown has it's own identity!
+We've already worked with markdown many times,
+including the `README.md` files
+of most of the projects we have created.
 
-[Markdown](https://glosario.carpentries.org/en/#markdown) is basically a [markup language](https://glosario.carpentries.org/en/#markup_language)
+[Markdown](https://glosario.carpentries.org/en/#markdown) is a
+[markup language](https://glosario.carpentries.org/en/#markup_language)
 that you can use to add formatting elements to easy
 to read plain-text text documents [4,5].
 Markdown files have their own file extension (`.md`)
-that could be easily converted to [`HTML`](https://glosario.carpentries.org/en/#html)
-and because of that, rendered as a web page.
+that could be easily converted other formats.
+One example is
+[HTML](https://glosario.carpentries.org/en/#html),
+that can be rendered as a web page.
 
-Now we can start to understand markdown power:
+Now we can start to understand the power of markdown, and why it is so popular.
 
-1.  Its simple **formatting syntax** allows translation of content to `HTML`
- without having to be an expert.
+1. **Simple formatting syntax**:
+   Allows translation of content to HTML
+   (and many other formats) without having to be an expert.
 
-2.  It is **human readable**.
-Compare markdown and `HTML`, which one
- is easier to understand by reading only the code?
+2. **Human readable**:
+   Compare markdown and `HTML`,
+   which one is easier to understand by reading only the code?
 
-3.  It is a **plain-text document**.
-This means that it is open by mostly any editor,
- making `.md` files quite reproducible.
+3. **Plain-text document**:
+   This means that it is open by mostly any editor,
+   making `.md` files quite reproducible.
 
-Converting the `.md` files to `HTML` documents (`.html`)
- involves the use of specific designed software for that purpuse.
- One of the most popular markdown converters is called [pandoc](https://pandoc.org/).
- Pandoc can not only convert markdown to `HTML`
-  if not to other popular and widely used formats
-   as Word documents (`.docx`) and PDFs (`.pdf`).
+The markdown, `.md`, file is a common file format that can be used by tools
+such as []`pandoc`](https://pandoc.org/)
+to convert to many other types,
+e.g., `pdf`, `html`, `epub`, `docx`, `ppt`, etc.
 
-If your goal is to render the final `HTML` document,
+If your goal is to render the final `.html` document,
 keep in mind that you will need an extra step to view the file in a web browser.
-Also, `HTML` documents can not only be render as web pages,
+Also, `.html` documents can not only be render as web pages,
 you can create with them blogs, books, articles.
-At the end of lecture 8 we will learn how to use GitHub Pages
-to render part of the `HTML` documents that we are going to generate.
-Therefore, some editors as RStudio, JupyterLab and VS Code
-will resume many steps at the same time
-rendering and displaying the `.md` file directly on the console.
-GitHub does something similar with the `README.md` file
-that appears automatically rendered as the first page of your GitHub repository.
+We saw this in the [Quarto and Git Hub Pages Lesson](4-quarto_github_pages.html).
 
+GitHub does will also render the `README.md` file of **every** directory in a repository.
 
 ![](img/markdown-flowchart.png)
 Image extracted from: https://www.markdownguide.org/getting-started/
 
-
-
 :::{.activity}
 ::::{.activity-header}
-## Lecture 5 Activity 2
+## Activity 3
 ::::
 ::::{.activity-container}
 What are the primary benefits of using Markdown for formatting text documents?
@@ -293,60 +346,46 @@ D. It is not suitable for web pages
 ::::
 :::
 
+### Markdown and its flavours
 
+The official markdown specifications is ambiguous which lead to
+different implementations of
+[markdown](https://babelmark.github.io/faq/) [6].
+The same markdown syntax
+can render different outputs depending on the rendering engine.
+For example, a `README.md` file can render differently on GitHub than from `pandoc`.
+[Babelmark III](https://babelmark.github.io)
+is a website that can detect and return all the different markdown variants,
+as well as list well known pitfalls.
+Markdown also has many **extensions**, and not all extensions will
+work on all flavors of markdown.
 
-## Markdown and its flavours
+In MDS we handle a limited number
+of markdown flavours (in order of appearance in DSCI 521):
 
-We love markdown! But not all are good news...
-
-First, we will mention that the official markdown syntax documentation
- is not unambiguosly specified.
-What does this means? That there some implementations of [markdown have diverged](https://babelmark.github.io/faq/) [6].
-Meaning that the same markdown syntax
-can render different outputs in relation to the technology you are using.
-How a `README.md` file renders on GitHub could not be equal
-as how it will look like after being converted by `pandoc`.
-The webpage [Babelmark III](https://babelmark.github.io)
-enable to detect this differences through many implementations,
-also listing some of the most well known pitfalls.
-
-Secondly, other way in which Markdown has diverged
- it is reflected in the number of **extensions**.
-This means that there is specific markdown syntax
-created for some implementations that will not work for other technologies.
-
-Don't panic! In MDS we handle a limited number
-of markdown flavours (in order of appeareance in DSCI 521):
-
-1.  [Jupyter Notebook (and Jupyter Book) Markdown](https://jupyterbook.org/en/stable/file-types/markdown.html): is an extension of a Markdown flavour
-called [CommonMark Markdown](https://commonmark.org/).
-If you completed the tutorial that we were recommending on lecture 0
-you have some practice on it! https://commonmark.org/help/tutorial/
-
+1. [Jupyter Notebook (and Jupyter Book) Markdown](https://jupyterbook.org/en/stable/file-types/markdown.html):
+   is an extension of a Markdown flavour called
+   [CommonMark Markdown](https://commonmark.org/).
+   If you completed the tutorial from Lecture 0,
+   you already have some practice on it!
+   <https://commonmark.org/help/tutorial/>
 2. [GitHub flavoured Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-).
-To write issues, pull request, render your `README.md` file in the first page of your repository
-you will be using this Markdown flavour.
-It is a (different) extension of the CommonMark Spec
-also used for Jupyter Notebooks.
-
-Read how to use it [here!](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-
-
+   To write issues, pull request, render your `README.md` file in the first page of your repository
+   you will be using this Markdown flavour.
+   It is a (different) extension of the CommonMark Spec
+   also used for Jupyter Notebooks.
+    - Read how to use it
+      [here!](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 3. [R Markdown documents](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html). R Markdown is an implementation of [Pandoc Markdown (with a wide list of interesting extensions!)](https://pandoc.org/MANUAL.html#pandocs-markdown)
 
 Don't panic! The important take-home message of this
 is that you should always check the documentation of the technology you are using.
 Even if for most of the cases could be quite similar,
 there is not an universal markdown cheatsheet or proceeding
-that will possible to be used with all of them!
+that will possible to be used with all of them.
 
 
-
-
-
-
-
-#### A good practice when writting in markdown: **semantic line breaks**
+#### A good practice when writing in markdown: **Semantic line breaks**
 
 
 > **Hints for Preparing Documents**
@@ -357,29 +396,36 @@ that will possible to be used with all of them!
 >
 > — Brian W. Kernighan, 1974 [9]
 
-You need 2 spaces to create a line break using markdown.
-This means that you can actually break a line
-without creating a line break in the rendered file.
+Semantic line breaks help your source code files with version control,
+while also putting breaks that can make it easier to read the source file.
+When version controlling markdown files,
+the semantic line breaks make it easier to see where the actual differences
+and changes to the file were made when running `git diff`.
 
-The use of shorter phrases could be a benefit when you are version controlling files.
+How markdown renders a new line break:
 
+- Use the `<br/>` HTML tag at the end of a line
+- Place 2 spaces at the end of a line followed by a new line
+- Use an extra empty line for a line break
+
+
+We provide more examples in the [Semantic Line Breaks Chapter](../appendix/semantic_line_breaks.html)
 
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 5 Activity 3
+## Activity 4
 ::::
 ::::{.activity-container}
-### Activities
 
 Question: Check the documentation of [Pandoc Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown) and [GitHub Flavour Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-). Which of the following is true?
-    
+
 A. Pandoc Markdown and GitHub Flavour Markdown render the same way.
 
 B. GitHub Flavour Markdown supports emojis, while Pandoc Markdown does not.
-    
+
 C. Pandoc Markdown cannot be converted to HTML.
-    
+
 D. Both render exactly the same across all platforms.
 
 
@@ -405,8 +451,8 @@ whereas "Knit" first restarts the R session
 and runs through the entire document from the beginning
 to make sure it will work when you send it to someone else.
 
-### A helpful hint for successfully working with R Markdown documents
 
+:::{.callout-tip}
 Given that you need to render the entire document to see your Markdown and LaTeX rendered,
 **it is important to "knit" often as you make changes**.
 If you make an error in a LaTeX equation for example,
@@ -415,7 +461,7 @@ and you will not get to see the rendered document.
 So by knitting/rendering often
 you will know where the last changes you made are
 and then will be able to easily identify and fix your errors.
-
+:::
 
 
 #### R Markdown (`.Rmd`) -> Markdown (`.md`)
@@ -435,7 +481,7 @@ which is responsible for creating the finished format.
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 5 Activity 4
+## Activity 5
 ::::
 ::::{.activity-container}
 ### Activities
@@ -460,14 +506,15 @@ D. There is no difference between `.Rmd` and `.md` files in terms of functionali
 R Markdown is a "flavor" of Markdown
 that allows you to run R code in addition to
 supporting all the Markdown syntax that you have already learned.
-R Markdown documents (`.Rmd`) are most commonly run via `R Notebooks`
-which work similarly to Jupyter notebooks
+
+R Markdown documents (`.Rmd`) work similarly to Jupyter notebooks
 in the sense that you can interleave writing code,
 formatted narrative text,
 and view output all in the same document.
 These are both examples of what it called "literate programming"
 where the goal is to mix code and paragraph text seamlessly.
 
+R Notebooks are a little different.
 Let's see an example of this by creating a new R Notebook
 via `File -> New -> R Notebook`.
 As you can see,
@@ -480,10 +527,21 @@ the plot shows up inside the notebook
 rather than in the side panel
 as when we ran the same line from within the script script.
 
+:::{.callout-important}
+The main difference in an R Markdown document and an R Notebook document,
+is that R Markdown will "knit" the document in a new R session from top to bottom
+**every time**.
+The R Notebook, will convert whatever you have directly into HTML as-is.
+It does not execute any code on "Preview".
+
+You can tell the difference by either looking at the YAML header of the document,
+or in RStudio, you will see a different button (Knit vs Preview).
+:::
+
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 5 Activity 5
+## Activity 6
 ::::
 ::::{.activity-container}
 Is an R Notebook the same as an .Rmd document?
@@ -494,11 +552,7 @@ Is an R Notebook the same as an .Rmd document?
 :::
 
 
-
-
-
-
-### 1.2. Running, editing and creating code chunks
+### Create, Run, and Edit Code Chunks
 
 Just like Jupyter notebooks,
 R Markdown has code cells,
@@ -513,15 +567,23 @@ which for r looks like this `{r}`.
 Additional metadata can be included,
 for example a name to reference the code chunk:
 
-````
-```{r my first code chunk}
+```{r my-first-code-chunk}
+#| echo: fenced
 x <- 5
 x
 ```
-````
 
 There are other language engines that can be used in RMarkdown,
-you can learn more about that [here](https://bookdown.org/yihui/rmarkdown/language-engines.html).
+you can learn more about that
+[here](https://bookdown.org/yihui/rmarkdown/language-engines.html).
+
+:::{.callout-note}
+R Markdown documents can also execute Python code,
+you will need to have the R `{reticulate}` package installed,
+and then point your R installation to the Python version you need.
+
+You can learn more about `{reticulate}`: <https://rstudio.github.io/reticulate/>
+:::
 
 All code cells are run when you knit/render the entire document
 (like pressing "Run all" in JupyterLab).
@@ -532,7 +594,7 @@ You can also run the code by clicking the green play button on the right-hand si
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 5 Activity 6
+## Activity 7
 ::::
 ::::{.activity-container}
 Clone a folder and try to render the .Rmd file. What happens? Try to use here() for the filepath.
@@ -547,7 +609,7 @@ Clone a folder and try to render the .Rmd file. What happens? Try to use here() 
 
 
 
-### 1.3. Naming code chunks and R Markdown document sections
+### Naming code chunks and R Markdown document sections
 
 When you include Markdown headers
 (using the `#` symbol)
@@ -573,10 +635,10 @@ But in reality those names are not that useful
 and it is more helpful to give code chunks meaningful names.
 For example,
 in the code chunk below where we use a for loop to sum the numbers from 1 to 10,
-we name the chunk "for loop sum".
+we name the chunk `for loop sum`.
 
-````R
 ```{r for loop sum}
+#| echo: fenced
 # initialize sum to 0
 loop_sum <- 0
 
@@ -587,11 +649,10 @@ for (i in seq(1:10)){
 
 print(loop_sum)
 ```
-````
 
 :::{.exercise}
 ::::{.exercise-header}
-### Lecture 5 Exercise 1
+## Exercise 1
 ::::
 ::::{.exercise-container}
 
@@ -634,10 +695,7 @@ Questions:
 ::::
 :::
 
-
-
-
-### 1.4. Code chunk options
+### Code chunk options
 
 There are many code chunk options that you can set.
 These options let you customize chunk behavior,
@@ -656,19 +714,22 @@ or locally for a specific chunk
 (these will override the global chunk options if they are contradictory).
 
 Global options are usually set in one chunk at the top of the document
-and looks like this (this is a screenshot):
+and looks like this:
 
-````r
+<!-- hack to get the chunk to render -->
+````{r}
+#| error: true
+#| eval: false
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 ````
 
-Global chunk options are set by adding them as arguments to `knitr::opts_chunk$set(...)`
-(put them in place of `...` and separate multiple options with a comma).
-The only global chunk options set in this document is `echo = FALSE`,
-which hides the code chunks and only shows the output,
-something that can be useful for non-technical reports.
+Global chunk options are set by adding them as arguments to `knitr::opts_chunk$set(...)`;
+replace the `...` with comma separated options.
+For example, if you set the global chunk option to `echo = FALSE`,
+it will hide the code chunks and only shows the output.
+This is something that can be useful for non-technical reports.
 
 Local chunk options are set by adding the options in the curly braces of a code chunk
 after the language engine and code chunk name.
@@ -676,57 +737,83 @@ For example,
 to not display warnings in a single code chunk
 we would use the `warning = FALSE` code chunk as follows:
 
-````r
 ```{r correlation no warning, warning = FALSE}
 # some R code that throws a warning
 cor( c( 1 , 1 ), c( 2 , 3 ) )
 ```
-````
+
+R Markdown and `knitr` also support the Quarto `#|` comment option.
+At the beginning of your code chunk,
+you can supply your chunk options with a comment.
+This allows you to put many options (and long option text) on separate lines.
+This plays well with version control and tries to follow semantic line break rules.
+
+For example,
+you can re-write the `correlation no warning` chunk as
+
+```{r, correlation no warning 2}
+#| echo: fenced
+#| warning: false
+cor( c( 1 , 1 ), c( 2 , 3 ) )
+```
+
+:::{.callout-note}
+The `#|` chunk option notation takes in a different format than the inline option.
+E.g., we use YAML `true`, and `false` values, instead of R's `TRUE`, and `FALSE`.
+We also use `:` to set key-value pairs, instead of `=`.
+
+Also for the `correlation no warning` examples above we needed to change the
+name of the second chunk because documents cannot have chunks with the same name.
+:::
+
+See this page for more information about chunk options: <https://yihui.org/knitr/options>
+
 
 ### A few tips and tricks
 
-- R Markdown support inline evaluated code via the following syntax
-    ```
-    Adding 3 to 4 gives `r 4 + 3`.
-    The value of `x` is currently `r x`.
-    ```
+- R Markdown (and Quarto) support inline evaluated code via the following syntax
+
+```{markdown}
+Adding 3 to 4 gives `r 4 + 3`.
+The value of `x` is currently `r x`.
+```
+
 - Latex equations can be written the same way as in Jupyter notebooks
   and standard markdown documents.
-      - `$\alpha = 5$` for inline latex and `$$\alpha = 5$$` for a math block.
-      - When hovering over equations,
-        R will display the rendered equation in a pop up.
+  - `$\alpha = 5$` for inline latex and `$$\alpha = 5$$` for a math block.
+  - When hovering over equations, R Studio will display the rendered equation in a pop up.
 - R Markdown is built upon the Pandoc Markdown engine.
   This is useful to know since the [Pandoc manual](https://pandoc.org/MANUAL.html)
   is a great exhaustive resource for looking up anything Markdown related.
 - One of the features made available thanks to Pandoc
   is support for citations and bibliographies.
-    - Let's cite the R-package by typing `citation()` into the console,
-      and copying the BibTex citation into a new document
-      that we call `rstudio-demo.bib
-      and adding an identifier string (a key) before the first comma,
-      e.g. `r-lang`.
-    - Include the following field in the YAML metadata
-      in the beginning of the document: `bibliography: rstudio-demo.bib`,
-      then cite it somewhere in the text by adding `[@r-lang]`.
-      The bibliography will be appended to the document,
-      so it is advisable to add a heading saying `# References`
-      at the very end.
-- When working with R Markdown
-  (and code in general)
-  be careful that you don't copy stylized quotation marks
-  because these will not work.
+   - Let's cite the R-package by typing `citation()` into the console,
+     and copying the BibTex citation into a new document
+     that we call `rstudio-demo.bib`
+     and adding an identifier string (a key) before the first comma,
+     e.g. `r-lang`.
+   - Include the following field in the YAML metadata
+     in the beginning of the document: `bibliography: rstudio-demo.bib`,
+     then cite it somewhere in the text by adding `[@r-lang]`.
+     The bibliography will be appended to the document,
+     so it is advisable to add a heading saying `# References`
+     at the very end.
+
+When working with R Markdown (and code in general)
+  be careful that you don't copy stylized quotation marks because these will not work.
   For example, this will throw an error:
-  ```
-  a = “This string”
-  ```
 
-  It should look like this instead:
+```{markdown}
+a = “This string”
+```
 
-  ```
-  a = "This string"
-  ```
+It should look like this instead:
 
-# R Markdown templates
+```{markdown}
+a = "This string"
+```
+
+## R Markdown templates
 
 We have seen how to use the output formats `html_document` and `pdf_document`,
 but as noted in lab3 during the lab,
@@ -740,22 +827,19 @@ This format does not have as many options as HTML,
 and you can use it like this:
 
 ```yaml
-
 output: github_document
-
 ```
 
 Another way of creating a a `github_document`
 is to go to `New -> R Markdown -> From Template -> GitHub Document`.
 As you can see there are other useful templates here.
-We will see how to create a presentation soon,
-but first lets see how to work with a word template.
+We will see how to create a presentation soon.
+
+
 A word document can be created with this YAML header:
 
 ```yaml
-
 output: word_document
-
 ```
 
 We can modify the style of a word document
@@ -766,21 +850,20 @@ saving this under a new name,
 and then using it as a template:
 
 ```yaml
-
 output:
   word_document:
     reference_docx: "our-style-doc.docx"
 
 ```
 
-There are [more details in this article](https://bookdown.org/yihui/rmarkdown/document-templates.html),
-including how to create your own custom template,
-for example for a CV.
+There are
+[more details in this article](https://bookdown.org/yihui/rmarkdown/document-templates.html),
+including how to create your own custom template, for example for a CV.
 
 
 :::{.exercise}
 ::::{.exercise-header}
-### Lecture 5 Exercise 2
+## Exercise 2
 ::::
 ::::{.exercise-container}
 
@@ -833,30 +916,11 @@ Questions:
 
 
 ## References
-1 - D. E. Knuth, Literate Programming, The Computer Journal, Volume 27, Issue 2, 1984, Pages 97–111, https://doi.org/10.1093/comjnl/27.2.97
-2 - Y. Xie Dynamic Documents with R and knitr
-3 -
-4 -  https://www.markdownguide.org/
-5- https://daringfireball.net/projects/markdown/
-6 -  https://babelmark.github.io/faq/
-7 - RStudio Conf 2022 - Quarto Workshop
-8 -
-9 - https://rhodesmill.org/brandon/2012/one-sentence-per-line/ UNIX for Beginners
 
-
-NOT INCLUDED FOR NOW:
-
-### Code snippets
-
-As we started to type `for` above,
-the code completion popped up
-and the first entry said "snippet",
-what is that?
-A code snippet is a text macro,
-which means that you can type a short string of characters
-to insert a template or snippet of text by pressing <kbd>TAB</kbd>.
-You can see all the default snippets
-and define your own by going to
-`Tools -> Global options -> Code -> Edit snippets`.
-Snippets are available anywhere in RStudio,
-not just in R Markdown documents.
+1.  D. E. Knuth, Literate Programming, The Computer Journal, Volume 27, Issue 2, 1984, Pages 97–111, https://doi.org/10.1093/comjnl/27.2.97
+2. Y. Xie, Dynamic Documents with R and knitr
+3. <https://www.markdownguide.org/>
+4. <https://daringfireball.net/projects/markdown/>
+5. <https://babelmark.github.io/faq/>
+6. RStudio Conf 2022 - Quarto Workshop
+7. <https://rhodesmill.org/brandon/2012/one-sentence-per-line/> UNIX for Beginners
