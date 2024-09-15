@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>readings-ch-06 – DSCI 521: Computing Platforms for Data Science</title>
+<title>RStudio Configuration – DSCI 521: Computing Platforms for Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../appendix/semantic_line_breaks.html" rel="next">
+<link href="../appendix/git_config.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -79,9 +81,11 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
 
 
-<meta property="og:title" content="DSCI 521: Computing Platforms for Data Science">
+<meta property="og:title" content="RStudio Configuration – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
-<meta name="twitter:title" content="DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:title" content="RStudio Configuration – DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -129,7 +133,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/git_config.html">Appendix</a></li><li class="breadcrumb-item"><a href="../appendix/rstudio_config.html">RStudio Configuration</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -265,7 +269,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendix/rstudio_config.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendix/rstudio_config.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">RStudio Configuration</span></a>
   </div>
 </li>
@@ -282,22 +286,55 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#global-setup" id="toc-global-setup" class="nav-link active" data-scroll-target="#global-setup">Global Setup</a></li>
+  <li><a href="#latex-and-xelatex" id="toc-latex-and-xelatex" class="nav-link" data-scroll-target="#latex-and-xelatex">LaTeX and XeLaTeX</a></li>
+  <li><a href="#code-snippets" id="toc-code-snippets" class="nav-link" data-scroll-target="#code-snippets">Code snippets</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/git_config.html">Appendix</a></li><li class="breadcrumb-item"><a href="../appendix/rstudio_config.html">RStudio Configuration</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">RStudio Configuration</h1>
+</div>
 
 
 
-<ul>
-<li><a href="https://bookdown.org/yihui/rmarkdown/xaringan.html">R Markdown presentations with xaringan</a></li>
-<li><a href="https://jupyterlab.readthedocs.io/en/stable/user/export.html?highlight=slides#reveal-js-slides">Jupyter presentations</a></li>
-<li><a href="https://quarto.org/docs/presentations/">Quarto Presentations</a></li>
-</ul>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<section id="global-setup" class="level2">
+<h2 class="anchored" data-anchor-id="global-setup">Global Setup</h2>
+<p>In the <code>Tools</code> &gt; <code>Global Options</code> &gt; <code>General</code> Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no <code>.RData</code> is saved when you quit RStudio, and to never save the <code>.RData</code> (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).</p>
+<p><img src="../lectures/img/rstudio-global_options-general.png" class="img-fluid"></p>
+</section>
+<section id="latex-and-xelatex" class="level2">
+<h2 class="anchored" data-anchor-id="latex-and-xelatex">LaTeX and XeLaTeX</h2>
+<p>In the <code>Sweave</code> option</p>
+<p>change the <code>Sweave</code> option to <code>Knitr</code>, and <code>pdflatex</code> to <code>xelatex</code>.</p>
+</section>
+<section id="code-snippets" class="level2">
+<h2 class="anchored" data-anchor-id="code-snippets">Code snippets</h2>
+<p>As we started to type <code>for</code> above, the code completion popped up and the first entry said “snippet”, what is that? A code snippet is a text macro, which means that you can type a short string of characters to insert a template or snippet of text by pressing <kbd>TAB</kbd>. You can see all the default snippets and define your own by going to <code>Tools -&gt; Global options -&gt; Code -&gt; Edit snippets</code>. Snippets are available anywhere in RStudio, not just in R Markdown documents.</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -864,9 +901,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../appendix/git_config.html" class="pagination-link" aria-label="Git Configuration">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git Configuration</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../appendix/semantic_line_breaks.html" class="pagination-link" aria-label="Semantic Line Breaks">
+        <span class="nav-page-text">Semantic Line Breaks</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

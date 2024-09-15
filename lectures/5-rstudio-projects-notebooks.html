@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dynamic documents: from markdown to Rmarkdown documents – DSCI 521: Computing Platforms for Data Science</title>
+<title>RStudio Projects and Literate Programming Documents – DSCI 521: Computing Platforms for Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,10 +115,10 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
 
 
-<meta property="og:title" content="Dynamic documents: from markdown to Rmarkdown documents – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:title" content="RStudio Projects and Literate Programming Documents – DSCI 521: Computing Platforms for Data Science">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
-<meta name="twitter:title" content="Dynamic documents: from markdown to Rmarkdown documents – DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:title" content="RStudio Projects and Literate Programming Documents – DSCI 521: Computing Platforms for Data Science">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -167,7 +167,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/5-rstudio-projects-notebooks.html">Lecture 5: Dynamic documents: from markdown to Rmarkdown documents</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/1-MDStools-bash-filesystem.html">Lectures</a></li><li class="breadcrumb-item"><a href="../lectures/5-rstudio-projects-notebooks.html">Lecture 5: RStudio Projects and Literate Programming Documents</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -192,66 +192,129 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Orientation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/0-jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 0a: JupyterLab Orientation</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/0-rstudio-orientation-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 0b: RStudio Orientation</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/1-MDStools-bash-filesystem.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 1: Introduction to MDS software and Bash</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/2-git-github-ssh-basic-workflow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 2: Introduction to version control with Git and GitHub</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/3-git-history-merge-conflicts-stash.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture 3: Getting grovy with Git and GitHub</span></a>
+ <span class="menu-text">Lecture 3: Git: History, Conflicts, and Ignores</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/4-quarto_github_pages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 4: Introduction to Quarto and Github Pages</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/5-rstudio-projects-notebooks.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Lecture 5: Dynamic documents: from markdown to Rmarkdown documents</span></a>
+ <span class="menu-text">Lecture 5: RStudio Projects and Literate Programming Documents</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/6-rmarkdown-quarto-slides-ghpages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 6: Quarto, RMarkdown, and Jupyter Slides</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/7-virtual-environments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture 7: Virtual environments</span></a>
+  <a href="../lectures/7a-virtual-environments-conda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 7a: Virtual environments: conda</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/7b-virtual-environments-renv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 7b: Virtual environments: renv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/8-regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture 8: Organization of Data Science projects and some useful tools</span></a>
+ <span class="menu-text">Lecture 8a: Organization of Data Science projects</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/8b-regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 8b: Introduction to Regular Expressions (RegEx)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/git_config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/rstudio_config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/semantic_line_breaks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semantic Line Breaks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -265,45 +328,38 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
   <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a>
   <ul class="collapse">
-  <li><a href="#the-rstudio-interface" id="toc-the-rstudio-interface" class="nav-link" data-scroll-target="#the-rstudio-interface">The RStudio interface</a></li>
-  <li><a href="#r-scripts" id="toc-r-scripts" class="nav-link" data-scroll-target="#r-scripts">R Scripts</a></li>
   <li><a href="#editing-rstudio-settings-to-not-save-workspace-data" id="toc-editing-rstudio-settings-to-not-save-workspace-data" class="nav-link" data-scroll-target="#editing-rstudio-settings-to-not-save-workspace-data">Editing RStudio settings to not save workspace data</a></li>
-  <li><a href="#where-are-we" id="toc-where-are-we" class="nav-link" data-scroll-target="#where-are-we">Where are we?</a>
+  </ul></li>
+  <li><a href="#r-scripts" id="toc-r-scripts" class="nav-link" data-scroll-target="#r-scripts">R Scripts</a></li>
+  <li><a href="#r-working-directory" id="toc-r-working-directory" class="nav-link" data-scroll-target="#r-working-directory">R Working Directory</a>
   <ul class="collapse">
   <li><a href="#setting-the-working-directory" id="toc-setting-the-working-directory" class="nav-link" data-scroll-target="#setting-the-working-directory">Setting the working directory</a></li>
-  <li><a href="#three-ways-to-follow" id="toc-three-ways-to-follow" class="nav-link" data-scroll-target="#three-ways-to-follow">Three Ways to follow:</a></li>
   </ul></li>
-  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio projects</a></li>
+  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio Projects</a>
+  <ul class="collapse">
+  <li><a href="#the-here-package" id="toc-the-here-package" class="nav-link" data-scroll-target="#the-here-package">The {here} Package</a></li>
   <li><a href="#creating-rstudio-projects" id="toc-creating-rstudio-projects" class="nav-link" data-scroll-target="#creating-rstudio-projects">Creating RStudio projects</a></li>
-  <li><a href="#dynamic-documents-with-jupyter-notebooks-and-rmarkdown" id="toc-dynamic-documents-with-jupyter-notebooks-and-rmarkdown" class="nav-link" data-scroll-target="#dynamic-documents-with-jupyter-notebooks-and-rmarkdown">Dynamic documents with Jupyter Notebooks and RMarkdown</a></li>
-  <li><a href="#rmarkdown" id="toc-rmarkdown" class="nav-link" data-scroll-target="#rmarkdown"><del>R</del>Markdown</a></li>
+  </ul></li>
+  <li><a href="#literate-programming-documents" id="toc-literate-programming-documents" class="nav-link" data-scroll-target="#literate-programming-documents">Literate programming documents</a></li>
+  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown">Markdown</a></li>
   <li><a href="#markdown-and-its-flavours" id="toc-markdown-and-its-flavours" class="nav-link" data-scroll-target="#markdown-and-its-flavours">Markdown and its flavours</a></li>
-  <li><a href="#text-and-rendering-r-markdown-documents" id="toc-text-and-rendering-r-markdown-documents" class="nav-link" data-scroll-target="#text-and-rendering-r-markdown-documents">Text and rendering R Markdown documents</a>
-  <ul class="collapse">
-  <li><a href="#a-helpful-hint-for-successfully-working-with-r-markdown-documents" id="toc-a-helpful-hint-for-successfully-working-with-r-markdown-documents" class="nav-link" data-scroll-target="#a-helpful-hint-for-successfully-working-with-r-markdown-documents">A helpful hint for successfully working with R Markdown documents</a></li>
-  </ul></li>
+  <li><a href="#text-and-rendering-r-markdown-documents" id="toc-text-and-rendering-r-markdown-documents" class="nav-link" data-scroll-target="#text-and-rendering-r-markdown-documents">Text and rendering R Markdown documents</a></li>
   <li><a href="#r-markdown-and-r-notebooks" id="toc-r-markdown-and-r-notebooks" class="nav-link" data-scroll-target="#r-markdown-and-r-notebooks">R Markdown and R Notebooks</a></li>
-  <li><a href="#running-editing-and-creating-code-chunks" id="toc-running-editing-and-creating-code-chunks" class="nav-link" data-scroll-target="#running-editing-and-creating-code-chunks">1.2. Running, editing and creating code chunks</a></li>
-  <li><a href="#naming-code-chunks-and-r-markdown-document-sections" id="toc-naming-code-chunks-and-r-markdown-document-sections" class="nav-link" data-scroll-target="#naming-code-chunks-and-r-markdown-document-sections">1.3. Naming code chunks and R Markdown document sections</a></li>
-  <li><a href="#code-chunk-options" id="toc-code-chunk-options" class="nav-link" data-scroll-target="#code-chunk-options">1.4. Code chunk options</a></li>
+  <li><a href="#create-run-and-edit-code-chunks" id="toc-create-run-and-edit-code-chunks" class="nav-link" data-scroll-target="#create-run-and-edit-code-chunks">Create, Run, and Edit Code Chunks</a></li>
+  <li><a href="#naming-code-chunks-and-r-markdown-document-sections" id="toc-naming-code-chunks-and-r-markdown-document-sections" class="nav-link" data-scroll-target="#naming-code-chunks-and-r-markdown-document-sections">Naming code chunks and R Markdown document sections</a></li>
+  <li><a href="#code-chunk-options" id="toc-code-chunk-options" class="nav-link" data-scroll-target="#code-chunk-options">Code chunk options</a></li>
   <li><a href="#a-few-tips-and-tricks" id="toc-a-few-tips-and-tricks" class="nav-link" data-scroll-target="#a-few-tips-and-tricks">A few tips and tricks</a></li>
-  </ul></li>
-  <li><a href="#r-markdown-templates" id="toc-r-markdown-templates" class="nav-link" data-scroll-target="#r-markdown-templates">R Markdown templates</a>
-  <ul class="collapse">
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a>
-  <ul class="collapse">
-  <li><a href="#code-snippets" id="toc-code-snippets" class="nav-link" data-scroll-target="#code-snippets">Code snippets</a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#r-markdown-templates" id="toc-r-markdown-templates" class="nav-link" data-scroll-target="#r-markdown-templates">R Markdown templates</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/1-MDStools-bash-filesystem.html">Lectures</a></li><li class="breadcrumb-item"><a href="../lectures/5-rstudio-projects-notebooks.html">Lecture 5: RStudio Projects and Literate Programming Documents</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Dynamic documents: from markdown to Rmarkdown documents</h1>
+<h1 class="title">RStudio Projects and Literate Programming Documents</h1>
 </div>
 
 
@@ -323,25 +379,35 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <section id="learning-outcomes" class="level2">
 <h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
 <ol type="1">
-<li>Create RProjects in Rstudio using <code>here</code> to define robust file paths.</li>
-<li>Detect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown</li>
-<li>Explain markdown usage in relation to dynamic documents</li>
-<li>Differentiate between code chunks and code cells in Rmarkdown and Jupyter Notebooks.</li>
-<li>Select appropiate code chunk options for RMarkdown.</li>
-<li>Use semantic line breaks for version control files</li>
-<li>Specify metadata in the YAML header block</li>
+<li>Create RProjects in RStudio using <code>here</code> to define robust file paths.</li>
+<li>Detect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown.</li>
+<li>Explain markdown usage in relation to dynamic documents.</li>
+<li>Differentiate between code chunks and code cells in RMarkdown and Jupyter Notebooks.</li>
+<li>Select appropriate code chunk options for RMarkdown.</li>
+<li>Use semantic line breaks for version control files.</li>
+<li>Specify metadata in the YAML header block.</li>
 </ol>
 <p><strong>Platform in focus</strong> RStudio IDE</p>
 </section>
-<section id="rstudio" class="level1">
-<h1>RStudio</h1>
-<p>You have the <a href="">following report</a> and you have realized that there was an error in one of the calculations you did to generate it. This means that several results are going to be modified. Let’s run the scripts again and replace the plots and results affected. I hope not to have more errors! Do you think that should be other way to solve this?</p>
-<p>Introducing RStudio! An Interactive Development Environment (IDE), just like JupyterLab. This means it comes with some conveniences, such as code completion when pressing <kbd>TAB</kbd>, highlighting of syntax errors, and debugging tools. The interface is also similar to JupyterLab (and many other IDEs) as it has panels for browsing files, reading help documentation, and running code in a console. You are already familiar with the concept of many of these from running JupyterLab, but they are arranged slightly different in RStudio, so you’ll need to familiarize yourself with this new interface. While you can write both R and Python code in RStudio, we’ll use it mostly for R in MDS.</p>
-<section id="the-rstudio-interface" class="level2">
-<h2 class="anchored" data-anchor-id="the-rstudio-interface">The RStudio interface</h2>
-<p>The default panel layout is shown below. You can customize where the individual panels go, and if you have opend RStudio earlier, they might not be arranged in exactly this layout. Each panel has multiple tabs and here we are highlighting the tabs we will use the most in each panel.</p>
+<div id="activity1" class="activity">
+<section id="activity-1" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="activity-1">Activity 1</h2>
+</section>
+<div class="activity-container">
+<p>You have the <a href="https://ttimbers.github.io/breast_cancer_predictor/doc/breast_cancer_predict_report.html">following report</a> and you have realized that there was an error in one of the calculations you did to generate it. This means that several results are going to be modified. Let’s run the scripts again and replace the plots and results affected. I hope not to have more errors! Do you think that should be other way to solve this?</p>
+</div>
+</div>
+<section id="rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio">RStudio</h2>
+<p>We have already seen RStudio in <a href="0-rstudio-orientation-intro.html">Lecture 0b</a>. RStudio is an Interactive Development Environment (IDE), just like JupyterLab. This means it comes with some conveniences, such as code completion when pressing <kbd>TAB</kbd>, highlighting of syntax errors, and debugging tools.</p>
 <p><img src="img/rstudio_ide.png" class="img-fluid"></p>
-<p>The “Editor” tab is where you can write R code that will be saved as a file. In contrast, the “Console” tab is where R commands are sent and evaluated by R, but any R code written here is not saved. The “Environment” tab displays the currently defined variables, providing a snapshot of your workspace. The “Files” tab allows you to navigate your file system, and this panel also includes the “Plots” and “Help” tabs, which show figures you create and provide function documentation, respectively.</p>
+<p>The interface is also similar to JupyterLab (and many other IDEs) as it has panels for browsing files, reading help documentation, and running code in a console. You are already familiar with the concept of many of these from running JupyterLab, but they are arranged slightly different in RStudio. While you can write both R and Python code in RStudio, we’ll use it mostly for R in MDS.</p>
+<p>Please see the <a href="0-rstudio-orientation-intro.html#recommended-rstudio-setup">Lecture 0b: Recommended RStudio Setup</a> to configure the IDE with safe defaults on launch.</p>
+<p><img src="img/rstudio-global_options-general.png" class="img-fluid"></p>
+<section id="editing-rstudio-settings-to-not-save-workspace-data" class="level3">
+<h3 class="anchored" data-anchor-id="editing-rstudio-settings-to-not-save-workspace-data">Editing RStudio settings to not save workspace data</h3>
+<p>By default, R asks us to save workspace data and load it when we start a new session. In general, we <strong>NEVER</strong> want to save our workspace (or load a previous one). We can avoid accidentally doing this through turning it off in the RStudio global options in the Tools menu.</p>
+</section>
 </section>
 <section id="r-scripts" class="level2">
 <h2 class="anchored" data-anchor-id="r-scripts">R Scripts</h2>
@@ -354,79 +420,106 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <p>If a plot is generate from the executed code, it will show up in the “Plots” tab in the bottom left panel. You can try it by adding the following line to the script and clicking to run it (it uses a built-in data set called “cars”):</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="editing-rstudio-settings-to-not-save-workspace-data" class="level2">
-<h2 class="anchored" data-anchor-id="editing-rstudio-settings-to-not-save-workspace-data">Editing RStudio settings to not save workspace data</h2>
-<p>By default, R asks us to save workspace data and load it when we start a new session. In general, we NEVER want to save our workspace (or load a previous one). We can avoid accidentally doing this through turning it off in the RStudio global options in the Tools menu.</p>
-</section>
-<section id="where-are-we" class="level2">
-<h2 class="anchored" data-anchor-id="where-are-we">Where are we?</h2>
-<p>Different from JupyterLab, when you open RStudio you open a <code>.R</code> or <code>.Rmd</code> file the RStudio, the current working directory is <strong>not</strong> neccesarily the project working directory, or the directory of the file you opened.</p>
+<section id="r-working-directory" class="level2">
+<h2 class="anchored" data-anchor-id="r-working-directory">R Working Directory</h2>
+<p>Different from JupyterLab, when you open RStudio you open a <code>.R</code> or <code>.Rmd</code> file the RStudio, the current working directory is <strong>not</strong> necessarily the project working directory, or the directory of the file you opened.</p>
 <p><strong>EVERY SESSION</strong> you need to tell RStudio where you are working. Especially if you are loading other files outside of your <code>.R</code> or <code>.Rmd</code> file.</p>
 <p>So, where are you when you open RStudio? You can find out one of two ways:</p>
 <ol type="1">
-<li><p>type <code>getwd()</code> in the console</p></li>
-<li><p>In the files pane, click the cog/More button and then click “Go To Working Directory”</p></li>
+<li>type <code>getwd()</code> in the console</li>
+<li>In the files pane, click the Cog/More button and then click “Go To Working Directory”</li>
 </ol>
 <section id="setting-the-working-directory" class="level3">
 <h3 class="anchored" data-anchor-id="setting-the-working-directory">Setting the working directory</h3>
-</section>
-<section id="three-ways-to-follow" class="level3">
-<h3 class="anchored" data-anchor-id="three-ways-to-follow">Three Ways to follow:</h3>
+<p>There are three ways to set your working directory:</p>
 <ul>
-<li><p>Way 1. <em>Use an RStudio project</em>: RStudio projects help organize your work and manage your files and settings. More details on RStudio projects are provided below.</p></li>
-<li><p>Way 2. <em>Set the working directory through the Files pane</em>: Navigate to the desired location in your file structure using the Files pane. Once there, click the cog/More button and select “Set As Working Directory”.</p></li>
-<li><p>Way 3. <em>Set the working directory via the Session menu</em>: Go to the Session menu, click “Set Working Directory”, and then choose “Choose Directory”. This will open a file browser where you can navigate to and select the desired directory.</p></li>
-<li><p>Way 4. <em>Set the working directory using the console</em>: Type <code>setwd("PATH")</code> in the console, replacing “PATH” with the path to your desired directory. Use this method with care, as explained in Jenny’s <a href="https://www.tidyverse.org/articles/2017/12/workflow-vs-script/">article on workflow vs.&nbsp;script</a>.</p></li>
+<li><p>Method 1. <em>Use an RStudio project</em> (Best Option): RStudio projects help organize your work and manage your files and settings. More details on RStudio projects are provided below.</p></li>
+<li><p>Method 2. <em>Set the working directory through the Files pane</em>: Navigate to the desired location in your file structure using the Files pane. Once there, click the cog/More button and select “Set As Working Directory”.</p></li>
+<li><p>Method 3. <em>Set the working directory via the Session menu</em>: Go to the Session menu, click “Set Working Directory”, and then choose “Choose Directory”. This will open a file browser where you can navigate to and select the desired directory.</p></li>
+<li><p>Method 4. <em>Set the working directory using the console</em>: Type <code>setwd("PATH")</code> in the console, replacing “PATH” with the path to your desired directory. Use this method with care, as explained in Jenny’s <a href="https://www.tidyverse.org/articles/2017/12/workflow-vs-script/">article on workflow vs.&nbsp;script</a>.</p></li>
 </ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The RStudio project method (Method 1) is the <strong>only</strong> way you can consistently set a working directory that also works in a collaborative workflow.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="rstudio-projects" class="level2">
-<h2 class="anchored" data-anchor-id="rstudio-projects">RStudio projects</h2>
-<p>An RStudio project is essentially a directory containing a special file: <code>*.Rproj</code>, which holds metadata for R about this project. RProjects set the working directory by default to be the root of the project and we recommend using it together with the <code>here()</code> package, which can easily create paths relative to root project dir:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"here"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If you data is in project_root/files/data/</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># this will make sure that anyone using your project</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># will get the correct path</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>(<span class="st">"files"</span>, <span class="st">"data"</span>, <span class="st">"iris.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h2 class="anchored" data-anchor-id="rstudio-projects">RStudio Projects</h2>
+<p>An RStudio project is essentially a directory containing a special file: <code>*.Rproj</code>, which holds metadata for R about this project. RProjects set the working directory by default to be the root of the project and we recommend using it together with the <code>{here}</code> package, which can easily create paths relative from the root project dir</p>
+<section id="the-here-package" class="level3">
+<h3 class="anchored" data-anchor-id="the-here-package">The {here} Package</h3>
+<p>When you load the <code>{here}</code> package, it will echo the current project root directory. You should always confirm that this is the expected starting location for your project.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("here")</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at /home/runner/work/DSCI_521_platforms-dsci_book/DSCI_521_platforms-dsci_book</code></pre>
+</div>
+</div>
+<p>If your <code>iris.csv</code> data is in <code>project_root/files/data/</code> this will make sure that anyone using your project will get the correct path</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>(<span class="st">"files"</span>, <span class="st">"data"</span>, <span class="st">"iris.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/home/runner/work/DSCI_521_platforms-dsci_book/DSCI_521_platforms-dsci_book/files/data/iris.csv"</code></pre>
+</div>
+</div>
+<p>The <code>{here}</code> package finds the project root directory, and allows you to provide a relative path to any of the files from that root project directory. In turn, <code>here::here()</code> will return the absolute path to the specified file or directory.</p>
+<p>This method of having the user code always use a relative path, and the function resolving to an absolute path is a way files can be located across different computers, especially when working on a collaborative project.</p>
+<p>Another benefit of the <code>here::here()</code> function, is that if your data location does not change, and you move your analysis file into a different folder, you would not need to change your code, because the relative path to the data from the root directory stayed the same.</p>
 </section>
-<section id="creating-rstudio-projects" class="level2">
-<h2 class="anchored" data-anchor-id="creating-rstudio-projects">Creating RStudio projects</h2>
+<section id="creating-rstudio-projects" class="level3">
+<h3 class="anchored" data-anchor-id="creating-rstudio-projects">Creating RStudio projects</h3>
 <p>You can either create an empty RStudio project, or clone an existing GitHub repo, which also allows you to use the RStudio interface to control Git.</p>
 <ol type="1">
 <li>Start by making a GitHub repo</li>
 <li>Copy the URL needed to clone that repo from GitHub</li>
 <li>Then select <strong>File &gt; New Project &gt; Version Control &gt; Git</strong> and fill in.</li>
 </ol>
-<p>Now you can use RStudio as a Git client via the colorful icon in the toolbar of the edit panel. This includes adding parts of a document do the staging area, committing, pushing, pulling, and more. Using terminal Git will still be more reliable, since it is available anywhere Git is installed, but feel free to use the RStudio (or VS Code) interfaces as a complement.</p>
 <p><img src="img/new_project.png" class="img-fluid"></p>
+<p>Now you can use RStudio as a Git client via the colorful icon in the toolbar of the edit panel. This includes adding parts of a document do the staging area, committing, pushing, pulling, and more. Using terminal Git will still be more reliable, since it is available anywhere Git is installed, but feel free to use the RStudio (or VS Code) interfaces as a complement.</p>
+<p>Creating an RStudio Project this way is the same way as running <code>git clone</code> on the remote repository and then selecting “Existing Directory” in the New Project Wizard. The benefit of creating the repository on the remote first, is the same reason we discussed in the Git + GitHub chapters, and saves us the steps of running <code>git init</code> and manually hooking up the remote repositories.</p>
 </section>
-<section id="dynamic-documents-with-jupyter-notebooks-and-rmarkdown" class="level2">
-<h2 class="anchored" data-anchor-id="dynamic-documents-with-jupyter-notebooks-and-rmarkdown">Dynamic documents with Jupyter Notebooks and RMarkdown</h2>
+</section>
+<section id="literate-programming-documents" class="level2">
+<h2 class="anchored" data-anchor-id="literate-programming-documents">Literate programming documents</h2>
 <p>Our journey to understand what is a dynamic document is linked with the literate programming paradigm [2] proposed bu Knuth in 1984 [1].</p>
 <blockquote class="blockquote">
 <p><em>I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be works of literature. Hence, my title: “Literate Programming.”</em> <em>Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.”…</em></p>
 <p>–Donald Knuth. “Literate Programming (1984)” in Literate Programming. CSLI, 1992, pg. 99.</p>
 </blockquote>
-<p>In the literate programming paradigm, an author has two (equally important) tasks [2]: 1. write program code to do computing, and 2. write narratives to explain what is being done by the program code</p>
-<p>Going back to our first question in lecture 5, we could agree to only mantain the code used to generate the plots and results produced as part of the analysis. But we will also agree that this code, even if we include comments and docstrings, it is not possible to be easily read for an human. Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.</p>
-<p>The idea of accompanying the code with so much detailed text, was not widely adopted for software projects [3] but turn into an amazing tool for data scientists who frecquently uses these documents as reports products of their analysis. The rendering of the plots as figures next to the text in a manuscript allows giving valuable context to the visualizations.</p>
-<p>Most of you are probably familiarized with dynamic documents as notebooks, our well known <strong>Jupyter Notebooks</strong> (<code>.ipynb</code>) and <strong>RMarkdown documents</strong> (<code>.Rmd</code>) .</p>
-<p>From the two elements that compose the dynamic documents, there are three principal components that are the similar for Jupyter Notebooks and RMarkdown documents:</p>
+<p>In the <strong>literate programming</strong> paradigm, an author has two (equally important) tasks [2]:</p>
+<ol type="1">
+<li>Write program code to do computing</li>
+<li>Write narratives to explain what is being done by the program code</li>
+</ol>
+<p>Going back to <a href="5-rstudio-projects-notebooks.html#activity-1">first exercise of this lesson</a>, the best way would be to make sure all the plots and results can be replicated by the code and we can reference the generated artifacts in the report.</p>
+<p>However, code, even with documentation strings (i.e., docstrings), may not be easily understandable for people. Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.</p>
+<p>The idea of accompanying the code with so much detailed text, was not widely adopted for software projects [3] but turn into an amazing tool for data scientists who frequently uses these documents as reports products of their analysis. The rendering of the plots, figures, and tables next to the text in a manuscript allows giving valuable context to the visualizations.</p>
+<p>Most of you are probably familiarized with dynamic literate programming documents as <strong>Jupyter Notebooks</strong> (<code>.ipynb</code>), <strong>RMarkdown documents</strong> (<code>.Rmd</code>), and <strong>Quarto documents</strong> (<code>.qmd</code>).</p>
+<p>From the two elements that compose the dynamic documents, there are three principal components that are the similar for Jupyter Notebooks, RMarkdown documents, and Quarto documents:</p>
 <ul>
 <li>The narrative is created with text formatted with <strong>markdown</strong></li>
 <li>The code can be run and it is combined with the text in two different ways:
 <ul>
-<li>Interleaved as part of the text, called <strong>inline code</strong> (only present in RMarkdown documents).</li>
-<li>In separated code blocks called <strong>code cells</strong> (Jupyter Notebooks) or <strong>code chunks</strong> (RMarkdown) that allow rendering code.</li>
+<li>Interleaved as part of the text, called <strong>inline code</strong>.</li>
+<li>In separated code blocks called <strong>code cells</strong> (Jupyter Notebooks, Quarto), or <strong>code chunks</strong> (RMarkdown) that allow rendering code.</li>
 </ul></li>
 </ul>
-<p><img src="img/rmd-inline.png" class="img-fluid" alt="alttag"> <em>example inline code in RMarkdown</em> - https://rmarkdown.rstudio.com/articles_intro.html <img src="img/rmd-code.png" class="img-fluid" alt="alttag"> <em>example code chunk in RMarkdown</em> - https://rmarkdown.rstudio.com/articles_intro.html</p>
+<p><img src="img/rmd-inline.png" class="img-fluid" alt="alttag"> <em>Example inline code in RMarkdown</em> - <a href="https://rmarkdown.rstudio.com/articles_intro.html" class="uri">https://rmarkdown.rstudio.com/articles_intro.html</a> <img src="img/rmd-code.png" class="img-fluid" alt="alttag"> <em>Example code chunk in RMarkdown</em> - <a href="https://rmarkdown.rstudio.com/articles_intro.html" class="uri">https://rmarkdown.rstudio.com/articles_intro.html</a></p>
 </section>
 <div class="activity">
-<section id="lecture-5-activity-1" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-1">Lecture 5 Activity 1</h2>
+<section id="activity-2" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
 </section>
 <div class="activity-container">
 <p>Let’s go back to the document of the first activity. How can we make changes to one of the calculation?</p>
@@ -436,26 +529,28 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <p>D. No, it’s best to keep the original report unchanged</p>
 </div>
 </div>
-<section id="rmarkdown" class="level2">
-<h2 class="anchored" data-anchor-id="rmarkdown"><del>R</del>Markdown</h2>
+<section id="markdown" class="level2">
+<h2 class="anchored" data-anchor-id="markdown">Markdown</h2>
 <blockquote class="blockquote">
-<p>The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions. –John Gruber</p>
+<p>The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions.</p>
+<p>–John Gruber</p>
 </blockquote>
-<p>Jupyter Notebooks and RMarkdown documents use markdown to format the text, but markdown has it’s own identity! You already known markdown files really well, at least you are using them as the <code>README.md</code> file of most of the project you have created. Let’s start by describing it and then we can talk about RMarkdown.</p>
-<p><a href="https://glosario.carpentries.org/en/#markdown">Markdown</a> is basically a <a href="https://glosario.carpentries.org/en/#markup_language">markup language</a> that you can use to add formatting elements to easy to read plain-text text documents [4,5]. Markdown files have their own file extension (<code>.md</code>) that could be easily converted to <a href="https://glosario.carpentries.org/en/#html"><code>HTML</code></a> and because of that, rendered as a web page.</p>
-<p>Now we can start to understand markdown power:</p>
+<p>Jupyter Notebooks, RMarkdown documents, and Quarto documents use markdown to format the text. But, markdown has it’s own identity! We’ve already worked with markdown many times, including the <code>README.md</code> files of most of the projects we have created.</p>
+<p><a href="https://glosario.carpentries.org/en/#markdown">Markdown</a> is a <a href="https://glosario.carpentries.org/en/#markup_language">markup language</a> that you can use to add formatting elements to easy to read plain-text text documents [4,5]. Markdown files have their own file extension (<code>.md</code>) that could be easily converted other formats. One example is <a href="https://glosario.carpentries.org/en/#html">HTML</a>, that can be rendered as a web page.</p>
+<p>Now we can start to understand the power of markdown, and why it is so popular.</p>
 <ol type="1">
-<li><p>Its simple <strong>formatting syntax</strong> allows translation of content to <code>HTML</code> without having to be an expert.</p></li>
-<li><p>It is <strong>human readable</strong>. Compare markdown and <code>HTML</code>, which one is easier to understand by reading only the code?</p></li>
-<li><p>It is a <strong>plain-text document</strong>. This means that it is open by mostly any editor, making <code>.md</code> files quite reproducible.</p></li>
+<li><p><strong>Simple formatting syntax</strong>: Allows translation of content to HTML (and many other formats) without having to be an expert.</p></li>
+<li><p><strong>Human readable</strong>: Compare markdown and <code>HTML</code>, which one is easier to understand by reading only the code?</p></li>
+<li><p><strong>Plain-text document</strong>: This means that it is open by mostly any editor, making <code>.md</code> files quite reproducible.</p></li>
 </ol>
-<p>Converting the <code>.md</code> files to <code>HTML</code> documents (<code>.html</code>) involves the use of specific designed software for that purpuse. One of the most popular markdown converters is called <a href="https://pandoc.org/">pandoc</a>. Pandoc can not only convert markdown to <code>HTML</code> if not to other popular and widely used formats as Word documents (<code>.docx</code>) and PDFs (<code>.pdf</code>).</p>
-<p>If your goal is to render the final <code>HTML</code> document, keep in mind that you will need an extra step to view the file in a web browser. Also, <code>HTML</code> documents can not only be render as web pages, you can create with them blogs, books, articles. At the end of lecture 8 we will learn how to use GitHub Pages to render part of the <code>HTML</code> documents that we are going to generate. Therefore, some editors as RStudio, JupyterLab and VS Code will resume many steps at the same time rendering and displaying the <code>.md</code> file directly on the console. GitHub does something similar with the <code>README.md</code> file that appears automatically rendered as the first page of your GitHub repository.</p>
+<p>The markdown, <code>.md</code>, file is a common file format that can be used by tools such as []<code>pandoc</code>](https://pandoc.org/) to convert to many other types, e.g., <code>pdf</code>, <code>html</code>, <code>epub</code>, <code>docx</code>, <code>ppt</code>, etc.</p>
+<p>If your goal is to render the final <code>.html</code> document, keep in mind that you will need an extra step to view the file in a web browser. Also, <code>.html</code> documents can not only be render as web pages, you can create with them blogs, books, articles. We saw this in the <a href="4-quarto_github_pages.html">Quarto and Git Hub Pages Lesson</a>.</p>
+<p>GitHub does will also render the <code>README.md</code> file of <strong>every</strong> directory in a repository.</p>
 <p><img src="img/markdown-flowchart.png" class="img-fluid"> Image extracted from: https://www.markdownguide.org/getting-started/</p>
 </section>
 <div class="activity">
-<section id="lecture-5-activity-2" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-2">Lecture 5 Activity 2</h2>
+<section id="activity-3" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="activity-3">Activity 3</h2>
 </section>
 <div class="activity-container">
 <p>What are the primary benefits of using Markdown for formatting text documents?</p>
@@ -465,52 +560,65 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <p>D. It is not suitable for web pages</p>
 </div>
 </div>
-<section id="markdown-and-its-flavours" class="level2">
-<h2 class="anchored" data-anchor-id="markdown-and-its-flavours">Markdown and its flavours</h2>
-<p>We love markdown! But not all are good news…</p>
-<p>First, we will mention that the official markdown syntax documentation is not unambiguosly specified. What does this means? That there some implementations of <a href="https://babelmark.github.io/faq/">markdown have diverged</a> [6]. Meaning that the same markdown syntax can render different outputs in relation to the technology you are using. How a <code>README.md</code> file renders on GitHub could not be equal as how it will look like after being converted by <code>pandoc</code>. The webpage <a href="https://babelmark.github.io">Babelmark III</a> enable to detect this differences through many implementations, also listing some of the most well known pitfalls.</p>
-<p>Secondly, other way in which Markdown has diverged it is reflected in the number of <strong>extensions</strong>. This means that there is specific markdown syntax created for some implementations that will not work for other technologies.</p>
-<p>Don’t panic! In MDS we handle a limited number of markdown flavours (in order of appeareance in DSCI 521):</p>
+<section id="markdown-and-its-flavours" class="level3">
+<h3 class="anchored" data-anchor-id="markdown-and-its-flavours">Markdown and its flavours</h3>
+<p>The official markdown specifications is ambiguous which lead to different implementations of <a href="https://babelmark.github.io/faq/">markdown</a> [6]. The same markdown syntax can render different outputs depending on the rendering engine. For example, a <code>README.md</code> file can render differently on GitHub than from <code>pandoc</code>. <a href="https://babelmark.github.io">Babelmark III</a> is a website that can detect and return all the different markdown variants, as well as list well known pitfalls. Markdown also has many <strong>extensions</strong>, and not all extensions will work on all flavors of markdown.</p>
+<p>In MDS we handle a limited number of markdown flavours (in order of appearance in DSCI 521):</p>
 <ol type="1">
-<li><p><a href="https://jupyterbook.org/en/stable/file-types/markdown.html">Jupyter Notebook (and Jupyter Book) Markdown</a>: is an extension of a Markdown flavour called <a href="https://commonmark.org/">CommonMark Markdown</a>. If you completed the tutorial that we were recommending on lecture 0 you have some practice on it! https://commonmark.org/help/tutorial/</p></li>
-<li><p><a href="https://github.github.com/gfm/#what-is-github-flavored-markdown-">GitHub flavoured Markdown</a>. To write issues, pull request, render your <code>README.md</code> file in the first page of your repository you will be using this Markdown flavour. It is a (different) extension of the CommonMark Spec also used for Jupyter Notebooks.</p></li>
-</ol>
-<p>Read how to use it <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">here!</a></p>
-<ol start="3" type="1">
+<li><a href="https://jupyterbook.org/en/stable/file-types/markdown.html">Jupyter Notebook (and Jupyter Book) Markdown</a>: is an extension of a Markdown flavour called <a href="https://commonmark.org/">CommonMark Markdown</a>. If you completed the tutorial from Lecture 0, you already have some practice on it! <a href="https://commonmark.org/help/tutorial/" class="uri">https://commonmark.org/help/tutorial/</a></li>
+<li><a href="https://github.github.com/gfm/#what-is-github-flavored-markdown-">GitHub flavoured Markdown</a>. To write issues, pull request, render your <code>README.md</code> file in the first page of your repository you will be using this Markdown flavour. It is a (different) extension of the CommonMark Spec also used for Jupyter Notebooks.
+<ul>
+<li>Read how to use it <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">here!</a></li>
+</ul></li>
 <li><a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">R Markdown documents</a>. R Markdown is an implementation of <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc Markdown (with a wide list of interesting extensions!)</a></li>
 </ol>
-<p>Don’t panic! The important take-home message of this is that you should always check the documentation of the technology you are using. Even if for most of the cases could be quite similar, there is not an universal markdown cheatsheet or proceeding that will possible to be used with all of them!</p>
-<section id="a-good-practice-when-writting-in-markdown-semantic-line-breaks" class="level4">
-<h4 class="anchored" data-anchor-id="a-good-practice-when-writting-in-markdown-semantic-line-breaks">A good practice when writting in markdown: <strong>semantic line breaks</strong></h4>
+<p>Don’t panic! The important take-home message of this is that you should always check the documentation of the technology you are using. Even if for most of the cases could be quite similar, there is not an universal markdown cheatsheet or proceeding that will possible to be used with all of them.</p>
+<section id="a-good-practice-when-writing-in-markdown-semantic-line-breaks" class="level4">
+<h4 class="anchored" data-anchor-id="a-good-practice-when-writing-in-markdown-semantic-line-breaks">A good practice when writing in markdown: <strong>Semantic line breaks</strong></h4>
 <blockquote class="blockquote">
 <p><strong>Hints for Preparing Documents</strong></p>
 <p>Most documents go through several versions (always more than you expected) before they are finally finished. Accordingly, you should do whatever possible to make the job of changing them easy.</p>
 <p>First, when you do the purely mechanical operations of typing, type so subsequent editing will be easy. Start each sentence on a new line. Make lines short, and break lines at natural places, such as after commas and semicolons, rather than randomly. Since most people change documents by rewriting phrases and adding, deleting and rearranging sentences, these precautions simplify any editing you have to do later.</p>
 <p>— Brian W. Kernighan, 1974 [9]</p>
 </blockquote>
-<p>You need 2 spaces to create a line break using markdown. This means that you can actually break a line without creating a line break in the rendered file.</p>
-<p>The use of shorter phrases could be a benefit when you are version controlling files.</p>
+<p>Semantic line breaks help your source code files with version control, while also putting breaks that can make it easier to read the source file. When version controlling markdown files, the semantic line breaks make it easier to see where the actual differences and changes to the file were made when running <code>git diff</code>.</p>
+<p>How markdown renders a new line break:</p>
+<ul>
+<li>Use the <code>&lt;br/&gt;</code> HTML tag at the end of a line</li>
+<li>Place 2 spaces at the end of a line followed by a new line</li>
+<li>Use an extra empty line for a line break</li>
+</ul>
+<p>We provide more examples in the <a href="../appendix/semantic_line_breaks.html">Semantic Line Breaks Chapter</a></p>
 </section>
 </section>
 <div class="activity">
-<section id="lecture-5-activity-3" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-3">Lecture 5 Activity 3</h2>
+<section id="activity-4" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="activity-4">Activity 4</h2>
 </section>
-<section id="activities" class="level3 activity-container">
-<h3 class="anchored" data-anchor-id="activities">Activities</h3>
+<div class="activity-container">
 <p>Question: Check the documentation of <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc Markdown</a> and <a href="https://github.github.com/gfm/#what-is-github-flavored-markdown-">GitHub Flavour Markdown</a>. Which of the following is true?</p>
 <p>A. Pandoc Markdown and GitHub Flavour Markdown render the same way.</p>
 <p>B. GitHub Flavour Markdown supports emojis, while Pandoc Markdown does not.</p>
 <p>C. Pandoc Markdown cannot be converted to HTML.</p>
 <p>D. Both render exactly the same across all platforms.</p>
-</section>
+</div>
 </div>
 <section id="text-and-rendering-r-markdown-documents" class="level2">
 <h2 class="anchored" data-anchor-id="text-and-rendering-r-markdown-documents">Text and rendering R Markdown documents</h2>
 <p>In a R Markdown document any line of text not in a code chunk (like this line of text) will be formatted using Markdown. Similar to JupyterLab, you can also use HTML and LaTeX here to do more advanced formatting. Unlike JupyterLab, you do not get to see these Markdown sections rendered on their own. To see this text rendered, <strong>you need to render the whole document</strong>. You can do that clicking the “Knit” or “Preview” button on the top. The difference between these two is that “Preview” creates a HTML version of your document as it looks right now, whereas “Knit” first restarts the R session and runs through the entire document from the beginning to make sure it will work when you send it to someone else.</p>
-<section id="a-helpful-hint-for-successfully-working-with-r-markdown-documents" class="level3">
-<h3 class="anchored" data-anchor-id="a-helpful-hint-for-successfully-working-with-r-markdown-documents">A helpful hint for successfully working with R Markdown documents</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Given that you need to render the entire document to see your Markdown and LaTeX rendered, <strong>it is important to “knit” often as you make changes</strong>. If you make an error in a LaTeX equation for example, it will stop the knitting/rendering process and you will not get to see the rendered document. So by knitting/rendering often you will know where the last changes you made are and then will be able to easily identify and fix your errors.</p>
+</div>
+</div>
 <section id="r-markdown-.rmd---markdown-.md" class="level4">
 <h4 class="anchored" data-anchor-id="r-markdown-.rmd---markdown-.md">R Markdown (<code>.Rmd</code>) -&gt; Markdown (<code>.md</code>)</h4>
 <p>Analogous to the Jupyter Notebook cells, the R Markdown code chunks after being render will be embedded in your final report.</p>
@@ -519,13 +627,12 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <p><img src="img/rstudio-conf-2022-rmarkdown.png" class="img-fluid" alt="alttag"> <em>Rmarkdown documents are created from text and R code</em></p>
 </section>
 </section>
-</section>
 <div class="activity">
-<section id="lecture-5-activity-4" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-4">Lecture 5 Activity 4</h2>
+<section id="activity-5" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="activity-5">Activity 5</h2>
 </section>
-<section id="activities-1" class="level3 activity-container">
-<h3 class="anchored" data-anchor-id="activities-1">Activities</h3>
+<section id="activities" class="level3 activity-container">
+<h3 class="anchored" data-anchor-id="activities">Activities</h3>
 <p>What is the primary advantage of using an <code>.Rmd</code> file over a <code>.md</code> file to create the final HTML document?</p>
 <p>A. <code>.Rmd</code> files do not support code chunks.</p>
 <p>B. <code>.Rmd</code> files allow for the inclusion of executable code chunks, producing dynamic documents.</p>
@@ -535,12 +642,27 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </div>
 <section id="r-markdown-and-r-notebooks" class="level2">
 <h2 class="anchored" data-anchor-id="r-markdown-and-r-notebooks">R Markdown and R Notebooks</h2>
-<p>R Markdown is a “flavor” of Markdown that allows you to run R code in addition to supporting all the Markdown syntax that you have already learned. R Markdown documents (<code>.Rmd</code>) are most commonly run via <code>R Notebooks</code> which work similarly to Jupyter notebooks in the sense that you can interleave writing code, formatted narrative text, and view output all in the same document. These are both examples of what it called “literate programming” where the goal is to mix code and paragraph text seamlessly.</p>
-<p>Let’s see an example of this by creating a new R Notebook via <code>File -&gt; New -&gt; R Notebook</code>. As you can see, there is a default template for Notebooks, which include useful info on how to use them. We can see the keyboard shortcuts for running and inserting cells, and when we execute the plot code the plot shows up inside the notebook rather than in the side panel as when we ran the same line from within the script script.</p>
+<p>R Markdown is a “flavor” of Markdown that allows you to run R code in addition to supporting all the Markdown syntax that you have already learned.</p>
+<p>R Markdown documents (<code>.Rmd</code>) work similarly to Jupyter notebooks in the sense that you can interleave writing code, formatted narrative text, and view output all in the same document. These are both examples of what it called “literate programming” where the goal is to mix code and paragraph text seamlessly.</p>
+<p>R Notebooks are a little different. Let’s see an example of this by creating a new R Notebook via <code>File -&gt; New -&gt; R Notebook</code>. As you can see, there is a default template for Notebooks, which include useful info on how to use them. We can see the keyboard shortcuts for running and inserting cells, and when we execute the plot code the plot shows up inside the notebook rather than in the side panel as when we ran the same line from within the script script.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The main difference in an R Markdown document and an R Notebook document, is that R Markdown will “knit” the document in a new R session from top to bottom <strong>every time</strong>. The R Notebook, will convert whatever you have directly into HTML as-is. It does not execute any code on “Preview”.</p>
+<p>You can tell the difference by either looking at the YAML header of the document, or in RStudio, you will see a different button (Knit vs Preview).</p>
+</div>
+</div>
 </section>
 <div class="activity">
-<section id="lecture-5-activity-5" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-5">Lecture 5 Activity 5</h2>
+<section id="activity-6" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="activity-6">Activity 6</h2>
 </section>
 <div class="activity-container">
 <p>Is an R Notebook the same as an .Rmd document?</p>
@@ -548,19 +670,38 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 b) False</code></pre>
 </div>
 </div>
-<section id="running-editing-and-creating-code-chunks" class="level3">
-<h3 class="anchored" data-anchor-id="running-editing-and-creating-code-chunks">1.2. Running, editing and creating code chunks</h3>
+<section id="create-run-and-edit-code-chunks" class="level3">
+<h3 class="anchored" data-anchor-id="create-run-and-edit-code-chunks">Create, Run, and Edit Code Chunks</h3>
 <p>Just like Jupyter notebooks, R Markdown has code cells, although they’re more commonly referred to as code “chunks” or “blocks”. These are based off fenced Markdown code blocks and always start and end with 3 backticks (```), just like in Markdown. Unique to R Markdown is that the leading three backticks are followed by curly braces containing the language engine you want to run, which for r looks like this <code>{r}</code>. Additional metadata can be included, for example a name to reference the code chunk:</p>
-<pre><code>```{r my first code chunk}
-x &lt;- 5
-x
-```</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r my-first-code-chunk}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- 5</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="in">x</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
 <p>There are other language engines that can be used in RMarkdown, you can learn more about that <a href="https://bookdown.org/yihui/rmarkdown/language-engines.html">here</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>R Markdown documents can also execute Python code, you will need to have the R <code>{reticulate}</code> package installed, and then point your R installation to the Python version you need.</p>
+<p>You can learn more about <code>{reticulate}</code>: <a href="https://rstudio.github.io/reticulate/" class="uri">https://rstudio.github.io/reticulate/</a></p>
+</div>
+</div>
 <p>All code cells are run when you knit/render the entire document (like pressing “Run all” in JupyterLab). By default, the code in the chunk and the code output will be included in your rendered document. You can also run the code by clicking the green play button on the right-hand side of the code chunk.</p>
 </section>
 <div class="activity">
-<section id="lecture-5-activity-6" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-5-activity-6">Lecture 5 Activity 6</h2>
+<section id="activity-7" class="level2 activity-header">
+<h2 class="anchored" data-anchor-id="activity-7">Activity 7</h2>
 </section>
 <div class="activity-container">
 <p>Clone a folder and try to render the .Rmd file. What happens? Try to use here() for the filepath.</p>
@@ -571,27 +712,32 @@ d) The file cannot be opened in RStudio.</code></pre>
 </div>
 </div>
 <section id="naming-code-chunks-and-r-markdown-document-sections" class="level3">
-<h3 class="anchored" data-anchor-id="naming-code-chunks-and-r-markdown-document-sections">1.3. Naming code chunks and R Markdown document sections</h3>
+<h3 class="anchored" data-anchor-id="naming-code-chunks-and-r-markdown-document-sections">Naming code chunks and R Markdown document sections</h3>
 <p>When you include Markdown headers (using the <code>#</code> symbol) R Studio automatically creates a pop-up-like menu for you to use to navigate the document, which you can access by clicking the bar below this editor panel. It looks like:</p>
 <p><img src="img/menu0.png" class="img-fluid"></p>
 <p><img src="img/menu1.png" class="img-fluid"></p>
 <p>By clicking on any of the headings in the pop-up-like menu, RStudio will navigate you to that section of the R Markdown document. Try clicking on one to see how it works.</p>
-<p>In addition to Markdown headings, RStudio also keeps track of code chunks in that menu. By default RStudio names the chunks by their position (e.g.&nbsp;Chunk 1, Chunk 2, etc). But in reality those names are not that useful and it is more helpful to give code chunks meaningful names. For example, in the code chunk below where we use a for loop to sum the numbers from 1 to 10, we name the chunk “for loop sum”.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r for loop sum}</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at"># initialize sum to 0</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">loop_sum &lt;- 0</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="at"># loop of a sequence from 1 to 10 and calculate the sum</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">for (i in seq(1:10)){</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="at">  loop_sum &lt;- loop_sum + i</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="at">}</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">print(loop_sum)</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In addition to Markdown headings, RStudio also keeps track of code chunks in that menu. By default RStudio names the chunks by their position (e.g.&nbsp;Chunk 1, Chunk 2, etc). But in reality those names are not that useful and it is more helpful to give code chunks meaningful names. For example, in the code chunk below where we use a for loop to sum the numbers from 1 to 10, we name the chunk <code>for loop sum</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r for loop sum}</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="in"># initialize sum to 0</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="in">loop_sum &lt;- 0</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="in"># loop of a sequence from 1 to 10 and calculate the sum</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="in">for (i in seq(1:10)){</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="in">  loop_sum &lt;- loop_sum + i</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="in">print(loop_sum)</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 55</code></pre>
+</div>
+</div>
 </section>
 <div class="exercise">
-<section id="lecture-5-exercise-1" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-5-exercise-1">Lecture 5 Exercise 1</h3>
+<section id="exercise-1" class="level2 exercise-header">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 </section>
 <div class="exercise-container">
 <p><strong>Convert Markdown to R Markdown and Generate a Plot</strong></p>
@@ -639,56 +785,100 @@ d) The file cannot be opened in RStudio.</code></pre>
 </div>
 </div>
 <section id="code-chunk-options" class="level3">
-<h3 class="anchored" data-anchor-id="code-chunk-options">1.4. Code chunk options</h3>
+<h3 class="anchored" data-anchor-id="code-chunk-options">Code chunk options</h3>
 <p>There are many code chunk options that you can set. These options let you customize chunk behavior, including whether a chunk is evaluated, whether to include the output in the rendered document, etc. A short list of code chunk options is shown below, but you can find an extensive list starting on the second page of <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">this</a> document.</p>
 <p><img src="img/chunk_options.jpeg" class="img-fluid"></p>
 <p>You can set the chunk options at either a global level (once set they will be applied to all code chunks in the <code>.Rmd</code> file) or locally for a specific chunk (these will override the global chunk options if they are contradictory).</p>
-<p>Global options are usually set in one chunk at the top of the document and looks like this (this is a screenshot):</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r setup, include=FALSE}</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">knitr::opts_chunk$set(echo = FALSE)</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Global chunk options are set by adding them as arguments to <code>knitr::opts_chunk$set(...)</code> (put them in place of <code>...</code> and separate multiple options with a comma). The only global chunk options set in this document is <code>echo = FALSE</code>, which hides the code chunks and only shows the output, something that can be useful for non-technical reports.</p>
+<p>Global options are usually set in one chunk at the top of the document and looks like this:</p>
+<!-- hack to get the chunk to render -->
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r setup, include=FALSE}</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">knitr::opts_chunk$set(echo = FALSE)</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Global chunk options are set by adding them as arguments to <code>knitr::opts_chunk$set(...)</code>; replace the <code>...</code> with comma separated options. For example, if you set the global chunk option to <code>echo = FALSE</code>, it will hide the code chunks and only shows the output. This is something that can be useful for non-technical reports.</p>
 <p>Local chunk options are set by adding the options in the curly braces of a code chunk after the language engine and code chunk name. For example, to not display warnings in a single code chunk we would use the <code>warning = FALSE</code> code chunk as follows:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r correlation no warning, warning = FALSE}</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at"># some R code that throws a warning</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">cor( c( 1 , 1 ), c( 2 , 3 ) )</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># some R code that throws a warning</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>( <span class="fu">c</span>( <span class="dv">1</span> , <span class="dv">1</span> ), <span class="fu">c</span>( <span class="dv">2</span> , <span class="dv">3</span> ) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<p>R Markdown and <code>knitr</code> also support the Quarto <code>#|</code> comment option. At the beginning of your code chunk, you can supply your chunk options with a comment. This allows you to put many options (and long option text) on separate lines. This plays well with version control and tries to follow semantic line break rules.</p>
+<p>For example, you can re-write the <code>correlation no warning</code> chunk as</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, correlation no warning 2}</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="in">cor( c( 1 , 1 ), c( 2 , 3 ) )</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>#|</code> chunk option notation takes in a different format than the inline option. E.g., we use YAML <code>true</code>, and <code>false</code> values, instead of R’s <code>TRUE</code>, and <code>FALSE</code>. We also use <code>:</code> to set key-value pairs, instead of <code>=</code>.</p>
+<p>Also for the <code>correlation no warning</code> examples above we needed to change the name of the second chunk because documents cannot have chunks with the same name.</p>
+</div>
+</div>
+<p>See this page for more information about chunk options: <a href="https://yihui.org/knitr/options" class="uri">https://yihui.org/knitr/options</a></p>
 </section>
 <section id="a-few-tips-and-tricks" class="level3">
 <h3 class="anchored" data-anchor-id="a-few-tips-and-tricks">A few tips and tricks</h3>
 <ul>
-<li><p>R Markdown support inline evaluated code via the following syntax <code>Adding 3 to 4 gives `r 4 + 3`.     The value of `x` is currently `r x`.</code></p></li>
-<li><p>Latex equations can be written the same way as in Jupyter notebooks and standard markdown documents. - <code>$\alpha = 5$</code> for inline latex and <code>$$\alpha = 5$$</code> for a math block. - When hovering over equations, R will display the rendered equation in a pop up.</p></li>
-<li><p>R Markdown is built upon the Pandoc Markdown engine. This is useful to know since the <a href="https://pandoc.org/MANUAL.html">Pandoc manual</a> is a great exhaustive resource for looking up anything Markdown related.</p></li>
-<li><p>One of the features made available thanks to Pandoc is support for citations and bibliographies.</p>
+<li>R Markdown (and Quarto) support inline evaluated code via the following syntax</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Adding 3 to 4 gives <span class="in">`r 4 + 3`</span>.</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>The value of <span class="in">`x`</span> is currently <span class="in">`r x`</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ul>
-<li>Let’s cite the R-package by typing <code>citation()</code> into the console, and copying the BibTex citation into a new document that we call <code>rstudio-demo.bib     and adding an identifier string (a key) before the first comma,     e.g.</code>r-lang`.</li>
+<li>Latex equations can be written the same way as in Jupyter notebooks and standard markdown documents.
+<ul>
+<li><code>$\alpha = 5$</code> for inline latex and <code>$$\alpha = 5$$</code> for a math block.</li>
+<li>When hovering over equations, R Studio will display the rendered equation in a pop up.</li>
+</ul></li>
+<li>R Markdown is built upon the Pandoc Markdown engine. This is useful to know since the <a href="https://pandoc.org/MANUAL.html">Pandoc manual</a> is a great exhaustive resource for looking up anything Markdown related.</li>
+<li>One of the features made available thanks to Pandoc is support for citations and bibliographies.
+<ul>
+<li>Let’s cite the R-package by typing <code>citation()</code> into the console, and copying the BibTex citation into a new document that we call <code>rstudio-demo.bib</code> and adding an identifier string (a key) before the first comma, e.g.&nbsp;<code>r-lang</code>.</li>
 <li>Include the following field in the YAML metadata in the beginning of the document: <code>bibliography: rstudio-demo.bib</code>, then cite it somewhere in the text by adding <code>[@r-lang]</code>. The bibliography will be appended to the document, so it is advisable to add a heading saying <code># References</code> at the very end.</li>
 </ul></li>
-<li><p>When working with R Markdown (and code in general) be careful that you don’t copy stylized quotation marks because these will not work. For example, this will throw an error:</p>
-<pre><code>a = “This string”</code></pre>
-<p>It should look like this instead:</p>
-<pre><code>a = "This string"</code></pre></li>
 </ul>
+<p>When working with R Markdown (and code in general) be careful that you don’t copy stylized quotation marks because these will not work. For example, this will throw an error:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>a = “This string”</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>It should look like this instead:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>a = "This string"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-</section>
-<section id="r-markdown-templates" class="level1">
-<h1>R Markdown templates</h1>
+<section id="r-markdown-templates" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-templates">R Markdown templates</h2>
 <p>We have seen how to use the output formats <code>html_document</code> and <code>pdf_document</code>, but as noted in lab3 during the lab, there are many more. A commonly used one is <code>github_document</code>, which both saves a <code>.md</code> markdown file and creates a temporary <code>.html</code> files for preview of how it will look on GitHub, which is stored in a temporary folder and later deleted. This format does not have as many options as HTML, and you can use it like this:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Another way of creating a a <code>github_document</code> is to go to <code>New -&gt; R Markdown -&gt; From Template -&gt; GitHub Document</code>. As you can see there are other useful templates here. We will see how to create a presentation soon, but first lets see how to work with a word template. A word document can be created with this YAML header:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> word_document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Another way of creating a a <code>github_document</code> is to go to <code>New -&gt; R Markdown -&gt; From Template -&gt; GitHub Document</code>. As you can see there are other useful templates here. We will see how to create a presentation soon.</p>
+<p>A word document can be created with this YAML header:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> word_document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We can modify the style of a word document by opening one of our previously exported word files (it must have been created with R Studio / Pandoc), <a href="https://bookdown.org/yihui/rmarkdown-cookbook/word-template.html">changing the styling options as shown here</a>, saving this under a new name, and then using it as a template:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">reference_docx</span><span class="kw">:</span><span class="at"> </span><span class="st">"our-style-doc.docx"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">reference_docx</span><span class="kw">:</span><span class="at"> </span><span class="st">"our-style-doc.docx"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>There are <a href="https://bookdown.org/yihui/rmarkdown/document-templates.html">more details in this article</a>, including how to create your own custom template, for example for a CV.</p>
+</section>
 <div class="exercise">
-<section id="lecture-5-exercise-2" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-5-exercise-2">Lecture 5 Exercise 2</h3>
+<section id="exercise-2" class="level2 exercise-header">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 </section>
 <div class="exercise-container">
 <p><strong>Creating an RStudio Project and Generating an R Markdown Report</strong></p>
@@ -746,15 +936,17 @@ d) The file cannot be opened in RStudio.</code></pre>
 </div>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<p>1 - D. E. Knuth, Literate Programming, The Computer Journal, Volume 27, Issue 2, 1984, Pages 97–111, https://doi.org/10.1093/comjnl/27.2.97 2 - Y. Xie Dynamic Documents with R and knitr 3 - 4 - https://www.markdownguide.org/ 5- https://daringfireball.net/projects/markdown/ 6 - https://babelmark.github.io/faq/ 7 - RStudio Conf 2022 - Quarto Workshop 8 - 9 - https://rhodesmill.org/brandon/2012/one-sentence-per-line/ UNIX for Beginners</p>
-<p>NOT INCLUDED FOR NOW:</p>
-<section id="code-snippets" class="level3">
-<h3 class="anchored" data-anchor-id="code-snippets">Code snippets</h3>
-<p>As we started to type <code>for</code> above, the code completion popped up and the first entry said “snippet”, what is that? A code snippet is a text macro, which means that you can type a short string of characters to insert a template or snippet of text by pressing <kbd>TAB</kbd>. You can see all the default snippets and define your own by going to <code>Tools -&gt; Global options -&gt; Code -&gt; Edit snippets</code>. Snippets are available anywhere in RStudio, not just in R Markdown documents.</p>
+<ol type="1">
+<li>D. E. Knuth, Literate Programming, The Computer Journal, Volume 27, Issue 2, 1984, Pages 97–111, https://doi.org/10.1093/comjnl/27.2.97</li>
+<li>Y. Xie, Dynamic Documents with R and knitr</li>
+<li><a href="https://www.markdownguide.org/" class="uri">https://www.markdownguide.org/</a></li>
+<li><a href="https://daringfireball.net/projects/markdown/" class="uri">https://daringfireball.net/projects/markdown/</a></li>
+<li><a href="https://babelmark.github.io/faq/" class="uri">https://babelmark.github.io/faq/</a></li>
+<li>RStudio Conf 2022 - Quarto Workshop</li>
+<li><a href="https://rhodesmill.org/brandon/2012/one-sentence-per-line/" class="uri">https://rhodesmill.org/brandon/2012/one-sentence-per-line/</a> UNIX for Beginners</li>
+</ol>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->

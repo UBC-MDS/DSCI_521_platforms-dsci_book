@@ -64,7 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../lectures/7-virtual-environments.html" rel="prev">
+<link href="../lectures/8b-regex.html" rel="next">
+<link href="../lectures/7b-virtual-environments-renv.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -166,7 +167,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/8-regex-filenames-project-organization.html">Lecture 8: Organization of Data Science projects and some useful tools</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/1-MDStools-bash-filesystem.html">Lectures</a></li><li class="breadcrumb-item"><a href="../lectures/8-regex-filenames-project-organization.html">Lecture 8a: Organization of Data Science projects</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -191,66 +192,129 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Orientation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/0-jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 0a: JupyterLab Orientation</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/0-rstudio-orientation-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 0b: RStudio Orientation</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/1-MDStools-bash-filesystem.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 1: Introduction to MDS software and Bash</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/2-git-github-ssh-basic-workflow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 2: Introduction to version control with Git and GitHub</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/3-git-history-merge-conflicts-stash.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture 3: Getting grovy with Git and GitHub</span></a>
+ <span class="menu-text">Lecture 3: Git: History, Conflicts, and Ignores</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/4-quarto_github_pages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 4: Introduction to Quarto and Github Pages</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/5-rstudio-projects-notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture 5: Dynamic documents: from markdown to Rmarkdown documents</span></a>
+ <span class="menu-text">Lecture 5: RStudio Projects and Literate Programming Documents</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/6-rmarkdown-quarto-slides-ghpages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 6: Quarto, RMarkdown, and Jupyter Slides</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/7-virtual-environments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture 7: Virtual environments</span></a>
+  <a href="../lectures/7a-virtual-environments-conda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 7a: Virtual environments: conda</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/7b-virtual-environments-renv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 7b: Virtual environments: renv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/8-regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Lecture 8: Organization of Data Science projects and some useful tools</span></a>
+ <span class="menu-text">Lecture 8a: Organization of Data Science projects</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/8b-regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 8b: Introduction to Regular Expressions (RegEx)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/git_config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/rstudio_config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/semantic_line_breaks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semantic Line Breaks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -307,20 +371,6 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <ul class="collapse">
   <li><a href="#minimal-reproducible-example" id="toc-minimal-reproducible-example" class="nav-link" data-scroll-target="#minimal-reproducible-example">Minimal reproducible example</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#introduction-to-regular-expressions-regex" id="toc-introduction-to-regular-expressions-regex" class="nav-link" data-scroll-target="#introduction-to-regular-expressions-regex">Introduction to Regular Expressions (REGEX)</a>
-  <ul class="collapse">
-  <li><a href="#basic-matching" id="toc-basic-matching" class="nav-link" data-scroll-target="#basic-matching">Basic matching</a></li>
-  <li><a href="#the-square-brackets" id="toc-the-square-brackets" class="nav-link" data-scroll-target="#the-square-brackets">The square brackets: <code>[]</code></a>
-  <ul class="collapse">
-  <li><a href="#ranges-within" id="toc-ranges-within" class="nav-link" data-scroll-target="#ranges-within">Ranges within <code>[]</code></a></li>
-  </ul></li>
-  <li><a href="#special-matching-characters" id="toc-special-matching-characters" class="nav-link" data-scroll-target="#special-matching-characters">Special matching characters</a></li>
-  <li><a href="#anchors" id="toc-anchors" class="nav-link" data-scroll-target="#anchors">Anchors</a></li>
-  <li><a href="#repetitions" id="toc-repetitions" class="nav-link" data-scroll-target="#repetitions">Repetitions</a>
-  <ul class="collapse">
-  <li><a href="#special-repetition-characters" id="toc-special-repetition-characters" class="nav-link" data-scroll-target="#special-repetition-characters">Special repetition characters</a></li>
-  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
@@ -329,7 +379,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/1-MDStools-bash-filesystem.html">Lectures</a></li><li class="breadcrumb-item"><a href="../lectures/8-regex-filenames-project-organization.html">Lecture 8a: Organization of Data Science projects</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Organization of Data Science projects and some useful tools</h1>
 </div>
@@ -823,208 +873,6 @@ fig02_talk-histogram-attendance.png
 </div>
 </div>
 <hr>
-</section>
-<section id="introduction-to-regular-expressions-regex" class="level1">
-<h1>Introduction to Regular Expressions (REGEX)</h1>
-<p>Like with most things, the best way for you to learn Regex is to get practice using it. There are a few exercises included in the notebook, and at the end I have also included links interactive online exercises with are great to practice your regexes!</p>
-<p>To see what a particular regex is matching and how, you can use one of these two webpages, which both do a great job visualizing and explaining the different parts of a regex match:</p>
-<ul>
-<li>https://regexr.com/
-<ul>
-<li>regexr interprets text input as one big string by default, so you need to check “multiline” under “flags” (top right) for it to behave as expected with beginning and end of line matches (it hints at this in the output for both ^ and $).</li>
-</ul></li>
-<li>https://regex101.com/
-<ul>
-<li>regex101 has the “multiline” flag set by default.</li>
-</ul></li>
-</ul>
-<section id="basic-matching" class="level2">
-<h2 class="anchored" data-anchor-id="basic-matching">Basic matching</h2>
-<ul>
-<li>Basic matching: if you look for a regular string, like <code>banana</code>, regex will match the exact string (including its upper/lower case).</li>
-<li>Both JupyterLab and VS Code have built in regex functionality (bring up the search box and click the <code>.*</code> symbol to use regex rather than the default search).</li>
-<li>When learning regex it is helpful to use one of the two webtools mentioned in the previous cell in order to visualize how your regex is matching the text.</li>
-<li>For this lecture, we will use a list of fruits to learn about regex.</li>
-</ul>
-<p>applesas apple apricot banana bilberry blackberry blackcurrant blood orange blueberry canary melon cantaloupe cherry clementine cloudberry coconut cranberry cucumber currant dragonfruit durian elderberry gooseberry grape grapefruit papaya passionfruit peach orange oranges unripe persimmon pineapple pomegranate pomelo purple mangosteen rock melon salal berry satsuma star fruit strawberry watermelon</p>
-</section>
-<section id="the-square-brackets" class="level2">
-<h2 class="anchored" data-anchor-id="the-square-brackets">The square brackets: <code>[]</code></h2>
-<ul>
-<li>If you want to specify the set of possible characters you can use square brackets <code>[]</code>;</li>
-<li>For example, <code>[Aa]pple</code> would match <code>Apple</code> and <code>apple</code>.</li>
-</ul>
-<div class="exercise">
-<section id="lecture-8-exercise-1" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-1">Lecture 8 Exercise 1</h3>
-</section>
-<div class="exercise-container">
-<p>Find all the pairs of vowels in the fruit list.</p>
-<p>Highlight the black box below to see than correct answer (the black box will not show up on GitHub, so download the notebook unless you want the answer displayed) Remember to use one of the websites linked above to help you understand what your regex is matching (https://regexr.com/ or https://regex101.com/).</p>
-<div style="background-color:black">
-<p>[aeiou][aeiou]</p>
-</div>
-</div>
-</div>
-<section id="ranges-within" class="level3">
-<h3 class="anchored" data-anchor-id="ranges-within">Ranges within <code>[]</code></h3>
-<ul>
-<li><p>You can also define ranges when using brackets. For example:</p>
-<ul>
-<li><code>[A-Z]</code>: will match any upper case letter</li>
-<li><code>[a-z]</code>: will match any lower case letter</li>
-<li><code>[0-9]</code>: will match any digit</li>
-<li><code>[0-5]</code>: will match any digit between 0 and 5</li>
-</ul></li>
-<li><p>The order cannot be reversed, <code>[z-A]</code> does not work.</p></li>
-<li><p>You can combine ranges: <code>[A-Za-z]</code>.</p></li>
-<li><p>You can use square brackets starting with a caret. For example:</p>
-<ul>
-<li><code>[^A-Z]</code>: will match anything that is not an upper case letter</li>
-<li><code>[^0-9]</code>: will match anything that is not a digit</li>
-<li>Note that the caret needs to be inside the bracket, if it is outside it will match the beginning of a line as described under the “Anchors” section below.</li>
-</ul></li>
-<li><p>For the curious, these ranges are ordered based on <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">ASCI codes</a> where every character is represented by a number. The first character in the list is <code></code> (space) and the last is <code>~</code> (tilde). The full list is shown below:</p>
-<pre><code> !"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~</code></pre></li>
-</ul>
-</section>
-</section>
-<section id="special-matching-characters" class="level2">
-<h2 class="anchored" data-anchor-id="special-matching-characters">Special matching characters</h2>
-<ul>
-<li>A common operation is to match any character (e.g.&nbsp;between two important characters).</li>
-<li>Instead of writing out the full range <code>[ -~]</code> (space to tilde), the special character <code>.</code> can be used to match any character in the list above.
-<ul>
-<li>Note that <code>.</code> does not match the newline character, so if you have an expression that continues on the next line it will not be matched.</li>
-</ul></li>
-<li>To match a literal <code>.</code> (the period character), you can “escape” its special meaning by prefacing it with a backslash <code>\.</code> (most common) or surrounding it with square brackets <code>[.]</code>.</li>
-<li>Another useful special character is <code>\w</code>, which matches any character that normally occurs inside a word (so it does not match spaces, underlines, etc)</li>
-</ul>
-<div class="exercise">
-<section id="lecture-8-exercise-2" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-2">Lecture 8 Exercise 2</h3>
-</section>
-<div class="exercise-container">
-<p>What is the difference between writing <code>[A-Za-z]</code> and [<code>A-z</code>]?</p>
-<div style="background-color:black">
-<p>[A-z] will also match the characters <code>[/]^_</code>, as you can see in the list above.</p>
-</div>
-</div>
-</div>
-<div class="exercise">
-<section id="lecture-8-exercise-3" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-3">Lecture 8 Exercise 3</h3>
-</section>
-<div class="exercise-container">
-<p>Match any characters between two <code>_</code>.</p>
-<div style="background-color:black">
-<p>_.*_</p>
-</div>
-</div>
-</div>
-</section>
-<section id="anchors" class="level2">
-<h2 class="anchored" data-anchor-id="anchors">Anchors</h2>
-<ul>
-<li>The caret outside the brackets means beginning of line. For example, <code>^apple</code> will match all lines that start with <code>apple</code>, including <code>apple sauce</code> and <code>apples</code>.</li>
-<li>The dollar sign <code>$</code> means end of line, e.g., <code>fruit$</code> will match lines that end with <code>fruit</code>.</li>
-<li>To remember this, you can use the mnemonic “Start with power (<code>^</code>) and end with money (<code>$</code>)” (originally from Jenny Bryan).</li>
-<li>Another useful anchor is <code>\b</code>, which matches end of word.</li>
-</ul>
-<div class="exercise">
-<section id="lecture-8-exercise-4" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-4">Lecture 8 Exercise 4</h3>
-</section>
-<div class="exercise-container">
-<p>Write a regex that will match a line that contains only pineapple. (Hint: you cannot just write <code>pineapple</code> - it will not work - why?)</p>
-<div style="background-color:black">
-<p>^pineapple$ <br>note that if you use just <code>pineapple</code>, lines that also contain other words would match too.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="repetitions" class="level2">
-<h2 class="anchored" data-anchor-id="repetitions">Repetitions</h2>
-<ul>
-<li>To match multiple of the same character, you can either repeat it or use the following syntax:
-<ul>
-<li><code>{n}</code>: exactly <code>n</code> occurrences</li>
-<li><code>{n,}</code>: at least <code>n</code> occurrences</li>
-<li><code>{0,m}</code>: at most <code>m</code> occurrences</li>
-<li><code>{n,m}</code>: between <code>n</code> and <code>m</code> (inclusive) occurrences</li>
-</ul></li>
-</ul>
-<section id="special-repetition-characters" class="level3">
-<h3 class="anchored" data-anchor-id="special-repetition-characters">Special repetition characters</h3>
-<ul>
-<li>There are some shortcuts for the most common repetitions:
-<ul>
-<li><code>?</code>: means 0 or 1 time (<code>{0,1}</code>)</li>
-<li><code>*</code>: means 0 or more time (<code>{0,}</code>)</li>
-<li><code>+</code>: means 1 or more time (<code>{1,}</code>)</li>
-</ul></li>
-<li>For example, <code>apples?</code> will match <code>apple</code> and <code>apples</code>.
-<ul>
-<li>But <code>apples+</code> will not match <code>apple</code> or <code>appplesq</code>, but it will match <code>apples</code>, <code>appless</code>, <code>applesss</code>, etc.</li>
-</ul></li>
-</ul>
-</section>
-<div class="exercise">
-<section id="lecture-8-exercise-5" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-5">Lecture 8 Exercise 5</h3>
-</section>
-<div class="exercise-container">
-<p>Find the fruits with names between 10 and 12 characters.</p>
-<div style="background-color:black">
-<p>.{10,12}</p>
-</div>
-</div>
-</div>
-<div class="exercise">
-<section id="lecture-8-exercise-6" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-6">Lecture 8 Exercise 6</h3>
-</section>
-<div class="exercise-container">
-<p>Find the lines with no more than 4 letters.</p>
-<div style="background-color:black">
-<p>^.{0,4}$</p>
-</div>
-</div>
-</div>
-<div class="exercise">
-<section id="lecture-8-exercise-7" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-7">Lecture 8 Exercise 7</h3>
-</section>
-<div class="exercise-container">
-<p>Find all the words that contain at least two consecutive vowels.</p>
-<div style="background-color:black">
-<p>[aeiou]{2,} <br>or<br> [aeiou][aeiou]+</p>
-</div>
-</div>
-</div>
-<div class="exercise">
-<section id="lecture-8-exercise-8" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-8">Lecture 8 Exercise 8</h3>
-</section>
-<div class="exercise-container">
-<p>This is a bit harder and derives from all previous sections: Match entire words that end in <code>_</code>.</p>
-<div style="background-color:black">
-<p>\w*_\b</p>
-</div>
-</div>
-</div>
-<div class="exercise">
-<section id="additional-exercises" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="additional-exercises">Additional exercises</h3>
-</section>
-<div class="exercise-container">
-<ul>
-<li>Go through the interactive tutorials and practice sessions at https://regexone.com/ that correspond to the topics we have covered during class.</li>
-<li>The Library Carpentry organization has many regex exercises in all sections of their regex course here https://librarycarpentry.org/lc-data-intro/ (you can just to do the exercises).</li>
-</ul>
-</div>
-</div>
-</section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <p>[1] Kery, M. B., Radensky, M., Arya, M., John, B. E., &amp; Myers, B. A. (2018, April). The story in the notebook: Exploratory data science using a literate programming tool. In Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems (pp.&nbsp;1-11).</p>
@@ -1600,11 +1448,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../lectures/7-virtual-environments.html" class="pagination-link" aria-label="Lecture 7: Virtual environments">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lecture 7: Virtual environments</span>
+      <a href="../lectures/7b-virtual-environments-renv.html" class="pagination-link" aria-label="Lecture 7b: Virtual environments: renv">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lecture 7b: Virtual environments: renv</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../lectures/8b-regex.html" class="pagination-link" aria-label="Lecture 8b: Introduction to Regular Expressions (RegEx)">
+        <span class="nav-page-text">Lecture 8b: Introduction to Regular Expressions (RegEx)</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

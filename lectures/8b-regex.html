@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>readings-ch-06 – DSCI 521: Computing Platforms for Data Science</title>
+<title>Introduction to Regular Expressions (RegEx) – DSCI 521: Computing Platforms for Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,6 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../appendix/git_config.html" rel="next">
+<link href="../lectures/8-regex-filenames-project-organization.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -79,9 +115,11 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
 
 
-<meta property="og:title" content="DSCI 521: Computing Platforms for Data Science">
+<meta property="og:title" content="Introduction to Regular Expressions (RegEx) – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
-<meta name="twitter:title" content="DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:title" content="Introduction to Regular Expressions (RegEx) – DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -129,7 +167,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/1-MDStools-bash-filesystem.html">Lectures</a></li><li class="breadcrumb-item"><a href="../lectures/8b-regex.html">Lecture 8b: Introduction to Regular Expressions (RegEx)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -242,7 +280,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/8b-regex.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/8b-regex.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lecture 8b: Introduction to Regular Expressions (RegEx)</span></a>
   </div>
 </li>
@@ -282,22 +320,306 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#basic-matching" id="toc-basic-matching" class="nav-link" data-scroll-target="#basic-matching">Basic matching</a></li>
+  <li><a href="#the-square-brackets" id="toc-the-square-brackets" class="nav-link" data-scroll-target="#the-square-brackets">The square brackets: <code>[]</code></a>
+  <ul class="collapse">
+  <li><a href="#ranges-within" id="toc-ranges-within" class="nav-link" data-scroll-target="#ranges-within">Ranges within <code>[]</code></a></li>
+  </ul></li>
+  <li><a href="#special-matching-characters" id="toc-special-matching-characters" class="nav-link" data-scroll-target="#special-matching-characters">Special matching characters</a></li>
+  <li><a href="#anchors" id="toc-anchors" class="nav-link" data-scroll-target="#anchors">Anchors</a></li>
+  <li><a href="#repetitions" id="toc-repetitions" class="nav-link" data-scroll-target="#repetitions">Repetitions</a>
+  <ul class="collapse">
+  <li><a href="#special-repetition-characters" id="toc-special-repetition-characters" class="nav-link" data-scroll-target="#special-repetition-characters">Special repetition characters</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/1-MDStools-bash-filesystem.html">Lectures</a></li><li class="breadcrumb-item"><a href="../lectures/8b-regex.html">Lecture 8b: Introduction to Regular Expressions (RegEx)</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Introduction to Regular Expressions (RegEx)</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
+<ol type="1">
+<li>Understand the basic syntax and functionality of regular expressions (regex) for pattern matching.</li>
+<li>Explore the use of special characters, ranges, and anchors in regex to match specific patterns within text.</li>
+<li>Apply regex to search, extract, and manipulate data in various formats using practical examples.</li>
+<li>Use regular expressions to navigate and organize files within the filesystem.</li>
+</ol>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Like with most things, the best way for you to learn Regex is to get practice using it. There are a few exercises included in the notebook, and at the end I have also included links interactive online exercises with are great to practice your regexes!</p>
+<p>To see what a particular regex is matching and how, you can use one of these two webpages, which both do a great job visualizing and explaining the different parts of a regex match:</p>
 <ul>
-<li><a href="https://bookdown.org/yihui/rmarkdown/xaringan.html">R Markdown presentations with xaringan</a></li>
-<li><a href="https://jupyterlab.readthedocs.io/en/stable/user/export.html?highlight=slides#reveal-js-slides">Jupyter presentations</a></li>
-<li><a href="https://quarto.org/docs/presentations/">Quarto Presentations</a></li>
+<li>https://regexr.com/
+<ul>
+<li>regexr interprets text input as one big string by default, so you need to check “multiline” under “flags” (top right) for it to behave as expected with beginning and end of line matches (it hints at this in the output for both ^ and $).</li>
+</ul></li>
+<li>https://regex101.com/
+<ul>
+<li>regex101 has the “multiline” flag set by default.</li>
+</ul></li>
 </ul>
+</section>
+<section id="basic-matching" class="level2">
+<h2 class="anchored" data-anchor-id="basic-matching">Basic matching</h2>
+<ul>
+<li>Basic matching: if you look for a regular string, like <code>banana</code>, regex will match the exact string (including its upper/lower case).</li>
+<li>Both JupyterLab and VS Code have built in regex functionality (bring up the search box and click the <code>.*</code> symbol to use regex rather than the default search).</li>
+<li>When learning regex it is helpful to use one of the two webtools mentioned in the previous cell in order to visualize how your regex is matching the text.</li>
+<li>For this lecture, we will use a list of fruits to learn about regex.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>applesas</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>apple</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>apricot</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>banana</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>bilberry</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>blackberry</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>blackcurrant</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>blood orange</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>blueberry</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>canary melon</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>cantaloupe</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>cherry</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>clementine</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>cloudberry</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>coconut</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>cranberry</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>cucumber</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>currant</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>dragonfruit</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>durian</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>elderberry</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>gooseberry</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>grape</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>grapefruit</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>papaya</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>passionfruit</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>peach</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>orange</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>oranges unripe</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>persimmon</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>pineapple</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>pomegranate</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>pomelo</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>purple mangosteen</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>rock melon</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>salal berry</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>satsuma</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>star fruit</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>strawberry</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>watermelon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="the-square-brackets" class="level2">
+<h2 class="anchored" data-anchor-id="the-square-brackets">The square brackets: <code>[]</code></h2>
+<ul>
+<li>If you want to specify the set of possible characters you can use square brackets <code>[]</code>;</li>
+<li>For example, <code>[Aa]pple</code> would match <code>Apple</code> and <code>apple</code>.</li>
+</ul>
+<div class="exercise">
+<section id="lecture-8-exercise-1" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-1">Lecture 8 Exercise 1</h3>
+</section>
+<div class="exercise-container">
+<p>Find all the pairs of vowels in the fruit list.</p>
+<p>Highlight the black box below to see than correct answer (the black box will not show up on GitHub, so download the notebook unless you want the answer displayed) Remember to use one of the websites linked above to help you understand what your regex is matching (https://regexr.com/ or https://regex101.com/).</p>
+<div style="background-color:black">
+<p>[aeiou][aeiou]</p>
+</div>
+</div>
+</div>
+<section id="ranges-within" class="level3">
+<h3 class="anchored" data-anchor-id="ranges-within">Ranges within <code>[]</code></h3>
+<ul>
+<li><p>You can also define ranges when using brackets. For example:</p>
+<ul>
+<li><code>[A-Z]</code>: will match any upper case letter</li>
+<li><code>[a-z]</code>: will match any lower case letter</li>
+<li><code>[0-9]</code>: will match any digit</li>
+<li><code>[0-5]</code>: will match any digit between 0 and 5</li>
+</ul></li>
+<li><p>The order cannot be reversed, <code>[z-A]</code> does not work.</p></li>
+<li><p>You can combine ranges: <code>[A-Za-z]</code>.</p></li>
+<li><p>You can use square brackets starting with a caret. For example:</p>
+<ul>
+<li><code>[^A-Z]</code>: will match anything that is not an upper case letter</li>
+<li><code>[^0-9]</code>: will match anything that is not a digit</li>
+<li>Note that the caret needs to be inside the bracket, if it is outside it will match the beginning of a line as described under the “Anchors” section below.</li>
+</ul></li>
+<li><p>For the curious, these ranges are ordered based on <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">ASCI codes</a> where every character is represented by a number. The first character in the list is <code></code> (space) and the last is <code>~</code> (tilde). The full list is shown below:</p>
+<pre><code> !"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~</code></pre></li>
+</ul>
+</section>
+</section>
+<section id="special-matching-characters" class="level2">
+<h2 class="anchored" data-anchor-id="special-matching-characters">Special matching characters</h2>
+<ul>
+<li>A common operation is to match any character (e.g.&nbsp;between two important characters).</li>
+<li>Instead of writing out the full range <code>[ -~]</code> (space to tilde), the special character <code>.</code> can be used to match any character in the list above.
+<ul>
+<li>Note that <code>.</code> does not match the newline character, so if you have an expression that continues on the next line it will not be matched.</li>
+</ul></li>
+<li>To match a literal <code>.</code> (the period character), you can “escape” its special meaning by prefacing it with a backslash <code>\.</code> (most common) or surrounding it with square brackets <code>[.]</code>.</li>
+<li>Another useful special character is <code>\w</code>, which matches any character that normally occurs inside a word (so it does not match spaces, underlines, etc)</li>
+</ul>
+<div class="exercise">
+<section id="lecture-8-exercise-2" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-2">Lecture 8 Exercise 2</h3>
+</section>
+<div class="exercise-container">
+<p>What is the difference between writing <code>[A-Za-z]</code> and [<code>A-z</code>]?</p>
+<div style="background-color:black">
+<p>[A-z] will also match the characters <code>[/]^_</code>, as you can see in the list above.</p>
+</div>
+</div>
+</div>
+<div class="exercise">
+<section id="lecture-8-exercise-3" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-3">Lecture 8 Exercise 3</h3>
+</section>
+<div class="exercise-container">
+<p>Match any characters between two <code>_</code>.</p>
+<div style="background-color:black">
+<p>_.*_</p>
+</div>
+</div>
+</div>
+</section>
+<section id="anchors" class="level2">
+<h2 class="anchored" data-anchor-id="anchors">Anchors</h2>
+<ul>
+<li>The caret outside the brackets means beginning of line. For example, <code>^apple</code> will match all lines that start with <code>apple</code>, including <code>apple sauce</code> and <code>apples</code>.</li>
+<li>The dollar sign <code>$</code> means end of line, e.g., <code>fruit$</code> will match lines that end with <code>fruit</code>.</li>
+<li>To remember this, you can use the mnemonic “Start with power (<code>^</code>) and end with money (<code>$</code>)” (originally from Jenny Bryan).</li>
+<li>Another useful anchor is <code>\b</code>, which matches end of word.</li>
+</ul>
+<div class="exercise">
+<section id="lecture-8-exercise-4" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-4">Lecture 8 Exercise 4</h3>
+</section>
+<div class="exercise-container">
+<p>Write a regex that will match a line that contains only pineapple. (Hint: you cannot just write <code>pineapple</code> - it will not work - why?)</p>
+<div style="background-color:black">
+<p>^pineapple$ <br>note that if you use just <code>pineapple</code>, lines that also contain other words would match too.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="repetitions" class="level2">
+<h2 class="anchored" data-anchor-id="repetitions">Repetitions</h2>
+<ul>
+<li>To match multiple of the same character, you can either repeat it or use the following syntax:
+<ul>
+<li><code>{n}</code>: exactly <code>n</code> occurrences</li>
+<li><code>{n,}</code>: at least <code>n</code> occurrences</li>
+<li><code>{0,m}</code>: at most <code>m</code> occurrences</li>
+<li><code>{n,m}</code>: between <code>n</code> and <code>m</code> (inclusive) occurrences</li>
+</ul></li>
+</ul>
+<section id="special-repetition-characters" class="level3">
+<h3 class="anchored" data-anchor-id="special-repetition-characters">Special repetition characters</h3>
+<ul>
+<li>There are some shortcuts for the most common repetitions:
+<ul>
+<li><code>?</code>: means 0 or 1 time (<code>{0,1}</code>)</li>
+<li><code>*</code>: means 0 or more time (<code>{0,}</code>)</li>
+<li><code>+</code>: means 1 or more time (<code>{1,}</code>)</li>
+</ul></li>
+<li>For example, <code>apples?</code> will match <code>apple</code> and <code>apples</code>.
+<ul>
+<li>But <code>apples+</code> will not match <code>apple</code> or <code>appplesq</code>, but it will match <code>apples</code>, <code>appless</code>, <code>applesss</code>, etc.</li>
+</ul></li>
+</ul>
+</section>
+<div class="exercise">
+<section id="lecture-8-exercise-5" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-5">Lecture 8 Exercise 5</h3>
+</section>
+<div class="exercise-container">
+<p>Find the fruits with names between 10 and 12 characters.</p>
+<div style="background-color:black">
+<p>.{10,12}</p>
+</div>
+</div>
+</div>
+<div class="exercise">
+<section id="lecture-8-exercise-6" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-6">Lecture 8 Exercise 6</h3>
+</section>
+<div class="exercise-container">
+<p>Find the lines with no more than 4 letters.</p>
+<div style="background-color:black">
+<p>^.{0,4}$</p>
+</div>
+</div>
+</div>
+<div class="exercise">
+<section id="lecture-8-exercise-7" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-7">Lecture 8 Exercise 7</h3>
+</section>
+<div class="exercise-container">
+<p>Find all the words that contain at least two consecutive vowels.</p>
+<div style="background-color:black">
+<p>[aeiou]{2,} <br>or<br> [aeiou][aeiou]+</p>
+</div>
+</div>
+</div>
+<div class="exercise">
+<section id="lecture-8-exercise-8" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="lecture-8-exercise-8">Lecture 8 Exercise 8</h3>
+</section>
+<div class="exercise-container">
+<p>This is a bit harder and derives from all previous sections: Match entire words that end in <code>_</code>.</p>
+<div style="background-color:black">
+<p>\w*_\b</p>
+</div>
+</div>
+</div>
+<div class="exercise">
+<section id="additional-exercises" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="additional-exercises">Additional exercises</h3>
+</section>
+<div class="exercise-container">
+<ul>
+<li>Go through the interactive tutorials and practice sessions at https://regexone.com/ that correspond to the topics we have covered during class.</li>
+<li>The Library Carpentry organization has many regex exercises in all sections of their regex course here https://librarycarpentry.org/lc-data-intro/ (you can just to do the exercises).</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>[1] Kery, M. B., Radensky, M., Arya, M., John, B. E., &amp; Myers, B. A. (2018, April). The story in the notebook: Exploratory data science using a literate programming tool. In Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems (pp.&nbsp;1-11).</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -864,9 +1186,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lectures/8-regex-filenames-project-organization.html" class="pagination-link" aria-label="Lecture 8a: Organization of Data Science projects">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lecture 8a: Organization of Data Science projects</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../appendix/git_config.html" class="pagination-link" aria-label="Git Configuration">
+        <span class="nav-page-text">Git Configuration</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
