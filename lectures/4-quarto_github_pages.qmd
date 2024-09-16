@@ -9,12 +9,8 @@ title: Introduction to Quarto and Github Pages
 **Platform in focus** Quarto and GitHub
 
 :::{.activity}
-::::{.activity-header}
 ## Lecture 4 Activity 1
-::::
-::::{.activity-container}
 Have you ever considered creating a website to showcase your projects, research, or personal brand?
-::::
 :::
 
 ## What is Quarto
@@ -179,17 +175,13 @@ You will see how it created a few files, and prompt you to open the directory in
 ```
 
 ::: {.note}
-::::{.note-header}
 Note
-::::
-::::{.note-container}
 If you already created a new folder and `cd` into it.
 You can use `.` to have the files created in the current location.
 Otherwise, you can specify a new folder name, and it will create a new folder with
 the new files in it for you.
 
 If you do create a new folder, remember you will need to `cd` into it.
-::::
 :::
 
 Your folder structure should look like the one below.
@@ -217,11 +209,7 @@ project:
 ```
 
 :::{.activity}
-::::{.activity-header}
 ## Lecture 4 Activity 2
-
-::::
-::::{.activity-container}
 
 Which file is crucial for Quarto to recognize that you are working on a Quarto project, such as a website?
 
@@ -233,7 +221,6 @@ C. _quarto.yml
 
 D. styles.css
 
-::::
 :::
 
 ### Tweaking your website
@@ -264,6 +251,8 @@ Think of `preview` as a way to quickly see how the website changes as you are wo
 When using `quarto preview` your current terminal will be used to look for changes and re-render your site.
 
 :::{.callout-tip}
+## Tip 
+
 If you are using VSCode, you may need to set the `render-on-save` option as a default,
 in either the IDE, the `_quarto.yml` file or the individual `.qmd` document:
 
@@ -271,10 +260,7 @@ in either the IDE, the `_quarto.yml` file or the individual `.qmd` document:
 :::
 
 ::: {.tip}
-::::{.tip-header}
-Tip
-::::
-::::{.tip-container}
+## Tip
 If you are using VSCode, and use the `Quarto: Preview` command from the command pallete (you will need the VSCode Quarto extension),
 this will run `quarto preview ` with the `--no-watch-inputs` by defualt.
 This will prevent saving the file to auto complile the project.
@@ -292,7 +278,6 @@ editor:
 
 See this page in the quarto help documentaion on
 [Render on Save](https://quarto.org/docs/tools/vscode.html#render-on-save).
-::::
 :::
 
 ```bash
@@ -328,10 +313,7 @@ Always `render` your site before your final deployment,
 not all changes to your quarto files will trigger an automatic regeneration + rendering.
 
 :::{.activity}
-::::{.activity-header}
 ## Lecture 4 Activity 3
-::::
-::::{.activity-container}
 
 Which command would you use to look at a Quarto file when changes are made?
 
@@ -343,7 +325,6 @@ C. `quarto preview`
 
 D. `quarto serve`
 
-::::
 :::
 
 ## GitHub Pages
@@ -517,10 +498,7 @@ Examples:
 You can also use `quarto render --help` to get the same help output.
 
 :::{.activity}
-::::{.activity-header}
 ## Lecture 4 Activity 4
-::::
-::::{.activity-container}
 
 Which GitHub repository name allows you to create a personal website with the URL https://USERNAME.github.io/?
 
@@ -532,14 +510,10 @@ C. index.html
 
 D. docs
 
-::::
 :::
 
 :::{.exercise}
-::::{.exercise-header}
-### Lecture 4 Exercise 1
-::::
-::::{.exercise-container}
+## Lecture 4 Exercise 1
 
 **Creating and Deploying a Quarto Website**
 
@@ -623,7 +597,6 @@ D. docs
 4. How do you initialize a Git repository and push it to GitHub?
 5. What settings do you need to change in GitHub to enable GitHub Pages for your website?
 
-::::
 :::
 
 

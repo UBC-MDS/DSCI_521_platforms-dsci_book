@@ -21,10 +21,8 @@ the filesystem, using the command line, and some other useful tools.
 Please follow these instructions for accessing iClicker: [iClicker Cloud Student Guide](https://lthub.ubc.ca/guides/iclicker-cloud-student-guide/)
 
 :::{.activity}
-::::{.activity-header}
 ## Lecture 1 Activity 1
-::::
-::::{.activity-container}
+
 What is a Data Scientist?
 
 A. Someone whose job is to extract value from data through reproducible and auditable processes.
@@ -36,7 +34,6 @@ C. Someone whose job is to analyze large volumes of often unstructured data to p
 D. All of the above.
 
 E. Someone whose job is to get well paid.
-::::
 :::
 
 
@@ -78,10 +75,9 @@ such as
 
 
 :::{.activity}
-::::{.activity-header}
+
 ## Lecture 1 Activity 2
-::::
-::::{.activity-container}
+
 In what scenario is the command line preferable over JupyterLab?
 
 A. When scripting and automating tasks due to its quick execution of commands and ease of integration into workflows.
@@ -93,7 +89,7 @@ C. For beginners because of its simpler interface.
 D. For large-scale data processing due to its efficiency in handling data.
 
 E. Both are equally effective.
-::::
+
 :::
 
 
@@ -285,10 +281,8 @@ the shell might also use colors to indicate whether each entry is a file or dire
 
 
 :::{.activity}
-::::{.activity-header}
 ## Lecture 1 Activity 3
-::::
-::::{.activity-container}
+
 Can you recognize the following folders in the picture?
 
 1. Home directory
@@ -297,7 +291,7 @@ Can you recognize the following folders in the picture?
 4. Root directory
 
 ![](img/diagram-files-activity.png)
-::::
+
 :::
 
 ## Navigating and manipulating the filesystem using Bash
@@ -354,10 +348,7 @@ in you terminal to see a list of all commands we use in MDS.
 | `~`    | HOME directory            |
 
 :::{.activity}
-::::{.activity-header}
 ## Lecture 1 Activity 4
-::::
-::::{.activity-container}
 Which command would move you to the parent directory?
 
 ```
@@ -366,14 +357,10 @@ B. cd ..
 C. cd ~
 D. cd
 ```
-::::
 :::
 
 :::{.exercise}
-::::{.exercise-header}
 ### Lecture 1 Exercise 1
-::::
-::::{.exercise-container}
 
 **Navigating the Command Line**
 
@@ -409,16 +396,12 @@ D. cd
 
    This command uses `..` to move up one level to the home directory and then enters the Desktop folder.
 
-::::
 :::
 
 
 
 :::{.exercise}
-::::{.exercise-header}
 ### Lecture 1 Exercise 2
-::::
-::::{.exercise-container}
 
 **Understanding the `ls` Command and Directory Navigation**
 
@@ -466,8 +449,6 @@ D. cd
 
 2. What do the `./` and `../` folders represent as output of the `ls -a` command?
 
-
-::::
 :::
 
 

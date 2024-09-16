@@ -180,10 +180,7 @@ you are automatically getting a copy of `.git` and thus, working on a Git.
 ## Creating a Repository
 
 :::{.exercise}
-::::{.exercise-header}
 ## Lecture 2 Exercise 1
-::::
-::::{.exercise-container}
 
 **Creating a GitHub Repository**
 
@@ -269,7 +266,6 @@ you are automatically getting a copy of `.git` and thus, working on a Git.
 4. How do you create and use a `.gitignore` file?
 5. What is the purpose of the `git add -p` command, and how do you use it?
 
-::::
 :::
 
 
@@ -328,10 +324,7 @@ and creating several new ones.
 ![](img/github-workflow.png)
 
 :::{.activity}
-::::{.activity-header}
 ### Lecture 2 Activity 1
-::::
-::::{.activity-container}
 
 How can you check that you are working on a Git repository?
 
@@ -343,7 +336,6 @@ C. By using the command git status and checking for an error message.
 
 D. By ensuring that the current directory name ends with ".git".
 
-::::
 :::
 
 
@@ -372,10 +364,7 @@ To demonstrate the first method, let's edit the README.md file in your GitHub re
 * Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository's URL.
 
 :::{.activity}
-::::{.activity-header}
 ## Lecture 2 Activity 2
-::::
-::::{.activity-container}
 
 Is a repository the same as a directory? Can a Git repository be your current working directory?
 
@@ -387,7 +376,6 @@ C. A repository can be your current working directory, but it is not necessarily
 
 D. A directory is always a repository, but a repository cannot be your current working directory.
 
-::::
 :::
 
 ## Changing and saving version controlled files
@@ -441,10 +429,7 @@ when adding new files,
 so you would type `git add <filename>`.
 
 :::{.activity}
-::::{.activity-header}
 ## Lecture 2 Activity 3
-::::
-::::{.activity-container}
 
 What is the purpose of the staging area in Git?
 
@@ -456,7 +441,6 @@ C. It creates a backup of your files before committing.
 
 D. It permanently deletes files that are not staged.
 
-::::
 :::
 
 **Commands**
@@ -517,10 +501,7 @@ you have to pull from the terminal you should use the command `git pull`.
 
 
 :::{.activity}
-::::{.activity-header}
 ### Lecture 2 Activity 4
-::::
-::::{.activity-container}
 
 Which command would you use to commit all changes with a message?
 
@@ -532,7 +513,6 @@ C. git push
 
 D. git status
 
-::::
 :::
 
 ## Attribution

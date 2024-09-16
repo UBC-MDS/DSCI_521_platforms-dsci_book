@@ -20,145 +20,161 @@ $blue-dark-light: #4d97e0;
 $grey-medium: #999999;
 
 
+// Example callout (e.g., activity)
 .activity {
   margin: 0.5em 0;
-  border: 1px solid $dark-blue;
+  border: 1px solid #0055b7; // UBC blue border
   border-radius: 5px;
+  background-color: #e3f2fd; // Light blue background
+  padding: 0 10px 10px 10px; // Add padding on left to align text with header
+
+  // Header styling
+  h2 {
+    margin: 0;
+    padding: 5px 10px;
+    color: #ffffff; // White text color for header
+    background-color: #0055b7; // Blue background
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  // Content styling with additional spacing and left padding
+  p {
+    margin-top: 15px; // Adjust spacing between the header and content
+    padding-left: 10px; // Align text with header padding
+    color: #003366; // Dark blue text color
+    font-size: 0.9em;
+  }
 }
 
-.activity-header {
-  padding: 5px 10px;
-  color: $white;
-  background-color: $ubc-blue;
-  border-top-right-radius: 5px;
-  font-size: 0.8em;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-}
-
-.activity-container {
-  padding: 5px 10px;
-  color: $dark-blue;
-  background-color: $white;
-  border-bottom-right-radius: 5px;
-}
-
-
+// Exercise callout
 .exercise {
   margin: 0.5em 0;
-  border: 1px solid $exercise-light-gray;
+  border: 1px solid #d4d4d4; // Light gray border
   border-radius: 5px;
+  background-color: #f7f7f7; // Light gray background
+  padding: 0 10px 10px 10px; // Add padding on left to align text with header
+
+  // Header styling
+  h2 {
+    margin: 0;
+    padding: 5px 10px;
+    color: #ffffff; // White text color for header
+    background-color: #91c788; // Light green background
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  // Content styling with additional padding to align with the header
+  p {
+    margin-top: 15px; // Spacing between header and content
+    padding-left: 10px; // Align content with header
+    color: #1c5f2e; // Dark green text color
+    font-size: 0.9em;
+  }
 }
 
-.exercise-header {
-  padding: 5px 10px;
-  color: $white;
-  background-color: $exercise-light-green;
-  border-top-right-radius: 5px;
-  font-size: 0.8em;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-}
-
-.exercise-container {
-  padding: 5px 10px;
-  color: $exercise-dark-green;
-  background-color: $white;
-  border-bottom-right-radius: 5px;
-}
-
+// Note callout
 .note {
   margin: 0.5em 0;
-  border: 1px solid $blue-dark;
+  border: 1px solid #ffc107; // Yellow border
   border-radius: 5px;
+  background-color: #fff8e1; // Light yellow background
+  padding: 0 10px 10px 10px; // Add padding on left to align text with header
+
+  // Header styling
+  h2 {
+    margin: 0;
+    padding-left: 60px;
+    padding-top: 5px;
+    color: #ffffff; // White text color for header
+    background-color: #ffeb3b; // Yellow background
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    background-image: url("lectures/img/note.png");
+  }
+
+  // Content styling with additional padding to align with the header
+  p {
+    margin-top: 15px; // Spacing between header and content
+    padding-left: 10px; // Align content with header
+    color: #856404; // Dark yellow text color
+    font-size: 0.9em;
+  }
 }
 
-.note-header {
-  margin-left: 0em;
-  padding-left: 60px;
-  padding-top: 5px;
-  padding-bottom: 0.1em;
-  color: $white;
-  background-color: $blue-dark-light;
-  border-top-right-radius: 5px;
-  font-size: 0.8em;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  background-size: 40px;
-  background-repeat: no-repeat;
-  background-position: 15px center;
-  background-image: url("lectures/img/note.png");
-}
-
-.note-container {
-  padding: 15px 20px; /* Increased padding inside the container */
-  color: $grey-medium;
-  background-color: $white;
-  border-bottom-right-radius: 5px;
-}
-
+// Warning callout
 .warning {
   margin: 0.5em 0;
-  border: 1px solid $blue-medium;
+  border: 1px solid #dc3545; // Red border
   border-radius: 5px;
-}
+  background-color: #f8d7da; // Light red background
+  padding: 0 10px 10px 10px; // Add padding on left to align text with header
 
-.warning-header {
-  margin-left: 0em;
-  padding-left:  60px;
-  padding-top:  5px;
-  padding-bottom: 0.1em;
-  color: $white;
-  background-color: $blue-medium-light;
-  border-top-right-radius: 5px;
-  font-size: 0.8em;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  background-size: 40px;
-  background-repeat: no-repeat;
-  background-position: 15px center;
-  background-image: url("lectures/img/warning.png");
-}
+  // Header styling
+  h2 {
+    margin: 0;
+    padding-left: 60px;
+    padding-top: 5px;
+    color: #ffffff; // White text color for header
+    background-color: #c82333; // Red background
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    background-image: url("lectures/img/warning.png");
+  }
 
-.warning-container {
-  padding: 15px 20px; /* Increased padding inside the container */
-  color: $grey-medium;
-  background-color: $white;
-  border-bottom-right-radius: 5px;
+  // Content styling with additional padding to align with the header
+  p {
+    margin-top: 15px; // Spacing between header and content
+    padding-left: 10px; // Align content with header
+    color: #721c24; // Dark red text color
+    font-size: 0.9em;
+  }
 }
-
-/* Tip */
+// Tip callout
 .tip {
   margin: 0.5em 0;
-  border: 1px solid $blue-light;
+  border: 1px solid #28a745; // Green border
   border-radius: 5px;
-}
+  background-color: #d4edda; // Light green background
+  padding: 0 10px 10px 10px; // Add padding on left to align text with header
 
-.tip-header {
-  margin-left: 0em;
-  padding-left:  60px;
-  padding-top:  5px;
-  padding-bottom: 0.1em;
-  color: $blue-darker;
-  background-color: $blue-lightest;
-  border-top-right-radius: 5px;
-  font-size: 0.8em;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  background-size: 40px;
-  background-repeat: no-repeat;
-  background-position: 15px center;
-  background-image: url("lectures/img/tip.png");
-}
+  // Header styling
+  h2 {
+    margin: 0;
+    padding-left: 60px;
+    padding-top: 5px;
+    color: #ffffff; // White text color for header
+    background-color: #218838; // Green background
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    background-image: url("lectures/img/tip.png");
+  }
 
-.tip-container {
-  padding: 15px 20px; /* Increased padding inside the container */
-  color: $grey-medium;
-  background-color: $white;
-  border-bottom-right-radius: 5px;
+  // Content styling with additional padding to align with the header
+  p {
+    margin-top: 15px; // Spacing between header and content
+    padding-left: 10px; // Align content with header
+    color: #155724; // Dark green text color
+    font-size: 0.9em;
+  }
 }

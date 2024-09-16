@@ -1,10 +1,5 @@
 ---
-<<<<<<< HEAD
-title: Getting groovy with Git and GitHub
-jupyter: python3
-=======
 title: "Git: History, Conflicts, and Ignores"
->>>>>>> 0c38f5839173dd775aebc526f4f9927dd7cb0164
 ---
 
 ## Learning outcomes
