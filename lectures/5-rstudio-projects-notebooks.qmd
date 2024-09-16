@@ -523,7 +523,7 @@ There are other language engines that can be used in RMarkdown,
 you can learn more about that
 [here](https://bookdown.org/yihui/rmarkdown/language-engines.html).
 
-:::{.callout-note}
+:::{.note}
 R Markdown documents can also execute Python code,
 you will need to have the R `{reticulate}` package installed,
 and then point your R installation to the Python version you need.
