@@ -1889,7 +1889,7 @@
     "href": "lectures/5-rstudio-projects-notebooks.html",
     "title": "RStudio Projects and Literate Programming Documents",
     "section": "",
-    "text": "Create RProjects in RStudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown.\nExplain markdown usage in relation to dynamic documents.\nDifferentiate between code chunks and code cells in RMarkdown and Jupyter Notebooks.\nSelect appropriate code chunk options for RMarkdown.\nUse semantic line breaks for version control files.\nSpecify metadata in the YAML header block.\n\nPlatform in focus RStudio IDE",
+    "text": "Create RProjects in RStudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown.\nExplain markdown usage in relation to dynamic documents.\nDifferentiate between code chunks and code cells in RMarkdown and Jupyter Notebooks.\nSelect appropriate code chunk options for RMarkdown.\nUse semantic line breaks for version control files.\nSpecify metadata in the YAML header block.\n\nPlatform in focus RStudio IDE\nAll code cells are run when you knit/render the entire document (like pressing “Run all” in JupyterLab). By default, the code in the chunk and the code output will be included in your rendered document. You can also run the code by clicking the green play button on the right-hand side of the code chunk.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -2070,6 +2070,18 @@
     "title": "RStudio Projects and Literate Programming Documents",
     "section": "Note",
     "text": "Note\nThe main difference in an R Markdown document and an R Notebook document, is that R Markdown will “knit” the document in a new R session from top to bottom every time. The R Notebook, will convert whatever you have directly into HTML as-is. It does not execute any code on “Preview”.\nYou can tell the difference by either looking at the YAML header of the document, or in RStudio, you will see a different button (Knit vs Preview).",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 5: RStudio Projects and Literate Programming Documents"
+    ]
+  },
+  {
+    "objectID": "lectures/5-rstudio-projects-notebooks.html#note-1",
+    "href": "lectures/5-rstudio-projects-notebooks.html#note-1",
+    "title": "RStudio Projects and Literate Programming Documents",
+    "section": "Note",
+    "text": "Note\nR Markdown documents can also execute Python code, you will need to have the R {reticulate} package installed, and then point your R installation to the Python version you need.\nYou can learn more about {reticulate}: https://rstudio.github.io/reticulate/",
     "crumbs": [
       "Home",
       "Lectures",
