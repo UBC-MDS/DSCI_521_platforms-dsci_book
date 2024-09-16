@@ -1133,7 +1133,7 @@
     "href": "lectures/2-git-github-ssh-basic-workflow.html#lecture-2-exercise-1",
     "title": "Introduction to version control with Git and GitHub",
     "section": "Lecture 2 Exercise 1",
-    "text": "Lecture 2 Exercise 1",
+    "text": "Lecture 2 Exercise 1\nCreating a GitHub Repository\nObjective: By completing this exercise, students will learn how to create a repository on GitHub and clone it to their local computer.\nInstructions:\n\nCreate a Repository on GitHub:\n\nGo to GitHub.com.\nSign in to your account (or create one if you don’t have one).\nClick on the “New” button to create a new repository.\nProvide a name for your repository.\nOptionally, add a description.\nEnsure that “Initialize this repository with a README” is checked.\nClick on the “Create repository” button.\n\nClone the Repository to Your Local Computer:\n\nOpen your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).\nNavigate to the directory where you want to clone the repository.\n\ncd path/to/your/directory\n\nUse the git clone command followed by the URL of your newly created GitHub repository.\n\ngit clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git\nVerify the Cloning Process:\n\nChange into the newly cloned repository directory.\n\ncd YOUR_REPOSITORY_NAME\n\nList the files to ensure the README file is present.\n\nls\nCreate a .gitignore File:\n\nOpen your text editor and create a file named .gitignore in the root of your repository.\nAdd entries to ignore files and directories such as:\n\n**/.ipynb_checkpoints/\n.DS_Store\nnode_modules/\n\nSave the .gitignore file.\nStage and commit the .gitignore file.\n\ngit add .gitignore\ngit commit -m \"Add .gitignore file to ignore unnecessary files\"\nUse git add -p for Interactive Staging:\n\nMake additional changes to the README.md file or another file in the repository.\nUse the git add -p command to interactively stage changes.\n\ngit add -p\n\nReview each change and decide whether to stage it by typing y (yes), n (no), s (split the change), or q (quit).\nCommit the changes with a descriptive message.\n\ngit commit -m \"Interactively staged changes using git add -p\"\n\nQuestions:\n\nWhat are the steps to create a new repository on GitHub?\nWhat command do you use to clone a repository to your local computer?\nHow do you verify that the repository was successfully cloned?\nHow do you create and use a .gitignore file?\nWhat is the purpose of the git add -p command, and how do you use it?",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1157,7 +1157,7 @@
     "href": "lectures/2-git-github-ssh-basic-workflow.html#creating-a-repository-from-github-method-1-above",
     "title": "Introduction to version control with Git and GitHub",
     "section": "Creating a repository from GitHub (method 1 above)",
-    "text": "Creating a repository from GitHub (method 1 above)\nI recommend that you follow along with these steps on your own machine to practice the commands as you are reading about them.\nIf it is sometimes unclear where to click or what the output should look like from a command, refer to the corresponding sections of the videos to see exactly what to do (The git workflow one and the ones from lecture 2).\nYou can create however many repositories on GitHub that you would like and remove them after, so you don’t need to worry about experimenting and creating several new ones.\n\nSteps to follow:\n\nStep 1: Start by navigating to https://github.ubc.ca and ensure you are logged in.\nStep 2: Click the green “New repository” button. Alternatively, if you are on your profile page, select “Repositories” and then click the green “New” button.\nStep 3: Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.\nStep 4: Check the box labeled “Initialize this repository with a README.” This step allows the repository to be cloned immediately without needing to add a file manually later.\nStep 5: Click the big green “Create repository” button.\nStep 6: That’s it! You now have a new repository on GitHub!\n\n\n\n\n\nLecture 2 Activity 1\n\n\nHow can you check that you are working on a Git repository?\nA. By checking if the repository contains a .git directory.\nB. By verifying if the current directory has a .repo file.\nC. By using the command git status and checking for an error message.\nD. By ensuring that the current directory name ends with “.git”.",
+    "text": "Creating a repository from GitHub (method 1 above)\nI recommend that you follow along with these steps on your own machine to practice the commands as you are reading about them.\nIf it is sometimes unclear where to click or what the output should look like from a command, refer to the corresponding sections of the videos to see exactly what to do (The git workflow one and the ones from lecture 2).\nYou can create however many repositories on GitHub that you would like and remove them after, so you don’t need to worry about experimenting and creating several new ones.\n\nSteps to follow:\n\nStep 1: Start by navigating to https://github.ubc.ca and ensure you are logged in.\nStep 2: Click the green “New repository” button. Alternatively, if you are on your profile page, select “Repositories” and then click the green “New” button.\nStep 3: Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.\nStep 4: Check the box labeled “Initialize this repository with a README.” This step allows the repository to be cloned immediately without needing to add a file manually later.\nStep 5: Click the big green “Create repository” button.\nStep 6: That’s it! You now have a new repository on GitHub!\n\n\n\n\nLecture 2 Activity 1\nHow can you check that you are working on a Git repository?\nA. By checking if the repository contains a .git directory.\nB. By verifying if the current directory has a .repo file.\nC. By using the command git status and checking for an error message.\nD. By ensuring that the current directory name ends with “.git”.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1181,7 +1181,7 @@
     "href": "lectures/2-git-github-ssh-basic-workflow.html#lecture-2-activity-2",
     "title": "Introduction to version control with Git and GitHub",
     "section": "Lecture 2 Activity 2",
-    "text": "Lecture 2 Activity 2",
+    "text": "Lecture 2 Activity 2\nIs a repository the same as a directory? Can a Git repository be your current working directory?\nA. Yes, a repository is the same as a directory, and it can be your current working directory.\nB. No, a repository is not the same as a directory, and it cannot be your current working directory.\nC. A repository can be your current working directory, but it is not necessarily the same as a directory.\nD. A directory is always a repository, but a repository cannot be your current working directory.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1205,7 +1205,7 @@
     "href": "lectures/2-git-github-ssh-basic-workflow.html#lecture-2-activity-3",
     "title": "Introduction to version control with Git and GitHub",
     "section": "Lecture 2 Activity 3",
-    "text": "Lecture 2 Activity 3",
+    "text": "Lecture 2 Activity 3\nWhat is the purpose of the staging area in Git?\nA. It allows you to preview and control which changes you want to commit.\nB. It automatically commits all changes in the repository.\nC. It creates a backup of your files before committing.\nD. It permanently deletes files that are not staged.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1241,7 +1241,7 @@
     "href": "lectures/2-git-github-ssh-basic-workflow.html#pull-your-changes-from-a-remote-repository",
     "title": "Introduction to version control with Git and GitHub",
     "section": "Pull your changes from a remote repository",
-    "text": "Pull your changes from a remote repository\nChanges pushed by collaborators, or created directly on GitHub will not be automatically sent to your local repository.\nIf you are working on a project with collaborators, they will also be making changes to files (e.g., to the analysis code in a Jupyter notebook and the project’s README file), committing them to their own local repository, and pushing their commits to the remote GitHub repository to share them with you. When they push their changes, those changes will only initially exist in the remote GitHub repository and not in your local repository.\nTo obtain the new changes from the remote repository on GitHub, you will need to pull those changes to your own local repository. By pulling changes, you synchronize your local repository to what is present on GitHub. Additionally, until you pull changes from the remote repository, you will not be able to push any more changes yourself (though you will still be able to work and make commits in your own local repository)\nIf you want to do this with the terminal, you have to pull from the terminal you should use the command git pull.\n\n\nLecture 2 Activity 4\n\n\nWhich command would you use to commit all changes with a message?\nA. git add -p\nB. git commit -m “Your message here”\nC. git push\nD. git status",
+    "text": "Pull your changes from a remote repository\nChanges pushed by collaborators, or created directly on GitHub will not be automatically sent to your local repository.\nIf you are working on a project with collaborators, they will also be making changes to files (e.g., to the analysis code in a Jupyter notebook and the project’s README file), committing them to their own local repository, and pushing their commits to the remote GitHub repository to share them with you. When they push their changes, those changes will only initially exist in the remote GitHub repository and not in your local repository.\nTo obtain the new changes from the remote repository on GitHub, you will need to pull those changes to your own local repository. By pulling changes, you synchronize your local repository to what is present on GitHub. Additionally, until you pull changes from the remote repository, you will not be able to push any more changes yourself (though you will still be able to work and make commits in your own local repository)\nIf you want to do this with the terminal, you have to pull from the terminal you should use the command git pull.\n\nLecture 2 Activity 4\nWhich command would you use to commit all changes with a message?\nA. git add -p\nB. git commit -m “Your message here”\nC. git push\nD. git status",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1265,7 +1265,7 @@
     "href": "lectures/4-quarto_github_pages.html",
     "title": "Introduction to Quarto and Github Pages",
     "section": "",
-    "text": "Use the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website\n\nPlatform in focus Quarto and GitHub",
+    "text": "Use the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website\n\nPlatform in focus Quarto and GitHub\nHere you can see we can navigate to http://localhost:4463/ in our browser and see our website locally. The URL essentially says to look at port 4463 on our local machine (i.e., localhost). Your port number may differ and change, so always pay attention to what port your current site is running on. If something is not updating after you make a change, try exiting out of preview with CTRL + c (Windows/Linux) or ⌘ + c (Mac) and re-preview-ing.\nWhen we use quarto render it will create the website html files and give our terminal back. We will have to manually navigate to the index.html file to see the website changes as we go.\nAlways render your site before your final deployment, not all changes to your quarto files will trigger an automatic regeneration + rendering.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1289,7 +1289,7 @@
     "href": "lectures/4-quarto_github_pages.html#lecture-4-activity-1",
     "title": "Introduction to Quarto and Github Pages",
     "section": "Lecture 4 Activity 1",
-    "text": "Lecture 4 Activity 1",
+    "text": "Lecture 4 Activity 1\nHave you ever considered creating a website to showcase your projects, research, or personal brand?",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1325,7 +1325,7 @@
     "href": "lectures/4-quarto_github_pages.html#your-first-quarto-website",
     "title": "Introduction to Quarto and Github Pages",
     "section": "Your first Quarto website",
-    "text": "Your first Quarto website\nWe can use quarto create to aid in creating the template files for a website. These template files and code is also known as “boilerplate”.\n$ quarto create --help\n\nUsage:   quarto create [type] [commands...]\nVersion: 1.5.55\n\nDescription:\n\n  Create a Quarto project or extension\n\nOptions:\n\n  -h, --help              - Show this help.\n  --open        [editor]  - Open new artifact in this editor (vscode,rstudio)\n  --no-open               - Do not open in an editor\n  --no-prompt             - Do not prompt to confirm actions\n  --log         &lt;file&gt;    - Path to log file\n  --log-level   &lt;level&gt;   - Log level (info, warning, error, critical)\n  --log-format  &lt;format&gt;  - Log format (plain, json-stream)\n  --quiet                 - Suppress console output.\n  --profile               - Active project profile(s)\n\nCommands:\n\n  help  [command]  - Show this help or the help of a sub-command.\nWe are going to create a quarto project, but we may still need to know the type of project we will create. When we run quarto create project we get a terminal option to pick what kind of type.\n$ quarto create project\n ? Type\n ❯ default\n   website\n   blog\n   manuscript\n   book\n   confluence\nWe can use our arrow keys to select the project type we want, and hit enter to create the skeleton for that project. We’ll use website in this lecture.\nIt will then ask you for a directory:\n$ quarto create project\n ? Type › website\n ? Directory ›\nHere we can provide the relative path from your current working directory (i.e., pwd) where quarto will dump all its files.\nYou will see how it created a few files, and prompt you to open the directory in a text editor:\n  - Created _quarto.yml\n  - Created index.qmd\n  - Created about.qmd\n  - Created styles.css\n ? Open With\n ❯ vscode\n   (don't open)\n\n\nNote\n\n\nIf you already created a new folder and cd into it. You can use . to have the files created in the current location. Otherwise, you can specify a new folder name, and it will create a new folder with the new files in it for you.\nIf you do create a new folder, remember you will need to cd into it.\n\n\nYour folder structure should look like the one below. If it does not, you need to move your files to the correct path, or start over\nUSERNAME.github.io/\n├── about.qmd\n├── index.qmd\n├── _quarto.yml\n└── styles.css\n\nThe most important file is the _quarto.yml file, this is how quarto knows you are using a quarto project. Some quarto commands and options may need to run in a quarto project. The contents of the _qquarto.yml (in this example) file tells quarto that we are going to be creating a website.\nproject:\n  type: website",
+    "text": "Your first Quarto website\nWe can use quarto create to aid in creating the template files for a website. These template files and code is also known as “boilerplate”.\n$ quarto create --help\n\nUsage:   quarto create [type] [commands...]\nVersion: 1.5.55\n\nDescription:\n\n  Create a Quarto project or extension\n\nOptions:\n\n  -h, --help              - Show this help.\n  --open        [editor]  - Open new artifact in this editor (vscode,rstudio)\n  --no-open               - Do not open in an editor\n  --no-prompt             - Do not prompt to confirm actions\n  --log         &lt;file&gt;    - Path to log file\n  --log-level   &lt;level&gt;   - Log level (info, warning, error, critical)\n  --log-format  &lt;format&gt;  - Log format (plain, json-stream)\n  --quiet                 - Suppress console output.\n  --profile               - Active project profile(s)\n\nCommands:\n\n  help  [command]  - Show this help or the help of a sub-command.\nWe are going to create a quarto project, but we may still need to know the type of project we will create. When we run quarto create project we get a terminal option to pick what kind of type.\n$ quarto create project\n ? Type\n ❯ default\n   website\n   blog\n   manuscript\n   book\n   confluence\nWe can use our arrow keys to select the project type we want, and hit enter to create the skeleton for that project. We’ll use website in this lecture.\nIt will then ask you for a directory:\n$ quarto create project\n ? Type › website\n ? Directory ›\nHere we can provide the relative path from your current working directory (i.e., pwd) where quarto will dump all its files.\nYou will see how it created a few files, and prompt you to open the directory in a text editor:\n  - Created _quarto.yml\n  - Created index.qmd\n  - Created about.qmd\n  - Created styles.css\n ? Open With\n ❯ vscode\n   (don't open)\n\nNote If you already created a new folder and cd into it. You can use . to have the files created in the current location. Otherwise, you can specify a new folder name, and it will create a new folder with the new files in it for you.\nIf you do create a new folder, remember you will need to cd into it.\n\nYour folder structure should look like the one below. If it does not, you need to move your files to the correct path, or start over\nUSERNAME.github.io/\n├── about.qmd\n├── index.qmd\n├── _quarto.yml\n└── styles.css\n\nThe most important file is the _quarto.yml file, this is how quarto knows you are using a quarto project. Some quarto commands and options may need to run in a quarto project. The contents of the _qquarto.yml (in this example) file tells quarto that we are going to be creating a website.\nproject:\n  type: website",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1337,7 +1337,19 @@
     "href": "lectures/4-quarto_github_pages.html#lecture-4-activity-2",
     "title": "Introduction to Quarto and Github Pages",
     "section": "Lecture 4 Activity 2",
-    "text": "Lecture 4 Activity 2",
+    "text": "Lecture 4 Activity 2\nWhich file is crucial for Quarto to recognize that you are working on a Quarto project, such as a website?\nA. index.qmd\nB. about.qmd\nC. _quarto.yml\nD. styles.css",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
+  },
+  {
+    "objectID": "lectures/4-quarto_github_pages.html#tip-1",
+    "href": "lectures/4-quarto_github_pages.html#tip-1",
+    "title": "Introduction to Quarto and Github Pages",
+    "section": "Tip",
+    "text": "Tip\nIf you are using VSCode, and use the Quarto: Preview command from the command pallete (you will need the VSCode Quarto extension), this will run quarto preview with the --no-watch-inputs by defualt. This will prevent saving the file to auto complile the project.\nIf you sill want to have preview auto render on save you can do it in one of 3 ways:\n\nNot use the quarto extension to use Quarto: Preview\nChange your VSCode quarto extension option to have Render on Save as a default\nAdd the option to the _quarto.yml file or individual document YAML header with:\n\neditor:\n  render-on-save: true\nSee this page in the quarto help documentaion on Render on Save.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1349,7 +1361,7 @@
     "href": "lectures/4-quarto_github_pages.html#lecture-4-activity-3",
     "title": "Introduction to Quarto and Github Pages",
     "section": "Lecture 4 Activity 3",
-    "text": "Lecture 4 Activity 3",
+    "text": "Lecture 4 Activity 3\nWhich command would you use to look at a Quarto file when changes are made?\nA. quarto render --preview\nB. quarto render --watch\nC. quarto preview\nD. quarto serve",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1385,7 +1397,19 @@
     "href": "lectures/4-quarto_github_pages.html#lecture-4-activity-4",
     "title": "Introduction to Quarto and Github Pages",
     "section": "Lecture 4 Activity 4",
-    "text": "Lecture 4 Activity 4",
+    "text": "Lecture 4 Activity 4\nWhich GitHub repository name allows you to create a personal website with the URL https://USERNAME.github.io/?\nA. README.md\nB. USERNAME.github.io\nC. index.html\nD. docs",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 4: Introduction to Quarto and Github Pages"
+    ]
+  },
+  {
+    "objectID": "lectures/4-quarto_github_pages.html#lecture-4-exercise-1",
+    "href": "lectures/4-quarto_github_pages.html#lecture-4-exercise-1",
+    "title": "Introduction to Quarto and Github Pages",
+    "section": "Lecture 4 Exercise 1",
+    "text": "Lecture 4 Exercise 1\nCreating and Deploying a Quarto Website\nObjective: By completing this exercise, students will gain hands-on experience in creating a Quarto website and deploying it using GitHub Pages.\nInstructions:\n\nCreate a New Quarto Website Project:\n\nOpen your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).\nUse the quarto create project command to create a new Quarto website project.\n\nquarto create project\n\nSelect “website” as the project type and provide a directory name for your project.\n\nNavigate to Your Project Directory:\n\nChange into the newly created project directory.\n\ncd your_project_directory\nCustomize Your Quarto Website:\n\nOpen the _quarto.yml file in a text editor and customize the settings as needed.\n\nproject:\n  type: website\n  output-dir: docs\n\nModify the content of the index.qmd and about.qmd files to personalize your website.\n\nRender Your Quarto Website:\n\nUse the quarto render command to generate the HTML files for your website.\n\nquarto render\n\nVerify that the output is created in the docs directory.\n\nInitialize a Git Repository:\n\nIf you haven’t already, initialize a Git repository in your project directory.\n\ngit init\n\nAdd all files to the Git repository and commit them.\n\ngit add .\ngit commit -m \"Initial commit of Quarto website\"\nPush Your Project to GitHub:\n\nCreate a new repository on GitHub and follow the instructions to push your local repository to GitHub.\n\ngit remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git\ngit branch -M main\ngit push -u origin main\nEnable GitHub Pages:\n\nGo to the settings of your GitHub repository.\nUnder the “Pages” section, set the source to the docs folder on the main branch.\nSave the settings and wait for GitHub to publish your website.\n\nVerify Your Website:\n\nNavigate to https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPOSITORY_NAME to see your published Quarto website.\n\n\nQuestions:\n\nWhat command do you use to create a new Quarto website project?\nHow do you customize the settings for your Quarto website?\nWhat steps do you take to render your Quarto website and generate the HTML files?\nHow do you initialize a Git repository and push it to GitHub?\nWhat settings do you need to change in GitHub to enable GitHub Pages for your website?",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1721,7 +1745,7 @@
     "href": "lectures/1-MDStools-bash-filesystem.html#lecture-1-activity-1",
     "title": "Introduction to MDS software and Bash",
     "section": "Lecture 1 Activity 1",
-    "text": "Lecture 1 Activity 1",
+    "text": "Lecture 1 Activity 1\nWhat is a Data Scientist?\nA. Someone whose job is to extract value from data through reproducible and auditable processes.\nB. Someone whose job is to apply machine learning algorithms.\nC. Someone whose job is to analyze large volumes of often unstructured data to produce meaningful insights. https://www.springboard.com/blog/data-science/data-science-definition/\nD. All of the above.\nE. Someone whose job is to get well paid.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1745,7 +1769,7 @@
     "href": "lectures/1-MDStools-bash-filesystem.html#lecture-1-activity-2",
     "title": "Introduction to MDS software and Bash",
     "section": "Lecture 1 Activity 2",
-    "text": "Lecture 1 Activity 2",
+    "text": "Lecture 1 Activity 2\nIn what scenario is the command line preferable over JupyterLab?\nA. When scripting and automating tasks due to its quick execution of commands and ease of integration into workflows.\nB. For interactive data exploration due to its rich user interface.\nC. For beginners because of its simpler interface.\nD. For large-scale data processing due to its efficiency in handling data.\nE. Both are equally effective.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1805,7 +1829,7 @@
     "href": "lectures/1-MDStools-bash-filesystem.html#lecture-1-activity-3",
     "title": "Introduction to MDS software and Bash",
     "section": "Lecture 1 Activity 3",
-    "text": "Lecture 1 Activity 3",
+    "text": "Lecture 1 Activity 3\nCan you recognize the following folders in the picture?\n\nHome directory\nParent directory\nWorking directory\nRoot directory",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1829,7 +1853,7 @@
     "href": "lectures/1-MDStools-bash-filesystem.html#lecture-1-activity-4",
     "title": "Introduction to MDS software and Bash",
     "section": "Lecture 1 Activity 4",
-    "text": "Lecture 1 Activity 4",
+    "text": "Lecture 1 Activity 4\nWhich command would move you to the parent directory?\nA. cd .\nB. cd ..\nC. cd ~\nD. cd",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1889,7 +1913,7 @@
     "href": "lectures/5-rstudio-projects-notebooks.html#activity-1",
     "title": "RStudio Projects and Literate Programming Documents",
     "section": "Activity 1",
-    "text": "Activity 1",
+    "text": "Activity 1\nYou have been working on a breast cancer prediction report following report and recently discovered an error in one of your calculations, affecting multiple results throughout the report.\nGiven this situation, how would you approach correcting the report within the RStudio IDE? Consider various ways you could use RStudio’s features (like Projects, Version Control, or R Markdown) to streamline this process. Are there alternative methods or tools within RStudio that could make correcting and updating the report more efficient? How would you prevent similar errors in the future?",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1925,7 +1949,19 @@
     "href": "lectures/5-rstudio-projects-notebooks.html#r-working-directory",
     "title": "RStudio Projects and Literate Programming Documents",
     "section": "R Working Directory",
-    "text": "R Working Directory\nDifferent from JupyterLab, when you open RStudio you open a .R or .Rmd file the RStudio, the current working directory is not necessarily the project working directory, or the directory of the file you opened.\nEVERY SESSION you need to tell RStudio where you are working. Especially if you are loading other files outside of your .R or .Rmd file.\nSo, where are you when you open RStudio? You can find out one of two ways:\n\ntype getwd() in the console\nIn the files pane, click the Cog/More button and then click “Go To Working Directory”\n\n\nSetting the working directory\nThere are three ways to set your working directory:\n\nMethod 1. Use an RStudio project (Best Option): RStudio projects help organize your work and manage your files and settings. More details on RStudio projects are provided below.\nMethod 2. Set the working directory through the Files pane: Navigate to the desired location in your file structure using the Files pane. Once there, click the cog/More button and select “Set As Working Directory”.\nMethod 3. Set the working directory via the Session menu: Go to the Session menu, click “Set Working Directory”, and then choose “Choose Directory”. This will open a file browser where you can navigate to and select the desired directory.\nMethod 4. Set the working directory using the console: Type setwd(\"PATH\") in the console, replacing “PATH” with the path to your desired directory. Use this method with care, as explained in Jenny’s article on workflow vs. script.\n\n\n\n\n\n\n\nImportant\n\n\n\nThe RStudio project method (Method 1) is the only way you can consistently set a working directory that also works in a collaborative workflow.",
+    "text": "R Working Directory\nDifferent from JupyterLab, when you open RStudio you open a .R or .Rmd file the RStudio, the current working directory is not necessarily the project working directory, or the directory of the file you opened.\nEVERY SESSION you need to tell RStudio where you are working. Especially if you are loading other files outside of your .R or .Rmd file.\nSo, where are you when you open RStudio? You can find out one of two ways:\n\ntype getwd() in the console\nIn the files pane, click the Cog/More button and then click “Go To Working Directory”\n\n\nSetting the working directory\nThere are three ways to set your working directory:\n\nMethod 1. Use an RStudio project (Best Option): RStudio projects help organize your work and manage your files and settings. More details on RStudio projects are provided below.\nMethod 2. Set the working directory through the Files pane: Navigate to the desired location in your file structure using the Files pane. Once there, click the cog/More button and select “Set As Working Directory”.\nMethod 3. Set the working directory via the Session menu: Go to the Session menu, click “Set Working Directory”, and then choose “Choose Directory”. This will open a file browser where you can navigate to and select the desired directory.\nMethod 4. Set the working directory using the console: Type setwd(\"PATH\") in the console, replacing “PATH” with the path to your desired directory. Use this method with care, as explained in Jenny’s article on workflow vs. script.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 5: RStudio Projects and Literate Programming Documents"
+    ]
+  },
+  {
+    "objectID": "lectures/5-rstudio-projects-notebooks.html#warning",
+    "href": "lectures/5-rstudio-projects-notebooks.html#warning",
+    "title": "RStudio Projects and Literate Programming Documents",
+    "section": "Warning",
+    "text": "Warning\nThe RStudio project method (Method 1) is the only way you can consistently set a working directory that also works in a collaborative workflow.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1957,18 +1993,6 @@
     ]
   },
   {
-    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-2",
-    "href": "lectures/5-rstudio-projects-notebooks.html#activity-2",
-    "title": "RStudio Projects and Literate Programming Documents",
-    "section": "Activity 2",
-    "text": "Activity 2",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 5: RStudio Projects and Literate Programming Documents"
-    ]
-  },
-  {
     "objectID": "lectures/5-rstudio-projects-notebooks.html#markdown",
     "href": "lectures/5-rstudio-projects-notebooks.html#markdown",
     "title": "RStudio Projects and Literate Programming Documents",
@@ -1981,23 +2005,11 @@
     ]
   },
   {
-    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-3",
-    "href": "lectures/5-rstudio-projects-notebooks.html#activity-3",
+    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-2",
+    "href": "lectures/5-rstudio-projects-notebooks.html#activity-2",
     "title": "RStudio Projects and Literate Programming Documents",
-    "section": "Activity 3",
-    "text": "Activity 3",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 5: RStudio Projects and Literate Programming Documents"
-    ]
-  },
-  {
-    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-4",
-    "href": "lectures/5-rstudio-projects-notebooks.html#activity-4",
-    "title": "RStudio Projects and Literate Programming Documents",
-    "section": "Activity 4",
-    "text": "Activity 4",
+    "section": "Activity 2",
+    "text": "Activity 2\nWhat are the primary benefits of using Markdown for formatting text documents?\nA. It requires complex software to edit\nB. It is human-readable and easily converted to HTML\nC. It cannot be opened by most editors\nD. It is not suitable for web pages",
     "crumbs": [
       "Home",
       "Lectures",
@@ -2009,7 +2021,7 @@
     "href": "lectures/5-rstudio-projects-notebooks.html#text-and-rendering-r-markdown-documents",
     "title": "RStudio Projects and Literate Programming Documents",
     "section": "Text and rendering R Markdown documents",
-    "text": "Text and rendering R Markdown documents\nIn a R Markdown document any line of text not in a code chunk (like this line of text) will be formatted using Markdown. Similar to JupyterLab, you can also use HTML and LaTeX here to do more advanced formatting. Unlike JupyterLab, you do not get to see these Markdown sections rendered on their own. To see this text rendered, you need to render the whole document. You can do that clicking the “Knit” or “Preview” button on the top. The difference between these two is that “Preview” creates a HTML version of your document as it looks right now, whereas “Knit” first restarts the R session and runs through the entire document from the beginning to make sure it will work when you send it to someone else.\n\n\n\n\n\n\nTip\n\n\n\nGiven that you need to render the entire document to see your Markdown and LaTeX rendered, it is important to “knit” often as you make changes. If you make an error in a LaTeX equation for example, it will stop the knitting/rendering process and you will not get to see the rendered document. So by knitting/rendering often you will know where the last changes you made are and then will be able to easily identify and fix your errors.\n\n\n\nR Markdown (.Rmd) -&gt; Markdown (.md)\nAnalogous to the Jupyter Notebook cells, the R Markdown code chunks after being render will be embedded in your final report.\nWhen you run render, R Markdown feeds the .Rmd file to knitr, which executes all of the code chunks and creates a new markdown (.md) document containing the code and its outputs.\nThe markdown file generated by knitr is then processed by pandoc which is responsible for creating the finished format.\n Rmarkdown documents are created from text and R code",
+    "text": "Text and rendering R Markdown documents\nIn a R Markdown document any line of text not in a code chunk (like this line of text) will be formatted using Markdown. Similar to JupyterLab, you can also use HTML and LaTeX here to do more advanced formatting. Unlike JupyterLab, you do not get to see these Markdown sections rendered on their own. To see this text rendered, you need to render the whole document. You can do that clicking the “Knit” or “Preview” button on the top. The difference between these two is that “Preview” creates a HTML version of your document as it looks right now, whereas “Knit” first restarts the R session and runs through the entire document from the beginning to make sure it will work when you send it to someone else.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -2017,11 +2029,23 @@
     ]
   },
   {
-    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-5",
-    "href": "lectures/5-rstudio-projects-notebooks.html#activity-5",
+    "objectID": "lectures/5-rstudio-projects-notebooks.html#tip",
+    "href": "lectures/5-rstudio-projects-notebooks.html#tip",
     "title": "RStudio Projects and Literate Programming Documents",
-    "section": "Activity 5",
-    "text": "Activity 5",
+    "section": "Tip",
+    "text": "Tip\nGiven that you need to render the entire document to see your Markdown and LaTeX rendered, it is important to “knit” often as you make changes. If you make an error in a LaTeX equation for example, it will stop the knitting/rendering process and you will not get to see the rendered document. So by knitting/rendering often you will know where the last changes you made are and then will be able to easily identify and fix your errors.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 5: RStudio Projects and Literate Programming Documents"
+    ]
+  },
+  {
+    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-3",
+    "href": "lectures/5-rstudio-projects-notebooks.html#activity-3",
+    "title": "RStudio Projects and Literate Programming Documents",
+    "section": "Activity 3",
+    "text": "Activity 3\nWhat is the primary advantage of using an .Rmd file over a .md file to create the final HTML document?\nA. .Rmd files do not support code chunks.\nB. .Rmd files allow for the inclusion of executable code chunks, producing dynamic documents.\nC. .md files are easier to edit.\nD. There is no difference between .Rmd and .md files in terms of functionality.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -2033,7 +2057,7 @@
     "href": "lectures/5-rstudio-projects-notebooks.html#r-markdown-and-r-notebooks",
     "title": "RStudio Projects and Literate Programming Documents",
     "section": "R Markdown and R Notebooks",
-    "text": "R Markdown and R Notebooks\nR Markdown is a “flavor” of Markdown that allows you to run R code in addition to supporting all the Markdown syntax that you have already learned.\nR Markdown documents (.Rmd) work similarly to Jupyter notebooks in the sense that you can interleave writing code, formatted narrative text, and view output all in the same document. These are both examples of what it called “literate programming” where the goal is to mix code and paragraph text seamlessly.\nR Notebooks are a little different. Let’s see an example of this by creating a new R Notebook via File -&gt; New -&gt; R Notebook. As you can see, there is a default template for Notebooks, which include useful info on how to use them. We can see the keyboard shortcuts for running and inserting cells, and when we execute the plot code the plot shows up inside the notebook rather than in the side panel as when we ran the same line from within the script script.\n\n\n\n\n\n\nImportant\n\n\n\nThe main difference in an R Markdown document and an R Notebook document, is that R Markdown will “knit” the document in a new R session from top to bottom every time. The R Notebook, will convert whatever you have directly into HTML as-is. It does not execute any code on “Preview”.\nYou can tell the difference by either looking at the YAML header of the document, or in RStudio, you will see a different button (Knit vs Preview).",
+    "text": "R Markdown and R Notebooks\nR Markdown is a “flavor” of Markdown that allows you to run R code in addition to supporting all the Markdown syntax that you have already learned.\nR Markdown documents (.Rmd) work similarly to Jupyter notebooks in the sense that you can interleave writing code, formatted narrative text, and view output all in the same document. These are both examples of what it called “literate programming” where the goal is to mix code and paragraph text seamlessly.\nR Notebooks are a little different. Let’s see an example of this by creating a new R Notebook via File -&gt; New -&gt; R Notebook. As you can see, there is a default template for Notebooks, which include useful info on how to use them. We can see the keyboard shortcuts for running and inserting cells, and when we execute the plot code the plot shows up inside the notebook rather than in the side panel as when we ran the same line from within the script script.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -2041,11 +2065,11 @@
     ]
   },
   {
-    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-6",
-    "href": "lectures/5-rstudio-projects-notebooks.html#activity-6",
+    "objectID": "lectures/5-rstudio-projects-notebooks.html#note",
+    "href": "lectures/5-rstudio-projects-notebooks.html#note",
     "title": "RStudio Projects and Literate Programming Documents",
-    "section": "Activity 6",
-    "text": "Activity 6",
+    "section": "Note",
+    "text": "Note\nThe main difference in an R Markdown document and an R Notebook document, is that R Markdown will “knit” the document in a new R session from top to bottom every time. The R Notebook, will convert whatever you have directly into HTML as-is. It does not execute any code on “Preview”.\nYou can tell the difference by either looking at the YAML header of the document, or in RStudio, you will see a different button (Knit vs Preview).",
     "crumbs": [
       "Home",
       "Lectures",
@@ -2053,11 +2077,11 @@
     ]
   },
   {
-    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-7",
-    "href": "lectures/5-rstudio-projects-notebooks.html#activity-7",
+    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-4",
+    "href": "lectures/5-rstudio-projects-notebooks.html#activity-4",
     "title": "RStudio Projects and Literate Programming Documents",
-    "section": "Activity 7",
-    "text": "Activity 7",
+    "section": "Activity 4",
+    "text": "Activity 4\nClone a folder and try to render the .Rmd file. What happens? Try to use here() for the filepath.\na) The file renders without any issues.\nb) The file fails to render due to incorrect file paths.\nc) The file renders but with missing plots.\nd) The file cannot be opened in RStudio.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -2069,7 +2093,7 @@
     "href": "lectures/5-rstudio-projects-notebooks.html#exercise-1",
     "title": "RStudio Projects and Literate Programming Documents",
     "section": "Exercise 1",
-    "text": "Exercise 1",
+    "text": "Exercise 1\nConvert Markdown to R Markdown and Generate a Plot\nObjective: Convert a given Markdown file into an R Markdown document. Ensure that the document includes at least one plot generated from a built-in R dataset. Submit the .Rmd file and the rendered HTML output. Additionally, discuss the advantages of using .Rmd over .md for generating dynamic documents.\nInstructions:\n\nMarkdown to R Markdown Conversion:\n\nStart with a provided Markdown file (e.g., example.md).\nConvert this Markdown file into an R Markdown document (example.Rmd).\nEnsure to include a necessary YAML header at the beginning of the document for proper rendering.\n\nAdding a Plot:\n\nUse a built-in R dataset (e.g., mtcars, iris) to generate a plot.\nInclude the plot within a code chunk in your R Markdown document.\nEnsure that the plot renders correctly in the final HTML output.\n\nRendering the Document:\n\nRender the .Rmd file to HTML format.\nEnsure all code chunks, plots, and narrative content are properly displayed in the rendered HTML document.\n\nDiscussion:\n\nWrite a section in your R Markdown document discussing the advantages of using .Rmd over .md for generating dynamic documents.\nConsider aspects such as reproducibility, integration of code and narrative, and the ability to produce various output formats.\n\nSubmission:\n\nSubmit the following:\n\nThe original Markdown file (example.md).\nThe converted R Markdown file (example.Rmd).\nThe rendered HTML output (example.html).\n\n\n\nQuestions:\n\nWhat are the advantages of using .Rmd over .md for generating dynamic documents?\nHow do you include and render a plot from a built-in R dataset in an R Markdown document?\nWhat are the necessary steps to convert a Markdown file to an R Markdown document?",
     "crumbs": [
       "Home",
       "Lectures",
@@ -2093,7 +2117,7 @@
     "href": "lectures/5-rstudio-projects-notebooks.html#exercise-2",
     "title": "RStudio Projects and Literate Programming Documents",
     "section": "Exercise 2",
-    "text": "Exercise 2",
+    "text": "Exercise 2\nCreating an RStudio Project and Generating an R Markdown Report\nObjective: Create an RStudio project, write a script to analyze a dataset of your choice, and generate a report in R Markdown. The report should include a narrative, code chunks, and visualizations. Submit the RStudio project folder along with the .Rmd file and the rendered HTML output. Additionally, include a section comparing R Notebooks and .Rmd documents, highlighting their similarities and differences.\nInstructions:\n\nCreate an RStudio Project:\n\nOpen RStudio and create a new project (e.g., Data_Analysis_Project).\nOrganize the project with appropriate folders for data, scripts, and reports.\n\nDataset Selection and Analysis:\n\nChoose a dataset of your choice. This can be a built-in R dataset or an external dataset.\nWrite an R script (analysis.R) to perform the data analysis. The script should include data loading, cleaning, analysis, and visualization.\n\nGenerate an R Markdown Report:\n\nCreate an R Markdown document (report.Rmd) within the project.\nThe report should include:\n\nA narrative explaining the analysis.\nCode chunks displaying the R code used for analysis.\nVisualizations generated from the analysis (e.g., plots, charts).\n\n\nRendering the Report:\n\nRender the .Rmd file to HTML format.\nEnsure all code chunks, plots, and narrative content are properly displayed in the rendered HTML document.\n\nComparison Section:\n\nInclude a section in your report comparing R Notebooks and .Rmd documents.\nHighlight their similarities and differences, focusing on aspects such as interactivity, use cases, and workflow integration.\n\nSubmission:\n\nSubmit the following:\n\nThe entire RStudio project folder.\nThe R script (analysis.R).\nThe R Markdown file (report.Rmd).\nThe rendered HTML output (report.html).\n\n\n\nQuestions:\n\nWhat are the key steps in setting up an RStudio project and organizing it for data analysis?\nHow do you include and render visualizations in an R Markdown report?\nWhat are the similarities and differences between R Notebooks and .Rmd documents?",
     "crumbs": [
       "Home",
       "Lectures",
