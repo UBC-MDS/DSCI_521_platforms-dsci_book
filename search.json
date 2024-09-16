@@ -1657,6 +1657,18 @@
     ]
   },
   {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#tldr-dan-is-still-working-on-this-chapter",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#tldr-dan-is-still-working-on-this-chapter",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "tl;dr – dan is still working on this chapter",
+    "text": "tl;dr – dan is still working on this chapter\nbut here are the rough commands for folks who are ahead:\ninstall.packages(c('xaringan', 'revealjs'))\nCreate a new R Markdown document &gt; Templates &gt;\npick either a xaringan template or revealjs presentation template\nfor xaringan, you might need to install extra packages to render.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
     "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#quarto-documents-markdown-flavour",
     "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#quarto-documents-markdown-flavour",
     "title": "Quarto, RMarkdown, and Jupyter Slides",
