@@ -698,7 +698,7 @@ you can re-write the `correlation no warning` chunk as
 cor( c( 1 , 1 ), c( 2 , 3 ) )
 ```
 
-:::{.callout-note}
+:::{note}
 The `#|` chunk option notation takes in a different format than the inline option.
 E.g., we use YAML `true`, and `false` values, instead of R's `TRUE`, and `FALSE`.
 We also use `:` to set key-value pairs, instead of `=`.
