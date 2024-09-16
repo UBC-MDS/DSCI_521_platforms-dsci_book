@@ -18,6 +18,20 @@ jupyter: python3
 ::::
 :::
 
+## tl;dr -- dan is still working on this chapter
+
+but here are the rough commands for folks who are ahead:
+
+```r
+install.packages(c('xaringan', 'revealjs'))
+```
+
+Create a new R Markdown document > Templates >
+
+pick either a xaringan template or revealjs presentation template
+
+for xaringan, you might need to install extra packages to render.
+
 
 ## Quarto documents markdown flavour
 
