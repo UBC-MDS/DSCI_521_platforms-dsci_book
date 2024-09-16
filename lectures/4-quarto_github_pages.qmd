@@ -6,12 +6,14 @@ title: Introduction to Quarto and Github Pages
 
 {{< include ../learning_objectives/lo-ch-04.qmd >}}
 
+**Platform in focus** Quarto and GitHub
+
 :::{.activity}
 ::::{.activity-header}
 ## Lecture 4 Activity 1
 ::::
 ::::{.activity-container}
-Have you ever considered creating a website to showcase your projects, research, or personal brand? 
+Have you ever considered creating a website to showcase your projects, research, or personal brand?
 ::::
 :::
 
@@ -190,6 +192,18 @@ If you do create a new folder, remember you will need to `cd` into it.
 ::::
 :::
 
+Your folder structure should look like the one below.
+If it does not, you need to move your files to the correct path,
+or start over
+
+```
+USERNAME.github.io/
+├── about.qmd
+├── index.qmd
+├── _quarto.yml
+└── styles.css
+
+```
 
 The most important file is the `_quarto.yml` file,
 this is how quarto knows you are using a quarto project.
@@ -226,15 +240,15 @@ D. styles.css
 
 The `_quarto.yml` file defines many (if not all) of the options you can use to tweak how
 your website (or project) renders or behaves.
-This file is a YAML another mfile.
+This file is a YAML file.
 This is a common format many tools use to provide configuration settings.
-Just note the indentation, white space, and dashes `-` are all really imporatnat and implies different things.
-YAML is a "recursive acronum", it stands for "YAML Ain't Markup Language".
+Just note the indentation, white space, and dashes `-` are all really important and implies different things.
+YAML is a "recursive acronym", it stands for "YAML Ain't Markup Language".
 
 You can go through the official quarto website documentation guide for more information:
 https://quarto.org/docs/websites/
 
-### Renering your website
+### Rendering your website
 
 At the end of the day,
 we need a series of `.html` files that our web browser can open and render.
@@ -243,11 +257,18 @@ Luckily `quarto` can take the source documents and create the `.html` files need
 
 There are 2 commands that will be helpful for us here:
 
-- `quarto preview`: will "preview" the website, any changes to the files will automatically regnerate and refresh the website files
+- `quarto preview`: will "preview" the website, any changes to the files will automatically regenerate and refresh the website files
 - `quarto render`: will generate all the html files
 
 Think of `preview` as a way to quickly see how the website changes as you are working, and `render` as creating the "final" website from scratch.
 When using `quarto preview` your current terminal will be used to look for changes and re-render your site.
+
+:::{.callout-tip}
+If you are using VSCode, you may need to set the `render-on-save` option as a default,
+in either the IDE, the `_quarto.yml` file or the individual `.qmd` document:
+
+<https://quarto.org/docs/tools/vscode.html#render-on-save>
+:::
 
 ::: {.tip}
 ::::{.tip-header}
@@ -374,13 +395,10 @@ If you create a repository that is _just_ your github username,
 with only a `README.md` file in it.
 Github will render the `README.md` file into your github landing page.
 
-Here is an example of a former MDS student's Github landing page:
+Here is an example of a former MDS student's Github landing page and their accompanying repository.
 
-https://github.com/mrnabiz/
-
-and their accompanying repository:
-
-https://github.com/mrnabiz/mrnabiz
+- Landing: <https://github.com/mrnabiz/>
+- Repository: <https://github.com/mrnabiz/mrnabiz>
 
 ### Github Pages and Quarto
 
@@ -424,7 +442,9 @@ $ quarto render
 Output created: docs/index.html
 ```
 
-Dont forget to save your `yaaml` file, re-`render`, remove the old `_site` folder, `add`, `commit`, and `push` your changes.
+:::{.callout-important}
+Don't forget to save your `yaml` file, re-`render`, remove the old `_site` folder, `add`, `commit`, and `push` your changes.
+:::
 
 On your main github repo, you'll notice a burnt orange dot next to the latest commit hash.
 This is github's continuous integration / deployment system creating and publishing your site.
@@ -611,6 +631,6 @@ D. docs
 
 Quarto works with a few IDEs and text editors.
 
-- VSCode extension: https://marketplace.visualstudio.com/items?itemName=quarto.quarto
+- VSCode extension: <https://marketplace.visualstudio.com/items?itemName=quarto.quarto>
 - RStudio: Comes with RStudio (you can also manually install it as a terminal application)
 - Jupyter Lab: there is no official jupyter quarto extension, but quarto can work with jupyter notebooks in the command line tool

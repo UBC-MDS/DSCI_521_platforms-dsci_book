@@ -1,11 +1,17 @@
 ---
+<<<<<<< HEAD
 title: Getting groovy with Git and GitHub
 jupyter: python3
+=======
+title: "Git: History, Conflicts, and Ignores"
+>>>>>>> 0c38f5839173dd775aebc526f4f9927dd7cb0164
 ---
 
 ## Learning outcomes
 
 {{< include ../learning_objectives/lo-ch-03.qmd >}}
+
+**Platform in focus** Git and GitHub
 
 ## Introduction
 
@@ -16,9 +22,9 @@ In this lecture, we'll explore how to view your Git history and restore older ve
 Do you remember the commit messages that we used to write at the time of making a commit, for saving the state of a project?
 It is possible to have a look at the history of the full project with any of these 3 different methods
 
-You can view the Git history of a project in two main ways. 
+You can view the Git history of a project in two main ways.
 
-On the remote, you can use GitHub through the repository's code commit view. 
+On the remote, you can use GitHub through the repository's code commit view.
 
 On your computer, you can use Jupyter Lab through the repository's code commit view or the terminal by using the git log command.
 

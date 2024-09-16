@@ -1,0 +1,39 @@
+---
+title: "RStudio Configuration"
+---
+
+## Global Setup
+
+In the `Tools` > `Global Options` > `General` Tab,
+you want to uncheck the boxes that open previous files and projects,
+and also make sure that no `.RData` is saved when you quit RStudio,
+and to never save the `.RData`
+(this prevents RStudio from loading up previous data when you open it,
+it does not refer to its ability to load and save data as you use it).
+
+![](../lectures/img/rstudio-global_options-general.png)
+
+## LaTeX and XeLaTeX
+
+In the `Sweave` option
+
+change the `Sweave` option to `Knitr`,
+and `pdflatex` to `xelatex`.
+
+
+
+
+## Code snippets
+
+As we started to type `for` above,
+the code completion popped up
+and the first entry said "snippet",
+what is that?
+A code snippet is a text macro,
+which means that you can type a short string of characters
+to insert a template or snippet of text by pressing <kbd>TAB</kbd>.
+You can see all the default snippets
+and define your own by going to
+`Tools -> Global options -> Code -> Edit snippets`.
+Snippets are available anywhere in RStudio,
+not just in R Markdown documents.

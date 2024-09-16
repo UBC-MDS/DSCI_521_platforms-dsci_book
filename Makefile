@@ -8,6 +8,7 @@ render:
 
 setup_python_venv:
 	pip freeze | xargs pip uninstall -y
+	pip install --upgrade pip
 	pip install -r requirements.txt
 	pip freeze > requirements_snapshot.txt
 
