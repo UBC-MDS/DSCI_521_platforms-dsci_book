@@ -15,7 +15,7 @@ title: 'RStudio Projects and Literate Programming Documents'
 
 You have been working on a breast cancer prediction report [following report](https://ttimbers.github.io/breast_cancer_predictor/doc/breast_cancer_predict_report.html)
  and recently discovered an error in one of your calculations, affecting multiple results throughout the report.
- 
+
 Given this situation, how would you approach correcting the report efficiently? Consider how you might use various tools, such as maintaining multiple versions of the document in Microsoft Word or tracking calculations in Excel. Are there other methods or tools you could use to streamline this process? How would you prevent similar errors in the future?
 :::
 
@@ -524,6 +524,8 @@ you can learn more about that
 [here](https://bookdown.org/yihui/rmarkdown/language-engines.html).
 
 :::{.note}
+## Note
+
 R Markdown documents can also execute Python code,
 you will need to have the R `{reticulate}` package installed,
 and then point your R installation to the Python version you need.
