@@ -1985,7 +1985,19 @@
     "href": "lectures/5-rstudio-projects-notebooks.html#rstudio-projects",
     "title": "RStudio Projects and Literate Programming Documents",
     "section": "RStudio Projects",
-    "text": "RStudio Projects\nAn RStudio project is essentially a directory containing a special file: *.Rproj, which holds metadata for R about this project. RProjects set the working directory by default to be the root of the project and we recommend using it together with the {here} package, which can easily create paths relative from the root project dir\n\nThe {here} Package\nWhen you load the {here} package, it will echo the current project root directory. You should always confirm that this is the expected starting location for your project.\n\n# install.packages(\"here\")\nlibrary(here)\n\nhere() starts at /home/runner/work/DSCI_521_platforms-dsci_book/DSCI_521_platforms-dsci_book\n\n\nIf your iris.csv data is in project_root/files/data/ this will make sure that anyone using your project will get the correct path\n\nhere(\"files\", \"data\", \"iris.csv\")\n\n[1] \"/home/runner/work/DSCI_521_platforms-dsci_book/DSCI_521_platforms-dsci_book/files/data/iris.csv\"\n\n\nThe {here} package finds the project root directory, and allows you to provide a relative path to any of the files from that root project directory. In turn, here::here() will return the absolute path to the specified file or directory.\nThis method of having the user code always use a relative path, and the function resolving to an absolute path is a way files can be located across different computers, especially when working on a collaborative project.\nAnother benefit of the here::here() function, is that if your data location does not change, and you move your analysis file into a different folder, you would not need to change your code, because the relative path to the data from the root directory stayed the same.\n\n\nCreating RStudio projects\nYou can either create an empty RStudio project, or clone an existing GitHub repo, which also allows you to use the RStudio interface to control Git.\n\nStart by making a GitHub repo\nCopy the URL needed to clone that repo from GitHub\nThen select File &gt; New Project &gt; Version Control &gt; Git and fill in.\n\n\nNow you can use RStudio as a Git client via the colorful icon in the toolbar of the edit panel. This includes adding parts of a document do the staging area, committing, pushing, pulling, and more. Using terminal Git will still be more reliable, since it is available anywhere Git is installed, but feel free to use the RStudio (or VS Code) interfaces as a complement.\nCreating an RStudio Project this way is the same way as running git clone on the remote repository and then selecting “Existing Directory” in the New Project Wizard. The benefit of creating the repository on the remote first, is the same reason we discussed in the Git + GitHub chapters, and saves us the steps of running git init and manually hooking up the remote repositories.",
+    "text": "RStudio Projects\nAn RStudio project is essentially a directory containing a special file: *.Rproj, which holds metadata for R about this project. RProjects set the working directory by default to be the root of the project and we recommend using it together with the {here} package, which can easily create paths relative from the root project dir\n\nThe {here} Package\nWhen you load the {here} package, it will echo the current project root directory. You should always confirm that this is the expected starting location for your project.\n\n# install.packages(\"here\")\nlibrary(here)\n\nhere() starts at /home/runner/work/DSCI_521_platforms-dsci_book/DSCI_521_platforms-dsci_book\n\n\nIf your iris.csv data is in project_root/files/data/ this will make sure that anyone using your project will get the correct path\n\nhere(\"files\", \"data\", \"iris.csv\")\n\n[1] \"/home/runner/work/DSCI_521_platforms-dsci_book/DSCI_521_platforms-dsci_book/files/data/iris.csv\"\n\n\nThe {here} package finds the project root directory, and allows you to provide a relative path to any of the files from that root project directory. In turn, here::here() will return the absolute path to the specified file or directory.\nThis method of having the user code always use a relative path, and the function resolving to an absolute path is a way files can be located across different computers, especially when working on a collaborative project.\nAnother benefit of the here::here() function, is that if your data location does not change, and you move your analysis file into a different folder, you would not need to change your code, because the relative path to the data from the root directory stayed the same.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 5: RStudio Projects and Literate Programming Documents"
+    ]
+  },
+  {
+    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-2",
+    "href": "lectures/5-rstudio-projects-notebooks.html#activity-2",
+    "title": "RStudio Projects and Literate Programming Documents",
+    "section": "Activity 2",
+    "text": "Activity 2\nYou have cloned a project folder containing an .Rmd file that loads data using the following code:\ncars &lt;- read.csv(\"data/cars.csv\")\nWhat could go wrong when you try to render this file, and how could you modify the code to prevent potential issues?\nHint: Think about file paths and project structure. You might consider using a specific function to handle paths.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -2017,11 +2029,11 @@
     ]
   },
   {
-    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-2",
-    "href": "lectures/5-rstudio-projects-notebooks.html#activity-2",
+    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-3",
+    "href": "lectures/5-rstudio-projects-notebooks.html#activity-3",
     "title": "RStudio Projects and Literate Programming Documents",
-    "section": "Activity 2",
-    "text": "Activity 2\nWhat are the primary benefits of using Markdown for formatting text documents?\nA. It requires complex software to edit\nB. It is human-readable and easily converted to HTML\nC. It cannot be opened by most editors\nD. It is not suitable for web pages",
+    "section": "Activity 3",
+    "text": "Activity 3\nWhat are the primary benefits of using Markdown for formatting text documents?\nA. It requires complex software to edit\nB. It is human-readable and easily converted to HTML\nC. It cannot be opened by most editors\nD. It is not suitable for web pages",
     "crumbs": [
       "Home",
       "Lectures",
@@ -2053,11 +2065,11 @@
     ]
   },
   {
-    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-3",
-    "href": "lectures/5-rstudio-projects-notebooks.html#activity-3",
+    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-4",
+    "href": "lectures/5-rstudio-projects-notebooks.html#activity-4",
     "title": "RStudio Projects and Literate Programming Documents",
-    "section": "Activity 3",
-    "text": "Activity 3\nWhat is the primary advantage of using an .Rmd file over a .md file to create the final HTML document?\nA. .Rmd files do not support code chunks.\nB. .Rmd files allow for the inclusion of executable code chunks, producing dynamic documents.\nC. .md files are easier to edit.\nD. There is no difference between .Rmd and .md files in terms of functionality.",
+    "section": "Activity 4",
+    "text": "Activity 4\nWhat is the primary advantage of using an .Rmd file over a .md file to create the final HTML document?\nA. .Rmd files do not support code chunks.\nB. .Rmd files allow for the inclusion of executable code chunks, producing dynamic documents.\nC. .md files are easier to edit.\nD. There is no difference between .Rmd and .md files in terms of functionality.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -2094,18 +2106,6 @@
     "title": "RStudio Projects and Literate Programming Documents",
     "section": "Note",
     "text": "Note\nR Markdown documents can also execute Python code, you will need to have the R {reticulate} package installed, and then point your R installation to the Python version you need.\nYou can learn more about {reticulate}: https://rstudio.github.io/reticulate/",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 5: RStudio Projects and Literate Programming Documents"
-    ]
-  },
-  {
-    "objectID": "lectures/5-rstudio-projects-notebooks.html#activity-4",
-    "href": "lectures/5-rstudio-projects-notebooks.html#activity-4",
-    "title": "RStudio Projects and Literate Programming Documents",
-    "section": "Activity 4",
-    "text": "Activity 4\nClone a folder and try to render the .Rmd file. What happens? Try to use here() for the filepath.\na) The file renders without any issues.\nb) The file fails to render due to incorrect file paths.\nc) The file renders but with missing plots.\nd) The file cannot be opened in RStudio.",
     "crumbs": [
       "Home",
       "Lectures",

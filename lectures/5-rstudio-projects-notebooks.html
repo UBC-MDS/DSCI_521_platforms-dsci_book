@@ -340,20 +340,20 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio Projects</a>
   <ul class="collapse">
   <li><a href="#the-here-package" id="toc-the-here-package" class="nav-link" data-scroll-target="#the-here-package">The {here} Package</a></li>
-  <li><a href="#creating-rstudio-projects" id="toc-creating-rstudio-projects" class="nav-link" data-scroll-target="#creating-rstudio-projects">Creating RStudio projects</a></li>
   </ul></li>
+  <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity 2</a></li>
+  <li><a href="#creating-rstudio-projects" id="toc-creating-rstudio-projects" class="nav-link" data-scroll-target="#creating-rstudio-projects">Creating RStudio projects</a></li>
   <li><a href="#literate-programming-documents" id="toc-literate-programming-documents" class="nav-link" data-scroll-target="#literate-programming-documents">Literate programming documents</a></li>
   <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown">Markdown</a></li>
-  <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity 2</a></li>
+  <li><a href="#activity-3" id="toc-activity-3" class="nav-link" data-scroll-target="#activity-3">Activity 3</a></li>
   <li><a href="#markdown-and-its-flavours" id="toc-markdown-and-its-flavours" class="nav-link" data-scroll-target="#markdown-and-its-flavours">Markdown and its flavours</a></li>
   <li><a href="#text-and-rendering-r-markdown-documents" id="toc-text-and-rendering-r-markdown-documents" class="nav-link" data-scroll-target="#text-and-rendering-r-markdown-documents">Text and rendering R Markdown documents</a></li>
   <li><a href="#tip" id="toc-tip" class="nav-link" data-scroll-target="#tip">Tip</a></li>
-  <li><a href="#activity-3" id="toc-activity-3" class="nav-link" data-scroll-target="#activity-3">Activity 3</a></li>
+  <li><a href="#activity-4" id="toc-activity-4" class="nav-link" data-scroll-target="#activity-4">Activity 4</a></li>
   <li><a href="#r-markdown-and-r-notebooks" id="toc-r-markdown-and-r-notebooks" class="nav-link" data-scroll-target="#r-markdown-and-r-notebooks">R Markdown and R Notebooks</a></li>
   <li><a href="#note" id="toc-note" class="nav-link" data-scroll-target="#note">Note</a></li>
   <li><a href="#create-run-and-edit-code-chunks" id="toc-create-run-and-edit-code-chunks" class="nav-link" data-scroll-target="#create-run-and-edit-code-chunks">Create, Run, and Edit Code Chunks</a></li>
   <li><a href="#note-1" id="toc-note-1" class="nav-link" data-scroll-target="#note-1">Note</a></li>
-  <li><a href="#activity-4" id="toc-activity-4" class="nav-link" data-scroll-target="#activity-4">Activity 4</a></li>
   <li><a href="#naming-code-chunks-and-r-markdown-document-sections" id="toc-naming-code-chunks-and-r-markdown-document-sections" class="nav-link" data-scroll-target="#naming-code-chunks-and-r-markdown-document-sections">Naming code chunks and R Markdown document sections</a></li>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#code-chunk-options" id="toc-code-chunk-options" class="nav-link" data-scroll-target="#code-chunk-options">Code chunk options</a></li>
@@ -475,6 +475,14 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <p>This method of having the user code always use a relative path, and the function resolving to an absolute path is a way files can be located across different computers, especially when working on a collaborative project.</p>
 <p>Another benefit of the <code>here::here()</code> function, is that if your data location does not change, and you move your analysis file into a different folder, you would not need to change your code, because the relative path to the data from the root directory stayed the same.</p>
 </section>
+</section>
+<section id="activity-2" class="level2 activity">
+<h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
+<p>You have cloned a project folder containing an <code>.Rmd</code> file that loads data using the following code:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cars <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/cars.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What could go wrong when you try to render this file, and how could you modify the code to prevent potential issues?</p>
+<p>Hint: Think about file paths and project structure. You might consider using a specific function to handle paths.</p>
+</section>
 <section id="creating-rstudio-projects" class="level3">
 <h3 class="anchored" data-anchor-id="creating-rstudio-projects">Creating RStudio projects</h3>
 <p>You can either create an empty RStudio project, or clone an existing GitHub repo, which also allows you to use the RStudio interface to control Git.</p>
@@ -486,7 +494,6 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <p><img src="img/new_project.png" class="img-fluid"></p>
 <p>Now you can use RStudio as a Git client via the colorful icon in the toolbar of the edit panel. This includes adding parts of a document do the staging area, committing, pushing, pulling, and more. Using terminal Git will still be more reliable, since it is available anywhere Git is installed, but feel free to use the RStudio (or VS Code) interfaces as a complement.</p>
 <p>Creating an RStudio Project this way is the same way as running <code>git clone</code> on the remote repository and then selecting “Existing Directory” in the New Project Wizard. The benefit of creating the repository on the remote first, is the same reason we discussed in the Git + GitHub chapters, and saves us the steps of running <code>git init</code> and manually hooking up the remote repositories.</p>
-</section>
 </section>
 <section id="literate-programming-documents" class="level2">
 <h2 class="anchored" data-anchor-id="literate-programming-documents">Literate programming documents</h2>
@@ -534,8 +541,8 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <p>GitHub does will also render the <code>README.md</code> file of <strong>every</strong> directory in a repository.</p>
 <p><img src="img/markdown-flowchart.png" class="img-fluid"> Image extracted from: https://www.markdownguide.org/getting-started/</p>
 </section>
-<section id="activity-2" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
+<section id="activity-3" class="level2 activity">
+<h2 class="anchored" data-anchor-id="activity-3">Activity 3</h2>
 <p>What are the primary benefits of using Markdown for formatting text documents?</p>
 <p>A. It requires complex software to edit</p>
 <p>B. It is human-readable and easily converted to HTML</p>
@@ -588,8 +595,8 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <p>The markdown file generated by <code>knitr</code> is then processed by <code>pandoc</code> which is responsible for creating the finished format.</p>
 <p><img src="img/rstudio-conf-2022-rmarkdown.png" class="img-fluid" alt="alttag"> <em>Rmarkdown documents are created from text and R code</em></p>
 </section>
-<section id="activity-3" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-3">Activity 3</h2>
+<section id="activity-4" class="level2 activity">
+<h2 class="anchored" data-anchor-id="activity-4">Activity 4</h2>
 <p>What is the primary advantage of using an <code>.Rmd</code> file over a <code>.md</code> file to create the final HTML document?</p>
 <p>A. <code>.Rmd</code> files do not support code chunks.</p>
 <p>B. <code>.Rmd</code> files allow for the inclusion of executable code chunks, producing dynamic documents.</p>
@@ -611,10 +618,10 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <h3 class="anchored" data-anchor-id="create-run-and-edit-code-chunks">Create, Run, and Edit Code Chunks</h3>
 <p>Just like Jupyter notebooks, R Markdown has code cells, although they’re more commonly referred to as code “chunks” or “blocks”. These are based off fenced Markdown code blocks and always start and end with 3 backticks (```), just like in Markdown. Unique to R Markdown is that the leading three backticks are followed by curly braces containing the language engine you want to run, which for r looks like this <code>{r}</code>. Additional metadata can be included, for example a name to reference the code chunk:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r my-first-code-chunk}</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- 5</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="in">x</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r my-first-code-chunk}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- 5</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="in">x</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -627,14 +634,6 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <p>You can learn more about <code>{reticulate}</code>: <a href="https://rstudio.github.io/reticulate/" class="uri">https://rstudio.github.io/reticulate/</a></p>
 </section>
 <p>All code cells are run when you knit/render the entire document (like pressing “Run all” in JupyterLab). By default, the code in the chunk and the code output will be included in your rendered document. You can also run the code by clicking the green play button on the right-hand side of the code chunk.</p>
-<section id="activity-4" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-4">Activity 4</h2>
-<p>Clone a folder and try to render the .Rmd file. What happens? Try to use here() for the filepath.</p>
-<pre><code>a) The file renders without any issues.
-b) The file fails to render due to incorrect file paths.
-c) The file renders but with missing plots.
-d) The file cannot be opened in RStudio.</code></pre>
-</section>
 <section id="naming-code-chunks-and-r-markdown-document-sections" class="level3">
 <h3 class="anchored" data-anchor-id="naming-code-chunks-and-r-markdown-document-sections">Naming code chunks and R Markdown document sections</h3>
 <p>When you include Markdown headers (using the <code>#</code> symbol) R Studio automatically creates a pop-up-like menu for you to use to navigate the document, which you can access by clicking the bar below this editor panel. It looks like:</p>
