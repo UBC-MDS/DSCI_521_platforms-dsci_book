@@ -177,6 +177,19 @@ you would not need to change your code,
 because the relative path to the data from the root directory
 stayed the same.
 
+:::{.activity}
+## Activity 2
+
+You have cloned a project folder containing an `.Rmd` file that loads data using the following code:
+
+```r
+cars <- read.csv("data/cars.csv")
+```
+What could go wrong when you try to render this file, and how could you modify the code to prevent potential issues?
+
+Hint: Think about file paths and project structure. You might consider using a specific function to handle paths.
+
+:::
 
 ### Creating RStudio projects
 
@@ -312,7 +325,7 @@ GitHub does will also render the `README.md` file of **every** directory in a re
 Image extracted from: https://www.markdownguide.org/getting-started/
 
 :::{.activity}
-## Activity 2
+## Activity 3
 
 What are the primary benefits of using Markdown for formatting text documents?
 
@@ -442,7 +455,7 @@ which is responsible for creating the finished format.
 *Rmarkdown documents are created from text and R code*
 
 :::{.activity}
-## Activity 3
+## Activity 4
 
 What is the primary advantage of using an `.Rmd` file over a `.md` file to create the final HTML document?
 
@@ -540,16 +553,6 @@ the code in the chunk and the code output will be included in your rendered docu
 You can also run the code by clicking the green play button on the right-hand side of the code chunk.
 
 
-:::{.activity}
-## Activity 4
-Clone a folder and try to render the .Rmd file. What happens? Try to use here() for the filepath.
-
-    a) The file renders without any issues.
-    b) The file fails to render due to incorrect file paths.
-    c) The file renders but with missing plots.
-    d) The file cannot be opened in RStudio.
-
-:::
 
 
 
