@@ -241,6 +241,24 @@ system(
 
 {{< revealjs "demos/slides/slides-rise.slides.html" height="600px" class="ratio ratio-16x9" >}}
 
+## Book output
+
+Jupyter, R Markdown, and Quarto also have "book" outputs.
+This is a special website format that can also be converted into PDFs and ePUB files
+for physical book publishing.
+
+- Jupyter Book: <https://jupyterbook.org/en/stable/intro.html>
+- Bookdown (R Markdown): <https://bookdown.org/>
+- Quarto Book: <https://quarto.org/docs/books/>
+
+The course materials does not use the official Quarto book layout,
+it actually uses a regular Quarto website layout.
+This is because books will have certain limitations because it needs to be
+able to render into a format for physical publishing.
+Quarto is a flexiable tool that has many kinds of output formats.
+You can learn more about each in the official Quarto Guides:
+<https://quarto.org/docs/guide/>
+
 
 ## Putting it all together
 
