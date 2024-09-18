@@ -42,6 +42,13 @@ You can also render the final static site using `quarto`
 quarto render
 ```
 
+This repo uses a quarto extension that you will find in the `_extensions` directory.
+If you want to re-install the extension, you can with:
+
+```bash
+quarto add coatless-quarto/embedio
+```
+
 ## Features of this repository
 
 Technical features of this reporitory

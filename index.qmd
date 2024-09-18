@@ -22,6 +22,7 @@ How to install, maintain, and use the data scientific software "stack". The Unix
 Lesson 0
 
 {{< include learning_objectives/lo-ch-00.qmd >}}
+
 {{< include learning_objectives/lo-ch-00-rstudio.qmd >}}
 
 Lesson 1

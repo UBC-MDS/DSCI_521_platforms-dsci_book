@@ -3,9 +3,13 @@
 # temp jupyter notebook used for quarto jupyter execution
 **.quarto_ipynb
 
+# quarto
 /.quarto/
 _site/
 docs/*
+learning_objectives/*.html
+lectures/*.html
+lectures/*_files
 
 # default R and python git ignores below
 
