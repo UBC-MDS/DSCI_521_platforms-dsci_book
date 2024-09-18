@@ -3,6 +3,9 @@ jupyter
 numpy
 matplotlib
 
+# render rise slides
+jupyterlab_rise
+
 # supplemental to help run the course
 jupyterlab
 
