@@ -113,6 +113,14 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
+ 
+  <style>
+  .slide-deck {
+      border: 3px solid #dee2e6;
+      width: 100%;
+  }
+  </style>
+  
 
 
 <meta property="og:title" content="Quarto, RMarkdown, and Jupyter Slides – DSCI 521: Computing Platforms for Data Science">
@@ -289,7 +297,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendix</span></a>
+ <span class="menu-text">Additional Information</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -315,6 +323,23 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Older Materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/xaringan_slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Xaringan Slides</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -327,9 +352,19 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <ul>
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
   <li><a href="#tldr-dan-is-still-working-on-this-chapter" id="toc-tldr-dan-is-still-working-on-this-chapter" class="nav-link" data-scroll-target="#tldr-dan-is-still-working-on-this-chapter">tl;dr – dan is still working on this chapter</a></li>
-  <li><a href="#quarto-documents-markdown-flavour" id="toc-quarto-documents-markdown-flavour" class="nav-link" data-scroll-target="#quarto-documents-markdown-flavour">Quarto documents markdown flavour</a></li>
-  <li><a href="#presentations-with-jupyterlab-rmarkdown-and-quarto" id="toc-presentations-with-jupyterlab-rmarkdown-and-quarto" class="nav-link" data-scroll-target="#presentations-with-jupyterlab-rmarkdown-and-quarto">Presentations with JupyterLab, RMarkdown and Quarto</a></li>
-  <li><a href="#creating-presentations-with-jupyterlab" id="toc-creating-presentations-with-jupyterlab" class="nav-link" data-scroll-target="#creating-presentations-with-jupyterlab">Creating presentations with JupyterLab</a></li>
+  <li><a href="#quarto-documents" id="toc-quarto-documents" class="nav-link" data-scroll-target="#quarto-documents">Quarto Documents</a>
+  <ul class="collapse">
+  <li><a href="#jupyter-notebooks-for-python-and-rmarkdown-for-r" id="toc-jupyter-notebooks-for-python-and-rmarkdown-for-r" class="nav-link" data-scroll-target="#jupyter-notebooks-for-python-and-rmarkdown-for-r">Jupyter Notebooks for Python and RMarkdown for R?</a></li>
+  <li><a href="#github-readme.md" id="toc-github-readme.md" class="nav-link" data-scroll-target="#github-readme.md">Github <code>README.md</code></a></li>
+  </ul></li>
+  <li><a href="#presentations-with-jupyterlab-rmarkdown-and-quarto" id="toc-presentations-with-jupyterlab-rmarkdown-and-quarto" class="nav-link" data-scroll-target="#presentations-with-jupyterlab-rmarkdown-and-quarto">Presentations with JupyterLab, RMarkdown and Quarto</a>
+  <ul class="collapse">
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link" data-scroll-target="#r-markdown">R Markdown</a></li>
+  <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks">Jupyter Notebooks</a></li>
+  </ul></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -372,7 +407,11 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="lecture-6-activity-1">Lecture 6 Activity 1</h2>
 </section>
 <div class="activity-container">
-<p>Check the following data science analysis.</p>
+<p>Check the following data science analysis. And look for the analysis files</p>
+<ul>
+<li>R: <a href="https://github.com/ttimbers/breast_cancer_predictor" class="uri">https://github.com/ttimbers/breast_cancer_predictor</a></li>
+<li>Python: <a href="https://github.com/ttimbers/breast_cancer_predictor_py" class="uri">https://github.com/ttimbers/breast_cancer_predictor_py</a></li>
+</ul>
 </div>
 </div>
 <section id="tldr-dan-is-still-working-on-this-chapter" class="level2">
@@ -383,19 +422,22 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <p>pick either a xaringan template or revealjs presentation template</p>
 <p>for xaringan, you might need to install extra packages to render.</p>
 </section>
-<section id="quarto-documents-markdown-flavour" class="level2">
-<h2 class="anchored" data-anchor-id="quarto-documents-markdown-flavour">Quarto documents markdown flavour</h2>
-<p>In lecture 7 we have been learning about RMarkdown. Recently, has been released <a href="https://quarto.org/">Quarto</a>. Adding capabilities to R Markdown it also uses Pandoc Markdown, but we will talk about it later: https://quarto.org/docs/authoring/markdown-basics.html</p>
-<p>In brief we are going to learn that you can create a <code>gfm</code> formatted document in Quarto. This means that you can use this type of file to create a <code>README.md</code> that will perfectly render on GitHub.</p>
-<section id="jupyter-notebooks-for-python-and-rmarkdown-for-r" class="level4">
-<h4 class="anchored" data-anchor-id="jupyter-notebooks-for-python-and-rmarkdown-for-r">Jupyter Notebooks for Python and RMarkdown for R?</h4>
-<p>Even if the purpose of using a Jupyter Notebook and an RMarkdown is similar there are major differences to be considered. The first one is that Jupyter Notebooks has been created for Python (even if there exist an R ikernel) and that RMarkdown has been created for R (even if can be used with Python through the <code>reticulate</code> package). There is a third new option, <strong>Quarto documents</strong> (<code>.qmd</code>), that can be open in RStudio, VS Code and JupyterLab at the same time and be used with Python, R or Julia.</p>
-<p>A single <code>.qmd</code> file is processed by a single engine running R, Python, or Julia. The trick is that an <code>.qmd</code> file running R can run Python via the <code>reticulate</code> R package meanwhile a <code>.qmd</code> running Python can run R via the <code>rpy2</code> Python package. We will learn more about Quarto soon, but first let’s think a bit about how we write text in the notebooks.</p>
-<p>This being said you have to consider that: &gt; Note that if you are using either the Jupyter or Knitr computational engine you will likely be better off using JupyterLab or VS Code (for .ipynb notebooks) or RStudio (for .qmd documents) as these environments provide code-completion, incremental cell execution, and other useful tools for working with executable code.</p>
-<blockquote class="blockquote">
-<p>Quarto Docs - Text editors (https://quarto.org/docs/tools/text-editors.html)</p>
-</blockquote>
+<section id="quarto-documents" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-documents">Quarto Documents</h2>
+<p><a href="https://quarto.org/">Quarto</a> is a newer scientific and technical publishing system that aims to combine the best features of a Jupyter Notebook and an R Markdown document. It uses markdown, code chunks (similar to R Markdown), and <code>pandoc</code> to create various output formats. If you need another Markdown resource, the Quarto documentation has its own <a href="https://quarto.org/docs/authoring/markdown-basics.html">markdown basics guide</a>.</p>
 <p><img src="img/rstudio-conf-2022-quarto.png" class="img-fluid" alt="alttag"> <em>Quarto documents are created with text and Python, R and/or Julia code</em></p>
+<section id="jupyter-notebooks-for-python-and-rmarkdown-for-r" class="level3">
+<h3 class="anchored" data-anchor-id="jupyter-notebooks-for-python-and-rmarkdown-for-r">Jupyter Notebooks for Python and RMarkdown for R?</h3>
+<p>Historically, Jupyter Notebooks were designed for Python and R Markdown documents were designed for R. These days, there are <a href="https://gist.github.com/chronitis/682c4e0d9f663e85e3d87e97cd7d1624">many different Jupyter Kernels</a> you can install, and R Markdown documents can also support <a href="https://bookdown.org/yihui/rmarkdown/language-engines.html">many different language engines</a>. Quarto natively supports Python, R, Julia, and Javascript, but can also <a href="https://quarto.org/docs/faq/#what-programming-languages-are-supported-in-quarto">leverage all of the Jupyter kernels</a> to run more languages.</p>
+<p>If you want a single document to run multiple languages (R and Python), Python can run R via the <code>rpy2</code> Python package, and R can run Python via the <code>reticulate</code> R package. Quarto will leverage <code>knitr</code> and <code>reticulate</code> to run documents that need to run both R and Python.</p>
+</section>
+<section id="github-readme.md" class="level3">
+<h3 class="anchored" data-anchor-id="github-readme.md">Github <code>README.md</code></h3>
+<p>If you need to document code and output in your <code>README.md</code> file, you can create a Quarto <code>README.qmd</code> document that can be rendered into a github-flavored markdown <code>README.md</code> file.</p>
+<p>In Quarto, you will need to set the output format in the YAML to:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> gfm</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This process is similar to R Markdown documents rendering from <code>README.Rmd</code> file. The main difference here is that in R Markdown you will be using a different output format string:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <div class="activity">
@@ -403,128 +445,121 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="lecture-6-activity-2">Lecture 6 Activity 2</h2>
 </section>
 <div class="activity-container">
-<p>Why using R Markdown and Quarto documents can make your work more reproducible? - <code>.Rmd</code> and <code>.qmd</code> are plain-text files, they can be opened and edited with almost any editor. - Including text in the final reports created involves a more detailed explanation of your work than only commenting the code. - They use pandoc to render the files in different formats. - Because they create a versatile <code>.md</code> file as intermediate step. - They allow running code as inline code or in code chuncks. - The code chunks could be run in any order.</p>
+<p>Why using R Markdown and Quarto documents can make your work more reproducible?</p>
+<ul>
+<li><code>.Rmd</code> and <code>.qmd</code> are plain-text files, they can be opened and edited with almost any editor.</li>
+<li>Including text in the final reports created involves a more detailed explanation of your work than only commenting the code.</li>
+<li>They use pandoc to render the files in different formats.</li>
+<li>Because they create a versatile <code>.md</code> file as intermediate step.</li>
+<li>They allow running code as inline code or in code chuncks.</li>
+<li>The code chunks could be run in any order.</li>
+</ul>
 </div>
 </div>
 <section id="presentations-with-jupyterlab-rmarkdown-and-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="presentations-with-jupyterlab-rmarkdown-and-quarto">Presentations with JupyterLab, RMarkdown and Quarto</h2>
-<p>You can create a great set of slides to share your results with others! We are going to use the framework <code>reveal.js</code>. RMarkdown most popular slides are created with a package called <code>xaringan</code>. Since Quarto appear, it is possible to create slides using <code>reveal.js</code> that is the same framework that is available by default in Jupyter Notebooks. Anyway, it would be possible to generate <code>reveal.js</code> presentations with RMarkdown if you install the <code>revealjs</code> package and follow <a href="https://bookdown.org/yihui/rmarkdown/revealjs.html">these instructions</a>.</p>
-<section id="create-your-slides-using-quarto" class="level4">
-<h4 class="anchored" data-anchor-id="create-your-slides-using-quarto">Create your slides using Quarto</h4>
-<p>If you are using Jupyter Notebooks it is quite straightforward to create your slides. You can use Jupyter Lab interface too with the same purpose. You can read more <a href="https://towardsdatascience.com/5-slides-for-tips-on-presentation-mode-in-jupyter-notebook-f858b15fff4f">about it here</a></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/jupyter-slides.gif" class="img-fluid figure-img"></p>
-<figcaption>Jupyter Slides</figcaption>
-</figure>
-</div>
-<p>You can crea</p>
+<p>You can create a great set of slides to share your results with others!</p>
+<p>We are going to use the framework <code>reveal.js</code>. RMarkdown most popular slides are created with a package called <code>xaringan</code>. Since Quarto appear, it is possible to create slides using <code>reveal.js</code> that is the same framework that is available by default in Jupyter Notebooks. Anyway, it would be possible to generate <code>reveal.js</code> presentations with RMarkdown if you install the <code>revealjs</code> package and follow <a href="https://bookdown.org/yihui/rmarkdown/revealjs.html">these instructions</a>.</p>
+<section id="quarto" class="level3">
+<h3 class="anchored" data-anchor-id="quarto">Quarto</h3>
 <p>Clicking here you can have <a href="https://quarto.org/docs/presentations/revealjs/demo/#/title-slide">an example</a> of what you can do with Quarto presentations using <code>reveal.js</code> framework.</p>
-<p><strong>Lecture x</strong></p>
-<p>Take 5 minutes of the class and convert one of your <code>.Rmd</code>, <code>.qmd</code> or <code>.ipynb</code> to a set of slides.</p>
-<p>You can convert the slides manually or look into the <a href="https://jupytext.readthedocs.io/en/latest/install.html">jupytext</a> or <code>quarto convert</code> tools to do an initial file conversion.</p>
-<!-- ## Presentations with R Markdown via xaringan
-
-One of the templates you can use
-is to create a "Ninja presentation" using xaringan.
-I will let the package author explain why it is named that way:
-
-> [Sharingan is] an R package for creating slideshows with remark.js through R Markdown.
-> The package name xaringan comes from Sharingan,
-> a dōjutsu in Naruto with two abilities:
-> the "Eye of Insight" and the "Eye of Hypnotism".
-> A presentation ninja should have these basic abilities,
-> and I think remark.js may help you acquire these abilities,
-> even if you are not a member of the Uchiha clan.
->
-> https://github.com/yihui/xaringan
-
-The xaringan template is great and lists everything you can do
-so I won't repeat everything here.
-Briefly,
-slides are separated with `---`,
-and have class labels:
-
-- `inverse` inverts the colors
-- `center` centers horizontally
-- `middle` centers vertically
-
-Inside the slides,
-you can use R Markdown syntax
-with some special syntax,
-such as `.pull-left[]` and `.pull-right[]`
-to create to columns of text.
-It has support for some interactive features
-such as table pagination.
-You can also style the slides
-by using any of the themes listed by `names(xaringan:::list_css())`,
-e.g.
-
-```yaml
----
-output:
-  xaringan::moon_reader:
-    css: [metropolis, metropolis-fonts]
----
-```
-
-For more customization,
-you can download `xaringanthemer`
-(and it's dependency `showtext`, which does not seem to install automatically):
-
-```R
-install.packages(c("xaringanthemer", "showtext"))
-```
-
-And then select to create a "themed" Ninja presentation
-via the same process as above.
-Now there is a code chunk added
-where you can select the different colors
-to use for your presentation. -->
-<!-- ## Sharing xaringan
-
-We can't use HTML preview with xaringan because it relies on external web resources
-that are not loaded correctly with the preview trick.
-This means that there is no way for us to **privately** preview out presentation.
-However,
-if we are looking to share our slides **publicly**,
-this is still possible via GitHub Pages.
-
-GitHub Pages can create a public URL for any GitHub repository that you own,
-and automatically renders any HTML files within this repo.
-You can find [a short tutorial on how to setup Pages for your repo here](https://pages.github.com/),
-but in brief you need to go to the settings page of your GitHub repo,
-scroll down to where it says "GitHub Pages" on the main settings page
-and select which branch you want to publish.
-It is common to create a separate branch called `gh-pages`
-and keep all files that should be available to the public on this branch,
-but if you just want to experiment in and otherwise empty repo,
-it is fine to use the master branch.
-
-By default,
-GitHub pages will render a `README.md` file or an `index.html` file
-if you have these at the root of your repo.
-So in our case,
-we could name our presentation file `index.html`
-and put it at the root of the repo,
-and then share the GH Pages link of the repo with others
-(you can find this link in the settings page where you enabled GH Pages).
-
-You could create links to other files yourself,
-but commonly a framework is used to automate this
-and add many other functions to your GH Pages,
-such as Jekyll or Hugo.
-A rewarding way to learn how to work with GH Pages
-is to create a personal web page.
-I used [Hugo via the "Academic" theme](https://wowchemy.com/docs/install-locally/) to create my site,
-and I think it was great
-and their documentation is comprehensive albeit a bit long.
-[Distill](https://rstudio.github.io/distill) package can also help you to create webpages and blogs using R Markdown. -->
+<p>In the YAML header, you will need to change the <code>format</code> option to <code>revealjs</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> revealjs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Habits"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "John Doe"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> revealjs</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># In the morning</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Getting up</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Turn off alarm</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Get out of bed</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Breakfast</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Eat eggs</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Drink coffee</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu"># In the evening</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dinner</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Eat spaghetti</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Drink wine</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Going to sleep</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Get in bed</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Count sheep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+    <p><a href="demos/slides/slides-quarto.html" target="_blank">View slides in full screen</a></p>
+       <div class="ratio ratio-16x9">
+      <iframe class="slide-deck" src="demos/slides/slides-quarto.html" height="600px"></iframe>
+    </div>
+  
+</section>
+<section id="r-markdown" class="level3">
+<h3 class="anchored" data-anchor-id="r-markdown">R Markdown</h3>
+<p>R Markdown has been around for a long time, and has many output formats. The defaults that come with R Markdown are less popular than formats you need to install.</p>
+<p>We’ll show you how you can create a <code>reaveal.js</code> and <code>xaringan</code> presentation, but you may need to install a few packages first.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">'xaringan'</span>, <span class="st">'revealjs'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="reveal.js" class="level4">
+<h4 class="anchored" data-anchor-id="reveal.js">Reveal.js</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> revealjs::revealjs_presentation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Habits"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> John Doe</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> revealjs::revealjs_presentation</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># In the morning</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Getting up</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Turn off alarm</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Get out of bed</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Breakfast</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Eat eggs</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Drink coffee</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu"># In the evening</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dinner</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Eat spaghetti</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Drink wine</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Going to sleep</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Get in bed</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Count sheep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+    <p><a href="demos/slides/slides-rmd.html" target="_blank">View slides in full screen</a></p>
+       <div class="ratio ratio-16x9">
+      <iframe class="slide-deck" src="demos/slides/slides-rmd.html" height="600px"></iframe>
+    </div>
+  
+</section>
+<section id="xaringan" class="level4">
+<h4 class="anchored" data-anchor-id="xaringan">Xaringan</h4>
+<p>Many people who are still working with R Markdown documents, will create their slides using <code>{xaringan}</code>. This lessons uses <code>reveal.js</code> for R Markdown slides to keep the output type consistent.</p>
+<p>If you want to learn more about Xaringan slides, see the <a href="../appendix/xaringan_slides.html">Xaringan Slides Chapter</a></p>
 </section>
 </section>
-<section id="creating-presentations-with-jupyterlab" class="level1">
-<h1>Creating presentations with JupyterLab</h1>
-<p>JupyterLab has support for presentations via another JavaScript framework: reveal.js (which is the same framework that Quarto uses). To mark which code cells should be part of the presentation, we can go to the property inspector (the settings wheel in the left side panel) and then select the slide type from the dropdown menu. Once you are done marking up slides, you can export them to reveal.js presentations are two dimensional, with slides in the horizontal direction and sub-slides in the vertical direction.</p>
+<section id="jupyter-notebooks" class="level3">
+<h3 class="anchored" data-anchor-id="jupyter-notebooks">Jupyter Notebooks</h3>
+<p>Jupyter notebooks also support slides with RISE.</p>
+<p><a href="https://github.com/jupyterlab-contrib/rise" class="uri">https://github.com/jupyterlab-contrib/rise</a></p>
+<p>You can use Jupyter Lab interface too with the same purpose. You can read more <a href="https://towardsdatascience.com/5-slides-for-tips-on-presentation-mode-in-jupyter-notebook-f858b15fff4f">about it here</a></p>
+<!--![Jupyter Slides](img/jupyter-slides.gif)-->
+<p>The main page for RISE is here: <a href="https://github.com/jupyterlab-contrib/rise" class="uri">https://github.com/jupyterlab-contrib/rise</a> Where you can find the command to install it:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyterlab_rise</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To mark which code cells should be part of the presentation, we can go to the property inspector (the settings wheel in the left side panel) and then select the slide type from the dropdown menu.</p>
+<p><img src="img/jupyter-rise-slide_type.png" class="img-fluid"></p>
+<p>Once you are done marking up slides, you can export them to reveal.js presentations are two dimensional, with slides in the horizontal direction and sub-slides in the vertical direction.</p>
 <ul>
 <li><code>Slide</code>: Standard slide navigated to via left and right arrows.</li>
 <li><code>Sub-slide</code>: Sub-topic of a slide, navigated to via up and down arrows.</li>
@@ -534,9 +569,32 @@ and their documentation is comprehensive albeit a bit long.
 <li><code>Skip</code>: Not included</li>
 </ul>
 <p>You will notice that images that are referenced via <code>![]()</code> or <code>&lt;img&gt;</code> do not show up in the exported slides (or the exported HTML). Until <a href="https://github.com/jupyter/nbconvert/issues/1057">this issue</a> is fixed, a workaround is to paste the image into a Markdown cell and it will be included as an attachment, which shows up fine in HTML and slide exports.</p>
-
-
+<p>To run your RISE slides in jupyter lab, there is a small button on the top.</p>
+<p><img src="img/jupyter-rise-launch.png" class="img-fluid"></p>
 </section>
+</section>
+<section id="putting-it-all-together" class="level2">
+<h2 class="anchored" data-anchor-id="putting-it-all-together">Putting it all together</h2>
+<p>Here’s an example of a workshop given by the MDS teaching team at the Statistical Society of Canada conference:</p>
+<ul>
+<li>Repo: <a href="https://github.com/UBC-STAT/ssc-workshop-2024" class="uri">https://github.com/UBC-STAT/ssc-workshop-2024</a></li>
+<li>Site: <a href="https://ubc-stat.github.io/ssc-workshop-2024/" class="uri">https://ubc-stat.github.io/ssc-workshop-2024/</a></li>
+</ul>
+<p>You will see in the repository that we have leveraged many of the skills taught in the class so far:</p>
+<ul>
+<li>Quarto websites</li>
+<li>Quarto slides</li>
+<li>Git + GitHub Pages for website publishing</li>
+<li><code>.gitignore</code> files</li>
+</ul>
+</section>
+<section id="exercise-1" class="level2 exercise">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Take 5 minutes of the class and convert one of your <code>.Rmd</code>, <code>.qmd</code> or <code>.ipynb</code> to a set of slides.</p>
+<p>You can convert the slides manually or look into the <a href="https://jupytext.readthedocs.io/en/latest/install.html">jupytext</a> or <code>quarto convert</code> tools to do an initial file conversion.</p>
+</section>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
