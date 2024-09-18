@@ -351,17 +351,21 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#lecture-6-activity-1" id="toc-lecture-6-activity-1" class="nav-link" data-scroll-target="#lecture-6-activity-1">Lecture 6 Activity 1</a></li>
   <li><a href="#quarto-documents" id="toc-quarto-documents" class="nav-link" data-scroll-target="#quarto-documents">Quarto Documents</a>
   <ul class="collapse">
   <li><a href="#jupyter-notebooks-for-python-and-rmarkdown-for-r" id="toc-jupyter-notebooks-for-python-and-rmarkdown-for-r" class="nav-link" data-scroll-target="#jupyter-notebooks-for-python-and-rmarkdown-for-r">Jupyter Notebooks for Python and RMarkdown for R?</a></li>
   <li><a href="#github-readme.md" id="toc-github-readme.md" class="nav-link" data-scroll-target="#github-readme.md">Github <code>README.md</code></a></li>
   </ul></li>
+  <li><a href="#lecture-6-activity-2" id="toc-lecture-6-activity-2" class="nav-link" data-scroll-target="#lecture-6-activity-2">Lecture 6 Activity 2</a></li>
   <li><a href="#presentations-with-jupyterlab-rmarkdown-and-quarto" id="toc-presentations-with-jupyterlab-rmarkdown-and-quarto" class="nav-link" data-scroll-target="#presentations-with-jupyterlab-rmarkdown-and-quarto">Presentations with JupyterLab, RMarkdown and Quarto</a>
   <ul class="collapse">
   <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
   <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link" data-scroll-target="#r-markdown">R Markdown</a></li>
-  <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks">Jupyter Notebooks</a></li>
   </ul></li>
+  <li><a href="#lecture-6-activity-3" id="toc-lecture-6-activity-3" class="nav-link" data-scroll-target="#lecture-6-activity-3">Lecture 6 Activity 3</a></li>
+  <li><a href="#lecture-6-activity-4" id="toc-lecture-6-activity-4" class="nav-link" data-scroll-target="#lecture-6-activity-4">Lecture 6 Activity 4</a></li>
+  <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks">Jupyter Notebooks</a></li>
   <li><a href="#book-output" id="toc-book-output" class="nav-link" data-scroll-target="#book-output">Book output</a></li>
   <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a></li>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -402,18 +406,14 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </ol>
 <p><strong>Platform in focus</strong> Jupyter Lab, RStudio IDE, Quarto</p>
 </section>
-<div class="activity">
-<section id="lecture-6-activity-1" class="level2 activity-header">
+<section id="lecture-6-activity-1" class="level2 activity">
 <h2 class="anchored" data-anchor-id="lecture-6-activity-1">Lecture 6 Activity 1</h2>
-</section>
-<div class="activity-container">
 <p>Check the following data science analysis. And look for the analysis files</p>
 <ul>
 <li>R: <a href="https://github.com/ttimbers/breast_cancer_predictor" class="uri">https://github.com/ttimbers/breast_cancer_predictor</a></li>
 <li>Python: <a href="https://github.com/ttimbers/breast_cancer_predictor_py" class="uri">https://github.com/ttimbers/breast_cancer_predictor_py</a></li>
 </ul>
-</div>
-</div>
+</section>
 <section id="quarto-documents" class="level2">
 <h2 class="anchored" data-anchor-id="quarto-documents">Quarto Documents</h2>
 <p><a href="https://quarto.org/">Quarto</a> is a newer scientific and technical publishing system that aims to combine the best features of a Jupyter Notebook and an R Markdown document. It uses markdown, code chunks (similar to R Markdown), and <code>pandoc</code> to create various output formats. If you need another Markdown resource, the Quarto documentation has its own <a href="https://quarto.org/docs/authoring/markdown-basics.html">markdown basics guide</a>.</p>
@@ -432,22 +432,15 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<div class="activity">
-<section id="lecture-6-activity-2" class="level2 activity-header">
+<section id="lecture-6-activity-2" class="level2 activity">
 <h2 class="anchored" data-anchor-id="lecture-6-activity-2">Lecture 6 Activity 2</h2>
+<p>Why does using R Markdown and Quarto documents make your work more reproducible?</p>
+<p>A. <code>.Rmd</code> and <code>.qmd</code> are plain-text files; they can be opened and edited with almost any editor.</p>
+<p>B. Including text in the final reports created involves a more detailed explanation of your work than only commenting on the code.</p>
+<p>C. They use Pandoc to render the files in different formats.</p>
+<p>D. Because they create a versatile <code>.md</code> file as an intermediate step.</p>
+<p>E. They allow running code as inline code or in code chunks.</p>
 </section>
-<div class="activity-container">
-<p>Why using R Markdown and Quarto documents can make your work more reproducible?</p>
-<ul>
-<li><code>.Rmd</code> and <code>.qmd</code> are plain-text files, they can be opened and edited with almost any editor.</li>
-<li>Including text in the final reports created involves a more detailed explanation of your work than only commenting the code.</li>
-<li>They use pandoc to render the files in different formats.</li>
-<li>Because they create a versatile <code>.md</code> file as intermediate step.</li>
-<li>They allow running code as inline code or in code chuncks.</li>
-<li>The code chunks could be run in any order.</li>
-</ul>
-</div>
-</div>
 <section id="presentations-with-jupyterlab-rmarkdown-and-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="presentations-with-jupyterlab-rmarkdown-and-quarto">Presentations with JupyterLab, RMarkdown and Quarto</h2>
 <p>You can create a great set of slides to share your results with others!</p>
@@ -546,6 +539,24 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <p>If you want to learn more about Xaringan slides, see the <a href="../appendix/xaringan_slides.html">Xaringan Slides Chapter</a></p>
 </section>
 </section>
+</section>
+<section id="lecture-6-activity-3" class="level2 activity">
+<h2 class="anchored" data-anchor-id="lecture-6-activity-3">Lecture 6 Activity 3</h2>
+<p>Which of the following is the <strong>correct</strong> output format for creating slides in R Markdown?</p>
+<p>A. <code>revealjs::revealjs_presentation</code></p>
+<p>B. <code>xaringan::moon_reader</code></p>
+<p>C. <code>quarto::quarto_presentation</code></p>
+<p>D. <code>ioslides_presentation</code></p>
+<p><strong>Correct Answer:</strong> A. <code>revealjs::revealjs_presentation</code></p>
+</section>
+<section id="lecture-6-activity-4" class="level2 activity">
+<h2 class="anchored" data-anchor-id="lecture-6-activity-4">Lecture 6 Activity 4</h2>
+<p>What is the primary difference between slides created with R Markdown’s <code>revealjs</code> and <code>xaringan</code>?</p>
+<p>A. <code>xaringan</code> slides are two-dimensional, allowing horizontal and vertical navigation, while <code>reveal.js</code> slides are one-dimensional.</p>
+<p>B. <code>reveal.js</code> requires an additional package to be installed, while <code>xaringan</code> is included by default in R Markdown.</p>
+<p>C. <code>reveal.js</code> slides support two-dimensional navigation, with slides moving left/right and sub-slides up/down.</p>
+<p>D. <code>xaringan</code> uses <code>pandoc</code> for rendering slides, whereas <code>reveal.js</code> does not.</p>
+</section>
 <section id="jupyter-notebooks" class="level3">
 <h3 class="anchored" data-anchor-id="jupyter-notebooks">Jupyter Notebooks</h3>
 <p>Jupyter notebooks also support slides with RISE.</p>
@@ -573,7 +584,6 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       <iframe class="slide-deck" src="demos/slides/slides-rise.slides.html" height="600px"></iframe>
     </div>
   
-</section>
 </section>
 <section id="book-output" class="level2">
 <h2 class="anchored" data-anchor-id="book-output">Book output</h2>
