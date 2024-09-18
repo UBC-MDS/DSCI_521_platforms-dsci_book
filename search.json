@@ -2037,6 +2037,18 @@
     ]
   },
   {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#book-output",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#book-output",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "Book output",
+    "text": "Book output\nJupyter, R Markdown, and Quarto also have “book” outputs. This is a special website format that can also be converted into PDFs and ePUB files for physical book publishing.\n\nJupyter Book: https://jupyterbook.org/en/stable/intro.html\nBookdown (R Markdown): https://bookdown.org/\nQuarto Book: https://quarto.org/docs/books/\n\nThe course materials does not use the official Quarto book layout, it actually uses a regular Quarto website layout. This is because books will have certain limitations because it needs to be able to render into a format for physical publishing. Quarto is a flexiable tool that has many kinds of output formats. You can learn more about each in the official Quarto Guides: https://quarto.org/docs/guide/",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
     "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#putting-it-all-together",
     "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#putting-it-all-together",
     "title": "Quarto, RMarkdown, and Jupyter Slides",
