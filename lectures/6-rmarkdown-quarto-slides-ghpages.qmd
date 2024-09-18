@@ -235,7 +235,7 @@ there is a small button on the top.
 ```{r}
 #| include: false
 system(
-    "jupyter nbconvert slides-rise.ipynb --to slides"
+    "jupyter nbconvert demos/slides/slides-rise.ipynb --to slides"
 )
 ```
 
