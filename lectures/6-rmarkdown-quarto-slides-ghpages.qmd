@@ -22,21 +22,6 @@ title: 'Quarto, RMarkdown, and Jupyter Slides'
 ::::
 :::
 
-## tl;dr -- dan is still working on this chapter
-
-but here are the rough commands for folks who are ahead:
-
-```r
-install.packages(c('xaringan', 'revealjs'))
-```
-
-Create a new R Markdown document > Templates >
-
-pick either a xaringan template or revealjs presentation template
-
-for xaringan, you might need to install extra packages to render.
-
-
 ## Quarto Documents
 
 [Quarto](https://quarto.org/)
@@ -134,6 +119,26 @@ format: revealjs
 
 {{< revealjs "demos/slides/slides-quarto.html" height="600px" class="ratio ratio-16x9" >}}
 
+If you want to create your `revealjs` html slides and be able to share
+a **single** html file with others as a slide,
+you may need to embed and make the slide "self contained".
+
+```yaml
+format:
+  revealjs:
+    embed-resources: true
+
+```
+
+This puts all the external resources for the HTML document inside the HTML file.
+Otherwise your slides would need to travel in a zip file
+with all the external resources in the same directory.
+You will typically need this when sharing slides that have images
+and computation in them.
+You may notice additional folders created in the directory as a cue
+that you may need to think about embedding your resources to make
+the slides self-contained, depending on how you will use and share them.
+
 
 ### R Markdown
 
@@ -226,6 +231,16 @@ To run your RISE slides in jupyter lab,
 there is a small button on the top.
 
 ![](img/jupyter-rise-launch.png)
+
+```{r}
+#| include: false
+system(
+    "jupyter nbconvert slides-rise.ipynb --to slides"
+)
+```
+
+{{< revealjs "demos/slides/slides-rise.slides.html" height="600px" class="ratio ratio-16x9" >}}
+
 
 ## Putting it all together
 
