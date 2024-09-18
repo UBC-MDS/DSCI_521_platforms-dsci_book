@@ -9,17 +9,13 @@ title: 'Quarto, RMarkdown, and Jupyter Slides'
 **Platform in focus** Jupyter Lab, RStudio IDE, Quarto
 
 :::{.activity}
-::::{.activity-header}
 ## Lecture 6 Activity 1
-::::
-::::{.activity-container}
+
  Check the following data science analysis.
  And look for the analysis files
 
 - R: <https://github.com/ttimbers/breast_cancer_predictor>
 - Python: <https://github.com/ttimbers/breast_cancer_predictor_py>
-
-::::
 :::
 
 ## Quarto Documents
@@ -79,19 +75,20 @@ output: github_document
 ```
 
 :::{.activity}
-::::{.activity-header}
 ## Lecture 6 Activity 2
-::::
-::::{.activity-container}
-Why using R Markdown and Quarto documents can make your work more reproducible?
 
-- `.Rmd` and `.qmd` are plain-text files, they can be opened and edited with almost any editor.
-- Including text in the final reports created involves a more detailed explanation of your work than only commenting the code.
-- They use pandoc to render the files in different formats.
-- Because they create a versatile `.md` file as intermediate step.
-- They allow running code as inline code or in code chuncks.
-- The code chunks could be run in any order.
-::::
+Why does using R Markdown and Quarto documents make your work more reproducible?
+
+A. `.Rmd` and `.qmd` are plain-text files; they can be opened and edited with almost any editor.
+
+B. Including text in the final reports created involves a more detailed explanation of your work than only commenting on the code.
+
+C. They use Pandoc to render the files in different formats.
+
+D. Because they create a versatile `.md` file as an intermediate step.
+
+E. They allow running code as inline code or in code chunks.
+
 :::
 
 ## Presentations with JupyterLab, RMarkdown and Quarto
@@ -181,6 +178,40 @@ type consistent.
 
 If you want to learn more about Xaringan slides, see the
 [Xaringan Slides Chapter](../appendix/xaringan_slides.qmd)
+
+:::{.activity}
+## Lecture 6 Activity 3
+
+Which of the following is the **correct** output format for creating slides in R Markdown?
+
+A. `revealjs::revealjs_presentation`
+
+B. `xaringan::moon_reader`
+
+C. `quarto::quarto_presentation`
+
+D. `ioslides_presentation`
+
+**Correct Answer:** A. `revealjs::revealjs_presentation`
+
+:::
+
+
+:::{.activity}
+## Lecture 6 Activity 4
+
+What is the primary difference between slides created with R Markdown's `revealjs` and `xaringan`?
+
+A. `xaringan` slides are two-dimensional, allowing horizontal and vertical navigation, while `reveal.js` slides are one-dimensional.
+
+B. `reveal.js` requires an additional package to be installed, while `xaringan` is included by default in R Markdown.
+
+C. `reveal.js` slides support two-dimensional navigation, with slides moving left/right and sub-slides up/down.
+
+D. `xaringan` uses `pandoc` for rendering slides, whereas `reveal.js` does not.
+
+:::
+
 
 ### Jupyter Notebooks
 
