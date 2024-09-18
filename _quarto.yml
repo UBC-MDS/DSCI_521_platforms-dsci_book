@@ -3,6 +3,10 @@ project:
   preview:
     port: 54321
     browser: true
+  render:
+    - "./*.qmd"
+    - "*/*.qmd"
+    - "lectures/demos/slides/*.qmd"
 
 website:
   title: "DSCI 521: Computing Platforms for Data Science"
@@ -72,7 +76,7 @@ website:
           - text: "Lecture 8b: Introduction to Regular Expressions (RegEx)"
             href: lectures/8b-regex.qmd
 
-      - section: "Appendix"
+      - section: "Additional Information"
         contents:
           - text: "Git Configuration"
             href: appendix/git_config.qmd
@@ -80,6 +84,12 @@ website:
             href: appendix/rstudio_config.qmd
           - text: "Semantic Line Breaks"
             href: appendix/semantic_line_breaks.qmd
+
+
+      - section: "Older Materials"
+        contents:
+          - text: "Xaringan Slides"
+            href: appendix/xaringan_slides.qmd
 
 format:
   html:

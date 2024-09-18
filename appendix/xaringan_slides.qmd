@@ -1,0 +1,104 @@
+---
+title: "Xaringan Slides"
+---
+
+
+## Presentations with R Markdown via xaringan
+
+One of the templates you can use
+is to create a "Ninja presentation" using xaringan.
+I will let the package author explain why it is named that way:
+
+> [Sharingan is] an R package for creating slideshows with remark.js through R Markdown.
+> The package name xaringan comes from Sharingan,
+> a dōjutsu in Naruto with two abilities:
+> the "Eye of Insight" and the "Eye of Hypnotism".
+> A presentation ninja should have these basic abilities,
+> and I think remark.js may help you acquire these abilities,
+> even if you are not a member of the Uchiha clan.
+>
+> https://github.com/yihui/xaringan
+
+The xaringan template is great and lists everything you can do
+so I won't repeat everything here.
+Briefly,
+slides are separated with `---`,
+and have class labels:
+
+- `inverse` inverts the colors
+- `center` centers horizontally
+- `middle` centers vertically
+
+Inside the slides,
+you can use R Markdown syntax
+with some special syntax,
+such as `.pull-left[]` and `.pull-right[]`
+to create to columns of text.
+It has support for some interactive features
+such as table pagination.
+You can also style the slides
+by using any of the themes listed by `names(xaringan:::list_css())`,
+e.g.
+
+```yaml
+---
+output:
+  xaringan::moon_reader:
+    css: [metropolis, metropolis-fonts]
+---
+```
+
+For more customization,
+you can download `xaringanthemer`
+(and it's dependency `showtext`, which does not seem to install automatically):
+
+```{r}
+#| eval: false
+install.packages(c("xaringanthemer", "showtext"))
+```
+
+And then select to create a "themed" Ninja presentation
+via the same process as above.
+Now there is a code chunk added
+where you can select the different colors
+to use for your presentation.
+
+## Sharing xaringan
+
+We can't use HTML preview with xaringan because it relies on external web resources
+that are not loaded correctly with the preview trick.
+This means that there is no way for us to **privately** preview out presentation.
+However,
+if we are looking to share our slides **publicly**,
+this is still possible via GitHub Pages.
+
+GitHub Pages can create a public URL for any GitHub repository that you own,
+and automatically renders any HTML files within this repo.
+You can find [a short tutorial on how to setup Pages for your repo here](https://pages.github.com/),
+but in brief you need to go to the settings page of your GitHub repo,
+scroll down to where it says "GitHub Pages" on the main settings page
+and select which branch you want to publish.
+It is common to create a separate branch called `gh-pages`
+and keep all files that should be available to the public on this branch,
+but if you just want to experiment in and otherwise empty repo,
+it is fine to use the master branch.
+
+By default,
+GitHub pages will render a `README.md` file or an `index.html` file
+if you have these at the root of your repo.
+So in our case,
+we could name our presentation file `index.html`
+and put it at the root of the repo,
+and then share the GH Pages link of the repo with others
+(you can find this link in the settings page where you enabled GH Pages).
+
+You could create links to other files yourself,
+but commonly a framework is used to automate this
+and add many other functions to your GH Pages,
+such as Jekyll or Hugo.
+A rewarding way to learn how to work with GH Pages
+is to create a personal web page.
+I used [Hugo via the "Academic" theme](https://wowchemy.com/docs/install-locally/) to create my site,
+and I think it was great
+and their documentation is comprehensive albeit a bit long.
+[Distill](https://rstudio.github.io/distill) package can also help you to create webpages and blogs using R Markdown.
