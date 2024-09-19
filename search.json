@@ -807,7 +807,19 @@
     "href": "lectures/2-git-github-ssh-basic-workflow.html#pull-your-changes-from-a-remote-repository",
     "title": "Introduction to version control with Git and GitHub",
     "section": "Pull your changes from a remote repository",
-    "text": "Pull your changes from a remote repository\nChanges pushed by collaborators, or created directly on GitHub will not be automatically sent to your local repository.\nIf you are working on a project with collaborators, they will also be making changes to files (e.g., to the analysis code in a Jupyter notebook and the project’s README file), committing them to their own local repository, and pushing their commits to the remote GitHub repository to share them with you. When they push their changes, those changes will only initially exist in the remote GitHub repository and not in your local repository.\nTo obtain the new changes from the remote repository on GitHub, you will need to pull those changes to your own local repository. By pulling changes, you synchronize your local repository to what is present on GitHub. Additionally, until you pull changes from the remote repository, you will not be able to push any more changes yourself (though you will still be able to work and make commits in your own local repository)\nIf you want to do this with the terminal, you have to pull from the terminal you should use the command git pull.\n\nLecture 2 Activity 4\nWhich command would you use to commit all changes with a message?\nA. git add -p\nB. git commit -m “Your message here”\nC. git push\nD. git status",
+    "text": "Pull your changes from a remote repository\nChanges pushed by collaborators, or created directly on GitHub will not be automatically sent to your local repository.\nIf you are working on a project with collaborators, they will also be making changes to files (e.g., to the analysis code in a Jupyter notebook and the project’s README file), committing them to their own local repository, and pushing their commits to the remote GitHub repository to share them with you. When they push their changes, those changes will only initially exist in the remote GitHub repository and not in your local repository.\nTo obtain the new changes from the remote repository on GitHub, you will need to pull those changes to your own local repository. By pulling changes, you synchronize your local repository to what is present on GitHub. Additionally, until you pull changes from the remote repository, you will not be able to push any more changes yourself (though you will still be able to work and make commits in your own local repository)\nIf you want to do this with the terminal, you have to pull from the terminal you should use the command git pull.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 2: Introduction to version control with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/2-git-github-ssh-basic-workflow.html#lecture-2-activity-4",
+    "href": "lectures/2-git-github-ssh-basic-workflow.html#lecture-2-activity-4",
+    "title": "Introduction to version control with Git and GitHub",
+    "section": "Lecture 2 Activity 4",
+    "text": "Lecture 2 Activity 4\nWhich command would you use to commit all changes with a message?\nA. git add -p\nB. git commit -m “Your message here”\nC. git push\nD. git status",
     "crumbs": [
       "Home",
       "Lectures",
@@ -2065,7 +2077,7 @@
     "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-4",
     "title": "Quarto, RMarkdown, and Jupyter Slides",
     "section": "Lecture 6 Activity 4",
-    "text": "Lecture 6 Activity 4\nWhich of the following is the correct output format for creating slides in R Markdown?\nA. revealjs::revealjs_presentation\nB. xaringan::moon_reader\nC. quarto::quarto_presentation\nD. ioslides_presentation",
+    "text": "Lecture 6 Activity 4\nWhich of the following is the correct output format for creating slides in R Markdown?\nA. revealjs::revealjs_presentation\nB. xaringan::sun_reader\nC. quarto::quarto_presentation\nD. ioslides_presentation",
     "crumbs": [
       "Home",
       "Lectures",
