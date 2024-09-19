@@ -324,7 +324,7 @@ and creating several new ones.
 ![](img/github-workflow.png)
 
 :::{.activity}
-### Lecture 2 Activity 1
+## Lecture 2 Activity 1
 
 How can you check that you are working on a Git repository?
 
