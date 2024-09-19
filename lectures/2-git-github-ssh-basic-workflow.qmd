@@ -501,7 +501,7 @@ you have to pull from the terminal you should use the command `git pull`.
 
 
 :::{.activity}
-### Lecture 2 Activity 4
+## Lecture 2 Activity 4
 
 Which command would you use to commit all changes with a message?
 

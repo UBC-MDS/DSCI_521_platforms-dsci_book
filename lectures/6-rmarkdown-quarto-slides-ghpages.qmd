@@ -194,7 +194,7 @@ Which of the following is the **correct** output format for creating slides in R
 
 A. `revealjs::revealjs_presentation`
 
-B. `xaringan::moon_reader`
+B. `xaringan::sun_reader`
 
 C. `quarto::quarto_presentation`
 
