@@ -12,7 +12,8 @@ title: 'Quarto, RMarkdown, and Jupyter Slides'
 ## Lecture 6 Activity 1
 
  Check the following data science analysis.
- And look for the analysis files
+ How are the analysis files loaded into the working directory?
+ Are there differences between the R and Python code?
 
 - R: <https://github.com/ttimbers/breast_cancer_predictor>
 - Python: <https://github.com/ttimbers/breast_cancer_predictor_py>
