@@ -2037,6 +2037,18 @@
     ]
   },
   {
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-3",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-3",
+    "title": "Quarto, RMarkdown, and Jupyter Slides",
+    "section": "Lecture 6 Activity 3",
+    "text": "Lecture 6 Activity 3\nNow that you’ve completed your reproducible report, imagine you need to present this work to a real-world audience, such as at a conference, to your boss, or an executive group. Think-Pair-Share:\nHow would you use tools like RMarkdown or Jupyter Notebook to effectively present your findings and pitch your idea? Consider elements like visualizations, narrative, and the format of the report. Discuss with your partner and prepare to share your strategies with the class.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+    ]
+  },
+  {
     "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#presentations-with-jupyterlab-rmarkdown-and-quarto",
     "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#presentations-with-jupyterlab-rmarkdown-and-quarto",
     "title": "Quarto, RMarkdown, and Jupyter Slides",
@@ -2049,11 +2061,11 @@
     ]
   },
   {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-3",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-3",
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-4",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-4",
     "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Lecture 6 Activity 3",
-    "text": "Lecture 6 Activity 3\nWhich of the following is the correct output format for creating slides in R Markdown?\nA. revealjs::revealjs_presentation\nB. xaringan::moon_reader\nC. quarto::quarto_presentation\nD. ioslides_presentation\nCorrect Answer: A. revealjs::revealjs_presentation",
+    "section": "Lecture 6 Activity 4",
+    "text": "Lecture 6 Activity 4\nWhich of the following is the correct output format for creating slides in R Markdown?\nA. revealjs::revealjs_presentation\nB. xaringan::moon_reader\nC. quarto::quarto_presentation\nD. ioslides_presentation\nCorrect Answer: A. revealjs::revealjs_presentation",
     "crumbs": [
       "Home",
       "Lectures",
@@ -2061,11 +2073,11 @@
     ]
   },
   {
-    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-4",
-    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-4",
+    "objectID": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-5",
+    "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-5",
     "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Lecture 6 Activity 4",
-    "text": "Lecture 6 Activity 4\nWhat is the primary difference between slides created with R Markdown’s revealjs and xaringan?\nA. xaringan slides are two-dimensional, allowing horizontal and vertical navigation, while reveal.js slides are one-dimensional.\nB. reveal.js requires an additional package to be installed, while xaringan is included by default in R Markdown.\nC. reveal.js slides support two-dimensional navigation, with slides moving left/right and sub-slides up/down.\nD. xaringan uses pandoc for rendering slides, whereas reveal.js does not.",
+    "section": "Lecture 6 Activity 5",
+    "text": "Lecture 6 Activity 5\nWhat is the primary difference between slides created with R Markdown’s revealjs and xaringan?\nA. xaringan slides are two-dimensional, allowing horizontal and vertical navigation, while reveal.js slides are one-dimensional.\nB. reveal.js requires an additional package to be installed, while xaringan is included by default in R Markdown.\nC. reveal.js slides support two-dimensional navigation, with slides moving left/right and sub-slides up/down.\nD. xaringan uses pandoc for rendering slides, whereas reveal.js does not.",
     "crumbs": [
       "Home",
       "Lectures",
