@@ -2065,7 +2065,7 @@
     "href": "lectures/6-rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-4",
     "title": "Quarto, RMarkdown, and Jupyter Slides",
     "section": "Lecture 6 Activity 4",
-    "text": "Lecture 6 Activity 4\nWhich of the following is the correct output format for creating slides in R Markdown?\nA. revealjs::revealjs_presentation\nB. xaringan::moon_reader\nC. quarto::quarto_presentation\nD. ioslides_presentation\nCorrect Answer: A. revealjs::revealjs_presentation",
+    "text": "Lecture 6 Activity 4\nWhich of the following is the correct output format for creating slides in R Markdown?\nA. revealjs::revealjs_presentation\nB. xaringan::moon_reader\nC. quarto::quarto_presentation\nD. ioslides_presentation",
     "crumbs": [
       "Home",
       "Lectures",
