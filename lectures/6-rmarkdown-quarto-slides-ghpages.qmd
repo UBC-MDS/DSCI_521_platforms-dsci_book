@@ -200,8 +200,6 @@ C. `quarto::quarto_presentation`
 
 D. `ioslides_presentation`
 
-**Correct Answer:** A. `revealjs::revealjs_presentation`
-
 :::
 
 
