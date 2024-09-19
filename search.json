@@ -711,7 +711,19 @@
     "href": "lectures/2-git-github-ssh-basic-workflow.html#creating-a-repository-from-github-method-1-above",
     "title": "Introduction to version control with Git and GitHub",
     "section": "Creating a repository from GitHub (method 1 above)",
-    "text": "Creating a repository from GitHub (method 1 above)\nI recommend that you follow along with these steps on your own machine to practice the commands as you are reading about them.\nIf it is sometimes unclear where to click or what the output should look like from a command, refer to the corresponding sections of the videos to see exactly what to do (The git workflow one and the ones from lecture 2).\nYou can create however many repositories on GitHub that you would like and remove them after, so you don’t need to worry about experimenting and creating several new ones.\n\nSteps to follow:\n\nStep 1: Start by navigating to https://github.ubc.ca and ensure you are logged in.\nStep 2: Click the green “New repository” button. Alternatively, if you are on your profile page, select “Repositories” and then click the green “New” button.\nStep 3: Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.\nStep 4: Check the box labeled “Initialize this repository with a README.” This step allows the repository to be cloned immediately without needing to add a file manually later.\nStep 5: Click the big green “Create repository” button.\nStep 6: That’s it! You now have a new repository on GitHub!\n\n\n\n\nLecture 2 Activity 1\nHow can you check that you are working on a Git repository?\nA. By checking if the repository contains a .git directory.\nB. By verifying if the current directory has a .repo file.\nC. By using the command git status and checking for an error message.\nD. By ensuring that the current directory name ends with “.git”.",
+    "text": "Creating a repository from GitHub (method 1 above)\nI recommend that you follow along with these steps on your own machine to practice the commands as you are reading about them.\nIf it is sometimes unclear where to click or what the output should look like from a command, refer to the corresponding sections of the videos to see exactly what to do (The git workflow one and the ones from lecture 2).\nYou can create however many repositories on GitHub that you would like and remove them after, so you don’t need to worry about experimenting and creating several new ones.\n\nSteps to follow:\n\nStep 1: Start by navigating to https://github.ubc.ca and ensure you are logged in.\nStep 2: Click the green “New repository” button. Alternatively, if you are on your profile page, select “Repositories” and then click the green “New” button.\nStep 3: Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.\nStep 4: Check the box labeled “Initialize this repository with a README.” This step allows the repository to be cloned immediately without needing to add a file manually later.\nStep 5: Click the big green “Create repository” button.\nStep 6: That’s it! You now have a new repository on GitHub!",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 2: Introduction to version control with Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "lectures/2-git-github-ssh-basic-workflow.html#lecture-2-activity-1",
+    "href": "lectures/2-git-github-ssh-basic-workflow.html#lecture-2-activity-1",
+    "title": "Introduction to version control with Git and GitHub",
+    "section": "Lecture 2 Activity 1",
+    "text": "Lecture 2 Activity 1\nHow can you check that you are working on a Git repository?\nA. By checking if the repository contains a .git directory.\nB. By verifying if the current directory has a .repo file.\nC. By using the command git status and checking for an error message.\nD. By ensuring that the current directory name ends with “.git”.",
     "crumbs": [
       "Home",
       "Lectures",
