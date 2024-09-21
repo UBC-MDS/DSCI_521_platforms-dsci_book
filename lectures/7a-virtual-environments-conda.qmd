@@ -1,6 +1,5 @@
 ---
-title: Virtual environments
-jupyter: python3
+title: "Virtual Environments: Python + Conda"
 ---
 
 ## Learning outcomes
@@ -10,10 +9,8 @@ jupyter: python3
 **Platform in focus** Conda
 
 :::{.activity}
-::::{.activity-header}
-## Lecture 7 Activity 1
-::::
-::::{.activity-container}
+## Activity 1
+
 Try to run this code. What do you think it is going on?
 
 ```python
@@ -21,20 +18,18 @@ from palmerpenguins import load_penguins
 penguins = load_penguins()
 penguins.head()
 ```
-::::
 :::
 
----
+## Virtual environments
 
-# Virtual environments
-
-Virtual environments let's you have multiple versions of packages
+Virtual environments let you have multiple versions of packages
 and programs on the same computer
 without them creating conflicts with each other.
 You will be using virtual Python and R environments
 throughout the program to setup your packages for different courses.
 
----
+:::{.activity}
+## Activity 2
 
 Which of the following items is NOT a benefit of using Conda environments?
 
@@ -44,24 +39,80 @@ B. Helping with reproducibility
 C. Using different versions of the same package
 D. Creating isolated computational environment for testing new packages
 ```
----
+:::
 
-## Conda
+## Conda and Its Ecosystem
 
-[**conda**](http://conda.pydata.org/docs/) is an **open source `package` and `environment` management system for any programming language**;
-though it is the most popular in the python community.
-[Anaconda](https://www.continuum.io/why-anaconda) is a data science platform for Python
-that comes with a lot of packages by default. Unlike Anaconda,
-Miniconda doesn't come with any installed packages by default,
-and we can pick and choose which ones we want.
-Both include Python and conda.
+[**conda**](http://conda.pydata.org/docs/)
+is an **open source `package` and `environment` management system**.
+It allows you to install libraries and packages as well as their accompanying dependencies.
+It can work with _any_ programming language, but is mostly popular in the Python community.
+There is a lot of history and backstory to conda, but we'll just talk about the main players
+in the ecosystem.
 
-For example, the
-[MDS Python installation instructions](https://ubc-mds.github.io/resources_pages/install_ds_stack_mac/#python-conda-and-jupyterlab)
-had you install Miniconda.
-All flavors of `*conda` give you the `conda` function in the terminal.
+### Anaconda and Miniconda
 
-### Managing Conda
+"Anaconda" can refer to one of three things:
+Anaconda, Inc the company,
+anaconda the python distribution,
+and anaconda the conda package channel.
+
+[Anaconda, Inc](https://www.anaconda.com/) (formerly, Continuum Analytics) is the **company** that
+originally created `conda`.
+Anaconda also created the
+[anaconda distribution](https://www.anaconda.com/download),
+which comes with `conda` and many other pre-installed Python packages.
+The anaconda distribution uses the _anaconda_ channel as the default place to look for `conda` packages.
+
+### Conda-forge and Miniforge
+
+[Miniconda](https://docs.anaconda.com/miniconda/) is also maintained by Anaconda, Inc.
+It uses `conda` as the package installer, and also anaconda as the default package channel.
+The difference is that miniconda does not come with pre-installed python packages.
+The "mini" is for a smaller more bare-bones installation.
+
+The anaconda channel is completely maintained by Anaconda, Inc.
+People who wanted get their own packages installable by `conda` needed their own mechanism
+to share their packages.
+Also, because Anaconda needs the anaconda distribution to work for their enterprise customers,
+not every package is on the latest version or would take a long time to get the latest versions
+of packages you needed.
+This led to the creation of
+[Conda-Forge](https://conda-forge.org/),
+a __community__ maintained channel for conda packages.
+Now package maintainers can publish the latest versions of their packages
+to a community maintained repository.
+
+Since Miniconda is maintained by Anaconda, Inc with the default anaconda channel,
+Miniforge was created to be a bare-bones installation with conda and using conda-forge
+as the package channel.
+This is what we had you install in the
+[MDS Python installation instructions](https://ubc-mds.github.io/resources_pages/installation_instructions/).
+
+
+### Mamba
+
+`conda` allows you to install libraries and packages along with their dependencies.
+One of the main complaints about `conda` was the package dependency resolution took a very long time.
+`mamba` was created to be a faster C++ implementation of the dependency solver.
+Since then, `mamba` has been a drop-in replacement for `conda`,
+and the `mamba` solver is now the default solver used in miniforge.
+
+### In short...
+
+- Anaconda (capital A): is a company
+- anaconda (lower-case a): is a python distribution
+- anaconda channel: Set of packages and versions maintained by Anaconda
+- `conda`: is a program that can install packages and their dependencies
+- conda-forge is a community maintained channel for conda packages
+- miniconda: is an Anaconda maintained python distribution that defaults to the anaconda package channel
+- miniforge: is a community maintained python distribution that defaults to the conda-forge package channel
+- `mamba` is a faster drop-in replacement for `conda`
+
+You can read more about these differences here:
+<https://conda.org/blog/2024-08-14-conda-ecosystem-explained/>
+
+## Managing Conda
 
 Let's first start by checking if conda is installed.
 
@@ -81,6 +132,8 @@ to learn about the conda update command:
 conda update --help
 ```
 
+### Update Conda
+
 Let's update our conda to the latest version.
 Note that you might already have the latest version since we downloaded it recently.
 
@@ -92,48 +145,70 @@ You will see some information about what there is to update
 and be asked if you want to confirm.
 The default choice is indicated with `[]`,
 and you can press <kbd>Enter</kbd> to accept it.
-It would look similar to this:
+It would look similar to this the output below.
+
+:::{.callout-important}
+You should see `conda-forge` listed in the top of the output,
+if not, set the proper channel before running more conda commands (next section).
+You can cancel the current terminal operation by pressing
+<kbd>Ctrl</kbd> + <kbd>c</kbd>
+:::
 
 ```bash
-Using Anaconda Cloud api site https://api.anaconda.org
-Fetching package metadata: ....
-.Solving package specifications: .........
+$ conda update conda
+Retrieving notices: ...working... done
+Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
 
-Package plan for installation in environment //anaconda:
+## Package Plan ##
+
+  environment location: /home/dan/.pyenv/versions/miniforge3-latest
+
+  added / updated specs:
+    - conda
+
 
 The following packages will be downloaded:
 
     package                    |            build
     ---------------------------|-----------------
-    conda-env-2.6.0            |                0          601 B
-    ruamel_yaml-0.11.14        |           py27_0         184 KB
-    conda-4.2.12               |           py27_0         376 KB
+    ca-certificates-2024.8.30  |       hbcca054_0         155 KB  conda-forge
+    certifi-2024.8.30          |     pyhd8ed1ab_0         160 KB  conda-forge
+    conda-24.7.1               |  py310hff52083_0         940 KB  conda-forge
+    frozendict-2.4.4           |  py310hc51659f_0          48 KB  conda-forge
+    libgcc-14.1.0              |       h77fa898_1         827 KB  conda-forge
+    libgcc-ng-14.1.0           |       h69a702a_1          51 KB  conda-forge
+    libgomp-14.1.0             |       h77fa898_1         449 KB  conda-forge
+    openssl-3.3.2              |       hb9d3cd8_0         2.8 MB  conda-forge
     ------------------------------------------------------------
-                                           Total:         560 KB
+                                           Total:         5.3 MB
 
 The following NEW packages will be INSTALLED:
 
-    ruamel_yaml: 0.11.14-py27_0
+  frozendict         conda-forge/linux-64::frozendict-2.4.4-py310hc51659f_0
+  libgcc             conda-forge/linux-64::libgcc-14.1.0-h77fa898_1
 
 The following packages will be UPDATED:
 
-    conda:       4.0.7-py27_0 --> 4.2.12-py27_0
-    conda-env:   2.4.5-py27_0 --> 2.6.0-0
-    python:      2.7.11-0     --> 2.7.12-1
-    sqlite:      3.9.2-0      --> 3.13.0-0
+  ca-certificates                       2024.2.2-hbcca054_0 --> 2024.8.30-hbcca054_0
+  certifi                             2024.2.2-pyhd8ed1ab_0 --> 2024.8.30-pyhd8ed1ab_0
+  conda                              24.1.2-py310hff52083_0 --> 24.7.1-py310hff52083_0
+  libgcc-ng                               13.2.0-h807b86a_5 --> 14.1.0-h69a702a_1
+  libgomp                                 13.2.0-h807b86a_5 --> 14.1.0-h77fa898_1
+  openssl                                  3.2.1-hd590300_1 --> 3.3.2-hb9d3cd8_0
 
-Proceed ([y]/n)? y
 
-Fetching packages ...
-conda-env-2.6. 100% |################################| Time: 0:00:00 360.78 kB/s
-ruamel_yaml-0. 100% |################################| Time: 0:00:00   5.53 MB/s
-conda-4.2.12-p 100% |################################| Time: 0:00:00   5.84 MB/s
-Extracting packages ...
-[      COMPLETE      ]|###################################################| 100%
-Unlinking packages ...
-[      COMPLETE      ]|###################################################| 100%
-Linking packages ...
-[      COMPLETE      ]|###################################################| 100%
+Proceed ([y]/n)?
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
 ```
 
 In this case,
@@ -143,9 +218,56 @@ There is also a NEW package that was INSTALLED in order to update conda.
 You don't need to worry about remembering to update conda,
 it will let you know if it is out of date when you are installing new packages.
 
-## Managing Environments
+You can find more information on managing `conda` in the official documentation:
+<https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-conda.html>
 
-### What is a conda environment and why is it so useful?
+### Setup / Confirm Conda-Forge Channel
+
+The official conda-forge documentation has the setup instructions to make sure it is
+set up as the default conda package channel:
+<https://conda-forge.org/docs/user/introduction/>
+
+You can check
+
+```bash
+conda config --show channels
+```
+
+You should see conda-forge at the top of the list (ideally the only entry)
+
+```
+channels:
+  - conda-forge
+```
+
+From the
+[managing channel documentation](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html):
+
+> There will be no channel collisions if you use only the defaults channel.
+> There will also be no channel collisions if all of the channels you use
+> only contain packages that do not exist in any of the other channels in your list.
+> The way conda resolves these collisions matters only when you have multiple channels
+> in your channel list that host the same package.
+
+If you do not see `conda-forge` listed and if it's not listed on the top of the channels list
+run the following commands to add and set it to the top.
+
+Add conda-forge as the highest priority channel.
+
+```bash
+conda config --add channels conda-forge
+```
+
+Activate strict channel priority (strict will be activated by default in conda 5.0).
+
+```bash
+conda config --set channel_priority strict
+```
+
+You can then re-run `conda config --show channels` to confirm that `conda-forge`
+is listed in the highest priority.
+
+## Managing Environments
 
 Using `conda`, you can create an isolated python *environment* for your project.
 An environment is a set of packages that can be used in one or multiple projects.
@@ -166,8 +288,7 @@ There are several major  benefits of using environments:
   so that it runs on other systems than your own.
 
 The default environment is the `base` environment,
-which contains only the essential packages from Miniconda
-(assuming you installed Miniconda).
+which contains only the essential bare-bones python installation from Miniforge.
 You can see that your shell's prompt string is prefaced with `(base)`
 when you are inside this environment.
 In the setup guide,
@@ -178,22 +299,32 @@ There are two ways of creating a conda environment.
 1. Manual specifications of packages.
 2. An environment file in YAML format (`environment.yaml`).
 
+More information about managing conda environments can be found on the documentation page:
+<https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>
+
 ### Creating environment by manually specifying packages
 
 We can create `test_env` conda environment by typing `conda -n <name-of-env>`.
 However,
 it is often useful to specify more than just the name of the environment,
 e.g. the channel from which to install packages, the Python version,
-and a list of packages to install into the new env.
+and a list of packages to install into the new environment.
+
 In the example below,
-I am creating the `test_env` environment
-that uses python 3.7 and a list of libraries: `jupyterlab` and `pandas`.
-I am explicitely installing my packages from the `conda-forge` repository
-(also part of the MDS setup instructions).
+we are creating a `test_env` environment
+that uses python 3.12 and a list of libraries: `jupyterlab` and `pandas`.
+Miniforge is already set to use the conda-forge channel by default,
+but we can use the `-c` flag to specify any package channel (even the anaconda channel)
 
 ```bash
-conda create -n test_env -c conda-forge python=3.7 jupyterlab pandas=1.0.2
+conda create -n test_env -c conda-forge python=3.12 pandas=2.2.2 jupyterlab
 ```
+
+:::{.callout-note}
+In the MDS instructions you should have conda-forge set as a default channel,
+so the `-c conda-forge` is redundant,
+but you may see it while looking for installation instructions.
+:::
 
 conda will solve any dependencies between the packages like before
 and create a new environment with those packages.
@@ -214,25 +345,25 @@ of the prompt string in your shell which now changed to (`test_env`).
 And to see all your environments,
 you can type `conda env list`.
 
-#### Removing enviornments
+#### Removing environments
 
-If you are creating environments for practice, or you want to recreate an environment you can delete your conda enviornments by:
+If you are creating environments for practice, or you want to recreate an environment you can delete your conda environments by:
 
 ```bash
-# look for all the installed enviornments
+# look for all the installed environments
 conda env list
 ```
 
 ```bash
-# delete an enviornment
+# delete an environment
 conda remove --name ENV_NAME --all
 ```
 
-Similiarly, all your enviornments are installed within your `miniconda3` folder,
+Similarly, all your environments are installed within your `miniconda3` folder,
 which is typically located in `~/miniconda3`
 In here you will see an `env` folder.
-If you delete the folder with the corresponging enviornment name (e.g., with `rm`)
-you can also delete an enviornment this way too.
+If you delete the folder with the corresponding environment name (e.g., with `rm`)
+you can also delete an environment this way too.
 
 ### Sharing Environments with others
 
@@ -247,9 +378,21 @@ and using it makes it easy for others
 to recognize that this is a conda env file,
 the extension can be either `.yaml` or `.yml`):
 
+:::{.callout-warning}
+While you can choose to export your _entire_ environment into a file
+
 ```bash
 conda env export -f environment.yaml
 ```
+
+You typically do not want to do this in a shared repository because
+dependencies may change depending on the operating system used.
+If there is an actual dependency that needs to be managed,
+you will manually track it in the `environment.yaml`.
+
+The same general rule will apply for a `requirements.txt` file
+and using `pip freeze`.
+:::
 
 Remember that `.yaml` files are plain text,
 so you can use a text editor such as VS Code to open them.
@@ -277,11 +420,10 @@ This `environment.yaml` file would be much shorter and look something like this:
 name: test_env
 channels:
   - conda-forge
-  - defaults
 dependencies:
   - conda
-  - python=3.7
-  - pandas==1.0.2
+  - python=3.12
+  - pandas==2.2.2
   - jupyterlab
 ```
 
@@ -291,12 +433,6 @@ unless you included it when you installed
 with the `package==version` syntax.
 For an environment to be reproducible,
 you **NEED** to add the version string manually.
-
----
-
-**Lecture**
-
----
 
 ### Creating environment from an environment file
 
@@ -328,6 +464,13 @@ conda env remove -n live_env
 
 ### Making environments work well with JupyterLab
 
+:::{.callout-note}
+This section is a personal preference,
+it does allow you to easily change between environments within jupyter lab,
+but if you are not careful, you can end up installing packages in the
+wrong environment or not realize you are using the wrong environment.
+:::
+
 In brief,
 you need to install the `ipykernel` package
 in any new environment your create,
@@ -351,7 +494,9 @@ and the `r-irkernel` package for R
 
 ## Managing Packages
 
-### Seeing what packages are available
+In this section, we will cover how to manage packages within any environment.
+
+### List packages in current environment
 
 We will now check packages that are available to us.
 The command below will list all the packages in an environment, in this case `test_env`.
@@ -364,17 +509,46 @@ conda list
 ```
 
 ```bash
-# packages in environment at //miniconda/envs/test_env:
+# packages in environment at /home/dan/.pyenv/versions/miniforge3-latest/envs/test_env:
 #
-Using Anaconda Cloud api site https://api.anaconda.org
-blas                      1.1                    openblas    conda-forge
-ca-certificates           2016.9.26                     0    conda-forge
-certifi                   2016.9.26                py27_0    conda-forge
-cycler                    0.10.0                   py27_0    conda-forge
-freetype                  2.6.3                         1    conda-forge
-functools32               3.2.3.2                  py27_1    conda-forge
-libgfortran               3.0.0                         0    conda-forge
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                 conda_forge    conda-forge
+_openmp_mutex             4.5                       2_gnu    conda-forge
+bzip2                     1.0.8                h4bc722e_7    conda-forge
+ca-certificates           2024.8.30            hbcca054_0    conda-forge
+ld_impl_linux-64          2.40                 hf3520f5_7    conda-forge
+libexpat                  2.6.3                h5888daf_0    conda-forge
+libffi                    3.4.2                h7f98852_5    conda-forge
+libgcc                    14.1.0               h77fa898_1    conda-forge
+libgcc-ng                 14.1.0               h69a702a_1    conda-forge
+libgomp                   14.1.0               h77fa898_1    conda-forge
+libnsl                    2.0.1                hd590300_0    conda-forge
+libsqlite                 3.46.1               hadc24fc_0    conda-forge
+libuuid                   2.38.1               h0b41bf4_0    conda-forge
+libxcrypt                 4.4.36               hd590300_1    conda-forge
+libzlib                   1.3.1                h4ab18f5_1    conda-forge
+ncurses                   6.5                  he02047a_1    conda-forge
+openssl                   3.3.2                hb9d3cd8_0    conda-forge
+pip                       24.2               pyh8b19718_1    conda-forge
+python                    3.12.5          h2ad013b_0_cpython    conda-forge
+readline                  8.2                  h8228510_1    conda-forge
+setuptools                74.1.2             pyhd8ed1ab_0    conda-forge
+tk                        8.6.13          noxft_h4845f30_101    conda-forge
+tzdata                    2024a                h8827d51_1    conda-forge
+wheel                     0.44.0             pyhd8ed1ab_0    conda-forge
+xz                        5.2.6                h166bdaf_0    conda-forge
 ```
+
+:::{.callout-note}
+You will typically want to have an empty `base` environment where no
+packages are installed.
+All your work in separate classes/projects should exist in their own environment.
+
+The above set of packages is what an empty environment with only Python 3.12 installed
+looks like (on a linux machines).
+Notably, the typical python data science packages, `pandas`, `numpy`, `jupyter`, etc,
+are not in the environment.
+:::
 
 ### Searching for a certain package
 
@@ -390,38 +564,6 @@ With conda you can do this search within the command line:
 conda search rasterio
 ```
 
-```bash
-Using Anaconda Cloud api site https://api.anaconda.org
-Run 'anaconda show <USER/PACKAGE>' to get more details:
-Packages:
-     Name                      |  Version | Package Types   | Platforms
-     ------------------------- |   ------ | --------------- | ---------------
-     IOOS/rasterio             |    1.0a2 | conda           | linux-64, win-32, win-64, osx-64
-     Terradue/rasterio         |   0.32.0 | conda           | linux-64
-                                          : Fast and direct raster I/O for use with Numpy and SciPy
-     anaconda/rasterio         |   0.36.0 | conda           | linux-64, win-32, win-64, linux-32, osx-64
-     conda-forge/rasterio      |    1.0a2 | conda           | linux-64, win-32, win-64, osx-64
-                                          : Rasterio reads and writes geospatial raster datasets
-     dharhas/rasterio          |   0.23.0 | conda           | win-64
-                                          : Rasterio reads and writes geospatial raster datasets.
-     erdc/rasterio             |   0.23.0 | conda           | win-64
-                                          : Rasterio reads and writes geospatial raster datasets.
-     jesserobertson/rasterio   |   0.23.0 | conda           | linux-64, linux-32, osx-64
-     jhamman/rasterio_to_xarray | 2016.03.16-1558 | ipynb           |
-                                          : IPython notebook
-     krisvanneste/rasterio     |   0.26.0 | conda           | win-64
-     ocefpaf/rasterio          |   0.19.1 | conda           | linux-64, osx-64
-     omgarcia/rasterio         |   0.25.0 | conda           | linux-64
-     pypi/rasterio             |   0.13.2 | pypi            |
-                                          : Fast and direct raster I/O for Python programmers who use Numpy
-     robintw/rasterio          |   0.35.1 | conda           | osx-64
-                                          : Rasterio reads and writes geospatial raster datasets
-     sgillies/rasterio         |     0.15 | conda           | osx-64
-     ztessler/rasterio         |   0.31.0 | conda           | osx-64
-                                          : Fast and direct raster I/O for use with Numpy and SciPy
-Found 15 packages
-```
-
 ### Installing conda package
 
 Under the name column of the result in the terminal or the package column in the Anaconda Cloud listing,
@@ -432,13 +574,7 @@ The first word list the channel that this package is from and the second part sh
 To install the latest version available within the channel, do not specify in the install command. We will install version 0.35 of `rasterio` from conda-forge into `test_env` in this example. Conda will also automatically install the dependencies for this package.
 
 ```bash
-conda install -c conda-forge rasterio=0.35
-```
-
-If you have a few trusted channels that you prefer to use, you can pre-configure these so that everytime you are creating an environment, you won't need to explicitly declare the channel.
-
-```bash
-conda config --add channels conda-forge
+conda install -c conda-forge rasterio=1.3.11
 ```
 
 #### Removing a conda Package
@@ -451,208 +587,75 @@ conda remove -n test_env rasterio
 ```
 
 ```bash
-Using Anaconda Cloud api site https://api.anaconda.org
-Fetching package metadata .........
-Solving package specifications: ..........
+$ conda remove -n test_env rasterio
+Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: - WARNING conda.conda_libmamba_solver.solver:_export_solved_records(832): Tried to unlink __unix but it is not installed or manageable?
+done
 
-Package plan for package removal in environment //anaconda/envs/test_env:
+## Package Plan ##
+
+  environment location: /home/dan/.pyenv/versions/miniforge3-latest/envs/test_env
+
+  removed specs:
+    - rasterio
+
 
 The following packages will be REMOVED:
 
-    rasterio: 0.35.1-np111py27_1 conda-forge
+...
 
-Proceed ([y]/n)? y
+Proceed ([y]/n)?
 
-Unlinking packages ...
-[      COMPLETE      ]|#######################################################################################################| 100%
-```
-
----
-
-Select all the correct answers
-
-Which of the following sentences are true about Conda?
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
 
 ```
-A. It is a command line tool
-B. It is a package manager
-C. It is a Python package
-D. It is installed as part of Anaconda and Miniconda
-E. It is a metapackage
-F. It installs Python
-G. Using it you can handle Python packages only
-```
----
 
-# R environments
+### When there is no conda package
 
-In R,
-environments are managed by `renv`,
-which works with similar principles as `conda`,
-and other virtual environment managers,
-but the commands are different.
-To see which commands are used in `renv`,
-you can [visit the project website](https://rstudio.github.io/renv/articles/renv.html).
-Briefly,
-`renv::init()` is used to create a new env,
-`renv::snapshot` is used to save/export the environment to a file (`renv.lock`),
-and installing and removing packages are done as usual
-via the `install.packages()` and `remove.packages()` commands.
+If a conda package does not exist but does exist as a python package,
+you can use `pip` to install packages with `pip install <package name>`.
+When a package is installed using pip,
+your `environment.yml` will have a section for `pip` that will
+list the packages installed via pip.
+
+You do want to be careful not to constantly mix conda install commands
+with pip install commands.
+You are essentially using 2 different package resolution systems,
+and packages may not always be installed in the locations the other package manager
+knows about.
+
+If you end up installing `conda` and `pip` packages over the course a project
+you may end up with a corrupted python package environment.
+This is why the `environment.yml` is important,
+you can easily remove the corrupted environment, and install everything you need
+in a single step.
 
 
+## Confirming your work
 
+Multiple times in this lesson when we are searching, installing, removing packages
+the output will mention `conda-forge`.
+This makes sense since the current setup has only `conda-forge` in the
+package channels.
+You should not see `anaconda` or `default` in the output text before you
+confirm an action.https://conda.org/blog/2024-08-14-conda-ecosystem-explained/
+
+## Additional Links
+
+- Pip and conda interoperability: <https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/pip-interoperability.html>
+- They're working on better conda + pip support: <https://github.com/conda-incubator/conda-pypi>
+- micromamba project: <https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html>
+- pixi (also defaults to conda-forge): <https://github.com/prefix-dev/pixi>
+- Conda and Anaconda terms of use: <https://www.anaconda.com/blog/is-conda-free>
 
 ## Attribution
 
 The conda virtual environment section of this guide
-was originally published at http://geohackweek.github.io/ under a CC-BY license
-and has been updated to reflect recent changes in conda,
-as well as modified slightly to fit the MDS lecture format.
-
-# R Markdown repetition and a few tips
-
-Let's start with creating an r project again.
-To use this with an existing git repo,
-with can select "Existing dir".
-You can also create an empty one
-and move your git repo in here later,
-as long as there is an `.git` folder
-RStudio will show you the context menu for git.
-
-Next,
-let's create an R Notebook.
-We could have a create an R Markdown document also,
-but the notebook offers a few conveniences.
-Mostly that it has a preview option `html_notebook`
-that renders the notebook to HTML
-in its curent state.
-In contrast,
-knitting the notebook to HTML via `html_document`
-will run all cells so this takes longer.
-
-**Note that it is important to knit to HTML before sharing
-so that you are sure everything works from scratch.**
-This is the same reason we should do "Run all" in Jupyter Lab before sharing
-and why we don't want to store our R workspace sessions.
-We need to make sure that someone new can run this from it's current state.
-Another useful tool for this in R is to use `devtools::session_info()`
-at the top or bottom of your document
-(I put it at the end of the chunk where I load libraries)
-to ensure that you have included information
-about the versions of the packages you are running
-so that someone else can use the same version.
-There are more robust ways of version control
-that we will get into later in MDS,
-but this is a good minimum measure
-that is easy for you to get into the habit of doing.
-
-A couple of features that are good to know
-in addition to those we learnt last time,
-are block commenting and automatic code reformatting.
-If I type a few lines where I for example forget to add whitespace
-around an operator or assignment,
-going to `Code -> Reformat code`
-(
-<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> on Windows/Linux or
-<kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> on a Mac
-)
-will fix this automatically
-for all highlighted lines.
-If I want to toogle commenting for some lines,
-I can click `Code -> Comment/Uncomment line`
-(
-<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> on Windows/Linux or
-<kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> on a Mac
-),
-instead of manually adding `#` in front of each line.
-
-One final tip is the use of the `here` package for file paths.
-We have already solved the part of setting working directory
-by creating an R proj.
-If you only plant on using R Markdown file,
-you would be fine writing relative paths
-(e.g. `../data/cars.csv`)
-the same way you would write them in Python
-because they look relative their own location.
-However,
-if you also need to run something from a script or the console,
-note that the working directory path will now be used
-as the current directory,
-rather than the directoy of the script
-so the same relative path will not work
-(you would need `data/cars.csv` instead).
-`here` solves this by allowing you to type
-`here::here('data', 'cars.csv')` from wherever you are
-which also makes sure that file paths work across operating systems
-([more info on `here` here](https://malco.io/2018/11/05/why-should-i-use-the-here-package-when-i-m-already-using-projects/).
-
-# R Markdown YAML header
-
-The YAML header
-(also called the "front matter")
-is where we can specify metadata about our project.
-It is delimited by two `---` (three hyphens)
-and we create a new notebook,
-it looks like this:
-
-```yaml
----
-title: "R Notebook"
-output: html_notebook
----
-```
-
-In YAML,
-data is stored as a `key: value` pair,
-just like a Python dictionary.
-We can add new values,
-for example the author name
-and the date.
-
-```yaml
----
-title: "R Notebook"
-output: html_notebook
-author: Joel Ostblom
-date: 2020-09-23
----
-```
-
-R code can be evaluated inside the YAML header,
-so if we wanted the date to be updated
-every time we stitch the document,
-we could instead write ``date: `r Sys.Date()` ``.
-Other useful options include the ones for
-numbering headings, adding a table of contents,
-and placing the table of contents on the side of the document.
-Since these are options to the output document,
-they are indented under that section with two or four spaces:
-
-```yaml
----
-output:
-  html_notebook:
-    toc: yes
-    toc_float: yes
-    number_sections: yes
----
-```
-
-Another useful option is to fold away your code,
-but still having it available for view if someone desires to see it.
-
-```yaml
----
-output:
-  html_document:
-    code_folding: hide
----
-```
-
-
-## Attribution
-
-The conda virtual environment section of this guide
-was originally published at http://geohackweek.github.io/ under a CC-BY license
+was originally published at <http://geohackweek.github.io/> under a CC-BY license
 and has been updated to reflect recent changes in conda,
 as well as modified slightly to fit the MDS lecture format.
