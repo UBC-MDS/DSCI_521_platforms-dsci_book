@@ -84,6 +84,8 @@ website:
             href: appendix/rstudio_config.qmd
           - text: "Semantic Line Breaks"
             href: appendix/semantic_line_breaks.qmd
+          - text: "R Markdown tips"
+            href: appendix/rmarkdown_tips.qmd
 
 
       - section: "Older Materials"

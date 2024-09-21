@@ -1,0 +1,143 @@
+---
+title: "R Markdown Tips"
+---
+
+# R Markdown repetition and a few tips
+
+Let's start with creating an r project again.
+To use this with an existing git repo,
+with can select "Existing dir".
+You can also create an empty one
+and move your git repo in here later,
+as long as there is an `.git` folder
+RStudio will show you the context menu for git.
+
+Next,
+let's create an R Notebook.
+We could have a create an R Markdown document also,
+but the notebook offers a few conveniences.
+Mostly that it has a preview option `html_notebook`
+that renders the notebook to HTML
+in its curent state.
+In contrast,
+knitting the notebook to HTML via `html_document`
+will run all cells so this takes longer.
+
+**Note that it is important to knit to HTML before sharing
+so that you are sure everything works from scratch.**
+This is the same reason we should do "Run all" in Jupyter Lab before sharing
+and why we don't want to store our R workspace sessions.
+We need to make sure that someone new can run this from it's current state.
+Another useful tool for this in R is to use `devtools::session_info()`
+at the top or bottom of your document
+(I put it at the end of the chunk where I load libraries)
+to ensure that you have included information
+about the versions of the packages you are running
+so that someone else can use the same version.
+There are more robust ways of version control
+that we will get into later in MDS,
+but this is a good minimum measure
+that is easy for you to get into the habit of doing.
+
+A couple of features that are good to know
+in addition to those we learnt last time,
+are block commenting and automatic code reformatting.
+If I type a few lines where I for example forget to add whitespace
+around an operator or assignment,
+going to `Code -> Reformat code`
+(
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> on Windows/Linux or
+<kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> on a Mac
+)
+will fix this automatically
+for all highlighted lines.
+If I want to toogle commenting for some lines,
+I can click `Code -> Comment/Uncomment line`
+(
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> on Windows/Linux or
+<kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> on a Mac
+),
+instead of manually adding `#` in front of each line.
+
+One final tip is the use of the `here` package for file paths.
+We have already solved the part of setting working directory
+by creating an R proj.
+If you only plant on using R Markdown file,
+you would be fine writing relative paths
+(e.g. `../data/cars.csv`)
+the same way you would write them in Python
+because they look relative their own location.
+However,
+if you also need to run something from a script or the console,
+note that the working directory path will now be used
+as the current directory,
+rather than the directoy of the script
+so the same relative path will not work
+(you would need `data/cars.csv` instead).
+`here` solves this by allowing you to type
+`here::here('data', 'cars.csv')` from wherever you are
+which also makes sure that file paths work across operating systems
+([more info on `here` here](https://malco.io/2018/11/05/why-should-i-use-the-here-package-when-i-m-already-using-projects/).
+
+# R Markdown YAML header
+
+The YAML header
+(also called the "front matter")
+is where we can specify metadata about our project.
+It is delimited by two `---` (three hyphens)
+and we create a new notebook,
+it looks like this:
+
+```yaml
+---
+title: "R Notebook"
+output: html_notebook
+---
+```
+
+In YAML,
+data is stored as a `key: value` pair,
+just like a Python dictionary.
+We can add new values,
+for example the author name
+and the date.
+
+```yaml
+---
+title: "R Notebook"
+output: html_notebook
+author: Joel Ostblom
+date: 2020-09-23
+---
+```
+
+R code can be evaluated inside the YAML header,
+so if we wanted the date to be updated
+every time we stitch the document,
+we could instead write ``date: `r Sys.Date()` ``.
+Other useful options include the ones for
+numbering headings, adding a table of contents,
+and placing the table of contents on the side of the document.
+Since these are options to the output document,
+they are indented under that section with two or four spaces:
+
+```yaml
+---
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+    number_sections: yes
+---
+```
+
+Another useful option is to fold away your code,
+but still having it available for view if someone desires to see it.
+
+```yaml
+---
+output:
+  html_document:
+    code_folding: hide
+---
+```
