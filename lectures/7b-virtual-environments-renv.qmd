@@ -6,19 +6,87 @@ title: "Virtual Environments: R"
 
 {{< include ../learning_objectives/lo-ch-07.qmd >}}
 
-**Platform in focus** R
+**Platform in focus** R, RStudio
 
 ## R environments
 
 In R,
-environments are managed by `renv`,
+environments are managed by `{renv}`,
 which works with similar principles as `conda`,
 and other virtual environment managers,
 but the commands are different.
-To see which commands are used in `renv`,
-you can [visit the project website](https://rstudio.github.io/renv/articles/renv.html).
+To see which commands are used in `{renv}`,
+you can visit the project website:
+<https://rstudio.github.io/renv/articles/renv.html>.
+
 Briefly,
-`renv::init()` is used to create a new env,
-`renv::snapshot` is used to save/export the environment to a file (`renv.lock`),
+
+- `renv::init()`: create a new env in the current directory/project
+- `renv::snapshot()`: save/export the environment to a file (`renv.lock`),
 and installing and removing packages are done as usual
 via the `install.packages()` and `remove.packages()` commands.
+- `renv::restore()`: updates current environment from the `renv.lock` file
+
+`{renv}` assumes and enforces the "one project one environment" mantra of virtual environments.
+Unlike conda that lets you "activate" an environment and let you move across different projects,
+`{renv}` prefers it when all your work is contained in a single project.
+
+:::{.callout-note}
+For MDS, this might mean you may need a separate `{renv}` file for each lab assignment.
+:::
+
+One of the other distinguishing factors between R and Python is CRAN (the package repository for R),
+_guarantees_ that on any given calendar day,
+all the packages on CRAN are installable.
+
+## An example R Project
+
+Here we'll go through an example of using `{renv}` in the context of an RStudio project.
+Unlike conda environments, you don't necessarily, "activate" and "deactivate" it manually.
+One of the nice things is `{renv}` works naturally within an RStudio project.
+
+The New Project creation wizard in R Studio has an option to enable
+the folder as a git repository, and also to set it up with `{renv}`.
+
+This does the same thing as running `renv::init()` in the current project.
+
+![](img/rstudio_project-renv.png)
+
+
+### Environment Files
+
+When you either create a new project with renv enabled or run `renv::init()`
+in the current working directory (`getwd()`),
+a few new files will be created
+
+1. `.Rprofile` in the current project directory
+2. `renv/` directory
+3. `renv.lock` file
+
+Before we talk about which each file and directory does,
+now when you start a new R session or re-open your RStudio project,
+you will see a line that will read something like:
+
+```markdown
+- Project '~/Desktop/my_r_project' loaded. [renv 1.0.7]
+```
+
+How does R know that there is a project renv?
+It's because of the `.Rprofile` file.
+This is a special file that R will read at the start of __every__ session.
+This file exists in 3 places, it will search for them in the following order,
+and once it finds 1 of them, it will not look for any more.
+
+1. The current project or working directory
+2. The user home directory
+3. The system R installation
+
+There is a similar file called `.Renviron` that only stores key-value environment variables.
+You can read more about these initialization files
+[here](https://support.posit.co/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf).
+
+The `{renv}` `.Rprofile` will add a single line:
+
+```R
+source("renv/activate.R")
+```
