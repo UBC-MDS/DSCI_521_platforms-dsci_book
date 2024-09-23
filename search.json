@@ -1033,7 +1033,7 @@
     "href": "appendix/mds_conda_environment.html",
     "title": "MDS Conda Python Environment",
     "section": "",
-    "text": "conda install python=3.11 pandas jupyterlab jupyterlab-git jupyterlab-spellchecker\npip install otter-grader\nname: mds\nchannels:\n  - conda-forge\ndependencies:\n  - conda\n  - python=3.12\n  - pandas\n  - jupyterlab\n  - jupyterlab-git\n  - jupyterlab-spellchecker\n  - pip:\n    - otter-grader",
+    "text": "conda install python=3.11 pandas jupyterlab jupyterlab-git jupyterlab-spellchecker\npip install otter-grader\nname: mds-base\nchannels:\n  - conda-forge\ndependencies:\n  - conda\n  - python=3.12\n  - pandas\n  - jupyterlab\n  - jupyterlab-git\n  - jupyterlab-spellchecker\n  - pip:\n    - otter-grader",
     "crumbs": [
       "Home",
       "Additional Information",
