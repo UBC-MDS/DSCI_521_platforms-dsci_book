@@ -8,7 +8,7 @@ pip install otter-grader
 ```
 
 ```yaml
-name: mds
+name: mds-base
 channels:
   - conda-forge
 dependencies:
