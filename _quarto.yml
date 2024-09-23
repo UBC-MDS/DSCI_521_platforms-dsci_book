@@ -88,7 +88,8 @@ website:
             href: appendix/semantic_line_breaks.qmd
           - text: "R Markdown tips"
             href: appendix/rmarkdown_tips.qmd
-
+          - text: "MDS Conda Python Environment"
+            href: appendix/mds_conda_environment.qmd
 
       - section: "Older Materials"
         contents:

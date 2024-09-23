@@ -1,0 +1,23 @@
+---
+title: MDS Conda Python Environment
+---
+
+```bash
+conda install python=3.11 pandas jupyterlab jupyterlab-git jupyterlab-spellchecker
+pip install otter-grader
+```
+
+```yaml
+name: mds
+channels:
+  - conda-forge
+dependencies:
+  - conda
+  - python=3.12
+  - pandas
+  - jupyterlab
+  - jupyterlab-git
+  - jupyterlab-spellchecker
+  - pip:
+    - otter-grader
+```
