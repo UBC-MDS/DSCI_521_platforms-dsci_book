@@ -90,3 +90,45 @@ The `{renv}` `.Rprofile` will add a single line:
 ```R
 source("renv/activate.R")
 ```
+
+This is the line that "activates" the renv environment for you automatically,
+assuming you are in the correct working directory.
+
+All the environment files and packages are installed in the `renv/` directory.
+This directory has its own `.gitignore` file that will ignore the correct things for you in that directory,
+so you do not need to worry about checking in your entire set of packages.
+
+Finally, the `renv.lock` file is the file that contains all the packages used in the repository,
+its version, and where it was installed from (e.g., CRAN or GitHub).
+
+### Snapshot Packages
+
+When you install and use R packages in your project,
+you will occasionally run `renv::snapshot()`.
+This will update the `renv.lock` file with all the packages and dependencies for you.
+Do not forget to `add`, `commit`, and `push` this file to your remote repository.
+
+### Restore Packages
+
+As you work on a project with other people and packages get updated,
+you will occasionally run `renv::restore()`
+to install any missing packages on your local r environment.
+Occasionally renv may tell you things are out of sync and will
+prompt you to run `renv::status()` or `renv::restore()`.
+
+## Takeaway
+
+`{renv}` is not the same as a conda environment where you can activate an environment,
+and move anywhere in your filesystem to run code.
+Many virtual environment systems actually assume you have a single environment for each
+project/directory.
+Sometimes IDES allow you do override the currently activated environment,
+but it lowers the reproducibility of your projects if you do that.
+
+Finally, the `renv.lock` file does track __every__ package and dependency
+you use in your project, which is a bit different from the recommendation we
+gave in the conda environment section.
+To just track individual packages and not the entire snapshot,
+you will learn about the `DESCRIPTION` file used for packaging later on in the program.
+However, we can get away with this because CRAN does guarantee all packages
+to be installable on any given calendar day.
