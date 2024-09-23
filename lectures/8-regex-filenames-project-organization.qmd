@@ -8,17 +8,19 @@ jupyter: python3
 {{< include ../learning_objectives/lo-ch-08.qmd >}}
 
 :::{.activity}
-::::{.activity-header}
 ## Lecture 8 Activity 1
-::::
-::::{.activity-container}
-Let's remember some concepts from last class
 
-True or False
-1. The command `pwd` prints the working directory as a relative path
-2. The home directory can be the current working directory
-3. In general, your home directory is the root directory
-::::
+Imagine you are starting a new data science project. Based on what you know about project organization, how would you structure your project directory? Consider where you would place important files like raw data, processed data, code, reports, and environment settings.
+
+Take a moment to think through these questions:
+```
+- What folders would you create, and why?
+- Where would you place key files like your `.csv` data, analysis notebooks, and README?
+- How would you structure the project to ensure it is easy to maintain and reproducible?
+```
+Jot down your ideas.
+
+After reflecting on your answers, compare your project structure with your partner's. Identify similarities and differences between your approaches. What organizational choices did you both make? Were there any unique folder structures or file placements?
 :::
 
 
@@ -59,7 +61,7 @@ Documentation
 The README file is probably the first file a potential user/contributor will read when you
 
 **environment**
-Speficying the computational environment will help you to ensure the reproducibility of yuour analysis. We will learn how to create this environments in lecture 6 and practice on lab 3.
+Specifying the computational environment will help you to ensure the reproducibility of yuour analysis. We learned this last lecture. 
 
 <!--
 A place for everything, everything in its place.
@@ -109,18 +111,15 @@ Benjamin Franklin
 ---
 
 :::{.activity}
-::::{.activity-header}
 ## Lecture 8 Activity 2
-::::
-::::{.activity-container}
 Which set of file(name)s do you want at 3 a.m. before a deadline?
-
+```
 A. `Joe’s Filenames Use Spaces and Punctuation.xlsx`
 B. `figure 1.png`
 C. `JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt`
 D. `2014-06-08_abstract-for-sla.docx`
 E. `myabstract.docx`
-::::
+```
 :::
 
 

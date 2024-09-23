@@ -8,6 +8,14 @@ jupyter: python3
 {{< include ../learning_objectives/lo-ch-08.qmd >}}
 
 
+:::{.activity}
+## Lecture 8b Activity 1
+
+Imagine you're working as a data scientist for an e-commerce company, and you have been given a dataset of user reviews for a product. The reviews contain noisy data: some reviews include email addresses, phone numbers, and URLs, which you want to remove before conducting sentiment analysis. Additionally, you need to extract specific pieces of information, such as any mentions of product model numbers that follow a specific pattern.
+
+Would you use `command+F` to find and replace what you needed?
+:::
+
 ## Introduction
 
 Like with most things,
