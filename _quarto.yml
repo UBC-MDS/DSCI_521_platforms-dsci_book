@@ -75,6 +75,8 @@ website:
             href: lectures/8-regex-filenames-project-organization.qmd
           - text: "Lecture 8b: Introduction to Regular Expressions (RegEx)"
             href: lectures/8b-regex.qmd
+          - text: "Lecture 8c: Ask Effective Questions"
+            href: lectures/8c-asking_questions.qmd
 
       - section: "Additional Information"
         contents:
@@ -84,6 +86,8 @@ website:
             href: appendix/rstudio_config.qmd
           - text: "Semantic Line Breaks"
             href: appendix/semantic_line_breaks.qmd
+          - text: "R Markdown tips"
+            href: appendix/rmarkdown_tips.qmd
 
 
       - section: "Older Materials"
