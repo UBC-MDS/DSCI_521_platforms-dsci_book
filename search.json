@@ -879,132 +879,6 @@
     ]
   },
   {
-    "objectID": "readings/readings-ch-08.html",
-    "href": "readings/readings-ch-08.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Regex\nRegex test\nPracticing Regex\nThree tips for posting good questions to R-help and Stack Overflow\nHow to create a Minimal, Complete, and Verifiable example\nGood Enough Practices in Scientific Computing\n.gitignore"
-  },
-  {
-    "objectID": "readings/readings-ch-06.html",
-    "href": "readings/readings-ch-06.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "R Markdown presentations with xaringan\nJupyter presentations\nQuarto Presentations"
-  },
-  {
-    "objectID": "readings/readings-ch-04.html",
-    "href": "readings/readings-ch-04.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Quarto Guides\nGetting Started with GitHub Pages"
-  },
-  {
-    "objectID": "readings/readings-ch-02.html",
-    "href": "readings/readings-ch-02.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Excuse me, do you have a moment to talk about version control? by Jenny Bryan\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-08.html",
-    "href": "learning_objectives/lo-ch-08.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Understand the basic syntax and functionality of regular expressions (regex) for pattern matching.\nExplore the use of special characters, ranges, and anchors in regex to match specific patterns within text.\nApply regex to search, extract, and manipulate data in various formats using practical examples.\nUse regular expressions to navigate and organize files within the filesystem."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-06.html",
-    "href": "learning_objectives/lo-ch-06.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Understand how Quarto extend R Markdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-04.html",
-    "href": "learning_objectives/lo-ch-04.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Use the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-02.html",
-    "href": "learning_objectives/lo-ch-02.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Implement SSH authentication\nDifferentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.\nCreate a Git repository.\nImplement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in VS Code.\nUnderstand what implies using the staging area in a Git workflow.\nRecognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-00.html",
-    "href": "learning_objectives/lo-ch-00.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-00-rstudio.html",
-    "href": "learning_objectives/lo-ch-00-rstudio.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Launch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-01.html",
-    "href": "learning_objectives/lo-ch-01.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Recognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.\nDistinguish common operators and representations of the different filesystem elements typically used in Bash.\nExplore the filesystem using Bash commands as ls, pwd and cd.\nTranslate an absolute path into a relative path and vice versa.\nUse command-line arguments to produce alternative outputs of commands.\nCreate, edit, move, and delete files and folders using the command line and VS Code."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-03.html",
-    "href": "learning_objectives/lo-ch-03.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Explore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-05.html",
-    "href": "learning_objectives/lo-ch-05.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Create RProjects in RStudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown.\nExplain markdown usage in relation to dynamic documents.\nDifferentiate between code chunks and code cells in RMarkdown and Jupyter Notebooks.\nSelect appropriate code chunk options for RMarkdown.\nUse semantic line breaks for version control files.\nSpecify metadata in the YAML header block."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-07.html",
-    "href": "learning_objectives/lo-ch-07.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv"
-  },
-  {
-    "objectID": "readings/readings-ch-01.html",
-    "href": "readings/readings-ch-01.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "The Unix Shell: Navigating Files and Directories or The shell\nIntroduce yourself to Git\nConnect to GitHub\nJupyter Notebook Tutorial: The Definitive Guide"
-  },
-  {
-    "objectID": "readings/readings-ch-03.html",
-    "href": "readings/readings-ch-03.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Comparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks"
-  },
-  {
-    "objectID": "readings/readings-ch-05.html",
-    "href": "readings/readings-ch-05.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Using RStudio Projects\nR Markdown Cheat Sheet\nR Markdown home page\nR Markdown: The Definitive Guide\nR Markdown code chunk options\nWhat they forgot to teach you about R\nConnect RStudio to Git and GitHub\nR-cubed rostools workshop"
-  },
-  {
-    "objectID": "readings/readings-ch-07.html",
-    "href": "readings/readings-ch-07.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "conda environemnts\nrenv\nWorkflow: projects"
-  },
-  {
     "objectID": "appendix/git_config.html",
     "href": "appendix/git_config.html",
     "title": "Git Configuration",
@@ -1026,6 +900,144 @@
       "Home",
       "Additional Information",
       "Git Configuration"
+    ]
+  },
+  {
+    "objectID": "readings/readings-ch-07.html",
+    "href": "readings/readings-ch-07.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "conda environemnts\nrenv\nWorkflow: projects"
+  },
+  {
+    "objectID": "readings/readings-ch-05.html",
+    "href": "readings/readings-ch-05.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Using RStudio Projects\nR Markdown Cheat Sheet\nR Markdown home page\nR Markdown: The Definitive Guide\nR Markdown code chunk options\nWhat they forgot to teach you about R\nConnect RStudio to Git and GitHub\nR-cubed rostools workshop"
+  },
+  {
+    "objectID": "readings/readings-ch-03.html",
+    "href": "readings/readings-ch-03.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Comparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks"
+  },
+  {
+    "objectID": "readings/readings-ch-01.html",
+    "href": "readings/readings-ch-01.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "The Unix Shell: Navigating Files and Directories or The shell\nIntroduce yourself to Git\nConnect to GitHub\nJupyter Notebook Tutorial: The Definitive Guide"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-07.html",
+    "href": "learning_objectives/lo-ch-07.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-05.html",
+    "href": "learning_objectives/lo-ch-05.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Create RProjects in RStudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown.\nExplain markdown usage in relation to dynamic documents.\nDifferentiate between code chunks and code cells in RMarkdown and Jupyter Notebooks.\nSelect appropriate code chunk options for RMarkdown.\nUse semantic line breaks for version control files.\nSpecify metadata in the YAML header block."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-03.html",
+    "href": "learning_objectives/lo-ch-03.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Explore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-01.html",
+    "href": "learning_objectives/lo-ch-01.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Recognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.\nDistinguish common operators and representations of the different filesystem elements typically used in Bash.\nExplore the filesystem using Bash commands as ls, pwd and cd.\nTranslate an absolute path into a relative path and vice versa.\nUse command-line arguments to produce alternative outputs of commands.\nCreate, edit, move, and delete files and folders using the command line and VS Code."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-00-rstudio.html",
+    "href": "learning_objectives/lo-ch-00-rstudio.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Launch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-00.html",
+    "href": "learning_objectives/lo-ch-00.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-02.html",
+    "href": "learning_objectives/lo-ch-02.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Implement SSH authentication\nDifferentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.\nCreate a Git repository.\nImplement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in VS Code.\nUnderstand what implies using the staging area in a Git workflow.\nRecognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-04.html",
+    "href": "learning_objectives/lo-ch-04.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Use the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-06.html",
+    "href": "learning_objectives/lo-ch-06.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Understand how Quarto extend R Markdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-08.html",
+    "href": "learning_objectives/lo-ch-08.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Understand the basic syntax and functionality of regular expressions (regex) for pattern matching.\nExplore the use of special characters, ranges, and anchors in regex to match specific patterns within text.\nApply regex to search, extract, and manipulate data in various formats using practical examples.\nUse regular expressions to navigate and organize files within the filesystem."
+  },
+  {
+    "objectID": "readings/readings-ch-02.html",
+    "href": "readings/readings-ch-02.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Excuse me, do you have a moment to talk about version control? by Jenny Bryan\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks"
+  },
+  {
+    "objectID": "readings/readings-ch-04.html",
+    "href": "readings/readings-ch-04.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Quarto Guides\nGetting Started with GitHub Pages"
+  },
+  {
+    "objectID": "readings/readings-ch-06.html",
+    "href": "readings/readings-ch-06.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "R Markdown presentations with xaringan\nJupyter presentations\nQuarto Presentations"
+  },
+  {
+    "objectID": "readings/readings-ch-08.html",
+    "href": "readings/readings-ch-08.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Regex\nRegex test\nPracticing Regex\nThree tips for posting good questions to R-help and Stack Overflow\nHow to create a Minimal, Complete, and Verifiable example\nGood Enough Practices in Scientific Computing\n.gitignore"
+  },
+  {
+    "objectID": "appendix/mds_conda_environment.html",
+    "href": "appendix/mds_conda_environment.html",
+    "title": "MDS Conda Python Environment",
+    "section": "",
+    "text": "conda install python=3.11 pandas jupyterlab jupyterlab-git jupyterlab-spellchecker\npip install otter-grader\nname: mds\nchannels:\n  - conda-forge\ndependencies:\n  - conda\n  - python=3.12\n  - pandas\n  - jupyterlab\n  - jupyterlab-git\n  - jupyterlab-spellchecker\n  - pip:\n    - otter-grader",
+    "crumbs": [
+      "Home",
+      "Additional Information",
+      "MDS Conda Python Environment"
     ]
   },
   {
