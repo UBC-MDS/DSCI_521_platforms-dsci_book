@@ -78,138 +78,104 @@ $grey-medium: #999999;
   }
 }
 
-// Note callout
+// Note callout (Light Green)
 .note {
   margin: 0.5em 0;
-  border: 1px solid #ffc107; // Yellow border
+  border: 1px solid #5cb85c; // Green border
   border-radius: 5px;
-  background-color: #fff8e1; // Light yellow background
-  padding: 0 10px 10px 10px; // Add padding on left to align text with header
+  background-color: #e6f4e6; // Light green background
+  padding: 0 10px 10px 10px;
 
   // Header styling
   h2 {
     margin: 0;
-    padding-left: 60px;
+    padding-left: 40px;
     padding-top: 5px;
-    color: #ffffff; // White text color for header
-    background-color: #ffeb3b; // Yellow background
+    color: #ffffff;
+    background-color: #5cb85c; // Green background for header
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     font-size: 1em;
     font-weight: bold;
-    background-size: 40px;
+    background-size: 20px;
     background-repeat: no-repeat;
-    background-position: 15px center;
+    background-position: 10px center;
     background-image: url("lectures/img/note.png");
   }
 
-  // Content styling with additional padding to align with the header
+  // Content styling
   p {
-    margin-top: 15px; // Spacing between header and content
-    padding-left: 10px; // Align content with header
-    color: #856404; // Dark yellow text color
+    margin-top: 15px;
+    padding-left: 10px;
+    color: #4d774d; // Darker green text
     font-size: 0.9em;
   }
 }
 
-// Note callout
-.note {
-  margin: 0.5em 0;
-  border: 1px solid #ffc107; // Yellow border
-  border-radius: 5px;
-  background-color: #fff8e1; // Light yellow background
-  padding: 0 10px 10px 10px; // Add padding on left to align text with header
-
-  // Header styling
-  h2 {
-    margin: 0;
-    padding-left: 40px; // Adjust padding for smaller icon
-    padding-top: 5px;
-    color: #ffffff; // White text color for header
-    background-color: #ffeb3b; // Yellow background
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    font-size: 1em;
-    font-weight: bold;
-    background-size: 20px; // Set smaller size for icon
-    background-repeat: no-repeat;
-    background-position: 10px center; // Adjust position for smaller icon
-    background-image: url("lectures/img/note.png");
-  }
-
-  // Content styling with additional padding to align with the header
-  p {
-    margin-top: 15px; // Spacing between header and content
-    padding-left: 10px; // Align content with header
-    color: #856404; // Dark yellow text color
-    font-size: 0.9em;
-  }
-}
-
-// Warning callout
+// Warning callout (Medium Green)
 .warning {
   margin: 0.5em 0;
-  border: 1px solid #dc3545; // Red border
+  border: 1px solid #3c763d; // Dark green border
   border-radius: 5px;
-  background-color: #f8d7da; // Light red background
-  padding: 0 10px 10px 10px; // Add padding on left to align text with header
+  background-color: #dff0d8; // Lighter green background
+  padding: 0 10px 10px 10px;
 
   // Header styling
   h2 {
     margin: 0;
-    padding-left: 40px; // Adjust padding for smaller icon
+    padding-left: 40px;
     padding-top: 5px;
-    color: #ffffff; // White text color for header
-    background-color: #c82333; // Red background
+    color: #ffffff;
+    background-color: #3c763d; // Dark green header
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     font-size: 1em;
     font-weight: bold;
-    background-size: 20px; // Set smaller size for icon
+    background-size: 20px;
     background-repeat: no-repeat;
-    background-position: 10px center; // Adjust position for smaller icon
+    background-position: 10px center;
     background-image: url("lectures/img/warning.png");
   }
 
-  // Content styling with additional padding to align with the header
+  // Content styling
   p {
-    margin-top: 15px; // Spacing between header and content
-    padding-left: 10px; // Align content with header
-    color: #721c24; // Dark red text color
+    margin-top: 15px;
+    padding-left: 10px;
+    color: #2f4f2f; // Darker green text
     font-size: 0.9em;
   }
 }
 
-// Tip callout
+// Tip callout (Darker Green)
 .tip {
   margin: 0.5em 0;
-  border: 1px solid #28a745; // Green border
+  border: 1px solid #2d6a2d; // Dark green border
   border-radius: 5px;
-  background-color: #d4edda; // Light green background
-  padding: 0 10px 10px 10px; // Add padding on left to align text with header
+  background-color: #cfe9cf; // Soft green background
+  padding: 0 10px 10px 10px;
 
   // Header styling
   h2 {
     margin: 0;
-    padding-left: 40px; // Adjust padding for smaller icon
+    padding-left: 40px;
     padding-top: 5px;
-    color: #ffffff; // White text color for header
-    background-color: #218838; // Green background
+    color: #ffffff;
+    background-color: #2d6a2d; // Dark green header
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     font-size: 1em;
     font-weight: bold;
-    background-size: 20px; // Set smaller size for icon
+    background-size: 20px;
     background-repeat: no-repeat;
-    background-position: 10px center; // Adjust position for smaller icon
+    background-position: 10px center;
     background-image: url("lectures/img/tip.png");
   }
 
-  // Content styling with additional padding to align with the header
+  // Content styling
   p {
-    margin-top: 15px; // Spacing between header and content
-    padding-left: 10px; // Align content with header
-    color: #155724; // Dark green text color
+    margin-top: 15px;
+    padding-left: 10px;
+    color: #1d431d; // Darkest green text
     font-size: 0.9em;
   }
 }
