@@ -8,7 +8,7 @@ jupyter: python3
 {{< include ../learning_objectives/lo-ch-08.qmd >}}
 
 :::{.activity}
-## Lecture 8 Activity 1
+## Lecture 8a Activity 1
 
 Imagine you are starting a new data science project. Based on what you know about project organization, how would you structure your project directory? Consider where you would place important files like raw data, processed data, code, reports, and environment settings.
 
