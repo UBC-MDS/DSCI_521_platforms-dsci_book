@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>lo-ch-05 – DSCI 521: Computing Platforms for Data Science</title>
+<title>R Markdown Tips – DSCI 521: Computing Platforms for Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,6 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../appendix/xaringan_slides.html" rel="next">
+<link href="../appendix/semantic_line_breaks.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -79,9 +115,11 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
 
 
-<meta property="og:title" content="DSCI 521: Computing Platforms for Data Science">
+<meta property="og:title" content="R Markdown Tips – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
-<meta name="twitter:title" content="DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:title" content="R Markdown Tips – DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -129,7 +167,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/git_config.html">Additional Information</a></li><li class="breadcrumb-item"><a href="../appendix/rmarkdown_tips.html">R Markdown tips</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -283,7 +321,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendix/rmarkdown_tips.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendix/rmarkdown_tips.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">R Markdown tips</span></a>
   </div>
 </li>
@@ -311,26 +349,77 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#r-markdown-repetition-and-a-few-tips" id="toc-r-markdown-repetition-and-a-few-tips" class="nav-link active" data-scroll-target="#r-markdown-repetition-and-a-few-tips">R Markdown repetition and a few tips</a></li>
+  <li><a href="#r-markdown-yaml-header" id="toc-r-markdown-yaml-header" class="nav-link" data-scroll-target="#r-markdown-yaml-header">R Markdown YAML header</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/git_config.html">Additional Information</a></li><li class="breadcrumb-item"><a href="../appendix/rmarkdown_tips.html">R Markdown tips</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">R Markdown Tips</h1>
+</div>
 
 
 
-<ol type="1">
-<li>Create RProjects in RStudio using <code>here</code> to define robust file paths.</li>
-<li>Detect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown.</li>
-<li>Explain markdown usage in relation to dynamic documents.</li>
-<li>Differentiate between code chunks and code cells in RMarkdown and Jupyter Notebooks.</li>
-<li>Select appropriate code chunk options for RMarkdown.</li>
-<li>Use semantic line breaks for version control files.</li>
-<li>Specify metadata in the YAML header block.</li>
-</ol>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<section id="r-markdown-repetition-and-a-few-tips" class="level1">
+<h1>R Markdown repetition and a few tips</h1>
+<p>Let’s start with creating an r project again. To use this with an existing git repo, with can select “Existing dir”. You can also create an empty one and move your git repo in here later, as long as there is an <code>.git</code> folder RStudio will show you the context menu for git.</p>
+<p>Next, let’s create an R Notebook. We could have a create an R Markdown document also, but the notebook offers a few conveniences. Mostly that it has a preview option <code>html_notebook</code> that renders the notebook to HTML in its curent state. In contrast, knitting the notebook to HTML via <code>html_document</code> will run all cells so this takes longer.</p>
+<p><strong>Note that it is important to knit to HTML before sharing so that you are sure everything works from scratch.</strong> This is the same reason we should do “Run all” in Jupyter Lab before sharing and why we don’t want to store our R workspace sessions. We need to make sure that someone new can run this from it’s current state. Another useful tool for this in R is to use <code>devtools::session_info()</code> at the top or bottom of your document (I put it at the end of the chunk where I load libraries) to ensure that you have included information about the versions of the packages you are running so that someone else can use the same version. There are more robust ways of version control that we will get into later in MDS, but this is a good minimum measure that is easy for you to get into the habit of doing.</p>
+<p>A couple of features that are good to know in addition to those we learnt last time, are block commenting and automatic code reformatting. If I type a few lines where I for example forget to add whitespace around an operator or assignment, going to <code>Code -&gt; Reformat code</code> ( <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> on Windows/Linux or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> on a Mac ) will fix this automatically for all highlighted lines. If I want to toogle commenting for some lines, I can click <code>Code -&gt; Comment/Uncomment line</code> ( <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> on Windows/Linux or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> on a Mac ), instead of manually adding <code>#</code> in front of each line.</p>
+<p>One final tip is the use of the <code>here</code> package for file paths. We have already solved the part of setting working directory by creating an R proj. If you only plant on using R Markdown file, you would be fine writing relative paths (e.g.&nbsp;<code>../data/cars.csv</code>) the same way you would write them in Python because they look relative their own location. However, if you also need to run something from a script or the console, note that the working directory path will now be used as the current directory, rather than the directoy of the script so the same relative path will not work (you would need <code>data/cars.csv</code> instead). <code>here</code> solves this by allowing you to type <code>here::here('data', 'cars.csv')</code> from wherever you are which also makes sure that file paths work across operating systems (<a href="https://malco.io/2018/11/05/why-should-i-use-the-here-package-when-i-m-already-using-projects/">more info on <code>here</code> here</a>.</p>
+</section>
+<section id="r-markdown-yaml-header" class="level1">
+<h1>R Markdown YAML header</h1>
+<p>The YAML header (also called the “front matter”) is where we can specify metadata about our project. It is delimited by two <code>---</code> (three hyphens) and we create a new notebook, it looks like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"R Notebook"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_notebook</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In YAML, data is stored as a <code>key: value</code> pair, just like a Python dictionary. We can add new values, for example the author name and the date.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"R Notebook"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_notebook</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Joel Ostblom</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 2020-09-23</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>R code can be evaluated inside the YAML header, so if we wanted the date to be updated every time we stitch the document, we could instead write <code>date: `r Sys.Date()`</code>. Other useful options include the ones for numbering headings, adding a table of contents, and placing the table of contents on the side of the document. Since these are options to the output document, they are indented under that section with two or four spaces:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_notebook</span><span class="kw">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc_float</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Another useful option is to fold away your code, but still having it available for view if someone desires to see it.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code_folding</span><span class="kw">:</span><span class="at"> hide</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -897,9 +986,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../appendix/semantic_line_breaks.html" class="pagination-link" aria-label="Semantic Line Breaks">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Semantic Line Breaks</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../appendix/xaringan_slides.html" class="pagination-link" aria-label="Xaringan Slides">
+        <span class="nav-page-text">Xaringan Slides</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

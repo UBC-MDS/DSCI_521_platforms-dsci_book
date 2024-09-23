@@ -284,6 +284,12 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
  <span class="menu-text">Lecture 8b: Introduction to Regular Expressions (RegEx)</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/8c-asking_questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 8c: Ask Effective Questions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -311,6 +317,12 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <div class="sidebar-item-container"> 
   <a href="../appendix/semantic_line_breaks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Semantic Line Breaks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/rmarkdown_tips.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Markdown tips</span></a>
   </div>
 </li>
       </ul>
@@ -380,14 +392,6 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <li><a href="#three-principles-for-file-names-1" id="toc-three-principles-for-file-names-1" class="nav-link" data-scroll-target="#three-principles-for-file-names-1">Three principles for (file) names</a></li>
   <li><a href="#pros" id="toc-pros" class="nav-link" data-scroll-target="#pros">Pros</a></li>
   <li><a href="#go-forth-and-use-awesome-file-names" id="toc-go-forth-and-use-awesome-file-names" class="nav-link" data-scroll-target="#go-forth-and-use-awesome-file-names">Go forth and use awesome file names :)</a></li>
-  </ul></li>
-  <li><a href="#asking-effective-questions" id="toc-asking-effective-questions" class="nav-link" data-scroll-target="#asking-effective-questions">Asking effective questions</a>
-  <ul class="collapse">
-  <li><a href="#why-even-bother" id="toc-why-even-bother" class="nav-link" data-scroll-target="#why-even-bother">Why even bother?</a></li>
-  <li><a href="#how-to-ask-effectively" id="toc-how-to-ask-effectively" class="nav-link" data-scroll-target="#how-to-ask-effectively">How to ask effectively</a>
-  <ul class="collapse">
-  <li><a href="#minimal-reproducible-example" id="toc-minimal-reproducible-example" class="nav-link" data-scroll-target="#minimal-reproducible-example">Minimal reproducible example</a></li>
-  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
@@ -817,79 +821,7 @@ fig02_talk-histogram-attendance.png
 <li>Which of the following are GOOD date formats to use in a filename?</li>
 </ol>
 <p>K. 2020-01-26T0233 L. 20200126T0233 M. 2020-01-26</p>
-<hr>
 </section>
-</section>
-<section id="asking-effective-questions" class="level1">
-<h1>Asking effective questions</h1>
-<section id="why-even-bother" class="level2">
-<h2 class="anchored" data-anchor-id="why-even-bother">Why even bother?</h2>
-<p>Asking questions effectively means that the person helping you will be able to answer your question better and quicker. Being able to answer a question quicker means more time to help others, including your future self. When questions require clarification, fewer people will be helped overall. Sometimes this in unavoidable because the question is complex, but all too often it if because the person trying to help is not able to reproduce problem, or the question is unclear.</p>
-<p>When you are asking for help online, e.g.&nbsp;on StackOverflow or on GitHub, remember that you are often receiving help from people who are volunteering their time. So please make it as easy as possible for them to help you.</p>
-<p>You might be frustrated by a problem to the point where you just want to ask something like.</p>
-<blockquote class="blockquote">
-<p>WHY IS THIS **** CODE NOT WORKING??????</p>
-</blockquote>
-<p>Don’t do this. No one will help you. You will get more frustrated.</p>
-<p>When I feel like this, I find it really helpful and calming to sit down and type out a proper question. You can start banging out words in the beginning, but as you slowly adhere to the format of asking properly, it will become like a meditative practice which also calms you down.</p>
-<p>In addition to your mental wellbeing, writing down questions properly has another superb quality: they help you solve your own problems. The act of formulating a question in either speech or text helps you uncover what you missed while the problem was a mere thought. This is so common that it has a name: “Rubber duck debugging” allegedly from a software developer who put a rubber duck on their desk and whenever they had a problem they couldn’t solve, they starting talking to the toy duck, and often came upon the resolution during while describing the problem.</p>
-</section>
-<section id="how-to-ask-effectively" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-ask-effectively">How to ask effectively</h2>
-<p>In essence, you want to make your question as easy to understand as possible and your specific problem as easy to reproduce as possible. If you just include a screenshot and title your question “Help”, the person helping you has to spend time trying to figure out what you actually want help with instead of helping, Instead include a succinct, clear description of your problem and the minimal code needed to reproduce it. If you are asking your question on stack overflow you can use tags to categorize it, and these can then be used to search for an answer via the syntax <code>[tag-name]</code>. This can be especially useful for R, since the name is just one letter and it can be hard to find relevant matches otherwise.</p>
-<section id="minimal-reproducible-example" class="level3">
-<h3 class="anchored" data-anchor-id="minimal-reproducible-example">Minimal reproducible example</h3>
-<p>There is a Swedish expression: “beloved child has many names”. No, it does not translate very well to English, but the message is that someone or something that many people like, will be referred to differently by different people. This is true for minimal reproducible examples, which you might find referred to by any of the following:</p>
-<ul>
-<li>MRE Minimal Reproducible Example</li>
-<li>MCVE Minimal Complete Verifiable Example</li>
-<li>MWE Minimal Working Example</li>
-<li>reprex REPRoducible EXample</li>
-</ul>
-<p>There have been great articles written on what goes into an MRE, and here are some of them that I recommend that you check out:</p>
-<ul>
-<li>https://stackoverflow.com/help/how-to-ask</li>
-<li>https://stackoverflow.com/help/minimal-reproducible-example</li>
-<li>https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-do-one/5219</li>
-<li>https://reprex.tidyverse.org/ (an R package to help creating MREs from code)</li>
-</ul>
-<p>In summary, asking effectively and creating an MRE includes the following tasks:</p>
-<ol start="0" type="1">
-<li>Search for other questions similar to yours.</li>
-<li>Describe the issue clearly in the title and elaborate briefly in the text body.</li>
-<li>Reduce the code to the minimum required to recreate your error, and paste it as text.
-<ul>
-<li>If your code includes functions or classes, include their definitions.</li>
-<li>Create small toy dataset instead of using real data.</li>
-<li>Use markdown code blocks for proper indentation and syntax highlighting.</li>
-</ul></li>
-<li>Describe what you have tried so far, what you don’t understand or what went wrong, including any error messages and their full traceback.</li>
-</ol>
-<p>The points are elaborated on below:</p>
-<ol start="0" type="1">
-<li>Search for other questions similar to yours. Many questions already have an answer, and finding it is faster both for you and for others. If the answer to an existing question is not good enough, improve it by adding the missing info!</li>
-<li>Write the tile as a summary of your issue. Think about what you would want the title to say if you were searching the issue list for help. Just “Error” or “Question” is not helpful, but “How to list content in a folder?” is.</li>
-<li>Introduce the problem by briefly describing what you want to do.</li>
-<li>Show what you have tried, explain what you expected to happen, and what went wrong. It is often critical that the person helping you can reproduce the problem, so include both the code or command you tried to run and the error message.
-<ul>
-<li>For coding questions, text is preferred over a screenshot since it is easy to copy and paste, which facilitates reproducing your problem.</li>
-<li>Inline code should be surrounded by single backticks for clarity. Longer blocks of code with multiple lines should be surrounded by triple backticks.</li>
-</ul></li>
-<li>Include versions of any packages you are using, and the operating system if relevant, e.g.&nbsp;Win10, Python 3.8, pandas 1.0.2. On R you can use <code>devtools::session_info()</code> to see this information (after <code>install.packages("devtools")</code>). and on Python you can use <code>sinfo()</code> (after importing: <code>from sinfo import sinfo</code>, needs to be installed via <code>pip install sinfo</code>).</li>
-<li>When your problem is solved, acknowledge the solution, close the issue/ticket/question. If you found the solution yourself, post it in a comment before closing, so that others can find it.</li>
-</ol>
-<hr>
-</section>
-</section>
-<div class="activity">
-<section id="lecture-8-activity-3" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-8-activity-3">Lecture 8 Activity 3</h2>
-</section>
-<div class="activity-container">
-<p>What is wrong with the following</p>
-</div>
-</div>
-<hr>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <p>[1] Kery, M. B., Radensky, M., Arya, M., John, B. E., &amp; Myers, B. A. (2018, April). The story in the notebook: Exploratory data science using a literate programming tool. In Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems (pp.&nbsp;1-11).</p>

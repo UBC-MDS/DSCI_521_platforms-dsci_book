@@ -227,102 +227,6 @@
     ]
   },
   {
-    "objectID": "lectures/7a-virtual-environments-conda.html",
-    "href": "lectures/7a-virtual-environments-conda.html",
-    "title": "Virtual environments",
-    "section": "",
-    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv\n\nPlatform in focus Conda",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7a: Virtual environments: conda"
-    ]
-  },
-  {
-    "objectID": "lectures/7a-virtual-environments-conda.html#learning-outcomes",
-    "href": "lectures/7a-virtual-environments-conda.html#learning-outcomes",
-    "title": "Virtual environments",
-    "section": "",
-    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv\n\nPlatform in focus Conda",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7a: Virtual environments: conda"
-    ]
-  },
-  {
-    "objectID": "lectures/7a-virtual-environments-conda.html#lecture-7-activity-1",
-    "href": "lectures/7a-virtual-environments-conda.html#lecture-7-activity-1",
-    "title": "Virtual environments",
-    "section": "Lecture 7 Activity 1",
-    "text": "Lecture 7 Activity 1",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7a: Virtual environments: conda"
-    ]
-  },
-  {
-    "objectID": "lectures/7a-virtual-environments-conda.html#conda",
-    "href": "lectures/7a-virtual-environments-conda.html#conda",
-    "title": "Virtual environments",
-    "section": "Conda",
-    "text": "Conda\nconda is an open source package and environment management system for any programming language; though it is the most popular in the python community. Anaconda is a data science platform for Python that comes with a lot of packages by default. Unlike Anaconda, Miniconda doesn’t come with any installed packages by default, and we can pick and choose which ones we want. Both include Python and conda.\nFor example, the MDS Python installation instructions had you install Miniconda. All flavors of *conda give you the conda function in the terminal.\n\nManaging Conda\nLet’s first start by checking if conda is installed.\nconda --version\nwhich conda\nTo see which conda commands are available, type conda --help. To see the full documentation for any command of these commands, type the command followed by --help. For example, to learn about the conda update command:\nconda update --help\nLet’s update our conda to the latest version. Note that you might already have the latest version since we downloaded it recently.\nconda update conda\nYou will see some information about what there is to update and be asked if you want to confirm. The default choice is indicated with [], and you can press Enter to accept it. It would look similar to this:\nUsing Anaconda Cloud api site https://api.anaconda.org\nFetching package metadata: ....\n.Solving package specifications: .........\n\nPackage plan for installation in environment //anaconda:\n\nThe following packages will be downloaded:\n\n    package                    |            build\n    ---------------------------|-----------------\n    conda-env-2.6.0            |                0          601 B\n    ruamel_yaml-0.11.14        |           py27_0         184 KB\n    conda-4.2.12               |           py27_0         376 KB\n    ------------------------------------------------------------\n                                           Total:         560 KB\n\nThe following NEW packages will be INSTALLED:\n\n    ruamel_yaml: 0.11.14-py27_0\n\nThe following packages will be UPDATED:\n\n    conda:       4.0.7-py27_0 --&gt; 4.2.12-py27_0\n    conda-env:   2.4.5-py27_0 --&gt; 2.6.0-0\n    python:      2.7.11-0     --&gt; 2.7.12-1\n    sqlite:      3.9.2-0      --&gt; 3.13.0-0\n\nProceed ([y]/n)? y\n\nFetching packages ...\nconda-env-2.6. 100% |################################| Time: 0:00:00 360.78 kB/s\nruamel_yaml-0. 100% |################################| Time: 0:00:00   5.53 MB/s\nconda-4.2.12-p 100% |################################| Time: 0:00:00   5.84 MB/s\nExtracting packages ...\n[      COMPLETE      ]|###################################################| 100%\nUnlinking packages ...\n[      COMPLETE      ]|###################################################| 100%\nLinking packages ...\n[      COMPLETE      ]|###################################################| 100%\nIn this case, conda itself needed to be updated, and along with this update some dependencies also needed to be updated. There is also a NEW package that was INSTALLED in order to update conda. You don’t need to worry about remembering to update conda, it will let you know if it is out of date when you are installing new packages.",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7a: Virtual environments: conda"
-    ]
-  },
-  {
-    "objectID": "lectures/7a-virtual-environments-conda.html#managing-environments",
-    "href": "lectures/7a-virtual-environments-conda.html#managing-environments",
-    "title": "Virtual environments",
-    "section": "Managing Environments",
-    "text": "Managing Environments\n\nWhat is a conda environment and why is it so useful?\nUsing conda, you can create an isolated python environment for your project. An environment is a set of packages that can be used in one or multiple projects. There are several major benefits of using environments:\n\nYou can guarantee that someone else can reproduce your project by specifying which package versions your used and making it easy for others to install the same versions.\nIf two of your projects relies on different versions of the same package, you can install these in different environments.\nIf you want to play around with a new package, you don’t have to change the packages you use for your data analysis and risk messing something up.\nWhen you develop your own packages, it is essential to use environments, since you want to to make sure you know exactly which packages yours depend on, so that it runs on other systems than your own.\n\nThe default environment is the base environment, which contains only the essential packages from Miniconda (assuming you installed Miniconda). You can see that your shell’s prompt string is prefaced with (base) when you are inside this environment. In the setup guide, we gave your instructions for how to activate this environment by default every time you open Bash. There are two ways of creating a conda environment.\n\nManual specifications of packages.\nAn environment file in YAML format (environment.yaml).\n\n\n\nCreating environment by manually specifying packages\nWe can create test_env conda environment by typing conda -n &lt;name-of-env&gt;. However, it is often useful to specify more than just the name of the environment, e.g. the channel from which to install packages, the Python version, and a list of packages to install into the new env. In the example below, I am creating the test_env environment that uses python 3.7 and a list of libraries: jupyterlab and pandas. I am explicitely installing my packages from the conda-forge repository (also part of the MDS setup instructions).\nconda create -n test_env -c conda-forge python=3.7 jupyterlab pandas=1.0.2\nconda will solve any dependencies between the packages like before and create a new environment with those packages. Usually, we don’t need to specify the channel, but in this case I want to get the very latest version of these packages, and they are made available in conda-forge before they reach the default conda channel.\nTo activate this new environment, you can type conda activate test_env (and conda deactivate for deactivating). Since you will do this often, we created an alias shortcut ca that you can use to activate environments. To know the current environment that you’re in you can look at the prefix of the prompt string in your shell which now changed to (test_env). And to see all your environments, you can type conda env list.\n\nRemoving enviornments\nIf you are creating environments for practice, or you want to recreate an environment you can delete your conda enviornments by:\n# look for all the installed enviornments\nconda env list\n# delete an enviornment\nconda remove --name ENV_NAME --all\nSimiliarly, all your enviornments are installed within your miniconda3 folder, which is typically located in ~/miniconda3 In here you will see an env folder. If you delete the folder with the corresponging enviornment name (e.g., with rm) you can also delete an enviornment this way too.\n\n\n\nSharing Environments with others\nTo share an environment, you can export your conda environment to an environment file, which will list each package and its version in the format package=version=build.\nExporting your environment to a file called environment.yaml (it could be called anything, but this is the conventional name and using it makes it easy for others to recognize that this is a conda env file, the extension can be either .yaml or .yml):\nconda env export -f environment.yaml\nRemember that .yaml files are plain text, so you can use a text editor such as VS Code to open them. If you do, you will realize that this environment file has A LOT more packages than jupyterlab and pandas. This is because the default behavior is to also list the dependencies that were installed together with these packages, e.g. numpy. This is good in the sense that it gives an exact copy of everything in your environment.\nHowever, some dependencies might differ between operating systems, so this file might not work with someone from a different OS. To remedy this, you can append the --from-history flag, which look at the history of the packages you explicitly told conda to install and only list those in the export. The required dependencies will then be handled in an OS-specific manner during the installation, which guarantees that they will work across OSes. This environment.yaml file would be much shorter and look something like this:\nname: test_env\nchannels:\n  - conda-forge\n  - defaults\ndependencies:\n  - conda\n  - python=3.7\n  - pandas==1.0.2\n  - jupyterlab\nImportantly, this will not include the package version unless you included it when you installed with the package==version syntax. For an environment to be reproducible, you NEED to add the version string manually.\n\nLecture\n\n\n\nCreating environment from an environment file\nNow, let’s install environment.yaml environment file above so that we can create a conda environment called test_env.\n$ conda env create --file environment.yaml\n\n\nCopying an environment\nWe can make an exact copy of an environment to an environment with a different name. This maybe useful for any testing versus live environments or different Python 2.7 versions for the same packages. In this example, test_env is cloned to create live_env.\nconda create --name live_env --clone test_env\n\n\nDeleting an environment\nSince we are only testing out our environment, we will delete live_env to remove some clutter. Make sure that you are not currently using live_env.\nconda env remove -n live_env\n\n\nMaking environments work well with JupyterLab\nIn brief, you need to install the ipykernel package in any new environment your create, and the nb_conda_kernels package needs to be installed in the environment where JupyterLab is installed.\nBy default, JupyterLab only sees the conda environment where it is installed. Since it is quite annoying to install JupyterLab and its extensions separately in each environment, there is a package called nb_conda_kernels that makes it possible to have a single installation of JupyterLab access kernels in other conda environments. This package needs to be installed in the conda environment where JupyterLab is installed.\nLastly, you also need to install a kernel in the new conda environment so that it can be detected by nb_conda_kernels. This kernel can be installed via the package ipykernel for Python and the r-irkernel package for R (more info in the nb_conda_kernels README).",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7a: Virtual environments: conda"
-    ]
-  },
-  {
-    "objectID": "lectures/7a-virtual-environments-conda.html#managing-packages",
-    "href": "lectures/7a-virtual-environments-conda.html#managing-packages",
-    "title": "Virtual environments",
-    "section": "Managing Packages",
-    "text": "Managing Packages\n\nSeeing what packages are available\nWe will now check packages that are available to us. The command below will list all the packages in an environment, in this case test_env. The list will include versions of each package, the specific build, and the channel that the package was downloaded from. conda list is also useful to ensure that you have installed the packages that you desire.\nconda list\n# packages in environment at //miniconda/envs/test_env:\n#\nUsing Anaconda Cloud api site https://api.anaconda.org\nblas                      1.1                    openblas    conda-forge\nca-certificates           2016.9.26                     0    conda-forge\ncertifi                   2016.9.26                py27_0    conda-forge\ncycler                    0.10.0                   py27_0    conda-forge\nfreetype                  2.6.3                         1    conda-forge\nfunctools32               3.2.3.2                  py27_1    conda-forge\nlibgfortran               3.0.0                         0    conda-forge\n\n\nSearching for a certain package\nSome packages might not be available in conda, but are available in pypi. For example, we will search for rasterio within the anaconda cloud. It is not necessary to create an account with anaconda cloud, unless you’d like to contribute in the future when you are pro with conda.\nIn this example, we will use rasterio from conda-forge. The anaconda cloud page for rasterio will show how to install the package, compatible OS, individual files for that package, etc.\nWith conda you can do this search within the command line:\nconda search rasterio\nUsing Anaconda Cloud api site https://api.anaconda.org\nRun 'anaconda show &lt;USER/PACKAGE&gt;' to get more details:\nPackages:\n     Name                      |  Version | Package Types   | Platforms\n     ------------------------- |   ------ | --------------- | ---------------\n     IOOS/rasterio             |    1.0a2 | conda           | linux-64, win-32, win-64, osx-64\n     Terradue/rasterio         |   0.32.0 | conda           | linux-64\n                                          : Fast and direct raster I/O for use with Numpy and SciPy\n     anaconda/rasterio         |   0.36.0 | conda           | linux-64, win-32, win-64, linux-32, osx-64\n     conda-forge/rasterio      |    1.0a2 | conda           | linux-64, win-32, win-64, osx-64\n                                          : Rasterio reads and writes geospatial raster datasets\n     dharhas/rasterio          |   0.23.0 | conda           | win-64\n                                          : Rasterio reads and writes geospatial raster datasets.\n     erdc/rasterio             |   0.23.0 | conda           | win-64\n                                          : Rasterio reads and writes geospatial raster datasets.\n     jesserobertson/rasterio   |   0.23.0 | conda           | linux-64, linux-32, osx-64\n     jhamman/rasterio_to_xarray | 2016.03.16-1558 | ipynb           |\n                                          : IPython notebook\n     krisvanneste/rasterio     |   0.26.0 | conda           | win-64\n     ocefpaf/rasterio          |   0.19.1 | conda           | linux-64, osx-64\n     omgarcia/rasterio         |   0.25.0 | conda           | linux-64\n     pypi/rasterio             |   0.13.2 | pypi            |\n                                          : Fast and direct raster I/O for Python programmers who use Numpy\n     robintw/rasterio          |   0.35.1 | conda           | osx-64\n                                          : Rasterio reads and writes geospatial raster datasets\n     sgillies/rasterio         |     0.15 | conda           | osx-64\n     ztessler/rasterio         |   0.31.0 | conda           | osx-64\n                                          : Fast and direct raster I/O for use with Numpy and SciPy\nFound 15 packages\n\n\nInstalling conda package\nUnder the name column of the result in the terminal or the package column in the Anaconda Cloud listing, shows the necessary information to install the package. e.g. conda-forge/rasterio. The first word list the channel that this package is from and the second part shows the name of the package.\nTo install the latest version available within the channel, do not specify in the install command. We will install version 0.35 of rasterio from conda-forge into test_env in this example. Conda will also automatically install the dependencies for this package.\nconda install -c conda-forge rasterio=0.35\nIf you have a few trusted channels that you prefer to use, you can pre-configure these so that everytime you are creating an environment, you won’t need to explicitly declare the channel.\nconda config --add channels conda-forge\n\nRemoving a conda Package\nWe decided that rasterio is not needed in this tutorial, so we will remove it from test_env. Note that this will remove the main package rasterio and its dependencies (unless a dependency was installed explicitly at an earlier point in time or is required be another package).\nconda remove -n test_env rasterio\nUsing Anaconda Cloud api site https://api.anaconda.org\nFetching package metadata .........\nSolving package specifications: ..........\n\nPackage plan for package removal in environment //anaconda/envs/test_env:\n\nThe following packages will be REMOVED:\n\n    rasterio: 0.35.1-np111py27_1 conda-forge\n\nProceed ([y]/n)? y\n\nUnlinking packages ...\n[      COMPLETE      ]|#######################################################################################################| 100%\n\nSelect all the correct answers\nWhich of the following sentences are true about Conda?\nA. It is a command line tool\nB. It is a package manager\nC. It is a Python package\nD. It is installed as part of Anaconda and Miniconda\nE. It is a metapackage\nF. It installs Python\nG. Using it you can handle Python packages only",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7a: Virtual environments: conda"
-    ]
-  },
-  {
-    "objectID": "lectures/7a-virtual-environments-conda.html#attribution",
-    "href": "lectures/7a-virtual-environments-conda.html#attribution",
-    "title": "Virtual environments",
-    "section": "Attribution",
-    "text": "Attribution\nThe conda virtual environment section of this guide was originally published at http://geohackweek.github.io/ under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7a: Virtual environments: conda"
-    ]
-  },
-  {
-    "objectID": "lectures/7a-virtual-environments-conda.html#attribution-1",
-    "href": "lectures/7a-virtual-environments-conda.html#attribution-1",
-    "title": "Virtual environments",
-    "section": "Attribution",
-    "text": "Attribution\nThe conda virtual environment section of this guide was originally published at http://geohackweek.github.io/ under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7a: Virtual environments: conda"
-    ]
-  },
-  {
     "objectID": "lectures/8b-regex.html",
     "href": "lectures/8b-regex.html",
     "title": "Introduction to Regular Expressions (RegEx)",
@@ -428,6 +332,90 @@
       "Home",
       "Lectures",
       "Lecture 8b: Introduction to Regular Expressions (RegEx)"
+    ]
+  },
+  {
+    "objectID": "lectures/7b-virtual-environments-renv.html",
+    "href": "lectures/7b-virtual-environments-renv.html",
+    "title": "Virtual Environments: R",
+    "section": "",
+    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv\n\nPlatform in focus R, RStudio\nOne of the other distinguishing factors between R and Python is CRAN (the package repository for R), guarantees that on any given calendar day, all the packages on CRAN are installable.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7b: Virtual environments: renv"
+    ]
+  },
+  {
+    "objectID": "lectures/7b-virtual-environments-renv.html#learning-outcomes",
+    "href": "lectures/7b-virtual-environments-renv.html#learning-outcomes",
+    "title": "Virtual Environments: R",
+    "section": "",
+    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv\n\nPlatform in focus R, RStudio",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7b: Virtual environments: renv"
+    ]
+  },
+  {
+    "objectID": "lectures/7b-virtual-environments-renv.html#r-environments",
+    "href": "lectures/7b-virtual-environments-renv.html#r-environments",
+    "title": "Virtual Environments: R",
+    "section": "R environments",
+    "text": "R environments\nIn R, environments are managed by {renv}, which works with similar principles as conda, and other virtual environment managers, but the commands are different. To see which commands are used in {renv}, you can visit the project website: https://rstudio.github.io/renv/articles/renv.html.\nBriefly,\n\nrenv::init(): create a new env in the current directory/project\nrenv::snapshot(): save/export the environment to a file (renv.lock), and installing and removing packages are done as usual via the install.packages() and remove.packages() commands.\nrenv::restore(): updates current environment from the renv.lock file\n\n{renv} assumes and enforces the “one project one environment” mantra of virtual environments. Unlike conda that lets you “activate” an environment and let you move across different projects, {renv} prefers it when all your work is contained in a single project.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7b: Virtual environments: renv"
+    ]
+  },
+  {
+    "objectID": "lectures/7b-virtual-environments-renv.html#note",
+    "href": "lectures/7b-virtual-environments-renv.html#note",
+    "title": "Virtual Environments: R",
+    "section": "Note",
+    "text": "Note\nFor MDS, this might mean you may need a separate {renv} file for each lab assignment.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7b: Virtual environments: renv"
+    ]
+  },
+  {
+    "objectID": "lectures/7b-virtual-environments-renv.html#activity-1",
+    "href": "lectures/7b-virtual-environments-renv.html#activity-1",
+    "title": "Virtual Environments: R",
+    "section": "Activity 1",
+    "text": "Activity 1\nWhich of the following commands is used to initialize a new renv environment in an R project?\nA. `renv::create()`\nB. `renv::activate()`\nC. `renv::init()`\nD. `renv::start()`",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7b: Virtual environments: renv"
+    ]
+  },
+  {
+    "objectID": "lectures/7b-virtual-environments-renv.html#an-example-r-project",
+    "href": "lectures/7b-virtual-environments-renv.html#an-example-r-project",
+    "title": "Virtual Environments: R",
+    "section": "An example R Project",
+    "text": "An example R Project\nHere we’ll go through an example of using {renv} in the context of an RStudio project. Unlike conda environments, you don’t necessarily, “activate” and “deactivate” it manually. One of the nice things is {renv} works naturally within an RStudio project.\nThe New Project creation wizard in R Studio has an option to enable the folder as a git repository, and also to set it up with {renv}.\nThis does the same thing as running renv::init() in the current project.\n\n\nEnvironment Files\nWhen you either create a new project with renv enabled or run renv::init() in the current working directory (getwd()), a few new files will be created\n\n.Rprofile in the current project directory\nrenv/ directory\nrenv.lock file\n\nBefore we talk about which each file and directory does, now when you start a new R session or re-open your RStudio project, you will see a line that will read something like:\n- Project '~/Desktop/my_r_project' loaded. [renv 1.0.7]\nHow does R know that there is a project renv? It’s because of the .Rprofile file. This is a special file that R will read at the start of every session. This file exists in 3 places, it will search for them in the following order, and once it finds 1 of them, it will not look for any more.\n\nThe current project or working directory\nThe user home directory\nThe system R installation\n\nThere is a similar file called .Renviron that only stores key-value environment variables. You can read more about these initialization files here.\nThe {renv} .Rprofile will add a single line:\nsource(\"renv/activate.R\")\nThis is the line that “activates” the renv environment for you automatically, assuming you are in the correct working directory.\nAll the environment files and packages are installed in the renv/ directory. This directory has its own .gitignore file that will ignore the correct things for you in that directory, so you do not need to worry about checking in your entire set of packages.\nFinally, the renv.lock file is the file that contains all the packages used in the repository, its version, and where it was installed from (e.g., CRAN or GitHub).\n\n\nSnapshot Packages\nWhen you install and use R packages in your project, you will occasionally run renv::snapshot(). This will update the renv.lock file with all the packages and dependencies for you. Do not forget to add, commit, and push this file to your remote repository.\n\n\nRestore Packages\nAs you work on a project with other people and packages get updated, you will occasionally run renv::restore() to install any missing packages on your local r environment. Occasionally renv may tell you things are out of sync and will prompt you to run renv::status() or renv::restore().",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7b: Virtual environments: renv"
+    ]
+  },
+  {
+    "objectID": "lectures/7b-virtual-environments-renv.html#takeaway",
+    "href": "lectures/7b-virtual-environments-renv.html#takeaway",
+    "title": "Virtual Environments: R",
+    "section": "Takeaway",
+    "text": "Takeaway\n{renv} is not the same as a conda environment where you can activate an environment, and move anywhere in your filesystem to run code. Many virtual environment systems actually assume you have a single environment for each project/directory. Sometimes IDES allow you do override the currently activated environment, but it lowers the reproducibility of your projects if you do that.\nFinally, the renv.lock file does track every package and dependency you use in your project, which is a bit different from the recommendation we gave in the conda environment section. To just track individual packages and not the entire snapshot, you will learn about the DESCRIPTION file used for packaging later on in the program. However, we can get away with this because CRAN does guarantee all packages to be installable on any given calendar day.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7b: Virtual environments: renv"
     ]
   },
   {
@@ -867,51 +855,27 @@
     "text": "Going to sleep\n\nGet in bed\nCount sheep"
   },
   {
-    "objectID": "appendix/rstudio_config.html",
-    "href": "appendix/rstudio_config.html",
-    "title": "RStudio Configuration",
+    "objectID": "appendix/semantic_line_breaks.html",
+    "href": "appendix/semantic_line_breaks.html",
+    "title": "Semantic Line Breaks",
     "section": "",
-    "text": "In the Tools &gt; Global Options &gt; General Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no .RData is saved when you quit RStudio, and to never save the .RData (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).",
+    "text": "Most documents go through several versions (always more than you expected) before they are finally finished. Accordingly, you should do whatever possible to make the job of changing them easy.\nFirst, when you do the purely mechanical operations of typing, type so subsequent editing will be easy. Start each sentence on a new line. Make lines short, and break lines at natural places, such as after commas and semicolons, rather than randomly. Since most people change documents by rewriting phrases and adding, deleting and rearranging sentences, these precautions simplify any editing you have to do later.\n— Brian W. Kernighan, 1974 [9]\n\nSemantic line breaks utilize how markdown treats line breaks and tries to combine it with regular prose text. You can read more about semantic line breaks here: https://sembr.org/\nHere are examples of how it works with markdown syntax\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\nis rendered as:\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\nthis is a very long line that has\nover 80 characterslasdfja asldfja\nsljf lsd jflkadjsf\nis rendered as:\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\n\nAdd a line break\nMarkdown allows 2 spaces at the end of a line for a line break\nthis is a very long line that has&lt;br/&gt;\nover 80 characterslasdfja asldfja&lt;br/&gt;\nsljf lsd jflkadjsf\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\nMarkdown also allows 2 spaces at the end of a line for a line break. THis may not work with many text editor options that strip trailing white space\n\n\nAdd an empty line for a paragraph break\nthis is a very long line that has\n\nover 80 characterslasdfja asldfja\n\nsljf lsd jflkadjsf\nRendered as:\nthis is a very long line that has\nover 80 characterslasdfja asldfja\nsljf lsd jflkadjsf",
     "crumbs": [
       "Home",
       "Additional Information",
-      "RStudio Configuration"
+      "Semantic Line Breaks"
     ]
   },
   {
-    "objectID": "appendix/rstudio_config.html#global-setup",
-    "href": "appendix/rstudio_config.html#global-setup",
-    "title": "RStudio Configuration",
+    "objectID": "appendix/rmarkdown_tips.html",
+    "href": "appendix/rmarkdown_tips.html",
+    "title": "R Markdown Tips",
     "section": "",
-    "text": "In the Tools &gt; Global Options &gt; General Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no .RData is saved when you quit RStudio, and to never save the .RData (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).",
+    "text": "R Markdown repetition and a few tips\nLet’s start with creating an r project again. To use this with an existing git repo, with can select “Existing dir”. You can also create an empty one and move your git repo in here later, as long as there is an .git folder RStudio will show you the context menu for git.\nNext, let’s create an R Notebook. We could have a create an R Markdown document also, but the notebook offers a few conveniences. Mostly that it has a preview option html_notebook that renders the notebook to HTML in its curent state. In contrast, knitting the notebook to HTML via html_document will run all cells so this takes longer.\nNote that it is important to knit to HTML before sharing so that you are sure everything works from scratch. This is the same reason we should do “Run all” in Jupyter Lab before sharing and why we don’t want to store our R workspace sessions. We need to make sure that someone new can run this from it’s current state. Another useful tool for this in R is to use devtools::session_info() at the top or bottom of your document (I put it at the end of the chunk where I load libraries) to ensure that you have included information about the versions of the packages you are running so that someone else can use the same version. There are more robust ways of version control that we will get into later in MDS, but this is a good minimum measure that is easy for you to get into the habit of doing.\nA couple of features that are good to know in addition to those we learnt last time, are block commenting and automatic code reformatting. If I type a few lines where I for example forget to add whitespace around an operator or assignment, going to Code -&gt; Reformat code ( Ctrl + Shift + A on Windows/Linux or ⌘ + Shift + A on a Mac ) will fix this automatically for all highlighted lines. If I want to toogle commenting for some lines, I can click Code -&gt; Comment/Uncomment line ( Ctrl + Shift + C on Windows/Linux or ⌘ + Shift + C on a Mac ), instead of manually adding # in front of each line.\nOne final tip is the use of the here package for file paths. We have already solved the part of setting working directory by creating an R proj. If you only plant on using R Markdown file, you would be fine writing relative paths (e.g. ../data/cars.csv) the same way you would write them in Python because they look relative their own location. However, if you also need to run something from a script or the console, note that the working directory path will now be used as the current directory, rather than the directoy of the script so the same relative path will not work (you would need data/cars.csv instead). here solves this by allowing you to type here::here('data', 'cars.csv') from wherever you are which also makes sure that file paths work across operating systems (more info on here here.\n\n\nR Markdown YAML header\nThe YAML header (also called the “front matter”) is where we can specify metadata about our project. It is delimited by two --- (three hyphens) and we create a new notebook, it looks like this:\n---\ntitle: \"R Notebook\"\noutput: html_notebook\n---\nIn YAML, data is stored as a key: value pair, just like a Python dictionary. We can add new values, for example the author name and the date.\n---\ntitle: \"R Notebook\"\noutput: html_notebook\nauthor: Joel Ostblom\ndate: 2020-09-23\n---\nR code can be evaluated inside the YAML header, so if we wanted the date to be updated every time we stitch the document, we could instead write date: `r Sys.Date()`. Other useful options include the ones for numbering headings, adding a table of contents, and placing the table of contents on the side of the document. Since these are options to the output document, they are indented under that section with two or four spaces:\n---\noutput:\n  html_notebook:\n    toc: yes\n    toc_float: yes\n    number_sections: yes\n---\nAnother useful option is to fold away your code, but still having it available for view if someone desires to see it.\n---\noutput:\n  html_document:\n    code_folding: hide\n---",
     "crumbs": [
       "Home",
       "Additional Information",
-      "RStudio Configuration"
-    ]
-  },
-  {
-    "objectID": "appendix/rstudio_config.html#latex-and-xelatex",
-    "href": "appendix/rstudio_config.html#latex-and-xelatex",
-    "title": "RStudio Configuration",
-    "section": "LaTeX and XeLaTeX",
-    "text": "LaTeX and XeLaTeX\nIn the Sweave option\nchange the Sweave option to Knitr, and pdflatex to xelatex.",
-    "crumbs": [
-      "Home",
-      "Additional Information",
-      "RStudio Configuration"
-    ]
-  },
-  {
-    "objectID": "appendix/rstudio_config.html#code-snippets",
-    "href": "appendix/rstudio_config.html#code-snippets",
-    "title": "RStudio Configuration",
-    "section": "Code snippets",
-    "text": "Code snippets\nAs we started to type for above, the code completion popped up and the first entry said “snippet”, what is that? A code snippet is a text macro, which means that you can type a short string of characters to insert a template or snippet of text by pressing TAB. You can see all the default snippets and define your own by going to Tools -&gt; Global options -&gt; Code -&gt; Edit snippets. Snippets are available anywhere in RStudio, not just in R Markdown documents.",
-    "crumbs": [
-      "Home",
-      "Additional Information",
-      "RStudio Configuration"
+      "R Markdown tips"
     ]
   },
   {
@@ -1065,15 +1029,99 @@
     ]
   },
   {
-    "objectID": "appendix/semantic_line_breaks.html",
-    "href": "appendix/semantic_line_breaks.html",
-    "title": "Semantic Line Breaks",
+    "objectID": "appendix/rstudio_config.html",
+    "href": "appendix/rstudio_config.html",
+    "title": "RStudio Configuration",
     "section": "",
-    "text": "Most documents go through several versions (always more than you expected) before they are finally finished. Accordingly, you should do whatever possible to make the job of changing them easy.\nFirst, when you do the purely mechanical operations of typing, type so subsequent editing will be easy. Start each sentence on a new line. Make lines short, and break lines at natural places, such as after commas and semicolons, rather than randomly. Since most people change documents by rewriting phrases and adding, deleting and rearranging sentences, these precautions simplify any editing you have to do later.\n— Brian W. Kernighan, 1974 [9]\n\nSemantic line breaks utilize how markdown treats line breaks and tries to combine it with regular prose text. You can read more about semantic line breaks here: https://sembr.org/\nHere are examples of how it works with markdown syntax\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\nis rendered as:\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\nthis is a very long line that has\nover 80 characterslasdfja asldfja\nsljf lsd jflkadjsf\nis rendered as:\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\n\nAdd a line break\nMarkdown allows 2 spaces at the end of a line for a line break\nthis is a very long line that has&lt;br/&gt;\nover 80 characterslasdfja asldfja&lt;br/&gt;\nsljf lsd jflkadjsf\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\nMarkdown also allows 2 spaces at the end of a line for a line break. THis may not work with many text editor options that strip trailing white space\n\n\nAdd an empty line for a paragraph break\nthis is a very long line that has\n\nover 80 characterslasdfja asldfja\n\nsljf lsd jflkadjsf\nRendered as:\nthis is a very long line that has\nover 80 characterslasdfja asldfja\nsljf lsd jflkadjsf",
+    "text": "In the Tools &gt; Global Options &gt; General Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no .RData is saved when you quit RStudio, and to never save the .RData (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).",
     "crumbs": [
       "Home",
       "Additional Information",
-      "Semantic Line Breaks"
+      "RStudio Configuration"
+    ]
+  },
+  {
+    "objectID": "appendix/rstudio_config.html#global-setup",
+    "href": "appendix/rstudio_config.html#global-setup",
+    "title": "RStudio Configuration",
+    "section": "",
+    "text": "In the Tools &gt; Global Options &gt; General Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no .RData is saved when you quit RStudio, and to never save the .RData (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).",
+    "crumbs": [
+      "Home",
+      "Additional Information",
+      "RStudio Configuration"
+    ]
+  },
+  {
+    "objectID": "appendix/rstudio_config.html#latex-and-xelatex",
+    "href": "appendix/rstudio_config.html#latex-and-xelatex",
+    "title": "RStudio Configuration",
+    "section": "LaTeX and XeLaTeX",
+    "text": "LaTeX and XeLaTeX\nIn the Sweave option\nchange the Sweave option to Knitr, and pdflatex to xelatex.",
+    "crumbs": [
+      "Home",
+      "Additional Information",
+      "RStudio Configuration"
+    ]
+  },
+  {
+    "objectID": "appendix/rstudio_config.html#code-snippets",
+    "href": "appendix/rstudio_config.html#code-snippets",
+    "title": "RStudio Configuration",
+    "section": "Code snippets",
+    "text": "Code snippets\nAs we started to type for above, the code completion popped up and the first entry said “snippet”, what is that? A code snippet is a text macro, which means that you can type a short string of characters to insert a template or snippet of text by pressing TAB. You can see all the default snippets and define your own by going to Tools -&gt; Global options -&gt; Code -&gt; Edit snippets. Snippets are available anywhere in RStudio, not just in R Markdown documents.",
+    "crumbs": [
+      "Home",
+      "Additional Information",
+      "RStudio Configuration"
+    ]
+  },
+  {
+    "objectID": "lectures/8c-asking_questions.html",
+    "href": "lectures/8c-asking_questions.html",
+    "title": "Asking Effective Questions",
+    "section": "",
+    "text": "Asking questions effectively means that the person helping you will be able to answer your question better and quicker. Being able to answer a question quicker means more time to help others, including your future self. When questions require clarification, fewer people will be helped overall. Sometimes this in unavoidable because the question is complex, but all too often it if because the person trying to help is not able to reproduce problem, or the question is unclear.\nWhen you are asking for help online, e.g. on StackOverflow or on GitHub, remember that you are often receiving help from people who are volunteering their time. So please make it as easy as possible for them to help you.\nYou might be frustrated by a problem to the point where you just want to ask something like.\n\nWHY IS THIS **** CODE NOT WORKING??????\n\nDon’t do this. No one will help you. You will get more frustrated.\nWhen I feel like this, I find it really helpful and calming to sit down and type out a proper question. You can start banging out words in the beginning, but as you slowly adhere to the format of asking properly, it will become like a meditative practice which also calms you down.\nIn addition to your mental wellbeing, writing down questions properly has another superb quality: they help you solve your own problems. The act of formulating a question in either speech or text helps you uncover what you missed while the problem was a mere thought. This is so common that it has a name: “Rubber duck debugging” allegedly from a software developer who put a rubber duck on their desk and whenever they had a problem they couldn’t solve, they starting talking to the toy duck, and often came upon the resolution during while describing the problem.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 8c: Ask Effective Questions"
+    ]
+  },
+  {
+    "objectID": "lectures/8c-asking_questions.html#why-even-bother",
+    "href": "lectures/8c-asking_questions.html#why-even-bother",
+    "title": "Asking Effective Questions",
+    "section": "",
+    "text": "Asking questions effectively means that the person helping you will be able to answer your question better and quicker. Being able to answer a question quicker means more time to help others, including your future self. When questions require clarification, fewer people will be helped overall. Sometimes this in unavoidable because the question is complex, but all too often it if because the person trying to help is not able to reproduce problem, or the question is unclear.\nWhen you are asking for help online, e.g. on StackOverflow or on GitHub, remember that you are often receiving help from people who are volunteering their time. So please make it as easy as possible for them to help you.\nYou might be frustrated by a problem to the point where you just want to ask something like.\n\nWHY IS THIS **** CODE NOT WORKING??????\n\nDon’t do this. No one will help you. You will get more frustrated.\nWhen I feel like this, I find it really helpful and calming to sit down and type out a proper question. You can start banging out words in the beginning, but as you slowly adhere to the format of asking properly, it will become like a meditative practice which also calms you down.\nIn addition to your mental wellbeing, writing down questions properly has another superb quality: they help you solve your own problems. The act of formulating a question in either speech or text helps you uncover what you missed while the problem was a mere thought. This is so common that it has a name: “Rubber duck debugging” allegedly from a software developer who put a rubber duck on their desk and whenever they had a problem they couldn’t solve, they starting talking to the toy duck, and often came upon the resolution during while describing the problem.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 8c: Ask Effective Questions"
+    ]
+  },
+  {
+    "objectID": "lectures/8c-asking_questions.html#how-to-ask-effectively",
+    "href": "lectures/8c-asking_questions.html#how-to-ask-effectively",
+    "title": "Asking Effective Questions",
+    "section": "How to ask effectively",
+    "text": "How to ask effectively\nIn essence, you want to make your question as easy to understand as possible and your specific problem as easy to reproduce as possible. If you just include a screenshot and title your question “Help”, the person helping you has to spend time trying to figure out what you actually want help with instead of helping, Instead include a succinct, clear description of your problem and the minimal code needed to reproduce it. If you are asking your question on stack overflow you can use tags to categorize it, and these can then be used to search for an answer via the syntax [tag-name]. This can be especially useful for R, since the name is just one letter and it can be hard to find relevant matches otherwise.\n\nMinimal reproducible example\nThere is a Swedish expression: “beloved child has many names”. No, it does not translate very well to English, but the message is that someone or something that many people like, will be referred to differently by different people. This is true for minimal reproducible examples, which you might find referred to by any of the following:\n\nMRE Minimal Reproducible Example\nMCVE Minimal Complete Verifiable Example\nMWE Minimal Working Example\nreprex REPRoducible EXample\n\nThere have been great articles written on what goes into an MRE, and here are some of them that I recommend that you check out:\n\nhttps://stackoverflow.com/help/how-to-ask\nhttps://stackoverflow.com/help/minimal-reproducible-example\nhttps://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-do-one/5219\nhttps://reprex.tidyverse.org/ (an R package to help creating MREs from code)\n\nIn summary, asking effectively and creating an MRE includes the following tasks:\n\nSearch for other questions similar to yours.\nDescribe the issue clearly in the title and elaborate briefly in the text body.\nReduce the code to the minimum required to recreate your error, and paste it as text.\n\nIf your code includes functions or classes, include their definitions.\nCreate small toy dataset instead of using real data.\nUse markdown code blocks for proper indentation and syntax highlighting.\n\nDescribe what you have tried so far, what you don’t understand or what went wrong, including any error messages and their full traceback.\n\nThe points are elaborated on below:\n\nSearch for other questions similar to yours. Many questions already have an answer, and finding it is faster both for you and for others. If the answer to an existing question is not good enough, improve it by adding the missing info!\nWrite the tile as a summary of your issue. Think about what you would want the title to say if you were searching the issue list for help. Just “Error” or “Question” is not helpful, but “How to list content in a folder?” is.\nIntroduce the problem by briefly describing what you want to do.\nShow what you have tried, explain what you expected to happen, and what went wrong. It is often critical that the person helping you can reproduce the problem, so include both the code or command you tried to run and the error message.\n\nFor coding questions, text is preferred over a screenshot since it is easy to copy and paste, which facilitates reproducing your problem.\nInline code should be surrounded by single backticks for clarity. Longer blocks of code with multiple lines should be surrounded by triple backticks.\n\nInclude versions of any packages you are using, and the operating system if relevant, e.g. Win10, Python 3.8, pandas 1.0.2. On R you can use devtools::session_info() to see this information (after install.packages(\"devtools\")). and on Python you can use sinfo() (after importing: from sinfo import sinfo, needs to be installed via pip install sinfo).\nWhen your problem is solved, acknowledge the solution, close the issue/ticket/question. If you found the solution yourself, post it in a comment before closing, so that others can find it.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 8c: Ask Effective Questions"
+    ]
+  },
+  {
+    "objectID": "lectures/8c-asking_questions.html#lecture-8-activity-3",
+    "href": "lectures/8c-asking_questions.html#lecture-8-activity-3",
+    "title": "Asking Effective Questions",
+    "section": "Lecture 8 Activity 3",
+    "text": "Lecture 8 Activity 3",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 8c: Ask Effective Questions"
     ]
   },
   {
@@ -1461,6 +1509,234 @@
     ]
   },
   {
+    "objectID": "lectures/7a-virtual-environments-conda.html",
+    "href": "lectures/7a-virtual-environments-conda.html",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "",
+    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv\n\nPlatform in focus Conda\nIn this case, conda itself needed to be updated, and along with this update some dependencies also needed to be updated. There is also a NEW package that was INSTALLED in order to update conda. You don’t need to worry about remembering to update conda, it will let you know if it is out of date when you are installing new packages.\nYou can find more information on managing conda in the official documentation: https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-conda.html\nconda will solve any dependencies between the packages like before and create a new environment with those packages. Usually, we don’t need to specify the channel, but in this case I want to get the very latest version of these packages, and they are made available in conda-forge before they reach the default conda channel.\nTo activate this new environment, you can type conda activate test_env (and conda deactivate for deactivating). Since you will do this often, we created an alias shortcut ca that you can use to activate environments. To know the current environment that you’re in you can look at the prefix of the prompt string in your shell which now changed to (test_env). And to see all your environments, you can type conda env list.\nRemember that .yaml files are plain text, so you can use a text editor such as VS Code to open them. If you do, you will realize that this environment file has A LOT more packages than jupyterlab and pandas. This is because the default behavior is to also list the dependencies that were installed together with these packages, e.g. numpy. This is good in the sense that it gives an exact copy of everything in your environment.\nHowever, some dependencies might differ between operating systems, so this file might not work with someone from a different OS. To remedy this, you can append the --from-history flag, which look at the history of the packages you explicitly told conda to install and only list those in the export. The required dependencies will then be handled in an OS-specific manner during the installation, which guarantees that they will work across OSes. This environment.yaml file would be much shorter and look something like this:\nImportantly, this will not include the package version unless you included it when you installed with the package==version syntax. For an environment to be reproducible, you NEED to add the version string manually.\nIn brief, you need to install the ipykernel package in any new environment your create, and the nb_conda_kernels package needs to be installed in the environment where JupyterLab is installed.\nBy default, JupyterLab only sees the conda environment where it is installed. Since it is quite annoying to install JupyterLab and its extensions separately in each environment, there is a package called nb_conda_kernels that makes it possible to have a single installation of JupyterLab access kernels in other conda environments. This package needs to be installed in the conda environment where JupyterLab is installed.\nLastly, you also need to install a kernel in the new conda environment so that it can be detected by nb_conda_kernels. This kernel can be installed via the package ipykernel for Python and the r-irkernel package for R (more info in the nb_conda_kernels README).",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#learning-outcomes",
+    "href": "lectures/7a-virtual-environments-conda.html#learning-outcomes",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "",
+    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv\n\nPlatform in focus Conda",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#activity-1",
+    "href": "lectures/7a-virtual-environments-conda.html#activity-1",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Activity 1",
+    "text": "Activity 1\nImagine you’re working on a project with a colleague, and you’ve created a reproducible report to share your analysis. You want them to replicate your work on their own machine. To demonstrate this, try running the following code on your system:\nfrom palmerpenguins import load_penguins\npenguins = load_penguins()\npenguins.head()",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#virtual-environments",
+    "href": "lectures/7a-virtual-environments-conda.html#virtual-environments",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Virtual environments",
+    "text": "Virtual environments\nVirtual environments let you have multiple versions of packages and programs on the same computer without them creating conflicts with each other. You will be using virtual Python and R environments throughout the program to setup your packages for different courses.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#conda-and-its-ecosystem",
+    "href": "lectures/7a-virtual-environments-conda.html#conda-and-its-ecosystem",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Conda and Its Ecosystem",
+    "text": "Conda and Its Ecosystem\nconda is an open source package and environment management system. It allows you to install libraries and packages as well as their accompanying dependencies. It can work with any programming language, but is mostly popular in the Python community. There is a lot of history and backstory to conda, but we’ll just talk about the main players in the ecosystem.\n\nAnaconda and Miniconda\n“Anaconda” can refer to one of three things: Anaconda, Inc the company, anaconda the python distribution, and anaconda the conda package channel.\nAnaconda, Inc (formerly, Continuum Analytics) is the company that originally created conda. Anaconda also created the anaconda distribution, which comes with conda and many other pre-installed Python packages. The anaconda distribution uses the anaconda channel as the default place to look for conda packages.\n\n\nConda-forge and Miniforge\nMiniconda is also maintained by Anaconda, Inc. It uses conda as the package installer, and also anaconda as the default package channel. The difference is that miniconda does not come with pre-installed python packages. The “mini” is for a smaller more bare-bones installation.\nThe anaconda channel is completely maintained by Anaconda, Inc. People who wanted get their own packages installable by conda needed their own mechanism to share their packages. Also, because Anaconda needs the anaconda distribution to work for their enterprise customers, not every package is on the latest version or would take a long time to get the latest versions of packages you needed. This led to the creation of Conda-Forge, a community maintained channel for conda packages. Now package maintainers can publish the latest versions of their packages to a community maintained repository.\nSince Miniconda is maintained by Anaconda, Inc with the default anaconda channel, Miniforge was created to be a bare-bones installation with conda and using conda-forge as the package channel. This is what we had you install in the MDS Python installation instructions.\n\n\nMamba\nconda allows you to install libraries and packages along with their dependencies. One of the main complaints about conda was the package dependency resolution took a very long time. mamba was created to be a faster C++ implementation of the dependency solver. Since then, mamba has been a drop-in replacement for conda, and the mamba solver is now the default solver used in miniforge.\n\n\nIn short…\n\nAnaconda (capital A): is a company\nanaconda (lower-case a): is a python distribution\nanaconda channel: Set of packages and versions maintained by Anaconda\nconda: is a program that can install packages and their dependencies\nconda-forge is a community maintained channel for conda packages\nminiconda: is an Anaconda maintained python distribution that defaults to the anaconda package channel\nminiforge: is a community maintained python distribution that defaults to the conda-forge package channel\nmamba is a faster drop-in replacement for conda\n\nYou can read more about these differences here: https://conda.org/blog/2024-08-14-conda-ecosystem-explained/",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#activity-2",
+    "href": "lectures/7a-virtual-environments-conda.html#activity-2",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Activity 2",
+    "text": "Activity 2\nWhich of the following items is NOT a benefit of using Conda environments?\nA. Increase code performance\nB. Helping with reproducibility\nC. Using different versions of the same package\nD. Creating isolated computational environment for testing new packages",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#managing-conda",
+    "href": "lectures/7a-virtual-environments-conda.html#managing-conda",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Managing Conda",
+    "text": "Managing Conda\nLet’s first start by checking if conda is installed.\nconda --version\nwhich conda\nTo see which conda commands are available, type conda --help. To see the full documentation for any command of these commands, type the command followed by --help. For example, to learn about the conda update command:\nconda update --help\n\nUpdate Conda\nLet’s update our conda to the latest version. Note that you might already have the latest version since we downloaded it recently.\nconda update conda\nYou will see some information about what there is to update and be asked if you want to confirm. The default choice is indicated with [], and you can press Enter to accept it. It would look similar to this the output below.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#tip",
+    "href": "lectures/7a-virtual-environments-conda.html#tip",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Tip",
+    "text": "Tip\nYou should see conda-forge listed in the top of the output, if not, set the proper channel before running more conda commands (next section). You can cancel the current terminal operation by pressing Ctrl + c",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#managing-environments",
+    "href": "lectures/7a-virtual-environments-conda.html#managing-environments",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Managing Environments",
+    "text": "Managing Environments\nUsing conda, you can create an isolated python environment for your project. An environment is a set of packages that can be used in one or multiple projects. There are several major benefits of using environments:\n\nYou can guarantee that someone else can reproduce your project by specifying which package versions your used and making it easy for others to install the same versions.\nIf two of your projects relies on different versions of the same package, you can install these in different environments.\nIf you want to play around with a new package, you don’t have to change the packages you use for your data analysis and risk messing something up.\nWhen you develop your own packages, it is essential to use environments, since you want to to make sure you know exactly which packages yours depend on, so that it runs on other systems than your own.\n\nThe default environment is the base environment, which contains only the essential bare-bones python installation from Miniforge. You can see that your shell’s prompt string is prefaced with (base) when you are inside this environment. In the setup guide, we gave your instructions for how to activate this environment by default every time you open Bash. There are two ways of creating a conda environment.\n\nManual specifications of packages.\nAn environment file in YAML format (environment.yaml).\n\nMore information about managing conda environments can be found on the documentation page: https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html\n\nCreating environment by manually specifying packages\nWe can create test_env conda environment by typing conda -n &lt;name-of-env&gt;. However, it is often useful to specify more than just the name of the environment, e.g. the channel from which to install packages, the Python version, and a list of packages to install into the new environment.\nIn the example below, we are creating a test_env environment that uses python 3.12 and a list of libraries: jupyterlab and pandas. Miniforge is already set to use the conda-forge channel by default, but we can use the -c flag to specify any package channel (even the anaconda channel)\nconda create -n test_env -c conda-forge python=3.12 pandas=2.2.2 jupyterlab",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#note",
+    "href": "lectures/7a-virtual-environments-conda.html#note",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Note",
+    "text": "Note\nIn the MDS instructions you should have conda-forge set as a default channel, so the -c conda-forge is redundant, but you may see it while looking for installation instructions.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#warning",
+    "href": "lectures/7a-virtual-environments-conda.html#warning",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Warning",
+    "text": "Warning\nWhile you can choose to export your entire environment into a file\nconda env export -f environment.yaml\nYou typically do not want to do this in a shared repository because dependencies may change depending on the operating system used. If there is an actual dependency that needs to be managed, you will manually track it in the environment.yaml.\nThe same general rule will apply for a requirements.txt file and using pip freeze.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#note-1",
+    "href": "lectures/7a-virtual-environments-conda.html#note-1",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Note",
+    "text": "Note\nThis section is a personal preference, it does allow you to easily change between environments within jupyter lab, but if you are not careful, you can end up installing packages in the wrong environment or not realize you are using the wrong environment.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#managing-packages",
+    "href": "lectures/7a-virtual-environments-conda.html#managing-packages",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Managing Packages",
+    "text": "Managing Packages\nIn this section, we will cover how to manage packages within any environment.\n\nList packages in current environment\nWe will now check packages that are available to us. The command below will list all the packages in an environment, in this case test_env. The list will include versions of each package, the specific build, and the channel that the package was downloaded from. conda list is also useful to ensure that you have installed the packages that you desire.\nconda list\n# packages in environment at /home/dan/.pyenv/versions/miniforge3-latest/envs/test_env:\n#\n# Name                    Version                   Build  Channel\n_libgcc_mutex             0.1                 conda_forge    conda-forge\n_openmp_mutex             4.5                       2_gnu    conda-forge\nbzip2                     1.0.8                h4bc722e_7    conda-forge\nca-certificates           2024.8.30            hbcca054_0    conda-forge\nld_impl_linux-64          2.40                 hf3520f5_7    conda-forge\nlibexpat                  2.6.3                h5888daf_0    conda-forge\nlibffi                    3.4.2                h7f98852_5    conda-forge\nlibgcc                    14.1.0               h77fa898_1    conda-forge\nlibgcc-ng                 14.1.0               h69a702a_1    conda-forge\nlibgomp                   14.1.0               h77fa898_1    conda-forge\nlibnsl                    2.0.1                hd590300_0    conda-forge\nlibsqlite                 3.46.1               hadc24fc_0    conda-forge\nlibuuid                   2.38.1               h0b41bf4_0    conda-forge\nlibxcrypt                 4.4.36               hd590300_1    conda-forge\nlibzlib                   1.3.1                h4ab18f5_1    conda-forge\nncurses                   6.5                  he02047a_1    conda-forge\nopenssl                   3.3.2                hb9d3cd8_0    conda-forge\npip                       24.2               pyh8b19718_1    conda-forge\npython                    3.12.5          h2ad013b_0_cpython    conda-forge\nreadline                  8.2                  h8228510_1    conda-forge\nsetuptools                74.1.2             pyhd8ed1ab_0    conda-forge\ntk                        8.6.13          noxft_h4845f30_101    conda-forge\ntzdata                    2024a                h8827d51_1    conda-forge\nwheel                     0.44.0             pyhd8ed1ab_0    conda-forge\nxz                        5.2.6                h166bdaf_0    conda-forge",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#note-2",
+    "href": "lectures/7a-virtual-environments-conda.html#note-2",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Note",
+    "text": "Note\nYou will typically want to have an empty base environment where no packages are installed. All your work in separate classes/projects should exist in their own environment.\nThe above set of packages is what an empty environment with only Python 3.12 installed looks like (on a linux machines). Notably, the typical python data science packages, pandas, numpy, jupyter, etc, are not in the environment.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#removing-a-conda-package",
+    "href": "lectures/7a-virtual-environments-conda.html#removing-a-conda-package",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Removing a conda Package",
+    "text": "Removing a conda Package\nWe decided that rasterio is not needed in this tutorial, so we will remove it from test_env. Note that this will remove the main package rasterio and its dependencies (unless a dependency was installed explicitly at an earlier point in time or is required be another package).\nconda remove -n test_env rasterio\n$ conda remove -n test_env rasterio\nChannels:\n - conda-forge\nPlatform: linux-64\nCollecting package metadata (repodata.json): done\nSolving environment: - WARNING conda.conda_libmamba_solver.solver:_export_solved_records(832): Tried to unlink __unix but it is not installed or manageable?\ndone\n\n## Package Plan ##\n\n  environment location: /home/dan/.pyenv/versions/miniforge3-latest/envs/test_env\n\n  removed specs:\n    - rasterio\n\n\nThe following packages will be REMOVED:\n\n...\n\nProceed ([y]/n)?\n\nPreparing transaction: done\nVerifying transaction: done\nExecuting transaction: done",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#activity-3",
+    "href": "lectures/7a-virtual-environments-conda.html#activity-3",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Activity 3",
+    "text": "Activity 3\nWhat command will activate the test_env environment you just created?\nA. conda activate environment\nB. conda start test_env\nC. conda activate test_env\nD. conda start environment",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#confirming-your-work",
+    "href": "lectures/7a-virtual-environments-conda.html#confirming-your-work",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Confirming your work",
+    "text": "Confirming your work\nMultiple times in this lesson when we are searching, installing, removing packages the output will mention conda-forge. This makes sense since the current setup has only conda-forge in the package channels. You should not see anaconda or default in the output text before you confirm an action.https://conda.org/blog/2024-08-14-conda-ecosystem-explained/",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#additional-links",
+    "href": "lectures/7a-virtual-environments-conda.html#additional-links",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Additional Links",
+    "text": "Additional Links\n\nPip and conda interoperability: https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/pip-interoperability.html\nThey’re working on better conda + pip support: https://github.com/conda-incubator/conda-pypi\nmicromamba project: https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html\npixi (also defaults to conda-forge): https://github.com/prefix-dev/pixi\nConda and Anaconda terms of use: https://www.anaconda.com/blog/is-conda-free",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
+    "objectID": "lectures/7a-virtual-environments-conda.html#attribution",
+    "href": "lectures/7a-virtual-environments-conda.html#attribution",
+    "title": "Virtual Environments: Python + Conda",
+    "section": "Attribution",
+    "text": "Attribution\nThe conda virtual environment section of this guide was originally published at http://geohackweek.github.io/ under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 7a: Virtual environments: conda"
+    ]
+  },
+  {
     "objectID": "lectures/8-regex-filenames-project-organization.html",
     "href": "lectures/8-regex-filenames-project-organization.html",
     "title": "Organization of Data Science projects and some useful tools",
@@ -1809,42 +2085,6 @@
     ]
   },
   {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#why-even-bother",
-    "href": "lectures/8-regex-filenames-project-organization.html#why-even-bother",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Why even bother?",
-    "text": "Why even bother?\nAsking questions effectively means that the person helping you will be able to answer your question better and quicker. Being able to answer a question quicker means more time to help others, including your future self. When questions require clarification, fewer people will be helped overall. Sometimes this in unavoidable because the question is complex, but all too often it if because the person trying to help is not able to reproduce problem, or the question is unclear.\nWhen you are asking for help online, e.g. on StackOverflow or on GitHub, remember that you are often receiving help from people who are volunteering their time. So please make it as easy as possible for them to help you.\nYou might be frustrated by a problem to the point where you just want to ask something like.\n\nWHY IS THIS **** CODE NOT WORKING??????\n\nDon’t do this. No one will help you. You will get more frustrated.\nWhen I feel like this, I find it really helpful and calming to sit down and type out a proper question. You can start banging out words in the beginning, but as you slowly adhere to the format of asking properly, it will become like a meditative practice which also calms you down.\nIn addition to your mental wellbeing, writing down questions properly has another superb quality: they help you solve your own problems. The act of formulating a question in either speech or text helps you uncover what you missed while the problem was a mere thought. This is so common that it has a name: “Rubber duck debugging” allegedly from a software developer who put a rubber duck on their desk and whenever they had a problem they couldn’t solve, they starting talking to the toy duck, and often came upon the resolution during while describing the problem.",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#how-to-ask-effectively",
-    "href": "lectures/8-regex-filenames-project-organization.html#how-to-ask-effectively",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "How to ask effectively",
-    "text": "How to ask effectively\nIn essence, you want to make your question as easy to understand as possible and your specific problem as easy to reproduce as possible. If you just include a screenshot and title your question “Help”, the person helping you has to spend time trying to figure out what you actually want help with instead of helping, Instead include a succinct, clear description of your problem and the minimal code needed to reproduce it. If you are asking your question on stack overflow you can use tags to categorize it, and these can then be used to search for an answer via the syntax [tag-name]. This can be especially useful for R, since the name is just one letter and it can be hard to find relevant matches otherwise.\n\nMinimal reproducible example\nThere is a Swedish expression: “beloved child has many names”. No, it does not translate very well to English, but the message is that someone or something that many people like, will be referred to differently by different people. This is true for minimal reproducible examples, which you might find referred to by any of the following:\n\nMRE Minimal Reproducible Example\nMCVE Minimal Complete Verifiable Example\nMWE Minimal Working Example\nreprex REPRoducible EXample\n\nThere have been great articles written on what goes into an MRE, and here are some of them that I recommend that you check out:\n\nhttps://stackoverflow.com/help/how-to-ask\nhttps://stackoverflow.com/help/minimal-reproducible-example\nhttps://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-do-one/5219\nhttps://reprex.tidyverse.org/ (an R package to help creating MREs from code)\n\nIn summary, asking effectively and creating an MRE includes the following tasks:\n\nSearch for other questions similar to yours.\nDescribe the issue clearly in the title and elaborate briefly in the text body.\nReduce the code to the minimum required to recreate your error, and paste it as text.\n\nIf your code includes functions or classes, include their definitions.\nCreate small toy dataset instead of using real data.\nUse markdown code blocks for proper indentation and syntax highlighting.\n\nDescribe what you have tried so far, what you don’t understand or what went wrong, including any error messages and their full traceback.\n\nThe points are elaborated on below:\n\nSearch for other questions similar to yours. Many questions already have an answer, and finding it is faster both for you and for others. If the answer to an existing question is not good enough, improve it by adding the missing info!\nWrite the tile as a summary of your issue. Think about what you would want the title to say if you were searching the issue list for help. Just “Error” or “Question” is not helpful, but “How to list content in a folder?” is.\nIntroduce the problem by briefly describing what you want to do.\nShow what you have tried, explain what you expected to happen, and what went wrong. It is often critical that the person helping you can reproduce the problem, so include both the code or command you tried to run and the error message.\n\nFor coding questions, text is preferred over a screenshot since it is easy to copy and paste, which facilitates reproducing your problem.\nInline code should be surrounded by single backticks for clarity. Longer blocks of code with multiple lines should be surrounded by triple backticks.\n\nInclude versions of any packages you are using, and the operating system if relevant, e.g. Win10, Python 3.8, pandas 1.0.2. On R you can use devtools::session_info() to see this information (after install.packages(\"devtools\")). and on Python you can use sinfo() (after importing: from sinfo import sinfo, needs to be installed via pip install sinfo).\nWhen your problem is solved, acknowledge the solution, close the issue/ticket/question. If you found the solution yourself, post it in a comment before closing, so that others can find it.",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#lecture-8-activity-3",
-    "href": "lectures/8-regex-filenames-project-organization.html#lecture-8-activity-3",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Lecture 8 Activity 3",
-    "text": "Lecture 8 Activity 3",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
     "objectID": "lectures/8-regex-filenames-project-organization.html#references",
     "href": "lectures/8-regex-filenames-project-organization.html#references",
     "title": "Organization of Data Science projects and some useful tools",
@@ -1890,102 +2130,6 @@
       "Home",
       "Older Materials",
       "Xaringan Slides"
-    ]
-  },
-  {
-    "objectID": "lectures/7b-virtual-environments-renv.html",
-    "href": "lectures/7b-virtual-environments-renv.html",
-    "title": "Virtual environments",
-    "section": "",
-    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv\n\nPlatform in focus Conda",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7b: Virtual environments: renv"
-    ]
-  },
-  {
-    "objectID": "lectures/7b-virtual-environments-renv.html#learning-outcomes",
-    "href": "lectures/7b-virtual-environments-renv.html#learning-outcomes",
-    "title": "Virtual environments",
-    "section": "",
-    "text": "Understand what is a computational environment and how can ensure the reproducibility of a project\nDifferenciate Python, Anaconda, MiniConda, Conda and pip\nManage packages and environments in Python using Conda\nManage packages and environments in R using renv\n\nPlatform in focus Conda",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7b: Virtual environments: renv"
-    ]
-  },
-  {
-    "objectID": "lectures/7b-virtual-environments-renv.html#lecture-7-activity-1",
-    "href": "lectures/7b-virtual-environments-renv.html#lecture-7-activity-1",
-    "title": "Virtual environments",
-    "section": "Lecture 7 Activity 1",
-    "text": "Lecture 7 Activity 1",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7b: Virtual environments: renv"
-    ]
-  },
-  {
-    "objectID": "lectures/7b-virtual-environments-renv.html#conda",
-    "href": "lectures/7b-virtual-environments-renv.html#conda",
-    "title": "Virtual environments",
-    "section": "Conda",
-    "text": "Conda\nconda is an open source package and environment management system for any programming language; though it is the most popular in the python community. Anaconda is a data science platform for Python that comes with a lot of packages by default. Unlike Anaconda, Miniconda doesn’t come with any installed packages by default, and we can pick and choose which ones we want. Both include Python and conda.\nFor example, the MDS Python installation instructions had you install Miniconda. All flavors of *conda give you the conda function in the terminal.\n\nManaging Conda\nLet’s first start by checking if conda is installed.\nconda --version\nwhich conda\nTo see which conda commands are available, type conda --help. To see the full documentation for any command of these commands, type the command followed by --help. For example, to learn about the conda update command:\nconda update --help\nLet’s update our conda to the latest version. Note that you might already have the latest version since we downloaded it recently.\nconda update conda\nYou will see some information about what there is to update and be asked if you want to confirm. The default choice is indicated with [], and you can press Enter to accept it. It would look similar to this:\nUsing Anaconda Cloud api site https://api.anaconda.org\nFetching package metadata: ....\n.Solving package specifications: .........\n\nPackage plan for installation in environment //anaconda:\n\nThe following packages will be downloaded:\n\n    package                    |            build\n    ---------------------------|-----------------\n    conda-env-2.6.0            |                0          601 B\n    ruamel_yaml-0.11.14        |           py27_0         184 KB\n    conda-4.2.12               |           py27_0         376 KB\n    ------------------------------------------------------------\n                                           Total:         560 KB\n\nThe following NEW packages will be INSTALLED:\n\n    ruamel_yaml: 0.11.14-py27_0\n\nThe following packages will be UPDATED:\n\n    conda:       4.0.7-py27_0 --&gt; 4.2.12-py27_0\n    conda-env:   2.4.5-py27_0 --&gt; 2.6.0-0\n    python:      2.7.11-0     --&gt; 2.7.12-1\n    sqlite:      3.9.2-0      --&gt; 3.13.0-0\n\nProceed ([y]/n)? y\n\nFetching packages ...\nconda-env-2.6. 100% |################################| Time: 0:00:00 360.78 kB/s\nruamel_yaml-0. 100% |################################| Time: 0:00:00   5.53 MB/s\nconda-4.2.12-p 100% |################################| Time: 0:00:00   5.84 MB/s\nExtracting packages ...\n[      COMPLETE      ]|###################################################| 100%\nUnlinking packages ...\n[      COMPLETE      ]|###################################################| 100%\nLinking packages ...\n[      COMPLETE      ]|###################################################| 100%\nIn this case, conda itself needed to be updated, and along with this update some dependencies also needed to be updated. There is also a NEW package that was INSTALLED in order to update conda. You don’t need to worry about remembering to update conda, it will let you know if it is out of date when you are installing new packages.",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7b: Virtual environments: renv"
-    ]
-  },
-  {
-    "objectID": "lectures/7b-virtual-environments-renv.html#managing-environments",
-    "href": "lectures/7b-virtual-environments-renv.html#managing-environments",
-    "title": "Virtual environments",
-    "section": "Managing Environments",
-    "text": "Managing Environments\n\nWhat is a conda environment and why is it so useful?\nUsing conda, you can create an isolated python environment for your project. An environment is a set of packages that can be used in one or multiple projects. There are several major benefits of using environments:\n\nYou can guarantee that someone else can reproduce your project by specifying which package versions your used and making it easy for others to install the same versions.\nIf two of your projects relies on different versions of the same package, you can install these in different environments.\nIf you want to play around with a new package, you don’t have to change the packages you use for your data analysis and risk messing something up.\nWhen you develop your own packages, it is essential to use environments, since you want to to make sure you know exactly which packages yours depend on, so that it runs on other systems than your own.\n\nThe default environment is the base environment, which contains only the essential packages from Miniconda (assuming you installed Miniconda). You can see that your shell’s prompt string is prefaced with (base) when you are inside this environment. In the setup guide, we gave your instructions for how to activate this environment by default every time you open Bash. There are two ways of creating a conda environment.\n\nManual specifications of packages.\nAn environment file in YAML format (environment.yaml).\n\n\n\nCreating environment by manually specifying packages\nWe can create test_env conda environment by typing conda -n &lt;name-of-env&gt;. However, it is often useful to specify more than just the name of the environment, e.g. the channel from which to install packages, the Python version, and a list of packages to install into the new env. In the example below, I am creating the test_env environment that uses python 3.7 and a list of libraries: jupyterlab and pandas. I am explicitely installing my packages from the conda-forge repository (also part of the MDS setup instructions).\nconda create -n test_env -c conda-forge python=3.7 jupyterlab pandas=1.0.2\nconda will solve any dependencies between the packages like before and create a new environment with those packages. Usually, we don’t need to specify the channel, but in this case I want to get the very latest version of these packages, and they are made available in conda-forge before they reach the default conda channel.\nTo activate this new environment, you can type conda activate test_env (and conda deactivate for deactivating). Since you will do this often, we created an alias shortcut ca that you can use to activate environments. To know the current environment that you’re in you can look at the prefix of the prompt string in your shell which now changed to (test_env). And to see all your environments, you can type conda env list.\n\nRemoving enviornments\nIf you are creating environments for practice, or you want to recreate an environment you can delete your conda enviornments by:\n# look for all the installed enviornments\nconda env list\n# delete an enviornment\nconda remove --name ENV_NAME --all\nSimiliarly, all your enviornments are installed within your miniconda3 folder, which is typically located in ~/miniconda3 In here you will see an env folder. If you delete the folder with the corresponging enviornment name (e.g., with rm) you can also delete an enviornment this way too.\n\n\n\nSharing Environments with others\nTo share an environment, you can export your conda environment to an environment file, which will list each package and its version in the format package=version=build.\nExporting your environment to a file called environment.yaml (it could be called anything, but this is the conventional name and using it makes it easy for others to recognize that this is a conda env file, the extension can be either .yaml or .yml):\nconda env export -f environment.yaml\nRemember that .yaml files are plain text, so you can use a text editor such as VS Code to open them. If you do, you will realize that this environment file has A LOT more packages than jupyterlab and pandas. This is because the default behavior is to also list the dependencies that were installed together with these packages, e.g. numpy. This is good in the sense that it gives an exact copy of everything in your environment.\nHowever, some dependencies might differ between operating systems, so this file might not work with someone from a different OS. To remedy this, you can append the --from-history flag, which look at the history of the packages you explicitly told conda to install and only list those in the export. The required dependencies will then be handled in an OS-specific manner during the installation, which guarantees that they will work across OSes. This environment.yaml file would be much shorter and look something like this:\nname: test_env\nchannels:\n  - conda-forge\n  - defaults\ndependencies:\n  - conda\n  - python=3.7\n  - pandas==1.0.2\n  - jupyterlab\nImportantly, this will not include the package version unless you included it when you installed with the package==version syntax. For an environment to be reproducible, you NEED to add the version string manually.\n\nLecture\n\n\n\nCreating environment from an environment file\nNow, let’s install environment.yaml environment file above so that we can create a conda environment called test_env.\n$ conda env create --file environment.yaml\n\n\nCopying an environment\nWe can make an exact copy of an environment to an environment with a different name. This maybe useful for any testing versus live environments or different Python 2.7 versions for the same packages. In this example, test_env is cloned to create live_env.\nconda create --name live_env --clone test_env\n\n\nDeleting an environment\nSince we are only testing out our environment, we will delete live_env to remove some clutter. Make sure that you are not currently using live_env.\nconda env remove -n live_env\n\n\nMaking environments work well with JupyterLab\nIn brief, you need to install the ipykernel package in any new environment your create, and the nb_conda_kernels package needs to be installed in the environment where JupyterLab is installed.\nBy default, JupyterLab only sees the conda environment where it is installed. Since it is quite annoying to install JupyterLab and its extensions separately in each environment, there is a package called nb_conda_kernels that makes it possible to have a single installation of JupyterLab access kernels in other conda environments. This package needs to be installed in the conda environment where JupyterLab is installed.\nLastly, you also need to install a kernel in the new conda environment so that it can be detected by nb_conda_kernels. This kernel can be installed via the package ipykernel for Python and the r-irkernel package for R (more info in the nb_conda_kernels README).",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7b: Virtual environments: renv"
-    ]
-  },
-  {
-    "objectID": "lectures/7b-virtual-environments-renv.html#managing-packages",
-    "href": "lectures/7b-virtual-environments-renv.html#managing-packages",
-    "title": "Virtual environments",
-    "section": "Managing Packages",
-    "text": "Managing Packages\n\nSeeing what packages are available\nWe will now check packages that are available to us. The command below will list all the packages in an environment, in this case test_env. The list will include versions of each package, the specific build, and the channel that the package was downloaded from. conda list is also useful to ensure that you have installed the packages that you desire.\nconda list\n# packages in environment at //miniconda/envs/test_env:\n#\nUsing Anaconda Cloud api site https://api.anaconda.org\nblas                      1.1                    openblas    conda-forge\nca-certificates           2016.9.26                     0    conda-forge\ncertifi                   2016.9.26                py27_0    conda-forge\ncycler                    0.10.0                   py27_0    conda-forge\nfreetype                  2.6.3                         1    conda-forge\nfunctools32               3.2.3.2                  py27_1    conda-forge\nlibgfortran               3.0.0                         0    conda-forge\n\n\nSearching for a certain package\nSome packages might not be available in conda, but are available in pypi. For example, we will search for rasterio within the anaconda cloud. It is not necessary to create an account with anaconda cloud, unless you’d like to contribute in the future when you are pro with conda.\nIn this example, we will use rasterio from conda-forge. The anaconda cloud page for rasterio will show how to install the package, compatible OS, individual files for that package, etc.\nWith conda you can do this search within the command line:\nconda search rasterio\nUsing Anaconda Cloud api site https://api.anaconda.org\nRun 'anaconda show &lt;USER/PACKAGE&gt;' to get more details:\nPackages:\n     Name                      |  Version | Package Types   | Platforms\n     ------------------------- |   ------ | --------------- | ---------------\n     IOOS/rasterio             |    1.0a2 | conda           | linux-64, win-32, win-64, osx-64\n     Terradue/rasterio         |   0.32.0 | conda           | linux-64\n                                          : Fast and direct raster I/O for use with Numpy and SciPy\n     anaconda/rasterio         |   0.36.0 | conda           | linux-64, win-32, win-64, linux-32, osx-64\n     conda-forge/rasterio      |    1.0a2 | conda           | linux-64, win-32, win-64, osx-64\n                                          : Rasterio reads and writes geospatial raster datasets\n     dharhas/rasterio          |   0.23.0 | conda           | win-64\n                                          : Rasterio reads and writes geospatial raster datasets.\n     erdc/rasterio             |   0.23.0 | conda           | win-64\n                                          : Rasterio reads and writes geospatial raster datasets.\n     jesserobertson/rasterio   |   0.23.0 | conda           | linux-64, linux-32, osx-64\n     jhamman/rasterio_to_xarray | 2016.03.16-1558 | ipynb           |\n                                          : IPython notebook\n     krisvanneste/rasterio     |   0.26.0 | conda           | win-64\n     ocefpaf/rasterio          |   0.19.1 | conda           | linux-64, osx-64\n     omgarcia/rasterio         |   0.25.0 | conda           | linux-64\n     pypi/rasterio             |   0.13.2 | pypi            |\n                                          : Fast and direct raster I/O for Python programmers who use Numpy\n     robintw/rasterio          |   0.35.1 | conda           | osx-64\n                                          : Rasterio reads and writes geospatial raster datasets\n     sgillies/rasterio         |     0.15 | conda           | osx-64\n     ztessler/rasterio         |   0.31.0 | conda           | osx-64\n                                          : Fast and direct raster I/O for use with Numpy and SciPy\nFound 15 packages\n\n\nInstalling conda package\nUnder the name column of the result in the terminal or the package column in the Anaconda Cloud listing, shows the necessary information to install the package. e.g. conda-forge/rasterio. The first word list the channel that this package is from and the second part shows the name of the package.\nTo install the latest version available within the channel, do not specify in the install command. We will install version 0.35 of rasterio from conda-forge into test_env in this example. Conda will also automatically install the dependencies for this package.\nconda install -c conda-forge rasterio=0.35\nIf you have a few trusted channels that you prefer to use, you can pre-configure these so that everytime you are creating an environment, you won’t need to explicitly declare the channel.\nconda config --add channels conda-forge\n\nRemoving a conda Package\nWe decided that rasterio is not needed in this tutorial, so we will remove it from test_env. Note that this will remove the main package rasterio and its dependencies (unless a dependency was installed explicitly at an earlier point in time or is required be another package).\nconda remove -n test_env rasterio\nUsing Anaconda Cloud api site https://api.anaconda.org\nFetching package metadata .........\nSolving package specifications: ..........\n\nPackage plan for package removal in environment //anaconda/envs/test_env:\n\nThe following packages will be REMOVED:\n\n    rasterio: 0.35.1-np111py27_1 conda-forge\n\nProceed ([y]/n)? y\n\nUnlinking packages ...\n[      COMPLETE      ]|#######################################################################################################| 100%\n\nSelect all the correct answers\nWhich of the following sentences are true about Conda?\nA. It is a command line tool\nB. It is a package manager\nC. It is a Python package\nD. It is installed as part of Anaconda and Miniconda\nE. It is a metapackage\nF. It installs Python\nG. Using it you can handle Python packages only",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7b: Virtual environments: renv"
-    ]
-  },
-  {
-    "objectID": "lectures/7b-virtual-environments-renv.html#attribution",
-    "href": "lectures/7b-virtual-environments-renv.html#attribution",
-    "title": "Virtual environments",
-    "section": "Attribution",
-    "text": "Attribution\nThe conda virtual environment section of this guide was originally published at http://geohackweek.github.io/ under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7b: Virtual environments: renv"
-    ]
-  },
-  {
-    "objectID": "lectures/7b-virtual-environments-renv.html#attribution-1",
-    "href": "lectures/7b-virtual-environments-renv.html#attribution-1",
-    "title": "Virtual environments",
-    "section": "Attribution",
-    "text": "Attribution\nThe conda virtual environment section of this guide was originally published at http://geohackweek.github.io/ under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 7b: Virtual environments: renv"
     ]
   },
   {

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Virtual environments – DSCI 521: Computing Platforms for Data Science</title>
+<title>Virtual Environments: Python + Conda – DSCI 521: Computing Platforms for Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,10 +115,10 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
 
 
-<meta property="og:title" content="Virtual environments – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:title" content="Virtual Environments: Python + Conda – DSCI 521: Computing Platforms for Data Science">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
-<meta name="twitter:title" content="Virtual environments – DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:title" content="Virtual Environments: Python + Conda – DSCI 521: Computing Platforms for Data Science">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -284,6 +284,12 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
  <span class="menu-text">Lecture 8b: Introduction to Regular Expressions (RegEx)</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/8c-asking_questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 8c: Ask Effective Questions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -311,6 +317,12 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <div class="sidebar-item-container"> 
   <a href="../appendix/semantic_line_breaks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Semantic Line Breaks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/rmarkdown_tips.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Markdown tips</span></a>
   </div>
 </li>
       </ul>
@@ -343,38 +355,47 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
-  <li><a href="#virtual-environments" id="toc-virtual-environments" class="nav-link" data-scroll-target="#virtual-environments">Virtual environments</a>
+  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity 1</a></li>
+  <li><a href="#virtual-environments" id="toc-virtual-environments" class="nav-link" data-scroll-target="#virtual-environments">Virtual environments</a></li>
+  <li><a href="#conda-and-its-ecosystem" id="toc-conda-and-its-ecosystem" class="nav-link" data-scroll-target="#conda-and-its-ecosystem">Conda and Its Ecosystem</a>
   <ul class="collapse">
-  <li><a href="#conda" id="toc-conda" class="nav-link" data-scroll-target="#conda">Conda</a>
-  <ul class="collapse">
-  <li><a href="#managing-conda" id="toc-managing-conda" class="nav-link" data-scroll-target="#managing-conda">Managing Conda</a></li>
+  <li><a href="#anaconda-and-miniconda" id="toc-anaconda-and-miniconda" class="nav-link" data-scroll-target="#anaconda-and-miniconda">Anaconda and Miniconda</a></li>
+  <li><a href="#conda-forge-and-miniforge" id="toc-conda-forge-and-miniforge" class="nav-link" data-scroll-target="#conda-forge-and-miniforge">Conda-forge and Miniforge</a></li>
+  <li><a href="#mamba" id="toc-mamba" class="nav-link" data-scroll-target="#mamba">Mamba</a></li>
+  <li><a href="#in-short" id="toc-in-short" class="nav-link" data-scroll-target="#in-short">In short…</a></li>
   </ul></li>
+  <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity 2</a></li>
+  <li><a href="#managing-conda" id="toc-managing-conda" class="nav-link" data-scroll-target="#managing-conda">Managing Conda</a>
+  <ul class="collapse">
+  <li><a href="#update-conda" id="toc-update-conda" class="nav-link" data-scroll-target="#update-conda">Update Conda</a></li>
+  </ul></li>
+  <li><a href="#tip" id="toc-tip" class="nav-link" data-scroll-target="#tip">Tip</a></li>
+  <li><a href="#setup-confirm-conda-forge-channel" id="toc-setup-confirm-conda-forge-channel" class="nav-link" data-scroll-target="#setup-confirm-conda-forge-channel">Setup / Confirm Conda-Forge Channel</a></li>
   <li><a href="#managing-environments" id="toc-managing-environments" class="nav-link" data-scroll-target="#managing-environments">Managing Environments</a>
   <ul class="collapse">
-  <li><a href="#what-is-a-conda-environment-and-why-is-it-so-useful" id="toc-what-is-a-conda-environment-and-why-is-it-so-useful" class="nav-link" data-scroll-target="#what-is-a-conda-environment-and-why-is-it-so-useful">What is a conda environment and why is it so useful?</a></li>
   <li><a href="#creating-environment-by-manually-specifying-packages" id="toc-creating-environment-by-manually-specifying-packages" class="nav-link" data-scroll-target="#creating-environment-by-manually-specifying-packages">Creating environment by manually specifying packages</a></li>
+  </ul></li>
+  <li><a href="#note" id="toc-note" class="nav-link" data-scroll-target="#note">Note</a></li>
   <li><a href="#sharing-environments-with-others" id="toc-sharing-environments-with-others" class="nav-link" data-scroll-target="#sharing-environments-with-others">Sharing Environments with others</a></li>
+  <li><a href="#warning" id="toc-warning" class="nav-link" data-scroll-target="#warning">Warning</a></li>
   <li><a href="#creating-environment-from-an-environment-file" id="toc-creating-environment-from-an-environment-file" class="nav-link" data-scroll-target="#creating-environment-from-an-environment-file">Creating environment from an environment file</a></li>
   <li><a href="#copying-an-environment" id="toc-copying-an-environment" class="nav-link" data-scroll-target="#copying-an-environment">Copying an environment</a></li>
   <li><a href="#deleting-an-environment" id="toc-deleting-an-environment" class="nav-link" data-scroll-target="#deleting-an-environment">Deleting an environment</a></li>
   <li><a href="#making-environments-work-well-with-jupyterlab" id="toc-making-environments-work-well-with-jupyterlab" class="nav-link" data-scroll-target="#making-environments-work-well-with-jupyterlab">Making environments work well with JupyterLab</a></li>
-  </ul></li>
+  <li><a href="#note-1" id="toc-note-1" class="nav-link" data-scroll-target="#note-1">Note</a></li>
   <li><a href="#managing-packages" id="toc-managing-packages" class="nav-link" data-scroll-target="#managing-packages">Managing Packages</a>
   <ul class="collapse">
-  <li><a href="#seeing-what-packages-are-available" id="toc-seeing-what-packages-are-available" class="nav-link" data-scroll-target="#seeing-what-packages-are-available">Seeing what packages are available</a></li>
+  <li><a href="#list-packages-in-current-environment" id="toc-list-packages-in-current-environment" class="nav-link" data-scroll-target="#list-packages-in-current-environment">List packages in current environment</a></li>
+  </ul></li>
+  <li><a href="#note-2" id="toc-note-2" class="nav-link" data-scroll-target="#note-2">Note</a></li>
   <li><a href="#searching-for-a-certain-package" id="toc-searching-for-a-certain-package" class="nav-link" data-scroll-target="#searching-for-a-certain-package">Searching for a certain package</a></li>
   <li><a href="#installing-conda-package" id="toc-installing-conda-package" class="nav-link" data-scroll-target="#installing-conda-package">Installing conda package</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#r-environments" id="toc-r-environments" class="nav-link" data-scroll-target="#r-environments">R environments</a>
-  <ul class="collapse">
+  <li><a href="#removing-a-conda-package" id="toc-removing-a-conda-package" class="nav-link" data-scroll-target="#removing-a-conda-package">Removing a conda Package</a></li>
+  <li><a href="#activity-3" id="toc-activity-3" class="nav-link" data-scroll-target="#activity-3">Activity 3</a></li>
+  <li><a href="#when-there-is-no-conda-package" id="toc-when-there-is-no-conda-package" class="nav-link" data-scroll-target="#when-there-is-no-conda-package">When there is no conda package</a></li>
+  <li><a href="#confirming-your-work" id="toc-confirming-your-work" class="nav-link" data-scroll-target="#confirming-your-work">Confirming your work</a></li>
+  <li><a href="#additional-links" id="toc-additional-links" class="nav-link" data-scroll-target="#additional-links">Additional Links</a></li>
   <li><a href="#attribution" id="toc-attribution" class="nav-link" data-scroll-target="#attribution">Attribution</a></li>
-  </ul></li>
-  <li><a href="#r-markdown-repetition-and-a-few-tips" id="toc-r-markdown-repetition-and-a-few-tips" class="nav-link" data-scroll-target="#r-markdown-repetition-and-a-few-tips">R Markdown repetition and a few tips</a></li>
-  <li><a href="#r-markdown-yaml-header" id="toc-r-markdown-yaml-header" class="nav-link" data-scroll-target="#r-markdown-yaml-header">R Markdown YAML header</a>
-  <ul class="collapse">
-  <li><a href="#attribution-1" id="toc-attribution-1" class="nav-link" data-scroll-target="#attribution-1">Attribution</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -383,7 +404,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/1-MDStools-bash-filesystem.html">Lectures</a></li><li class="breadcrumb-item"><a href="../lectures/7a-virtual-environments-conda.html">Lecture 7a: Virtual environments: conda</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Virtual environments</h1>
+<h1 class="title">Virtual Environments: Python + Conda</h1>
 </div>
 
 
@@ -410,88 +431,153 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </ol>
 <p><strong>Platform in focus</strong> Conda</p>
 </section>
-<div class="activity">
-<section id="lecture-7-activity-1" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="lecture-7-activity-1">Lecture 7 Activity 1</h2>
-</section>
-<div class="activity-container">
-<p>Try to run this code. What do you think it is going on?</p>
+<section id="activity-1" class="level2 activity">
+<h2 class="anchored" data-anchor-id="activity-1">Activity 1</h2>
+<p>Imagine you’re working on a project with a colleague, and you’ve created a reproducible report to share your analysis. You want them to replicate your work on their own machine. To demonstrate this, try running the following code on your system:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> palmerpenguins <span class="im">import</span> load_penguins</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> load_penguins()</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>penguins.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<hr>
-<section id="virtual-environments" class="level1">
-<h1>Virtual environments</h1>
-<p>Virtual environments let’s you have multiple versions of packages and programs on the same computer without them creating conflicts with each other. You will be using virtual Python and R environments throughout the program to setup your packages for different courses.</p>
-<hr>
+</section>
+<section id="virtual-environments" class="level2">
+<h2 class="anchored" data-anchor-id="virtual-environments">Virtual environments</h2>
+<p>Virtual environments let you have multiple versions of packages and programs on the same computer without them creating conflicts with each other. You will be using virtual Python and R environments throughout the program to setup your packages for different courses.</p>
+</section>
+<section id="conda-and-its-ecosystem" class="level2">
+<h2 class="anchored" data-anchor-id="conda-and-its-ecosystem">Conda and Its Ecosystem</h2>
+<p><a href="http://conda.pydata.org/docs/"><strong>conda</strong></a> is an <strong>open source <code>package</code> and <code>environment</code> management system</strong>. It allows you to install libraries and packages as well as their accompanying dependencies. It can work with <em>any</em> programming language, but is mostly popular in the Python community. There is a lot of history and backstory to conda, but we’ll just talk about the main players in the ecosystem.</p>
+<section id="anaconda-and-miniconda" class="level3">
+<h3 class="anchored" data-anchor-id="anaconda-and-miniconda">Anaconda and Miniconda</h3>
+<p>“Anaconda” can refer to one of three things: Anaconda, Inc the company, anaconda the python distribution, and anaconda the conda package channel.</p>
+<p><a href="https://www.anaconda.com/">Anaconda, Inc</a> (formerly, Continuum Analytics) is the <strong>company</strong> that originally created <code>conda</code>. Anaconda also created the <a href="https://www.anaconda.com/download">anaconda distribution</a>, which comes with <code>conda</code> and many other pre-installed Python packages. The anaconda distribution uses the <em>anaconda</em> channel as the default place to look for <code>conda</code> packages.</p>
+</section>
+<section id="conda-forge-and-miniforge" class="level3">
+<h3 class="anchored" data-anchor-id="conda-forge-and-miniforge">Conda-forge and Miniforge</h3>
+<p><a href="https://docs.anaconda.com/miniconda/">Miniconda</a> is also maintained by Anaconda, Inc. It uses <code>conda</code> as the package installer, and also anaconda as the default package channel. The difference is that miniconda does not come with pre-installed python packages. The “mini” is for a smaller more bare-bones installation.</p>
+<p>The anaconda channel is completely maintained by Anaconda, Inc. People who wanted get their own packages installable by <code>conda</code> needed their own mechanism to share their packages. Also, because Anaconda needs the anaconda distribution to work for their enterprise customers, not every package is on the latest version or would take a long time to get the latest versions of packages you needed. This led to the creation of <a href="https://conda-forge.org/">Conda-Forge</a>, a <strong>community</strong> maintained channel for conda packages. Now package maintainers can publish the latest versions of their packages to a community maintained repository.</p>
+<p>Since Miniconda is maintained by Anaconda, Inc with the default anaconda channel, Miniforge was created to be a bare-bones installation with conda and using conda-forge as the package channel. This is what we had you install in the <a href="https://ubc-mds.github.io/resources_pages/installation_instructions/">MDS Python installation instructions</a>.</p>
+</section>
+<section id="mamba" class="level3">
+<h3 class="anchored" data-anchor-id="mamba">Mamba</h3>
+<p><code>conda</code> allows you to install libraries and packages along with their dependencies. One of the main complaints about <code>conda</code> was the package dependency resolution took a very long time. <code>mamba</code> was created to be a faster C++ implementation of the dependency solver. Since then, <code>mamba</code> has been a drop-in replacement for <code>conda</code>, and the <code>mamba</code> solver is now the default solver used in miniforge.</p>
+</section>
+<section id="in-short" class="level3">
+<h3 class="anchored" data-anchor-id="in-short">In short…</h3>
+<ul>
+<li>Anaconda (capital A): is a company</li>
+<li>anaconda (lower-case a): is a python distribution</li>
+<li>anaconda channel: Set of packages and versions maintained by Anaconda</li>
+<li><code>conda</code>: is a program that can install packages and their dependencies</li>
+<li>conda-forge is a community maintained channel for conda packages</li>
+<li>miniconda: is an Anaconda maintained python distribution that defaults to the anaconda package channel</li>
+<li>miniforge: is a community maintained python distribution that defaults to the conda-forge package channel</li>
+<li><code>mamba</code> is a faster drop-in replacement for <code>conda</code></li>
+</ul>
+<p>You can read more about these differences here: <a href="https://conda.org/blog/2024-08-14-conda-ecosystem-explained/" class="uri">https://conda.org/blog/2024-08-14-conda-ecosystem-explained/</a></p>
+</section>
+</section>
+<section id="activity-2" class="level2 activity">
+<h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
 <p>Which of the following items is NOT a benefit of using Conda environments?</p>
 <pre><code>A. Increase code performance
 B. Helping with reproducibility
 C. Using different versions of the same package
 D. Creating isolated computational environment for testing new packages</code></pre>
-<hr>
-<section id="conda" class="level2">
-<h2 class="anchored" data-anchor-id="conda">Conda</h2>
-<p><a href="http://conda.pydata.org/docs/"><strong>conda</strong></a> is an <strong>open source <code>package</code> and <code>environment</code> management system for any programming language</strong>; though it is the most popular in the python community. <a href="https://www.continuum.io/why-anaconda">Anaconda</a> is a data science platform for Python that comes with a lot of packages by default. Unlike Anaconda, Miniconda doesn’t come with any installed packages by default, and we can pick and choose which ones we want. Both include Python and conda.</p>
-<p>For example, the <a href="https://ubc-mds.github.io/resources_pages/install_ds_stack_mac/#python-conda-and-jupyterlab">MDS Python installation instructions</a> had you install Miniconda. All flavors of <code>*conda</code> give you the <code>conda</code> function in the terminal.</p>
-<section id="managing-conda" class="level3">
-<h3 class="anchored" data-anchor-id="managing-conda">Managing Conda</h3>
+</section>
+<section id="managing-conda" class="level2">
+<h2 class="anchored" data-anchor-id="managing-conda">Managing Conda</h2>
 <p>Let’s first start by checking if conda is installed.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">--version</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> conda</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To see which conda commands are available, type <code>conda --help</code>. To see the full documentation for any command of these commands, type the command followed by <code>--help</code>. For example, to learn about the conda update command:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="update-conda" class="level3">
+<h3 class="anchored" data-anchor-id="update-conda">Update Conda</h3>
 <p>Let’s update our conda to the latest version. Note that you might already have the latest version since we downloaded it recently.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update conda</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You will see some information about what there is to update and be asked if you want to confirm. The default choice is indicated with <code>[]</code>, and you can press <kbd>Enter</kbd> to accept it. It would look similar to this:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> Anaconda Cloud api site https://api.anaconda.org</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Fetching</span> package metadata: ....</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">.Solving</span> package specifications: .........</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Package</span> plan for installation in environment //anaconda:</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following packages will be downloaded:</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">package</span>                    <span class="kw">|</span>            <span class="ex">build</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">---------------------------</span><span class="kw">|</span><span class="ex">-----------------</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">conda-env-2.6.0</span>            <span class="kw">|</span>                <span class="ex">0</span>          601 B</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ruamel_yaml-0.11.14</span>        <span class="kw">|</span>           <span class="ex">py27_0</span>         184 KB</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">conda-4.2.12</span>               <span class="kw">|</span>           <span class="ex">py27_0</span>         376 KB</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">------------------------------------------------------------</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                                           <span class="ex">Total:</span>         560 KB</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following NEW packages will be INSTALLED:</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ruamel_yaml:</span> 0.11.14-py27_0</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following packages will be UPDATED:</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="ex">conda:</span>       4.0.7-py27_0 <span class="at">--</span><span class="op">&gt;</span> 4.2.12-py27_0</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="ex">conda-env:</span>   2.4.5-py27_0 <span class="at">--</span><span class="op">&gt;</span> 2.6.0-0</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="ex">python:</span>      2.7.11-0     <span class="at">--</span><span class="op">&gt;</span> 2.7.12-1</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sqlite:</span>      3.9.2-0      <span class="at">--</span><span class="op">&gt;</span> 3.13.0-0</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="ex">Proceed</span> <span class="er">(</span><span class="ex">[y]/n</span><span class="kw">)</span><span class="ex">?</span> y</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="ex">Fetching</span> packages ...</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="ex">conda-env-2.6.</span> 100% <span class="kw">|</span><span class="co">################################| Time: 0:00:00 360.78 kB/s</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="ex">ruamel_yaml-0.</span> 100% <span class="kw">|</span><span class="co">################################| Time: 0:00:00   5.53 MB/s</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="ex">conda-4.2.12-p</span> 100% <span class="kw">|</span><span class="co">################################| Time: 0:00:00   5.84 MB/s</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="ex">Extracting</span> packages ...</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="bu">[</span>      COMPLETE      <span class="bu">]</span><span class="kw">|</span><span class="co">###################################################| 100%</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="ex">Unlinking</span> packages ...</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="bu">[</span>      COMPLETE      <span class="bu">]</span><span class="kw">|</span><span class="co">###################################################| 100%</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="ex">Linking</span> packages ...</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="bu">[</span>      COMPLETE      <span class="bu">]</span><span class="kw">|</span><span class="co">###################################################| 100%</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In this case, conda itself needed to be updated, and along with this update some dependencies also needed to be updated. There is also a NEW package that was INSTALLED in order to update conda. You don’t need to worry about remembering to update conda, it will let you know if it is out of date when you are installing new packages.</p>
+<p>You will see some information about what there is to update and be asked if you want to confirm. The default choice is indicated with <code>[]</code>, and you can press <kbd>Enter</kbd> to accept it. It would look similar to this the output below.</p>
 </section>
+</section>
+<section id="tip" class="level2 tip">
+<h2 class="anchored" data-anchor-id="tip">Tip</h2>
+<p>You should see <code>conda-forge</code> listed in the top of the output, if not, set the proper channel before running more conda commands (next section). You can cancel the current terminal operation by pressing <kbd>Ctrl</kbd> + <kbd>c</kbd></p>
+</section>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda update conda</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Retrieving</span> notices: ...working... done</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Channels:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> conda-forge</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Platform:</span> linux-64</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> package metadata <span class="er">(</span><span class="ex">repodata.json</span><span class="kw">)</span><span class="bu">:</span> done</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Solving</span> environment: done</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Package Plan ##</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">environment</span> location: /home/dan/.pyenv/versions/miniforge3-latest</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">added</span> / updated specs:</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-</span> conda</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following packages will be downloaded:</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">package</span>                    <span class="kw">|</span>            <span class="ex">build</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="ex">---------------------------</span><span class="kw">|</span><span class="ex">-----------------</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ca-certificates-2024.8.30</span>  <span class="kw">|</span>       <span class="ex">hbcca054_0</span>         155 KB  conda-forge</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="ex">certifi-2024.8.30</span>          <span class="kw">|</span>     <span class="ex">pyhd8ed1ab_0</span>         160 KB  conda-forge</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="ex">conda-24.7.1</span>               <span class="kw">|</span>  <span class="ex">py310hff52083_0</span>         940 KB  conda-forge</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="ex">frozendict-2.4.4</span>           <span class="kw">|</span>  <span class="ex">py310hc51659f_0</span>          48 KB  conda-forge</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="ex">libgcc-14.1.0</span>              <span class="kw">|</span>       <span class="ex">h77fa898_1</span>         827 KB  conda-forge</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="ex">libgcc-ng-14.1.0</span>           <span class="kw">|</span>       <span class="ex">h69a702a_1</span>          51 KB  conda-forge</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="ex">libgomp-14.1.0</span>             <span class="kw">|</span>       <span class="ex">h77fa898_1</span>         449 KB  conda-forge</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="ex">openssl-3.3.2</span>              <span class="kw">|</span>       <span class="ex">hb9d3cd8_0</span>         2.8 MB  conda-forge</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="ex">------------------------------------------------------------</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>                                           <span class="ex">Total:</span>         5.3 MB</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following NEW packages will be INSTALLED:</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>  <span class="ex">frozendict</span>         conda-forge/linux-64::frozendict-2.4.4-py310hc51659f_0</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>  <span class="ex">libgcc</span>             conda-forge/linux-64::libgcc-14.1.0-h77fa898_1</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following packages will be UPDATED:</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>  <span class="ex">ca-certificates</span>                       2024.2.2-hbcca054_0 <span class="at">--</span><span class="op">&gt;</span> 2024.8.30-hbcca054_0</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>  <span class="ex">certifi</span>                             2024.2.2-pyhd8ed1ab_0 <span class="at">--</span><span class="op">&gt;</span> 2024.8.30-pyhd8ed1ab_0</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>  <span class="ex">conda</span>                              24.1.2-py310hff52083_0 <span class="at">--</span><span class="op">&gt;</span> 24.7.1-py310hff52083_0</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>  <span class="ex">libgcc-ng</span>                               13.2.0-h807b86a_5 <span class="at">--</span><span class="op">&gt;</span> 14.1.0-h69a702a_1</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>  <span class="ex">libgomp</span>                                 13.2.0-h807b86a_5 <span class="at">--</span><span class="op">&gt;</span> 14.1.0-h77fa898_1</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>  <span class="ex">openssl</span>                                  3.2.1-hd590300_1 <span class="at">--</span><span class="op">&gt;</span> 3.3.2-hb9d3cd8_0</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="ex">Proceed</span> <span class="er">(</span><span class="ex">[y]/n</span><span class="kw">)</span><span class="ex">?</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="ex">Downloading</span> and Extracting Packages:</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="ex">Preparing</span> transaction: done</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="ex">Verifying</span> transaction: done</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="ex">Executing</span> transaction: done</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this case, conda itself needed to be updated, and along with this update some dependencies also needed to be updated. There is also a NEW package that was INSTALLED in order to update conda. You don’t need to worry about remembering to update conda, it will let you know if it is out of date when you are installing new packages.</p>
+<p>You can find more information on managing <code>conda</code> in the official documentation: <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-conda.html" class="uri">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-conda.html</a></p>
+<section id="setup-confirm-conda-forge-channel" class="level3">
+<h3 class="anchored" data-anchor-id="setup-confirm-conda-forge-channel">Setup / Confirm Conda-Forge Channel</h3>
+<p>The official conda-forge documentation has the setup instructions to make sure it is set up as the default conda package channel: <a href="https://conda-forge.org/docs/user/introduction/" class="uri">https://conda-forge.org/docs/user/introduction/</a></p>
+<p>You can check</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--show</span> channels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You should see conda-forge at the top of the list (ideally the only entry)</p>
+<pre><code>channels:
+  - conda-forge</code></pre>
+<p>From the <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html">managing channel documentation</a>:</p>
+<blockquote class="blockquote">
+<p>There will be no channel collisions if you use only the defaults channel. There will also be no channel collisions if all of the channels you use only contain packages that do not exist in any of the other channels in your list. The way conda resolves these collisions matters only when you have multiple channels in your channel list that host the same package.</p>
+</blockquote>
+<p>If you do not see <code>conda-forge</code> listed and if it’s not listed on the top of the channels list run the following commands to add and set it to the top.</p>
+<p>Add conda-forge as the highest priority channel.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels conda-forge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Activate strict channel priority (strict will be activated by default in conda 5.0).</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--set</span> channel_priority strict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can then re-run <code>conda config --show channels</code> to confirm that <code>conda-forge</code> is listed in the highest priority.</p>
 </section>
 <section id="managing-environments" class="level2">
 <h2 class="anchored" data-anchor-id="managing-environments">Managing Environments</h2>
-<section id="what-is-a-conda-environment-and-why-is-it-so-useful" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-a-conda-environment-and-why-is-it-so-useful">What is a conda environment and why is it so useful?</h3>
 <p>Using <code>conda</code>, you can create an isolated python <em>environment</em> for your project. An environment is a set of packages that can be used in one or multiple projects. There are several major benefits of using environments:</p>
 <ul>
 <li>You can guarantee that someone else can reproduce your project by specifying which package versions your used and making it easy for others to install the same versions.</li>
@@ -499,214 +585,200 @@ D. Creating isolated computational environment for testing new packages</code></
 <li>If you want to play around with a new package, you don’t have to change the packages you use for your data analysis and risk messing something up.</li>
 <li>When you develop your own packages, it is essential to use environments, since you want to to make sure you know exactly which packages yours depend on, so that it runs on other systems than your own.</li>
 </ul>
-<p>The default environment is the <code>base</code> environment, which contains only the essential packages from Miniconda (assuming you installed Miniconda). You can see that your shell’s prompt string is prefaced with <code>(base)</code> when you are inside this environment. In the setup guide, we gave your instructions for how to activate this environment by default every time you open Bash. There are two ways of creating a conda environment.</p>
+<p>The default environment is the <code>base</code> environment, which contains only the essential bare-bones python installation from Miniforge. You can see that your shell’s prompt string is prefaced with <code>(base)</code> when you are inside this environment. In the setup guide, we gave your instructions for how to activate this environment by default every time you open Bash. There are two ways of creating a conda environment.</p>
 <ol type="1">
 <li>Manual specifications of packages.</li>
 <li>An environment file in YAML format (<code>environment.yaml</code>).</li>
 </ol>
-</section>
+<p>More information about managing conda environments can be found on the documentation page: <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html" class="uri">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a></p>
 <section id="creating-environment-by-manually-specifying-packages" class="level3">
 <h3 class="anchored" data-anchor-id="creating-environment-by-manually-specifying-packages">Creating environment by manually specifying packages</h3>
-<p>We can create <code>test_env</code> conda environment by typing <code>conda -n &lt;name-of-env&gt;</code>. However, it is often useful to specify more than just the name of the environment, e.g.&nbsp;the channel from which to install packages, the Python version, and a list of packages to install into the new env. In the example below, I am creating the <code>test_env</code> environment that uses python 3.7 and a list of libraries: <code>jupyterlab</code> and <code>pandas</code>. I am explicitely installing my packages from the <code>conda-forge</code> repository (also part of the MDS setup instructions).</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> test_env <span class="at">-c</span> conda-forge python=3.7 jupyterlab pandas=1.0.2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can create <code>test_env</code> conda environment by typing <code>conda -n &lt;name-of-env&gt;</code>. However, it is often useful to specify more than just the name of the environment, e.g.&nbsp;the channel from which to install packages, the Python version, and a list of packages to install into the new environment.</p>
+<p>In the example below, we are creating a <code>test_env</code> environment that uses python 3.12 and a list of libraries: <code>jupyterlab</code> and <code>pandas</code>. Miniforge is already set to use the conda-forge channel by default, but we can use the <code>-c</code> flag to specify any package channel (even the anaconda channel)</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> test_env <span class="at">-c</span> conda-forge python=3.12 pandas=2.2.2 jupyterlab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="note" class="level2 note">
+<h2 class="anchored" data-anchor-id="note">Note</h2>
+<p>In the MDS instructions you should have conda-forge set as a default channel, so the <code>-c conda-forge</code> is redundant, but you may see it while looking for installation instructions.</p>
+</section>
 <p>conda will solve any dependencies between the packages like before and create a new environment with those packages. Usually, we don’t need to specify the channel, but in this case I want to get the very latest version of these packages, and they are made available in <code>conda-forge</code> before they reach the default conda channel.</p>
 <p>To activate this new environment, you can type <code>conda activate test_env</code> (and <code>conda deactivate</code> for deactivating). Since you will do this often, we created an alias shortcut <code>ca</code> that you can use to activate environments. To know the current environment that you’re in you can look at the prefix of the prompt string in your shell which now changed to (<code>test_env</code>). And to see all your environments, you can type <code>conda env list</code>.</p>
-<section id="removing-enviornments" class="level4">
-<h4 class="anchored" data-anchor-id="removing-enviornments">Removing enviornments</h4>
-<p>If you are creating environments for practice, or you want to recreate an environment you can delete your conda enviornments by:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look for all the installed enviornments</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># delete an enviornment</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="at">--name</span> ENV_NAME <span class="at">--all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Similiarly, all your enviornments are installed within your <code>miniconda3</code> folder, which is typically located in <code>~/miniconda3</code> In here you will see an <code>env</code> folder. If you delete the folder with the corresponging enviornment name (e.g., with <code>rm</code>) you can also delete an enviornment this way too.</p>
-</section>
+<section id="removing-environments" class="level4">
+<h4 class="anchored" data-anchor-id="removing-environments">Removing environments</h4>
+<p>If you are creating environments for practice, or you want to recreate an environment you can delete your conda environments by:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look for all the installed environments</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># delete an environment</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="at">--name</span> ENV_NAME <span class="at">--all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Similarly, all your environments are installed within your <code>miniconda3</code> folder, which is typically located in <code>~/miniconda3</code> In here you will see an <code>env</code> folder. If you delete the folder with the corresponding environment name (e.g., with <code>rm</code>) you can also delete an environment this way too.</p>
 </section>
 <section id="sharing-environments-with-others" class="level3">
 <h3 class="anchored" data-anchor-id="sharing-environments-with-others">Sharing Environments with others</h3>
 <p>To share an environment, you can export your conda environment to an environment file, which will list each package and its version in the format <code>package=version=build</code>.</p>
 <p>Exporting your environment to a file called <code>environment.yaml</code> (it could be called anything, but this is the conventional name and using it makes it easy for others to recognize that this is a conda env file, the extension can be either <code>.yaml</code> or <code>.yml</code>):</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env export <span class="at">-f</span> environment.yaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="warning" class="level2 warning">
+<h2 class="anchored" data-anchor-id="warning">Warning</h2>
+<p>While you can choose to export your <em>entire</em> environment into a file</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env export <span class="at">-f</span> environment.yaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You typically do not want to do this in a shared repository because dependencies may change depending on the operating system used. If there is an actual dependency that needs to be managed, you will manually track it in the <code>environment.yaml</code>.</p>
+<p>The same general rule will apply for a <code>requirements.txt</code> file and using <code>pip freeze</code>.</p>
+</section>
 <p>Remember that <code>.yaml</code> files are plain text, so you can use a text editor such as VS Code to open them. If you do, you will realize that this environment file has A LOT more packages than <code>jupyterlab</code> and <code>pandas</code>. This is because the default behavior is to also list the dependencies that were installed together with these packages, e.g.&nbsp;<code>numpy</code>. This is good in the sense that it gives an exact copy of <em>everything</em> in your environment.</p>
 <p>However, some dependencies might differ between operating systems, so this file <em>might</em> not work with someone from a different OS. To remedy this, you can append the <code>--from-history</code> flag, which look at the history of the packages you explicitly told conda to install and only list those in the export. The required dependencies will then be handled in an OS-specific manner during the installation, which guarantees that they will work across OSes. This <code>environment.yaml</code> file would be much shorter and look something like this:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> test_env</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">channels</span><span class="kw">:</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> conda-forge</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> defaults</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dependencies</span><span class="kw">:</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> conda</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> python=3.7</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> pandas==1.0.2</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> jupyterlab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> test_env</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">channels</span><span class="kw">:</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> conda-forge</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dependencies</span><span class="kw">:</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> conda</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> python=3.12</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> pandas==2.2.2</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> jupyterlab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Importantly, this will not include the package version unless you included it when you installed with the <code>package==version</code> syntax. For an environment to be reproducible, you <strong>NEED</strong> to add the version string manually.</p>
-<hr>
-<p><strong>Lecture</strong></p>
-<hr>
-</section>
 <section id="creating-environment-from-an-environment-file" class="level3">
 <h3 class="anchored" data-anchor-id="creating-environment-from-an-environment-file">Creating environment from an environment file</h3>
 <p>Now, let’s install <code>environment.yaml</code> environment file above so that we can create a conda environment called <code>test_env</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda env create <span class="at">--file</span> environment.yaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda env create <span class="at">--file</span> environment.yaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="copying-an-environment" class="level3">
 <h3 class="anchored" data-anchor-id="copying-an-environment">Copying an environment</h3>
 <p>We can make an exact copy of an environment to an environment with a different name. This maybe useful for any testing versus live environments or different Python 2.7 versions for the same packages. In this example, <code>test_env</code> is cloned to create <code>live_env</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> live_env <span class="at">--clone</span> test_env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> live_env <span class="at">--clone</span> test_env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="deleting-an-environment" class="level3">
 <h3 class="anchored" data-anchor-id="deleting-an-environment">Deleting an environment</h3>
 <p>Since we are only testing out our environment, we will delete <code>live_env</code> to remove some clutter. <em>Make sure that you are not currently using <code>live_env</code>.</em></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">-n</span> live_env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">-n</span> live_env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="making-environments-work-well-with-jupyterlab" class="level3">
 <h3 class="anchored" data-anchor-id="making-environments-work-well-with-jupyterlab">Making environments work well with JupyterLab</h3>
+</section>
+<section id="note-1" class="level2 note">
+<h2 class="anchored" data-anchor-id="note-1">Note</h2>
+<p>This section is a personal preference, it does allow you to easily change between environments within jupyter lab, but if you are not careful, you can end up installing packages in the wrong environment or not realize you are using the wrong environment.</p>
+</section>
 <p>In brief, you need to install the <code>ipykernel</code> package in any new environment your create, and the <code>nb_conda_kernels</code> package needs to be installed in the environment where JupyterLab is installed.</p>
 <p>By default, JupyterLab only sees the conda environment where it is installed. Since it is quite annoying to install JupyterLab and its extensions separately in each environment, there is a package called <code>nb_conda_kernels</code> that makes it possible to have a single installation of JupyterLab access kernels in other conda environments. This package needs to be installed in the conda environment where JupyterLab is installed.</p>
 <p>Lastly, you also need to install a kernel in the new conda environment so that it can be detected by <code>nb_conda_kernels</code>. This kernel can be installed via the package <code>ipykernel</code> for Python and the <code>r-irkernel</code> package for R (<a href="https://github.com/Anaconda-Platform/nb_conda_kernels#installation">more info in the nb_conda_kernels README</a>).</p>
-</section>
-</section>
 <section id="managing-packages" class="level2">
 <h2 class="anchored" data-anchor-id="managing-packages">Managing Packages</h2>
-<section id="seeing-what-packages-are-available" class="level3">
-<h3 class="anchored" data-anchor-id="seeing-what-packages-are-available">Seeing what packages are available</h3>
+<p>In this section, we will cover how to manage packages within any environment.</p>
+<section id="list-packages-in-current-environment" class="level3">
+<h3 class="anchored" data-anchor-id="list-packages-in-current-environment">List packages in current environment</h3>
 <p>We will now check packages that are available to us. The command below will list all the packages in an environment, in this case <code>test_env</code>. The list will include versions of each package, the specific build, and the channel that the package was downloaded from. <code>conda list</code> is also useful to ensure that you have installed the packages that you desire.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># packages in environment at //miniconda/envs/test_env:</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> Anaconda Cloud api site https://api.anaconda.org</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="ex">blas</span>                      1.1                    openblas    conda-forge</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ca-certificates</span>           2016.9.26                     0    conda-forge</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="ex">certifi</span>                   2016.9.26                py27_0    conda-forge</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="ex">cycler</span>                    0.10.0                   py27_0    conda-forge</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="ex">freetype</span>                  2.6.3                         1    conda-forge</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="ex">functools32</span>               3.2.3.2                  py27_1    conda-forge</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="ex">libgfortran</span>               3.0.0                         0    conda-forge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># packages in environment at /home/dan/.pyenv/versions/miniforge3-latest/envs/test_env:</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Name                    Version                   Build  Channel</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ex">_libgcc_mutex</span>             0.1                 conda_forge    conda-forge</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ex">_openmp_mutex</span>             4.5                       2_gnu    conda-forge</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">bzip2</span>                     1.0.8                h4bc722e_7    conda-forge</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ca-certificates</span>           2024.8.30            hbcca054_0    conda-forge</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ld_impl_linux-64</span>          2.40                 hf3520f5_7    conda-forge</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="ex">libexpat</span>                  2.6.3                h5888daf_0    conda-forge</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="ex">libffi</span>                    3.4.2                h7f98852_5    conda-forge</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="ex">libgcc</span>                    14.1.0               h77fa898_1    conda-forge</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="ex">libgcc-ng</span>                 14.1.0               h69a702a_1    conda-forge</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="ex">libgomp</span>                   14.1.0               h77fa898_1    conda-forge</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="ex">libnsl</span>                    2.0.1                hd590300_0    conda-forge</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="ex">libsqlite</span>                 3.46.1               hadc24fc_0    conda-forge</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="ex">libuuid</span>                   2.38.1               h0b41bf4_0    conda-forge</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="ex">libxcrypt</span>                 4.4.36               hd590300_1    conda-forge</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="ex">libzlib</span>                   1.3.1                h4ab18f5_1    conda-forge</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="ex">ncurses</span>                   6.5                  he02047a_1    conda-forge</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="ex">openssl</span>                   3.3.2                hb9d3cd8_0    conda-forge</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span>                       24.2               pyh8b19718_1    conda-forge</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span>                    3.12.5          h2ad013b_0_cpython    conda-forge</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="ex">readline</span>                  8.2                  h8228510_1    conda-forge</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="ex">setuptools</span>                74.1.2             pyhd8ed1ab_0    conda-forge</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="ex">tk</span>                        8.6.13          noxft_h4845f30_101    conda-forge</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="ex">tzdata</span>                    2024a                h8827d51_1    conda-forge</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="ex">wheel</span>                     0.44.0             pyhd8ed1ab_0    conda-forge</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="fu">xz</span>                        5.2.6                h166bdaf_0    conda-forge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="note-2" class="level2 note">
+<h2 class="anchored" data-anchor-id="note-2">Note</h2>
+<p>You will typically want to have an empty <code>base</code> environment where no packages are installed. All your work in separate classes/projects should exist in their own environment.</p>
+<p>The above set of packages is what an empty environment with only Python 3.12 installed looks like (on a linux machines). Notably, the typical python data science packages, <code>pandas</code>, <code>numpy</code>, <code>jupyter</code>, etc, are not in the environment.</p>
 </section>
 <section id="searching-for-a-certain-package" class="level3">
 <h3 class="anchored" data-anchor-id="searching-for-a-certain-package">Searching for a certain package</h3>
 <p>Some packages might not be available in conda, but are available in <a href="https://pypi.python.org/pypi">pypi</a>. For example, we will search for rasterio within the <a href="https://anaconda.org/">anaconda cloud</a>. <em>It is not necessary to create an account with anaconda cloud, unless you’d like to contribute in the future when you are pro with conda.</em></p>
 <p>In this example, we will use rasterio from conda-forge. The anaconda cloud page for rasterio will show how to install the package, compatible OS, individual files for that package, etc.</p>
 <p>With conda you can do this search within the command line:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> search rasterio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> Anaconda Cloud api site https://api.anaconda.org</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Run</span> <span class="st">'anaconda show &lt;USER/PACKAGE&gt;'</span> to get more details:</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Packages:</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>     <span class="ex">Name</span>                      <span class="kw">|</span>  <span class="ex">Version</span> <span class="kw">|</span> <span class="ex">Package</span> Types   <span class="kw">|</span> <span class="ex">Platforms</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>     <span class="ex">-------------------------</span> <span class="kw">|</span>   <span class="ex">------</span> <span class="kw">|</span> <span class="ex">---------------</span> <span class="kw">|</span> <span class="ex">---------------</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>     <span class="ex">IOOS/rasterio</span>             <span class="kw">|</span>    <span class="ex">1.0a2</span> <span class="kw">|</span> <span class="ex">conda</span>           <span class="kw">|</span> <span class="ex">linux-64,</span> win-32, win-64, osx-64</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>     <span class="ex">Terradue/rasterio</span>         <span class="kw">|</span>   <span class="ex">0.32.0</span> <span class="kw">|</span> <span class="ex">conda</span>           <span class="kw">|</span> <span class="ex">linux-64</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>                                          <span class="bu">:</span> Fast and direct raster I/O for use with Numpy and SciPy</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>     <span class="ex">anaconda/rasterio</span>         <span class="kw">|</span>   <span class="ex">0.36.0</span> <span class="kw">|</span> <span class="ex">conda</span>           <span class="kw">|</span> <span class="ex">linux-64,</span> win-32, win-64, linux-32, osx-64</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>     <span class="ex">conda-forge/rasterio</span>      <span class="kw">|</span>    <span class="ex">1.0a2</span> <span class="kw">|</span> <span class="ex">conda</span>           <span class="kw">|</span> <span class="ex">linux-64,</span> win-32, win-64, osx-64</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>                                          <span class="bu">:</span> Rasterio reads and writes geospatial raster datasets</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>     <span class="ex">dharhas/rasterio</span>          <span class="kw">|</span>   <span class="ex">0.23.0</span> <span class="kw">|</span> <span class="ex">conda</span>           <span class="kw">|</span> <span class="ex">win-64</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>                                          <span class="bu">:</span> Rasterio reads and writes geospatial raster datasets.</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>     <span class="ex">erdc/rasterio</span>             <span class="kw">|</span>   <span class="ex">0.23.0</span> <span class="kw">|</span> <span class="ex">conda</span>           <span class="kw">|</span> <span class="ex">win-64</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>                                          <span class="bu">:</span> Rasterio reads and writes geospatial raster datasets.</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>     <span class="ex">jesserobertson/rasterio</span>   <span class="kw">|</span>   <span class="ex">0.23.0</span> <span class="kw">|</span> <span class="ex">conda</span>           <span class="kw">|</span> <span class="ex">linux-64,</span> linux-32, osx-64</span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>     <span class="ex">jhamman/rasterio_to_xarray</span> <span class="kw">|</span> <span class="ex">2016.03.16-1558</span> <span class="kw">|</span> <span class="ex">ipynb</span>           <span class="kw">|</span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>                                          <span class="bu">:</span> IPython notebook</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>     <span class="ex">krisvanneste/rasterio</span>     <span class="kw">|</span>   <span class="ex">0.26.0</span> <span class="kw">|</span> <span class="ex">conda</span>           <span class="kw">|</span> <span class="ex">win-64</span></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>     <span class="ex">ocefpaf/rasterio</span>          <span class="kw">|</span>   <span class="ex">0.19.1</span> <span class="kw">|</span> <span class="ex">conda</span>           <span class="kw">|</span> <span class="ex">linux-64,</span> osx-64</span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>     <span class="ex">omgarcia/rasterio</span>         <span class="kw">|</span>   <span class="ex">0.25.0</span> <span class="kw">|</span> <span class="ex">conda</span>           <span class="kw">|</span> <span class="ex">linux-64</span></span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>     <span class="ex">pypi/rasterio</span>             <span class="kw">|</span>   <span class="ex">0.13.2</span> <span class="kw">|</span> <span class="ex">pypi</span>            <span class="kw">|</span></span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>                                          <span class="bu">:</span> Fast and direct raster I/O for Python programmers who use Numpy</span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>     <span class="ex">robintw/rasterio</span>          <span class="kw">|</span>   <span class="ex">0.35.1</span> <span class="kw">|</span> <span class="ex">conda</span>           <span class="kw">|</span> <span class="ex">osx-64</span></span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>                                          <span class="bu">:</span> Rasterio reads and writes geospatial raster datasets</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>     <span class="ex">sgillies/rasterio</span>         <span class="kw">|</span>     <span class="ex">0.15</span> <span class="kw">|</span> <span class="ex">conda</span>           <span class="kw">|</span> <span class="ex">osx-64</span></span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>     <span class="ex">ztessler/rasterio</span>         <span class="kw">|</span>   <span class="ex">0.31.0</span> <span class="kw">|</span> <span class="ex">conda</span>           <span class="kw">|</span> <span class="ex">osx-64</span></span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>                                          <span class="bu">:</span> Fast and direct raster I/O for use with Numpy and SciPy</span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="ex">Found</span> 15 packages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> search rasterio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="installing-conda-package" class="level3">
 <h3 class="anchored" data-anchor-id="installing-conda-package">Installing conda package</h3>
 <p>Under the name column of the result in the terminal or the package column in the Anaconda Cloud listing, shows the necessary information to install the package. e.g.&nbsp;conda-forge/rasterio. The first word list the channel that this package is from and the second part shows the name of the package.</p>
 <p>To install the latest version available within the channel, do not specify in the install command. We will install version 0.35 of <code>rasterio</code> from conda-forge into <code>test_env</code> in this example. Conda will also automatically install the dependencies for this package.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge rasterio=0.35</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If you have a few trusted channels that you prefer to use, you can pre-configure these so that everytime you are creating an environment, you won’t need to explicitly declare the channel.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels conda-forge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="removing-a-conda-package" class="level4">
-<h4 class="anchored" data-anchor-id="removing-a-conda-package">Removing a conda Package</h4>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge rasterio=1.3.11</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="removing-a-conda-package" class="level2">
+<h2 class="anchored" data-anchor-id="removing-a-conda-package">Removing a conda Package</h2>
 <p>We decided that rasterio is not needed in this tutorial, so we will remove it from <code>test_env</code>. Note that this will remove the main package rasterio and its dependencies (unless a dependency was installed explicitly at an earlier point in time or is required be another package).</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="at">-n</span> test_env rasterio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> Anaconda Cloud api site https://api.anaconda.org</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Fetching</span> package metadata .........</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Solving</span> package specifications: ..........</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Package</span> plan for package removal in environment //anaconda/envs/test_env:</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following packages will be REMOVED:</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">rasterio:</span> 0.35.1-np111py27_1 conda-forge</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="ex">Proceed</span> <span class="er">(</span><span class="ex">[y]/n</span><span class="kw">)</span><span class="ex">?</span> y</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Unlinking</span> packages ...</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="bu">[</span>      COMPLETE      <span class="bu">]</span><span class="kw">|</span><span class="co">#######################################################################################################| 100%</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-<p>Select all the correct answers</p>
-<p>Which of the following sentences are true about Conda?</p>
-<pre><code>A. It is a command line tool
-B. It is a package manager
-C. It is a Python package
-D. It is installed as part of Anaconda and Miniconda
-E. It is a metapackage
-F. It installs Python
-G. Using it you can handle Python packages only</code></pre>
-<hr>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="at">-n</span> test_env rasterio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda remove <span class="at">-n</span> test_env rasterio</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Channels:</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> conda-forge</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Platform:</span> linux-64</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> package metadata <span class="er">(</span><span class="ex">repodata.json</span><span class="kw">)</span><span class="bu">:</span> done</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Solving</span> environment: <span class="at">-</span> WARNING conda.conda_libmamba_solver.solver:_export_solved_records<span class="er">(</span><span class="ex">832</span><span class="kw">)</span><span class="bu">:</span> Tried to unlink __unix but it is not installed or manageable<span class="pp">?</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Package Plan ##</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">environment</span> location: /home/dan/.pyenv/versions/miniforge3-latest/envs/test_env</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">removed</span> specs:</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-</span> rasterio</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following packages will be REMOVED:</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a><span class="ex">Proceed</span> <span class="er">(</span><span class="ex">[y]/n</span><span class="kw">)</span><span class="ex">?</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="ex">Preparing</span> transaction: done</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="ex">Verifying</span> transaction: done</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="ex">Executing</span> transaction: done</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="activity-3" class="level2 activity">
+<h2 class="anchored" data-anchor-id="activity-3">Activity 3</h2>
+<p>What command will activate the test_env environment you just created?</p>
+<pre><code>A. conda activate environment
+B. conda start test_env
+C. conda activate test_env
+D. conda start environment</code></pre>
 </section>
+<section id="when-there-is-no-conda-package" class="level3">
+<h3 class="anchored" data-anchor-id="when-there-is-no-conda-package">When there is no conda package</h3>
+<p>If a conda package does not exist but does exist as a python package, you can use <code>pip</code> to install packages with <code>pip install &lt;package name&gt;</code>. When a package is installed using pip, your <code>environment.yml</code> will have a section for <code>pip</code> that will list the packages installed via pip.</p>
+<p>You do want to be careful not to constantly mix conda install commands with pip install commands. You are essentially using 2 different package resolution systems, and packages may not always be installed in the locations the other package manager knows about.</p>
+<p>If you end up installing <code>conda</code> and <code>pip</code> packages over the course a project you may end up with a corrupted python package environment. This is why the <code>environment.yml</code> is important, you can easily remove the corrupted environment, and install everything you need in a single step.</p>
 </section>
+<section id="confirming-your-work" class="level2">
+<h2 class="anchored" data-anchor-id="confirming-your-work">Confirming your work</h2>
+<p>Multiple times in this lesson when we are searching, installing, removing packages the output will mention <code>conda-forge</code>. This makes sense since the current setup has only <code>conda-forge</code> in the package channels. You should not see <code>anaconda</code> or <code>default</code> in the output text before you confirm an action.https://conda.org/blog/2024-08-14-conda-ecosystem-explained/</p>
 </section>
-<section id="r-environments" class="level1">
-<h1>R environments</h1>
-<p>In R, environments are managed by <code>renv</code>, which works with similar principles as <code>conda</code>, and other virtual environment managers, but the commands are different. To see which commands are used in <code>renv</code>, you can <a href="https://rstudio.github.io/renv/articles/renv.html">visit the project website</a>. Briefly, <code>renv::init()</code> is used to create a new env, <code>renv::snapshot</code> is used to save/export the environment to a file (<code>renv.lock</code>), and installing and removing packages are done as usual via the <code>install.packages()</code> and <code>remove.packages()</code> commands.</p>
+<section id="additional-links" class="level2">
+<h2 class="anchored" data-anchor-id="additional-links">Additional Links</h2>
+<ul>
+<li>Pip and conda interoperability: <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/pip-interoperability.html" class="uri">https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/pip-interoperability.html</a></li>
+<li>They’re working on better conda + pip support: <a href="https://github.com/conda-incubator/conda-pypi" class="uri">https://github.com/conda-incubator/conda-pypi</a></li>
+<li>micromamba project: <a href="https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html" class="uri">https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html</a></li>
+<li>pixi (also defaults to conda-forge): <a href="https://github.com/prefix-dev/pixi" class="uri">https://github.com/prefix-dev/pixi</a></li>
+<li>Conda and Anaconda terms of use: <a href="https://www.anaconda.com/blog/is-conda-free" class="uri">https://www.anaconda.com/blog/is-conda-free</a></li>
+</ul>
+</section>
 <section id="attribution" class="level2">
 <h2 class="anchored" data-anchor-id="attribution">Attribution</h2>
-<p>The conda virtual environment section of this guide was originally published at http://geohackweek.github.io/ under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.</p>
-</section>
-</section>
-<section id="r-markdown-repetition-and-a-few-tips" class="level1">
-<h1>R Markdown repetition and a few tips</h1>
-<p>Let’s start with creating an r project again. To use this with an existing git repo, with can select “Existing dir”. You can also create an empty one and move your git repo in here later, as long as there is an <code>.git</code> folder RStudio will show you the context menu for git.</p>
-<p>Next, let’s create an R Notebook. We could have a create an R Markdown document also, but the notebook offers a few conveniences. Mostly that it has a preview option <code>html_notebook</code> that renders the notebook to HTML in its curent state. In contrast, knitting the notebook to HTML via <code>html_document</code> will run all cells so this takes longer.</p>
-<p><strong>Note that it is important to knit to HTML before sharing so that you are sure everything works from scratch.</strong> This is the same reason we should do “Run all” in Jupyter Lab before sharing and why we don’t want to store our R workspace sessions. We need to make sure that someone new can run this from it’s current state. Another useful tool for this in R is to use <code>devtools::session_info()</code> at the top or bottom of your document (I put it at the end of the chunk where I load libraries) to ensure that you have included information about the versions of the packages you are running so that someone else can use the same version. There are more robust ways of version control that we will get into later in MDS, but this is a good minimum measure that is easy for you to get into the habit of doing.</p>
-<p>A couple of features that are good to know in addition to those we learnt last time, are block commenting and automatic code reformatting. If I type a few lines where I for example forget to add whitespace around an operator or assignment, going to <code>Code -&gt; Reformat code</code> ( <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> on Windows/Linux or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> on a Mac ) will fix this automatically for all highlighted lines. If I want to toogle commenting for some lines, I can click <code>Code -&gt; Comment/Uncomment line</code> ( <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> on Windows/Linux or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> on a Mac ), instead of manually adding <code>#</code> in front of each line.</p>
-<p>One final tip is the use of the <code>here</code> package for file paths. We have already solved the part of setting working directory by creating an R proj. If you only plant on using R Markdown file, you would be fine writing relative paths (e.g.&nbsp;<code>../data/cars.csv</code>) the same way you would write them in Python because they look relative their own location. However, if you also need to run something from a script or the console, note that the working directory path will now be used as the current directory, rather than the directoy of the script so the same relative path will not work (you would need <code>data/cars.csv</code> instead). <code>here</code> solves this by allowing you to type <code>here::here('data', 'cars.csv')</code> from wherever you are which also makes sure that file paths work across operating systems (<a href="https://malco.io/2018/11/05/why-should-i-use-the-here-package-when-i-m-already-using-projects/">more info on <code>here</code> here</a>.</p>
-</section>
-<section id="r-markdown-yaml-header" class="level1">
-<h1>R Markdown YAML header</h1>
-<p>The YAML header (also called the “front matter”) is where we can specify metadata about our project. It is delimited by two <code>---</code> (three hyphens) and we create a new notebook, it looks like this:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"R Notebook"</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_notebook</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In YAML, data is stored as a <code>key: value</code> pair, just like a Python dictionary. We can add new values, for example the author name and the date.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"R Notebook"</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_notebook</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Joel Ostblom</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 2020-09-23</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>R code can be evaluated inside the YAML header, so if we wanted the date to be updated every time we stitch the document, we could instead write <code>date: `r Sys.Date()`</code>. Other useful options include the ones for numbering headings, adding a table of contents, and placing the table of contents on the side of the document. Since these are options to the output document, they are indented under that section with two or four spaces:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_notebook</span><span class="kw">:</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc_float</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Another useful option is to fold away your code, but still having it available for view if someone desires to see it.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code_folding</span><span class="kw">:</span><span class="at"> hide</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="attribution-1" class="level2">
-<h2 class="anchored" data-anchor-id="attribution-1">Attribution</h2>
-<p>The conda virtual environment section of this guide was originally published at http://geohackweek.github.io/ under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.</p>
+<p>The conda virtual environment section of this guide was originally published at <a href="http://geohackweek.github.io/" class="uri">http://geohackweek.github.io/</a> under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
