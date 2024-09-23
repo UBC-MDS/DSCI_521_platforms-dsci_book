@@ -31,9 +31,26 @@ via the `install.packages()` and `remove.packages()` commands.
 Unlike conda that lets you "activate" an environment and let you move across different projects,
 `{renv}` prefers it when all your work is contained in a single project.
 
-:::{.callout-note}
+:::{.note}
+## Note
+
 For MDS, this might mean you may need a separate `{renv}` file for each lab assignment.
 :::
+
+:::{.activity}
+## Activity 1
+
+Which of the following commands is used to initialize a new `renv` environment in an R project?
+
+```
+A. `renv::create()`
+B. `renv::activate()`
+C. `renv::init()`
+D. `renv::start()`
+```
+
+:::
+
 
 One of the other distinguishing factors between R and Python is CRAN (the package repository for R),
 _guarantees_ that on any given calendar day,
