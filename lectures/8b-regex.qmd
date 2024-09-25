@@ -1,6 +1,5 @@
 ---
 title: Introduction to Regular Expressions (RegEx)
-jupyter: python3
 ---
 
 ## Learning outcomes
