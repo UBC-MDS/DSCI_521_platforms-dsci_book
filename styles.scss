@@ -81,9 +81,9 @@ $grey-medium: #999999;
 // Note callout (Light Green)
 .note {
   margin: 0.5em 0;
-  border: 1px solid #5cb85c; // Green border
+  border: 1px solid #5a8cd8; // Blue border to match the image
   border-radius: 5px;
-  background-color: #e6f4e6; // Light green background
+  background-color: #dfe6ee; // Light blue background
   padding: 0 10px 10px 10px;
 
   // Header styling
@@ -91,8 +91,8 @@ $grey-medium: #999999;
     margin: 0;
     padding-left: 40px;
     padding-top: 5px;
-    color: #ffffff;
-    background-color: #5cb85c; // Green background for header
+    color: #060000;
+    background-color: #ebf4fc; // Blue background for header
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     font-size: 1em;
@@ -107,17 +107,16 @@ $grey-medium: #999999;
   p {
     margin-top: 15px;
     padding-left: 10px;
-    color: #4d774d; // Darker green text
+    color: #4a6a8a; // Darker blue text
     font-size: 0.9em;
   }
 }
 
-// Warning callout (Medium Green)
 .warning {
   margin: 0.5em 0;
-  border: 1px solid #3c763d; // Dark green border
+  border: 1px solid #e67e22; // Orange border to match the image
   border-radius: 5px;
-  background-color: #dff0d8; // Lighter green background
+  background-color: #f3eae4; // Light orange background
   padding: 0 10px 10px 10px;
 
   // Header styling
@@ -125,8 +124,8 @@ $grey-medium: #999999;
     margin: 0;
     padding-left: 40px;
     padding-top: 5px;
-    color: #ffffff;
-    background-color: #3c763d; // Dark green header
+    color: #070000;
+    background-color: #f7ceb3; // Orange background for header
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     font-size: 1em;
@@ -141,17 +140,16 @@ $grey-medium: #999999;
   p {
     margin-top: 15px;
     padding-left: 10px;
-    color: #2f4f2f; // Darker green text
+    color: #a8431e; // Darker orange text
     font-size: 0.9em;
   }
 }
 
-// Tip callout (Darker Green)
 .tip {
   margin: 0.5em 0;
-  border: 1px solid #2d6a2d; // Dark green border
+  border: 1px solid #8ccc74; // Green border
   border-radius: 5px;
-  background-color: #cfe9cf; // Soft green background
+  background-color: #a3d592; // Light green background
   padding: 0 10px 10px 10px;
 
   // Header styling
@@ -159,8 +157,8 @@ $grey-medium: #999999;
     margin: 0;
     padding-left: 40px;
     padding-top: 5px;
-    color: #ffffff;
-    background-color: #2d6a2d; // Dark green header
+    color: #040000;
+    background-color: #eff9eb; // Dark green background for header
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     font-size: 1em;
