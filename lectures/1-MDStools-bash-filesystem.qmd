@@ -1,6 +1,5 @@
 ---
 title: Introduction to MDS software and Bash
-jupyter: python3
 ---
 
 ## Learning outcomes
