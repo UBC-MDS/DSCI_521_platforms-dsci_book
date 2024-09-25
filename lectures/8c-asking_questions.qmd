@@ -68,7 +68,7 @@ This can be especially useful for R,
 since the name is just one letter
 and it can be hard to find relevant matches otherwise.
 
-### Minimal reproducible example
+## Minimal reproducible example
 
 There is a Swedish expression:
 "beloved child has many names".
