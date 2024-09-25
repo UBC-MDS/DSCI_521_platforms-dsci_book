@@ -8,21 +8,23 @@ jupyter: python3
 {{< include ../learning_objectives/lo-ch-08.qmd >}}
 
 :::{.activity}
-::::{.activity-header}
-## Lecture 8 Activity 1
-::::
-::::{.activity-container}
-Let's remember some concepts from last class
+## Activity 1
 
-True or False
-1. The command `pwd` prints the working directory as a relative path
-2. The home directory can be the current working directory
-3. In general, your home directory is the root directory
-::::
+Imagine you are starting a new data science project. Based on what you know about project organization, how would you structure your project directory? Consider where you would place important files like raw data, processed data, code, reports, and environment settings.
+
+Take a moment to think through these questions:
+```
+- What folders would you create, and why?
+- Where would you place key files like your `.csv` data, analysis notebooks, and README?
+- How would you structure the project to ensure it is easy to maintain and reproducible?
+```
+Jot down your ideas.
+
+After reflecting on your answers, compare your project structure with your partner's. Identify similarities and differences between your approaches. What organizational choices did you both make? Were there any unique folder structures or file placements?
 :::
 
 
-# Project organization
+## Project organization
 
 Broadly speaking you will find two different ways of organizing a project: as a data analysis project and code project. Neither of this options is rigid enough to can give you here a exhaustive list of folder types and files you would expect on this projects. You will spend some time exploring different examples.
 However, we can work with a general structure:
@@ -41,25 +43,40 @@ project/
 ```
 
 **data**
-If your original data file is stored as part of the repository and should never be overriden. That is why the original files are stored in a sub-folder called `raw`.
+If your original data file is stored as part of the repository and should never be overridden.
+That is why the original files are stored in a sub-folder called `raw`.
 
 **reports**
-The documentation is the biggest difference between data analysis projects and software projects. Would you expect a report on a software project? In general notebooks and other literate programming documents (that prioritize narrative and storytelling) are the favourite options to share data analysis results [1]. We will learn more about reports literate programming documents in lecture 7. You will create your first data science project in DSCI 522.
-Software projects are mostly focused in the development of tools and in this cases other types of documentation (docstrings, vignettes, readtheDocs, JupyterBooks) are the favourite source of documentation for this kinf of projects. We will learn more about them in DSCI 524.
+The documentation is the biggest difference between data analysis projects and software projects.
+Would you expect a report on a software project?
+In general notebooks and other
+[literate programming documents](./5-rstudio-projects-notebooks.html)
+(that prioritize narrative and storytelling)
+are the favorite options to share data analysis results [1].
+You will create your first data science project in DSCI 522: Statistical Inference and Computation.
+Software projects are mostly focused in the development of tools and in this cases other types of documentation
+(docstrings, vignettes, readtheDocs, JupyterBooks)
+are the favorite source of documentation for this kind of projects.
+We will learn more about them in DSCI 524: Collaborative Software Development.
 
-**`src`**
-and for R the `src` directory is often just called `R/`,
-whereas for Python is has the same name as the project (`project`).
-You will learn more about project hierarchy when making packages.
+**src**
+is where the source code for your project will be.
+If you are not creating a package,
+you may use the **analysis** directory.
+In package development,
+you will have a `src/project_name` directory in Python,
+and just the `R` directory (instead of `src`) in R.
+You will learn more about project hierarchy when making packages in DSCI 524.
 
 **doc**
-Documentation
+Documentation.
+You can also use this directory for a GitHub pages enabled website.
 
 **README.md**
-The README file is probably the first file a potential user/contributor will read when you
+The README file is probably the first file a potential user/contributor will read.
 
 **environment**
-Speficying the computational environment will help you to ensure the reproducibility of yuour analysis. We will learn how to create this environments in lecture 6 and practice on lab 3.
+Specifying the computational environment will help you to ensure the reproducibility of your analysis.
 
 <!--
 A place for everything, everything in its place.
@@ -105,36 +122,36 @@ Benjamin Franklin
 
 -->
 
-
----
-
 :::{.activity}
-::::{.activity-header}
-## Lecture 8 Activity 2
-::::
-::::{.activity-container}
+## Activity 2
 Which set of file(name)s do you want at 3 a.m. before a deadline?
-
+```
 A. `Joe’s Filenames Use Spaces and Punctuation.xlsx`
 B. `figure 1.png`
 C. `JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt`
 D. `2014-06-08_abstract-for-sla.docx`
 E. `myabstract.docx`
-::::
+```
 :::
 
+## Filenames
+
+In our first lecture, we learned about bash and talked about the downsides of making your
+files and folder names "too pretty" with capitalizations and spaces.
+Here we will discuss better ways to name our files and folders.
+
+The below section comes from Jenny Bryan's
+[Naming things](https://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf)
+
+- slides: <https://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf>
+- Source code: <https://github.com/jennybc/organization-and-naming>
 
 
-
----
-
-# Filenames - best practices
-
-## Names matter
+### Names matter
 
 ![cheers](img/cheers.png)
 
-## What works, what doesn't?
+### What works, what doesn't?
 
 **NO**
 
@@ -159,18 +176,12 @@ fig02_talk-histogram-attendance.png
 ## Three principles for (file) names
 
 1. Machine readable
-
 2. Human readable
-
 3. Plays well with default ordering
 
-## Awesome file names :)
+### Machine readable
 
 ![awesome_names](img/awesome_names.png)
-
-# Machine readable
-
-## Machine readable
 
 - Regular expression and globbing friendly
     + Avoid spaces, punctuation, accented characters, case sensitivity
@@ -178,7 +189,7 @@ fig02_talk-histogram-attendance.png
 - Easy to compute on
     + Deliberate use of delimiters
 
-## Globbing
+#### Globbing
 
 **Excerpt of complete file listing:**
 
@@ -191,19 +202,19 @@ fig02_talk-histogram-attendance.png
 ![plasmid_names](img/plasmid_glob.png)
 
 
-## Same using Mac OS Finder search facilities
+#### Same using Mac OS Finder search facilities
 
 <center>
 ![plasmid_mac_os_search](img/plasmid_mac_os_search.png)
 </center>
 
-## Same using regex in R
+#### Same using regex in R
 
 <center>
 ![plasmid_regex](img/plasmid_regex.png)
 </center>
 
-## Punctuation {.smaller}
+#### Punctuation {.smaller}
 
 Deliberate use of `"-"` and `"_"` allows recovery of meta-data from the filenames:
 
@@ -222,12 +233,10 @@ Deliberate use of `"-"` and `"_"` allows recovery of meta-data from the filename
 
 This happens to be R but also possible in the shell, Python, etc.
 
-## Recap: machine readable
+#### Recap: machine readable
 
 - Easy to search for files later
-
 - Easy to narrow file lists based on names
-
 - Easy to extract info from file names, e.g. by splitting
 
 - New to regular expressions and globbing? be kind to yourself and avoid
@@ -236,21 +245,17 @@ This happens to be R but also possible in the shell, Python, etc.
     + Accented characters
     + Different files named `foo` and `Foo`
 
-# Human readable
-
-## Human readable
+### Human readable
 
 - Name contains info on content
 
 - Connects to concept of a *slug* from semantic URLs
 
-## Example
-
 **Which set of file(name)s do you want at 3 a.m. before a deadline?**
 
 ![human_readable_not_options](img/human_readable_not_options.png)
 
-## Embrace the slug
+#### Embrace the slug
 
 <div class="columns-2">
 slug filenames
@@ -260,21 +265,15 @@ slug
 ![](img/slug.jpg)
 </div>
 
-## Recap: Human readable
+#### Recap: Human readable
 
 Easy to figure out what the heck something is, based on its name
 
-# Plays well with default ordering
-
-## Plays well with default ordering
+### Plays well with default ordering
 
 - Put something numeric first
-
 - Use the ISO 8601 standard for dates
-
 - Left pad other numbers with zeros
-
-## Examples
 
 **Chronological order:**
 
@@ -286,19 +285,17 @@ Easy to figure out what the heck something is, based on its name
 
 ![logical_order](img/logical_order.png)
 
-## Dates
+#### Dates
 
 Use the ISO 8601 standard for dates: YYYY-MM-DD
 
 ![chronological_order](img//chronological_order.png)
 
-##
-
 <center>
 ![iso_psa](img/iso_8601.tiff)
 </center>
 
-## Comprehensive map of all countries in the world that use the MM-DD-YYYY format
+#### Comprehensive map of all countries in the world that use the MM-DD-YYYY format
 
 <center>
 ![map_mmddyyy](img/map_mmddyyy.tiff)
@@ -308,7 +305,7 @@ Use the ISO 8601 standard for dates: YYYY-MM-DD
 
 From https://twitter.com/donohoe/status/597876118688026624.
 
-## Left pad other numbers with zeros
+#### Left pad other numbers with zeros
 
 <center>
 ![logical_order](img/logical_order.png)
@@ -326,31 +323,26 @@ If you don’t left pad, you get this:
 
 which is just sad :(
 
-## Recap: Plays well with default ordering
+#### Recap: Plays well with default ordering
 
 - Put something numeric first
-
 - Use the ISO 8601 standard for dates
-
 - Left pad other numbers with zeros
 
-## Recap
+### Recap
 
-## Three principles for (file) names
+Three principles for (file) names
 
 1. Machine readable
-
 2. Human readable
-
 3. Plays well with default ordering
 
-## Pros
 
+Pros:
 - Easy to implement NOW
-
 - Payoffs accumulate as your skills evolve and projects get more complex
 
-## Go forth and use awesome file names :)
+#### Go forth and use awesome file names :)
 
 ![chronological_order](img/chronological_order.png)
 
@@ -360,19 +352,38 @@ which is just sad :(
 
 ---
 
-**Lecture Activities**
+:::{.activity}
+## Activity 3
+Which of the following items describe three important rules for naming files on a computer?
+Select all correct answers.
 
-1. Which of the following items describe three important rules for naming files on a computer? Select all correct answers.
-
-
+```
 A. File name parts should be easy to extract programmatically
 B. Humans would understand something about file contents by looking at their names
 C. Files with appropriate names would be nicely organized by default
 D. File names should always use lower-case letters
+E. Human understanding of file names should be prioritized over machine understanding
+```
+<!--comment because iClicker only allows 5 choices
 E. Underscores are the only allowed separator in file names
-F. Human understanding of file names should be prioritized over machine understanding
+-->
+:::
 
-2. Match each explanation with its corresponding file naming principle:
+:::{.activity}
+## Activity 4
+Which of the following are GOOD date formats to use in a filename?
+```
+A. 2020-01-26T0233
+B. 20200126T0233
+C. 2020-01-26
+```
+:::
+
+<!--
+
+:::{.activity}
+## Activity 4
+Match each explanation with its corresponding file naming principle:
 
 G.  By following this principle, we are able to use tools such as regular expressions and file-name globbing to search, select and manipulate files using tools such as the unix shell, R and Python.
 
@@ -382,13 +393,9 @@ H. By following this principle, we can have a good idea of what is inside files 
 I. By following this principle, we can make our files more organized and understandable, and files more findable. Ordered lists will be sorted into a logical order and so it is easy to orient yourself in the directory and find the files you want to find.
 
 J. By following this principle, we will be sure that our files have the appropriate formatting in terms of their content. Such files will be ready for subsequent analysis in a data science pipeline.
-
-
-3. Which of the following are GOOD date formats to use in a filename?
-
-K. 2020-01-26T0233
-L. 20200126T0233
-M. 2020-01-26
+```
+:::
+-->
 
 ## References
 

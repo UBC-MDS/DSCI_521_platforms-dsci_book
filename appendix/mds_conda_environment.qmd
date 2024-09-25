@@ -2,10 +2,23 @@
 title: MDS Conda Python Environment
 ---
 
+The
+[MDS Installation Guide](https://ubc-mds.github.io/resources_pages/installation_instructions/)
+has a section on the Python setup.
+After you
+[install miniforge3](https://github.com/conda-forge/miniforge?tab=readme-ov-file#miniforge3),
+you can install the packages we had you install from the guide using.
+In the installation guide,
+we had you run this in the `base` conda environment.
+By the end of this course, you should know how to create, activate, and install
+these packages in a separate environment.
+
 ```bash
 conda install python=3.11 pandas jupyterlab jupyterlab-git jupyterlab-spellchecker
 pip install otter-grader
 ```
+
+You can choose to manually curate an `environment.yml` file as such:
 
 ```yaml
 name: mds-base
@@ -21,3 +34,5 @@ dependencies:
   - pip:
     - otter-grader
 ```
+
+This is a great base reference file for all the classes you will need in MDS.

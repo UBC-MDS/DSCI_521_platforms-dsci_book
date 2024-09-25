@@ -68,7 +68,7 @@ This can be especially useful for R,
 since the name is just one letter
 and it can be hard to find relevant matches otherwise.
 
-### Minimal reproducible example
+## Minimal reproducible example
 
 There is a Swedish expression:
 "beloved child has many names".
@@ -87,10 +87,10 @@ which you might find referred to by any of the following:
 There have been great articles written on what goes into an MRE,
 and here are some of them that I recommend that you check out:
 
-- https://stackoverflow.com/help/how-to-ask
-- https://stackoverflow.com/help/minimal-reproducible-example
-- https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-do-one/5219
-- https://reprex.tidyverse.org/ (an R package to help creating MREs from code)
+- <https://stackoverflow.com/help/how-to-ask>
+- <https://stackoverflow.com/help/minimal-reproducible-example>
+- <https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-do-one/5219>
+- <https://reprex.tidyverse.org/> (an R package to help creating MREs from code)
 
 In summary,
 asking effectively
@@ -143,16 +143,3 @@ The points are elaborated on below:
    If you found the solution yourself,
    post it in a comment before closing,
    so that others can find it.
-
----
-
-:::{.activity}
-::::{.activity-header}
-## Lecture 8 Activity 3
-::::
-::::{.activity-container}
-What is wrong with the following
-::::
-:::
-
----
