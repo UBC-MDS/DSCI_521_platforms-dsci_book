@@ -251,11 +251,23 @@
     ]
   },
   {
+    "objectID": "lectures/8b-regex.html#activity-1",
+    "href": "lectures/8b-regex.html#activity-1",
+    "title": "Introduction to Regular Expressions (RegEx)",
+    "section": "Activity 1",
+    "text": "Activity 1\nImagine you’re working as a data scientist for an e-commerce company, and you have been given a dataset of user reviews for a product. The reviews contain noisy data: some reviews include email addresses, phone numbers, and URLs, which you want to remove before conducting sentiment analysis. Additionally, you need to extract specific pieces of information, such as any mentions of product model numbers that follow a specific pattern.\nWould you use ⌘ + f (Mac) or Ctrl + f (Windows / Linux) to find and replace what you needed?",
+    "crumbs": [
+      "Home",
+      "Lectures",
+      "Lecture 8b: Introduction to Regular Expressions (RegEx)"
+    ]
+  },
+  {
     "objectID": "lectures/8b-regex.html#introduction",
     "href": "lectures/8b-regex.html#introduction",
     "title": "Introduction to Regular Expressions (RegEx)",
     "section": "Introduction",
-    "text": "Introduction\nLike with most things, the best way for you to learn Regex is to get practice using it. There are a few exercises included in the notebook, and at the end I have also included links interactive online exercises with are great to practice your regexes!\nTo see what a particular regex is matching and how, you can use one of these two webpages, which both do a great job visualizing and explaining the different parts of a regex match:\n\nhttps://regexr.com/\n\nregexr interprets text input as one big string by default, so you need to check “multiline” under “flags” (top right) for it to behave as expected with beginning and end of line matches (it hints at this in the output for both ^ and $).\n\nhttps://regex101.com/\n\nregex101 has the “multiline” flag set by default.",
+    "text": "Introduction\nLike with most things, the best way for you to learn Regex is to get practice using it. There are a few exercises included in the notebook, and at the end I have also included links interactive online exercises with are great to practice your regular expressions (RegEx)!\nTo see what a particular regex is matching and how, you can use one of these two webpages, which both do a great job visualizing and explaining the different parts of a regex match:\n\nhttps://regexr.com/\n\nregexr interprets text input as one big string by default, so you need to check “multiline” under “flags” (top right) for it to behave as expected with beginning and end of line matches (it hints at this in the output for both ^ and $).\n\nhttps://regex101.com/\n\nregex101 has the “multiline” flag set by default.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -267,7 +279,7 @@
     "href": "lectures/8b-regex.html#basic-matching",
     "title": "Introduction to Regular Expressions (RegEx)",
     "section": "Basic matching",
-    "text": "Basic matching\n\nBasic matching: if you look for a regular string, like banana, regex will match the exact string (including its upper/lower case).\nBoth JupyterLab and VS Code have built in regex functionality (bring up the search box and click the .* symbol to use regex rather than the default search).\nWhen learning regex it is helpful to use one of the two webtools mentioned in the previous cell in order to visualize how your regex is matching the text.\nFor this lecture, we will use a list of fruits to learn about regex.\n\napplesas\napple\napricot\nbanana\nbilberry\nblackberry\nblackcurrant\nblood orange\nblueberry\ncanary melon\ncantaloupe\ncherry\nclementine\ncloudberry\ncoconut\ncranberry\ncucumber\ncurrant\ndragonfruit\ndurian\nelderberry\ngooseberry\ngrape\ngrapefruit\npapaya\npassionfruit\npeach\norange\noranges unripe\npersimmon\npineapple\npomegranate\npomelo\npurple mangosteen\nrock melon\nsalal berry\nsatsuma\nstar fruit\nstrawberry\nwatermelon",
+    "text": "Basic matching\nBasic matching: if you look for a regular string, like banana, regex will match the exact string (including its upper/lower case). Both JupyterLab and VS Code have built in regex functionality (bring up the search box and click the .* symbol to use regex rather than the default search). When learning regex it is helpful to use one of the two web tools mentioned in the previous cell in order to visualize how your regex is matching the text. We will use a list of fruits to learn about regex.\napplesas\napple\napricot\nbanana\nbilberry\nblackberry\nblackcurrant\nblood orange\nblueberry\ncanary melon\ncantaloupe\ncherry\nclementine\ncloudberry\ncoconut\ncranberry\ncucumber\ncurrant\ndragonfruit\ndurian\nelderberry\ngooseberry\ngrape\ngrapefruit\npapaya\npassionfruit\npeach\norange\noranges unripe\npersimmon\npineapple\npomegranate\npomelo\npurple mangosteen\nrock melon\nsalal berry\nsatsuma\nstar fruit\nstrawberry\nwatermelon",
     "crumbs": [
       "Home",
       "Lectures",
@@ -279,7 +291,7 @@
     "href": "lectures/8b-regex.html#the-square-brackets",
     "title": "Introduction to Regular Expressions (RegEx)",
     "section": "The square brackets: []",
-    "text": "The square brackets: []\n\nIf you want to specify the set of possible characters you can use square brackets [];\nFor example, [Aa]pple would match Apple and apple.\n\n\n\nLecture 8 Exercise 1\n\n\nFind all the pairs of vowels in the fruit list.\nHighlight the black box below to see than correct answer (the black box will not show up on GitHub, so download the notebook unless you want the answer displayed) Remember to use one of the websites linked above to help you understand what your regex is matching (https://regexr.com/ or https://regex101.com/).\n\n[aeiou][aeiou]\n\n\n\n\nRanges within []\n\nYou can also define ranges when using brackets. For example:\n\n[A-Z]: will match any upper case letter\n[a-z]: will match any lower case letter\n[0-9]: will match any digit\n[0-5]: will match any digit between 0 and 5\n\nThe order cannot be reversed, [z-A] does not work.\nYou can combine ranges: [A-Za-z].\nYou can use square brackets starting with a caret. For example:\n\n[^A-Z]: will match anything that is not an upper case letter\n[^0-9]: will match anything that is not a digit\nNote that the caret needs to be inside the bracket, if it is outside it will match the beginning of a line as described under the “Anchors” section below.\n\nFor the curious, these ranges are ordered based on ASCI codes where every character is represented by a number. The first character in the list is  (space) and the last is ~ (tilde). The full list is shown below:\n !\"#$%&'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
+    "text": "The square brackets: []\nIf you want to specify the set of possible characters you can use square brackets []; For example, [Aa]pple would match Apple and apple.\n\n\nExercise 1\n\n\nFind all the pairs of vowels in the fruit list.\nHighlight the black box below to see than correct answer (the black box will not show up on GitHub, so download the notebook unless you want the answer displayed) Remember to use one of the websites linked above to help you understand what your regex is matching (https://regexr.com/ or https://regex101.com/).\n[aeiou][aeiou]\n\n\n\nRanges within []\nYou can also define ranges when using brackets. For example:\n- `[A-Z]`: will match any upper case letter\n- `[a-z]`: will match any lower case letter\n- `[0-9]`: will match any digit\n- `[0-5]`: will match any digit between 0 and 5\nThe order cannot be reversed, [z-A] does not work. You can combine ranges: [A-Za-z].\nYou can use square brackets starting with a caret. For example:\n- `[^A-Z]`: will match anything that is not an upper case letter\n- `[^0-9]`: will match anything that is not a digit\nThe caret needs to be inside the bracket, if it is outside it will match the beginning of a line as described under the “Anchors” section below.\nThese ranges are ordered based on ASCI codes where every character is represented by a number. The first character in the list is  (space) and the last is ~ (tilde). The full list is shown below:\n !\"#$%&'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
     "crumbs": [
       "Home",
       "Lectures",
@@ -291,7 +303,7 @@
     "href": "lectures/8b-regex.html#special-matching-characters",
     "title": "Introduction to Regular Expressions (RegEx)",
     "section": "Special matching characters",
-    "text": "Special matching characters\n\nA common operation is to match any character (e.g. between two important characters).\nInstead of writing out the full range [ -~] (space to tilde), the special character . can be used to match any character in the list above.\n\nNote that . does not match the newline character, so if you have an expression that continues on the next line it will not be matched.\n\nTo match a literal . (the period character), you can “escape” its special meaning by prefacing it with a backslash \\. (most common) or surrounding it with square brackets [.].\nAnother useful special character is \\w, which matches any character that normally occurs inside a word (so it does not match spaces, underlines, etc)\n\n\n\nLecture 8 Exercise 2\n\n\nWhat is the difference between writing [A-Za-z] and [A-z]?\n\n[A-z] will also match the characters [/]^_, as you can see in the list above.\n\n\n\n\n\nLecture 8 Exercise 3\n\n\nMatch any characters between two _.\n\n_.*_",
+    "text": "Special matching characters\nA common operation is to match any character (e.g. between two important characters). Instead of writing out the full range [ -~] (space to tilde), the special character . can be used to match any character in the list above. . does not match the newline character, So if you have an expression that continues on the next line it will not be matched.\nTo match a literal . (the period character), you can “escape” its special meaning by prefacing it with a backslash \\. (most common) or surrounding it with square brackets [.].\nAnother useful special character is \\w, which matches any character that normally occurs inside a word (so it does not match spaces, underlines, etc)\n\n\nExercise 2\n\n\nWhat is the difference between writing [A-Za-z] and [A-z]?\n[A-z] will also match the characters `[/]^_`, as you can see in the list above.\n\n\n\n\nExercise 3\n\n\nMatch any characters between two _.\n_.*_",
     "crumbs": [
       "Home",
       "Lectures",
@@ -303,7 +315,7 @@
     "href": "lectures/8b-regex.html#anchors",
     "title": "Introduction to Regular Expressions (RegEx)",
     "section": "Anchors",
-    "text": "Anchors\n\nThe caret outside the brackets means beginning of line. For example, ^apple will match all lines that start with apple, including apple sauce and apples.\nThe dollar sign $ means end of line, e.g., fruit$ will match lines that end with fruit.\nTo remember this, you can use the mnemonic “Start with power (^) and end with money ($)” (originally from Jenny Bryan).\nAnother useful anchor is \\b, which matches end of word.\n\n\n\nLecture 8 Exercise 4\n\n\nWrite a regex that will match a line that contains only pineapple. (Hint: you cannot just write pineapple - it will not work - why?)\n\n^pineapple$ note that if you use just pineapple, lines that also contain other words would match too.",
+    "text": "Anchors\nThe caret outside the brackets means beginning of line. For example, ^apple will match all lines that start with apple, including apple sauce and apples. The dollar sign $ means end of line, e.g., fruit$ will match lines that end with fruit. To remember this, you can use the mnemonic “Start with power (^) and end with money ($)” (originally from Jenny Bryan).\nAnother useful anchor is \\b, which matches end of word.\n\n\nExercise 4\n\n\nWrite a regex that will match a line that contains only pineapple. (Hint: you cannot just write pineapple - it will not work - why?)\n^pineapple$\nnote that if you use just pineapple, lines that also contain other words would match too.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -315,7 +327,7 @@
     "href": "lectures/8b-regex.html#repetitions",
     "title": "Introduction to Regular Expressions (RegEx)",
     "section": "Repetitions",
-    "text": "Repetitions\n\nTo match multiple of the same character, you can either repeat it or use the following syntax:\n\n{n}: exactly n occurrences\n{n,}: at least n occurrences\n{0,m}: at most m occurrences\n{n,m}: between n and m (inclusive) occurrences\n\n\n\nSpecial repetition characters\n\nThere are some shortcuts for the most common repetitions:\n\n?: means 0 or 1 time ({0,1})\n*: means 0 or more time ({0,})\n+: means 1 or more time ({1,})\n\nFor example, apples? will match apple and apples.\n\nBut apples+ will not match apple or appplesq, but it will match apples, appless, applesss, etc.\n\n\n\n\n\nLecture 8 Exercise 5\n\n\nFind the fruits with names between 10 and 12 characters.\n\n.{10,12}\n\n\n\n\n\nLecture 8 Exercise 6\n\n\nFind the lines with no more than 4 letters.\n\n^.{0,4}$\n\n\n\n\n\nLecture 8 Exercise 7\n\n\nFind all the words that contain at least two consecutive vowels.\n\n[aeiou]{2,} or [aeiou][aeiou]+\n\n\n\n\n\nLecture 8 Exercise 8\n\n\nThis is a bit harder and derives from all previous sections: Match entire words that end in _.\n\n\\w*_\\b\n\n\n\n\n\nAdditional exercises\n\n\n\nGo through the interactive tutorials and practice sessions at https://regexone.com/ that correspond to the topics we have covered during class.\nThe Library Carpentry organization has many regex exercises in all sections of their regex course here https://librarycarpentry.org/lc-data-intro/ (you can just to do the exercises).",
+    "text": "Repetitions\nTo match multiple of the same character, you can either repeat it or use the following syntax:\n\n{n}: exactly n occurrences\n{n,}: at least n occurrences\n{0,m}: at most m occurrences\n{n,m}: between n and m (inclusive) occurrences\n\n\nSpecial repetition characters\nThere are some shortcuts for the most common repetitions:\n\n?: means 0 or 1 time ({0,1})\n*: means 0 or more time ({0,})\n+: means 1 or more time ({1,})\n\nFor example, apples? will match apple and apples. But apples+ will not match apple or appplesq, but it will match apples, appless, applesss, etc.\n\n\n\nExercise 5\n\n\nFind the fruits with names between 10 and 12 characters.\n.{10,12}\n\n\n\n\nExercise 6\n\n\nFind the lines with no more than 4 letters.\n^.{0,4}$\n\n\n\n\nExercise 7\n\n\nFind all the words that contain at least two consecutive vowels.\n[aeiou]{2,}\n[aeiou][aeiou]+\n\n\n\n\nExercise 8\n\n\nThis is a bit harder and derives from all previous sections: Match entire words that end in _.\n\\\\w*_\\\\b\n\n\n\n\nAdditional exercises\n\n\nGo through the interactive tutorials and practice sessions at https://regexone.com/ that correspond to the topics we have covered during class.\nThe Library Carpentry organization has many regex exercises in all sections of their regex course here: https://librarycarpentry.org/lc-data-intro/ (you can just to do the exercises).",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1033,7 +1045,7 @@
     "href": "appendix/mds_conda_environment.html",
     "title": "MDS Conda Python Environment",
     "section": "",
-    "text": "conda install python=3.11 pandas jupyterlab jupyterlab-git jupyterlab-spellchecker\npip install otter-grader\nname: mds-base\nchannels:\n  - conda-forge\ndependencies:\n  - conda\n  - python=3.12\n  - pandas\n  - jupyterlab\n  - jupyterlab-git\n  - jupyterlab-spellchecker\n  - pip:\n    - otter-grader",
+    "text": "The MDS Installation Guide has a section on the Python setup. After you install miniforge3, you can install the packages we had you install from the guide using. In the installation guide, we had you run this in the base conda environment. By the end of this course, you should know how to create, activate, and install these packages in a separate environment.\nconda install python=3.11 pandas jupyterlab jupyterlab-git jupyterlab-spellchecker\npip install otter-grader\nYou can choose to manually curate an environment.yml file as such:\nname: mds-base\nchannels:\n  - conda-forge\ndependencies:\n  - conda\n  - python=3.12\n  - pandas\n  - jupyterlab\n  - jupyterlab-git\n  - jupyterlab-spellchecker\n  - pip:\n    - otter-grader\nThis is a great base reference file for all the classes you will need in MDS.",
     "crumbs": [
       "Home",
       "Additional Information",
@@ -1117,7 +1129,7 @@
     "href": "lectures/8c-asking_questions.html#how-to-ask-effectively",
     "title": "Asking Effective Questions",
     "section": "How to ask effectively",
-    "text": "How to ask effectively\nIn essence, you want to make your question as easy to understand as possible and your specific problem as easy to reproduce as possible. If you just include a screenshot and title your question “Help”, the person helping you has to spend time trying to figure out what you actually want help with instead of helping, Instead include a succinct, clear description of your problem and the minimal code needed to reproduce it. If you are asking your question on stack overflow you can use tags to categorize it, and these can then be used to search for an answer via the syntax [tag-name]. This can be especially useful for R, since the name is just one letter and it can be hard to find relevant matches otherwise.\n\nMinimal reproducible example\nThere is a Swedish expression: “beloved child has many names”. No, it does not translate very well to English, but the message is that someone or something that many people like, will be referred to differently by different people. This is true for minimal reproducible examples, which you might find referred to by any of the following:\n\nMRE Minimal Reproducible Example\nMCVE Minimal Complete Verifiable Example\nMWE Minimal Working Example\nreprex REPRoducible EXample\n\nThere have been great articles written on what goes into an MRE, and here are some of them that I recommend that you check out:\n\nhttps://stackoverflow.com/help/how-to-ask\nhttps://stackoverflow.com/help/minimal-reproducible-example\nhttps://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-do-one/5219\nhttps://reprex.tidyverse.org/ (an R package to help creating MREs from code)\n\nIn summary, asking effectively and creating an MRE includes the following tasks:\n\nSearch for other questions similar to yours.\nDescribe the issue clearly in the title and elaborate briefly in the text body.\nReduce the code to the minimum required to recreate your error, and paste it as text.\n\nIf your code includes functions or classes, include their definitions.\nCreate small toy dataset instead of using real data.\nUse markdown code blocks for proper indentation and syntax highlighting.\n\nDescribe what you have tried so far, what you don’t understand or what went wrong, including any error messages and their full traceback.\n\nThe points are elaborated on below:\n\nSearch for other questions similar to yours. Many questions already have an answer, and finding it is faster both for you and for others. If the answer to an existing question is not good enough, improve it by adding the missing info!\nWrite the tile as a summary of your issue. Think about what you would want the title to say if you were searching the issue list for help. Just “Error” or “Question” is not helpful, but “How to list content in a folder?” is.\nIntroduce the problem by briefly describing what you want to do.\nShow what you have tried, explain what you expected to happen, and what went wrong. It is often critical that the person helping you can reproduce the problem, so include both the code or command you tried to run and the error message.\n\nFor coding questions, text is preferred over a screenshot since it is easy to copy and paste, which facilitates reproducing your problem.\nInline code should be surrounded by single backticks for clarity. Longer blocks of code with multiple lines should be surrounded by triple backticks.\n\nInclude versions of any packages you are using, and the operating system if relevant, e.g. Win10, Python 3.8, pandas 1.0.2. On R you can use devtools::session_info() to see this information (after install.packages(\"devtools\")). and on Python you can use sinfo() (after importing: from sinfo import sinfo, needs to be installed via pip install sinfo).\nWhen your problem is solved, acknowledge the solution, close the issue/ticket/question. If you found the solution yourself, post it in a comment before closing, so that others can find it.",
+    "text": "How to ask effectively\nIn essence, you want to make your question as easy to understand as possible and your specific problem as easy to reproduce as possible. If you just include a screenshot and title your question “Help”, the person helping you has to spend time trying to figure out what you actually want help with instead of helping, Instead include a succinct, clear description of your problem and the minimal code needed to reproduce it. If you are asking your question on stack overflow you can use tags to categorize it, and these can then be used to search for an answer via the syntax [tag-name]. This can be especially useful for R, since the name is just one letter and it can be hard to find relevant matches otherwise.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1125,11 +1137,11 @@
     ]
   },
   {
-    "objectID": "lectures/8c-asking_questions.html#lecture-8-activity-3",
-    "href": "lectures/8c-asking_questions.html#lecture-8-activity-3",
+    "objectID": "lectures/8c-asking_questions.html#minimal-reproducible-example",
+    "href": "lectures/8c-asking_questions.html#minimal-reproducible-example",
     "title": "Asking Effective Questions",
-    "section": "Lecture 8 Activity 3",
-    "text": "Lecture 8 Activity 3",
+    "section": "Minimal reproducible example",
+    "text": "Minimal reproducible example\nThere is a Swedish expression: “beloved child has many names”. No, it does not translate very well to English, but the message is that someone or something that many people like, will be referred to differently by different people. This is true for minimal reproducible examples, which you might find referred to by any of the following:\n\nMRE Minimal Reproducible Example\nMCVE Minimal Complete Verifiable Example\nMWE Minimal Working Example\nreprex REPRoducible EXample\n\nThere have been great articles written on what goes into an MRE, and here are some of them that I recommend that you check out:\n\nhttps://stackoverflow.com/help/how-to-ask\nhttps://stackoverflow.com/help/minimal-reproducible-example\nhttps://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-do-one/5219\nhttps://reprex.tidyverse.org/ (an R package to help creating MREs from code)\n\nIn summary, asking effectively and creating an MRE includes the following tasks:\n\nSearch for other questions similar to yours.\nDescribe the issue clearly in the title and elaborate briefly in the text body.\nReduce the code to the minimum required to recreate your error, and paste it as text.\n\nIf your code includes functions or classes, include their definitions.\nCreate small toy dataset instead of using real data.\nUse markdown code blocks for proper indentation and syntax highlighting.\n\nDescribe what you have tried so far, what you don’t understand or what went wrong, including any error messages and their full traceback.\n\nThe points are elaborated on below:\n\nSearch for other questions similar to yours. Many questions already have an answer, and finding it is faster both for you and for others. If the answer to an existing question is not good enough, improve it by adding the missing info!\nWrite the tile as a summary of your issue. Think about what you would want the title to say if you were searching the issue list for help. Just “Error” or “Question” is not helpful, but “How to list content in a folder?” is.\nIntroduce the problem by briefly describing what you want to do.\nShow what you have tried, explain what you expected to happen, and what went wrong. It is often critical that the person helping you can reproduce the problem, so include both the code or command you tried to run and the error message.\n\nFor coding questions, text is preferred over a screenshot since it is easy to copy and paste, which facilitates reproducing your problem.\nInline code should be surrounded by single backticks for clarity. Longer blocks of code with multiple lines should be surrounded by triple backticks.\n\nInclude versions of any packages you are using, and the operating system if relevant, e.g. Win10, Python 3.8, pandas 1.0.2. On R you can use devtools::session_info() to see this information (after install.packages(\"devtools\")). and on Python you can use sinfo() (after importing: from sinfo import sinfo, needs to be installed via pip install sinfo).\nWhen your problem is solved, acknowledge the solution, close the issue/ticket/question. If you found the solution yourself, post it in a comment before closing, so that others can find it.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1773,11 +1785,11 @@
     ]
   },
   {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#lecture-8-activity-1",
-    "href": "lectures/8-regex-filenames-project-organization.html#lecture-8-activity-1",
+    "objectID": "lectures/8-regex-filenames-project-organization.html#activity-1",
+    "href": "lectures/8-regex-filenames-project-organization.html#activity-1",
     "title": "Organization of Data Science projects and some useful tools",
-    "section": "Lecture 8 Activity 1",
-    "text": "Lecture 8 Activity 1",
+    "section": "Activity 1",
+    "text": "Activity 1\nImagine you are starting a new data science project. Based on what you know about project organization, how would you structure your project directory? Consider where you would place important files like raw data, processed data, code, reports, and environment settings.\nTake a moment to think through these questions:\n- What folders would you create, and why?\n- Where would you place key files like your `.csv` data, analysis notebooks, and README?\n- How would you structure the project to ensure it is easy to maintain and reproducible?\nJot down your ideas.\nAfter reflecting on your answers, compare your project structure with your partner’s. Identify similarities and differences between your approaches. What organizational choices did you both make? Were there any unique folder structures or file placements?",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1785,11 +1797,11 @@
     ]
   },
   {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#lecture-8-activity-2",
-    "href": "lectures/8-regex-filenames-project-organization.html#lecture-8-activity-2",
+    "objectID": "lectures/8-regex-filenames-project-organization.html#project-organization",
+    "href": "lectures/8-regex-filenames-project-organization.html#project-organization",
     "title": "Organization of Data Science projects and some useful tools",
-    "section": "Lecture 8 Activity 2",
-    "text": "Lecture 8 Activity 2",
+    "section": "Project organization",
+    "text": "Project organization\nBroadly speaking you will find two different ways of organizing a project: as a data analysis project and code project. Neither of this options is rigid enough to can give you here a exhaustive list of folder types and files you would expect on this projects. You will spend some time exploring different examples. However, we can work with a general structure:\nproject/\n├── data/              *.csv\n│   ├── processed/\n│   └── raw/\n├── reports/           *.ipynb *.Rmd\n├── src/               *.py *.R\n├── doc/               *.md\n├── README.md\n└── environment.yaml (or renv.lock)\ndata If your original data file is stored as part of the repository and should never be overridden. That is why the original files are stored in a sub-folder called raw.\nreports The documentation is the biggest difference between data analysis projects and software projects. Would you expect a report on a software project? In general notebooks and other literate programming documents (that prioritize narrative and storytelling) are the favorite options to share data analysis results [1]. You will create your first data science project in DSCI 522: Statistical Inference and Computation. Software projects are mostly focused in the development of tools and in this cases other types of documentation (docstrings, vignettes, readtheDocs, JupyterBooks) are the favorite source of documentation for this kind of projects. We will learn more about them in DSCI 524: Collaborative Software Development.\nsrc is where the source code for your project will be. If you are not creating a package, you may use the analysis directory. In package development, you will have a src/project_name directory in Python, and just the R directory (instead of src) in R. You will learn more about project hierarchy when making packages in DSCI 524.\ndoc Documentation. You can also use this directory for a GitHub pages enabled website.\nREADME.md The README file is probably the first file a potential user/contributor will read.\nenvironment Specifying the computational environment will help you to ensure the reproducibility of your analysis.",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1797,11 +1809,11 @@
     ]
   },
   {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#names-matter",
-    "href": "lectures/8-regex-filenames-project-organization.html#names-matter",
+    "objectID": "lectures/8-regex-filenames-project-organization.html#activity-2",
+    "href": "lectures/8-regex-filenames-project-organization.html#activity-2",
     "title": "Organization of Data Science projects and some useful tools",
-    "section": "Names matter",
-    "text": "Names matter\n\n\n\ncheers",
+    "section": "Activity 2",
+    "text": "Activity 2\nWhich set of file(name)s do you want at 3 a.m. before a deadline?\nA. `Joe’s Filenames Use Spaces and Punctuation.xlsx`\nB. `figure 1.png`\nC. `JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt`\nD. `2014-06-08_abstract-for-sla.docx`\nE. `myabstract.docx`",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1809,11 +1821,11 @@
     ]
   },
   {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#what-works-what-doesnt",
-    "href": "lectures/8-regex-filenames-project-organization.html#what-works-what-doesnt",
+    "objectID": "lectures/8-regex-filenames-project-organization.html#filenames",
+    "href": "lectures/8-regex-filenames-project-organization.html#filenames",
     "title": "Organization of Data Science projects and some useful tools",
-    "section": "What works, what doesn’t?",
-    "text": "What works, what doesn’t?\nNO\nmyabstract.docx\nJoe’s Filenames Use Spaces and Punctuation.xlsx\nfigure 1.png\nfig 2.png\nJW7d^(2sl@deletethisandyourcareerisoverWx2*.txt\nYES\n2014-06-08_abstract-for-sla.docx\njoes-filenames-are-getting-better.xlsx\nfig01_talk-scatterplot-length-vs-interest.png\nfig02_talk-histogram-attendance.png\n1986-01-28_raw-data-from-challenger-o-rings.txt",
+    "section": "Filenames",
+    "text": "Filenames\nIn our first lecture, we learned about bash and talked about the downsides of making your files and folder names “too pretty” with capitalizations and spaces. Here we will discuss better ways to name our files and folders.\nThe below section comes from Jenny Bryan’s Naming things\n\nslides: https://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf\nSource code: https://github.com/jennybc/organization-and-naming\n\n\nNames matter\n\n\n\ncheers\n\n\n\n\nWhat works, what doesn’t?\nNO\nmyabstract.docx\nJoe’s Filenames Use Spaces and Punctuation.xlsx\nfigure 1.png\nfig 2.png\nJW7d^(2sl@deletethisandyourcareerisoverWx2*.txt\nYES\n2014-06-08_abstract-for-sla.docx\njoes-filenames-are-getting-better.xlsx\nfig01_talk-scatterplot-length-vs-interest.png\nfig02_talk-histogram-attendance.png\n1986-01-28_raw-data-from-challenger-o-rings.txt",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1825,7 +1837,7 @@
     "href": "lectures/8-regex-filenames-project-organization.html#three-principles-for-file-names",
     "title": "Organization of Data Science projects and some useful tools",
     "section": "Three principles for (file) names",
-    "text": "Three principles for (file) names\n\nMachine readable\nHuman readable\nPlays well with default ordering",
+    "text": "Three principles for (file) names\n\nMachine readable\nHuman readable\nPlays well with default ordering\n\n\nMachine readable\n\n\n\nawesome_names\n\n\n\nRegular expression and globbing friendly\n\nAvoid spaces, punctuation, accented characters, case sensitivity\n\nEasy to compute on\n\nDeliberate use of delimiters\n\n\n\nGlobbing\nExcerpt of complete file listing:\n\n\n\nplasmid_names\n\n\n\nExample of globbing to narrow file listing:\n\n\n\nplasmid_names\n\n\n\n\nSame using Mac OS Finder search facilities\n\n\n\n\nplasmid_mac_os_search\n\n\n\n\n\nSame using regex in R\n\n\n\n\nplasmid_regex\n\n\n\n\n\nPunctuation\nDeliberate use of \"-\" and \"_\" allows recovery of meta-data from the filenames:\n\n\"_\" underscore used to delimit units of meta-data I want later\n\"-\" hyphen used to delimit words so my eyes don’t bleed\n\n\n\n\n\nplasmid_delimiters\n\n\n\n\n\n\n\n\nplasmid_delimiters_code\n\n\n\nThis happens to be R but also possible in the shell, Python, etc.\n\n\nRecap: machine readable\n\nEasy to search for files later\nEasy to narrow file lists based on names\nEasy to extract info from file names, e.g. by splitting\nNew to regular expressions and globbing? be kind to yourself and avoid\n\nSpaces in file names\nPunctuation\nAccented characters\nDifferent files named foo and Foo\n\n\n\n\n\nHuman readable\n\nName contains info on content\nConnects to concept of a slug from semantic URLs\n\nWhich set of file(name)s do you want at 3 a.m. before a deadline?\n\n\n\nhuman_readable_not_options\n\n\n\nEmbrace the slug\n\nslug filenames \nslug \n\n\n\nRecap: Human readable\nEasy to figure out what the heck something is, based on its name\n\n\n\nPlays well with default ordering\n\nPut something numeric first\nUse the ISO 8601 standard for dates\nLeft pad other numbers with zeros\n\nChronological order:\n\n\n\nchronological_order\n\n\n\nLogical order: Put something numeric first\n\n\n\nlogical_order\n\n\n\nDates\nUse the ISO 8601 standard for dates: YYYY-MM-DD\n\n\n\nchronological_order\n\n\n\n\n\n\niso_psa\n\n\n\n\n\nComprehensive map of all countries in the world that use the MM-DD-YYYY format\n\n\n\n\nmap_mmddyyy\n\n\n\n\nFrom https://twitter.com/donohoe/status/597876118688026624.\n\n\nLeft pad other numbers with zeros\n\n\n\n\nlogical_order\n\n\n\n\nIf you don’t left pad, you get this:\n10_final-figs-for-publication.R\n1_data-cleaning.R\n2_fit-model.R\nwhich is just sad :(\n\n\nRecap: Plays well with default ordering\n\nPut something numeric first\nUse the ISO 8601 standard for dates\nLeft pad other numbers with zeros\n\n\n\n\nRecap\nThree principles for (file) names\n\nMachine readable\nHuman readable\nPlays well with default ordering\n\nPros: - Easy to implement NOW - Payoffs accumulate as your skills evolve and projects get more complex\n\nGo forth and use awesome file names :)\n\n\n\nchronological_order\n\n\n\n\n\n\nlogical_order",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1833,11 +1845,11 @@
     ]
   },
   {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#awesome-file-names",
-    "href": "lectures/8-regex-filenames-project-organization.html#awesome-file-names",
+    "objectID": "lectures/8-regex-filenames-project-organization.html#activity-3",
+    "href": "lectures/8-regex-filenames-project-organization.html#activity-3",
     "title": "Organization of Data Science projects and some useful tools",
-    "section": "Awesome file names :)",
-    "text": "Awesome file names :)\n\n\n\nawesome_names",
+    "section": "Activity 3",
+    "text": "Activity 3\nWhich of the following items describe three important rules for naming files on a computer? Select all correct answers.\nA. File name parts should be easy to extract programmatically\nB. Humans would understand something about file contents by looking at their names\nC. Files with appropriate names would be nicely organized by default\nD. File names should always use lower-case letters\nE. Human understanding of file names should be prioritized over machine understanding",
     "crumbs": [
       "Home",
       "Lectures",
@@ -1845,251 +1857,11 @@
     ]
   },
   {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#machine-readable-1",
-    "href": "lectures/8-regex-filenames-project-organization.html#machine-readable-1",
+    "objectID": "lectures/8-regex-filenames-project-organization.html#activity-4",
+    "href": "lectures/8-regex-filenames-project-organization.html#activity-4",
     "title": "Organization of Data Science projects and some useful tools",
-    "section": "Machine readable",
-    "text": "Machine readable\n\nRegular expression and globbing friendly\n\nAvoid spaces, punctuation, accented characters, case sensitivity\n\nEasy to compute on\n\nDeliberate use of delimiters",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#globbing",
-    "href": "lectures/8-regex-filenames-project-organization.html#globbing",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Globbing",
-    "text": "Globbing\nExcerpt of complete file listing:\n\n\n\nplasmid_names\n\n\n\nExample of globbing to narrow file listing:\n\n\n\nplasmid_names",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#same-using-mac-os-finder-search-facilities",
-    "href": "lectures/8-regex-filenames-project-organization.html#same-using-mac-os-finder-search-facilities",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Same using Mac OS Finder search facilities",
-    "text": "Same using Mac OS Finder search facilities\n\n\n\n\nplasmid_mac_os_search",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#same-using-regex-in-r",
-    "href": "lectures/8-regex-filenames-project-organization.html#same-using-regex-in-r",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Same using regex in R",
-    "text": "Same using regex in R\n\n\n\n\nplasmid_regex",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#punctuation",
-    "href": "lectures/8-regex-filenames-project-organization.html#punctuation",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Punctuation",
-    "text": "Punctuation\nDeliberate use of \"-\" and \"_\" allows recovery of meta-data from the filenames:\n\n\"_\" underscore used to delimit units of meta-data I want later\n\"-\" hyphen used to delimit words so my eyes don’t bleed\n\n\n\n\n\nplasmid_delimiters\n\n\n\n\n\n\n\n\nplasmid_delimiters_code\n\n\n\nThis happens to be R but also possible in the shell, Python, etc.",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#recap-machine-readable",
-    "href": "lectures/8-regex-filenames-project-organization.html#recap-machine-readable",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Recap: machine readable",
-    "text": "Recap: machine readable\n\nEasy to search for files later\nEasy to narrow file lists based on names\nEasy to extract info from file names, e.g. by splitting\nNew to regular expressions and globbing? be kind to yourself and avoid\n\nSpaces in file names\nPunctuation\nAccented characters\nDifferent files named foo and Foo",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#human-readable-1",
-    "href": "lectures/8-regex-filenames-project-organization.html#human-readable-1",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Human readable",
-    "text": "Human readable\n\nName contains info on content\nConnects to concept of a slug from semantic URLs",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#example",
-    "href": "lectures/8-regex-filenames-project-organization.html#example",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Example",
-    "text": "Example\nWhich set of file(name)s do you want at 3 a.m. before a deadline?\n\n\n\nhuman_readable_not_options",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#embrace-the-slug",
-    "href": "lectures/8-regex-filenames-project-organization.html#embrace-the-slug",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Embrace the slug",
-    "text": "Embrace the slug\n\nslug filenames \nslug",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#recap-human-readable",
-    "href": "lectures/8-regex-filenames-project-organization.html#recap-human-readable",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Recap: Human readable",
-    "text": "Recap: Human readable\nEasy to figure out what the heck something is, based on its name",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#plays-well-with-default-ordering-1",
-    "href": "lectures/8-regex-filenames-project-organization.html#plays-well-with-default-ordering-1",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Plays well with default ordering",
-    "text": "Plays well with default ordering\n\nPut something numeric first\nUse the ISO 8601 standard for dates\nLeft pad other numbers with zeros",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#examples",
-    "href": "lectures/8-regex-filenames-project-organization.html#examples",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Examples",
-    "text": "Examples\nChronological order:\n\n\n\nchronological_order\n\n\n\nLogical order: Put something numeric first\n\n\n\nlogical_order",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#dates",
-    "href": "lectures/8-regex-filenames-project-organization.html#dates",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Dates",
-    "text": "Dates\nUse the ISO 8601 standard for dates: YYYY-MM-DD\n\n\n\nchronological_order",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#section",
-    "href": "lectures/8-regex-filenames-project-organization.html#section",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "",
-    "text": "iso_psa",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#comprehensive-map-of-all-countries-in-the-world-that-use-the-mm-dd-yyyy-format",
-    "href": "lectures/8-regex-filenames-project-organization.html#comprehensive-map-of-all-countries-in-the-world-that-use-the-mm-dd-yyyy-format",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Comprehensive map of all countries in the world that use the MM-DD-YYYY format",
-    "text": "Comprehensive map of all countries in the world that use the MM-DD-YYYY format\n\n\n\n\nmap_mmddyyy\n\n\n\n\nFrom https://twitter.com/donohoe/status/597876118688026624.",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#left-pad-other-numbers-with-zeros",
-    "href": "lectures/8-regex-filenames-project-organization.html#left-pad-other-numbers-with-zeros",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Left pad other numbers with zeros",
-    "text": "Left pad other numbers with zeros\n\n\n\n\nlogical_order\n\n\n\n\nIf you don’t left pad, you get this:\n10_final-figs-for-publication.R\n1_data-cleaning.R\n2_fit-model.R\nwhich is just sad :(",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#recap-plays-well-with-default-ordering",
-    "href": "lectures/8-regex-filenames-project-organization.html#recap-plays-well-with-default-ordering",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Recap: Plays well with default ordering",
-    "text": "Recap: Plays well with default ordering\n\nPut something numeric first\nUse the ISO 8601 standard for dates\nLeft pad other numbers with zeros",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#recap",
-    "href": "lectures/8-regex-filenames-project-organization.html#recap",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Recap",
-    "text": "Recap",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#three-principles-for-file-names-1",
-    "href": "lectures/8-regex-filenames-project-organization.html#three-principles-for-file-names-1",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Three principles for (file) names",
-    "text": "Three principles for (file) names\n\nMachine readable\nHuman readable\nPlays well with default ordering",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#pros",
-    "href": "lectures/8-regex-filenames-project-organization.html#pros",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Pros",
-    "text": "Pros\n\nEasy to implement NOW\nPayoffs accumulate as your skills evolve and projects get more complex",
-    "crumbs": [
-      "Home",
-      "Lectures",
-      "Lecture 8a: Organization of Data Science projects"
-    ]
-  },
-  {
-    "objectID": "lectures/8-regex-filenames-project-organization.html#go-forth-and-use-awesome-file-names",
-    "href": "lectures/8-regex-filenames-project-organization.html#go-forth-and-use-awesome-file-names",
-    "title": "Organization of Data Science projects and some useful tools",
-    "section": "Go forth and use awesome file names :)",
-    "text": "Go forth and use awesome file names :)\n\n\n\nchronological_order\n\n\n\n\n\n\nlogical_order\n\n\n\nLecture Activities\n\nWhich of the following items describe three important rules for naming files on a computer? Select all correct answers.\n\nA. File name parts should be easy to extract programmatically B. Humans would understand something about file contents by looking at their names C. Files with appropriate names would be nicely organized by default D. File names should always use lower-case letters E. Underscores are the only allowed separator in file names F. Human understanding of file names should be prioritized over machine understanding\n\nMatch each explanation with its corresponding file naming principle:\n\n\nBy following this principle, we are able to use tools such as regular expressions and file-name globbing to search, select and manipulate files using tools such as the unix shell, R and Python.\n\nH. By following this principle, we can have a good idea of what is inside files without having to open them (saves us time) and when we come back to work on a project we haven’t worked on in a while it is much easier for us to remember what we were working on and get started again.\nI. By following this principle, we can make our files more organized and understandable, and files more findable. Ordered lists will be sorted into a logical order and so it is easy to orient yourself in the directory and find the files you want to find.\nJ. By following this principle, we will be sure that our files have the appropriate formatting in terms of their content. Such files will be ready for subsequent analysis in a data science pipeline.\n\nWhich of the following are GOOD date formats to use in a filename?\n\nK. 2020-01-26T0233 L. 20200126T0233 M. 2020-01-26",
+    "section": "Activity 4",
+    "text": "Activity 4\nWhich of the following are GOOD date formats to use in a filename?\nA. 2020-01-26T0233\nB. 20200126T0233\nC. 2020-01-26",
     "crumbs": [
       "Home",
       "Lectures",

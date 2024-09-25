@@ -361,6 +361,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity 1</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#basic-matching" id="toc-basic-matching" class="nav-link" data-scroll-target="#basic-matching">Basic matching</a></li>
   <li><a href="#the-square-brackets" id="toc-the-square-brackets" class="nav-link" data-scroll-target="#the-square-brackets">The square brackets: <code>[]</code></a>
@@ -408,16 +409,21 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <li>Use regular expressions to navigate and organize files within the filesystem.</li>
 </ol>
 </section>
+<section id="activity-1" class="level2 activity">
+<h2 class="anchored" data-anchor-id="activity-1">Activity 1</h2>
+<p>Imagine you’re working as a data scientist for an e-commerce company, and you have been given a dataset of user reviews for a product. The reviews contain noisy data: some reviews include email addresses, phone numbers, and URLs, which you want to remove before conducting sentiment analysis. Additionally, you need to extract specific pieces of information, such as any mentions of product model numbers that follow a specific pattern.</p>
+<p>Would you use <kbd>⌘</kbd> + <kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd> + <kbd>f</kbd> (Windows / Linux) to find and replace what you needed?</p>
+</section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Like with most things, the best way for you to learn Regex is to get practice using it. There are a few exercises included in the notebook, and at the end I have also included links interactive online exercises with are great to practice your regexes!</p>
+<p>Like with most things, the best way for you to learn Regex is to get practice using it. There are a few exercises included in the notebook, and at the end I have also included links interactive online exercises with are great to practice your regular expressions (RegEx)!</p>
 <p>To see what a particular regex is matching and how, you can use one of these two webpages, which both do a great job visualizing and explaining the different parts of a regex match:</p>
 <ul>
-<li>https://regexr.com/
+<li><a href="https://regexr.com/" class="uri">https://regexr.com/</a>
 <ul>
-<li>regexr interprets text input as one big string by default, so you need to check “multiline” under “flags” (top right) for it to behave as expected with beginning and end of line matches (it hints at this in the output for both ^ and $).</li>
+<li><code>regexr</code> interprets text input as one big string by default, so you need to check “multiline” under “flags” (top right) for it to behave as expected with beginning and end of line matches (it hints at this in the output for both ^ and $).</li>
 </ul></li>
-<li>https://regex101.com/
+<li><a href="https://regex101.com/" class="uri">https://regex101.com/</a>
 <ul>
 <li>regex101 has the “multiline” flag set by default.</li>
 </ul></li>
@@ -425,12 +431,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </section>
 <section id="basic-matching" class="level2">
 <h2 class="anchored" data-anchor-id="basic-matching">Basic matching</h2>
-<ul>
-<li>Basic matching: if you look for a regular string, like <code>banana</code>, regex will match the exact string (including its upper/lower case).</li>
-<li>Both JupyterLab and VS Code have built in regex functionality (bring up the search box and click the <code>.*</code> symbol to use regex rather than the default search).</li>
-<li>When learning regex it is helpful to use one of the two webtools mentioned in the previous cell in order to visualize how your regex is matching the text.</li>
-<li>For this lecture, we will use a list of fruits to learn about regex.</li>
-</ul>
+<p>Basic matching: if you look for a regular string, like <code>banana</code>, regex will match the exact string (including its upper/lower case). Both JupyterLab and VS Code have built in regex functionality (bring up the search box and click the <code>.*</code> symbol to use regex rather than the default search). When learning regex it is helpful to use one of the two web tools mentioned in the previous cell in order to visualize how your regex is matching the text. We will use a list of fruits to learn about regex.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>applesas</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>apple</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>apricot</span>
@@ -474,167 +475,126 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </section>
 <section id="the-square-brackets" class="level2">
 <h2 class="anchored" data-anchor-id="the-square-brackets">The square brackets: <code>[]</code></h2>
-<ul>
-<li>If you want to specify the set of possible characters you can use square brackets <code>[]</code>;</li>
-<li>For example, <code>[Aa]pple</code> would match <code>Apple</code> and <code>apple</code>.</li>
-</ul>
+<p>If you want to specify the set of possible characters you can use square brackets <code>[]</code>; For example, <code>[Aa]pple</code> would match <code>Apple</code> and <code>apple</code>.</p>
 <div class="exercise">
-<section id="lecture-8-exercise-1" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-1">Lecture 8 Exercise 1</h3>
+<section id="exercise-1" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
 </section>
 <div class="exercise-container">
 <p>Find all the pairs of vowels in the fruit list.</p>
-<p>Highlight the black box below to see than correct answer (the black box will not show up on GitHub, so download the notebook unless you want the answer displayed) Remember to use one of the websites linked above to help you understand what your regex is matching (https://regexr.com/ or https://regex101.com/).</p>
-<div style="background-color:black">
-<p>[aeiou][aeiou]</p>
-</div>
+<p>Highlight the black box below to see than correct answer (the black box will not show up on GitHub, so download the notebook unless you want the answer displayed) Remember to use one of the websites linked above to help you understand what your regex is matching (<a href="https://regexr.com/" class="uri">https://regexr.com/</a> or <a href="https://regex101.com/" class="uri">https://regex101.com/</a>).</p>
+<pre><code>[aeiou][aeiou]</code></pre>
 </div>
 </div>
 <section id="ranges-within" class="level3">
 <h3 class="anchored" data-anchor-id="ranges-within">Ranges within <code>[]</code></h3>
-<ul>
-<li><p>You can also define ranges when using brackets. For example:</p>
-<ul>
-<li><code>[A-Z]</code>: will match any upper case letter</li>
-<li><code>[a-z]</code>: will match any lower case letter</li>
-<li><code>[0-9]</code>: will match any digit</li>
-<li><code>[0-5]</code>: will match any digit between 0 and 5</li>
-</ul></li>
-<li><p>The order cannot be reversed, <code>[z-A]</code> does not work.</p></li>
-<li><p>You can combine ranges: <code>[A-Za-z]</code>.</p></li>
-<li><p>You can use square brackets starting with a caret. For example:</p>
-<ul>
-<li><code>[^A-Z]</code>: will match anything that is not an upper case letter</li>
-<li><code>[^0-9]</code>: will match anything that is not a digit</li>
-<li>Note that the caret needs to be inside the bracket, if it is outside it will match the beginning of a line as described under the “Anchors” section below.</li>
-</ul></li>
-<li><p>For the curious, these ranges are ordered based on <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">ASCI codes</a> where every character is represented by a number. The first character in the list is <code></code> (space) and the last is <code>~</code> (tilde). The full list is shown below:</p>
-<pre><code> !"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~</code></pre></li>
-</ul>
+<p>You can also define ranges when using brackets. For example:</p>
+<pre><code>- `[A-Z]`: will match any upper case letter
+- `[a-z]`: will match any lower case letter
+- `[0-9]`: will match any digit
+- `[0-5]`: will match any digit between 0 and 5</code></pre>
+<p>The order cannot be reversed, <code>[z-A]</code> does not work. You can combine ranges: <code>[A-Za-z]</code>.</p>
+<p>You can use square brackets starting with a caret. For example:</p>
+<pre><code>- `[^A-Z]`: will match anything that is not an upper case letter
+- `[^0-9]`: will match anything that is not a digit</code></pre>
+<p>The caret needs to be inside the bracket, if it is outside it will match the beginning of a line as described under the “Anchors” section below.</p>
+<p>These ranges are ordered based on <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">ASCI codes</a> where every character is represented by a number. The first character in the list is <code></code> (space) and the last is <code>~</code> (tilde). The full list is shown below:</p>
+<pre><code> !"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~</code></pre>
 </section>
 </section>
 <section id="special-matching-characters" class="level2">
 <h2 class="anchored" data-anchor-id="special-matching-characters">Special matching characters</h2>
-<ul>
-<li>A common operation is to match any character (e.g.&nbsp;between two important characters).</li>
-<li>Instead of writing out the full range <code>[ -~]</code> (space to tilde), the special character <code>.</code> can be used to match any character in the list above.
-<ul>
-<li>Note that <code>.</code> does not match the newline character, so if you have an expression that continues on the next line it will not be matched.</li>
-</ul></li>
-<li>To match a literal <code>.</code> (the period character), you can “escape” its special meaning by prefacing it with a backslash <code>\.</code> (most common) or surrounding it with square brackets <code>[.]</code>.</li>
-<li>Another useful special character is <code>\w</code>, which matches any character that normally occurs inside a word (so it does not match spaces, underlines, etc)</li>
-</ul>
+<p>A common operation is to match any character (e.g.&nbsp;between two important characters). Instead of writing out the full range <code>[ -~]</code> (space to tilde), the special character <code>.</code> can be used to match any character in the list above. <code>.</code> does not match the newline character, So if you have an expression that continues on the next line it will not be matched.</p>
+<p>To match a literal <code>.</code> (the period character), you can “escape” its special meaning by prefacing it with a backslash <code>\.</code> (most common) or surrounding it with square brackets <code>[.]</code>.</p>
+<p>Another useful special character is <code>\w</code>, which matches any character that normally occurs inside a word (so it does not match spaces, underlines, etc)</p>
 <div class="exercise">
-<section id="lecture-8-exercise-2" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-2">Lecture 8 Exercise 2</h3>
+<section id="exercise-2" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
 </section>
 <div class="exercise-container">
 <p>What is the difference between writing <code>[A-Za-z]</code> and [<code>A-z</code>]?</p>
-<div style="background-color:black">
-<p>[A-z] will also match the characters <code>[/]^_</code>, as you can see in the list above.</p>
-</div>
+<pre><code>[A-z] will also match the characters `[/]^_`, as you can see in the list above.</code></pre>
 </div>
 </div>
 <div class="exercise">
-<section id="lecture-8-exercise-3" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-3">Lecture 8 Exercise 3</h3>
+<section id="exercise-3" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
 </section>
 <div class="exercise-container">
 <p>Match any characters between two <code>_</code>.</p>
-<div style="background-color:black">
-<p>_.*_</p>
-</div>
+<pre><code>_.*_</code></pre>
 </div>
 </div>
 </section>
 <section id="anchors" class="level2">
 <h2 class="anchored" data-anchor-id="anchors">Anchors</h2>
-<ul>
-<li>The caret outside the brackets means beginning of line. For example, <code>^apple</code> will match all lines that start with <code>apple</code>, including <code>apple sauce</code> and <code>apples</code>.</li>
-<li>The dollar sign <code>$</code> means end of line, e.g., <code>fruit$</code> will match lines that end with <code>fruit</code>.</li>
-<li>To remember this, you can use the mnemonic “Start with power (<code>^</code>) and end with money (<code>$</code>)” (originally from Jenny Bryan).</li>
-<li>Another useful anchor is <code>\b</code>, which matches end of word.</li>
-</ul>
+<p>The caret outside the brackets means beginning of line. For example, <code>^apple</code> will match all lines that start with <code>apple</code>, including <code>apple sauce</code> and <code>apples</code>. The dollar sign <code>$</code> means end of line, e.g., <code>fruit$</code> will match lines that end with <code>fruit</code>. To remember this, you can use the mnemonic “Start with power (<code>^</code>) and end with money (<code>$</code>)” (originally from Jenny Bryan).</p>
+<p>Another useful anchor is <code>\b</code>, which matches end of word.</p>
 <div class="exercise">
-<section id="lecture-8-exercise-4" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-4">Lecture 8 Exercise 4</h3>
+<section id="exercise-4" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
 </section>
 <div class="exercise-container">
 <p>Write a regex that will match a line that contains only pineapple. (Hint: you cannot just write <code>pineapple</code> - it will not work - why?)</p>
-<div style="background-color:black">
-<p>^pineapple$ <br>note that if you use just <code>pineapple</code>, lines that also contain other words would match too.</p>
-</div>
+<pre><code>^pineapple$</code></pre>
+<p>note that if you use just <code>pineapple</code>, lines that also contain other words would match too.</p>
 </div>
 </div>
 </section>
 <section id="repetitions" class="level2">
 <h2 class="anchored" data-anchor-id="repetitions">Repetitions</h2>
-<ul>
-<li>To match multiple of the same character, you can either repeat it or use the following syntax:
+<p>To match multiple of the same character, you can either repeat it or use the following syntax:</p>
 <ul>
 <li><code>{n}</code>: exactly <code>n</code> occurrences</li>
 <li><code>{n,}</code>: at least <code>n</code> occurrences</li>
 <li><code>{0,m}</code>: at most <code>m</code> occurrences</li>
 <li><code>{n,m}</code>: between <code>n</code> and <code>m</code> (inclusive) occurrences</li>
-</ul></li>
 </ul>
 <section id="special-repetition-characters" class="level3">
 <h3 class="anchored" data-anchor-id="special-repetition-characters">Special repetition characters</h3>
-<ul>
-<li>There are some shortcuts for the most common repetitions:
+<p>There are some shortcuts for the most common repetitions:</p>
 <ul>
 <li><code>?</code>: means 0 or 1 time (<code>{0,1}</code>)</li>
 <li><code>*</code>: means 0 or more time (<code>{0,}</code>)</li>
 <li><code>+</code>: means 1 or more time (<code>{1,}</code>)</li>
-</ul></li>
-<li>For example, <code>apples?</code> will match <code>apple</code> and <code>apples</code>.
-<ul>
-<li>But <code>apples+</code> will not match <code>apple</code> or <code>appplesq</code>, but it will match <code>apples</code>, <code>appless</code>, <code>applesss</code>, etc.</li>
-</ul></li>
 </ul>
+<p>For example, <code>apples?</code> will match <code>apple</code> and <code>apples</code>. But <code>apples+</code> will not match <code>apple</code> or <code>appplesq</code>, but it will match <code>apples</code>, <code>appless</code>, <code>applesss</code>, etc.</p>
 </section>
 <div class="exercise">
-<section id="lecture-8-exercise-5" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-5">Lecture 8 Exercise 5</h3>
+<section id="exercise-5" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
 </section>
 <div class="exercise-container">
 <p>Find the fruits with names between 10 and 12 characters.</p>
-<div style="background-color:black">
-<p>.{10,12}</p>
-</div>
+<pre><code>.{10,12}</code></pre>
 </div>
 </div>
 <div class="exercise">
-<section id="lecture-8-exercise-6" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-6">Lecture 8 Exercise 6</h3>
+<section id="exercise-6" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
 </section>
 <div class="exercise-container">
 <p>Find the lines with no more than 4 letters.</p>
-<div style="background-color:black">
-<p>^.{0,4}$</p>
-</div>
+<pre><code>^.{0,4}$</code></pre>
 </div>
 </div>
 <div class="exercise">
-<section id="lecture-8-exercise-7" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-7">Lecture 8 Exercise 7</h3>
+<section id="exercise-7" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
 </section>
 <div class="exercise-container">
 <p>Find all the words that contain at least two consecutive vowels.</p>
-<div style="background-color:black">
-<p>[aeiou]{2,} <br>or<br> [aeiou][aeiou]+</p>
-</div>
+<pre><code>[aeiou]{2,}</code></pre>
+<pre><code>[aeiou][aeiou]+</code></pre>
 </div>
 </div>
 <div class="exercise">
-<section id="lecture-8-exercise-8" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="lecture-8-exercise-8">Lecture 8 Exercise 8</h3>
+<section id="exercise-8" class="level3 exercise-header">
+<h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
 </section>
 <div class="exercise-container">
 <p>This is a bit harder and derives from all previous sections: Match entire words that end in <code>_</code>.</p>
-<div style="background-color:black">
-<p>\w*_\b</p>
-</div>
+<pre><code>\\w*_\\b</code></pre>
 </div>
 </div>
 <div class="exercise">
@@ -642,10 +602,8 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <h3 class="anchored" data-anchor-id="additional-exercises">Additional exercises</h3>
 </section>
 <div class="exercise-container">
-<ul>
-<li>Go through the interactive tutorials and practice sessions at https://regexone.com/ that correspond to the topics we have covered during class.</li>
-<li>The Library Carpentry organization has many regex exercises in all sections of their regex course here https://librarycarpentry.org/lc-data-intro/ (you can just to do the exercises).</li>
-</ul>
+<p>Go through the interactive tutorials and practice sessions at <a href="https://regexone.com/" class="uri">https://regexone.com/</a> that correspond to the topics we have covered during class.</p>
+<p>The Library Carpentry organization has many regex exercises in all sections of their regex course here: <a href="https://librarycarpentry.org/lc-data-intro/" class="uri">https://librarycarpentry.org/lc-data-intro/</a> (you can just to do the exercises).</p>
 </div>
 </div>
 </section>
