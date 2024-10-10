@@ -388,12 +388,11 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <li><a href="#copying-an-environment" id="toc-copying-an-environment" class="nav-link" data-scroll-target="#copying-an-environment">Copying an environment</a></li>
   <li><a href="#deleting-an-environment" id="toc-deleting-an-environment" class="nav-link" data-scroll-target="#deleting-an-environment">Deleting an environment</a></li>
   <li><a href="#making-environments-work-well-with-jupyterlab" id="toc-making-environments-work-well-with-jupyterlab" class="nav-link" data-scroll-target="#making-environments-work-well-with-jupyterlab">Making environments work well with JupyterLab</a></li>
-  <li><a href="#note-1" id="toc-note-1" class="nav-link" data-scroll-target="#note-1">Note</a></li>
   <li><a href="#managing-packages" id="toc-managing-packages" class="nav-link" data-scroll-target="#managing-packages">Managing Packages</a>
   <ul class="collapse">
   <li><a href="#list-packages-in-current-environment" id="toc-list-packages-in-current-environment" class="nav-link" data-scroll-target="#list-packages-in-current-environment">List packages in current environment</a></li>
   </ul></li>
-  <li><a href="#note-2" id="toc-note-2" class="nav-link" data-scroll-target="#note-2">Note</a></li>
+  <li><a href="#note-1" id="toc-note-1" class="nav-link" data-scroll-target="#note-1">Note</a></li>
   <li><a href="#searching-for-a-certain-package" id="toc-searching-for-a-certain-package" class="nav-link" data-scroll-target="#searching-for-a-certain-package">Searching for a certain package</a></li>
   <li><a href="#installing-conda-package" id="toc-installing-conda-package" class="nav-link" data-scroll-target="#installing-conda-package">Installing conda package</a></li>
   <li><a href="#removing-a-conda-package" id="toc-removing-a-conda-package" class="nav-link" data-scroll-target="#removing-a-conda-package">Removing a conda Package</a></li>
@@ -659,14 +658,10 @@ D. Creating isolated computational environment for testing new packages</code></
 </section>
 <section id="making-environments-work-well-with-jupyterlab" class="level3">
 <h3 class="anchored" data-anchor-id="making-environments-work-well-with-jupyterlab">Making environments work well with JupyterLab</h3>
-</section>
-<section id="note-1" class="level2 note">
-<h2 class="anchored" data-anchor-id="note-1">Note</h2>
-<p>This section is a personal preference, it does allow you to easily change between environments within jupyter lab, but if you are not careful, you can end up installing packages in the wrong environment or not realize you are using the wrong environment.</p>
-</section>
 <p>In brief, you need to install the <code>ipykernel</code> package in any new environment your create, and the <code>nb_conda_kernels</code> package needs to be installed in the environment where JupyterLab is installed.</p>
 <p>By default, JupyterLab only sees the conda environment where it is installed. Since it is quite annoying to install JupyterLab and its extensions separately in each environment, there is a package called <code>nb_conda_kernels</code> that makes it possible to have a single installation of JupyterLab access kernels in other conda environments. This package needs to be installed in the conda environment where JupyterLab is installed.</p>
 <p>Lastly, you also need to install a kernel in the new conda environment so that it can be detected by <code>nb_conda_kernels</code>. This kernel can be installed via the package <code>ipykernel</code> for Python and the <code>r-irkernel</code> package for R (<a href="https://github.com/Anaconda-Platform/nb_conda_kernels#installation">more info in the nb_conda_kernels README</a>).</p>
+</section>
 <section id="managing-packages" class="level2">
 <h2 class="anchored" data-anchor-id="managing-packages">Managing Packages</h2>
 <p>In this section, we will cover how to manage packages within any environment.</p>
@@ -704,8 +699,8 @@ D. Creating isolated computational environment for testing new packages</code></
 <span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="fu">xz</span>                        5.2.6                h166bdaf_0    conda-forge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="note-2" class="level2 note">
-<h2 class="anchored" data-anchor-id="note-2">Note</h2>
+<section id="note-1" class="level2 note">
+<h2 class="anchored" data-anchor-id="note-1">Note</h2>
 <p>You will typically want to have an empty <code>base</code> environment where no packages are installed. All your work in separate classes/projects should exist in their own environment.</p>
 <p>The above set of packages is what an empty environment with only Python 3.12 installed looks like (on a linux machines). Notably, the typical python data science packages, <code>pandas</code>, <code>numpy</code>, <code>jupyter</code>, etc, are not in the environment.</p>
 </section>
