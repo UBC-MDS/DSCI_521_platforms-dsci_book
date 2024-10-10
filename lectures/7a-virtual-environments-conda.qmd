@@ -470,15 +470,6 @@ conda env remove -n live_env
 
 ### Making environments work well with JupyterLab
 
-:::{.note}
-## Note
-
-This section is a personal preference,
-it does allow you to easily change between environments within jupyter lab,
-but if you are not careful, you can end up installing packages in the
-wrong environment or not realize you are using the wrong environment.
-:::
-
 In brief,
 you need to install the `ipykernel` package
 in any new environment your create,
