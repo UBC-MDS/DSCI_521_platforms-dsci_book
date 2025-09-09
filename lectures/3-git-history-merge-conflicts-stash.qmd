@@ -158,25 +158,38 @@ there are new changes to the remote repo
 that you need to `pull` down from GitHub before you are allowed to `push` up your changes.
 If there are no conflicts when you `pull`,
 Git will say that everything went OK and you can `push` up your new changes.
+
 If there are conflicts, you will see something like this:
 
 ```
-remote: Counting objects: 5, done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 3 (delta 1), reused 3 (delta 1)
-Unpacking objects: 100% (3/3), done.
-From https://github.com/joelostblom/DSCI_521_lab1_jostblom
- * branch            master     -> FETCH_HEAD
-Auto-merging README.md
-CONFLICT (content): Merge conflict in README.md
-Automatic merge failed; fix conflicts and then commit the result.
+
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 418 bytes | 104.00 KiB/s, done.
+From github.ubc.ca:mds-2025-26/DSCI_lab1_ilm
+   30137f5..fa47713  main       -> origin/main
+hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint:
+hint:   git config pull.rebase false  # merge
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint:
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.
 
 ```
 
 You have a merge conflict.
-Merge conflicts are not bad,
-they happen to everyone and you will need to know how to instruct git what to do.
+Merge conflicts are not bad, they happen to everyone and you will need to know how to instruct git what to do.
 
+We usually want git to help us solve the conflict via merge, so a reasonable next step is `git pull --rebase=false`, which specifically tells git that we want to reconcile by merging.
 
 :::{.activity}
 ::::{.activity-header}
@@ -201,7 +214,7 @@ D. Work only locally or only in the remote repository.
 ## What do you do to fix a merge conflict?
 ### Steps to follow:
 
-* Step 1: Open the file that has a conflict (the output of `git pull` will tell you which files) in a plain text editor (e.g., VS Code).
+* Step 1: Open the file that has a conflict (the output of `git pull --rebase=false` will tell you which files) in a plain text editor (e.g., VS Code).
 
 * Step 2: Look for the conflict (hint: search for `<<<<<<< HEAD`).
 
@@ -403,7 +416,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 Git is letting us know about untracked files (ones we have never committed before). We don't care about these files. We'd prefer not to have them clutter our view (so we can pay attention to files we do want to track). What do we do?
 
-## 5. Create a `.gitignore` file
+## Create a `.gitignore` file
 
 Using the plain text editor of your choice (mine is VS Code) create a file called `.gitignore` inside your Git repo. To do this with VS Code, I would type:
 
@@ -432,7 +445,6 @@ To have files or folders ignored in subdirectories within the repo, append `**/`
 Let's create a `gitignore` file in our 521 lab 2 repo.
 
 ### Steps to follow:
-Sure, here it is in prose form:
 
 * Step 1: Use a text editor (e.g., VS Code, nano, Jupyter) to create a file called `.gitignore` in your 521 lab 2 repo.
 
