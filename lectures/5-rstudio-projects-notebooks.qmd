@@ -141,6 +141,20 @@ which can easily create paths relative from the root project dir
 
 ### The {here} Package
 
+:::{.activity}
+## Activity 2
+
+You have cloned a project folder containing an `.Rmd` file that loads data using the following code:
+
+```r
+cars <- read.csv("data/cars.csv")
+```
+What could go wrong when you try to render this file, and how could you modify the code to prevent potential issues?
+
+Hint: Think about file paths and project structure. You might consider using a specific function to handle paths.
+
+:::
+
 When you load the `{here}` package,
 it will echo the current project root directory.
 You should always confirm that this is the expected starting location
@@ -177,19 +191,7 @@ you would not need to change your code,
 because the relative path to the data from the root directory
 stayed the same.
 
-:::{.activity}
-## Activity 2
 
-You have cloned a project folder containing an `.Rmd` file that loads data using the following code:
-
-```r
-cars <- read.csv("data/cars.csv")
-```
-What could go wrong when you try to render this file, and how could you modify the code to prevent potential issues?
-
-Hint: Think about file paths and project structure. You might consider using a specific function to handle paths.
-
-:::
 
 ### Creating RStudio projects
 
