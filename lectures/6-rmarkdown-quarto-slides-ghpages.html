@@ -561,7 +561,6 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link" data-scroll-target="#r-markdown">R Markdown</a></li>
   </ul></li>
   <li><a href="#lecture-6-activity-4" id="toc-lecture-6-activity-4" class="nav-link" data-scroll-target="#lecture-6-activity-4">Lecture 6 Activity 4</a></li>
-  <li><a href="#lecture-6-activity-5" id="toc-lecture-6-activity-5" class="nav-link" data-scroll-target="#lecture-6-activity-5">Lecture 6 Activity 5</a></li>
   <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks">Jupyter Notebooks</a></li>
   <li><a href="#book-output" id="toc-book-output" class="nav-link" data-scroll-target="#book-output">Book output</a></li>
   <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a></li>
@@ -692,7 +691,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       <iframe class="slide-deck" src="demos/slides/slides-quarto.html" height="600px"></iframe>
     </div>
   
-<p>If you want to create your <code>revealjs</code> html slides and be able to share a <strong>single</strong> html file with others as a slide, you may need to embed and make the slide “self contained”.</p>
+<p>If you want to create your <code>revealjs</code> html slides and be able to share a <strong>single</strong> html file with others as a slide, you may need to embed and make the slide “self-contained”.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -750,20 +749,28 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </section>
 <section id="lecture-6-activity-4" class="level2 activity">
 <h2 class="anchored" data-anchor-id="lecture-6-activity-4">Lecture 6 Activity 4</h2>
-<p>Which of the following is the <strong>correct</strong> output format for creating slides in R Markdown?</p>
+<p>Which of the following is the <strong>correct</strong> output format for creating slides in Quarto markdown?</p>
 <p>A. <code>revealjs::revealjs_presentation</code></p>
 <p>B. <code>xaringan::sun_reader</code></p>
-<p>C. <code>quarto::quarto_presentation</code></p>
+<p>C. <code>format: revealjs</code></p>
 <p>D. <code>ioslides_presentation</code></p>
 </section>
-<section id="lecture-6-activity-5" class="level2 activity">
-<h2 class="anchored" data-anchor-id="lecture-6-activity-5">Lecture 6 Activity 5</h2>
-<p>What is the primary difference between slides created with R Markdown’s <code>revealjs</code> and <code>xaringan</code>?</p>
-<p>A. <code>xaringan</code> slides are two-dimensional, allowing horizontal and vertical navigation, while <code>reveal.js</code> slides are one-dimensional.</p>
-<p>B. <code>reveal.js</code> requires an additional package to be installed, while <code>xaringan</code> is included by default in R Markdown.</p>
-<p>C. <code>reveal.js</code> slides support two-dimensional navigation, with slides moving left/right and sub-slides up/down.</p>
-<p>D. <code>xaringan</code> uses <code>pandoc</code> for rendering slides, whereas <code>reveal.js</code> does not.</p>
-</section>
+<!--
+:::{.activity}
+## Lecture 6 Activity 5
+
+What is the primary difference between slides created with R Markdown's `revealjs` and `xaringan`?
+
+A. `xaringan` slides are two-dimensional, allowing horizontal and vertical navigation, while `reveal.js` slides are one-dimensional.
+
+B. `reveal.js` requires an additional package to be installed, while `xaringan` is included by default in R Markdown.
+
+C. `reveal.js` slides support two-dimensional navigation, with slides moving left/right and sub-slides up/down.
+
+D. `xaringan` uses `pandoc` for rendering slides, whereas `reveal.js` does not.
+
+:::
+-->
 <section id="jupyter-notebooks" class="level3">
 <h3 class="anchored" data-anchor-id="jupyter-notebooks">Jupyter Notebooks</h3>
 <p>Jupyter notebooks also support slides with RISE.</p>
