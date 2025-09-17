@@ -132,7 +132,7 @@ format: revealjs
 
 If you want to create your `revealjs` html slides and be able to share
 a **single** html file with others as a slide,
-you may need to embed and make the slide "self contained".
+you may need to embed and make the slide "self-contained".
 
 ```yaml
 format:
@@ -196,19 +196,19 @@ If you want to learn more about Xaringan slides, see the
 :::{.activity}
 ## Lecture 6 Activity 4
 
-Which of the following is the **correct** output format for creating slides in R Markdown?
+Which of the following is the **correct** output format for creating slides in Quarto markdown?
 
 A. `revealjs::revealjs_presentation`
 
 B. `xaringan::sun_reader`
 
-C. `quarto::quarto_presentation`
+C. `format: revealjs`
 
 D. `ioslides_presentation`
 
 :::
 
-
+<!--
 :::{.activity}
 ## Lecture 6 Activity 5
 
@@ -223,7 +223,7 @@ C. `reveal.js` slides support two-dimensional navigation, with slides moving lef
 D. `xaringan` uses `pandoc` for rendering slides, whereas `reveal.js` does not.
 
 :::
-
+-->
 
 ### Jupyter Notebooks
 
