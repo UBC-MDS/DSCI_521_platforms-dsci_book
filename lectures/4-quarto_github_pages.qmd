@@ -200,7 +200,7 @@ USERNAME.github.io/
 The most important file is the `_quarto.yml` file,
 this is how quarto knows you are using a quarto project.
 Some quarto commands and options may need to run in a quarto project.
-The contents of the `_qquarto.yml` (in this example) file tells quarto that we are going to be
+The contents of the `_quarto.yml` (in this example) file tells quarto that we are going to be
 creating a website.
 
 ```yml
@@ -229,7 +229,7 @@ The `_quarto.yml` file defines many (if not all) of the options you can use to t
 your website (or project) renders or behaves.
 This file is a YAML file.
 This is a common format many tools use to provide configuration settings.
-Just note the indentation, white space, and dashes `-` are all really important and implies different things.
+Just note the indentation, white space, and dashes `-` are all really important and imply different things.
 YAML is a "recursive acronym", it stands for "YAML Ain't Markup Language".
 
 You can go through the official quarto website documentation guide for more information:
