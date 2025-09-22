@@ -35,7 +35,7 @@ is an **open source `package` and `environment` management system**.
 It allows you to install libraries and packages as well as their accompanying dependencies.
 It can work with _any_ programming language, but is mostly popular in the Python community.
 
-In MDS and quite often, broadly in data science projects, we use Miniforge distribution, which was created to be a bare-bones installation with conda and using `conda-forge` as the package channel. This is what we had you install in the MDS Python installation instructions.
+In MDS and quite often, broadly in data science projects, we use Miniforge distribution, which was created to be a bare-bones installation with conda and using `conda-forge` as the package channel. This is what we had you install in the MDS Python installation instructions. There are many variations of many parts of conda, see @sec-conda-history.
 
 :::{.activity}
 ## Activity 2
@@ -611,7 +611,7 @@ package channels.
 You should not see `anaconda` or `default` in the output text before you
 confirm an action.https://conda.org/blog/2024-08-14-conda-ecosystem-explained/
 
-### Conda history and terminology
+### Conda history and terminology {#sec-conda-history}
 
 There is a lot of history and backstory to conda, but we'll just talk about the main players
 in the ecosystem.
