@@ -1953,7 +1953,7 @@
     "href": "lectures/7a-virtual-environments-conda.html#conda-and-its-ecosystem",
     "title": "Virtual Environments: Python + Conda",
     "section": "Conda and Its Ecosystem",
-    "text": "Conda and Its Ecosystem\nconda is an open source package and environment management system. It allows you to install libraries and packages as well as their accompanying dependencies. It can work with any programming language, but is mostly popular in the Python community.\nIn MDS and quite often, broadly in data science projects, we use Miniforge distribution, which was created to be a bare-bones installation with conda and using conda-forge as the package channel. This is what we had you install in the MDS Python installation instructions.",
+    "text": "Conda and Its Ecosystem\nconda is an open source package and environment management system. It allows you to install libraries and packages as well as their accompanying dependencies. It can work with any programming language, but is mostly popular in the Python community.\nIn MDS and quite often, broadly in data science projects, we use Miniforge distribution, which was created to be a bare-bones installation with conda and using conda-forge as the package channel. This is what we had you install in the MDS Python installation instructions. There are many variations of many parts of conda, see Section 16.1.",
     "crumbs": [
       "Home",
       "Lectures",
