@@ -533,13 +533,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
   <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity 1</a></li>
   <li><a href="#virtual-environments" id="toc-virtual-environments" class="nav-link" data-scroll-target="#virtual-environments">Virtual environments</a></li>
-  <li><a href="#conda-and-its-ecosystem" id="toc-conda-and-its-ecosystem" class="nav-link" data-scroll-target="#conda-and-its-ecosystem">Conda and Its Ecosystem</a>
-  <ul class="collapse">
-  <li><a href="#anaconda-and-miniconda" id="toc-anaconda-and-miniconda" class="nav-link" data-scroll-target="#anaconda-and-miniconda">Anaconda and Miniconda</a></li>
-  <li><a href="#conda-forge-and-miniforge" id="toc-conda-forge-and-miniforge" class="nav-link" data-scroll-target="#conda-forge-and-miniforge">Conda-forge and Miniforge</a></li>
-  <li><a href="#mamba" id="toc-mamba" class="nav-link" data-scroll-target="#mamba">Mamba</a></li>
-  <li><a href="#in-short" id="toc-in-short" class="nav-link" data-scroll-target="#in-short">In short…</a></li>
-  </ul></li>
+  <li><a href="#conda-and-its-ecosystem" id="toc-conda-and-its-ecosystem" class="nav-link" data-scroll-target="#conda-and-its-ecosystem">Conda and Its Ecosystem</a></li>
   <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity 2</a></li>
   <li><a href="#managing-conda" id="toc-managing-conda" class="nav-link" data-scroll-target="#managing-conda">Managing Conda</a>
   <ul class="collapse">
@@ -569,7 +563,12 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <li><a href="#removing-a-conda-package" id="toc-removing-a-conda-package" class="nav-link" data-scroll-target="#removing-a-conda-package">Removing a conda Package</a></li>
   <li><a href="#activity-4" id="toc-activity-4" class="nav-link" data-scroll-target="#activity-4">Activity 4</a></li>
   <li><a href="#when-there-is-no-conda-package" id="toc-when-there-is-no-conda-package" class="nav-link" data-scroll-target="#when-there-is-no-conda-package">When there is no conda package</a></li>
-  <li><a href="#confirming-your-work" id="toc-confirming-your-work" class="nav-link" data-scroll-target="#confirming-your-work">Confirming your work</a></li>
+  <li><a href="#confirming-your-work" id="toc-confirming-your-work" class="nav-link" data-scroll-target="#confirming-your-work">Confirming your work</a>
+  <ul class="collapse">
+  <li><a href="#conda-history-and-terminology" id="toc-conda-history-and-terminology" class="nav-link" data-scroll-target="#conda-history-and-terminology">Conda history and terminology</a></li>
+  <li><a href="#mamba" id="toc-mamba" class="nav-link" data-scroll-target="#mamba">Mamba</a></li>
+  <li><a href="#in-short" id="toc-in-short" class="nav-link" data-scroll-target="#in-short">In short…</a></li>
+  </ul></li>
   <li><a href="#additional-links" id="toc-additional-links" class="nav-link" data-scroll-target="#additional-links">Additional Links</a></li>
   <li><a href="#attribution" id="toc-attribution" class="nav-link" data-scroll-target="#attribution">Attribution</a></li>
   </ul>
@@ -621,36 +620,8 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </section>
 <section id="conda-and-its-ecosystem" class="level2">
 <h2 class="anchored" data-anchor-id="conda-and-its-ecosystem">Conda and Its Ecosystem</h2>
-<p><a href="http://conda.pydata.org/docs/"><strong>conda</strong></a> is an <strong>open source <code>package</code> and <code>environment</code> management system</strong>. It allows you to install libraries and packages as well as their accompanying dependencies. It can work with <em>any</em> programming language, but is mostly popular in the Python community. There is a lot of history and backstory to conda, but we’ll just talk about the main players in the ecosystem.</p>
-<section id="anaconda-and-miniconda" class="level3">
-<h3 class="anchored" data-anchor-id="anaconda-and-miniconda">Anaconda and Miniconda</h3>
-<p>“Anaconda” can refer to one of three things: Anaconda, Inc the company, anaconda the python distribution, and anaconda the conda package channel.</p>
-<p><a href="https://www.anaconda.com/">Anaconda, Inc</a> (formerly, Continuum Analytics) is the <strong>company</strong> that originally created <code>conda</code>. Anaconda also created the <a href="https://www.anaconda.com/download">anaconda distribution</a>, which comes with <code>conda</code> and many other pre-installed Python packages. The anaconda distribution uses the <em>anaconda</em> channel as the default place to look for <code>conda</code> packages.</p>
-</section>
-<section id="conda-forge-and-miniforge" class="level3">
-<h3 class="anchored" data-anchor-id="conda-forge-and-miniforge">Conda-forge and Miniforge</h3>
-<p><a href="https://docs.anaconda.com/miniconda/">Miniconda</a> is also maintained by Anaconda, Inc. It uses <code>conda</code> as the package installer, and also anaconda as the default package channel. The difference is that miniconda does not come with pre-installed python packages. The “mini” is for a smaller more bare-bones installation.</p>
-<p>The anaconda channel is completely maintained by Anaconda, Inc. People who wanted get their own packages installable by <code>conda</code> needed their own mechanism to share their packages. Also, because Anaconda needs the anaconda distribution to work for their enterprise customers, not every package is on the latest version or would take a long time to get the latest versions of packages you needed. This led to the creation of <a href="https://conda-forge.org/">Conda-Forge</a>, a <strong>community</strong> maintained channel for conda packages. Now package maintainers can publish the latest versions of their packages to a community maintained repository.</p>
-<p>Since Miniconda is maintained by Anaconda, Inc with the default anaconda channel, Miniforge was created to be a bare-bones installation with conda and using conda-forge as the package channel. This is what we had you install in the <a href="https://ubc-mds.github.io/resources_pages/installation_instructions/">MDS Python installation instructions</a>.</p>
-</section>
-<section id="mamba" class="level3">
-<h3 class="anchored" data-anchor-id="mamba">Mamba</h3>
-<p><code>conda</code> allows you to install libraries and packages along with their dependencies. One of the main complaints about <code>conda</code> was the package dependency resolution took a very long time. <code>mamba</code> was created to be a faster C++ implementation of the dependency solver. Since then, <code>mamba</code> has been a drop-in replacement for <code>conda</code>, and the <code>mamba</code> solver is now the default solver used in miniforge.</p>
-</section>
-<section id="in-short" class="level3">
-<h3 class="anchored" data-anchor-id="in-short">In short…</h3>
-<ul>
-<li>Anaconda (capital A): is a company</li>
-<li>anaconda (lower-case a): is a python distribution</li>
-<li>anaconda channel: Set of packages and versions maintained by Anaconda</li>
-<li><code>conda</code>: is a program that can install packages and their dependencies</li>
-<li>conda-forge is a community maintained channel for conda packages</li>
-<li>miniconda: is an Anaconda maintained python distribution that defaults to the anaconda package channel</li>
-<li>miniforge: is a community maintained python distribution that defaults to the conda-forge package channel</li>
-<li><code>mamba</code> is a faster drop-in replacement for <code>conda</code></li>
-</ul>
-<p>You can read more about these differences here: <a href="https://conda.org/blog/2024-08-14-conda-ecosystem-explained/" class="uri">https://conda.org/blog/2024-08-14-conda-ecosystem-explained/</a></p>
-</section>
+<p><a href="http://conda.pydata.org/docs/"><strong>conda</strong></a> is an <strong>open source <code>package</code> and <code>environment</code> management system</strong>. It allows you to install libraries and packages as well as their accompanying dependencies. It can work with <em>any</em> programming language, but is mostly popular in the Python community.</p>
+<p>In MDS and quite often, broadly in data science projects, we use Miniforge distribution, which was created to be a bare-bones installation with conda and using <code>conda-forge</code> as the package channel. This is what we had you install in the MDS Python installation instructions.</p>
 </section>
 <section id="activity-2" class="level2 activity">
 <h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
@@ -816,26 +787,28 @@ D. Creating isolated computational environment for testing new packages</code></
 <section id="activity-3" class="level2 activity">
 <h2 class="anchored" data-anchor-id="activity-3">Activity 3</h2>
 <p>What are good practices when exporting environments for git collaboration? (one or more correct answers)</p>
-<pre><code>A. Exporting your entire environment via `conda env export -f environment.yaml`
-B. Including only pip installed packages via `pip freeze &gt; requirements.txt`
-C. Always exporting `base` conda environments for reproducibility
-D. Using `--from-history` flag to reduce the number of explicit requirements and potential conflicts
-E. Including your conda path prefix into prefix into `environment.yml`: `prefix /Users/username/miniforge3` to make sure conda knows there to find files</code></pre>
+<ul>
+<li>A. Exporting your entire environment via <code>conda env export -f environment.yaml</code></li>
+<li>B. Including only pip installed packages via <code>pip freeze &gt; requirements.txt</code></li>
+<li>C. Always exporting <code>base</code> conda environments for reproducibility</li>
+<li>D. Using <code>--from-history</code> flag to reduce the number of explicit requirements and potential conflicts</li>
+<li>E. Including your conda path into <code>environment.yml</code>: <code>prefix /Users/username/miniforge3</code> to make sure conda knows where to find files</li>
+</ul>
 </section>
 <section id="creating-environment-from-an-environment-file" class="level3">
 <h3 class="anchored" data-anchor-id="creating-environment-from-an-environment-file">Creating environment from an environment file</h3>
 <p>Now, let’s install <code>environment.yaml</code> environment file above so that we can create a conda environment called <code>test_env</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda env create <span class="at">--file</span> environment.yaml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda env create <span class="at">--file</span> environment.yaml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="copying-an-environment" class="level3">
 <h3 class="anchored" data-anchor-id="copying-an-environment">Copying an environment</h3>
 <p>We can make an exact copy of an environment to an environment with a different name. This maybe useful for any testing versus live environments or different Python 2.7 versions for the same packages. In this example, <code>test_env</code> is cloned to create <code>live_env</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> live_env <span class="at">--clone</span> test_env</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> live_env <span class="at">--clone</span> test_env</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="deleting-an-environment" class="level3">
 <h3 class="anchored" data-anchor-id="deleting-an-environment">Deleting an environment</h3>
 <p>Since we are only testing out our environment, we will delete <code>live_env</code> to remove some clutter. <em>Make sure that you are not currently using <code>live_env</code>.</em></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">-n</span> live_env</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">-n</span> live_env</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="making-environments-work-well-with-jupyterlab" class="level3">
 <h3 class="anchored" data-anchor-id="making-environments-work-well-with-jupyterlab">Making environments work well with JupyterLab</h3>
@@ -849,35 +822,35 @@ E. Including your conda path prefix into prefix into `environment.yml`: `prefix 
 <section id="list-packages-in-the-current-environment" class="level3">
 <h3 class="anchored" data-anchor-id="list-packages-in-the-current-environment">List packages in the current environment</h3>
 <p>We will now check the packages that are available to us. The command below will list all the packages in an environment, in this case <code>test_env</code>. The list will include versions of each package, the specific build, and the channel that the package was downloaded from. <code>conda list</code> is also useful to ensure that you have installed the packages that you desire.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># packages in environment at /home/dan/.pyenv/versions/miniforge3-latest/envs/test_env:</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Name                    Version                   Build  Channel</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ex">_libgcc_mutex</span>             0.1                 conda_forge    conda-forge</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="ex">_openmp_mutex</span>             4.5                       2_gnu    conda-forge</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">bzip2</span>                     1.0.8                h4bc722e_7    conda-forge</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ca-certificates</span>           2024.8.30            hbcca054_0    conda-forge</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ld_impl_linux-64</span>          2.40                 hf3520f5_7    conda-forge</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="ex">libexpat</span>                  2.6.3                h5888daf_0    conda-forge</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="ex">libffi</span>                    3.4.2                h7f98852_5    conda-forge</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="ex">libgcc</span>                    14.1.0               h77fa898_1    conda-forge</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="ex">libgcc-ng</span>                 14.1.0               h69a702a_1    conda-forge</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="ex">libgomp</span>                   14.1.0               h77fa898_1    conda-forge</span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="ex">libnsl</span>                    2.0.1                hd590300_0    conda-forge</span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="ex">libsqlite</span>                 3.46.1               hadc24fc_0    conda-forge</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="ex">libuuid</span>                   2.38.1               h0b41bf4_0    conda-forge</span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="ex">libxcrypt</span>                 4.4.36               hd590300_1    conda-forge</span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="ex">libzlib</span>                   1.3.1                h4ab18f5_1    conda-forge</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="ex">ncurses</span>                   6.5                  he02047a_1    conda-forge</span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="ex">openssl</span>                   3.3.2                hb9d3cd8_0    conda-forge</span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span>                       24.2               pyh8b19718_1    conda-forge</span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span>                    3.12.5          h2ad013b_0_cpython    conda-forge</span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="ex">readline</span>                  8.2                  h8228510_1    conda-forge</span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="ex">setuptools</span>                74.1.2             pyhd8ed1ab_0    conda-forge</span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="ex">tk</span>                        8.6.13          noxft_h4845f30_101    conda-forge</span>
-<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="ex">tzdata</span>                    2024a                h8827d51_1    conda-forge</span>
-<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a><span class="ex">wheel</span>                     0.44.0             pyhd8ed1ab_0    conda-forge</span>
-<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="fu">xz</span>                        5.2.6                h166bdaf_0    conda-forge</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># packages in environment at /home/dan/.pyenv/versions/miniforge3-latest/envs/test_env:</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Name                    Version                   Build  Channel</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ex">_libgcc_mutex</span>             0.1                 conda_forge    conda-forge</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ex">_openmp_mutex</span>             4.5                       2_gnu    conda-forge</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">bzip2</span>                     1.0.8                h4bc722e_7    conda-forge</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ca-certificates</span>           2024.8.30            hbcca054_0    conda-forge</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ld_impl_linux-64</span>          2.40                 hf3520f5_7    conda-forge</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="ex">libexpat</span>                  2.6.3                h5888daf_0    conda-forge</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="ex">libffi</span>                    3.4.2                h7f98852_5    conda-forge</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="ex">libgcc</span>                    14.1.0               h77fa898_1    conda-forge</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="ex">libgcc-ng</span>                 14.1.0               h69a702a_1    conda-forge</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="ex">libgomp</span>                   14.1.0               h77fa898_1    conda-forge</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="ex">libnsl</span>                    2.0.1                hd590300_0    conda-forge</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="ex">libsqlite</span>                 3.46.1               hadc24fc_0    conda-forge</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="ex">libuuid</span>                   2.38.1               h0b41bf4_0    conda-forge</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="ex">libxcrypt</span>                 4.4.36               hd590300_1    conda-forge</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="ex">libzlib</span>                   1.3.1                h4ab18f5_1    conda-forge</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="ex">ncurses</span>                   6.5                  he02047a_1    conda-forge</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="ex">openssl</span>                   3.3.2                hb9d3cd8_0    conda-forge</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span>                       24.2               pyh8b19718_1    conda-forge</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span>                    3.12.5          h2ad013b_0_cpython    conda-forge</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="ex">readline</span>                  8.2                  h8228510_1    conda-forge</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="ex">setuptools</span>                74.1.2             pyhd8ed1ab_0    conda-forge</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="ex">tk</span>                        8.6.13          noxft_h4845f30_101    conda-forge</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="ex">tzdata</span>                    2024a                h8827d51_1    conda-forge</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="ex">wheel</span>                     0.44.0             pyhd8ed1ab_0    conda-forge</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="fu">xz</span>                        5.2.6                h166bdaf_0    conda-forge</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="note-1" class="level2 note">
@@ -890,43 +863,43 @@ E. Including your conda path prefix into prefix into `environment.yml`: `prefix 
 <p>Some packages might not be available in conda, but are available in <a href="https://pypi.python.org/pypi">pypi</a>. For example, we will search for rasterio within the <a href="https://anaconda.org/">anaconda cloud</a>. <em>It is not necessary to create an account with anaconda cloud, unless you’d like to contribute in the future when you are pro with conda.</em></p>
 <p>In this example, we will use rasterio from conda-forge. The anaconda cloud page for rasterio will show how to install the package, compatible OS, individual files for that package, etc.</p>
 <p>With conda you can do this search within the command line:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> search rasterio</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> search rasterio</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="installing-conda-package" class="level3">
 <h3 class="anchored" data-anchor-id="installing-conda-package">Installing conda package</h3>
 <p>Under the name column of the result in the terminal or the package column in the Anaconda Cloud listing, shows the necessary information to install the package. e.g.&nbsp;conda-forge/rasterio. The first word list the channel that this package is from and the second part shows the name of the package.</p>
 <p>To install the latest version available within the channel, do not specify in the install command. We will install version 0.35 of <code>rasterio</code> from conda-forge into <code>test_env</code> in this example. Conda will also automatically install the dependencies for this package.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge rasterio=1.3.11</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge rasterio=1.3.11</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="removing-a-conda-package" class="level2">
 <h2 class="anchored" data-anchor-id="removing-a-conda-package">Removing a conda Package</h2>
 <p>We decided that rasterio is not needed in this tutorial, so we will remove it from <code>test_env</code>. Note that this will remove the main package rasterio and its dependencies (unless a dependency was installed explicitly at an earlier point in time or is required be another package).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="at">-n</span> test_env rasterio</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda remove <span class="at">-n</span> test_env rasterio</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Channels:</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> conda-forge</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Platform:</span> linux-64</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> package metadata <span class="er">(</span><span class="ex">repodata.json</span><span class="kw">)</span><span class="bu">:</span> done</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Solving</span> environment: <span class="at">-</span> WARNING conda.conda_libmamba_solver.solver:_export_solved_records<span class="er">(</span><span class="ex">832</span><span class="kw">)</span><span class="bu">:</span> Tried to unlink __unix but it is not installed or manageable<span class="pp">?</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Package Plan ##</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">environment</span> location: /home/dan/.pyenv/versions/miniforge3-latest/envs/test_env</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">removed</span> specs:</span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-</span> rasterio</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following packages will be REMOVED:</span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="ex">Proceed</span> <span class="er">(</span><span class="ex">[y]/n</span><span class="kw">)</span><span class="ex">?</span></span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="ex">Preparing</span> transaction: done</span>
-<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="ex">Verifying</span> transaction: done</span>
-<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a><span class="ex">Executing</span> transaction: done</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="at">-n</span> test_env rasterio</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda remove <span class="at">-n</span> test_env rasterio</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Channels:</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> conda-forge</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Platform:</span> linux-64</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> package metadata <span class="er">(</span><span class="ex">repodata.json</span><span class="kw">)</span><span class="bu">:</span> done</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Solving</span> environment: <span class="at">-</span> WARNING conda.conda_libmamba_solver.solver:_export_solved_records<span class="er">(</span><span class="ex">832</span><span class="kw">)</span><span class="bu">:</span> Tried to unlink __unix but it is not installed or manageable<span class="pp">?</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Package Plan ##</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">environment</span> location: /home/dan/.pyenv/versions/miniforge3-latest/envs/test_env</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">removed</span> specs:</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-</span> rasterio</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following packages will be REMOVED:</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a><span class="ex">Proceed</span> <span class="er">(</span><span class="ex">[y]/n</span><span class="kw">)</span><span class="ex">?</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="ex">Preparing</span> transaction: done</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="ex">Verifying</span> transaction: done</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="ex">Executing</span> transaction: done</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="activity-4" class="level2 activity">
 <h2 class="anchored" data-anchor-id="activity-4">Activity 4</h2>
@@ -945,6 +918,39 @@ D. conda start environment</code></pre>
 <section id="confirming-your-work" class="level2">
 <h2 class="anchored" data-anchor-id="confirming-your-work">Confirming your work</h2>
 <p>Multiple times in this lesson when we are searching, installing, removing packages the output will mention <code>conda-forge</code>. This makes sense since the current setup has only <code>conda-forge</code> in the package channels. You should not see <code>anaconda</code> or <code>default</code> in the output text before you confirm an action.https://conda.org/blog/2024-08-14-conda-ecosystem-explained/</p>
+<section id="conda-history-and-terminology" class="level3">
+<h3 class="anchored" data-anchor-id="conda-history-and-terminology">Conda history and terminology</h3>
+<p>There is a lot of history and backstory to conda, but we’ll just talk about the main players in the ecosystem.</p>
+<section id="anaconda-and-miniconda" class="level4">
+<h4 class="anchored" data-anchor-id="anaconda-and-miniconda">Anaconda and Miniconda</h4>
+<p>“Anaconda” can refer to one of three things: Anaconda, Inc the company, anaconda the python distribution, and anaconda the conda package channel.</p>
+<p><a href="https://www.anaconda.com/">Anaconda, Inc</a> (formerly, Continuum Analytics) is the <strong>company</strong> that originally created <code>conda</code>. Anaconda also created the <a href="https://www.anaconda.com/download">anaconda distribution</a>, which comes with <code>conda</code> and many other pre-installed Python packages. The anaconda distribution uses the <em>anaconda</em> channel as the default place to look for <code>conda</code> packages.</p>
+</section>
+<section id="conda-forge-and-miniforge" class="level4">
+<h4 class="anchored" data-anchor-id="conda-forge-and-miniforge">Conda-forge and Miniforge</h4>
+<p><a href="https://docs.anaconda.com/miniconda/">Miniconda</a> is also maintained by Anaconda, Inc. It uses <code>conda</code> as the package installer, and also anaconda as the default package channel. The difference is that miniconda does not come with pre-installed python packages. The “mini” is for a smaller more bare-bones installation.</p>
+<p>The anaconda channel is completely maintained by Anaconda, Inc. People who wanted get their own packages installable by <code>conda</code> needed their own mechanism to share their packages. Also, because Anaconda needs the anaconda distribution to work for their enterprise customers, not every package is on the latest version or would take a long time to get the latest versions of packages you needed. This led to the creation of <a href="https://conda-forge.org/">Conda-Forge</a>, a <strong>community</strong> maintained channel for conda packages. Now package maintainers can publish the latest versions of their packages to a community maintained repository.</p>
+<p>Since Miniconda is maintained by Anaconda, Inc with the default anaconda channel, Miniforge was created to be a bare-bones installation with conda and using conda-forge as the package channel. This is what we had you install in the <a href="https://ubc-mds.github.io/resources_pages/installation_instructions/">MDS Python installation instructions</a>.</p>
+</section>
+</section>
+<section id="mamba" class="level3">
+<h3 class="anchored" data-anchor-id="mamba">Mamba</h3>
+<p><code>conda</code> allows you to install libraries and packages along with their dependencies. One of the main complaints about <code>conda</code> was the package dependency resolution took a very long time. <code>mamba</code> was created to be a faster C++ implementation of the dependency solver. Since then, <code>mamba</code> has been a drop-in replacement for <code>conda</code>, and the <code>mamba</code> solver is now the default solver used in miniforge.</p>
+</section>
+<section id="in-short" class="level3">
+<h3 class="anchored" data-anchor-id="in-short">In short…</h3>
+<ul>
+<li>Anaconda (capital A): is a company</li>
+<li>anaconda (lower-case a): is a python distribution</li>
+<li>anaconda channel: Set of packages and versions maintained by Anaconda</li>
+<li><code>conda</code>: is a program that can install packages and their dependencies</li>
+<li>conda-forge is a community maintained channel for conda packages</li>
+<li>miniconda: is an Anaconda maintained python distribution that defaults to the anaconda package channel</li>
+<li>miniforge: is a community maintained python distribution that defaults to the conda-forge package channel</li>
+<li><code>mamba</code> is a faster drop-in replacement for <code>conda</code></li>
+</ul>
+<p>You can read more about these differences here: <a href="https://conda.org/blog/2024-08-14-conda-ecosystem-explained/" class="uri">https://conda.org/blog/2024-08-14-conda-ecosystem-explained/</a></p>
+</section>
 </section>
 <section id="additional-links" class="level2">
 <h2 class="anchored" data-anchor-id="additional-links">Additional Links</h2>
