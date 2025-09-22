@@ -34,70 +34,8 @@ throughout the program to setup your packages for different courses.
 is an **open source `package` and `environment` management system**.
 It allows you to install libraries and packages as well as their accompanying dependencies.
 It can work with _any_ programming language, but is mostly popular in the Python community.
-There is a lot of history and backstory to conda, but we'll just talk about the main players
-in the ecosystem.
 
-### Anaconda and Miniconda
-
-"Anaconda" can refer to one of three things:
-Anaconda, Inc the company,
-anaconda the python distribution,
-and anaconda the conda package channel.
-
-[Anaconda, Inc](https://www.anaconda.com/) (formerly, Continuum Analytics) is the **company** that
-originally created `conda`.
-Anaconda also created the
-[anaconda distribution](https://www.anaconda.com/download),
-which comes with `conda` and many other pre-installed Python packages.
-The anaconda distribution uses the _anaconda_ channel as the default place to look for `conda` packages.
-
-### Conda-forge and Miniforge
-
-[Miniconda](https://docs.anaconda.com/miniconda/) is also maintained by Anaconda, Inc.
-It uses `conda` as the package installer, and also anaconda as the default package channel.
-The difference is that miniconda does not come with pre-installed python packages.
-The "mini" is for a smaller more bare-bones installation.
-
-The anaconda channel is completely maintained by Anaconda, Inc.
-People who wanted get their own packages installable by `conda` needed their own mechanism
-to share their packages.
-Also, because Anaconda needs the anaconda distribution to work for their enterprise customers,
-not every package is on the latest version or would take a long time to get the latest versions
-of packages you needed.
-This led to the creation of
-[Conda-Forge](https://conda-forge.org/),
-a __community__ maintained channel for conda packages.
-Now package maintainers can publish the latest versions of their packages
-to a community maintained repository.
-
-Since Miniconda is maintained by Anaconda, Inc with the default anaconda channel,
-Miniforge was created to be a bare-bones installation with conda and using conda-forge
-as the package channel.
-This is what we had you install in the
-[MDS Python installation instructions](https://ubc-mds.github.io/resources_pages/installation_instructions/).
-
-
-### Mamba
-
-`conda` allows you to install libraries and packages along with their dependencies.
-One of the main complaints about `conda` was the package dependency resolution took a very long time.
-`mamba` was created to be a faster C++ implementation of the dependency solver.
-Since then, `mamba` has been a drop-in replacement for `conda`,
-and the `mamba` solver is now the default solver used in miniforge.
-
-### In short...
-
-- Anaconda (capital A): is a company
-- anaconda (lower-case a): is a python distribution
-- anaconda channel: Set of packages and versions maintained by Anaconda
-- `conda`: is a program that can install packages and their dependencies
-- conda-forge is a community maintained channel for conda packages
-- miniconda: is an Anaconda maintained python distribution that defaults to the anaconda package channel
-- miniforge: is a community maintained python distribution that defaults to the conda-forge package channel
-- `mamba` is a faster drop-in replacement for `conda`
-
-You can read more about these differences here:
-<https://conda.org/blog/2024-08-14-conda-ecosystem-explained/>
+In MDS and quite often, broadly in data science projects, we use Miniforge distribution, which was created to be a bare-bones installation with conda and using `conda-forge` as the package channel. This is what we had you install in the MDS Python installation instructions.
 
 :::{.activity}
 ## Activity 2
@@ -445,13 +383,11 @@ you **NEED** to add the version string manually.
 
 What are good practices when exporting environments for git collaboration? (one or more correct answers)
 
-```
-A. Exporting your entire environment via `conda env export -f environment.yaml`
-B. Including only pip installed packages via `pip freeze > requirements.txt`
-C. Always exporting `base` conda environments for reproducibility
-D. Using `--from-history` flag to reduce the number of explicit requirements and potential conflicts
-E. Including your conda path prefix into prefix into `environment.yml`: `prefix /Users/username/miniforge3` to make sure conda knows there to find files
-```
+- A. Exporting your entire environment via `conda env export -f environment.yaml`
+- B. Including only pip installed packages via `pip freeze > requirements.txt`
+- C. Always exporting `base` conda environments for reproducibility
+- D. Using `--from-history` flag to reduce the number of explicit requirements and potential conflicts
+- E. Including your conda path into `environment.yml`: `prefix /Users/username/miniforge3` to make sure conda knows where to find files
 
 :::
 
@@ -674,6 +610,73 @@ This makes sense since the current setup has only `conda-forge` in the
 package channels.
 You should not see `anaconda` or `default` in the output text before you
 confirm an action.https://conda.org/blog/2024-08-14-conda-ecosystem-explained/
+
+### Conda history and terminology
+
+There is a lot of history and backstory to conda, but we'll just talk about the main players
+in the ecosystem.
+
+#### Anaconda and Miniconda
+
+"Anaconda" can refer to one of three things:
+Anaconda, Inc the company,
+anaconda the python distribution,
+and anaconda the conda package channel.
+
+[Anaconda, Inc](https://www.anaconda.com/) (formerly, Continuum Analytics) is the **company** that
+originally created `conda`.
+Anaconda also created the
+[anaconda distribution](https://www.anaconda.com/download),
+which comes with `conda` and many other pre-installed Python packages.
+The anaconda distribution uses the _anaconda_ channel as the default place to look for `conda` packages.
+
+#### Conda-forge and Miniforge
+
+[Miniconda](https://docs.anaconda.com/miniconda/) is also maintained by Anaconda, Inc.
+It uses `conda` as the package installer, and also anaconda as the default package channel.
+The difference is that miniconda does not come with pre-installed python packages.
+The "mini" is for a smaller more bare-bones installation.
+
+The anaconda channel is completely maintained by Anaconda, Inc.
+People who wanted get their own packages installable by `conda` needed their own mechanism
+to share their packages.
+Also, because Anaconda needs the anaconda distribution to work for their enterprise customers,
+not every package is on the latest version or would take a long time to get the latest versions
+of packages you needed.
+This led to the creation of
+[Conda-Forge](https://conda-forge.org/),
+a __community__ maintained channel for conda packages.
+Now package maintainers can publish the latest versions of their packages
+to a community maintained repository.
+
+Since Miniconda is maintained by Anaconda, Inc with the default anaconda channel,
+Miniforge was created to be a bare-bones installation with conda and using conda-forge
+as the package channel.
+This is what we had you install in the
+[MDS Python installation instructions](https://ubc-mds.github.io/resources_pages/installation_instructions/).
+
+
+### Mamba
+
+`conda` allows you to install libraries and packages along with their dependencies.
+One of the main complaints about `conda` was the package dependency resolution took a very long time.
+`mamba` was created to be a faster C++ implementation of the dependency solver.
+Since then, `mamba` has been a drop-in replacement for `conda`,
+and the `mamba` solver is now the default solver used in miniforge.
+
+### In short...
+
+- Anaconda (capital A): is a company
+- anaconda (lower-case a): is a python distribution
+- anaconda channel: Set of packages and versions maintained by Anaconda
+- `conda`: is a program that can install packages and their dependencies
+- conda-forge is a community maintained channel for conda packages
+- miniconda: is an Anaconda maintained python distribution that defaults to the anaconda package channel
+- miniforge: is a community maintained python distribution that defaults to the conda-forge package channel
+- `mamba` is a faster drop-in replacement for `conda`
+
+You can read more about these differences here:
+<https://conda.org/blog/2024-08-14-conda-ecosystem-explained/>
 
 ## Additional Links
 
