@@ -277,9 +277,9 @@ There are several major  benefits of using environments:
 
 
 - You can guarantee that someone else can reproduce your project
-  by specifying which package versions your used
+  by specifying which package versions you used
   and making it easy for others to install the same versions.
-- If two of your projects relies on different versions of the same package,
+- If two of your projects rely on different versions of the same package,
   you can install these in different environments.
 - If you want to play around with a new package,
   you don't have to change the packages you use for your data analysis
@@ -440,6 +440,21 @@ with the `package==version` syntax.
 For an environment to be reproducible,
 you **NEED** to add the version string manually.
 
+:::{.activity}
+## Activity 3
+
+What are good practices when exporting environments for git collaboration? (one or more correct answers)
+
+```
+A. Exporting your entire environment via `conda env export -f environment.yaml`
+B. Including only pip installed packages via `pip freeze > requirements.txt`
+C. Always exporting `base` conda environments for reproducibility
+D. Using `--from-history` flag to reduce the number of explicit requirements and potential conflicts
+E. Including your conda path prefix into prefix into `environment.yml`: `prefix /Users/username/miniforge3` to make sure conda knows there to find files
+```
+
+:::
+
 ### Creating environment from an environment file
 
 Now, let's install `environment.yaml` environment file above so that we can create a conda environment called `test_env`.
@@ -495,9 +510,9 @@ and the `r-irkernel` package for R
 
 In this section, we will cover how to manage packages within any environment.
 
-### List packages in current environment
+### List packages in the current environment
 
-We will now check packages that are available to us.
+We will now check the packages that are available to us.
 The command below will list all the packages in an environment, in this case `test_env`.
 The list will include versions of each package, the specific build,
 and the channel that the package was downloaded from.
@@ -617,7 +632,7 @@ Executing transaction: done
 ```
 
 :::{.activity}
-## Activity 3
+## Activity 4
 
 What command will activate the test_env environment you just created?
 
