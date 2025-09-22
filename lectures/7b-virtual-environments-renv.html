@@ -547,6 +547,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <li><a href="#restore-packages" id="toc-restore-packages" class="nav-link" data-scroll-target="#restore-packages">Restore Packages</a></li>
   </ul></li>
   <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
+  <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity 2</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -649,9 +650,19 @@ D. `renv::start()`</code></pre>
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
 <p><code>{renv}</code> is not the same as a conda environment where you can activate an environment, and move anywhere in your filesystem to run code. Many virtual environment systems actually assume you have a single environment for each project/directory. Sometimes IDES allow you do override the currently activated environment, but it lowers the reproducibility of your projects if you do that.</p>
 <p>Finally, the <code>renv.lock</code> file does track <strong>every</strong> package and dependency you use in your project, which is a bit different from the recommendation we gave in the conda environment section. To just track individual packages and not the entire snapshot, you will learn about the <code>DESCRIPTION</code> file used for packaging later on in the program. However, we can get away with this because CRAN does guarantee all packages to be installable on any given calendar day.</p>
-
-
 </section>
+<section id="activity-2" class="level2 activity">
+<h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
+<p>What would be committed to the repository by default when using renv?</p>
+<ul>
+<li>A. All content of the <code>renv</code> folder in your project, because <code>renv</code> stores all packages there.</li>
+<li>B. Only <code>renv.lock</code> and <code>renv/activate.R</code>, because both are necessary to reproduce and activate the environment on another machine.</li>
+<li>C. Only <code>renv/library</code> and <code>renv/staging</code> directories, because <code>renv</code>, in contrast to <code>conda</code> needs to have binary packages in the repository.</li>
+<li>D. Only <code>renv.lock</code>, because it contains the necessary information to reproduce the environment, and most local <code>renv/</code> folders are excluded in <code>.gitignore</code>.</li>
+</ul>
+</section>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
