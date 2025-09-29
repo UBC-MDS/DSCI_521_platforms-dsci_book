@@ -149,7 +149,7 @@ and you can press <kbd>Enter</kbd> to accept it.
 It would look similar to this the output below.
 
 :::{.tip}
-## Tip 
+## Tip
 You should see `conda-forge` listed in the top of the output,
 if not, set the proper channel before running more conda commands (next section).
 You can cancel the current terminal operation by pressing
@@ -363,8 +363,8 @@ conda env list
 conda remove --name ENV_NAME --all
 ```
 
-Similarly, all your environments are installed within your `miniconda3` folder,
-which is typically located in `~/miniconda3`
+Similarly, all your environments are installed within your `miniforge3` folder,
+which is typically located in `~/miniforge3`
 In here you will see an `env` folder.
 If you delete the folder with the corresponding environment name (e.g., with `rm`)
 you can also delete an environment this way too.
@@ -383,7 +383,7 @@ to recognize that this is a conda env file,
 the extension can be either `.yaml` or `.yml`):
 
 :::{.warning}
-## Warning 
+## Warning
 
 While you can choose to export your _entire_ environment into a file
 
