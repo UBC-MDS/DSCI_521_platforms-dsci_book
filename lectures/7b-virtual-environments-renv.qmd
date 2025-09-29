@@ -154,10 +154,10 @@ to be installable on any given calendar day.
 :::{.activity}
 ## Activity 2
 
-What would be committed to the repository by default when using renv?
+What would be the main files committed to the repository by default when using `renv`?
 
 - A. All content of the `renv` folder in your project, because `renv` stores all packages there.
-- B. Only `renv.lock` and `renv/activate.R`, because both are necessary to reproduce and activate the environment on another machine.
-- C. Only `renv/library` and `renv/staging` directories, because `renv`, in contrast to `conda` needs to have binary packages in the repository.
-- D. Only `renv.lock`, because it contains the necessary information to reproduce the environment, and most local `renv/` folders are excluded in `.gitignore`.
+- B. `renv.lock` and `renv/activate.R`, because both are necessary to reproduce and activate the environment on another machine, and most local `renv/` folders are excluded in `.gitignore`.
+- C. `renv/library` and `renv/staging` directories, because `renv`, in contrast to `conda`, needs to have binary packages in the repository.
+- D. Only the source code of the packages in `renv/library` because we want our environment to be identical
 :::
