@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e210505091d1667337c8bc1afb4a84a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-9447ce094534180d1da287e49616c67f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-e210505091d1667337c8bc1afb4a84a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-010e898fe630b99ebd4a40d9641d1d52.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-2337c0e32f1fec4f4d600da2af4a5250.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-010e898fe630b99ebd4a40d9641d1d52.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -653,12 +653,12 @@ D. `renv::start()`</code></pre>
 </section>
 <section id="activity-2" class="level2 activity">
 <h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
-<p>What would be committed to the repository by default when using renv?</p>
+<p>What would be the main files committed to the repository by default when using <code>renv</code>?</p>
 <ul>
 <li>A. All content of the <code>renv</code> folder in your project, because <code>renv</code> stores all packages there.</li>
-<li>B. Only <code>renv.lock</code> and <code>renv/activate.R</code>, because both are necessary to reproduce and activate the environment on another machine.</li>
-<li>C. Only <code>renv/library</code> and <code>renv/staging</code> directories, because <code>renv</code>, in contrast to <code>conda</code> needs to have binary packages in the repository.</li>
-<li>D. Only <code>renv.lock</code>, because it contains the necessary information to reproduce the environment, and most local <code>renv/</code> folders are excluded in <code>.gitignore</code>.</li>
+<li>B. <code>renv.lock</code> and <code>renv/activate.R</code>, because both are necessary to reproduce and activate the environment on another machine, and most local <code>renv/</code> folders are excluded in <code>.gitignore</code>.</li>
+<li>C. <code>renv/library</code> and <code>renv/staging</code> directories, because <code>renv</code>, in contrast to <code>conda</code>, needs to have binary packages in the repository.</li>
+<li>D. Only the source code of the packages in <code>renv/library</code> because we want our environment to be identical</li>
 </ul>
 </section>
 

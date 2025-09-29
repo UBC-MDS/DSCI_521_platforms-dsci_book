@@ -264,7 +264,7 @@
     "href": "lectures/7b-virtual-environments-renv.html#activity-2",
     "title": "Virtual Environments: R",
     "section": "Activity 2",
-    "text": "Activity 2\nWhat would be committed to the repository by default when using renv?\n\nA. All content of the renv folder in your project, because renv stores all packages there.\nB. Only renv.lock and renv/activate.R, because both are necessary to reproduce and activate the environment on another machine.\nC. Only renv/library and renv/staging directories, because renv, in contrast to conda needs to have binary packages in the repository.\nD. Only renv.lock, because it contains the necessary information to reproduce the environment, and most local renv/ folders are excluded in .gitignore.",
+    "text": "Activity 2\nWhat would be the main files committed to the repository by default when using renv?\n\nA. All content of the renv folder in your project, because renv stores all packages there.\nB. renv.lock and renv/activate.R, because both are necessary to reproduce and activate the environment on another machine, and most local renv/ folders are excluded in .gitignore.\nC. renv/library and renv/staging directories, because renv, in contrast to conda, needs to have binary packages in the repository.\nD. Only the source code of the packages in renv/library because we want our environment to be identical",
     "crumbs": [
       "Home",
       "Lectures",
