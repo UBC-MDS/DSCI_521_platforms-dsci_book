@@ -62,12 +62,12 @@ you can access the help by typing the command `git log --help`.
 We have covered three distinct methods for viewing your project's history.
 Prior to starting the activities, give them a try yourself in an example Git repository!
 
-What are the changes introduced between two commits? Whe have already learned three different ways to check your project history. Basically your project history is a temporary line with the changes (commits) made in your project along with its message and commit id or hash.
+What are the changes introduced between the two commits? Whe have already learned three different ways to check your project history. Basically, your project history is a temporary line with the changes (commits) made in your project, along with its message and commit ID or hash.
 We can have access to this information on GitHub, and locally using the terminal and Jupyter Lab.
 
-But what if we want to go more into the detail and see exactly what have changed between two commits? What lines have been modified?
+But what if we want to go more into the details and see exactly what has changed between two commits? What lines have been modified?
 
-In the image you can see the comparison between two commits. In read is the old commit and in green is the most recent one. On the commit on the right has been introduced the phrase *"I have changed!* in line number 3 between the commits 35c218 and 89e195.
+In the image you can see the comparison between two commits. In red is the old commit and in green is the most recent one. On the commit on the right has been introduced the phrase *"I have changed!* in line number 3 between the commits 35c218 and 89e195.
 
 This is the way we compare commits, let's see how we can access this view in the different platforms.
 
