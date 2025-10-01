@@ -61,15 +61,15 @@ If you need to document code and output in your `README.md` file,
 you can create a Quarto `README.qmd` document that can be rendered into a
 github-flavored markdown `README.md` file.
 
-In Quarto, you will need to set the output format in the YAML to:
+In Quarto, you will need to set the format in the YAML to `gfm`:
 
 ```yaml
-output: gfm
+format: gfm
 ```
 
 This process is similar to R Markdown documents rendering from `README.Rmd` file.
 The main difference here is that in R Markdown you will be using a different output
-format string:
+string, `github_document`:
 
 ```yaml
 output: github_document
@@ -278,7 +278,7 @@ there is a small button on the top.
 ```{r}
 #| include: false
 system(
-    "jupyter nbconvert demos/slides/slides-rise.ipynb --to slides"
+  "jupyter nbconvert demos/slides/slides-rise.ipynb --to slides"
 )
 ```
 
