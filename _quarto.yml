@@ -41,41 +41,47 @@ website:
 
       - section: "Orientation"
         contents:
-          - text: "Lecture 0a: JupyterLab Orientation"
+          - text: "JupyterLab Orientation"
             href: lectures/0-jupyterlab-orientation-intro.qmd
-          - text: "Lecture 0b: RStudio Orientation"
+          - text: "RStudio Orientation"
             href: lectures/0-rstudio-orientation-intro.qmd
 
-      - section: "Lectures"
+      - section: "Week 1"
         contents:
-          - text: "Lecture 1: Introduction to MDS software and Bash"
+          - text: "MDS Software and Bash"
             href: lectures/1-MDStools-bash-filesystem.qmd
 
-          - text: "Lecture 2: Introduction to version control with Git and GitHub"
+          - text: "Git, GitHub, and SSH"
             href: lectures/2-git-github-ssh-basic-workflow.qmd
 
-          - text: "Lecture 3: Git: History, Conflicts, and Ignores"
-            href: lectures/3-git-history-merge-conflicts-stash.qmd
-
-          - text: "Lecture 4: Introduction to Quarto and Github Pages"
+      - section: "Week 2"
+        contents:
+          - text: "Quarto and GitHub Pages"
             href: lectures/4-quarto_github_pages.qmd
 
-          - text: "Lecture 5: RStudio Projects and Literate Programming Documents"
-            href: lectures/5-rstudio-projects-notebooks.qmd
-
-          - text: "Lecture 6: Quarto, RMarkdown, and Jupyter Slides"
+          - text: "Quarto, RMarkdown, and Jupyter Slides"
             href: lectures/6-rmarkdown-quarto-slides-ghpages.qmd
 
-          - text: "Lecture 7a: Virtual environments: conda"
+      - section: "Week 3"
+        contents:
+          - text: "Git: History, Conflicts, and Ignores"
+            href: lectures/3-git-history-merge-conflicts-stash.qmd
+
+          - text: "RStudio Projects and Literate Programming"
+            href: lectures/5-rstudio-projects-notebooks.qmd
+
+      - section: "Week 4"
+        contents:
+          - text: "Virtual Environments: conda"
             href: lectures/7a-virtual-environments-conda.qmd
-          - text: "Lecture 7b: Virtual environments: renv"
+          - text: "Virtual Environments: renv"
             href: lectures/7b-virtual-environments-renv.qmd
 
-          - text: "Lecture 8a: Organization of Data Science projects"
+          - text: "Organization of Data Science Projects"
             href: lectures/8-regex-filenames-project-organization.qmd
-          - text: "Lecture 8b: Introduction to Regular Expressions (RegEx)"
+          - text: "Introduction to Regular Expressions (RegEx)"
             href: lectures/8b-regex.qmd
-          - text: "Lecture 8c: Ask Effective Questions"
+          - text: "Asking Effective Questions"
             href: lectures/8c-asking_questions.qmd
 
       - section: "Additional Information"
