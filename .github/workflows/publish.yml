@@ -31,7 +31,8 @@ jobs:
         uses: r-lib/actions/setup-renv@v2
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@v10
+        # setup-uv publishes no floating major tag (no v9/v10); pin the SHA
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
         with:
           # installs the Python pinned in .python-version
           enable-cache: true
