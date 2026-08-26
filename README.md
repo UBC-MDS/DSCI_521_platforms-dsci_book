@@ -49,6 +49,67 @@ If you want to re-install the extension, you can with:
 quarto add coatless-quarto/embedio
 ```
 
+### Commit messages
+
+🤖 Section written by Claud Opus 5
+
+This repo uses [Conventional Commits](https://www.conventionalcommits.org):
+
+```
+type(scope): short summary in the imperative mood
+```
+
+Lowercase, no trailing period, aim for 50 characters or less.
+The scope is optional; use it when it tells the reader
+*where* the change landed and the type alone would not.
+
+**Types.**
+Examples marked with a checkmark are actual commits in this repo;
+the rest are illustrative.
+
+| Type | Use it for | Example |
+| --- | --- | --- |
+| `feat` | new content or capability a reader will notice | ✅ `feat(order): re-order textbook TOC for 2026-27` |
+| `fix` | something was broken and now is not | `fix(deps): restore = in pyproject.toml name field` |
+| `docs` | prose about the project, not the project itself | ✅ `docs(toc): move conda toc to older materials` |
+| `refactor` | restructuring that leaves the content alone | `refactor(lectures): decouple URLs from lecture numbers` |
+| `style` | formatting only — semantic line breaks, whitespace | `style(readings): apply semantic line breaks` |
+| `build` | dependencies, lockfiles, render configuration | ✅ `build(deps): flatten groups and upgrade deps` |
+| `ci` | GitHub Actions workflows | ✅ `ci: pin R to 4.5.1 to match renv.lock` |
+| `chore` | housekeeping with no effect on the built book | ✅ `chore: update renv` |
+| `perf` | make something faster | `perf(render): cache the freeze directory` |
+| `test` | adding or fixing checks | `test(links): add external link checker` |
+
+**Scopes** that come up often here:
+
+| Scope | Means |
+| --- | --- |
+| `deps` | `pyproject.toml`, `uv.lock`, `DESCRIPTION`, `renv.lock` |
+| `toc` | the sidebar in `_quarto.yml` |
+| `lectures` | anything under `lectures/` |
+| `readings` | anything under `readings/` |
+| `appendix` | anything under `appendix/` |
+| `slides` | `lectures/demos/slides/` |
+| `site` | theme, layout, `styles.scss`, render settings |
+| `make` | the Makefile and the local build path |
+
+Rule of thumb: pick the type by *why* the change was made,
+not by which files it touched.
+Bumping a package to fix a broken render is a `fix`, not a `build`.
+
+**Breaking changes** get a `!` after the type
+and a footer explaining what broke:
+
+```
+refactor(lectures)!: decouple rendered URLs from lecture numbers
+
+BREAKING CHANGE: every published lecture URL changes.
+No aliases were added, so links to lectures/*.html will 404.
+```
+
+For a textbook, "breaking" mostly means published URLs
+and anything students have already bookmarked.
+
 ## Features of this repository
 
 Technical features of this reporitory
