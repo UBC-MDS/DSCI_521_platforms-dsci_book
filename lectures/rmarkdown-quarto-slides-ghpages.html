@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JupyterLab Orientation – DSCI 521: Computing Platforms for Data Science</title>
+<title>Quarto, RMarkdown, and Jupyter Slides – DSCI 521: Computing Platforms for Data Science</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,7 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../lectures/0-rstudio-orientation-intro.html" rel="next">
+<link href="../lectures/git-history-merge-conflicts-stash.html" rel="next">
+<link href="../lectures/quarto-github-pages.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -122,48 +123,29 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
+ 
+  <style>
+  .slide-deck {
+      border: 3px solid #dee2e6;
+      width: 100%;
   }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
+  </style>
+  
 
-<meta property="og:title" content="JupyterLab Orientation – DSCI 521: Computing Platforms for Data Science">
+
+<meta property="og:title" content="Quarto, RMarkdown, and Jupyter Slides – DSCI 521: Computing Platforms for Data Science">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/jupyterlab-start.png">
+<meta property="og:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/rstudio-conf-2022-quarto.png">
 <meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
-<meta property="og:image:height" content="466">
-<meta property="og:image:width" content="502">
-<meta name="twitter:title" content="JupyterLab Orientation – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:image:alt" content="alttag">
+<meta property="og:image:height" content="836">
+<meta property="og:image:width" content="1192">
+<meta name="twitter:title" content="Quarto, RMarkdown, and Jupyter Slides – DSCI 521: Computing Platforms for Data Science">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/jupyterlab-start.png">
-<meta name="twitter:image-height" content="466">
-<meta name="twitter:image-width" content="502">
+<meta name="twitter:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/rstudio-conf-2022-quarto.png">
+<meta name="twitter:image:alt" content="alttag">
+<meta name="twitter:image-height" content="836">
+<meta name="twitter:image-width" content="1192">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -373,7 +355,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/0-jupyterlab-orientation-intro.html">Orientation</a></li><li class="breadcrumb-item"><a href="../lectures/0-jupyterlab-orientation-intro.html">JupyterLab Orientation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/quarto-github-pages.html">Week 2</a></li><li class="breadcrumb-item"><a href="../lectures/rmarkdown-quarto-slides-ghpages.html">Quarto, RMarkdown, and Jupyter Slides</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -410,13 +392,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/0-jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../lectures/jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">JupyterLab Orientation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/0-rstudio-orientation-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/rstudio-orientation-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudio Orientation</span></a>
   </div>
 </li>
@@ -433,13 +415,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/1-MDStools-bash-filesystem.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/mdstools-bash-filesystem.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">MDS Software and Bash</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/2-git-github-ssh-basic-workflow.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/git-github-ssh-basic-workflow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git, GitHub, and SSH</span></a>
   </div>
 </li>
@@ -456,13 +438,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/4-quarto_github_pages.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/quarto-github-pages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto and GitHub Pages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/6-rmarkdown-quarto-slides-ghpages.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/rmarkdown-quarto-slides-ghpages.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Quarto, RMarkdown, and Jupyter Slides</span></a>
   </div>
 </li>
@@ -479,13 +461,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/3-git-history-merge-conflicts-stash.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/git-history-merge-conflicts-stash.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git: History, Conflicts, and Ignores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/5-rstudio-projects-notebooks.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/rstudio-projects-notebooks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudio Projects and Literate Programming</span></a>
   </div>
 </li>
@@ -501,32 +483,29 @@ window.Quarto = {
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../lectures/7a-virtual-environments-conda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Virtual Environments: conda</span></a>
-  </div>
-</li>
+ <span class="menu-text">Virtual Environments: uv</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/7b-virtual-environments-renv.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/virtual-environments-renv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Virtual Environments: renv</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/8-regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Organization of Data Science Projects</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/8b-regex.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/regex.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Regular Expressions (RegEx)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/8c-asking_questions.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/asking-questions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Asking Effective Questions</span></a>
   </div>
 </li>
@@ -565,12 +544,6 @@ window.Quarto = {
  <span class="menu-text">R Markdown tips</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendix/mds_conda_environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MDS Conda Python Environment</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -588,6 +561,18 @@ window.Quarto = {
  <span class="menu-text">Xaringan Slides</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/virtual-environments-conda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Virtual Environments: conda</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/mds_conda_environment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MDS Conda Python Environment</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -600,24 +585,25 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#what-is-jupyterlab" id="toc-what-is-jupyterlab" class="nav-link" data-scroll-target="#what-is-jupyterlab">What is JupyterLab</a></li>
-  <li><a href="#how-to-access-jupyterlab" id="toc-how-to-access-jupyterlab" class="nav-link" data-scroll-target="#how-to-access-jupyterlab">How to Access JupyterLab</a>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#lecture-6-activity-1" id="toc-lecture-6-activity-1" class="nav-link" data-scroll-target="#lecture-6-activity-1">Lecture 6 Activity 1</a></li>
+  <li><a href="#quarto-documents" id="toc-quarto-documents" class="nav-link" data-scroll-target="#quarto-documents">Quarto Documents</a>
   <ul class="collapse">
-  <li><a href="#online-server" id="toc-online-server" class="nav-link" data-scroll-target="#online-server">Online Server</a></li>
-  <li><a href="#local-machine" id="toc-local-machine" class="nav-link" data-scroll-target="#local-machine">Local Machine</a></li>
+  <li><a href="#jupyter-notebooks-for-python-and-rmarkdown-for-r" id="toc-jupyter-notebooks-for-python-and-rmarkdown-for-r" class="nav-link" data-scroll-target="#jupyter-notebooks-for-python-and-rmarkdown-for-r">Jupyter Notebooks for Python and RMarkdown for R?</a></li>
+  <li><a href="#github-readme.md" id="toc-github-readme.md" class="nav-link" data-scroll-target="#github-readme.md">Github <code>README.md</code></a></li>
   </ul></li>
-  <li><a href="#using-jupyter-notebooks" id="toc-using-jupyter-notebooks" class="nav-link" data-scroll-target="#using-jupyter-notebooks">Using Jupyter Notebooks</a>
+  <li><a href="#lecture-6-activity-2" id="toc-lecture-6-activity-2" class="nav-link" data-scroll-target="#lecture-6-activity-2">Lecture 6 Activity 2</a></li>
+  <li><a href="#lecture-6-activity-3" id="toc-lecture-6-activity-3" class="nav-link" data-scroll-target="#lecture-6-activity-3">Lecture 6 Activity 3</a></li>
+  <li><a href="#presentations-with-jupyterlab-rmarkdown-and-quarto" id="toc-presentations-with-jupyterlab-rmarkdown-and-quarto" class="nav-link" data-scroll-target="#presentations-with-jupyterlab-rmarkdown-and-quarto">Presentations with JupyterLab, RMarkdown and Quarto</a>
   <ul class="collapse">
-  <li><a href="#working-with-text-via-markdown-cells" id="toc-working-with-text-via-markdown-cells" class="nav-link" data-scroll-target="#working-with-text-via-markdown-cells">Working with text via Markdown cells</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link" data-scroll-target="#r-markdown">R Markdown</a></li>
   </ul></li>
-  <li><a href="#static-figure-creation" id="toc-static-figure-creation" class="nav-link" data-scroll-target="#static-figure-creation">Static figure creation</a></li>
-  <li><a href="#exporting-notebooks" id="toc-exporting-notebooks" class="nav-link" data-scroll-target="#exporting-notebooks">Exporting notebooks</a></li>
-  <li><a href="#jupyterlab-sidebars" id="toc-jupyterlab-sidebars" class="nav-link" data-scroll-target="#jupyterlab-sidebars">JupyterLab sidebars</a></li>
-  <li><a href="#additional-jupyterlab-applications" id="toc-additional-jupyterlab-applications" class="nav-link" data-scroll-target="#additional-jupyterlab-applications">Additional JupyterLab applications</a>
-  <ul class="collapse">
-  <li><a href="#how-to-get-help-in-the-notebook" id="toc-how-to-get-help-in-the-notebook" class="nav-link" data-scroll-target="#how-to-get-help-in-the-notebook">How to get help in the notebook</a></li>
-  </ul></li>
+  <li><a href="#lecture-6-activity-4" id="toc-lecture-6-activity-4" class="nav-link" data-scroll-target="#lecture-6-activity-4">Lecture 6 Activity 4</a></li>
+  <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks">Jupyter Notebooks</a></li>
+  <li><a href="#book-output" id="toc-book-output" class="nav-link" data-scroll-target="#book-output">Book output</a></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -625,9 +611,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/0-jupyterlab-orientation-intro.html">Orientation</a></li><li class="breadcrumb-item"><a href="../lectures/0-jupyterlab-orientation-intro.html">JupyterLab Orientation</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/quarto-github-pages.html">Week 2</a></li><li class="breadcrumb-item"><a href="../lectures/rmarkdown-quarto-slides-ghpages.html">Quarto, RMarkdown, and Jupyter Slides</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">JupyterLab Orientation</h1>
+<h1 class="title">Quarto, RMarkdown, and Jupyter Slides</h1>
 </div>
 
 
@@ -644,273 +630,246 @@ window.Quarto = {
 </header>
 
 
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
 <ol type="1">
-<li>Launch JupyterLab</li>
-<li>Use the Notebook interface inside Jupyterlab</li>
-<li>Know your way around the JupyterLab user interface</li>
+<li>Understand how Quarto extend R Markdown documents functionalities.</li>
+<li>Explore different data science products to communicate your results: slides, blogs and books.</li>
+<li>Create slides using Jupyter Notebook and Quarto slides with <code>reveal.js</code></li>
+<li>Create a Jupyter Book and a Quarto books.</li>
+<li>Create a Quarto Blog.</li>
+<li>Sharing rendered HTML files publicly via GitHub Pages.</li>
 </ol>
-<p><strong>Platform in focus</strong> Jupyter Lab</p>
+<p><strong>Platform in focus</strong> Jupyter Lab, RStudio IDE, Quarto</p>
 </section>
-<section id="what-is-jupyterlab" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-jupyterlab">What is JupyterLab</h2>
-<p>The most rudimentary interaction with programming languages such as R and Python is via interactive shells run from a terminal. This provides access to the full functionality of the language, but is a barebones experience without any conveniences added. If you want to edit a script or view a plot that you created, you need to open a text editor and image viewer separately.</p>
-<p>If you prefer a more holistic experience, with many of conveniences nicely organized in the same interface, you can use an integrated development environment (or IDE for short). IDEs often include a shell, a file browser, debugging tools, version control, a text editor with autocompletion and syntax highlighting, and an area where plots show up. A core idea of IDEs is to provide all the tools you need in one place. Commons IDEs that you might have heard of include Visual Studio Code and RStudio. This lesson will discuss JupyterLab, which is and IDE to work with many programming languages, including R, Python, Julia, and many more. A core concept tightly linked to JupyterLab are Jupyter Notebooks, which will be one of the main topics in this talk. Let’s see how we can launch them.</p>
-</section>
-<section id="how-to-access-jupyterlab" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-access-jupyterlab">How to Access JupyterLab</h2>
-<p>You can access JupyterLab from an online remote server or a local machine.</p>
-<section id="online-server" class="level3">
-<h3 class="anchored" data-anchor-id="online-server">Online Server</h3>
-<p>We could install and run JupyterLab just like any other program on Windows, MacOS, or Linux. However, one of the advantages of JupyterLab is that it is easy to use without installing anything. To try JupyterLab, use your web browser to visit the <a href="https://ubc.syzygy.ca/">UBC Jupyter Server</a> and login with your CWL (Firefox, and Chrome are supported). You can also try JupyterLab through Project Jupyter (<a href="https://jupyter.org/try" class="uri">https://jupyter.org/try</a>) or Posit Cloud (<a href="https://posit.cloud/" class="uri">https://posit.cloud/</a>).</p>
-</section>
-<section id="local-machine" class="level3">
-<h3 class="anchored" data-anchor-id="local-machine">Local Machine</h3>
-<p>If you have already completed the <a href="https://ubc-mds.github.io/resources_pages/installation_instructions/">installation instructions</a>, you can open the terminal and run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> lab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>JupyterLab will open in a browser whether you run it locally or you are using it through UBC server. Note that if you are running JupyterLab in your machine, the URL could be similar to <code>https://localhost:8888/lab</code>. In this case <code>localhost</code> is referring to your computer, not to a webpage.</p>
-</section>
-</section>
-<section id="using-jupyter-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="using-jupyter-notebooks">Using Jupyter Notebooks</h2>
-<p><img src="img/jupyterlab-start.png" class="img-fluid"></p>
-<p>We’re greeted by the launcher tab where we see that we can start either a Notebook or Console for Python or R, as well as some other utility programs. Let’s start by explaining one of the most popular options, the Jupyter Notebook. The Notebook provides and interface where you can mix text, code, mathematical expressions, plot output, videos, and more, all in the same file. So instead of the traditional IDE experience where you would write code in a text file and then have figures pop up in a different panel, this information now all resides in the same document, which facilitates reproducibility and collaboration. The Notebooks can be exported to many formats, including PDF and HTML, which makes it easy to share your project with anyone. The cell that is encircled in blue is where we can input Python code, click here and type any mathematical expression, and then run the cell by clicking the play button in the top toolbar:</p>
-<div id="de3f2936" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>7</code></pre>
-</div>
-</div>
-<p><img src="img/jupyterlab-run-cell.png" class="img-fluid"></p>
-<p>As you can see, the output is returned just under input, and a new input cell was created. We could also have clicked the plus sign to create a new cell. Here, we can do anything we can do in Python, e.g.&nbsp;variable assignment:</p>
-<div id="3c8eaff6" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>There is no output because we just assigned a value to a variable, without asking for the value of that variable, which we can do by typing out the variable name:</p>
-<div id="83fc2b79" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>5</code></pre>
-</div>
-</div>
-<p>Jupyter Notebooks also supports editing code on multiple lines, so we could have done this instead:</p>
-<div id="d481d038" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>3</code></pre>
-</div>
-</div>
-<p><img src="img/jupyterlab-cell-count.png" class="img-fluid"></p>
-<p>You might have noticed that there is a little counter on the left of each cell. This counter keeps track of in which order the cells were executed, so that you are aware if cells have been run out of sequential order. The counter symbol changes to an * when a computation is running, to indicate that Python is busy and won’t be able to execute new cells until the current one finishes (the delay is only noticeable for longer computations).</p>
-<p>We can also click this blue bar to the left to collapse and expand the output and input. This can be handy if we have a long code cell, or some notes that we’re planning on moving later.</p>
-<p><img src="img/jupyterlab-cell-hide.png" class="img-fluid"></p>
-<p>The notebook is saved automatically every two minutes, and it can be saved manually by clicking the floppy disk symbol in the toolbar, or by hitting <kbd>Ctrl</kbd> + <kbd>s</kbd> (Windows/Linux) or <kbd>⌘</kbd> + <kbd>s</kbd> (Mac). Both input and output cells are saved, so any plots that you make will be present in the notebook next time you open it, without needing to rerun the code cells.</p>
-<p>Other important icons in the toolbar are the ones to cut, copy, and paste a cell. If you want to get rid of a cell, you can cut it out without pasting in back in.</p>
-<p>The remaining icons are:</p>
+<section id="lecture-6-activity-1" class="level2 activity">
+<h2 class="anchored" data-anchor-id="lecture-6-activity-1">Lecture 6 Activity 1</h2>
+<p>Check the following data science analysis. How are the analysis files loaded into the working directory? Are there differences between the R and Python code?</p>
 <ul>
-<li>play: to run a cell (which we already used),</li>
-<li>stop: which we can use if a cells has gotten stuck running some code and we want to interrupt it,</li>
-<li>restart: which restarts the background Python process that is connected to the notebook (so if we click this, our variables will need to be redefined),</li>
-<li>restart and run all: this is really important and should always be executed before sharing a notebook, to make sure that everything will work when someone else runs it from top to bottom, since the cells can be executed out of order.</li>
-</ul>
-<p>You can also access these by right clicking on a cell.</p>
-<section id="working-with-text-via-markdown-cells" class="level3">
-<h3 class="anchored" data-anchor-id="working-with-text-via-markdown-cells">Working with text via Markdown cells</h3>
-<p>You can change the input cell type from Python code to Markdown by clicking on the little dropdown menu in the toolbar that reads <code>Code</code>.</p>
-<p><img src="img/jupyterlab-code-markdown.png" class="img-fluid"></p>
-<p>Markdown is a simple formatting system which allows you to document your analysis within the notebook. This is also great for creating tutorials and even books as we will see later. It is a plain text format that includes brief markup tags that indicates how text should be rendered, e.g.&nbsp;* indicates italics and ** indicates bold typeface. If you have commented on online forums or used a chat application, you might already be familiar with markdown. Below is a short example of the syntax:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Markdown Example: Heading Level Four</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A bullet point</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>*Emphasis in italics*</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Strong emphasis in bold**</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This is a <span class="co">[</span><span class="ot">link to learn more about markdown</span><span class="co">](https://guides.github.com/features/mastering-markdown/)</span>.</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Support for $\LaTeX$ equations:</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>$$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}$$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>will be rendered as:</p>
-<section id="markdown-example-heading-level-four" class="level4">
-<h4 class="anchored" data-anchor-id="markdown-example-heading-level-four">Markdown Example: Heading Level Four</h4>
-<ul>
-<li>A bullet point</li>
-<li><em>Emphasis in italics</em></li>
-<li><strong>Strong emphasis in bold</strong></li>
-<li>This is a <a href="https://guides.github.com/features/mastering-markdown/">link to learn more about markdown</a>.</li>
-<li>Support for <span class="math inline">\(\LaTeX\)</span> equations: <span class="math display">\[f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}\]</span></li>
+<li>R: <a href="https://github.com/ttimbers/breast_cancer_predictor" class="uri">https://github.com/ttimbers/breast_cancer_predictor</a></li>
+<li>Python: <a href="https://github.com/ttimbers/breast_cancer_predictor_py" class="uri">https://github.com/ttimbers/breast_cancer_predictor_py</a></li>
 </ul>
 </section>
+<section id="quarto-documents" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-documents">Quarto Documents</h2>
+<p><a href="https://quarto.org/">Quarto</a> is a newer scientific and technical publishing system that aims to combine the best features of a Jupyter Notebook and an R Markdown document. It uses markdown, code chunks (similar to R Markdown), and <code>pandoc</code> to create various output formats. If you need another Markdown resource, the Quarto documentation has its own <a href="https://quarto.org/docs/authoring/markdown-basics.html">markdown basics guide</a>.</p>
+<p><img src="img/rstudio-conf-2022-quarto.png" class="img-fluid" alt="alttag"> <em>Quarto documents are created with text and Python, R and/or Julia code</em></p>
+<section id="jupyter-notebooks-for-python-and-rmarkdown-for-r" class="level3">
+<h3 class="anchored" data-anchor-id="jupyter-notebooks-for-python-and-rmarkdown-for-r">Jupyter Notebooks for Python and RMarkdown for R?</h3>
+<p>Historically, Jupyter Notebooks were designed for Python and R Markdown documents were designed for R. These days, there are <a href="https://gist.github.com/chronitis/682c4e0d9f663e85e3d87e97cd7d1624">many different Jupyter Kernels</a> you can install, and R Markdown documents can also support <a href="https://bookdown.org/yihui/rmarkdown/language-engines.html">many different language engines</a>. Quarto natively supports Python, R, Julia, and Javascript, but can also <a href="https://quarto.org/docs/faq/#what-programming-languages-are-supported-in-quarto">leverage all of the Jupyter kernels</a> to run more languages.</p>
+<p>If you want a single document to run multiple languages (R and Python), Python can run R via the <code>rpy2</code> Python package, and R can run Python via the <code>reticulate</code> R package. Quarto will leverage <code>knitr</code> and <code>reticulate</code> to run documents that need to run both R and Python.</p>
+</section>
+<section id="github-readme.md" class="level3">
+<h3 class="anchored" data-anchor-id="github-readme.md">Github <code>README.md</code></h3>
+<p>If you need to document code and output in your <code>README.md</code> file, you can create a Quarto <code>README.qmd</code> document that can be rendered into a github-flavored markdown <code>README.md</code> file.</p>
+<p>In Quarto, you will need to set the format in the YAML to <code>gfm</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> gfm</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This process is similar to R Markdown documents rendering from <code>README.Rmd</code> file. The main difference here is that in R Markdown you will be using a different output string, <code>github_document</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<div class="exercise">
-<section id="lecture-0-exercise-1-creating-and-positioning-a-heading-in-jupyterlab" class="level2 exercise-header">
-<h2 class="anchored" data-anchor-id="lecture-0-exercise-1-creating-and-positioning-a-heading-in-jupyterlab">Lecture 0 Exercise 1 : Creating and Positioning a Heading in JupyterLab</h2>
+<section id="lecture-6-activity-2" class="level2 activity">
+<h2 class="anchored" data-anchor-id="lecture-6-activity-2">Lecture 6 Activity 2</h2>
+<p>Why does using R Markdown and Quarto documents make your work more reproducible?</p>
+<p>A. <code>.Rmd</code> and <code>.qmd</code> are plain-text files; they can be opened and edited with almost any editor.</p>
+<p>B. Including text in the final reports created involves a more detailed explanation of your work than only commenting on the code.</p>
+<p>C. They use Pandoc to render the files in different formats.</p>
+<p>D. Because they create a versatile <code>.md</code> file as an intermediate step.</p>
+<p>E. They allow running code as inline code or in code chunks.</p>
 </section>
-<div class="exercise-container">
-<section id="objective" class="level1">
-<h1>Objective</h1>
-<p>To practice creating a Markdown cell with a heading and repositioning it within the JupyterLab notebook interface.</p>
+<section id="lecture-6-activity-3" class="level2 activity">
+<h2 class="anchored" data-anchor-id="lecture-6-activity-3">Lecture 6 Activity 3</h2>
+<p>Now that you’ve completed your reproducible report, imagine you need to present this work to a real-world audience, such as at a conference, to your boss, or an executive group. Let’s use that example above again:</p>
+<ul>
+<li>R: <a href="https://github.com/ttimbers/breast_cancer_predictor" class="uri">https://github.com/ttimbers/breast_cancer_predictor</a></li>
+<li>Python: <a href="https://github.com/ttimbers/breast_cancer_predictor_py" class="uri">https://github.com/ttimbers/breast_cancer_predictor_py</a></li>
+</ul>
+<p>How would you use tools like PowerPoint or Word documents to effectively present your findings and pitch your ideas? Consider elements such as visualizations, narrative, and the overall format of the report.</p>
+<p>Discuss with your partner and prepare to share your strategies with the class. Could there be a more efficient way of doing this directly within your Markdown files? What challenges might you encounter, such as issues with reproducibility?</p>
 </section>
-<section id="instructions" class="level1">
-<h1>Instructions</h1>
-<ol type="1">
-<li><strong>Create a Markdown Cell:</strong>
-<ul>
-<li><p>In your JupyterLab notebook, add a new cell by clicking the “+” button in the toolbar.</p></li>
-<li><p>Change the cell type to “Markdown” by selecting “Markdown” from the dropdown menu or using the shortcut <code>Esc + M</code>.</p></li>
-<li><p>Type the following text in the Markdown cell:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># JupyterLab Tutorial</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>This will create a first-level heading (h1) with the title “JupyterLab Tutorial.”</p></li>
-</ul></li>
-<li><strong>Run the Cell:</strong>
-<ul>
-<li>Execute the cell by pressing <code>Shift + Enter</code> or clicking the “Run” button. The text should now be formatted as a heading.</li>
-</ul></li>
-<li><strong>Reposition the Cell:</strong>
-<ul>
-<li>Click and hold the left mouse button on the cell’s input area (the left side of the cell).</li>
-<li>Drag the cell to the top of your notebook.</li>
-<li>Release the mouse button to place the cell in the new position.</li>
-</ul></li>
-<li><strong>Verify the Position:</strong>
-<ul>
-<li>Ensure that the “JupyterLab Tutorial” heading is now at the top of the notebook. This heading will serve as the title for your tutorial.</li>
-</ul></li>
-</ol>
+<section id="presentations-with-jupyterlab-rmarkdown-and-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="presentations-with-jupyterlab-rmarkdown-and-quarto">Presentations with JupyterLab, RMarkdown and Quarto</h2>
+<p>You can create a great set of slides to share your results with others!</p>
+<p>We are going to use the framework <code>reveal.js</code>. RMarkdown most popular slides are created with a package called <code>xaringan</code>. Since Quarto appear, it is possible to create slides using <code>reveal.js</code> that is the same framework that is available by default in Jupyter Notebooks. Anyway, it would be possible to generate <code>reveal.js</code> presentations with RMarkdown if you install the <code>revealjs</code> package and follow <a href="https://bookdown.org/yihui/rmarkdown/revealjs.html">these instructions</a>.</p>
+<section id="quarto" class="level3">
+<h3 class="anchored" data-anchor-id="quarto">Quarto</h3>
+<p>Clicking here you can have <a href="https://quarto.org/docs/presentations/revealjs/demo/#/title-slide">an example</a> of what you can do with Quarto presentations using <code>reveal.js</code> framework.</p>
+<p>In the YAML header, you will need to change the <code>format</code> option to <code>revealjs</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> revealjs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Habits"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "John Doe"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> revealjs</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># In the morning</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Getting up</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Turn off alarm</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Get out of bed</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Breakfast</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Eat eggs</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Drink coffee</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="fu"># In the evening</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dinner</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Eat spaghetti</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Drink wine</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Going to sleep</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Get in bed</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Count sheep</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+    <p><a href="demos/slides/slides-quarto.html" target="_blank">View slides in full screen</a></p>
+       <div class="ratio ratio-16x9">
+      <iframe class="slide-deck" src="demos/slides/slides-quarto.html" height="600px"></iframe>
+    </div>
+  
+<p>If you want to create your <code>revealjs</code> html slides and be able to share a <strong>single</strong> html file with others as a slide, you may need to embed and make the slide “self-contained”.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This puts all the external resources for the HTML document inside the HTML file. Otherwise your slides would need to travel in a zip file with all the external resources in the same directory. You will typically need this when sharing slides that have images and computation in them. You may notice additional folders created in the directory as a cue that you may need to think about embedding your resources to make the slides self-contained, depending on how you will use and share them.</p>
 </section>
-<section id="reflection" class="level1">
-<h1>Reflection</h1>
+<section id="r-markdown" class="level3">
+<h3 class="anchored" data-anchor-id="r-markdown">R Markdown</h3>
+<p>R Markdown has been around for a long time, and has many output formats. The defaults that come with R Markdown are less popular than formats you need to install.</p>
+<p>We’ll show you how you can create a <code>reaveal.js</code> and <code>xaringan</code> presentation, but you may need to install a few packages first.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">'xaringan'</span>, <span class="st">'revealjs'</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="reveal.js" class="level4">
+<h4 class="anchored" data-anchor-id="reveal.js">Reveal.js</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> revealjs::revealjs_presentation</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Habits"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> John Doe</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> revealjs::revealjs_presentation</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># In the morning</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Getting up</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Turn off alarm</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Get out of bed</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Breakfast</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Eat eggs</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Drink coffee</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu"># In the evening</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dinner</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Eat spaghetti</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Drink wine</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Going to sleep</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Get in bed</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Count sheep</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+    <p><a href="demos/slides/slides-rmd.html" target="_blank">View slides in full screen</a></p>
+       <div class="ratio ratio-16x9">
+      <iframe class="slide-deck" src="demos/slides/slides-rmd.html" height="600px"></iframe>
+    </div>
+  
+</section>
+<section id="xaringan" class="level4">
+<h4 class="anchored" data-anchor-id="xaringan">Xaringan</h4>
+<p>Many people who are still working with R Markdown documents, will create their slides using <code>{xaringan}</code>. This lessons uses <code>reveal.js</code> for R Markdown slides to keep the output type consistent.</p>
+<p>If you want to learn more about Xaringan slides, see the <a href="../appendix/xaringan_slides.html">Xaringan Slides Chapter</a></p>
+</section>
+</section>
+</section>
+<section id="lecture-6-activity-4" class="level2 activity">
+<h2 class="anchored" data-anchor-id="lecture-6-activity-4">Lecture 6 Activity 4</h2>
+<p>Which of the following is the <strong>correct</strong> output format for creating slides in Quarto markdown?</p>
+<p>A. <code>revealjs::revealjs_presentation</code></p>
+<p>B. <code>xaringan::sun_reader</code></p>
+<p>C. <code>format: revealjs</code></p>
+<p>D. <code>ioslides_presentation</code></p>
+</section>
+<!--
+:::{.activity}
+## Lecture 6 Activity 5
+
+What is the primary difference between slides created with R Markdown's `revealjs` and `xaringan`?
+
+A. `xaringan` slides are two-dimensional, allowing horizontal and vertical navigation, while `reveal.js` slides are one-dimensional.
+
+B. `reveal.js` requires an additional package to be installed, while `xaringan` is included by default in R Markdown.
+
+C. `reveal.js` slides support two-dimensional navigation, with slides moving left/right and sub-slides up/down.
+
+D. `xaringan` uses `pandoc` for rendering slides, whereas `reveal.js` does not.
+
+:::
+-->
+<section id="jupyter-notebooks" class="level3">
+<h3 class="anchored" data-anchor-id="jupyter-notebooks">Jupyter Notebooks</h3>
+<p>Jupyter notebooks also support slides with RISE.</p>
+<p><a href="https://github.com/jupyterlab-contrib/rise" class="uri">https://github.com/jupyterlab-contrib/rise</a></p>
+<p>You can use Jupyter Lab interface too with the same purpose. You can read more <a href="https://towardsdatascience.com/5-slides-for-tips-on-presentation-mode-in-jupyter-notebook-f858b15fff4f">about it here</a></p>
+<!--![Jupyter Slides](img/jupyter-slides.gif)-->
+<p>The main page for RISE is here: <a href="https://github.com/jupyterlab-contrib/rise" class="uri">https://github.com/jupyterlab-contrib/rise</a> Where you can find the command to install it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyterlab_rise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To mark which code cells should be part of the presentation, we can go to the property inspector (the settings wheel in the left side panel) and then select the slide type from the dropdown menu.</p>
+<p><img src="img/jupyter-rise-slide_type.png" class="img-fluid"></p>
+<p>Once you are done marking up slides, you can export them to reveal.js presentations are two dimensional, with slides in the horizontal direction and sub-slides in the vertical direction.</p>
 <ul>
-<li>Why is it important to use headings in a notebook?</li>
-<li>How does reorganizing cells in a notebook help in structuring your analysis or tutorial?</li>
+<li><code>Slide</code>: Standard slide navigated to via left and right arrows.</li>
+<li><code>Sub-slide</code>: Sub-topic of a slide, navigated to via up and down arrows.</li>
+<li><code>Fragment</code>: Animated in as part of the previous slide, could e.g.&nbsp;be a bullet point in a list.</li>
+<li><code>-</code> (or empty): Will appear in the same cell as the previous slide.</li>
+<li><code>Notes</code>: Speaker notes are visible when you press <code>t</code></li>
+<li><code>Skip</code>: Not included</li>
+</ul>
+<p>You will notice that images that are referenced via <code>![]()</code> or <code>&lt;img&gt;</code> do not show up in the exported slides (or the exported HTML). Until <a href="https://github.com/jupyter/nbconvert/issues/1057">this issue</a> is fixed, a workaround is to paste the image into a Markdown cell and it will be included as an attachment, which shows up fine in HTML and slide exports.</p>
+<p>To run your RISE slides in jupyter lab, there is a small button on the top.</p>
+<p><img src="img/jupyter-rise-launch.png" class="img-fluid"></p>
+    <p><a href="demos/slides/slides-rise.slides.html" target="_blank">View slides in full screen</a></p>
+       <div class="ratio ratio-16x9">
+      <iframe class="slide-deck" src="demos/slides/slides-rise.slides.html" height="600px"></iframe>
+    </div>
+  
+</section>
+<section id="book-output" class="level2">
+<h2 class="anchored" data-anchor-id="book-output">Book output</h2>
+<p>Jupyter, R Markdown, and Quarto also have “book” outputs. This is a special website format that can also be converted into PDFs and ePUB files for physical book publishing.</p>
+<ul>
+<li>Jupyter Book: <a href="https://jupyterbook.org/en/stable/intro.html" class="uri">https://jupyterbook.org/en/stable/intro.html</a></li>
+<li>Bookdown (R Markdown): <a href="https://bookdown.org/" class="uri">https://bookdown.org/</a></li>
+<li>Quarto Book: <a href="https://quarto.org/docs/books/" class="uri">https://quarto.org/docs/books/</a></li>
+</ul>
+<p>The course materials does not use the official Quarto book layout, it actually uses a regular Quarto website layout. This is because books will have certain limitations because it needs to be able to render into a format for physical publishing. Quarto is a flexiable tool that has many kinds of output formats. You can learn more about each in the official Quarto Guides: <a href="https://quarto.org/docs/guide/" class="uri">https://quarto.org/docs/guide/</a></p>
+</section>
+<section id="putting-it-all-together" class="level2">
+<h2 class="anchored" data-anchor-id="putting-it-all-together">Putting it all together</h2>
+<p>Here’s an example of a workshop given by the MDS teaching team at the Statistical Society of Canada conference:</p>
+<ul>
+<li>Repo: <a href="https://github.com/UBC-STAT/ssc-workshop-2024" class="uri">https://github.com/UBC-STAT/ssc-workshop-2024</a></li>
+<li>Site: <a href="https://ubc-stat.github.io/ssc-workshop-2024/" class="uri">https://ubc-stat.github.io/ssc-workshop-2024/</a></li>
+</ul>
+<p>You will see in the repository that we have leveraged many of the skills taught in the class so far:</p>
+<ul>
+<li>Quarto websites</li>
+<li>Quarto slides</li>
+<li>Git + GitHub Pages for website publishing</li>
+<li><code>.gitignore</code> files</li>
 </ul>
 </section>
-</div>
-</div>
-<section id="static-figure-creation" class="level3">
-<h3 class="anchored" data-anchor-id="static-figure-creation">Static figure creation</h3>
-<p>To show an example of how plots are rendered, we will use the <code>seaborn</code> plotting package which is a high level interface to the more widely known <code>matplotlib</code> package. This is only to illustrate how plots show up in the notebook, rather than a tutorial on how to plot in Python, so I will not go into details on what these commands mean.</p>
-<div id="cc87ccb1" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You don't have to understand what is going on in this cell</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># it is only to show you how a static plot looks inside JupyterLab</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.rand(N)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.rand(N)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> np.random.rand(N)</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>area <span class="op">=</span> (<span class="dv">30</span> <span class="op">*</span> np.random.rand(N))<span class="op">**</span><span class="dv">2</span>  <span class="co"># 0 to 15 point radii</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>plt.scatter(x, y, s<span class="op">=</span>area, c<span class="op">=</span>colors, alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="0-jupyterlab-orientation-intro_files/figure-html/cell-6-output-1.png" width="573" height="411" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The above is a static figure, which means an image is created and included in the notebook. To save this image, you can either use a save command in the plotting library or you can hold shift and right click. Just right clicking is the JupyterLab menu, but holding the <code>shift</code> key brings up the browser menu, which includes the common options for images such as open in new tab and save.</p>
-<p><img src="img/jupyterlab-save_fig.png" class="img-fluid"></p>
+<section id="exercise-1" class="level2 exercise">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Take 5 minutes of the class and convert one of your <code>.Rmd</code>, <code>.qmd</code> or <code>.ipynb</code> to a set of slides.</p>
+<p>You can convert the slides manually or look into the <a href="https://jupytext.readthedocs.io/en/latest/install.html">jupytext</a> or <code>quarto convert</code> tools to do an initial file conversion.</p>
 </section>
-<section id="exporting-notebooks" class="level3">
-<h3 class="anchored" data-anchor-id="exporting-notebooks">Exporting notebooks</h3>
-<p>The combination of code, plots, and markdown is powerful. With these three elements, you can keep all your analysis code and interpretations in the same document, instead of spread across different files. Notebooks are excellent tools to build entire reports, since they can contain formatting such as a table of contents, links to sections and files, footnotes, images, bibliographies, and even videos, which we will learn more about later. There are a few ways we can export jupyter notebooks into a PDF file. The method will depend on which packages are successfully installed and working from the <a href="https://ubc-mds.github.io/resources_pages/installation_instructions/">MDS installation instructions</a>.</p>
-<section id="export-with-quarto" class="level4">
-<h4 class="anchored" data-anchor-id="export-with-quarto">Export with Quarto</h4>
-<p>This will be our preferred way to create PDFs. In the terminal, go to where your notebook file is, and create a new terminal</p>
-<p><img src="img/jupyterlab-create-terminal.png" class="img-fluid"></p>
-<p>In the terminal use the <code>quarto render</code> command and specify the output to <code>pdf</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render Untitled.ipynb <span class="at">--to</span> pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="note">
-<div class="note-header">
-<p>Note</p>
-</div>
-<div class="note-container">
-<p>The commands are case-sensitive, make sure you are typing the file exacatly as it is named.</p>
-</div>
-</div>
-<p>You can also change the <code>--to pdf</code> to <code>--to html</code>, and any interactive figures will be retained.</p>
-</section>
-<section id="export-in-jupyterlab-pdf" class="level4">
-<h4 class="anchored" data-anchor-id="export-in-jupyterlab-pdf">Export in JupyterLab: PDF</h4>
-<p>You can export the notebook to different file types via <code>File &gt; Save and Export Notebook As... &gt; PDF</code> When you export to PDF for the first time on your own machine, you might be asked to download the Latex packages, which are needed to create the PDF.</p>
-</section>
-<section id="export-in-jupyterlab-webpdf" class="level4">
-<h4 class="anchored" data-anchor-id="export-in-jupyterlab-webpdf">Export in JupyterLab: WebPDF</h4>
-<p>An alternative to exporting to PDF via latex is to use the <code>WebPDF</code> option, <code>File &gt; Save and Export Notebook As... &gt; WebPDF</code> which makes the exported PDF have a more similar style to how the notebook looks in JupyterLab. If we would export this notebook to HTML, we would still retain the interactivity of the plots we created!</p>
-</section>
-</section>
-<section id="jupyterlab-sidebars" class="level2">
-<h2 class="anchored" data-anchor-id="jupyterlab-sidebars">JupyterLab sidebars</h2>
-<p>Now that you know the basics of how to work inside Jupyter Notebooks, let’s continue explorer the JupyterLab user interface.</p>
-<p><img src="img/jupyterlab-sidebars.png" class="img-fluid"></p>
-<p><strong>Left sidebar</strong></p>
-<ul>
-<li>Extension Manager
-<ul>
-<li>The puzzle piece at the bottom is where you can install extensions.</li>
-</ul></li>
-<li>Table of Contents
-<ul>
-<li>It allows navigate the structure of the document easily.</li>
-</ul></li>
-<li>Git
-<ul>
-<li>Git version control interface.</li>
-</ul></li>
-<li>Running terminals and kernels
-<ul>
-<li>Overview of all running applications.</li>
-</ul></li>
-<li>File browser
-<ul>
-<li>The topmost icon in the sidebar to the left shows the file tree of your current folder, highlights include:
-<ul>
-<li>the icon for uploading files from your computer to the UBC Jupyter server (or your folder if you run locally)</li>
-<li>right clicking a file to download it to your computer</li>
-<li>clicking the <code>+</code> sign takes us back to the launcher menu where we started</li>
-</ul></li>
-</ul></li>
-</ul>
-<p><strong>Right sidebar</strong></p>
-<ul>
-<li>Property Inspector:
-<ul>
-<li>This is a bit more advanced as it allows you to add metadata to cells.</li>
-<li>One aspect worth highlighting here is the ability to denote cells as part of a slide show, that you can download via <code>File -&gt; Export notebook as</code>.</li>
-</ul></li>
-<li>Debugger</li>
-</ul>
-</section>
-<section id="additional-jupyterlab-applications" class="level2">
-<h2 class="anchored" data-anchor-id="additional-jupyterlab-applications">Additional JupyterLab applications</h2>
-<p>JupyterLab can run applications other than notebooks, e.g.&nbsp;there is a Python console, a text editor, and a terminal emulator. These can be opened via the launcher page or <code>File --&gt; New</code>. Applications can be placed side by side by dragging and dropping their windows, so we could be running a terminal and notebook next to each other.</p>
-<p>The Command palette enable users to invoke commands directly:</p>
-<ul>
-<li>Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd></li>
-<li>Mac: <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd></li>
-<li><code>View --&gt; Activate Command Palette</code></li>
-</ul>
-<section id="how-to-get-help-in-the-notebook" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-get-help-in-the-notebook">How to get help in the notebook</h3>
-<p>One application that is especially helpful to run next to a notebook is the Contextual Help. This application displays documentation automatically as you type. When you’re using unfamiliar packages and functions, it is a good habit to leave the Contextual Help open next to the notebook. If you don’t like having a split screen, you can instead press <kbd>Shift</kbd> + <kbd>Tab</kbd> to bring up a help dialogue. JupyterLab also supports tab completion, you can start typing a name and then press tab to see suggestions to expand to. Additional help is available via the “Help” menu, which links to useful online resources (for example <code>Help --&gt; JupyterLab Reference</code>).</p>
-<div class="note">
-<div class="note-header">
-<p>Note about UBC Jupyter Server</p>
-</div>
-<div class="note-container">
-<p>All your files will be saved between restarts, but any Python packages you have installed yourself will be reset, so you need to contact UBC IT to have additional Python packages installed with persistence.</p>
-</div>
-</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1328,10 +1287,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../lectures/quarto-github-pages.html" class="pagination-link" aria-label="Quarto and GitHub Pages">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Quarto and GitHub Pages</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../lectures/0-rstudio-orientation-intro.html" class="pagination-link" aria-label="RStudio Orientation">
-        <span class="nav-page-text">RStudio Orientation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../lectures/git-history-merge-conflicts-stash.html" class="pagination-link" aria-label="Git: History, Conflicts, and Ignores">
+        <span class="nav-page-text">Git: History, Conflicts, and Ignores</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

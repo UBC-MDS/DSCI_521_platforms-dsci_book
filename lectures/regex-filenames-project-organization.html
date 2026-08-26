@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Quarto, RMarkdown, and Jupyter Slides – DSCI 521: Computing Platforms for Data Science</title>
+<title>Organization of Data Science projects and some useful tools – DSCI 521: Computing Platforms for Data Science</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,8 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../lectures/3-git-history-merge-conflicts-stash.html" rel="next">
-<link href="../lectures/4-quarto_github_pages.html" rel="prev">
+<link href="../lectures/regex.html" rel="next">
+<link href="../lectures/virtual-environments-renv.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -123,29 +123,19 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
- 
-  <style>
-  .slide-deck {
-      border: 3px solid #dee2e6;
-      width: 100%;
-  }
-  </style>
-  
 
 
-<meta property="og:title" content="Quarto, RMarkdown, and Jupyter Slides – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:title" content="Organization of Data Science projects and some useful tools – DSCI 521: Computing Platforms for Data Science">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/rstudio-conf-2022-quarto.png">
+<meta property="og:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/cheers.png">
 <meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
-<meta property="og:image:alt" content="alttag">
-<meta property="og:image:height" content="836">
-<meta property="og:image:width" content="1192">
-<meta name="twitter:title" content="Quarto, RMarkdown, and Jupyter Slides – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:image:height" content="284">
+<meta property="og:image:width" content="692">
+<meta name="twitter:title" content="Organization of Data Science projects and some useful tools – DSCI 521: Computing Platforms for Data Science">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/rstudio-conf-2022-quarto.png">
-<meta name="twitter:image:alt" content="alttag">
-<meta name="twitter:image-height" content="836">
-<meta name="twitter:image-width" content="1192">
+<meta name="twitter:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/cheers.png">
+<meta name="twitter:image-height" content="284">
+<meta name="twitter:image-width" content="692">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -355,7 +345,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/4-quarto_github_pages.html">Week 2</a></li><li class="breadcrumb-item"><a href="../lectures/6-rmarkdown-quarto-slides-ghpages.html">Quarto, RMarkdown, and Jupyter Slides</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Week 4</li><li class="breadcrumb-item"><a href="../lectures/regex-filenames-project-organization.html">Organization of Data Science Projects</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -392,13 +382,13 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/0-jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">JupyterLab Orientation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/0-rstudio-orientation-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/rstudio-orientation-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudio Orientation</span></a>
   </div>
 </li>
@@ -415,13 +405,13 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/1-MDStools-bash-filesystem.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/mdstools-bash-filesystem.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">MDS Software and Bash</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/2-git-github-ssh-basic-workflow.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/git-github-ssh-basic-workflow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git, GitHub, and SSH</span></a>
   </div>
 </li>
@@ -438,13 +428,13 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/4-quarto_github_pages.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/quarto-github-pages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto and GitHub Pages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/6-rmarkdown-quarto-slides-ghpages.html" class="sidebar-item-text sidebar-link active">
+  <a href="../lectures/rmarkdown-quarto-slides-ghpages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto, RMarkdown, and Jupyter Slides</span></a>
   </div>
 </li>
@@ -461,13 +451,13 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/3-git-history-merge-conflicts-stash.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/git-history-merge-conflicts-stash.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git: History, Conflicts, and Ignores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/5-rstudio-projects-notebooks.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/rstudio-projects-notebooks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudio Projects and Literate Programming</span></a>
   </div>
 </li>
@@ -483,32 +473,29 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../lectures/7a-virtual-environments-conda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Virtual Environments: conda</span></a>
-  </div>
-</li>
+ <span class="menu-text">Virtual Environments: uv</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/7b-virtual-environments-renv.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/virtual-environments-renv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Virtual Environments: renv</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/8-regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Organization of Data Science Projects</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/8b-regex.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/regex.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Regular Expressions (RegEx)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/8c-asking_questions.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/asking-questions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Asking Effective Questions</span></a>
   </div>
 </li>
@@ -547,12 +534,6 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
  <span class="menu-text">R Markdown tips</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendix/mds_conda_environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MDS Conda Python Environment</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -570,6 +551,18 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
  <span class="menu-text">Xaringan Slides</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/virtual-environments-conda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Virtual Environments: conda</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/mds_conda_environment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MDS Conda Python Environment</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -583,24 +576,24 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
-  <li><a href="#lecture-6-activity-1" id="toc-lecture-6-activity-1" class="nav-link" data-scroll-target="#lecture-6-activity-1">Lecture 6 Activity 1</a></li>
-  <li><a href="#quarto-documents" id="toc-quarto-documents" class="nav-link" data-scroll-target="#quarto-documents">Quarto Documents</a>
+  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity 1</a></li>
+  <li><a href="#project-organization" id="toc-project-organization" class="nav-link" data-scroll-target="#project-organization">Project organization</a></li>
+  <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity 2</a></li>
+  <li><a href="#filenames" id="toc-filenames" class="nav-link" data-scroll-target="#filenames">Filenames</a>
   <ul class="collapse">
-  <li><a href="#jupyter-notebooks-for-python-and-rmarkdown-for-r" id="toc-jupyter-notebooks-for-python-and-rmarkdown-for-r" class="nav-link" data-scroll-target="#jupyter-notebooks-for-python-and-rmarkdown-for-r">Jupyter Notebooks for Python and RMarkdown for R?</a></li>
-  <li><a href="#github-readme.md" id="toc-github-readme.md" class="nav-link" data-scroll-target="#github-readme.md">Github <code>README.md</code></a></li>
+  <li><a href="#names-matter" id="toc-names-matter" class="nav-link" data-scroll-target="#names-matter">Names matter</a></li>
+  <li><a href="#what-works-what-doesnt" id="toc-what-works-what-doesnt" class="nav-link" data-scroll-target="#what-works-what-doesnt">What works, what doesn’t?</a></li>
   </ul></li>
-  <li><a href="#lecture-6-activity-2" id="toc-lecture-6-activity-2" class="nav-link" data-scroll-target="#lecture-6-activity-2">Lecture 6 Activity 2</a></li>
-  <li><a href="#lecture-6-activity-3" id="toc-lecture-6-activity-3" class="nav-link" data-scroll-target="#lecture-6-activity-3">Lecture 6 Activity 3</a></li>
-  <li><a href="#presentations-with-jupyterlab-rmarkdown-and-quarto" id="toc-presentations-with-jupyterlab-rmarkdown-and-quarto" class="nav-link" data-scroll-target="#presentations-with-jupyterlab-rmarkdown-and-quarto">Presentations with JupyterLab, RMarkdown and Quarto</a>
+  <li><a href="#three-principles-for-file-names" id="toc-three-principles-for-file-names" class="nav-link" data-scroll-target="#three-principles-for-file-names">Three principles for (file) names</a>
   <ul class="collapse">
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
-  <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link" data-scroll-target="#r-markdown">R Markdown</a></li>
+  <li><a href="#machine-readable" id="toc-machine-readable" class="nav-link" data-scroll-target="#machine-readable">Machine readable</a></li>
+  <li><a href="#human-readable" id="toc-human-readable" class="nav-link" data-scroll-target="#human-readable">Human readable</a></li>
+  <li><a href="#plays-well-with-default-ordering" id="toc-plays-well-with-default-ordering" class="nav-link" data-scroll-target="#plays-well-with-default-ordering">Plays well with default ordering</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   </ul></li>
-  <li><a href="#lecture-6-activity-4" id="toc-lecture-6-activity-4" class="nav-link" data-scroll-target="#lecture-6-activity-4">Lecture 6 Activity 4</a></li>
-  <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks">Jupyter Notebooks</a></li>
-  <li><a href="#book-output" id="toc-book-output" class="nav-link" data-scroll-target="#book-output">Book output</a></li>
-  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a></li>
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#activity-3" id="toc-activity-3" class="nav-link" data-scroll-target="#activity-3">Activity 3</a></li>
+  <li><a href="#activity-4" id="toc-activity-4" class="nav-link" data-scroll-target="#activity-4">Activity 4</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -608,9 +601,9 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/4-quarto_github_pages.html">Week 2</a></li><li class="breadcrumb-item"><a href="../lectures/6-rmarkdown-quarto-slides-ghpages.html">Quarto, RMarkdown, and Jupyter Slides</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Week 4</li><li class="breadcrumb-item"><a href="../lectures/regex-filenames-project-organization.html">Organization of Data Science Projects</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Quarto, RMarkdown, and Jupyter Slides</h1>
+<h1 class="title">Organization of Data Science projects and some useful tools</h1>
 </div>
 
 
@@ -630,243 +623,407 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <section id="learning-outcomes" class="level2">
 <h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
 <ol type="1">
-<li>Understand how Quarto extend R Markdown documents functionalities.</li>
-<li>Explore different data science products to communicate your results: slides, blogs and books.</li>
-<li>Create slides using Jupyter Notebook and Quarto slides with <code>reveal.js</code></li>
-<li>Create a Jupyter Book and a Quarto books.</li>
-<li>Create a Quarto Blog.</li>
-<li>Sharing rendered HTML files publicly via GitHub Pages.</li>
+<li>Understand the basic syntax and functionality of regular expressions (regex) for pattern matching.</li>
+<li>Explore the use of special characters, ranges, and anchors in regex to match specific patterns within text.</li>
+<li>Apply regex to search, extract, and manipulate data in various formats using practical examples.</li>
+<li>Use regular expressions to navigate and organize files within the filesystem.</li>
 </ol>
-<p><strong>Platform in focus</strong> Jupyter Lab, RStudio IDE, Quarto</p>
 </section>
-<section id="lecture-6-activity-1" class="level2 activity">
-<h2 class="anchored" data-anchor-id="lecture-6-activity-1">Lecture 6 Activity 1</h2>
-<p>Check the following data science analysis. How are the analysis files loaded into the working directory? Are there differences between the R and Python code?</p>
+<section id="activity-1" class="level2 activity">
+<h2 class="anchored" data-anchor-id="activity-1">Activity 1</h2>
+<p>Imagine you are starting a new data science project. Based on what you know about project organization, how would you structure your project directory? Consider where you would place important files like raw data, processed data, code, reports, and environment settings.</p>
+<p>Take a moment to think through these questions:</p>
+<pre><code>- What folders would you create, and why?
+- Where would you place key files like your `.csv` data, analysis notebooks, and README?
+- How would you structure the project to ensure it is easy to maintain and reproducible?</code></pre>
+<p>Jot down your ideas.</p>
+<p>After reflecting on your answers, compare your project structure with your partner’s. Identify similarities and differences between your approaches. What organizational choices did you both make? Were there any unique folder structures or file placements?</p>
+</section>
+<section id="project-organization" class="level2">
+<h2 class="anchored" data-anchor-id="project-organization">Project organization</h2>
+<p>Broadly speaking you will find two different ways of organizing a project: as a data analysis project and code project. Neither of this options is rigid enough to can give you here a exhaustive list of folder types and files you would expect on this projects. You will spend some time exploring different examples. However, we can work with a general structure:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">project/</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> data/              <span class="pp">*</span>.csv</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── processed/</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── raw/</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> reports/           <span class="pp">*</span>.ipynb <span class="pp">*</span>.Rmd</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> src/               <span class="pp">*</span>.py <span class="pp">*</span>.R</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> doc/               <span class="pp">*</span>.md</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> environment.yaml <span class="er">(</span><span class="ex">or</span> renv.lock<span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>data</strong> If your original data file is stored as part of the repository and should never be overridden. That is why the original files are stored in a sub-folder called <code>raw</code>.</p>
+<p><strong>reports</strong> The documentation is the biggest difference between data analysis projects and software projects. Would you expect a report on a software project? In general notebooks and other <a href="../lectures/rstudio-projects-notebooks.html">literate programming documents</a> (that prioritize narrative and storytelling) are the favorite options to share data analysis results [1]. You will create your first data science project in DSCI 522: Statistical Inference and Computation. Software projects are mostly focused in the development of tools and in this cases other types of documentation (docstrings, vignettes, readtheDocs, JupyterBooks) are the favorite source of documentation for this kind of projects. We will learn more about them in DSCI 524: Collaborative Software Development.</p>
+<p><strong>src</strong> is where the source code for your project will be. If you are not creating a package, you may use the <strong>analysis</strong> directory. In package development, you will have a <code>src/project_name</code> directory in Python, and just the <code>R</code> directory (instead of <code>src</code>) in R. You will learn more about project hierarchy when making packages in DSCI 524.</p>
+<p><strong>doc</strong> Documentation. You can also use this directory for a GitHub pages enabled website.</p>
+<p><strong>README.md</strong> The README file is probably the first file a potential user/contributor will read.</p>
+<p><strong>environment</strong> Specifying the computational environment will help you to ensure the reproducibility of your analysis.</p>
+<!--
+A place for everything, everything in its place.
+
+Benjamin Franklin
+
+
+
+---
+
+![beer_messy_tidy](img/beer_messy_tidy.png)
+
+---
+
+![files_messy_tidy](img/files_messy_tidy.png)
+
+## Face it...
+
+- There are going to be files
+
+- LOTS of files
+
+- The files will change over time
+
+- The files will have relationships to each other
+
+- It'll probably get complicated
+
+## Mighty weapon
+
+- File organization and naming is a mighty weapon against chaos
+
+- Make a file's name and location VERY INFORMATIVE about what it is, why it exists, how it relates to other things
+
+- The more things are self-explanatory, the better
+
+- READMEs are great, but don't document something if you could just make that thing self-documenting by definition
+
+
+## Attribution:
+
+- Slides borrowed from the [Data Carpentry](https://datacarpentry.org/) [Reproducible Science Workshop](https://datacarpentry.org/rr-organization1/)
+
+-->
+</section>
+<section id="activity-2" class="level2 activity">
+<h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
+<p>Which set of file(name)s do you want at 3 a.m. before a deadline?</p>
+<pre><code>A. `Joe’s Filenames Use Spaces and Punctuation.xlsx`
+B. `figure 1.png`
+C. `JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt`
+D. `2014-06-08_abstract-for-sla.docx`
+E. `myabstract.docx`</code></pre>
+</section>
+<section id="filenames" class="level2">
+<h2 class="anchored" data-anchor-id="filenames">Filenames</h2>
+<p>In our first lecture, we learned about bash and talked about the downsides of making your files and folder names “too pretty” with capitalizations and spaces. Here we will discuss better ways to name our files and folders.</p>
+<p>The below section comes from Jenny Bryan’s <a href="https://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf">Naming things</a></p>
 <ul>
-<li>R: <a href="https://github.com/ttimbers/breast_cancer_predictor" class="uri">https://github.com/ttimbers/breast_cancer_predictor</a></li>
-<li>Python: <a href="https://github.com/ttimbers/breast_cancer_predictor_py" class="uri">https://github.com/ttimbers/breast_cancer_predictor_py</a></li>
+<li>slides: <a href="https://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf" class="uri">https://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf</a></li>
+<li>Source code: <a href="https://github.com/jennybc/organization-and-naming" class="uri">https://github.com/jennybc/organization-and-naming</a></li>
+</ul>
+<section id="names-matter" class="level3">
+<h3 class="anchored" data-anchor-id="names-matter">Names matter</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/cheers.png" class="img-fluid figure-img"></p>
+<figcaption>cheers</figcaption>
+</figure>
+</div>
+</section>
+<section id="what-works-what-doesnt" class="level3">
+<h3 class="anchored" data-anchor-id="what-works-what-doesnt">What works, what doesn’t?</h3>
+<p><strong>NO</strong></p>
+<pre><code>myabstract.docx
+Joe’s Filenames Use Spaces and Punctuation.xlsx
+figure 1.png
+fig 2.png
+JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt</code></pre>
+<p><strong>YES</strong></p>
+<pre><code>2014-06-08_abstract-for-sla.docx
+joes-filenames-are-getting-better.xlsx
+fig01_talk-scatterplot-length-vs-interest.png
+fig02_talk-histogram-attendance.png
+1986-01-28_raw-data-from-challenger-o-rings.txt</code></pre>
+</section>
+</section>
+<section id="three-principles-for-file-names" class="level2">
+<h2 class="anchored" data-anchor-id="three-principles-for-file-names">Three principles for (file) names</h2>
+<ol type="1">
+<li>Machine readable</li>
+<li>Human readable</li>
+<li>Plays well with default ordering</li>
+</ol>
+<section id="machine-readable" class="level3">
+<h3 class="anchored" data-anchor-id="machine-readable">Machine readable</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/awesome_names.png" class="img-fluid figure-img"></p>
+<figcaption>awesome_names</figcaption>
+</figure>
+</div>
+<ul>
+<li>Regular expression and globbing friendly
+<ul>
+<li>Avoid spaces, punctuation, accented characters, case sensitivity</li>
+</ul></li>
+<li>Easy to compute on
+<ul>
+<li>Deliberate use of delimiters</li>
+</ul></li>
+</ul>
+<section id="globbing" class="level4">
+<h4 class="anchored" data-anchor-id="globbing">Globbing</h4>
+<p><strong>Excerpt of complete file listing:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plasmid_names.png" class="img-fluid figure-img"></p>
+<figcaption>plasmid_names</figcaption>
+</figure>
+</div>
+<hr>
+<p><strong>Example of globbing to narrow file listing:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plasmid_glob.png" class="img-fluid figure-img"></p>
+<figcaption>plasmid_names</figcaption>
+</figure>
+</div>
+</section>
+<section id="same-using-mac-os-finder-search-facilities" class="level4">
+<h4 class="anchored" data-anchor-id="same-using-mac-os-finder-search-facilities">Same using Mac OS Finder search facilities</h4>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plasmid_mac_os_search.png" class="img-fluid figure-img"></p>
+<figcaption>plasmid_mac_os_search</figcaption>
+</figure>
+</div>
+</center>
+</section>
+<section id="same-using-regex-in-r" class="level4">
+<h4 class="anchored" data-anchor-id="same-using-regex-in-r">Same using regex in R</h4>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plasmid_regex.png" class="img-fluid figure-img"></p>
+<figcaption>plasmid_regex</figcaption>
+</figure>
+</div>
+</center>
+</section>
+<section id="punctuation" class="level4 smaller">
+<h4 class="smaller anchored" data-anchor-id="punctuation">Punctuation</h4>
+<p>Deliberate use of <code>"-"</code> and <code>"_"</code> allows recovery of meta-data from the filenames:</p>
+<ul>
+<li><code>"_"</code> underscore used to delimit units of meta-data I want later</li>
+<li><code>"-"</code> hyphen used to delimit words so my eyes don’t bleed</li>
+</ul>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plasmid_delimiters.png" class="img-fluid figure-img"></p>
+<figcaption>plasmid_delimiters</figcaption>
+</figure>
+</div>
+</center>
+<hr>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plasmid_delimiters_code.png" class="img-fluid figure-img"></p>
+<figcaption>plasmid_delimiters_code</figcaption>
+</figure>
+</div>
+</center>
+<p>This happens to be R but also possible in the shell, Python, etc.</p>
+</section>
+<section id="recap-machine-readable" class="level4">
+<h4 class="anchored" data-anchor-id="recap-machine-readable">Recap: machine readable</h4>
+<ul>
+<li><p>Easy to search for files later</p></li>
+<li><p>Easy to narrow file lists based on names</p></li>
+<li><p>Easy to extract info from file names, e.g.&nbsp;by splitting</p></li>
+<li><p>New to regular expressions and globbing? be kind to yourself and avoid</p>
+<ul>
+<li>Spaces in file names</li>
+<li>Punctuation</li>
+<li>Accented characters</li>
+<li>Different files named <code>foo</code> and <code>Foo</code></li>
+</ul></li>
 </ul>
 </section>
-<section id="quarto-documents" class="level2">
-<h2 class="anchored" data-anchor-id="quarto-documents">Quarto Documents</h2>
-<p><a href="https://quarto.org/">Quarto</a> is a newer scientific and technical publishing system that aims to combine the best features of a Jupyter Notebook and an R Markdown document. It uses markdown, code chunks (similar to R Markdown), and <code>pandoc</code> to create various output formats. If you need another Markdown resource, the Quarto documentation has its own <a href="https://quarto.org/docs/authoring/markdown-basics.html">markdown basics guide</a>.</p>
-<p><img src="img/rstudio-conf-2022-quarto.png" class="img-fluid" alt="alttag"> <em>Quarto documents are created with text and Python, R and/or Julia code</em></p>
-<section id="jupyter-notebooks-for-python-and-rmarkdown-for-r" class="level3">
-<h3 class="anchored" data-anchor-id="jupyter-notebooks-for-python-and-rmarkdown-for-r">Jupyter Notebooks for Python and RMarkdown for R?</h3>
-<p>Historically, Jupyter Notebooks were designed for Python and R Markdown documents were designed for R. These days, there are <a href="https://gist.github.com/chronitis/682c4e0d9f663e85e3d87e97cd7d1624">many different Jupyter Kernels</a> you can install, and R Markdown documents can also support <a href="https://bookdown.org/yihui/rmarkdown/language-engines.html">many different language engines</a>. Quarto natively supports Python, R, Julia, and Javascript, but can also <a href="https://quarto.org/docs/faq/#what-programming-languages-are-supported-in-quarto">leverage all of the Jupyter kernels</a> to run more languages.</p>
-<p>If you want a single document to run multiple languages (R and Python), Python can run R via the <code>rpy2</code> Python package, and R can run Python via the <code>reticulate</code> R package. Quarto will leverage <code>knitr</code> and <code>reticulate</code> to run documents that need to run both R and Python.</p>
 </section>
-<section id="github-readme.md" class="level3">
-<h3 class="anchored" data-anchor-id="github-readme.md">Github <code>README.md</code></h3>
-<p>If you need to document code and output in your <code>README.md</code> file, you can create a Quarto <code>README.qmd</code> document that can be rendered into a github-flavored markdown <code>README.md</code> file.</p>
-<p>In Quarto, you will need to set the format in the YAML to <code>gfm</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> gfm</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This process is similar to R Markdown documents rendering from <code>README.Rmd</code> file. The main difference here is that in R Markdown you will be using a different output string, <code>github_document</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-</section>
-<section id="lecture-6-activity-2" class="level2 activity">
-<h2 class="anchored" data-anchor-id="lecture-6-activity-2">Lecture 6 Activity 2</h2>
-<p>Why does using R Markdown and Quarto documents make your work more reproducible?</p>
-<p>A. <code>.Rmd</code> and <code>.qmd</code> are plain-text files; they can be opened and edited with almost any editor.</p>
-<p>B. Including text in the final reports created involves a more detailed explanation of your work than only commenting on the code.</p>
-<p>C. They use Pandoc to render the files in different formats.</p>
-<p>D. Because they create a versatile <code>.md</code> file as an intermediate step.</p>
-<p>E. They allow running code as inline code or in code chunks.</p>
-</section>
-<section id="lecture-6-activity-3" class="level2 activity">
-<h2 class="anchored" data-anchor-id="lecture-6-activity-3">Lecture 6 Activity 3</h2>
-<p>Now that you’ve completed your reproducible report, imagine you need to present this work to a real-world audience, such as at a conference, to your boss, or an executive group. Let’s use that example above again:</p>
+<section id="human-readable" class="level3">
+<h3 class="anchored" data-anchor-id="human-readable">Human readable</h3>
 <ul>
-<li>R: <a href="https://github.com/ttimbers/breast_cancer_predictor" class="uri">https://github.com/ttimbers/breast_cancer_predictor</a></li>
-<li>Python: <a href="https://github.com/ttimbers/breast_cancer_predictor_py" class="uri">https://github.com/ttimbers/breast_cancer_predictor_py</a></li>
+<li><p>Name contains info on content</p></li>
+<li><p>Connects to concept of a <em>slug</em> from semantic URLs</p></li>
 </ul>
-<p>How would you use tools like PowerPoint or Word documents to effectively present your findings and pitch your ideas? Consider elements such as visualizations, narrative, and the overall format of the report.</p>
-<p>Discuss with your partner and prepare to share your strategies with the class. Could there be a more efficient way of doing this directly within your Markdown files? What challenges might you encounter, such as issues with reproducibility?</p>
+<p><strong>Which set of file(name)s do you want at 3 a.m. before a deadline?</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/human_readable_not_options.png" class="img-fluid figure-img"></p>
+<figcaption>human_readable_not_options</figcaption>
+</figure>
+</div>
+<section id="embrace-the-slug" class="level4">
+<h4 class="anchored" data-anchor-id="embrace-the-slug">Embrace the slug</h4>
+<div class="columns-2">
+<p>slug filenames <img src="img/slug_filenames.png" class="img-fluid"></p>
+<p>slug <img src="img/slug.jpg" class="img-fluid"></p>
+</div>
 </section>
-<section id="presentations-with-jupyterlab-rmarkdown-and-quarto" class="level2">
-<h2 class="anchored" data-anchor-id="presentations-with-jupyterlab-rmarkdown-and-quarto">Presentations with JupyterLab, RMarkdown and Quarto</h2>
-<p>You can create a great set of slides to share your results with others!</p>
-<p>We are going to use the framework <code>reveal.js</code>. RMarkdown most popular slides are created with a package called <code>xaringan</code>. Since Quarto appear, it is possible to create slides using <code>reveal.js</code> that is the same framework that is available by default in Jupyter Notebooks. Anyway, it would be possible to generate <code>reveal.js</code> presentations with RMarkdown if you install the <code>revealjs</code> package and follow <a href="https://bookdown.org/yihui/rmarkdown/revealjs.html">these instructions</a>.</p>
-<section id="quarto" class="level3">
-<h3 class="anchored" data-anchor-id="quarto">Quarto</h3>
-<p>Clicking here you can have <a href="https://quarto.org/docs/presentations/revealjs/demo/#/title-slide">an example</a> of what you can do with Quarto presentations using <code>reveal.js</code> framework.</p>
-<p>In the YAML header, you will need to change the <code>format</code> option to <code>revealjs</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> revealjs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Habits"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "John Doe"</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> revealjs</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># In the morning</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Getting up</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Turn off alarm</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Get out of bed</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Breakfast</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Eat eggs</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Drink coffee</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="fu"># In the evening</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dinner</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Eat spaghetti</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Drink wine</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Going to sleep</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Get in bed</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Count sheep</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-    <p><a href="demos/slides/slides-quarto.html" target="_blank">View slides in full screen</a></p>
-       <div class="ratio ratio-16x9">
-      <iframe class="slide-deck" src="demos/slides/slides-quarto.html" height="600px"></iframe>
-    </div>
-  
-<p>If you want to create your <code>revealjs</code> html slides and be able to share a <strong>single</strong> html file with others as a slide, you may need to embed and make the slide “self-contained”.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This puts all the external resources for the HTML document inside the HTML file. Otherwise your slides would need to travel in a zip file with all the external resources in the same directory. You will typically need this when sharing slides that have images and computation in them. You may notice additional folders created in the directory as a cue that you may need to think about embedding your resources to make the slides self-contained, depending on how you will use and share them.</p>
-</section>
-<section id="r-markdown" class="level3">
-<h3 class="anchored" data-anchor-id="r-markdown">R Markdown</h3>
-<p>R Markdown has been around for a long time, and has many output formats. The defaults that come with R Markdown are less popular than formats you need to install.</p>
-<p>We’ll show you how you can create a <code>reaveal.js</code> and <code>xaringan</code> presentation, but you may need to install a few packages first.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">'xaringan'</span>, <span class="st">'revealjs'</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="reveal.js" class="level4">
-<h4 class="anchored" data-anchor-id="reveal.js">Reveal.js</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> revealjs::revealjs_presentation</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Habits"</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> John Doe</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> revealjs::revealjs_presentation</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># In the morning</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Getting up</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Turn off alarm</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Get out of bed</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Breakfast</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Eat eggs</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Drink coffee</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu"># In the evening</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dinner</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Eat spaghetti</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Drink wine</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Going to sleep</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Get in bed</span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Count sheep</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-    <p><a href="demos/slides/slides-rmd.html" target="_blank">View slides in full screen</a></p>
-       <div class="ratio ratio-16x9">
-      <iframe class="slide-deck" src="demos/slides/slides-rmd.html" height="600px"></iframe>
-    </div>
-  
-</section>
-<section id="xaringan" class="level4">
-<h4 class="anchored" data-anchor-id="xaringan">Xaringan</h4>
-<p>Many people who are still working with R Markdown documents, will create their slides using <code>{xaringan}</code>. This lessons uses <code>reveal.js</code> for R Markdown slides to keep the output type consistent.</p>
-<p>If you want to learn more about Xaringan slides, see the <a href="../appendix/xaringan_slides.html">Xaringan Slides Chapter</a></p>
+<section id="recap-human-readable" class="level4">
+<h4 class="anchored" data-anchor-id="recap-human-readable">Recap: Human readable</h4>
+<p>Easy to figure out what the heck something is, based on its name</p>
 </section>
 </section>
+<section id="plays-well-with-default-ordering" class="level3">
+<h3 class="anchored" data-anchor-id="plays-well-with-default-ordering">Plays well with default ordering</h3>
+<ul>
+<li>Put something numeric first</li>
+<li>Use the ISO 8601 standard for dates</li>
+<li>Left pad other numbers with zeros</li>
+</ul>
+<p><strong>Chronological order:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/chronological_order.png" class="img-fluid figure-img"></p>
+<figcaption>chronological_order</figcaption>
+</figure>
+</div>
+<hr>
+<p><strong>Logical order:</strong> Put something numeric first</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/logical_order.png" class="img-fluid figure-img"></p>
+<figcaption>logical_order</figcaption>
+</figure>
+</div>
+<section id="dates" class="level4">
+<h4 class="anchored" data-anchor-id="dates">Dates</h4>
+<p>Use the ISO 8601 standard for dates: YYYY-MM-DD</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img//chronological_order.png" class="img-fluid figure-img"></p>
+<figcaption>chronological_order</figcaption>
+</figure>
+</div>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/iso_8601.tiff" class="img-fluid figure-img"></p>
+<figcaption>iso_psa</figcaption>
+</figure>
+</div>
+</center>
 </section>
-<section id="lecture-6-activity-4" class="level2 activity">
-<h2 class="anchored" data-anchor-id="lecture-6-activity-4">Lecture 6 Activity 4</h2>
-<p>Which of the following is the <strong>correct</strong> output format for creating slides in Quarto markdown?</p>
-<p>A. <code>revealjs::revealjs_presentation</code></p>
-<p>B. <code>xaringan::sun_reader</code></p>
-<p>C. <code>format: revealjs</code></p>
-<p>D. <code>ioslides_presentation</code></p>
+<section id="comprehensive-map-of-all-countries-in-the-world-that-use-the-mm-dd-yyyy-format" class="level4">
+<h4 class="anchored" data-anchor-id="comprehensive-map-of-all-countries-in-the-world-that-use-the-mm-dd-yyyy-format">Comprehensive map of all countries in the world that use the MM-DD-YYYY format</h4>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/map_mmddyyy.tiff" class="img-fluid figure-img"></p>
+<figcaption>map_mmddyyy</figcaption>
+</figure>
+</div>
+</center>
+<p><br></p>
+<p>From https://twitter.com/donohoe/status/597876118688026624.</p>
+</section>
+<section id="left-pad-other-numbers-with-zeros" class="level4">
+<h4 class="anchored" data-anchor-id="left-pad-other-numbers-with-zeros">Left pad other numbers with zeros</h4>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/logical_order.png" class="img-fluid figure-img"></p>
+<figcaption>logical_order</figcaption>
+</figure>
+</div>
+</center>
+<p><br></p>
+<p>If you don’t left pad, you get this:</p>
+<pre><code>10_final-figs-for-publication.R
+1_data-cleaning.R
+2_fit-model.R</code></pre>
+<p>which is just sad :(</p>
+</section>
+<section id="recap-plays-well-with-default-ordering" class="level4">
+<h4 class="anchored" data-anchor-id="recap-plays-well-with-default-ordering">Recap: Plays well with default ordering</h4>
+<ul>
+<li>Put something numeric first</li>
+<li>Use the ISO 8601 standard for dates</li>
+<li>Left pad other numbers with zeros</li>
+</ul>
+</section>
+</section>
+<section id="recap" class="level3">
+<h3 class="anchored" data-anchor-id="recap">Recap</h3>
+<p>Three principles for (file) names</p>
+<ol type="1">
+<li>Machine readable</li>
+<li>Human readable</li>
+<li>Plays well with default ordering</li>
+</ol>
+<p>Pros: - Easy to implement NOW - Payoffs accumulate as your skills evolve and projects get more complex</p>
+<section id="go-forth-and-use-awesome-file-names" class="level4">
+<h4 class="anchored" data-anchor-id="go-forth-and-use-awesome-file-names">Go forth and use awesome file names :)</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/chronological_order.png" class="img-fluid figure-img"></p>
+<figcaption>chronological_order</figcaption>
+</figure>
+</div>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/logical_order.png" class="img-fluid figure-img"></p>
+<figcaption>logical_order</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="activity-3" class="level2 activity">
+<h2 class="anchored" data-anchor-id="activity-3">Activity 3</h2>
+<p>Which of the following items describe three important rules for naming files on a computer? Select all correct answers.</p>
+<pre><code>A. File name parts should be easy to extract programmatically
+B. Humans would understand something about file contents by looking at their names
+C. Files with appropriate names would be nicely organized by default
+D. File names should always use lower-case letters
+E. Human understanding of file names should be prioritized over machine understanding</code></pre>
+<!--comment because iClicker only allows 5 choices
+E. Underscores are the only allowed separator in file names
+-->
+</section>
+<section id="activity-4" class="level2 activity">
+<h2 class="anchored" data-anchor-id="activity-4">Activity 4</h2>
+<p>Which of the following are GOOD date formats to use in a filename?</p>
+<pre><code>A. 2020-01-26T0233
+B. 20200126T0233
+C. 2020-01-26</code></pre>
 </section>
 <!--
+
 :::{.activity}
-## Lecture 6 Activity 5
+## Activity 4
+Match each explanation with its corresponding file naming principle:
 
-What is the primary difference between slides created with R Markdown's `revealjs` and `xaringan`?
+G.  By following this principle, we are able to use tools such as regular expressions and file-name globbing to search, select and manipulate files using tools such as the unix shell, R and Python.
 
-A. `xaringan` slides are two-dimensional, allowing horizontal and vertical navigation, while `reveal.js` slides are one-dimensional.
+H. By following this principle, we can have a good idea of what is inside files without having to open them (saves us time) and when we come back to work on a project we haven't worked on in a while it is much easier for us to remember what we were working on and get started again.
 
-B. `reveal.js` requires an additional package to be installed, while `xaringan` is included by default in R Markdown.
 
-C. `reveal.js` slides support two-dimensional navigation, with slides moving left/right and sub-slides up/down.
+I. By following this principle, we can make our files more organized and understandable, and files more findable. Ordered lists will be sorted into a logical order and so it is easy to orient yourself in the directory and find the files you want to find.
 
-D. `xaringan` uses `pandoc` for rendering slides, whereas `reveal.js` does not.
-
+J. By following this principle, we will be sure that our files have the appropriate formatting in terms of their content. Such files will be ready for subsequent analysis in a data science pipeline.
+```
 :::
 -->
-<section id="jupyter-notebooks" class="level3">
-<h3 class="anchored" data-anchor-id="jupyter-notebooks">Jupyter Notebooks</h3>
-<p>Jupyter notebooks also support slides with RISE.</p>
-<p><a href="https://github.com/jupyterlab-contrib/rise" class="uri">https://github.com/jupyterlab-contrib/rise</a></p>
-<p>You can use Jupyter Lab interface too with the same purpose. You can read more <a href="https://towardsdatascience.com/5-slides-for-tips-on-presentation-mode-in-jupyter-notebook-f858b15fff4f">about it here</a></p>
-<!--![Jupyter Slides](img/jupyter-slides.gif)-->
-<p>The main page for RISE is here: <a href="https://github.com/jupyterlab-contrib/rise" class="uri">https://github.com/jupyterlab-contrib/rise</a> Where you can find the command to install it:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyterlab_rise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>To mark which code cells should be part of the presentation, we can go to the property inspector (the settings wheel in the left side panel) and then select the slide type from the dropdown menu.</p>
-<p><img src="img/jupyter-rise-slide_type.png" class="img-fluid"></p>
-<p>Once you are done marking up slides, you can export them to reveal.js presentations are two dimensional, with slides in the horizontal direction and sub-slides in the vertical direction.</p>
-<ul>
-<li><code>Slide</code>: Standard slide navigated to via left and right arrows.</li>
-<li><code>Sub-slide</code>: Sub-topic of a slide, navigated to via up and down arrows.</li>
-<li><code>Fragment</code>: Animated in as part of the previous slide, could e.g.&nbsp;be a bullet point in a list.</li>
-<li><code>-</code> (or empty): Will appear in the same cell as the previous slide.</li>
-<li><code>Notes</code>: Speaker notes are visible when you press <code>t</code></li>
-<li><code>Skip</code>: Not included</li>
-</ul>
-<p>You will notice that images that are referenced via <code>![]()</code> or <code>&lt;img&gt;</code> do not show up in the exported slides (or the exported HTML). Until <a href="https://github.com/jupyter/nbconvert/issues/1057">this issue</a> is fixed, a workaround is to paste the image into a Markdown cell and it will be included as an attachment, which shows up fine in HTML and slide exports.</p>
-<p>To run your RISE slides in jupyter lab, there is a small button on the top.</p>
-<p><img src="img/jupyter-rise-launch.png" class="img-fluid"></p>
-    <p><a href="demos/slides/slides-rise.slides.html" target="_blank">View slides in full screen</a></p>
-       <div class="ratio ratio-16x9">
-      <iframe class="slide-deck" src="demos/slides/slides-rise.slides.html" height="600px"></iframe>
-    </div>
-  
-</section>
-<section id="book-output" class="level2">
-<h2 class="anchored" data-anchor-id="book-output">Book output</h2>
-<p>Jupyter, R Markdown, and Quarto also have “book” outputs. This is a special website format that can also be converted into PDFs and ePUB files for physical book publishing.</p>
-<ul>
-<li>Jupyter Book: <a href="https://jupyterbook.org/en/stable/intro.html" class="uri">https://jupyterbook.org/en/stable/intro.html</a></li>
-<li>Bookdown (R Markdown): <a href="https://bookdown.org/" class="uri">https://bookdown.org/</a></li>
-<li>Quarto Book: <a href="https://quarto.org/docs/books/" class="uri">https://quarto.org/docs/books/</a></li>
-</ul>
-<p>The course materials does not use the official Quarto book layout, it actually uses a regular Quarto website layout. This is because books will have certain limitations because it needs to be able to render into a format for physical publishing. Quarto is a flexiable tool that has many kinds of output formats. You can learn more about each in the official Quarto Guides: <a href="https://quarto.org/docs/guide/" class="uri">https://quarto.org/docs/guide/</a></p>
-</section>
-<section id="putting-it-all-together" class="level2">
-<h2 class="anchored" data-anchor-id="putting-it-all-together">Putting it all together</h2>
-<p>Here’s an example of a workshop given by the MDS teaching team at the Statistical Society of Canada conference:</p>
-<ul>
-<li>Repo: <a href="https://github.com/UBC-STAT/ssc-workshop-2024" class="uri">https://github.com/UBC-STAT/ssc-workshop-2024</a></li>
-<li>Site: <a href="https://ubc-stat.github.io/ssc-workshop-2024/" class="uri">https://ubc-stat.github.io/ssc-workshop-2024/</a></li>
-</ul>
-<p>You will see in the repository that we have leveraged many of the skills taught in the class so far:</p>
-<ul>
-<li>Quarto websites</li>
-<li>Quarto slides</li>
-<li>Git + GitHub Pages for website publishing</li>
-<li><code>.gitignore</code> files</li>
-</ul>
-</section>
-<section id="exercise-1" class="level2 exercise">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Take 5 minutes of the class and convert one of your <code>.Rmd</code>, <code>.qmd</code> or <code>.ipynb</code> to a set of slides.</p>
-<p>You can convert the slides manually or look into the <a href="https://jupytext.readthedocs.io/en/latest/install.html">jupytext</a> or <code>quarto convert</code> tools to do an initial file conversion.</p>
-</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>[1] Kery, M. B., Radensky, M., Arya, M., John, B. E., &amp; Myers, B. A. (2018, April). The story in the notebook: Exploratory data science using a literate programming tool. In Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems (pp.&nbsp;1-11).</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1284,13 +1441,13 @@ D. `xaringan` uses `pandoc` for rendering slides, whereas `reveal.js` does not.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../lectures/4-quarto_github_pages.html" class="pagination-link" aria-label="Quarto and GitHub Pages">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Quarto and GitHub Pages</span>
+      <a href="../lectures/virtual-environments-renv.html" class="pagination-link" aria-label="Virtual Environments: renv">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Virtual Environments: renv</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../lectures/3-git-history-merge-conflicts-stash.html" class="pagination-link" aria-label="Git: History, Conflicts, and Ignores">
-        <span class="nav-page-text">Git: History, Conflicts, and Ignores</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../lectures/regex.html" class="pagination-link" aria-label="Introduction to Regular Expressions (RegEx)">
+        <span class="nav-page-text">Introduction to Regular Expressions (RegEx)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
