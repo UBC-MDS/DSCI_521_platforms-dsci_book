@@ -88,28 +88,17 @@ This writes `.python-version`:
 uv python pin 3.14
 ```
 
-Add the packages needed to render the book.
-These land under `dependencies` in `pyproject.toml`,
+Add every package the book and the course need.
+These all land under `dependencies` in `pyproject.toml`,
 and the exact resolved versions are recorded in `uv.lock`:
 
 ```bash
-uv add ipykernel jupyter numpy matplotlib
+uv add ipykernel jupyter jupyterlab jupyterlab-rise matplotlib numpy otter-grader rpy2
 ```
 
-Add packages that are useful during the course
-but are not needed to build the book.
-`--group` keeps them out of the default install:
-
-```bash
-uv add --group course jupyterlab jupyterlab-rise
-```
-
-Add the instructor-only grading tools to their own group,
-so a normal build never has to install them:
-
-```bash
-uv add --group grading otter-grader==6.1.4 rpy2
-```
+Everything goes in that one list on purpose.
+`uv` can also split packages into optional groups,
+but keeping a single list means there is exactly one install command to remember.
 
 To recreate the environment on another machine,
 which is the command you will use most:
@@ -118,12 +107,8 @@ which is the command you will use most:
 uv sync
 ```
 
-`uv sync` installs the default dependencies only.
-Ask for a group by name if you want it:
-
-```bash
-uv sync --group course
-```
+`uv sync` reads `uv.lock` and makes your environment match it exactly,
+installing what is missing and removing what does not belong.
 
 Run a command inside the environment
 without activating it by hand:
