@@ -296,11 +296,11 @@
     ]
   },
   {
-    "objectID": "lectures/rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-1",
-    "href": "lectures/rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-1",
+    "objectID": "lectures/rmarkdown-quarto-slides-ghpages.html#activity-1",
+    "href": "lectures/rmarkdown-quarto-slides-ghpages.html#activity-1",
     "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Lecture 6 Activity 1",
-    "text": "Lecture 6 Activity 1\nCheck the following data science analysis. How are the analysis files loaded into the working directory? Are there differences between the R and Python code?\n\nR: https://github.com/ttimbers/breast_cancer_predictor\nPython: https://github.com/ttimbers/breast_cancer_predictor_py",
+    "section": "Activity 1",
+    "text": "Activity 1\nCheck the following data science analysis. How are the analysis files loaded into the working directory? Are there differences between the R and Python code?\n\nR: https://github.com/ttimbers/breast_cancer_predictor\nPython: https://github.com/ttimbers/breast_cancer_predictor_py",
     "crumbs": [
       "Home",
       "Week 2",
@@ -320,11 +320,11 @@
     ]
   },
   {
-    "objectID": "lectures/rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-2",
-    "href": "lectures/rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-2",
+    "objectID": "lectures/rmarkdown-quarto-slides-ghpages.html#activity-2",
+    "href": "lectures/rmarkdown-quarto-slides-ghpages.html#activity-2",
     "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Lecture 6 Activity 2",
-    "text": "Lecture 6 Activity 2\nWhy does using R Markdown and Quarto documents make your work more reproducible?\nA. .Rmd and .qmd are plain-text files; they can be opened and edited with almost any editor.\nB. Including text in the final reports created involves a more detailed explanation of your work than only commenting on the code.\nC. They use Pandoc to render the files in different formats.\nD. Because they create a versatile .md file as an intermediate step.\nE. They allow running code as inline code or in code chunks.",
+    "section": "Activity 2",
+    "text": "Activity 2\nWhy does using R Markdown and Quarto documents make your work more reproducible?\nA. .Rmd and .qmd are plain-text files; they can be opened and edited with almost any editor.\nB. Including text in the final reports created involves a more detailed explanation of your work than only commenting on the code.\nC. They use Pandoc to render the files in different formats.\nD. Because they create a versatile .md file as an intermediate step.\nE. They allow running code as inline code or in code chunks.",
     "crumbs": [
       "Home",
       "Week 2",
@@ -332,11 +332,11 @@
     ]
   },
   {
-    "objectID": "lectures/rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-3",
-    "href": "lectures/rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-3",
+    "objectID": "lectures/rmarkdown-quarto-slides-ghpages.html#activity-3",
+    "href": "lectures/rmarkdown-quarto-slides-ghpages.html#activity-3",
     "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Lecture 6 Activity 3",
-    "text": "Lecture 6 Activity 3\nNow that you’ve completed your reproducible report, imagine you need to present this work to a real-world audience, such as at a conference, to your boss, or an executive group. Let’s use that example above again:\n\nR: https://github.com/ttimbers/breast_cancer_predictor\nPython: https://github.com/ttimbers/breast_cancer_predictor_py\n\nHow would you use tools like PowerPoint or Word documents to effectively present your findings and pitch your ideas? Consider elements such as visualizations, narrative, and the overall format of the report.\nDiscuss with your partner and prepare to share your strategies with the class. Could there be a more efficient way of doing this directly within your Markdown files? What challenges might you encounter, such as issues with reproducibility?",
+    "section": "Activity 3",
+    "text": "Activity 3\nNow that you’ve completed your reproducible report, imagine you need to present this work to a real-world audience, such as at a conference, to your boss, or an executive group. Let’s use that example above again:\n\nR: https://github.com/ttimbers/breast_cancer_predictor\nPython: https://github.com/ttimbers/breast_cancer_predictor_py\n\nHow would you use tools like PowerPoint or Word documents to effectively present your findings and pitch your ideas? Consider elements such as visualizations, narrative, and the overall format of the report.\nDiscuss with your partner and prepare to share your strategies with the class. Could there be a more efficient way of doing this directly within your Markdown files? What challenges might you encounter, such as issues with reproducibility?",
     "crumbs": [
       "Home",
       "Week 2",
@@ -356,11 +356,11 @@
     ]
   },
   {
-    "objectID": "lectures/rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-4",
-    "href": "lectures/rmarkdown-quarto-slides-ghpages.html#lecture-6-activity-4",
+    "objectID": "lectures/rmarkdown-quarto-slides-ghpages.html#activity-4",
+    "href": "lectures/rmarkdown-quarto-slides-ghpages.html#activity-4",
     "title": "Quarto, RMarkdown, and Jupyter Slides",
-    "section": "Lecture 6 Activity 4",
-    "text": "Lecture 6 Activity 4\nWhich of the following is the correct output format for creating slides in Quarto markdown?\nA. revealjs::revealjs_presentation\nB. xaringan::sun_reader\nC. format: revealjs\nD. ioslides_presentation",
+    "section": "Activity 4",
+    "text": "Activity 4\nWhich of the following is the correct output format for creating slides in Quarto markdown?\nA. revealjs::revealjs_presentation\nB. xaringan::sun_reader\nC. format: revealjs\nD. ioslides_presentation",
     "crumbs": [
       "Home",
       "Week 2",
@@ -428,11 +428,11 @@
     ]
   },
   {
-    "objectID": "lectures/quarto-github-pages.html#lecture-4-activity-1",
-    "href": "lectures/quarto-github-pages.html#lecture-4-activity-1",
+    "objectID": "lectures/quarto-github-pages.html#activity-1",
+    "href": "lectures/quarto-github-pages.html#activity-1",
     "title": "Introduction to Quarto and Github Pages",
-    "section": "Lecture 4 Activity 1",
-    "text": "Lecture 4 Activity 1\nHave you ever considered creating a website to showcase your projects, research, or personal brand?",
+    "section": "Activity 1",
+    "text": "Activity 1\nHave you ever considered creating a website to showcase your projects, research, or personal brand?",
     "crumbs": [
       "Home",
       "Week 2",
@@ -476,11 +476,11 @@
     ]
   },
   {
-    "objectID": "lectures/quarto-github-pages.html#lecture-4-activity-2",
-    "href": "lectures/quarto-github-pages.html#lecture-4-activity-2",
+    "objectID": "lectures/quarto-github-pages.html#activity-2",
+    "href": "lectures/quarto-github-pages.html#activity-2",
     "title": "Introduction to Quarto and Github Pages",
-    "section": "Lecture 4 Activity 2",
-    "text": "Lecture 4 Activity 2\nWhich file is crucial for Quarto to recognize that you are working on a Quarto project, such as a website?\nA. index.qmd\nB. about.qmd\nC. _quarto.yml\nD. styles.css",
+    "section": "Activity 2",
+    "text": "Activity 2\nWhich file is crucial for Quarto to recognize that you are working on a Quarto project, such as a website?\nA. index.qmd\nB. about.qmd\nC. _quarto.yml\nD. styles.css",
     "crumbs": [
       "Home",
       "Week 2",
@@ -500,11 +500,11 @@
     ]
   },
   {
-    "objectID": "lectures/quarto-github-pages.html#lecture-4-activity-3",
-    "href": "lectures/quarto-github-pages.html#lecture-4-activity-3",
+    "objectID": "lectures/quarto-github-pages.html#activity-3",
+    "href": "lectures/quarto-github-pages.html#activity-3",
     "title": "Introduction to Quarto and Github Pages",
-    "section": "Lecture 4 Activity 3",
-    "text": "Lecture 4 Activity 3\nWhich command would you use to look at a Quarto file when changes are made?\nA. quarto render --preview\nB. quarto render --watch\nC. quarto preview\nD. quarto serve",
+    "section": "Activity 3",
+    "text": "Activity 3\nWhich command would you use to look at a Quarto file when changes are made?\nA. quarto render --preview\nB. quarto render --watch\nC. quarto preview\nD. quarto serve",
     "crumbs": [
       "Home",
       "Week 2",
@@ -536,11 +536,11 @@
     ]
   },
   {
-    "objectID": "lectures/quarto-github-pages.html#lecture-4-activity-4",
-    "href": "lectures/quarto-github-pages.html#lecture-4-activity-4",
+    "objectID": "lectures/quarto-github-pages.html#activity-4",
+    "href": "lectures/quarto-github-pages.html#activity-4",
     "title": "Introduction to Quarto and Github Pages",
-    "section": "Lecture 4 Activity 4",
-    "text": "Lecture 4 Activity 4\nWhich GitHub repository name allows you to create a personal website with the URL https://USERNAME.github.io/?\nA. README.md\nB. USERNAME.github.io\nC. index.html\nD. docs",
+    "section": "Activity 4",
+    "text": "Activity 4\nWhich GitHub repository name allows you to create a personal website with the URL https://USERNAME.github.io/?\nA. README.md\nB. USERNAME.github.io\nC. index.html\nD. docs",
     "crumbs": [
       "Home",
       "Week 2",
@@ -548,11 +548,11 @@
     ]
   },
   {
-    "objectID": "lectures/quarto-github-pages.html#lecture-4-exercise-1",
-    "href": "lectures/quarto-github-pages.html#lecture-4-exercise-1",
+    "objectID": "lectures/quarto-github-pages.html#exercise-1",
+    "href": "lectures/quarto-github-pages.html#exercise-1",
     "title": "Introduction to Quarto and Github Pages",
-    "section": "Lecture 4 Exercise 1",
-    "text": "Lecture 4 Exercise 1\nCreating and Deploying a Quarto Website\nObjective: By completing this exercise, students will gain hands-on experience in creating a Quarto website and deploying it using GitHub Pages.\nInstructions:\n\nCreate a New Quarto Website Project:\n\nOpen your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).\nUse the quarto create project command to create a new Quarto website project.\n\nquarto create project\n\nSelect “website” as the project type and provide a directory name for your project.\n\nNavigate to Your Project Directory:\n\nChange into the newly created project directory.\n\ncd your_project_directory\nCustomize Your Quarto Website:\n\nOpen the _quarto.yml file in a text editor and customize the settings as needed.\n\nproject:\n  type: website\n  output-dir: docs\n\nModify the content of the index.qmd and about.qmd files to personalize your website.\n\nRender Your Quarto Website:\n\nUse the quarto render command to generate the HTML files for your website.\n\nquarto render\n\nVerify that the output is created in the docs directory.\n\nInitialize a Git Repository:\n\nIf you haven’t already, initialize a Git repository in your project directory.\n\ngit init\n\nAdd all files to the Git repository and commit them.\n\ngit add .\ngit commit -m \"Initial commit of Quarto website\"\nPush Your Project to GitHub:\n\nCreate a new repository on GitHub and follow the instructions to push your local repository to GitHub.\n\ngit remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git\ngit branch -M main\ngit push -u origin main\nEnable GitHub Pages:\n\nGo to the settings of your GitHub repository.\nUnder the “Pages” section, set the source to the docs folder on the main branch.\nSave the settings and wait for GitHub to publish your website.\n\nVerify Your Website:\n\nNavigate to https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPOSITORY_NAME to see your published Quarto website.\n\n\nQuestions:\n\nWhat command do you use to create a new Quarto website project?\nHow do you customize the settings for your Quarto website?\nWhat steps do you take to render your Quarto website and generate the HTML files?\nHow do you initialize a Git repository and push it to GitHub?\nWhat settings do you need to change in GitHub to enable GitHub Pages for your website?",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nCreating and Deploying a Quarto Website\nObjective: By completing this exercise, students will gain hands-on experience in creating a Quarto website and deploying it using GitHub Pages.\nInstructions:\n\nCreate a New Quarto Website Project:\n\nOpen your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).\nUse the quarto create project command to create a new Quarto website project.\n\nquarto create project\n\nSelect “website” as the project type and provide a directory name for your project.\n\nNavigate to Your Project Directory:\n\nChange into the newly created project directory.\n\ncd your_project_directory\nCustomize Your Quarto Website:\n\nOpen the _quarto.yml file in a text editor and customize the settings as needed.\n\nproject:\n  type: website\n  output-dir: docs\n\nModify the content of the index.qmd and about.qmd files to personalize your website.\n\nRender Your Quarto Website:\n\nUse the quarto render command to generate the HTML files for your website.\n\nquarto render\n\nVerify that the output is created in the docs directory.\n\nInitialize a Git Repository:\n\nIf you haven’t already, initialize a Git repository in your project directory.\n\ngit init\n\nAdd all files to the Git repository and commit them.\n\ngit add .\ngit commit -m \"Initial commit of Quarto website\"\nPush Your Project to GitHub:\n\nCreate a new repository on GitHub and follow the instructions to push your local repository to GitHub.\n\ngit remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git\ngit branch -M main\ngit push -u origin main\nEnable GitHub Pages:\n\nGo to the settings of your GitHub repository.\nUnder the “Pages” section, set the source to the docs folder on the main branch.\nSave the settings and wait for GitHub to publish your website.\n\nVerify Your Website:\n\nNavigate to https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPOSITORY_NAME to see your published Quarto website.\n\n\nQuestions:\n\nWhat command do you use to create a new Quarto website project?\nHow do you customize the settings for your Quarto website?\nWhat steps do you take to render your Quarto website and generate the HTML files?\nHow do you initialize a Git repository and push it to GitHub?\nWhat settings do you need to change in GitHub to enable GitHub Pages for your website?",
     "crumbs": [
       "Home",
       "Week 2",
@@ -656,11 +656,11 @@
     ]
   },
   {
-    "objectID": "lectures/git-github-ssh-basic-workflow.html#lecture-2-exercise-1",
-    "href": "lectures/git-github-ssh-basic-workflow.html#lecture-2-exercise-1",
+    "objectID": "lectures/git-github-ssh-basic-workflow.html#exercise-1",
+    "href": "lectures/git-github-ssh-basic-workflow.html#exercise-1",
     "title": "Introduction to version control with Git and GitHub",
-    "section": "Lecture 2 Exercise 1",
-    "text": "Lecture 2 Exercise 1\nCreating a GitHub Repository\nObjective: By completing this exercise, students will learn how to create a repository on GitHub and clone it to their local computer.\nInstructions:\n\nCreate a Repository on GitHub:\n\nGo to GitHub.com.\nSign in to your account (or create one if you don’t have one).\nClick on the “New” button to create a new repository.\nProvide a name for your repository.\nOptionally, add a description.\nEnsure that “Initialize this repository with a README” is checked.\nClick on the “Create repository” button.\n\nClone the Repository to Your Local Computer:\n\nOpen your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).\nNavigate to the directory where you want to clone the repository.\n\ncd path/to/your/directory\n\nUse the git clone command followed by the URL of your newly created GitHub repository.\n\ngit clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git\nVerify the Cloning Process:\n\nChange into the newly cloned repository directory.\n\ncd YOUR_REPOSITORY_NAME\n\nList the files to ensure the README file is present.\n\nls\nCreate a .gitignore File:\n\nOpen your text editor and create a file named .gitignore in the root of your repository.\nAdd entries to ignore files and directories such as:\n\n**/.ipynb_checkpoints/\n.DS_Store\nnode_modules/\n\nSave the .gitignore file.\nStage and commit the .gitignore file.\n\ngit add .gitignore\ngit commit -m \"Add .gitignore file to ignore unnecessary files\"\nUse git add -p for Interactive Staging:\n\nMake additional changes to the README.md file or another file in the repository.\nUse the git add -p command to interactively stage changes.\n\ngit add -p\n\nReview each change and decide whether to stage it by typing y (yes), n (no), s (split the change), or q (quit).\nCommit the changes with a descriptive message.\n\ngit commit -m \"Interactively staged changes using git add -p\"\n\nQuestions:\n\nWhat are the steps to create a new repository on GitHub?\nWhat command do you use to clone a repository to your local computer?\nHow do you verify that the repository was successfully cloned?\nHow do you create and use a .gitignore file?\nWhat is the purpose of the git add -p command, and how do you use it?",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nCreating a GitHub Repository\nObjective: By completing this exercise, students will learn how to create a repository on GitHub and clone it to their local computer.\nInstructions:\n\nCreate a Repository on GitHub:\n\nGo to GitHub.com.\nSign in to your account (or create one if you don’t have one).\nClick on the “New” button to create a new repository.\nProvide a name for your repository.\nOptionally, add a description.\nEnsure that “Initialize this repository with a README” is checked.\nClick on the “Create repository” button.\n\nClone the Repository to Your Local Computer:\n\nOpen your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).\nNavigate to the directory where you want to clone the repository.\n\ncd path/to/your/directory\n\nUse the git clone command followed by the URL of your newly created GitHub repository.\n\ngit clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git\nVerify the Cloning Process:\n\nChange into the newly cloned repository directory.\n\ncd YOUR_REPOSITORY_NAME\n\nList the files to ensure the README file is present.\n\nls\nCreate a .gitignore File:\n\nOpen your text editor and create a file named .gitignore in the root of your repository.\nAdd entries to ignore files and directories such as:\n\n**/.ipynb_checkpoints/\n.DS_Store\nnode_modules/\n\nSave the .gitignore file.\nStage and commit the .gitignore file.\n\ngit add .gitignore\ngit commit -m \"Add .gitignore file to ignore unnecessary files\"\nUse git add -p for Interactive Staging:\n\nMake additional changes to the README.md file or another file in the repository.\nUse the git add -p command to interactively stage changes.\n\ngit add -p\n\nReview each change and decide whether to stage it by typing y (yes), n (no), s (split the change), or q (quit).\nCommit the changes with a descriptive message.\n\ngit commit -m \"Interactively staged changes using git add -p\"\n\nQuestions:\n\nWhat are the steps to create a new repository on GitHub?\nWhat command do you use to clone a repository to your local computer?\nHow do you verify that the repository was successfully cloned?\nHow do you create and use a .gitignore file?\nWhat is the purpose of the git add -p command, and how do you use it?",
     "crumbs": [
       "Home",
       "Week 1",
@@ -692,11 +692,11 @@
     ]
   },
   {
-    "objectID": "lectures/git-github-ssh-basic-workflow.html#lecture-2-activity-1",
-    "href": "lectures/git-github-ssh-basic-workflow.html#lecture-2-activity-1",
+    "objectID": "lectures/git-github-ssh-basic-workflow.html#activity-1",
+    "href": "lectures/git-github-ssh-basic-workflow.html#activity-1",
     "title": "Introduction to version control with Git and GitHub",
-    "section": "Lecture 2 Activity 1",
-    "text": "Lecture 2 Activity 1\nHow can you check that you are working on a Git repository?\nA. By checking if the repository contains a .git directory.\nB. By verifying if the current directory has a .repo file.\nC. By using the command git status and checking for an error message.\nD. By ensuring that the current directory name ends with “.git”.",
+    "section": "Activity 1",
+    "text": "Activity 1\nHow can you check that you are working on a Git repository?\nA. By checking if the repository contains a .git directory.\nB. By verifying if the current directory has a .repo file.\nC. By using the command git status and checking for an error message.\nD. By ensuring that the current directory name ends with “.git”.",
     "crumbs": [
       "Home",
       "Week 1",
@@ -716,11 +716,11 @@
     ]
   },
   {
-    "objectID": "lectures/git-github-ssh-basic-workflow.html#lecture-2-activity-2",
-    "href": "lectures/git-github-ssh-basic-workflow.html#lecture-2-activity-2",
+    "objectID": "lectures/git-github-ssh-basic-workflow.html#activity-2",
+    "href": "lectures/git-github-ssh-basic-workflow.html#activity-2",
     "title": "Introduction to version control with Git and GitHub",
-    "section": "Lecture 2 Activity 2",
-    "text": "Lecture 2 Activity 2\nIs a repository the same as a directory? Can a Git repository be your current working directory?\nA. Yes, a repository is the same as a directory, and it can be your current working directory.\nB. No, a repository is not the same as a directory, and it cannot be your current working directory.\nC. A repository can be your current working directory, but it is not necessarily the same as a directory.\nD. A directory is always a repository, but a repository cannot be your current working directory.",
+    "section": "Activity 2",
+    "text": "Activity 2\nIs a repository the same as a directory? Can a Git repository be your current working directory?\nA. Yes, a repository is the same as a directory, and it can be your current working directory.\nB. No, a repository is not the same as a directory, and it cannot be your current working directory.\nC. A repository can be your current working directory, but it is not necessarily the same as a directory.\nD. A directory is always a repository, but a repository cannot be your current working directory.",
     "crumbs": [
       "Home",
       "Week 1",
@@ -740,11 +740,11 @@
     ]
   },
   {
-    "objectID": "lectures/git-github-ssh-basic-workflow.html#lecture-2-activity-3",
-    "href": "lectures/git-github-ssh-basic-workflow.html#lecture-2-activity-3",
+    "objectID": "lectures/git-github-ssh-basic-workflow.html#activity-3",
+    "href": "lectures/git-github-ssh-basic-workflow.html#activity-3",
     "title": "Introduction to version control with Git and GitHub",
-    "section": "Lecture 2 Activity 3",
-    "text": "Lecture 2 Activity 3\nWhat is the purpose of the staging area in Git?\nA. It allows you to preview and control which changes you want to commit.\nB. It automatically commits all changes in the repository.\nC. It creates a backup of your files before committing.\nD. It permanently deletes files that are not staged.",
+    "section": "Activity 3",
+    "text": "Activity 3\nWhat is the purpose of the staging area in Git?\nA. It allows you to preview and control which changes you want to commit.\nB. It automatically commits all changes in the repository.\nC. It creates a backup of your files before committing.\nD. It permanently deletes files that are not staged.",
     "crumbs": [
       "Home",
       "Week 1",
@@ -788,11 +788,11 @@
     ]
   },
   {
-    "objectID": "lectures/git-github-ssh-basic-workflow.html#lecture-2-activity-4",
-    "href": "lectures/git-github-ssh-basic-workflow.html#lecture-2-activity-4",
+    "objectID": "lectures/git-github-ssh-basic-workflow.html#activity-4",
+    "href": "lectures/git-github-ssh-basic-workflow.html#activity-4",
     "title": "Introduction to version control with Git and GitHub",
-    "section": "Lecture 2 Activity 4",
-    "text": "Lecture 2 Activity 4\nWhich command would you use to commit all changes with a message?\nA. git add -p\nB. git commit -m “Your message here”\nC. git push\nD. git status",
+    "section": "Activity 4",
+    "text": "Activity 4\nWhich command would you use to commit all changes with a message?\nA. git add -p\nB. git commit -m “Your message here”\nC. git push\nD. git status",
     "crumbs": [
       "Home",
       "Week 1",
@@ -1217,11 +1217,11 @@
     ]
   },
   {
-    "objectID": "lectures/jupyterlab-orientation-intro.html#lecture-0-exercise-1-creating-and-positioning-a-heading-in-jupyterlab",
-    "href": "lectures/jupyterlab-orientation-intro.html#lecture-0-exercise-1-creating-and-positioning-a-heading-in-jupyterlab",
+    "objectID": "lectures/jupyterlab-orientation-intro.html#exercise-1-creating-and-positioning-a-heading-in-jupyterlab",
+    "href": "lectures/jupyterlab-orientation-intro.html#exercise-1-creating-and-positioning-a-heading-in-jupyterlab",
     "title": "JupyterLab Orientation",
-    "section": "Lecture 0 Exercise 1 : Creating and Positioning a Heading in JupyterLab",
-    "text": "Lecture 0 Exercise 1 : Creating and Positioning a Heading in JupyterLab",
+    "section": "Exercise 1 : Creating and Positioning a Heading in JupyterLab",
+    "text": "Exercise 1 : Creating and Positioning a Heading in JupyterLab",
     "crumbs": [
       "Home",
       "Orientation",
@@ -1301,11 +1301,11 @@
     ]
   },
   {
-    "objectID": "lectures/mdstools-bash-filesystem.html#lecture-1-activity-1",
-    "href": "lectures/mdstools-bash-filesystem.html#lecture-1-activity-1",
+    "objectID": "lectures/mdstools-bash-filesystem.html#activity-1",
+    "href": "lectures/mdstools-bash-filesystem.html#activity-1",
     "title": "Introduction to MDS software and Bash",
-    "section": "Lecture 1 Activity 1",
-    "text": "Lecture 1 Activity 1\nWhat is a Data Scientist?\nA. Someone whose job is to extract value from data through reproducible and auditable processes.\nB. Someone whose job is to apply machine learning algorithms.\nC. Someone whose job is to analyze large volumes of often unstructured data to produce meaningful insights. https://www.springboard.com/blog/data-science/data-science-definition/\nD. All of the above.\nE. Someone whose job is to get well paid.",
+    "section": "Activity 1",
+    "text": "Activity 1\nWhat is a Data Scientist?\nA. Someone whose job is to extract value from data through reproducible and auditable processes.\nB. Someone whose job is to apply machine learning algorithms.\nC. Someone whose job is to analyze large volumes of often unstructured data to produce meaningful insights. https://www.springboard.com/blog/data-science/data-science-definition/\nD. All of the above.\nE. Someone whose job is to get well paid.",
     "crumbs": [
       "Home",
       "Week 1",
@@ -1325,11 +1325,11 @@
     ]
   },
   {
-    "objectID": "lectures/mdstools-bash-filesystem.html#lecture-1-activity-2",
-    "href": "lectures/mdstools-bash-filesystem.html#lecture-1-activity-2",
+    "objectID": "lectures/mdstools-bash-filesystem.html#activity-2",
+    "href": "lectures/mdstools-bash-filesystem.html#activity-2",
     "title": "Introduction to MDS software and Bash",
-    "section": "Lecture 1 Activity 2",
-    "text": "Lecture 1 Activity 2\nIn what scenario is the command line preferable over JupyterLab?\nA. When scripting and automating tasks due to its quick execution of commands and ease of integration into workflows.\nB. For interactive data exploration due to its rich user interface.\nC. For beginners because of its simpler interface.\nD. For large-scale data processing due to its efficiency in handling data.\nE. Both are equally effective.",
+    "section": "Activity 2",
+    "text": "Activity 2\nIn what scenario is the command line preferable over JupyterLab?\nA. When scripting and automating tasks due to its quick execution of commands and ease of integration into workflows.\nB. For interactive data exploration due to its rich user interface.\nC. For beginners because of its simpler interface.\nD. For large-scale data processing due to its efficiency in handling data.\nE. Both are equally effective.",
     "crumbs": [
       "Home",
       "Week 1",
@@ -1385,11 +1385,11 @@
     ]
   },
   {
-    "objectID": "lectures/mdstools-bash-filesystem.html#lecture-1-activity-3",
-    "href": "lectures/mdstools-bash-filesystem.html#lecture-1-activity-3",
+    "objectID": "lectures/mdstools-bash-filesystem.html#activity-3",
+    "href": "lectures/mdstools-bash-filesystem.html#activity-3",
     "title": "Introduction to MDS software and Bash",
-    "section": "Lecture 1 Activity 3",
-    "text": "Lecture 1 Activity 3\nCan you recognize the following folders in the picture?\n\nHome directory\nParent directory\nWorking directory\nRoot directory",
+    "section": "Activity 3",
+    "text": "Activity 3\nCan you recognize the following folders in the picture?\n\nHome directory\nParent directory\nWorking directory\nRoot directory",
     "crumbs": [
       "Home",
       "Week 1",
@@ -1409,11 +1409,11 @@
     ]
   },
   {
-    "objectID": "lectures/mdstools-bash-filesystem.html#lecture-1-activity-4",
-    "href": "lectures/mdstools-bash-filesystem.html#lecture-1-activity-4",
+    "objectID": "lectures/mdstools-bash-filesystem.html#activity-4",
+    "href": "lectures/mdstools-bash-filesystem.html#activity-4",
     "title": "Introduction to MDS software and Bash",
-    "section": "Lecture 1 Activity 4",
-    "text": "Lecture 1 Activity 4\nWhich command would move you to the parent directory?\nA. cd .\nB. cd ..\nC. cd ~\nD. cd",
+    "section": "Activity 4",
+    "text": "Activity 4\nWhich command would move you to the parent directory?\nA. cd .\nB. cd ..\nC. cd ~\nD. cd",
     "crumbs": [
       "Home",
       "Week 1",
@@ -1493,11 +1493,11 @@
     ]
   },
   {
-    "objectID": "lectures/git-history-merge-conflicts-stash.html#lecture-3-activity-1",
-    "href": "lectures/git-history-merge-conflicts-stash.html#lecture-3-activity-1",
+    "objectID": "lectures/git-history-merge-conflicts-stash.html#activity-1",
+    "href": "lectures/git-history-merge-conflicts-stash.html#activity-1",
     "title": "Git: History, Conflicts, and Ignores",
-    "section": "Lecture 3 Activity 1",
-    "text": "Lecture 3 Activity 1",
+    "section": "Activity 1",
+    "text": "Activity 1",
     "crumbs": [
       "Home",
       "Week 3",
@@ -1529,11 +1529,11 @@
     ]
   },
   {
-    "objectID": "lectures/git-history-merge-conflicts-stash.html#lecture-3-activity-2",
-    "href": "lectures/git-history-merge-conflicts-stash.html#lecture-3-activity-2",
+    "objectID": "lectures/git-history-merge-conflicts-stash.html#activity-2",
+    "href": "lectures/git-history-merge-conflicts-stash.html#activity-2",
     "title": "Git: History, Conflicts, and Ignores",
-    "section": "Lecture 3 Activity 2",
-    "text": "Lecture 3 Activity 2",
+    "section": "Activity 2",
+    "text": "Activity 2",
     "crumbs": [
       "Home",
       "Week 3",
@@ -1553,11 +1553,11 @@
     ]
   },
   {
-    "objectID": "lectures/git-history-merge-conflicts-stash.html#lecture-3-activity-3",
-    "href": "lectures/git-history-merge-conflicts-stash.html#lecture-3-activity-3",
+    "objectID": "lectures/git-history-merge-conflicts-stash.html#activity-3",
+    "href": "lectures/git-history-merge-conflicts-stash.html#activity-3",
     "title": "Git: History, Conflicts, and Ignores",
-    "section": "Lecture 3 Activity 3",
-    "text": "Lecture 3 Activity 3",
+    "section": "Activity 3",
+    "text": "Activity 3",
     "crumbs": [
       "Home",
       "Week 3",
@@ -1613,11 +1613,11 @@
     ]
   },
   {
-    "objectID": "lectures/git-history-merge-conflicts-stash.html#lecture-3-activity-4",
-    "href": "lectures/git-history-merge-conflicts-stash.html#lecture-3-activity-4",
+    "objectID": "lectures/git-history-merge-conflicts-stash.html#activity-4",
+    "href": "lectures/git-history-merge-conflicts-stash.html#activity-4",
     "title": "Git: History, Conflicts, and Ignores",
-    "section": "Lecture 3 Activity 4",
-    "text": "Lecture 3 Activity 4",
+    "section": "Activity 4",
+    "text": "Activity 4",
     "crumbs": [
       "Home",
       "Week 3",
@@ -1629,7 +1629,7 @@
     "href": "lectures/git-history-merge-conflicts-stash.html#syncing-with-a-remote-after-resetting",
     "title": "Git: History, Conflicts, and Ignores",
     "section": "Syncing with a remote after resetting",
-    "text": "Syncing with a remote after resetting\nThis is a dangerous operation that can delete all your work. If we want to get rid of a commit on a remote, we will need to push our changes. But as we have seen before, git will refuse to push changes when the remote is ahead of the local branch. To override this warning and force git to push to the remote we can use the -f/--force flag.\nForce pushing is dangerous, and you should never do this on the master branch of a repository that you share with collaborators unless you have all discussed this and they are aware of what you are doing. The reason is that by force pushing, you will make it so that everyone else who is using this repository are now out of sync with the master branch, since you have reset master to a previous state. Be careful, better safe than sorry\nTimes when a force push is legitimate includes when you have have rebased a feature branch to syn it with master or if you are working alone and you are 100% sure that you want to remove a commit from GitHub. A safer way to undo a change in a commit, is to make a new commit that removes the content of the old one. You can do this manually, or use git revert &lt;sha&gt; to automatically create a new commit that undoes an old one.\n\nExercise: Accessing and Working with GitHub\n\n\n\nLecture 3 Exercise 1\n\n\nAccessing and Working with GitHub\nObjective: By completing this exercise, students will gain hands-on experience in accessing their GitHub home for MDS, creating, cloning, modifying, and pushing changes to a GitHub repository.\nInstructions:\n\nAccess Your GitHub Home for MDS:\n\nOpen your web browser and navigate to:\n\nhttps://github.ubc.ca/MDS-2021-22/yourCWL_home\n\nReplace yourCWL with your actual CWL.\nHere you will find links to all the courses’ repositories and labs’ repositories.\nHint: Bookmark this page for easy access to all relevant courses’ repositories.\n\nCreate a New Repository on GitHub:\n\nVisit GitHub.com.\nCreate a new repository and ensure you add a README file during the setup process.\n\nClone the Repository:\n\nClone the newly created repository to your local machine.\nNote: If your GitHub username is different from the username on your computer, you will need to configure your Git settings accordingly.\n\ngit clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git\nMake Changes to the README File:\n\nOpen the README file in a text editor.\nAdd some content or modify the existing content.\nSave your changes.\n\nAdd and Commit Your Changes:\n\nStage the changes you made to the README file.\n\ngit add README.md\n\nCommit the changes with a descriptive message.\n\ngit commit -m \"Updated README with new content\"\nCreate a New File, Add, and Commit It:\n\nCreate a new file in the repository (e.g., newfile.txt).\nAdd some content to the new file and save it.\nStage the new file.\n\ngit add newfile.txt\n\nCommit the new file with a descriptive message.\n\ngit commit -m \"Added newfile.txt with initial content\"\nPush Your Changes to GitHub:\n\nPush the changes from your local repository to the remote repository on GitHub.\n\ngit push origin main\nConfirm Your Changes on GitHub:\n\nGo to your GitHub repository page.\nConfirm that the changes to the README file and the new file (newfile.txt) are reflected in the repository.\n\nView Your Git History:\n\nOn GitHub, click on the “Commits” link on the repository’s landing page.\nOn your local machine, use the git log command to view the commit history.\n\ngit log\n\nUse the git log --oneline command for a more concise view.\n\ngit log --oneline\nRestore an Older Version of a File:\n\nIdentify the commit hash for the version you want to restore.\nUse the git restore command to revert to that version.\n\ngit restore --source SHORT_SHA-1 FILENAME\n\nStage and commit the restored file.\n\ngit add FILENAME\ngit commit -m \"Restored FILENAME to previous version\"\n\nPush the changes to GitHub.\n\ngit push origin main\n\nQuestions:\n\nWhat are the steps to access your GitHub home for MDS?\nWhat are the steps to create a new repository on GitHub?\nWhat command do you use to clone a repository to your local computer?\nHow do you add and commit changes to a file in a Git repository?\nWhat command do you use to push changes to GitHub?\nHow do you view your Git history?\nHow do you restore an older version of a file in a Git repository?",
+    "text": "Syncing with a remote after resetting\nThis is a dangerous operation that can delete all your work. If we want to get rid of a commit on a remote, we will need to push our changes. But as we have seen before, git will refuse to push changes when the remote is ahead of the local branch. To override this warning and force git to push to the remote we can use the -f/--force flag.\nForce pushing is dangerous, and you should never do this on the master branch of a repository that you share with collaborators unless you have all discussed this and they are aware of what you are doing. The reason is that by force pushing, you will make it so that everyone else who is using this repository are now out of sync with the master branch, since you have reset master to a previous state. Be careful, better safe than sorry\nTimes when a force push is legitimate includes when you have have rebased a feature branch to syn it with master or if you are working alone and you are 100% sure that you want to remove a commit from GitHub. A safer way to undo a change in a commit, is to make a new commit that removes the content of the old one. You can do this manually, or use git revert &lt;sha&gt; to automatically create a new commit that undoes an old one.\n\nExercise: Accessing and Working with GitHub\n\n\n\nExercise 1\n\n\nAccessing and Working with GitHub\nObjective: By completing this exercise, students will gain hands-on experience in accessing their GitHub home for MDS, creating, cloning, modifying, and pushing changes to a GitHub repository.\nInstructions:\n\nAccess Your GitHub Home for MDS:\n\nOpen your web browser and navigate to:\n\nhttps://github.ubc.ca/MDS-2021-22/yourCWL_home\n\nReplace yourCWL with your actual CWL.\nHere you will find links to all the courses’ repositories and labs’ repositories.\nHint: Bookmark this page for easy access to all relevant courses’ repositories.\n\nCreate a New Repository on GitHub:\n\nVisit GitHub.com.\nCreate a new repository and ensure you add a README file during the setup process.\n\nClone the Repository:\n\nClone the newly created repository to your local machine.\nNote: If your GitHub username is different from the username on your computer, you will need to configure your Git settings accordingly.\n\ngit clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git\nMake Changes to the README File:\n\nOpen the README file in a text editor.\nAdd some content or modify the existing content.\nSave your changes.\n\nAdd and Commit Your Changes:\n\nStage the changes you made to the README file.\n\ngit add README.md\n\nCommit the changes with a descriptive message.\n\ngit commit -m \"Updated README with new content\"\nCreate a New File, Add, and Commit It:\n\nCreate a new file in the repository (e.g., newfile.txt).\nAdd some content to the new file and save it.\nStage the new file.\n\ngit add newfile.txt\n\nCommit the new file with a descriptive message.\n\ngit commit -m \"Added newfile.txt with initial content\"\nPush Your Changes to GitHub:\n\nPush the changes from your local repository to the remote repository on GitHub.\n\ngit push origin main\nConfirm Your Changes on GitHub:\n\nGo to your GitHub repository page.\nConfirm that the changes to the README file and the new file (newfile.txt) are reflected in the repository.\n\nView Your Git History:\n\nOn GitHub, click on the “Commits” link on the repository’s landing page.\nOn your local machine, use the git log command to view the commit history.\n\ngit log\n\nUse the git log --oneline command for a more concise view.\n\ngit log --oneline\nRestore an Older Version of a File:\n\nIdentify the commit hash for the version you want to restore.\nUse the git restore command to revert to that version.\n\ngit restore --source SHORT_SHA-1 FILENAME\n\nStage and commit the restored file.\n\ngit add FILENAME\ngit commit -m \"Restored FILENAME to previous version\"\n\nPush the changes to GitHub.\n\ngit push origin main\n\nQuestions:\n\nWhat are the steps to access your GitHub home for MDS?\nWhat are the steps to create a new repository on GitHub?\nWhat command do you use to clone a repository to your local computer?\nHow do you add and commit changes to a file in a Git repository?\nWhat command do you use to push changes to GitHub?\nHow do you view your Git history?\nHow do you restore an older version of a file in a Git repository?",
     "crumbs": [
       "Home",
       "Week 3",
