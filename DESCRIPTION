@@ -1,0 +1,15 @@
+Package: DSCI521book
+Type: book
+Title: DSCI 521 Computing Platforms for Data Science
+Version: 2026.27.0
+Description: Course book for DSCI 521. This file records the R packages the
+    book needs in order to render. renv is configured for explicit snapshots,
+    so renv.lock is built from the Imports listed here plus their recursive
+    dependencies -- nothing is inferred by scanning the .qmd files.
+Encoding: UTF-8
+Imports:
+    here,
+    knitr,
+    renv,
+    revealjs,
+    rmarkdown
