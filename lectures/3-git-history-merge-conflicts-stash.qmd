@@ -89,7 +89,7 @@ There are two ways to view the Git history of a project: you can either use the 
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 3 Activity 1
+## Activity 1
 ::::
 ::::{.activity-container}
 
@@ -194,7 +194,7 @@ We usually want git to help us solve the conflict via merge, so a reasonable nex
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 3 Activity 2
+## Activity 2
 ::::
 ::::{.activity-container}
 
@@ -243,7 +243,7 @@ This line was added somewhere else
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 3 Activity 3
+## Activity 3
 ::::
 ::::{.activity-container}
 True or False?
@@ -519,7 +519,7 @@ your changes are gone forever.
 
 :::{.activity}
 ::::{.activity-header}
-## Lecture 3 Activity 4
+## Activity 4
 ::::
 ::::{.activity-container}
 True or false?
@@ -568,7 +568,7 @@ that undoes an old one.
 
 :::{.exercise}
 ::::{.exercise-header}
-### Lecture 3 Exercise 1
+### Exercise 1
 ::::
 ::::{.exercise-container}
 

@@ -197,7 +197,7 @@ $$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}$$
 
 :::{.exercise}
 ::::{.exercise-header}
-## Lecture 0 Exercise 1 : Creating and Positioning a Heading in JupyterLab
+## Exercise 1 : Creating and Positioning a Heading in JupyterLab
 ::::
 ::::{.exercise-container}
 # Objective

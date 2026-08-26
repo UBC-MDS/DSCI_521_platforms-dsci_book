@@ -10,7 +10,7 @@ output-file: rmarkdown-quarto-slides-ghpages.html
 **Platform in focus** Jupyter Lab, RStudio IDE, Quarto
 
 :::{.activity}
-## Lecture 6 Activity 1
+## Activity 1
 
  Check the following data science analysis.
  How are the analysis files loaded into the working directory?
@@ -77,7 +77,7 @@ output: github_document
 ```
 
 :::{.activity}
-## Lecture 6 Activity 2
+## Activity 2
 
 Why does using R Markdown and Quarto documents make your work more reproducible?
 
@@ -94,7 +94,7 @@ E. They allow running code as inline code or in code chunks.
 :::
 
 :::{.activity}
-## Lecture 6 Activity 3
+## Activity 3
 
 Now that you’ve completed your reproducible report, imagine you need to present this work to a real-world audience, such as at a conference, to your boss, or an executive group. Let's use that example above again:
 
@@ -195,7 +195,7 @@ If you want to learn more about Xaringan slides, see the
 [Xaringan Slides Chapter](../appendix/xaringan_slides.qmd)
 
 :::{.activity}
-## Lecture 6 Activity 4
+## Activity 4
 
 Which of the following is the **correct** output format for creating slides in Quarto markdown?
 
@@ -211,7 +211,7 @@ D. `ioslides_presentation`
 
 <!--
 :::{.activity}
-## Lecture 6 Activity 5
+## Activity 5
 
 What is the primary difference between slides created with R Markdown's `revealjs` and `xaringan`?
 
