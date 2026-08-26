@@ -1,5 +1,5 @@
 [project]
-name 3 "dsci-521-platforms-dsci-book"
+name = "dsci-521-platforms-dsci-book"
 version = "2026.08.27.9000"
 requires-python = ">=3.12"
 dependencies = [
