@@ -100,7 +100,7 @@ website:
           - text: "Xaringan Slides"
             href: appendix/xaringan_slides.qmd
           - text: "Virtual Environments: conda"
-            href: lectures/7a-virtual-environments-conda.qmd
+            href: appendix/7a-virtual-environments-conda.qmd
           - text: "MDS Conda Python Environment"
             href: appendix/mds_conda_environment.qmd
 

@@ -5,7 +5,8 @@ output-file: virtual-environments-conda.html
 
 ## Learning outcomes
 
-{{< include ../learning_objectives/lo-ch-07.qmd >}}
+1. Differenciate Python, Anaconda, MiniConda, Conda and `pip`
+2. Manage packages and environments in Python using Conda
 
 **Platform in focus** Conda
 
