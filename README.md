@@ -63,3 +63,115 @@ TODO:
 - [ ] Auto build the book using github actions
 - [ ] provide dockerfile for course packages and execution environment
 - [ ] create slide content inline with the textbook lectures
+
+
+## For students
+
+How this book was made.
+Every command below was actually run in this repository,
+so you can line up what you do in class
+with what the textbook does for itself.
+
+### Python environment: uv
+
+Create the project metadata without a package layout.
+This writes `pyproject.toml`:
+
+```bash
+uv init --bare
+```
+
+Pin the Python version the book is built with.
+This writes `.python-version`:
+
+```bash
+uv python pin 3.14
+```
+
+Add the packages needed to render the book.
+These land under `dependencies` in `pyproject.toml`,
+and the exact resolved versions are recorded in `uv.lock`:
+
+```bash
+uv add ipykernel jupyter numpy matplotlib
+```
+
+Add packages that are useful during the course
+but are not needed to build the book.
+`--group` keeps them out of the default install:
+
+```bash
+uv add --group course jupyterlab jupyterlab-rise
+```
+
+Add the instructor-only grading tools to their own group,
+so a normal build never has to install them:
+
+```bash
+uv add --group grading otter-grader==6.1.4 rpy2
+```
+
+To recreate the environment on another machine,
+which is the command you will use most:
+
+```bash
+uv sync
+```
+
+`uv sync` installs the default dependencies only.
+Ask for a group by name if you want it:
+
+```bash
+uv sync --group course
+```
+
+Run a command inside the environment
+without activating it by hand:
+
+```bash
+uv run quarto render
+```
+
+### R environment: renv
+
+Install the R version the book is built with (4.6.1):
+
+The R packages the book needs are listed in `DESCRIPTION`, under `Imports`.
+`renv/settings.json` sets `"snapshot.type": "explicit"`,
+which means `renv.lock` is built from that list
+rather than from scanning the `.qmd` files for `library()` calls.
+
+Install those packages and record them in `renv.lock`:
+
+```r
+renv::install()
+renv::snapshot()
+```
+
+To recreate the R library on another machine:
+
+```r
+renv::restore()
+```
+
+### The two lockfiles
+
+`uv.lock` and `renv.lock` do the same job for the two languages.
+`pyproject.toml` and `DESCRIPTION` record what the book *asks for*.
+The lockfiles record what it actually *got*:
+every package that was installed, at an exact version,
+including the dependencies you never asked for by name.
+
+That distinction is the whole point of a lockfile.
+This repository is a live example of what goes wrong without one:
+`renv.lock` pinned `base64enc` 0.1-3, which was fine for years,
+until R 4.6 removed a C function that version relied on
+and every build of the book broke at once.
+
+### Building the book
+
+```bash
+make setup_python_env   # uv sync
+make setup_r_env        # renv::restore()
+make render             # uv run quarto render
+```

@@ -1,0 +1,20 @@
+[project]
+name = "dsci-521-platforms-dsci-book"
+version = "2026.27.0"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=7.3.0",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.11.1",
+    "numpy>=2.5.2",
+]
+
+[dependency-groups]
+course = [
+    "jupyterlab>=4.6.3",
+    "jupyterlab-rise>=0.43.1",
+]
+grading = [
+    "otter-grader==6.1.4",
+    "rpy2>=3.6.7",
+]

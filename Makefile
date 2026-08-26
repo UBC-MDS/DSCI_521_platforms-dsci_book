@@ -1,22 +1,29 @@
-@PHONY: preview render setup_python_venv publish_manual clean
+.PHONY: preview render setup_python_env setup_r_env publish_manual clean
+
+# Quarto ships its own pandoc, but the nested rmarkdown::render() call in
+# lecture 6 looks for pandoc the way RStudio does and misses it.
+# Point rmarkdown at the copy Quarto already has.
+export RSTUDIO_PANDOC := $(shell find "$$(quarto --paths | head -1)/tools" -name pandoc -type f 2>/dev/null | head -1 | xargs dirname)
 
 preview:
-	quarto preview . --no-browser --port 54321
+	uv run quarto preview . --no-browser --port 54321
 
 render:
-	quarto render
+	uv run quarto render
 
-setup_python_venv:
-	pip freeze | xargs pip uninstall -y
-	pip install --upgrade pip
-	pip install -r requirements.txt
-	pip freeze > requirements_snapshot.txt
+setup_python_env:
+	# build .venv from pyproject.toml + uv.lock
+	uv sync
+
+setup_r_env:
+	# build renv/library from renv.lock
+	Rscript -e 'renv::restore()'
 
 publish_manual:
 	# use this to manually update gh-pages
-	quarto publish gh-pages
+	uv run quarto publish gh-pages
 
 clean:
 	# you can pass a --dry-run flag to do it as a dry run
 	# delete files in the ignore file
-	git clean -dfx --exclude "venv/" --exclude ".conda/"
+	git clean -dfx --exclude "venv/" --exclude ".venv/" --exclude ".conda/"
