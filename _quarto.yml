@@ -72,8 +72,8 @@ website:
 
       - section: "Week 4"
         contents:
-          - text: "Virtual Environments: conda"
-            href: lectures/7a-virtual-environments-conda.qmd
+          - text: "Virtual Environments: uv" # TODO: write this chapter
+
           - text: "Virtual Environments: renv"
             href: lectures/7b-virtual-environments-renv.qmd
 
@@ -94,13 +94,15 @@ website:
             href: appendix/semantic_line_breaks.qmd
           - text: "R Markdown tips"
             href: appendix/rmarkdown_tips.qmd
-          - text: "MDS Conda Python Environment"
-            href: appendix/mds_conda_environment.qmd
 
       - section: "Older Materials"
         contents:
           - text: "Xaringan Slides"
             href: appendix/xaringan_slides.qmd
+          - text: "Virtual Environments: conda"
+            href: lectures/7a-virtual-environments-conda.qmd
+          - text: "MDS Conda Python Environment"
+            href: appendix/mds_conda_environment.qmd
 
 format:
   html:
