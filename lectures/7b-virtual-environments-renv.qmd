@@ -1,5 +1,6 @@
 ---
 title: "Virtual Environments: R"
+output-file: virtual-environments-renv.html
 ---
 
 ## Learning outcomes

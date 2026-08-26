@@ -1,5 +1,6 @@
 ---
 title: 'RStudio Projects and Literate Programming Documents'
+output-file: rstudio-projects-notebooks.html
 ---
 
 ## Learning outcomes
@@ -21,7 +22,7 @@ Given this situation, how would you approach correcting the report efficiently? 
 
 ## RStudio
 
-We have already seen RStudio in [Lecture 0b](0-rstudio-orientation-intro.html).
+We have already seen RStudio in [Lecture 0b](0-rstudio-orientation-intro.qmd).
 RStudio is an Interactive Development Environment (IDE),
 just like JupyterLab.
 This means it comes with some conveniences,
@@ -41,7 +42,7 @@ While you can write both R and Python code in RStudio,
 we'll use it mostly for R in MDS.
 
 Please see the
-[Lecture 0b: Recommended RStudio Setup](0-rstudio-orientation-intro.html#recommended-rstudio-setup)
+[Lecture 0b: Recommended RStudio Setup](0-rstudio-orientation-intro.qmd#recommended-rstudio-setup)
 to configure the IDE with safe defaults on launch.
 
 ![](img/rstudio-global_options-general.png)
@@ -234,7 +235,7 @@ In the **literate programming** paradigm, an author has two (equally important) 
 1. Write program code to do computing
 2. Write narratives to explain what is being done by the program code
 
-Going back to [first exercise of this lesson](5-rstudio-projects-notebooks.html#activity-1),
+Going back to [first exercise of this lesson](#activity-1),
 the best way would be to make sure all the plots and results can be replicated by the code
 and we can reference the generated artifacts in the report.
 
@@ -319,7 +320,7 @@ If your goal is to render the final `.html` document,
 keep in mind that you will need an extra step to view the file in a web browser.
 Also, `.html` documents can not only be render as web pages,
 you can create with them blogs, books, articles.
-We saw this in the [Quarto and Git Hub Pages Lesson](4-quarto_github_pages.html).
+We saw this in the [Quarto and Git Hub Pages Lesson](4-quarto_github_pages.qmd).
 
 GitHub does will also render the `README.md` file of **every** directory in a repository.
 

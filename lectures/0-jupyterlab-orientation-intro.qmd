@@ -1,5 +1,6 @@
 ---
 title: "JupyterLab Orientation"
+output-file: jupyterlab-orientation-intro.html
 jupyter: python3
 ---
 

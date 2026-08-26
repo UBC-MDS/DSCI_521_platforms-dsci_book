@@ -1,5 +1,6 @@
 ---
 title: Introduction to Regular Expressions (RegEx)
+output-file: regex.html
 ---
 
 ## Learning outcomes

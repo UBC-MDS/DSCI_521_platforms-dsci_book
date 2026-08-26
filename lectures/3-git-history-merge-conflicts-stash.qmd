@@ -1,5 +1,6 @@
 ---
 title: "Git: History, Conflicts, and Ignores"
+output-file: git-history-merge-conflicts-stash.html
 ---
 
 ## Learning outcomes

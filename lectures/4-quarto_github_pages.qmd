@@ -1,5 +1,6 @@
 ---
 title: Introduction to Quarto and Github Pages
+output-file: quarto-github-pages.html
 ---
 
 ## Learning outcomes

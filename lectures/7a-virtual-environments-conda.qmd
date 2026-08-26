@@ -1,5 +1,6 @@
 ---
 title: "Virtual Environments: Python + Conda"
+output-file: virtual-environments-conda.html
 ---
 
 ## Learning outcomes

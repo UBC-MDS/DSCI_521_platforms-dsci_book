@@ -1,5 +1,6 @@
 ---
 title: Introduction to version control with Git and GitHub
+output-file: git-github-ssh-basic-workflow.html
 ---
 
 ## Learning outcomes

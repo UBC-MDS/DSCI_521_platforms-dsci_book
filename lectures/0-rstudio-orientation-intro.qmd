@@ -1,5 +1,6 @@
 ---
 title: "RStudio Orientation"
+output-file: rstudio-orientation-intro.html
 ---
 
 ## Learning Objectives
@@ -18,7 +19,7 @@ It has all the same features of JupyterLab, but follows a
 ![](img/rstudio_ide.png)
 
 Many concepts in working with RStudio are similar to those in
-working in [Jupyter Lab](0-jupyterlab-orientation-intro.html)
+working in [Jupyter Lab](0-jupyterlab-orientation-intro.qmd)
 
 ## How to Access RStudio
 

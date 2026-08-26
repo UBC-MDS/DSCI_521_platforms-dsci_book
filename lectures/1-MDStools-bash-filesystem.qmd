@@ -1,5 +1,6 @@
 ---
 title: Introduction to MDS software and Bash
+output-file: mdstools-bash-filesystem.html
 ---
 
 ## Learning outcomes

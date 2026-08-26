@@ -1,5 +1,6 @@
 ---
 title: 'Quarto, RMarkdown, and Jupyter Slides'
+output-file: rmarkdown-quarto-slides-ghpages.html
 ---
 
 ## Learning outcomes
