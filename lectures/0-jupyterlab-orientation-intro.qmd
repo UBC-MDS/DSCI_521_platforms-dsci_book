@@ -59,24 +59,179 @@ Posit Cloud (<https://posit.cloud/>).
 
 If you have already completed the
 [installation instructions](https://ubc-mds.github.io/resources_pages/installation_instructions/),
-you can open the terminal and run:
+you have a program called `uv` on your machine.
+
+What you do *not* have is a JupyterLab you can start from anywhere,
+and that is on purpose.
+Every assignment carries its own copy of JupyterLab,
+along with the exact versions of every other package that assignment needs,
+so that it works the same way on your laptop as it does on ours.
+
+Every assignment you get in this program arrives with two extra files in it,
+`pyproject.toml` and `uv.lock`,
+which between them list those packages.
+Starting JupyterLab is three commands,
+and they are the same three commands every single time:
 
 ```bash
-jupyter lab
+cd path/to/your/assignment
+uv sync
+uv run jupyter lab
 ```
+
+- `cd` moves you into the assignment folder.
+  Everything after this depends on being in the right place.
+- `uv sync` reads `pyproject.toml` and `uv.lock`
+  and installs the packages they list into that folder.
+- `uv run` runs a command using the packages `uv sync` just installed.
+
+The first `uv sync` in a new assignment takes a minute or so.
+Every one after that is close to instant,
+and it is always safe to run again.
+
+:::{.callout-tip}
+Typing out a path is fiddly before you have met the filesystem properly.
+In most terminals you can type `cd ` (with a space after it)
+and then drag the assignment folder onto the terminal window,
+which fills in the path for you.
+Moving around the filesystem is covered in
+[MDS Software and Bash](1-MDStools-bash-filesystem.qmd).
+:::
+
+:::{.callout-important}
+There is no step where you "activate" anything.
+If a command in this course starts with
+`jupyter`, `python`, or `quarto`,
+put `uv run` in front of it
+and run it from inside the assignment folder.
+:::
+
+We come back to what `uv` is actually doing in
+[Virtual Environments: uv](7a-virtual-environments-uv.qmd).
+For now, those three lines are all you need.
 
 JupyterLab will open in a browser whether you run it locally or you are using it through UBC server.
 Note that if you are running JupyterLab in your machine,
-the URL could be similar to `https://localhost:8888/lab`.
+the URL could be similar to `http://localhost:8888/lab`.
 In this case `localhost` is referring to your computer, not to a webpage.
+
+#### One JupyterLab per assignment
+
+The numbers after `localhost` is the port number.
+If you have multiple JupyterLab instances running,
+each of them will run on a different port.
+
+When you start a second one,
+it takes the next free port.
+The first is at `http://localhost:8888/lab`,
+the second at `http://localhost:8889/lab`,
+and so on.
+
+Do not reuse one terminal and one JupyterLab for all of your homework.
+Each assignment gets its own terminal and its own `uv run jupyter lab`.
+A JupyterLab can only see the folder it was started from,
+and it can only use the packages that folder's `uv sync` installed,
+so one JupyterLab cannot serve two assignments.
+
+:::{.callout-note}
+## This does not fill up your laptop
+
+An environment with JupyterLab in it reports as about 160 MB,
+and you are about to have one of them per assignment.
+They are not really separate copies.
+
+`uv` downloads each version of each package once
+into a single cache in your home folder.
+Every project after that gets a
+[clone or a hard link](https://docs.astral.sh/uv/reference/settings/#link-mode)
+of what is already in that cache
+instead of a fresh copy,
+so the files show up in both projects
+while sharing the same blocks on disk.
+
+Measured on a Mac while writing this:
+a second project whose packages matched an existing one
+reported as 162 MB and cost 8 MB of actual free space.
+This is also why the first `uv sync` is the slow one
+and every later one is quick,
+and why deleting a `.venv` you are finished with is safe --
+`uv sync` builds it back from the cache in seconds.
+:::
+
+Once you have two of them open,
+the browser tabs look almost identical.
+The kernel in both says **Python 3 (ipykernel)**,
+because that is what the kernel is called in every assignment --
+the name tells you the language, not which assignment you are in.
+
+The port is what tells them apart.
+It is in your browser's address bar,
+and from any assignment folder you can ask
+which folder each port is serving:
+
+```bash
+uv run jupyter server list
+```
+
+```out
+Currently running servers:
+http://localhost:8888/?token=5649c5f3e7c00620e557912559084c24 :: /Users/you/mds/lab1
+http://localhost:8889/?token=7351f3ad976f3db12618ae163b75f038 :: /Users/you/mds/lab2
+```
+
+Read that as "port 8888 is showing me `lab1`, port 8889 is showing me `lab2`".
+
+When you are finished with an assignment, shut its JupyterLab down by its port:
+
+```bash
+uv run jupyter server stop 8889
+```
+
+That is tidier than hunting for the right terminal window,
+and it frees the port up again.
+
+:::{.callout-warning}
+If you open a notebook in the *wrong* JupyterLab,
+nothing warns you.
+The notebook opens,
+the kernel says Python 3 the way it always does,
+and then some `import` fails
+for a package that the other assignment declared and this one did not.
+Check the port before you go looking for a bug in your own code.
+:::
+
+We will come back to this in lab.
+
+#### If it does not start
+
+Nearly every problem at this stage is the same problem:
+the terminal is not in the assignment folder.
+
+| What you see | What it means |
+|---|---|
+| ``error: No `pyproject.toml` found in current directory or any parent directory`` | You are not inside the assignment folder. `cd` into it and try again. |
+| ``error: Failed to spawn: `jupyter` `` | The same thing, or you have not run `uv sync` yet. |
+| `ModuleNotFoundError: No module named ...` | You left off `uv run`, or you are in the wrong folder. |
+| JupyterLab starts, but your imports fail | You launched from the wrong folder. `uv` does not always complain about this, so check the folder before you suspect anything else. |
+| Imports fail in a notebook that worked yesterday | You are in the JupyterLab you started for a *different* assignment. Check the port in the address bar. |
 
 ## Using Jupyter Notebooks
 
 ![](img/jupyterlab-start.png)
 
 We're greeted by the launcher tab
-where we see that we can start either a Notebook or Console for Python or R,
+where we see that we can start either a Notebook or a Console,
 as well as some other utility programs.
+
+:::{.callout-note}
+The screenshot above is from the UBC Jupyter server,
+which offers both Python and R.
+On your own machine you will normally see only Python 3,
+because the MDS setup does not install an R kernel for Jupyter.
+We write R in RStudio instead, which is the subject of the
+[RStudio Orientation](0-rstudio-orientation-intro.qmd).
+:::
+
 Let's start by explaining one of the most popular options, the Jupyter Notebook.
 The Notebook provides and interface where you can mix
 text, code, mathematical expressions, plot output, videos, and more, all in the same file.
@@ -287,19 +442,30 @@ The method will depend on which packages are successfully installed and working 
 #### Export with Quarto
 
 This will be our preferred way to create PDFs.
-In the terminal, go to where your notebook file is, and create a new terminal
+From inside JupyterLab, create a new terminal:
 
 ![](img/jupyterlab-create-terminal.png)
 
-In the terminal use the `quarto render` command and specify the output to `pdf`.
+That terminal opens in the folder you launched JupyterLab from,
+which is the assignment folder,
+so you are already in the right place.
+Use the `quarto render` command,
+with `uv run` in front of it as always,
+and specify the output as `pdf`:
 
 ```bash
-quarto render Untitled.ipynb --to pdf
+uv run quarto render Untitled.ipynb --to pdf
 ```
+
 :::{.callout-note}
 The commands are case-sensitive,
-make sure you are typing the file exacatly as it is named.
+make sure you are typing the file exactly as it is named.
 :::
+
+The `uv run` is what hands Quarto the Python it needs
+to run the code cells in your notebook.
+Without it, Quarto goes looking for any Python it can find on your computer,
+and finds either the wrong one or none at all.
 
 You can also change the `--to pdf` to `--to html`,
 and any interactive figures will be retained.
