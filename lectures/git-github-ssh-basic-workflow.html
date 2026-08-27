@@ -944,7 +944,7 @@ node_modules/</code></pre>
 <li><p>Step 2: Click the green “Clone or download” button, ensuring the pop-up indicates “Clone with HTTPS” (we will cover SSH authentication later).</p></li>
 <li><p>Step 3: Copy the provided URL to your clipboard.</p></li>
 <li><p>Step 4: Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command.</p></li>
-<li><p>Step 5: Type git clone followed by the URL, for example <code>git clone https://github.com/github_username/repository_name.git</code>and press enter.</p></li>
+<li><p>Step 5: Type git clone followed by the URL, for example <code>git clone https://github.com/github_username/repository_name.git</code> and press <kbd>Enter</kbd>.</p></li>
 <li><p>Step 6: After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.</p></li>
 </ul>
 <p>For more details, see Github’s docs on <a href="https://help.github.com/articles/cloning-a-repository/">cloning</a>.</p>
@@ -1038,7 +1038,7 @@ Use the command git commit -m "Clarify the README installation instructions" to 
 <p><img src="img/staging_area.png" class="img-fluid"></p>
 <p>Once you reach a point that you want Git to keep a record of the current version of your work, you need to commit (i.e., snapshot) your changes. A prerequisite to this is telling Git which files should be included in that snapshot. We call this step adding the files to the <strong>staging area</strong>.</p>
 <p>Note that the staging area is not a real physical location on your computer; it is instead a conceptual placeholder for these files until they are committed. The benefit of the Git version control system using a staging area is that you can choose to commit changes in only certain files. For example, we add only the two files that are important to the analysis project (<code>analysis.ipynb</code> and <code>README.md</code>) and not our personal scratch notes for the project (<code>notes.txt</code>).</p>
-<p>The staging area allows more control over what you are about to commit, allowing you to commit parts of a file or multiple files together with a single descriptive message. To add parts of a file instead of everything type <code>git add -p</code> and then interactively choose which parts you want by typing either <code>n</code> (no) or <code>y</code> (yes) followed by pressing enter for each chunk of code. This workflow is great for reviewing the changes as you add them to the staging area, which ensures you don’t commit anything by mistake. Note that you must omit<code>-p</code> when adding new files, so you would type <code>git add &lt;filename&gt;</code>.</p>
+<p>The staging area allows more control over what you are about to commit, allowing you to commit parts of a file or multiple files together with a single descriptive message. To add parts of a file instead of everything type <code>git add -p</code> and then interactively choose which parts you want by typing either <kbd>n</kbd> (no) or <kbd>y</kbd> (yes) followed by pressing <kbd>Enter</kbd> for each chunk of code. This workflow is great for reviewing the changes as you add them to the staging area, which ensures you don’t commit anything by mistake. Note that you must omit<code>-p</code> when adding new files, so you would type <code>git add &lt;filename&gt;</code>.</p>
 <div class="callout callout-style-default callout-activity callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1063,7 +1063,7 @@ Use the command git commit -m "Clarify the README installation instructions" to 
 </section>
 <section id="commit-your-files" class="level2">
 <h2 class="anchored" data-anchor-id="commit-your-files">Commit your files</h2>
-<p>To include a description in your commit using the terminal, you should write the command <code>git commit</code> and press ENTER. After doing that, a file called <code>COMMIT_EDITMSG</code> will open in your editor. There you can write the title and body of the commit message that you want to associate with your changes.</p>
+<p>To include a description in your commit using the terminal, you should write the command <code>git commit</code> and press <kbd>Enter</kbd>. After doing that, a file called <code>COMMIT_EDITMSG</code> will open in your editor. There you can write the title and body of the commit message that you want to associate with your changes.</p>
 </section>
 <section id="push-local-changes-to-github" class="level2">
 <h2 class="anchored" data-anchor-id="push-local-changes-to-github">Push local changes to GitHub</h2>

@@ -719,7 +719,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="using-jupyter-notebooks">Using Jupyter Notebooks</h2>
 <p><img src="img/jupyterlab-start.png" class="img-fluid"></p>
 <p>We’re greeted by the launcher tab where we see that we can start either a Notebook or Console for Python or R, as well as some other utility programs. Let’s start by explaining one of the most popular options, the Jupyter Notebook. The Notebook provides and interface where you can mix text, code, mathematical expressions, plot output, videos, and more, all in the same file. So instead of the traditional IDE experience where you would write code in a text file and then have figures pop up in a different panel, this information now all resides in the same document, which facilitates reproducibility and collaboration. The Notebooks can be exported to many formats, including PDF and HTML, which makes it easy to share your project with anyone. The cell that is encircled in blue is where we can input Python code, click here and type any mathematical expression, and then run the cell by clicking the play button in the top toolbar:</p>
-<div id="ad077038" class="cell" data-execution_count="1">
+<div id="2eafb9b2" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>7</code></pre>
@@ -727,18 +727,18 @@ window.Quarto = {
 </div>
 <p><img src="img/jupyterlab-run-cell.png" class="img-fluid"></p>
 <p>As you can see, the output is returned just under input, and a new input cell was created. We could also have clicked the plus sign to create a new cell. Here, we can do anything we can do in Python, e.g.&nbsp;variable assignment:</p>
-<div id="e9b327ed" class="cell" data-execution_count="2">
+<div id="048e76a6" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>There is no output because we just assigned a value to a variable, without asking for the value of that variable, which we can do by typing out the variable name:</p>
-<div id="dd4bd90a" class="cell" data-execution_count="3">
+<div id="b7806529" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>5</code></pre>
 </div>
 </div>
 <p>Jupyter Notebooks also supports editing code on multiple lines, so we could have done this instead:</p>
-<div id="697c6c58" class="cell" data-execution_count="4">
+<div id="288608e3" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -803,14 +803,14 @@ window.Quarto = {
 <li><strong>Create a Markdown Cell:</strong>
 <ul>
 <li><p>In your JupyterLab notebook, add a new cell by clicking the “+” button in the toolbar.</p></li>
-<li><p>Change the cell type to “Markdown” by selecting “Markdown” from the dropdown menu or using the shortcut <code>Esc + M</code>.</p></li>
+<li><p>Change the cell type to “Markdown” by selecting “Markdown” from the dropdown menu or using the shortcut <kbd>Esc</kbd> + <kbd>m</kbd>.</p></li>
 <li><p>Type the following text in the Markdown cell:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># JupyterLab Tutorial</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>This will create a first-level heading (h1) with the title “JupyterLab Tutorial.”</p></li>
 </ul></li>
 <li><strong>Run the Cell:</strong>
 <ul>
-<li>Execute the cell by pressing <code>Shift + Enter</code> or clicking the “Run” button. The text should now be formatted as a heading.</li>
+<li>Execute the cell by pressing <kbd>Shift</kbd> + <kbd>Enter</kbd> or clicking the “Run” button. The text should now be formatted as a heading.</li>
 </ul></li>
 <li><strong>Reposition the Cell:</strong>
 <ul>
@@ -838,7 +838,7 @@ window.Quarto = {
 <section id="static-figure-creation" class="level3">
 <h3 class="anchored" data-anchor-id="static-figure-creation">Static figure creation</h3>
 <p>To show an example of how plots are rendered, we will use the <code>seaborn</code> plotting package which is a high level interface to the more widely known <code>matplotlib</code> package. This is only to illustrate how plots show up in the notebook, rather than a tutorial on how to plot in Python, so I will not go into details on what these commands mean.</p>
-<div id="97e24de8" class="cell" data-execution_count="5">
+<div id="1a95775b" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You don't have to understand what is going on in this cell</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># it is only to show you how a static plot looks inside JupyterLab</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -862,7 +862,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>The above is a static figure, which means an image is created and included in the notebook. To save this image, you can either use a save command in the plotting library or you can hold shift and right click. Just right clicking is the JupyterLab menu, but holding the <code>shift</code> key brings up the browser menu, which includes the common options for images such as open in new tab and save.</p>
+<p>The above is a static figure, which means an image is created and included in the notebook. To save this image, you can either use a save command in the plotting library or you can hold <kbd>Shift</kbd> and right click. Just right clicking is the JupyterLab menu, but holding the <kbd>Shift</kbd> key brings up the browser menu, which includes the common options for images such as open in new tab and save.</p>
 <p><img src="img/jupyterlab-save_fig.png" class="img-fluid"></p>
 </section>
 <section id="exporting-notebooks" class="level3">
@@ -952,7 +952,7 @@ Note
 </ul>
 <section id="how-to-get-help-in-the-notebook" class="level3">
 <h3 class="anchored" data-anchor-id="how-to-get-help-in-the-notebook">How to get help in the notebook</h3>
-<p>One application that is especially helpful to run next to a notebook is the Contextual Help. This application displays documentation automatically as you type. When you’re using unfamiliar packages and functions, it is a good habit to leave the Contextual Help open next to the notebook. If you don’t like having a split screen, you can instead press <kbd>Shift</kbd> + <kbd>Tab</kbd> to bring up a help dialogue. JupyterLab also supports tab completion, you can start typing a name and then press tab to see suggestions to expand to. Additional help is available via the “Help” menu, which links to useful online resources (for example <code>Help --&gt; JupyterLab Reference</code>).</p>
+<p>One application that is especially helpful to run next to a notebook is the Contextual Help. This application displays documentation automatically as you type. When you’re using unfamiliar packages and functions, it is a good habit to leave the Contextual Help open next to the notebook. If you don’t like having a split screen, you can instead press <kbd>Shift</kbd> + <kbd>Tab</kbd> to bring up a help dialogue. JupyterLab also supports tab completion, you can start typing a name and then press <kbd>Tab</kbd> to see suggestions to expand to. Additional help is available via the “Help” menu, which links to useful online resources (for example <code>Help --&gt; JupyterLab Reference</code>).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
