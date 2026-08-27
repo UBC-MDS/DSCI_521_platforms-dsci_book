@@ -19,57 +19,95 @@ How to install, maintain, and use the data scientific software "stack". The Unix
 
 ## Lesson Learning Objectives and Readings
 
-Lesson 0
+Learning objectives are grouped by week.
+Some weeks split one set of objectives across several lessons,
+and some lessons carry more than one set.
+
+### Orientation
+
+**[JupyterLab Orientation](lectures/0-jupyterlab-orientation-intro.qmd)**
 
 {{< include learning_objectives/lo-ch-00.qmd >}}
 
+**[RStudio Orientation](lectures/0-rstudio-orientation-intro.qmd)**
+
 {{< include learning_objectives/lo-ch-00-rstudio.qmd >}}
 
-Lesson 1
+**[Positron Orientation](lectures/0-positron-orientation-intro.qmd)**
+
+{{< include learning_objectives/lo-ch-00-positron.qmd >}}
+
+### Week 1
+
+**[MDS Software and Bash](lectures/1-MDStools-bash-filesystem.qmd)**
 
 {{< include learning_objectives/lo-ch-01.qmd >}}
 
-{{< include readings/readings-ch-01.qmd >}}
-
-Lesson 2
+**[Git, GitHub, and SSH](lectures/2-git-github-ssh-basic-workflow.qmd)**
 
 {{< include learning_objectives/lo-ch-02.qmd >}}
 
+**Readings**
+
+{{< include readings/readings-ch-01.qmd >}}
+
 {{< include readings/readings-ch-02.qmd >}}
 
-Lesson 3
+### Week 2
 
-{{< include learning_objectives/lo-ch-03.qmd >}}
-
-{{< include readings/readings-ch-03.qmd >}}
-
-Lesson 4
+**[Quarto and GitHub Pages](lectures/4-quarto_github_pages.qmd)**
 
 {{< include learning_objectives/lo-ch-04.qmd >}}
 
-{{< include readings/readings-ch-04.qmd >}}
-
-Lesson 5
-
-{{< include learning_objectives/lo-ch-05.qmd >}}
-
-{{< include readings/readings-ch-05.qmd >}}
-
-Lesson 6
+**[Quarto, RMarkdown, and Jupyter Slides](lectures/6-rmarkdown-quarto-slides-ghpages.qmd)**
 
 {{< include learning_objectives/lo-ch-06.qmd >}}
 
+**Readings**
+
+{{< include readings/readings-ch-04.qmd >}}
+
 {{< include readings/readings-ch-06.qmd >}}
 
-Lesson 7
+### Week 3
+
+**[Git: History, Conflicts, and Ignores](lectures/3-git-history-merge-conflicts-stash.qmd)**
+
+{{< include learning_objectives/lo-ch-03.qmd >}}
+
+**[RStudio Projects and Literate Programming](lectures/5-rstudio-projects-notebooks.qmd)**
+
+{{< include learning_objectives/lo-ch-05.qmd >}}
+
+**Readings**
+
+{{< include readings/readings-ch-03.qmd >}}
+
+{{< include readings/readings-ch-05.qmd >}}
+
+### Week 4
+
+**Virtual Environments:
+[uv](lectures/7a-virtual-environments-uv.qmd) and
+[renv](lectures/7b-virtual-environments-renv.qmd)**
 
 {{< include learning_objectives/lo-ch-07.qmd >}}
 
-{{< include readings/readings-ch-07.qmd >}}
-
-Lesson 8
+**[Organization of Data Science Projects](lectures/8-regex-filenames-project-organization.qmd)**
 
 {{< include learning_objectives/lo-ch-08.qmd >}}
+
+**[Introduction to Regular Expressions (RegEx)](lectures/8b-regex.qmd)**
+
+{{< include learning_objectives/lo-ch-08b.qmd >}}
+
+**[Asking Effective Questions](lectures/8c-asking_questions.qmd)**
+
+{{< include learning_objectives/lo-ch-08c.qmd >}}
+
+**Readings**
+
+{{< include readings/readings-ch-07.qmd >}}
 
 {{< include readings/readings-ch-08.qmd >}}
 

@@ -3,6 +3,10 @@ title: Asking Effective Questions
 output-file: asking-questions.html
 ---
 
+## Learning outcomes
+
+{{< include ../learning_objectives/lo-ch-08c.qmd >}}
+
 ## Why even bother?
 
 Asking questions effectively means that the person helping you

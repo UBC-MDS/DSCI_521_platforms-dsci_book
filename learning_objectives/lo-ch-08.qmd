@@ -1,0 +1,4 @@
+1. Describe how a data analysis project is organized, and how that organization differs from a code project.
+2. Distinguish raw data from processed data, and explain why raw data files are never overwritten.
+3. Apply the three principles of a good file name: machine readable, human readable, and plays well with default ordering.
+4. Explain how informative file names and locations make a project self-documenting.

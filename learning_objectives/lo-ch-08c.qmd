@@ -1,0 +1,3 @@
+1. Explain why a well-posed question gets a faster and better answer.
+2. Construct a minimal reproducible example (MRE) for a programming problem.
+3. Describe a problem clearly, including what you have already tried and the full error message.

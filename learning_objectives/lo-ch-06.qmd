@@ -1,6 +1,5 @@
 1. Understand how Quarto extend R Markdown documents functionalities.
-2. Explore different data science products to communicate your results: slides, blogs and books.
+2. Explore different data science products to communicate your results: slides, books and websites.
 3. Create slides using Jupyter Notebook and Quarto slides with `reveal.js`
-4. Create a Jupyter Book and a Quarto books.
-5. Create a Quarto Blog.
-6. Sharing rendered HTML files publicly via GitHub Pages.
+4. Recognize Jupyter Book, bookdown, and Quarto book as long-form output formats.
+5. Sharing rendered HTML files publicly via GitHub Pages.

@@ -5,7 +5,7 @@ output-file: regex.html
 
 ## Learning outcomes
 
-{{< include ../learning_objectives/lo-ch-08.qmd >}}
+{{< include ../learning_objectives/lo-ch-08b.qmd >}}
 
 
 :::{.activity}
