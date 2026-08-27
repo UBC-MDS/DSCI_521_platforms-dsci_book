@@ -105,6 +105,21 @@ website:
           - text: "MDS Conda Python Environment"
             href: appendix/mds_conda_environment.qmd
 
+filters:
+  - custom-callout
+
+custom-callout:
+  exercise:
+    title: "Exercise"
+    icon: true
+    icon-symbol: "fa-dumbbell"
+    color: "#1c5f2e"
+  activity:
+    title: "Activity"
+    icon: true
+    icon-symbol: "fa-person-chalkboard"
+    color: "#0055b7"
+
 format:
   html:
     theme:

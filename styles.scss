@@ -20,60 +20,47 @@ $blue-dark-light: #4d97e0;
 $grey-medium: #999999;
 
 
-// Example callout (e.g., activity)
-.activity {
-  margin: 0.5em 0;
-  border: 1px solid #0055b7; // UBC blue border
-  border-radius: 5px;
-  background-color: #e3f2fd; // Light blue background
-  padding: 0 10px 10px 10px; // Add padding on left to align text with header
+// Custom callouts: `.activity` and `.exercise`, rendered by the
+// coatless-quarto/custom-callout extension (configured in `_quarto.yml`).
+//
+// The extension draws the icon as a Font Awesome glyph rather than a background
+// image, so the glyph needs its own spacing and colour, and it only emits one
+// colour per callout, so the dark-theme variants are set here.
+//
+// NOTE: keep $activity-color / $exercise-color in sync with the `color:` values
+// under `custom-callout:` in `_quarto.yml`.
+$activity-color: #0055b7;
+$exercise-color: #1c5f2e;
 
-  // Header styling
-  h2 {
-    margin: 0;
-    padding: 5px 10px;
-    color: #ffffff; // White text color for header
-    background-color: #0055b7; // Blue background
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    font-size: 1em;
-    font-weight: bold;
-  }
-
-  // Content styling with additional spacing and left padding
-  p {
-    margin-top: 15px; // Adjust spacing between the header and content
-    padding-left: 10px; // Align text with header padding
-    color: #003366; // Dark blue text color
-    font-size: 0.9em;
-  }
+div.callout-activity .callout-icon::before,
+div.callout-exercise .callout-icon::before {
+  margin-right: 0.4em;
 }
 
-// Exercise callout
-.exercise {
-  margin: 0.5em 0;
-  border: 1px solid #d4d4d4; // Light gray border
-  border-radius: 5px;
-  background-color: #f7f7f7; // Light gray background
-  padding: 0 10px 10px 10px; // Add padding on left to align text with header
+div.callout-activity .callout-icon::before {
+  color: $activity-color;
+}
 
-  // Header styling
-  h2 {
-    margin: 0;
-    padding: 5px 10px;
-    color: #ffffff; // White text color for header
-    background-color: #91c788; // Light green background
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    font-size: 1em;
-    font-weight: bold;
+div.callout-exercise .callout-icon::before {
+  color: $exercise-color;
+}
+
+// The base colours are too dark to read against the slate background,
+// so lighten the border and icon for the dark theme.
+body.quarto-dark {
+  div.callout-activity.callout {
+    border-left-color: $blue-dark-light;
   }
 
-  // Content styling with additional padding to align with the header
-  p {
-    margin-top: 15px; // Spacing between header and content
-    padding-left: 10px; // Align content with header
-    color: #1c5f2e; // Dark green text color
-    font-size: 0.9em;
+  div.callout-activity .callout-icon::before {
+    color: $blue-dark-light;
+  }
+
+  div.callout-exercise.callout {
+    border-left-color: $exercise-light-green;
+  }
+
+  div.callout-exercise .callout-icon::before {
+    color: $exercise-light-green;
   }
 }

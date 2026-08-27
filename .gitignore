@@ -11,6 +11,8 @@ learning_objectives/*.html
 lectures/*.html
 lectures/*_files
 
+.playwright-mcp
+
 # default R and python git ignores below
 
 # History files

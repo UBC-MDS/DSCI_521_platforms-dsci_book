@@ -1,4 +1,4 @@
-.PHONY: preview render setup_python_env setup_r_env publish_manual clean
+.PHONY: preview render setup_python_env setup_r_env setup_quarto publish_manual clean
 
 # Quarto ships its own pandoc, but the nested rmarkdown::render() call in
 # lecture 6 looks for pandoc the way RStudio does and misses it.
@@ -18,6 +18,11 @@ setup_python_env:
 setup_r_env:
 	# build renv/library from renv.lock
 	Rscript -e 'renv::restore()'
+
+setup_quarto:
+	# install the Quarto extensions into _extensions/
+	quarto add --no-prompt coatless-quarto/custom-callout
+	quarto add --no-prompt coatless-quarto/embedio
 
 publish_manual:
 	# use this to manually update gh-pages
