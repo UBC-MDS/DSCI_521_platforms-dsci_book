@@ -10,8 +10,6 @@ output-file: rmarkdown-quarto-slides-ghpages.html
 **Platform in focus** Jupyter Lab, RStudio IDE, Quarto
 
 :::{.activity}
-## Activity 1
-
  Check the following data science analysis.
  How are the analysis files loaded into the working directory?
  Are there differences between the R and Python code?
@@ -77,8 +75,6 @@ output: github_document
 ```
 
 :::{.activity}
-## Activity 2
-
 Why does using R Markdown and Quarto documents make your work more reproducible?
 
 A. `.Rmd` and `.qmd` are plain-text files; they can be opened and edited with almost any editor.
@@ -94,8 +90,6 @@ E. They allow running code as inline code or in code chunks.
 :::
 
 :::{.activity}
-## Activity 3
-
 Now that you’ve completed your reproducible report, imagine you need to present this work to a real-world audience, such as at a conference, to your boss, or an executive group. Let's use that example above again:
 
 - R: <https://github.com/ttimbers/breast_cancer_predictor>
@@ -195,8 +189,6 @@ If you want to learn more about Xaringan slides, see the
 [Xaringan Slides Chapter](../appendix/xaringan_slides.qmd)
 
 :::{.activity}
-## Activity 4
-
 Which of the following is the **correct** output format for creating slides in Quarto markdown?
 
 A. `revealjs::revealjs_presentation`
@@ -211,8 +203,6 @@ D. `ioslides_presentation`
 
 <!--
 :::{.activity}
-## Activity 5
-
 What is the primary difference between slides created with R Markdown's `revealjs` and `xaringan`?
 
 A. `xaringan` slides are two-dimensional, allowing horizontal and vertical navigation, while `reveal.js` slides are one-dimensional.
@@ -321,8 +311,6 @@ taught in the class so far:
 - `.gitignore` files
 
 :::{.exercise}
-## Exercise 1
-
 Take 5 minutes of the class and convert one of your `.Rmd`, `.qmd` or `.ipynb` to a set of slides.
 
 You can convert the slides manually or look into the

@@ -37,8 +37,6 @@ For MDS, this might mean you may need a separate `{renv}` file for each lab assi
 :::
 
 :::{.activity}
-## Activity 1
-
 Which of the following commands is used to initialize a new `renv` environment in an R project?
 
 ```
@@ -151,8 +149,6 @@ to be installable on any given calendar day.
 
 
 :::{.activity}
-## Activity 2
-
 What would be the main files committed to the repository by default when using `renv`?
 
 - A. All content of the `renv` folder in your project, because `renv` stores all packages there.

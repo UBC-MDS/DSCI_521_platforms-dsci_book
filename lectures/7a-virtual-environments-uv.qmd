@@ -10,8 +10,6 @@ output-file: virtual-environments-uv.html
 **Platform in focus** uv
 
 :::{.activity}
-## Activity
-
 Imagine you're working on a project with a colleague,
 and you've created a reproducible report to share your analysis.
 You want them to replicate your work on their own machine.
@@ -347,8 +345,6 @@ which you will see in the [next chapter](./7b-virtual-environments-renv.qmd).
 :::
 
 :::{.activity}
-## Activity
-
 Which of the following items is NOT a benefit of using virtual environments?
 
 ```
@@ -820,8 +816,6 @@ __pycache__/
 ```
 
 :::{.activity}
-## Activity
-
 Which files should you commit to your repository when using `uv`?
 (one or more correct answers)
 
@@ -1008,8 +1002,6 @@ The `uv pip` subcommands exist so that older tutorials and scripts keep working,
 but anything installed that way is invisible to your project files.
 
 :::{.activity}
-## Activity
-
 Your collaborator pulls your latest changes and gets an
 `ModuleNotFoundError: No module named 'matplotlib'`
 when running your script.

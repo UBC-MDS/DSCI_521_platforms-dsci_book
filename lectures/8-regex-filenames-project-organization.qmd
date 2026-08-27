@@ -8,8 +8,6 @@ output-file: regex-filenames-project-organization.html
 {{< include ../learning_objectives/lo-ch-08.qmd >}}
 
 :::{.activity}
-## Activity 1
-
 Imagine you are starting a new data science project. Based on what you know about project organization, how would you structure your project directory? Consider where you would place important files like raw data, processed data, code, reports, and environment settings.
 
 Take a moment to think through these questions:
@@ -123,7 +121,6 @@ Benjamin Franklin
 -->
 
 :::{.activity}
-## Activity 2
 Which set of file(name)s do you want at 3 a.m. before a deadline?
 ```
 A. `Joe’s Filenames Use Spaces and Punctuation.xlsx`
@@ -353,7 +350,6 @@ Pros:
 ---
 
 :::{.activity}
-## Activity 3
 Which of the following items describe three important rules for naming files on a computer?
 Select all correct answers.
 
@@ -370,7 +366,6 @@ E. Underscores are the only allowed separator in file names
 :::
 
 :::{.activity}
-## Activity 4
 Which of the following are GOOD date formats to use in a filename?
 ```
 A. 2020-01-26T0233
@@ -382,7 +377,6 @@ C. 2020-01-26
 <!--
 
 :::{.activity}
-## Activity 4
 Match each explanation with its corresponding file naming principle:
 
 G.  By following this principle, we are able to use tools such as regular expressions and file-name globbing to search, select and manipulate files using tools such as the unix shell, R and Python.

@@ -11,8 +11,6 @@ output-file: virtual-environments-conda.html
 **Platform in focus** Conda
 
 :::{.activity}
-## Activity 1
-
 Imagine you're working on a project with a colleague, and you've created a reproducible report to share your analysis. You want them to replicate your work on their own machine. To demonstrate this, try running the following code on your system:
 
 ```python
@@ -40,8 +38,6 @@ It can work with _any_ programming language, but is mostly popular in the Python
 In MDS and quite often, broadly in data science projects, we use Miniforge distribution, which was created to be a bare-bones installation with conda and using `conda-forge` as the package channel. This is what we had you install in the MDS Python installation instructions. There are many variations of many parts of conda, see @sec-conda-history.
 
 :::{.activity}
-## Activity 2
-
 Which of the following items is NOT a benefit of using Conda environments?
 
 ```
@@ -376,8 +372,6 @@ For an environment to be reproducible,
 you **NEED** to add the version string manually.
 
 :::{.activity}
-## Activity 3
-
 What are good practices when exporting environments for git collaboration? (one or more correct answers)
 
 - A. Exporting your entire environment via `conda env export -f environment.yaml`
@@ -563,8 +557,6 @@ Executing transaction: done
 ```
 
 :::{.activity}
-## Activity 4
-
 What command will activate the test_env environment you just created?
 
 ```

@@ -21,8 +21,6 @@ the filesystem, using the command line, and some other useful tools.
 Please follow these instructions for accessing iClicker: [iClicker Cloud Student Guide](https://lthub.ubc.ca/guides/iclicker-cloud-student-guide/)
 
 :::{.activity}
-## Activity 1
-
 What is a Data Scientist?
 
 A. Someone whose job is to extract value from data through reproducible and auditable processes.
@@ -75,9 +73,6 @@ such as
 
 
 :::{.activity}
-
-## Activity 2
-
 In what scenario is the command line preferable over JupyterLab?
 
 A. When scripting and automating tasks due to its quick execution of commands and ease of integration into workflows.
@@ -281,8 +276,6 @@ the shell might also use colors to indicate whether each entry is a file or dire
 
 
 :::{.activity}
-## Activity 3
-
 Can you recognize the following folders in the picture?
 
 1. Home directory
@@ -348,7 +341,6 @@ in you terminal to see a list of all commands we use in MDS.
 | `~`    | HOME directory            |
 
 :::{.activity}
-## Activity 4
 Which command would move you to the parent directory?
 
 ```
@@ -360,8 +352,6 @@ D. cd
 :::
 
 :::{.exercise}
-### Exercise 1
-
 **Navigating the Command Line**
 
 **Objective:** By completing this exercise, students will practice basic navigation commands in the command line interface.
@@ -401,8 +391,6 @@ D. cd
 
 
 :::{.exercise}
-### Exercise 2
-
 **Understanding the `ls` Command and Directory Navigation**
 
 **Objective:** By completing this exercise, students will learn to use the `ls` command with options and understand directory structures.

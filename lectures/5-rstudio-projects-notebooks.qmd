@@ -11,9 +11,6 @@ output-file: rstudio-projects-notebooks.html
 
 
 :::{.activity}
-
-## Activity 1
-
 You have been working on a breast cancer prediction report [following report](https://ttimbers.github.io/breast_cancer_predictor/doc/breast_cancer_predict_report.html)
  and recently discovered an error in one of your calculations, affecting multiple results throughout the report.
 
@@ -141,8 +138,6 @@ which can easily create paths relative from the root project dir
 ### The {here} Package
 
 :::{.activity}
-## Activity 2
-
 You have cloned a project folder containing an `.Rmd` file that loads data using the following code:
 
 ```r
@@ -326,8 +321,6 @@ GitHub does will also render the `README.md` file of **every** directory in a re
 Image extracted from: https://www.markdownguide.org/getting-started/
 
 :::{.activity}
-## Activity 3
-
 What are the primary benefits of using Markdown for formatting text documents?
 
 A. It requires complex software to edit
@@ -454,8 +447,6 @@ which is responsible for creating the finished format.
 *Rmarkdown documents are created from text and R code*
 
 :::{.activity}
-## Activity 4
-
 What is the primary advantage of using an `.Rmd` file over a `.md` file to create the final HTML document?
 
 A. `.Rmd` files do not support code chunks.
@@ -594,10 +585,6 @@ print(loop_sum)
 ```
 
 :::{.exercise}
-## Exercise 1
-
-
-
 **Convert Markdown to R Markdown and Generate a Plot**
 
 **Objective:** Convert a given Markdown file into an R Markdown document. Ensure that the document includes at least one plot generated from a built-in R dataset. Submit the .Rmd file and the rendered HTML output. Additionally, discuss the advantages of using .Rmd over .md for generating dynamic documents.
@@ -803,8 +790,6 @@ including how to create your own custom template, for example for a CV.
 
 
 :::{.exercise}
-## Exercise 2
-
 **Creating an RStudio Project and Generating an R Markdown Report**
 
 **Objective:** Create an RStudio project, write a script to analyze a dataset of your choice, and generate a report in R Markdown. The report should include a narrative, code chunks, and visualizations. Submit the RStudio project folder along with the .Rmd file and the rendered HTML output. Additionally, include a section comparing R Notebooks and .Rmd documents, highlighting their similarities and differences.

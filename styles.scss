@@ -64,3 +64,35 @@ body.quarto-dark {
     color: $exercise-light-green;
   }
 }
+
+// Activity and exercise callouts are numbered automatically, per page, in
+// document order. The source carries no numbers, so moving, inserting or
+// deleting one renumbers the rest for free.
+//
+// Trade-off: these numbers are generated content, so they are not part of the
+// page text and will not appear in Quarto's search index. Nothing in the book
+// cites a callout by number, so that costs us nothing today. If we ever need
+// the numbers to be real text (searchable, cross-referenceable), the fix is a
+// Lua filter that injects them into the title before custom-callout runs.
+//
+// This only works while every activity/exercise uses its default title; a
+// callout with its own `## Title` would get a stray number appended.
+main {
+  counter-reset: activity exercise;
+}
+
+.callout-activity {
+  counter-increment: activity;
+}
+
+.callout-exercise {
+  counter-increment: exercise;
+}
+
+.callout-activity > .callout-header .callout-title-container::after {
+  content: " " counter(activity);
+}
+
+.callout-exercise > .callout-header .callout-title-container::after {
+  content: " " counter(exercise);
+}

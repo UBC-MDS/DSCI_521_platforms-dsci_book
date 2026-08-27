@@ -196,13 +196,13 @@ will be rendered as:
 $$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}$$
 
 :::{.exercise}
-## Exercise 1 : Creating and Positioning a Heading in JupyterLab
+**Creating and Positioning a Heading in JupyterLab**
 
-# Objective
+### Objective
 
 To practice creating a Markdown cell with a heading and repositioning it within the JupyterLab notebook interface.
 
-# Instructions
+### Instructions
 
 1. **Create a Markdown Cell:**
    - In your JupyterLab notebook, add a new cell by clicking the "+" button in the toolbar.
@@ -226,7 +226,7 @@ To practice creating a Markdown cell with a heading and repositioning it within 
 4. **Verify the Position:**
    - Ensure that the "JupyterLab Tutorial" heading is now at the top of the notebook. This heading will serve as the title for your tutorial.
 
-# Reflection
+### Reflection
 
 - Why is it important to use headings in a notebook?
 - How does reorganizing cells in a notebook help in structuring your analysis or tutorial?

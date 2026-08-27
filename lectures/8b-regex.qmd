@@ -9,8 +9,6 @@ output-file: regex.html
 
 
 :::{.activity}
-## Activity 1
-
 Imagine you're working as a data scientist for an e-commerce company,
 and you have been given a dataset of user reviews for a product.
 The reviews contain noisy data:
@@ -109,8 +107,6 @@ For example, `[Aa]pple` would match `Apple` and `apple`.
 
 
 :::{.exercise}
-## Exercise 1
-
 Find all the pairs of vowels in the fruit list.
 
 Highlight the black box below to see than correct answer
@@ -172,8 +168,6 @@ which matches any character that normally occurs inside a word
 
 
 :::{.exercise}
-## Exercise 2
-
 What is the difference between writing `[A-Za-z]` and [`A-z`]?
 
 ```
@@ -183,8 +177,6 @@ What is the difference between writing `[A-Za-z]` and [`A-z`]?
 
 
 :::{.exercise}
-## Exercise 3
-
 Match any characters between two `_`.
 
 ```
@@ -205,8 +197,6 @@ Another useful anchor is `\b`, which matches end of word.
 
 
 :::{.exercise}
-## Exercise 4
-
 Write a regex that will match a line that contains only pineapple.
 (Hint: you cannot just write `pineapple` - it will not work - why?)
 
@@ -241,8 +231,6 @@ But `apples+` will not match `apple` or `appplesq`,
 but it will match `apples`, `appless`, `applesss`, etc.
 
 :::{.exercise}
-## Exercise 5
-
 Find the fruits with names between 10 and 12 characters.
 
 ```
@@ -251,8 +239,6 @@ Find the fruits with names between 10 and 12 characters.
 :::
 
 :::{.exercise}
-## Exercise 6
-
 Find the lines with no more than 4 letters.
 
 ```
@@ -261,8 +247,6 @@ Find the lines with no more than 4 letters.
 :::
 
 :::{.exercise}
-## Exercise 7
-
 Find all the words that contain at least two consecutive vowels.
 
 
@@ -276,8 +260,6 @@ Find all the words that contain at least two consecutive vowels.
 :::
 
 :::{.exercise}
-## Exercise 8
-
 This is a bit harder and derives from all previous sections: Match entire words that end in `_`.
 
 ```
@@ -285,8 +267,8 @@ This is a bit harder and derives from all previous sections: Match entire words 
 ```
 :::
 
-:::{.exercise}
-## Additional exercises
+:::{.callout-tip}
+## Additional practice
 
 Go through the interactive tutorials and practice sessions at <https://regexone.com/>
 that correspond to the topics we have covered during class.

@@ -180,8 +180,6 @@ you are automatically getting a copy of `.git` and thus, working on a Git.
 ## Creating a Repository
 
 :::{.exercise}
-## Exercise 1
-
 **Creating a GitHub Repository**
 
 **Objective:** By completing this exercise, students will learn how to create a repository on GitHub and clone it to their local computer.
@@ -324,8 +322,6 @@ and creating several new ones.
 ![](img/github-workflow.png)
 
 :::{.activity}
-## Activity 1
-
 How can you check that you are working on a Git repository?
 
 A. By checking if the repository contains a .git directory.
@@ -364,8 +360,6 @@ To demonstrate the first method, let's edit the README.md file in your GitHub re
 * Step 6: Download the repository to your local computer by cloning it. Use the command git clone followed by the repository's URL.
 
 :::{.activity}
-## Activity 2
-
 Is a repository the same as a directory? Can a Git repository be your current working directory?
 
 A. Yes, a repository is the same as a directory, and it can be your current working directory.
@@ -429,8 +423,6 @@ when adding new files,
 so you would type `git add <filename>`.
 
 :::{.activity}
-## Activity 3
-
 What is the purpose of the staging area in Git?
 
 A. It allows you to preview and control which changes you want to commit.
@@ -501,8 +493,6 @@ you have to pull from the terminal you should use the command `git pull`.
 
 
 :::{.activity}
-## Activity 4
-
 Which command would you use to commit all changes with a message?
 
 A. git add -p
