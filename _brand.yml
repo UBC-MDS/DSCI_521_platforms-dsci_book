@@ -126,13 +126,24 @@ typography:
   monospace:
     family: '"Atkinson Hyperlegible Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace'
     size: 0.9em
-  monospace-inline:
-    color:
-      light: "#0B3A63" # 10.53:1 on the light chip below
-      dark: "#9FD4F0" # 9.72:1 on the dark chip below
+    # The surface behind all code, inline and fenced alike.
+    #
+    # This has to sit on `monospace` rather than on the two specific elements
+    # below: for HTML, `monospace-block.background-color` maps to `$pre-bg`,
+    # which never reaches `div.sourceCode` — the wrapper that actually paints
+    # a highlighted block. Only `monospace` forwards to `$code-block-bg` too.
+    #
+    # Leaving it unset is not neutral. `$code-block-bg` then stays at its
+    # default of `true`, and Quarto derives the panel from `$progress-bg`
+    # (Bootstrap's $gray-200) in *both* modes, so dark mode gets a light grey
+    # panel under the dark syntax theme's near-white text.
     background-color:
       light: "#EEF4F9"
       dark: ubc-blue-panel
+  monospace-inline:
+    color:
+      light: "#0B3A63" # 10.53:1 on the light surface
+      dark: "#9FD4F0" # 9.72:1 on the dark surface
   monospace-block:
     line-height: 1.5
 
@@ -148,3 +159,12 @@ defaults:
       # computes the navbar's text and icon colours from this value, so it has
       # to be set here rather than overridden in `styles.scss`.
       navbar-bg: $brand-ubc-blue
+
+      # Quarto's `_bootstrap-customize.scss` raises kbd padding from
+      # Bootstrap's .1875rem/.375rem to 0.4rem on both axes. Inline padding
+      # does not grow the line box, so at the book's 1.6 line-height the grey
+      # key boxes overflowed their line and collided with keys on the line
+      # above and below. Back off the vertical padding until each box fits
+      # inside one line; the horizontal padding is trimmed to match.
+      kbd-padding-y: 0.15rem
+      kbd-padding-x: 0.35rem

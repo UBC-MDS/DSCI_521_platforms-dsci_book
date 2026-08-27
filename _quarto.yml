@@ -132,7 +132,7 @@ format:
     # Precedence is left-to-right, so styles.scss wins over the brand.
     theme:
       light: [brand, styles.scss]
-      dark: [brand, styles.scss]
+      dark: [brand, styles.scss, styles-dark.scss]
     toc: true
     toc-depth: 3
     toc-expand: 3

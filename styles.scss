@@ -4,8 +4,20 @@
 // file (see `format.html.theme` in `_quarto.yml`). Everything from its palette
 // is available here as `$brand-<name>`, and as `--brand-<name>` in CSS.
 //
-// What is left in this file is the part brand.yml cannot express: the two
-// custom callouts.
+// What is left in this file is the part brand.yml cannot express: the geometry
+// of `<kbd>`, and the two custom callouts. Rules that apply to only one colour
+// mode go in `styles-dark.scss`, which is layered on top of this one for dark.
+
+// `<kbd>` is used throughout the book for key names. Bootstrap paints its grey
+// box on an inline box, and an inline box takes its height from the font's em
+// box, not from `line-height` — so padding pushes the box outside its own line
+// and keys collide with the lines above and below. Switching to inline-block
+// lets `line-height` govern the height, which leaves `kbd-padding-*` in
+// `_brand.yml` as the only thing between the glyph and the edge of the box.
+kbd {
+  display: inline-block;
+  line-height: 1;
+}
 
 // Custom callouts: `.activity` and `.exercise`, rendered by the
 // coatless-quarto/custom-callout extension (configured in `_quarto.yml`).
