@@ -11,5 +11,6 @@ Imports:
     here,
     knitr,
     renv,
+    reticulate,
     revealjs,
     rmarkdown

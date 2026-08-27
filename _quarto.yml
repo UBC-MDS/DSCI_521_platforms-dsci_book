@@ -45,6 +45,8 @@ website:
             href: lectures/0-jupyterlab-orientation-intro.qmd
           - text: "RStudio Orientation"
             href: lectures/0-rstudio-orientation-intro.qmd
+          - text: "Conventions in this Book"
+            href: lectures/0-convensions.qmd
 
       - section: "Week 1"
         contents:
