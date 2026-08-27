@@ -382,6 +382,12 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./lectures/positron-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Positron Orientation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./lectures/book-conventions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conventions in this Book</span></a>
   </div>
@@ -573,7 +579,14 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
    
   <ul>
   <li><a href="#course-learning-objectives" id="toc-course-learning-objectives" class="nav-link active" data-scroll-target="#course-learning-objectives">Course Learning Objectives</a></li>
-  <li><a href="#lesson-learning-objectives-and-readings" id="toc-lesson-learning-objectives-and-readings" class="nav-link" data-scroll-target="#lesson-learning-objectives-and-readings">Lesson Learning Objectives and Readings</a></li>
+  <li><a href="#lesson-learning-objectives-and-readings" id="toc-lesson-learning-objectives-and-readings" class="nav-link" data-scroll-target="#lesson-learning-objectives-and-readings">Lesson Learning Objectives and Readings</a>
+  <ul class="collapse">
+  <li><a href="#orientation" id="toc-orientation" class="nav-link" data-scroll-target="#orientation">Orientation</a></li>
+  <li><a href="#week-1" id="toc-week-1" class="nav-link" data-scroll-target="#week-1">Week 1</a></li>
+  <li><a href="#week-2" id="toc-week-2" class="nav-link" data-scroll-target="#week-2">Week 2</a></li>
+  <li><a href="#week-3" id="toc-week-3" class="nav-link" data-scroll-target="#week-3">Week 3</a></li>
+  <li><a href="#week-4" id="toc-week-4" class="nav-link" data-scroll-target="#week-4">Week 4</a></li>
+  </ul></li>
   <li><a href="#attributions" id="toc-attributions" class="nav-link" data-scroll-target="#attributions">Attributions</a></li>
   <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
   </ul>
@@ -617,71 +630,99 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </section>
 <section id="lesson-learning-objectives-and-readings" class="level2">
 <h2 class="anchored" data-anchor-id="lesson-learning-objectives-and-readings">Lesson Learning Objectives and Readings</h2>
-<p>Lesson 0</p>
+<p>Learning objectives are grouped by week. Some weeks split one set of objectives across several lessons, and some lessons carry more than one set.</p>
+<section id="orientation" class="level3">
+<h3 class="anchored" data-anchor-id="orientation">Orientation</h3>
+<p><strong><a href="./lectures/jupyterlab-orientation-intro.html">JupyterLab Orientation</a></strong></p>
 <ol type="1">
-<li><p>Launch JupyterLab</p></li>
-<li><p>Use the Notebook interface inside Jupyterlab</p></li>
-<li><p>Know your way around the JupyterLab user interface</p></li>
-<li><p>Launch RStudio</p></li>
-<li><p>Use the <code>.R</code> script and RMarkdown <code>.Rmd</code> interface inside RStudio</p></li>
-<li><p>Know your way around the RStudio user interface</p></li>
+<li>Launch JupyterLab</li>
+<li>Use the Notebook interface inside Jupyterlab</li>
+<li>Know your way around the JupyterLab user interface</li>
 </ol>
-<p>Lesson 1</p>
+<p><strong><a href="./lectures/rstudio-orientation-intro.html">RStudio Orientation</a></strong></p>
+<ol type="1">
+<li>Launch RStudio</li>
+<li>Use the <code>.R</code> script and RMarkdown <code>.Rmd</code> interface inside RStudio</li>
+<li>Know your way around the RStudio user interface</li>
+</ol>
+<p><strong><a href="./lectures/positron-orientation-intro.html">Positron Orientation</a></strong></p>
+<ol type="1">
+<li>Launch Positron and open an assignment as a folder</li>
+<li>Know your way around the Positron user interface</li>
+<li>Start, switch, and restart an R or Python session</li>
+<li>Run code from a script, a Jupyter notebook, and a Quarto document</li>
+</ol>
+</section>
+<section id="week-1" class="level3">
+<h3 class="anchored" data-anchor-id="week-1">Week 1</h3>
+<p><strong><a href="./lectures/mdstools-bash-filesystem.html">MDS Software and Bash</a></strong></p>
 <ol type="1">
 <li>Recognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.</li>
 <li>Distinguish common operators and representations of the different filesystem elements typically used in Bash.</li>
 <li>Explore the filesystem using Bash commands as <code>ls</code>, <code>pwd</code> and <code>cd</code>.</li>
 <li>Translate an absolute path into a relative path and vice versa.</li>
 <li>Use command-line arguments to produce alternative outputs of commands.</li>
-<li>Create, edit, move, and delete files and folders using the command line and VS Code.</li>
+<li>Create, edit, move, and delete files and folders using the command line and Positron.</li>
 </ol>
-<ul>
-<li><a href="https://swcarpentry.github.io/shell-novice/02-filedir.html">The Unix Shell: Navigating Files and Directories</a> or <a href="http://happygitwithr.com/shell.html">The shell</a></li>
-<li><a href="http://happygitwithr.com/hello-git.html">Introduce yourself to Git</a></li>
-<li><a href="http://happygitwithr.com/push-pull-github.html">Connect to GitHub</a></li>
-<li><a href="https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook?utm_source=adwords_ppc">Jupyter Notebook Tutorial: The Definitive Guide</a></li>
-</ul>
-<p>Lesson 2</p>
+<p><strong><a href="./lectures/git-github-ssh-basic-workflow.html">Git, GitHub, and SSH</a></strong></p>
 <ol type="1">
 <li>Implement SSH authentication</li>
 <li>Differentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.</li>
 <li>Create a Git repository.</li>
-<li>Implement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in VS Code.</li>
+<li>Implement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in Positron.</li>
 <li>Understand what implies using the staging area in a Git workflow.</li>
 <li>Recognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier.</li>
 </ol>
+<p><strong>Readings</strong></p>
 <ul>
-<li><a href="https://peerj.com/preprints/3159/">Excuse me, do you have a moment to talk about version control? by Jenny Bryan</a></li>
-<li><a href="https://help.github.com/articles/comparing-commits-across-time/">Comparing commits across time</a></li>
-<li><a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/">Resolving a merge conflict using the command line</a></li>
-<li><a href="https://nbdime.readthedocs.io/en/stable/">nbdime – diffing and merging of Jupyter Notebooks</a></li>
+<li><p><a href="https://swcarpentry.github.io/shell-novice/02-filedir.html">The Unix Shell: Navigating Files and Directories</a> or <a href="http://happygitwithr.com/shell.html">The shell</a></p></li>
+<li><p><a href="http://happygitwithr.com/hello-git.html">Introduce yourself to Git</a></p></li>
+<li><p><a href="http://happygitwithr.com/push-pull-github.html">Connect to GitHub</a></p></li>
+<li><p><a href="https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook?utm_source=adwords_ppc">Jupyter Notebook Tutorial: The Definitive Guide</a></p></li>
+<li><p><a href="https://peerj.com/preprints/3159/">Excuse me, do you have a moment to talk about version control? by Jenny Bryan</a></p></li>
+<li><p><a href="https://help.github.com/articles/comparing-commits-across-time/">Comparing commits across time</a></p></li>
+<li><p><a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/">Resolving a merge conflict using the command line</a></p></li>
+<li><p><a href="https://nbdime.readthedocs.io/en/stable/">nbdime – diffing and merging of Jupyter Notebooks</a></p></li>
 </ul>
-<p>Lesson 3</p>
-<ol type="1">
-<li>Explore the Git history via <code>git log</code> in the terminal and GitHub.</li>
-<li>Compare commits using <code>git diff</code> in the terminal and GitHub.</li>
-<li>Solve merge conflicts at the command line and in VS Code.</li>
-<li>Save transitory changes with <code>git stash</code>.</li>
-<li>Manage to avoid pushing specific local files by including a <code>.gitignore</code>.</li>
-<li>Differenciate among different ways to restore your project history (<code>git reset --hard/--soft</code>, <code>git revert</code>) when working on an older version of a project.</li>
-</ol>
-<ul>
-<li><a href="https://help.github.com/articles/comparing-commits-across-time/">Comparing commits across time</a></li>
-<li><a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/">Resolving a merge conflict using the command line</a></li>
-<li><a href="https://nbdime.readthedocs.io/en/stable/">nbdime – diffing and merging of Jupyter Notebooks</a></li>
-</ul>
-<p>Lesson 4</p>
+</section>
+<section id="week-2" class="level3">
+<h3 class="anchored" data-anchor-id="week-2">Week 2</h3>
+<p><strong><a href="./lectures/quarto-github-pages.html">Quarto and GitHub Pages</a></strong></p>
 <ol type="1">
 <li>Use the <code>quarto</code> terminal command to create different quarto projects</li>
 <li>Create and edit a Quarto website</li>
 <li>Discover how GitHub can be used to serve static websites</li>
 <li>Modify a GitHub repository to publish a website</li>
 </ol>
+<p><strong><a href="./lectures/rmarkdown-quarto-slides-ghpages.html">Quarto, RMarkdown, and Jupyter Slides</a></strong></p>
+<ol type="1">
+<li>Understand how Quarto extend R Markdown documents functionalities.</li>
+<li>Explore different data science products to communicate your results: slides, books and websites.</li>
+<li>Create slides using Jupyter Notebook and Quarto slides with <code>reveal.js</code></li>
+<li>Recognize Jupyter Book, bookdown, and Quarto book as long-form output formats.</li>
+<li>Sharing rendered HTML files publicly via GitHub Pages.</li>
+</ol>
+<p><strong>Readings</strong></p>
 <ul>
-<li><a href="https://quarto.org/docs/guide/">Quarto Guides</a></li>
-<li><a href="https://guides.github.com/features/pages/">Getting Started with GitHub Pages</a></li>
+<li><p><a href="https://quarto.org/docs/guide/">Quarto Guides</a></p></li>
+<li><p><a href="https://guides.github.com/features/pages/">Getting Started with GitHub Pages</a></p></li>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/xaringan.html">R Markdown presentations with xaringan</a></p></li>
+<li><p><a href="https://jupyterlab.readthedocs.io/en/stable/user/export.html?highlight=slides#reveal-js-slides">Jupyter presentations</a></p></li>
+<li><p><a href="https://quarto.org/docs/presentations/">Quarto Presentations</a></p></li>
 </ul>
-<p>Lesson 5</p>
+</section>
+<section id="week-3" class="level3">
+<h3 class="anchored" data-anchor-id="week-3">Week 3</h3>
+<p><strong><a href="./lectures/git-history-merge-conflicts-stash.html">Git: History, Conflicts, and Ignores</a></strong></p>
+<ol type="1">
+<li>Explore the Git history via <code>git log</code> in the terminal and GitHub.</li>
+<li>Compare commits using <code>git diff</code> in the terminal and GitHub.</li>
+<li>Solve merge conflicts at the command line and in Positron.</li>
+<li>Save transitory changes with <code>git stash</code>.</li>
+<li>Manage to avoid pushing specific local files by including a <code>.gitignore</code>.</li>
+<li>Differenciate among different ways to restore your project history (<code>git reset --hard/--soft</code>, <code>git revert</code>) when working on an older version of a project.</li>
+</ol>
+<p><strong><a href="./lectures/rstudio-projects-notebooks.html">RStudio Projects and Literate Programming</a></strong></p>
 <ol type="1">
 <li>Create RProjects in RStudio using <code>here</code> to define robust file paths.</li>
 <li>Detect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown.</li>
@@ -691,31 +732,24 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 <li>Use semantic line breaks for version control files.</li>
 <li>Specify metadata in the YAML header block.</li>
 </ol>
+<p><strong>Readings</strong></p>
 <ul>
-<li><a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Using RStudio Projects</a></li>
-<li><a href="https://rmarkdown.rstudio.com/lesson-15.html">R Markdown Cheat Sheet</a></li>
-<li><a href="https://rmarkdown.rstudio.com/docs/">R Markdown home page</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a></li>
-<li><a href="https://yihui.name/knitr/options/">R Markdown code chunk options</a></li>
-<li><a href="https://rstats.wtf/">What they forgot to teach you about R</a></li>
-<li><a href="http://happygitwithr.com/rstudio-git-github.html">Connect RStudio to Git and GitHub</a></li>
-<li><a href="https://r-cubed.rostools.org/">R-cubed rostools workshop</a></li>
+<li><p><a href="https://help.github.com/articles/comparing-commits-across-time/">Comparing commits across time</a></p></li>
+<li><p><a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/">Resolving a merge conflict using the command line</a></p></li>
+<li><p><a href="https://nbdime.readthedocs.io/en/stable/">nbdime – diffing and merging of Jupyter Notebooks</a></p></li>
+<li><p><a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Using RStudio Projects</a></p></li>
+<li><p><a href="https://rmarkdown.rstudio.com/lesson-15.html">R Markdown Cheat Sheet</a></p></li>
+<li><p><a href="https://rmarkdown.rstudio.com/docs/">R Markdown home page</a></p></li>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a></p></li>
+<li><p><a href="https://yihui.name/knitr/options/">R Markdown code chunk options</a></p></li>
+<li><p><a href="https://rstats.wtf/">What they forgot to teach you about R</a></p></li>
+<li><p><a href="http://happygitwithr.com/rstudio-git-github.html">Connect RStudio to Git and GitHub</a></p></li>
+<li><p><a href="https://r-cubed.rostools.org/">R-cubed rostools workshop</a></p></li>
 </ul>
-<p>Lesson 6</p>
-<ol type="1">
-<li>Understand how Quarto extend R Markdown documents functionalities.</li>
-<li>Explore different data science products to communicate your results: slides, blogs and books.</li>
-<li>Create slides using Jupyter Notebook and Quarto slides with <code>reveal.js</code></li>
-<li>Create a Jupyter Book and a Quarto books.</li>
-<li>Create a Quarto Blog.</li>
-<li>Sharing rendered HTML files publicly via GitHub Pages.</li>
-</ol>
-<ul>
-<li><a href="https://bookdown.org/yihui/rmarkdown/xaringan.html">R Markdown presentations with xaringan</a></li>
-<li><a href="https://jupyterlab.readthedocs.io/en/stable/user/export.html?highlight=slides#reveal-js-slides">Jupyter presentations</a></li>
-<li><a href="https://quarto.org/docs/presentations/">Quarto Presentations</a></li>
-</ul>
-<p>Lesson 7</p>
+</section>
+<section id="week-4" class="level3">
+<h3 class="anchored" data-anchor-id="week-4">Week 4</h3>
+<p><strong>Virtual Environments: <a href="./lectures/virtual-environments-uv.html">uv</a> and <a href="./lectures/virtual-environments-renv.html">renv</a></strong></p>
 <ol type="1">
 <li>Understand what a computational environment is and how it can ensure the reproducibility of a project</li>
 <li>Differentiate Python, PyPI, <code>pip</code>, <code>venv</code>, and <code>uv</code></li>
@@ -723,27 +757,40 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 <li>Manage packages and environments in Python using <code>uv</code></li>
 <li>Manage packages and environments in R using <code>renv</code></li>
 </ol>
-<ul>
-<li><a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">conda environemnts</a></li>
-<li><a href="https://blog.rstudio.com/2019/11/06/renv-project-environments-for-r/">renv</a></li>
-<li><a href="http://r4ds.had.co.nz/workflow-projects.html">Workflow: projects</a></li>
-</ul>
-<p>Lesson 8</p>
+<p><strong><a href="./lectures/regex-filenames-project-organization.html">Organization of Data Science Projects</a></strong></p>
+<ol type="1">
+<li>Describe how a data analysis project is organized, and how that organization differs from a code project.</li>
+<li>Distinguish raw data from processed data, and explain why raw data files are never overwritten.</li>
+<li>Apply the three principles of a good file name: machine readable, human readable, and plays well with default ordering.</li>
+<li>Explain how informative file names and locations make a project self-documenting.</li>
+</ol>
+<p><strong><a href="./lectures/regex.html">Introduction to Regular Expressions (RegEx)</a></strong></p>
 <ol type="1">
 <li>Understand the basic syntax and functionality of regular expressions (regex) for pattern matching.</li>
 <li>Explore the use of special characters, ranges, and anchors in regex to match specific patterns within text.</li>
 <li>Apply regex to search, extract, and manipulate data in various formats using practical examples.</li>
 <li>Use regular expressions to navigate and organize files within the filesystem.</li>
 </ol>
+<p><strong><a href="./lectures/asking-questions.html">Asking Effective Questions</a></strong></p>
+<ol type="1">
+<li>Explain why a well-posed question gets a faster and better answer.</li>
+<li>Construct a minimal reproducible example (MRE) for a programming problem.</li>
+<li>Describe a problem clearly, including what you have already tried and the full error message.</li>
+</ol>
+<p><strong>Readings</strong></p>
 <ul>
-<li><a href="https://regexone.com/lesson/introduction_abcs">Regex</a></li>
-<li><a href="https://regex101.com">Regex test</a></li>
-<li><a href="https://regexcrossword.com/">Practicing Regex</a></li>
-<li><a href="https://www.r-bloggers.com/three-tips-for-posting-good-questions-to-r-help-and-stack-overflow/">Three tips for posting good questions to R-help and Stack Overflow</a></li>
-<li><a href="https://stackoverflow.com/help/mcve">How to create a Minimal, Complete, and Verifiable example</a></li>
-<li><a href="https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/">Good Enough Practices in Scientific Computing</a></li>
-<li><a href="https://www.atlassian.com/git/tutorials/saving-changes/gitignore">.gitignore</a></li>
+<li><p><a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">conda environemnts</a></p></li>
+<li><p><a href="https://blog.rstudio.com/2019/11/06/renv-project-environments-for-r/">renv</a></p></li>
+<li><p><a href="http://r4ds.had.co.nz/workflow-projects.html">Workflow: projects</a></p></li>
+<li><p><a href="https://regexone.com/lesson/introduction_abcs">Regex</a></p></li>
+<li><p><a href="https://regex101.com">Regex test</a></p></li>
+<li><p><a href="https://regexcrossword.com/">Practicing Regex</a></p></li>
+<li><p><a href="https://www.r-bloggers.com/three-tips-for-posting-good-questions-to-r-help-and-stack-overflow/">Three tips for posting good questions to R-help and Stack Overflow</a></p></li>
+<li><p><a href="https://stackoverflow.com/help/mcve">How to create a Minimal, Complete, and Verifiable example</a></p></li>
+<li><p><a href="https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/">Good Enough Practices in Scientific Computing</a></p></li>
+<li><p><a href="https://www.atlassian.com/git/tutorials/saving-changes/gitignore">.gitignore</a></p></li>
 </ul>
+</section>
 </section>
 <section id="attributions" class="level2">
 <h2 class="anchored" data-anchor-id="attributions">Attributions</h2>
