@@ -55,35 +55,35 @@ and some lessons carry more than one set.
 
 ### Week 2
 
-**[Quarto and GitHub Pages](lectures/4-quarto_github_pages.qmd)**
-
-{{< include learning_objectives/lo-ch-04.qmd >}}
-
-**[Quarto, RMarkdown, and Jupyter Slides](lectures/6-rmarkdown-quarto-slides-ghpages.qmd)**
-
-{{< include learning_objectives/lo-ch-06.qmd >}}
-
-**Readings**
-
-{{< include readings/readings-ch-04.qmd >}}
-
-{{< include readings/readings-ch-06.qmd >}}
-
-### Week 3
-
-**[Git: History, Conflicts, and Ignores](lectures/3-git-history-merge-conflicts-stash.qmd)**
+**[Quarto and GitHub Pages](lectures/3-quarto_github_pages.qmd)**
 
 {{< include learning_objectives/lo-ch-03.qmd >}}
 
-**[RStudio Projects and Literate Programming](lectures/5-rstudio-projects-notebooks.qmd)**
+**[Quarto, RMarkdown, and Jupyter Slides](lectures/4-rmarkdown-quarto-slides-ghpages.qmd)**
 
-{{< include learning_objectives/lo-ch-05.qmd >}}
+{{< include learning_objectives/lo-ch-04.qmd >}}
 
 **Readings**
 
 {{< include readings/readings-ch-03.qmd >}}
 
+{{< include readings/readings-ch-04.qmd >}}
+
+### Week 3
+
+**[Git: History, Conflicts, and Ignores](lectures/5-git-history-merge-conflicts-stash.qmd)**
+
+{{< include learning_objectives/lo-ch-05.qmd >}}
+
+**[RStudio Projects and Literate Programming](lectures/6-rstudio-projects-notebooks.qmd)**
+
+{{< include learning_objectives/lo-ch-06.qmd >}}
+
+**Readings**
+
 {{< include readings/readings-ch-05.qmd >}}
+
+{{< include readings/readings-ch-06.qmd >}}
 
 ### Week 4
 
@@ -93,7 +93,7 @@ and some lessons carry more than one set.
 
 {{< include learning_objectives/lo-ch-07.qmd >}}
 
-**[Organization of Data Science Projects](lectures/8-regex-filenames-project-organization.qmd)**
+**[Organization of Data Science Projects](lectures/8-filenames-project-organization.qmd)**
 
 {{< include learning_objectives/lo-ch-08.qmd >}}
 
@@ -114,6 +114,7 @@ and some lessons carry more than one set.
 ## Attributions
 
 Materials were inspired, re-used and re-mixed from the following sources:
+
 - [Software Carpentry](https://software-carpentry.org/), specifically the Unix Shell and Git lessons
 - [Happy Git and GitHub for the useR by Jenny Bryan and the STAT 545 TAs](http://happygitwithr.com/)
 - [Data 8: The Foundations of Data Science](http://data8.org/), specifically Lab 01

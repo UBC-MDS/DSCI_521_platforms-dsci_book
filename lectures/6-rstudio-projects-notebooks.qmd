@@ -5,7 +5,7 @@ output-file: rstudio-projects-notebooks.html
 
 ## Learning outcomes
 
-{{< include ../learning_objectives/lo-ch-05.qmd >}}
+{{< include ../learning_objectives/lo-ch-06.qmd >}}
 
 **Platform in focus** RStudio IDE
 
@@ -19,7 +19,7 @@ Given this situation, how would you approach correcting the report efficiently? 
 
 ## RStudio
 
-We have already seen RStudio in [Lecture 0b](0-rstudio-orientation-intro.qmd).
+We have already seen RStudio in the [RStudio Orientation](0-rstudio-orientation-intro.qmd).
 RStudio is an Interactive Development Environment (IDE),
 just like JupyterLab.
 This means it comes with some conveniences,
@@ -39,7 +39,7 @@ While you can write both R and Python code in RStudio,
 we'll use it mostly for R in MDS.
 
 Please see the
-[Lecture 0b: Recommended RStudio Setup](0-rstudio-orientation-intro.qmd#recommended-rstudio-setup)
+[RStudio Orientation: Recommended RStudio Setup](0-rstudio-orientation-intro.qmd#recommended-rstudio-setup)
 to configure the IDE with safe defaults on launch.
 
 ![](img/rstudio-global_options-general.png)
@@ -313,7 +313,7 @@ If your goal is to render the final `.html` document,
 keep in mind that you will need an extra step to view the file in a web browser.
 Also, `.html` documents can not only be render as web pages,
 you can create with them blogs, books, articles.
-We saw this in the [Quarto and Git Hub Pages Lesson](4-quarto_github_pages.qmd).
+We saw this in the [Quarto and Git Hub Pages Lesson](3-quarto_github_pages.qmd).
 
 GitHub does will also render the `README.md` file of **every** directory in a repository.
 
@@ -353,7 +353,7 @@ of markdown flavours (in order of appearance in DSCI 521):
 1. [Jupyter Notebook (and Jupyter Book) Markdown](https://jupyterbook.org/en/stable/file-types/markdown.html):
    is an extension of a Markdown flavour called
    [CommonMark Markdown](https://commonmark.org/).
-   If you completed the tutorial from Lecture 0,
+   If you completed the tutorial from the orientation lessons,
    you already have some practice on it!
    <https://commonmark.org/help/tutorial/>
 2. [GitHub flavoured Markdown](https://github.github.com/gfm/#what-is-github-flavored-markdown-).

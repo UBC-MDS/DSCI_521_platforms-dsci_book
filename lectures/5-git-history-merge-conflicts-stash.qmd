@@ -5,7 +5,7 @@ output-file: git-history-merge-conflicts-stash.html
 
 ## Learning outcomes
 
-{{< include ../learning_objectives/lo-ch-03.qmd >}}
+{{< include ../learning_objectives/lo-ch-05.qmd >}}
 
 **Platform in focus** Git and GitHub
 

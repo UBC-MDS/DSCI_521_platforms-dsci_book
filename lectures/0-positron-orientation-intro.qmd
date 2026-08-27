@@ -4,7 +4,7 @@ output-file: positron-orientation-intro.html
 # Pinned to knitr so the R and Python cells in "Running code" can sit on the
 # same page. knitr runs the `{python}` cells through reticulate, which finds
 # the uv venv from VIRTUAL_ENV as long as the book is rendered under `uv run`.
-# See lectures/0-convensions.qmd for the same arrangement.
+# See lectures/0-conventions.qmd for the same arrangement.
 engine: knitr
 ---
 

@@ -5,7 +5,7 @@ output-file: rmarkdown-quarto-slides-ghpages.html
 
 ## Learning outcomes
 
-{{< include ../learning_objectives/lo-ch-06.qmd >}}
+{{< include ../learning_objectives/lo-ch-04.qmd >}}
 
 **Platform in focus** Jupyter Lab, RStudio IDE, Quarto
 

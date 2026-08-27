@@ -48,7 +48,7 @@ That is why the original files are stored in a sub-folder called `raw`.
 The documentation is the biggest difference between data analysis projects and software projects.
 Would you expect a report on a software project?
 In general notebooks and other
-[literate programming documents](./5-rstudio-projects-notebooks.qmd)
+[literate programming documents](./6-rstudio-projects-notebooks.qmd)
 (that prioritize narrative and storytelling)
 are the favorite options to share data analysis results [1].
 You will create your first data science project in DSCI 522: Statistical Inference and Computation.

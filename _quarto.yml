@@ -48,7 +48,7 @@ website:
           - text: "Positron Orientation"
             href: lectures/0-positron-orientation-intro.qmd
           - text: "Conventions in this Book"
-            href: lectures/0-convensions.qmd
+            href: lectures/0-conventions.qmd
 
       - section: "Week 1"
         contents:
@@ -61,18 +61,18 @@ website:
       - section: "Week 2"
         contents:
           - text: "Quarto and GitHub Pages"
-            href: lectures/4-quarto_github_pages.qmd
+            href: lectures/3-quarto_github_pages.qmd
 
           - text: "Quarto, RMarkdown, and Jupyter Slides"
-            href: lectures/6-rmarkdown-quarto-slides-ghpages.qmd
+            href: lectures/4-rmarkdown-quarto-slides-ghpages.qmd
 
       - section: "Week 3"
         contents:
           - text: "Git: History, Conflicts, and Ignores"
-            href: lectures/3-git-history-merge-conflicts-stash.qmd
+            href: lectures/5-git-history-merge-conflicts-stash.qmd
 
           - text: "RStudio Projects and Literate Programming"
-            href: lectures/5-rstudio-projects-notebooks.qmd
+            href: lectures/6-rstudio-projects-notebooks.qmd
 
       - section: "Week 4"
         contents:
@@ -83,7 +83,7 @@ website:
             href: lectures/7b-virtual-environments-renv.qmd
 
           - text: "Organization of Data Science Projects"
-            href: lectures/8-regex-filenames-project-organization.qmd
+            href: lectures/8-filenames-project-organization.qmd
           - text: "Introduction to Regular Expressions (RegEx)"
             href: lectures/8b-regex.qmd
           - text: "Asking Effective Questions"
@@ -105,7 +105,7 @@ website:
           - text: "Xaringan Slides"
             href: appendix/xaringan_slides.qmd
           - text: "Virtual Environments: conda"
-            href: appendix/7a-virtual-environments-conda.qmd
+            href: appendix/virtual-environments-conda.qmd
           - text: "MDS Conda Python Environment"
             href: appendix/mds_conda_environment.qmd
 

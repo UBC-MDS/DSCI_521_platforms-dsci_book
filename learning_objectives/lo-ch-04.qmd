@@ -1,4 +1,5 @@
-1. Use the `quarto` terminal command to create different quarto projects
-2. Create and edit a Quarto website
-3. Discover how GitHub can be used to serve static websites
-4. Modify a GitHub repository to publish a website
+1. Understand how Quarto extend R Markdown documents functionalities.
+2. Explore different data science products to communicate your results: slides, books and websites.
+3. Create slides using Jupyter Notebook and Quarto slides with `reveal.js`
+4. Recognize Jupyter Book, bookdown, and Quarto book as long-form output formats.
+5. Sharing rendered HTML files publicly via GitHub Pages.

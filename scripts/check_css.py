@@ -312,7 +312,7 @@ def source_pages() -> list[Path]:
 def check_listing_fences() -> None:
     """E: listings that break the conventions page's rules for fences.
 
-    Two rules, both from `lectures/0-convensions.qmd`:
+    Two rules, both from `lectures/0-conventions.qmd`:
 
       * a `bash` block is a command a student copies and runs, so it holds no
         prompt and no output -- the output is a separate `out` block;

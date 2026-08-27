@@ -335,7 +335,7 @@ If you have used `conda` before,
 `uv` fills the same role,
 but the commands and the philosophy are different.
 There is an older chapter on `conda`
-in the [Additional Information](../appendix/7a-virtual-environments-conda.qmd)
+in the [Additional Information](../appendix/virtual-environments-conda.qmd)
 section of this book if you need it for a project.
 
 The biggest difference is that `uv` ties an environment
