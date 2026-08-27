@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-717a1de2394aff971b7ede6d174c0923.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-202ef8c863be2c308082f46daf9be052.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-570b164183ede11bf397055ae106a0ac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-202ef8c863be2c308082f46daf9be052.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-a135521d5b91d00d41fd6bacfacf7a9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-cf3724262f66d8935e77b7bdf41003fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-a135521d5b91d00d41fd6bacfacf7a9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -690,7 +690,11 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 <section id="basic-matching" class="level2">
 <h2 class="anchored" data-anchor-id="basic-matching">Basic matching</h2>
 <p>Basic matching: if you look for a regular string, like <code>banana</code>, regex will match the exact string (including its upper/lower case). Both JupyterLab and VS Code have built in regex functionality (bring up the search box and click the <code>.*</code> symbol to use regex rather than the default search). When learning regex it is helpful to use one of the two web tools mentioned in the previous cell in order to visualize how your regex is matching the text. We will use a list of fruits to learn about regex.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>applesas</span>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Fruit list</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="Fruit list"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>applesas</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>apple</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>apricot</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>banana</span>
@@ -730,6 +734,7 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>star fruit</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>strawberry</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>watermelon</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="the-square-brackets" class="level2">
 <h2 class="anchored" data-anchor-id="the-square-brackets">The square brackets: <code>[]</code></h2>
@@ -746,7 +751,12 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 <div class="callout-body-container callout-body">
 <p>Find all the pairs of vowels in the fruit list.</p>
 <p>Highlight the black box below to see than correct answer (the black box will not show up on GitHub, so download the notebook unless you want the answer displayed) Remember to use one of the websites linked above to help you understand what your regex is matching (<a href="https://regexr.com/" class="uri">https://regexr.com/</a> or <a href="https://regex101.com/" class="uri">https://regex101.com/</a>).</p>
-<pre><code>[aeiou][aeiou]</code></pre>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Pattern</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="Pattern"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>[aeiou][aeiou]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 </div>
 <section id="ranges-within" class="level3">
@@ -762,7 +772,10 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 - `[^0-9]`: will match anything that is not a digit</code></pre>
 <p>The caret needs to be inside the bracket, if it is outside it will match the beginning of a line as described under the “Anchors” section below.</p>
 <p>These ranges are ordered based on <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">ASCI codes</a> where every character is represented by a number. The first character in the list is <code></code> (space) and the last is <code>~</code> (tilde). The full list is shown below:</p>
-<pre><code> !"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~</code></pre>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code> !"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~</code></pre>
+</div>
 </section>
 </section>
 <section id="special-matching-characters" class="level2">
@@ -781,7 +794,7 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </div>
 <div class="callout-body-container callout-body">
 <p>What is the difference between writing <code>[A-Za-z]</code> and [<code>A-z</code>]?</p>
-<pre><code>[A-z] will also match the characters `[/]^_`, as you can see in the list above.</code></pre>
+<p><code>[A-z]</code> will also match the characters <code>[/]^_</code>, as you can see in the list above.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-exercise callout-titled">
@@ -795,7 +808,12 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </div>
 <div class="callout-body-container callout-body">
 <p>Match any characters between two <code>_</code>.</p>
-<pre><code>_.*_</code></pre>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Pattern</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="Pattern"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>_.*_</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 </div>
 </section>
@@ -814,7 +832,12 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </div>
 <div class="callout-body-container callout-body">
 <p>Write a regex that will match a line that contains only pineapple. (Hint: you cannot just write <code>pineapple</code> - it will not work - why?)</p>
-<pre><code>^pineapple$</code></pre>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Pattern</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-filename="Pattern"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>^pineapple$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>note that if you use just <code>pineapple</code>, lines that also contain other words would match too.</p>
 </div>
 </div>
@@ -848,7 +871,12 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </div>
 <div class="callout-body-container callout-body">
 <p>Find the fruits with names between 10 and 12 characters.</p>
-<pre><code>.{10,12}</code></pre>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Pattern</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-filename="Pattern"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>.{10,12}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-exercise callout-titled">
@@ -862,7 +890,12 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </div>
 <div class="callout-body-container callout-body">
 <p>Find the lines with no more than 4 letters.</p>
-<pre><code>^.{0,4}$</code></pre>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Pattern</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-filename="Pattern"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>^.{0,4}$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-exercise callout-titled">
@@ -876,8 +909,18 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </div>
 <div class="callout-body-container callout-body">
 <p>Find all the words that contain at least two consecutive vowels.</p>
-<pre><code>[aeiou]{2,}</code></pre>
-<pre><code>[aeiou][aeiou]+</code></pre>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Pattern</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename="Pattern"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>[aeiou]{2,}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Pattern</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-filename="Pattern"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>[aeiou][aeiou]+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-exercise callout-titled">
@@ -891,7 +934,12 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </div>
 <div class="callout-body-container callout-body">
 <p>This is a bit harder and derives from all previous sections: Match entire words that end in <code>_</code>.</p>
-<pre><code>\\w*_\\b</code></pre>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Pattern</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-filename="Pattern"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>\\w*_\\b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
