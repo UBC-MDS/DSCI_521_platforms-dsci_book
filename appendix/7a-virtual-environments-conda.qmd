@@ -80,7 +80,7 @@ You will see some information about what there is to update
 and be asked if you want to confirm.
 The default choice is indicated with `[]`,
 and you can press <kbd>Enter</kbd> to accept it.
-It would look similar to this the output below.
+It would look similar to the output below.
 
 :::{.callout-tip}
 You should see `conda-forge` listed in the top of the output,
