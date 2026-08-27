@@ -16,7 +16,7 @@ You want them to replicate your work on their own machine.
 To demonstrate this, try running the following code on your system
 (doesn't matter how/where you write it)
 
-```python
+```{.python filename="Python"}
 from palmerpenguins import load_penguins
 penguins = load_penguins()
 penguins.head()
@@ -222,14 +222,14 @@ and it is not obvious how it is documented.
 Someone might write it by hand,
 listing only the packages they actually asked for:
 
-```
+```{.default filename="requirements.txt"}
 pandas
 palmerpenguins
 ```
 
 Or they version only the packages they asked for
 
-```
+```{.default filename="requirements.txt"}
 pandas==3.0.5
 palmerpenguins
 ```
@@ -237,7 +237,7 @@ palmerpenguins
 Or they might generate it from an environment they had already built,
 using `pip freeze`:
 
-```
+```{.default filename="requirements.txt"}
 iniconfig==2.3.0
 numpy==2.5.2
 packaging==26.3
@@ -347,12 +347,10 @@ which you will see in the [next chapter](./7b-virtual-environments-renv.qmd).
 :::{.activity}
 Which of the following items is NOT a benefit of using virtual environments?
 
-```
-A. Increase code performance
-B. Helping with reproducibility
-C. Using different versions of the same package
-D. Creating isolated computational environment for testing new packages
-```
+A.  Increase code performance
+B.  Helping with reproducibility
+C.  Using different versions of the same package
+D.  Creating isolated computational environment for testing new packages
 
 :::
 
@@ -364,10 +362,18 @@ This is the same pair of checks we used for `quarto`:
 and `--version` confirms that it actually runs.
 
 ```bash
-$ which uv
-/opt/homebrew/bin/uv
+which uv
+```
 
-$ uv --version
+```out
+/opt/homebrew/bin/uv
+```
+
+```bash
+uv --version
+```
+
+```out
 uv 0.12.6
 ```
 
@@ -387,7 +393,10 @@ uv add --help
 ```
 
 ```bash
-$ uv --help
+uv --help
+```
+
+```out
 An extremely fast Python package manager.
 
 Usage: uv [OPTIONS] <COMMAND>
@@ -416,7 +425,6 @@ Commands:
   cache      Manage uv's cache
   self       Manage the uv executable
   help       Display documentation for a command
-
 ```
 
 That list is worth reading once.
@@ -437,7 +445,10 @@ If you installed it through a package manager,
 `uv` will tell you so and hand you the right command instead:
 
 ```bash
-$ uv self update
+uv self update
+```
+
+```out
 error: uv was installed through an external package manager and cannot update itself.
 
 hint: You installed uv using Homebrew. To update uv, run `brew update && brew upgrade uv`
@@ -464,7 +475,10 @@ The output is longer than you expect,
 and it is important to understand what it is *not*:
 
 ```bash
-$ uv python list
+uv python list
+```
+
+```out
 cpython-3.15.0rc1-macos-aarch64-none              <download available>
 cpython-3.14.7-macos-aarch64-none                 <download available>
 cpython-3.14.7+freethreaded-macos-aarch64-none    <download available>
@@ -495,7 +509,10 @@ through Homebrew or python.org before starting the course.
 Here is a real example, filtered to just the 3.14 entries:
 
 ```bash
-$ uv python list | grep 3.14
+uv python list | grep 3.14
+```
+
+```out
 cpython-3.14.7-macos-aarch64-none    /opt/homebrew/bin/python3.14 -> ../Cellar/python@3.14/3.14.7/bin/python3.14
 cpython-3.14.7-macos-aarch64-none    /opt/homebrew/bin/python3 -> ../Cellar/python@3.14/3.14.7/bin/python3
 cpython-3.14.7-macos-aarch64-none    <download available>
@@ -557,8 +574,7 @@ uv python list --only-installed
 
 example output:
 
-```
-❯ uv python list --only-installed
+```out
 cpython-3.14.7-macos-aarch64-none     /opt/homebrew/bin/python3.14 -> ../Cellar/python@3.14/3.14.7/bin/python3.14
 cpython-3.14.7-macos-aarch64-none     /opt/homebrew/bin/python3 -> ../Cellar/python@3.14/3.14.7/bin/python3
 cpython-3.14.3-macos-aarch64-none     .local/bin/python3.14 -> .local/share/uv/python/cpython-3.14-macos-aarch64-none/bin/python3.14
@@ -605,7 +621,10 @@ cd penguin_analysis
 Now create the project:
 
 ```bash
-$ uv init --bare
+uv init --bare
+```
+
+```out
 Initialized project `penguin-analysis`
 ```
 
@@ -630,7 +649,10 @@ Start with `--bare` and add what you need.
 Let's look at the one file it made:
 
 ```bash
-$ cat pyproject.toml
+cat pyproject.toml
+```
+
+```out
 [project]
 name = "penguin-analysis"
 version = "0.1.0"
@@ -650,13 +672,16 @@ It does not say which Python you are actually using.
 To record the exact version this project is built with:
 
 ```bash
-$ uv python pin 3.14
+uv python pin 3.14
+```
+
+```out
 Pinned `.python-version` to `3.14`
 ```
 
 This creates a `.python-version` file containing a single line:
 
-```
+```{.default filename=".python-version"}
 3.14
 ```
 
@@ -670,7 +695,10 @@ If you ask for a pin that the `pyproject.toml` forbids,
 `uv` will refuse rather than quietly do the wrong thing:
 
 ```bash
-$ uv python pin 3.12
+uv python pin 3.12
+```
+
+```out
 error: The requested Python version `3.12` is incompatible with the project
 `requires-python` value of `>=3.14`.
 ```
@@ -681,7 +709,10 @@ error: The requested Python version `3.12` is incompatible with the project
 Now let's add the packages our analysis needs.
 
 ```bash
-$ uv add pandas palmerpenguins
+uv add pandas palmerpenguins
+```
+
+```out
 Using CPython 3.14.3
 Creating virtual environment at: .venv
 Resolved 7 packages in 335ms
@@ -709,7 +740,10 @@ because a single `uv add` did four separate things:
 And the project directory now looks like this:
 
 ```bash
-$ ls -a
+ls -a
+```
+
+```out
 .python-version
 .venv
 pyproject.toml
@@ -719,7 +753,7 @@ uv.lock
 Two new things appeared: `.venv/` and `uv.lock`.
 Our `pyproject.toml` also grew a `dependencies` list:
 
-```toml
+```{.toml filename="pyproject.toml"}
 [project]
 name = "penguin-analysis"
 version = "0.1.0"
@@ -754,7 +788,7 @@ This is the most important section of the chapter.
 Open `uv.lock` in VS Code and you will find something much longer
 than the four lines you wrote in `pyproject.toml`:
 
-```toml
+```{.toml filename="uv.lock"}
 version = 1
 revision = 3
 requires-python = ">=3.14"
@@ -806,7 +840,7 @@ that `uv` can rebuild in seconds from the lockfile.
 
 A minimal `.gitignore` for a `uv` project:
 
-```
+```{.default filename=".gitignore"}
 # Python-generated files
 __pycache__/
 *.py[oc]
@@ -834,7 +868,7 @@ You do **not** activate the environment.
 
 Put this in a file called `penguins.py`:
 
-```python
+```{.python filename="penguins.py"}
 from palmerpenguins import load_penguins
 
 penguins = load_penguins()
@@ -844,7 +878,10 @@ print(penguins.head())
 And run it with `uv run`:
 
 ```bash
-$ uv run penguins.py
+uv run penguins.py
+```
+
+```out
   species     island  bill_length_mm  ...  body_mass_g     sex  year
 0  Adelie  Torgersen            39.1  ...       3750.0    male  2007
 1  Adelie  Torgersen            39.5  ...       3800.0  female  2007
@@ -863,7 +900,10 @@ and *then* runs your command inside that environment.
 You can confirm which interpreter you actually got:
 
 ```bash
-$ uv run python -c "import sys; print(sys.executable)"
+uv run python -c "import sys; print(sys.executable)"
+```
+
+```out
 /Users/dan/penguin_analysis/.venv/bin/python3
 ```
 
@@ -903,7 +943,10 @@ and you do not want it in your project.
 `uv run --with` installs it temporarily:
 
 ```bash
-$ uv run --with cowsay cowsay -t "uv run --with is temporary"
+uv run --with cowsay cowsay -t "uv run --with is temporary"
+```
+
+```out
 Installed 1 package in 3ms
   __________________________
 | uv run --with is temporary |
@@ -931,7 +974,10 @@ but no `.venv/`.
 They run one command:
 
 ```bash
-$ uv sync
+uv sync
+```
+
+```out
 Using CPython 3.14.3
 Creating virtual environment at: .venv
 Resolved 13 packages in 4ms
@@ -973,7 +1019,10 @@ Suppose someone installs a package directly,
 bypassing `uv add`:
 
 ```bash
-$ uv pip install cowsay
+uv pip install cowsay
+```
+
+```out
 Installed 1 package in 3ms
  + cowsay==6.1
 ```
@@ -985,7 +1034,10 @@ The next `uv sync` resolves that disagreement
 in favour of the lockfile:
 
 ```bash
-$ uv sync
+uv sync
+```
+
+```out
 Resolved 7 packages in 6ms
 Uninstalled 1 package in 1ms
  - cowsay==6.1
@@ -1008,12 +1060,10 @@ when running your script.
 You added `matplotlib` to the project yesterday.
 What should they run?
 
-```
-A. pip install matplotlib
-B. uv sync
-C. uv init
-D. uv add matplotlib
-```
+A.  pip install matplotlib
+B.  uv sync
+C.  uv init
+D.  uv add matplotlib
 
 :::
 
@@ -1025,7 +1075,10 @@ D. uv add matplotlib
 and what each of them dragged in:
 
 ```bash
-$ uv tree
+uv tree
+```
+
+```out
 Resolved 7 packages in 4ms
 penguin-analysis v0.1.0
 ├── palmerpenguins v0.1.6
@@ -1048,7 +1101,10 @@ For a flat list of what is actually in the environment,
 `uv pip list` works the way you would expect:
 
 ```bash
-$ uv pip list
+uv pip list
+```
+
+```out
 Package         Version
 --------------- -----------
 numpy           2.5.2
@@ -1105,7 +1161,7 @@ These go in a dependency group rather than the main list:
 uv add --dev pytest
 ```
 
-```toml
+```{.toml filename="pyproject.toml"}
 [project]
 name = "penguin-analysis"
 version = "0.1.0"
@@ -1176,7 +1232,7 @@ and have it just work.
 
 First create a `penguins2.py` script:
 
-```python
+```{.python filename="penguins2.py"}
 from palmerpenguins import load_penguins
 
 penguins = load_penguins()
@@ -1191,7 +1247,7 @@ uv add --script penguins2.py palmerpenguins
 
 which adds a comment block at the top of the file:
 
-```python
+```{.python filename="penguins2.py"}
 # /// script
 # requires-python = ">=3.14"
 # dependencies = [
@@ -1213,7 +1269,10 @@ If you run it before you have written the script,
 you get:
 
 ```bash
-$ uv add --script penguins2.py palmerpenguins
+uv add --script penguins2.py palmerpenguins
+```
+
+```out
 error: failed to read from file `penguins2.py`: No such file or directory (os error 2)
 ```
 
@@ -1224,7 +1283,10 @@ Anyone with `uv` installed can now run that file
 with no setup at all:
 
 ```bash
-$ uv run penguins2.py
+uv run penguins2.py
+```
+
+```out
 Installed 5 packages in 28ms
 (344, 8)
 ```

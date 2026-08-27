@@ -173,7 +173,7 @@ If you have commented on online forums or used a chat application,
 you might already be familiar with markdown.
 Below is a short example of the syntax:
 
-``` markdown
+```{.markdown filename="Markdown cell"}
 #### Markdown Example: Heading Level Four
 
 - A bullet point
@@ -209,7 +209,7 @@ To practice creating a Markdown cell with a heading and repositioning it within 
    - Change the cell type to "Markdown" by selecting "Markdown" from the dropdown menu or using the shortcut <kbd>Esc</kbd> + <kbd>m</kbd>.
    - Type the following text in the Markdown cell:
 
-     ```markdown
+     ```{.markdown filename="Markdown cell"}
      # JupyterLab Tutorial
      ```
 

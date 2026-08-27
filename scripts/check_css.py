@@ -4,15 +4,20 @@ Run with `make check_css`, after `make render`. Reads only what Quarto wrote to
 `_site/`, so it needs no browser and no extra dependencies -- Pillow arrives
 with matplotlib.
 
-Four checks, described where each one is defined:
+Five checks, described where each one is defined:
 
   A  text colours against their own mode's background          -> hard failure
   B  colour variables that are the same in both colour modes   -> warning
   C  constructs the conventions page does not cover            -> note
   D  generated figures with a baked-in light background        -> warning
+  E  listings that break the fence conventions                 -> note
 
-Only check A can fail the build. B, C and D are judgement calls: they point at
-something to look at, not something that is definitely wrong.
+Only check A can fail the build. B, C, D and E are judgement calls: they point
+at something to look at, not something that is definitely wrong.
+
+E is the odd one out: it reads the `.qmd` sources rather than `_site/`, because
+what it checks -- which fence a listing uses -- is a property of the source that
+the rendered page has already resolved away.
 
 What this does NOT cover: anything needing a real browser and computed styles,
 i.e. contrast of actual rendered text (as opposed to the variables that feed
@@ -285,6 +290,80 @@ def check_figure_plates() -> None:
         print("     no generated figures found")
 
 
+# ------------------------------------------------------------ listing fences
+
+# A fence opener: ```bash, ```out, ```{.python filename="penguins.py"}.
+FENCE = re.compile(r"^(\s*)(`{3,})\s*(.*)$")
+# `$ ` is the only shell prompt in the book. `❯` and `›` appear as the cursor of
+# an interactive menu (`quarto create project`), which is output, not a prompt.
+SHELL_PROMPT = re.compile(r"^\s*\$ ")
+# Languages whose blocks say where they belong with an explicit `filename`.
+# `bash` and `out` are excluded: `code-labels.lua` labels those.
+WANTS_FILENAME = {"python", "r", "toml", "json", "default"}
+
+
+def source_pages() -> list[Path]:
+    return sorted(
+        p for p in Path(".").rglob("*.qmd")
+        if not {"_site", "_book", ".quarto"} & set(p.parts)
+    )
+
+
+def check_listing_fences() -> None:
+    """E: listings that break the conventions page's rules for fences.
+
+    Two rules, both from `lectures/0-convensions.qmd`:
+
+      * a `bash` block is a command a student copies and runs, so it holds no
+        prompt and no output -- the output is a separate `out` block;
+      * a language with no automatic label carries a `filename` saying where its
+        contents belong.
+
+    Advisory, like B/C/D. The second rule has judgement in it -- a snippet that
+    genuinely belongs nowhere in particular is a fair exception -- so this
+    points at blocks to look at, not blocks that are definitely wrong.
+    """
+    prompts, unlabelled = [], []
+    for page in source_pages():
+        lines = page.read_text(encoding="utf-8", errors="replace").splitlines()
+        i = 0
+        while i < len(lines):
+            m = FENCE.match(lines[i])
+            if not m:
+                i += 1
+                continue
+            ticks, info = m.group(2), m.group(3).strip()
+            j = i + 1
+            while j < len(lines):
+                m2 = FENCE.match(lines[j])
+                if m2 and not m2.group(3) and len(m2.group(2)) >= len(ticks):
+                    break
+                j += 1
+            body = lines[i + 1 : j]
+
+            if info == "bash":
+                if any(SHELL_PROMPT.match(b) for b in body):
+                    prompts.append(f"{page}:{i + 1}")
+            elif info in WANTS_FILENAME:
+                unlabelled.append(f"{page}:{i + 1}  ```{info}")
+            i = j + 1
+
+    print(f"\nE. `bash` listings holding a prompt or its output ({len(prompts)})")
+    for where in prompts[:15]:
+        print(f"     {where}")
+    if not prompts:
+        print("     none")
+
+    print(f"\n   listings whose language has no automatic label and no "
+          f"`filename` ({len(unlabelled)})")
+    for where in unlabelled[:15]:
+        print(f"     {where}")
+    if len(unlabelled) > 15:
+        print(f"     ... and {len(unlabelled) - 15} more")
+    if not unlabelled:
+        print("     none")
+
+
 def main() -> int:
     if not SITE.is_dir():
         sys.exit("no _site/ -- run `make render` first")
@@ -299,6 +378,7 @@ def main() -> int:
     check_mode_symmetry(bundles, all_rendered_classes())
     check_conventions_coverage()
     check_figure_plates()
+    check_listing_fences()
 
     print()
     if failures:
@@ -306,8 +386,8 @@ def main() -> int:
         for f in failures:
             print(f"   {f}")
         return 1
-    print("no failures. B, C and D above are advisory -- read them, do not just "
-          "count them.")
+    print("no failures. B, C, D and E above are advisory -- read them, do not "
+          "just count them.")
     return 0
 
 

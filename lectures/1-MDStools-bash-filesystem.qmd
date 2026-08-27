@@ -343,12 +343,10 @@ in you terminal to see a list of all commands we use in MDS.
 :::{.activity}
 Which command would move you to the parent directory?
 
-```
-A. cd .
-B. cd ..
-C. cd ~
-D. cd
-```
+A.  cd .
+B.  cd ..
+C.  cd ~
+D.  cd
 :::
 
 :::{.exercise}
@@ -807,7 +805,7 @@ Let's say you are here:
 pwd
 ```
 
-```
+```out
 /Users/timberst/Documents
 ```
 
@@ -817,7 +815,7 @@ These are the files in your current working directory:
 ls
 ```
 
-```
+```out
 DSCI-100  MDS-2018-19   textbooks   research
 ```
 

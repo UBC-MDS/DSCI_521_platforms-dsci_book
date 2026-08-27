@@ -98,7 +98,7 @@ but you can also choose to render it to another format (e.g., PDF).
 
 The markdown syntax is the same as you saw with Jupyter Notebook markdown cells
 
-``` markdown
+```{.markdown filename="Markdown cell"}
 #### Markdown Example: Heading Level Four
 
 - A bullet point

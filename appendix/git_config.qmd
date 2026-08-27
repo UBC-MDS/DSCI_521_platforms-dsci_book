@@ -26,7 +26,7 @@ Edit `~/.ssh/config`
 
 ## MacOS + *nix
 
-```
+```{.default filename="~/.ssh/config"}
 Host github.com
   AddKeysToAgent yes
   UseKeychain yes
@@ -41,7 +41,7 @@ Host github.ubc.ca
 
 ## Git Bash (Windows)
 
-```
+```{.default filename="~/.ssh/config"}
 Host github.com
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519

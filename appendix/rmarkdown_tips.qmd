@@ -88,7 +88,7 @@ It is delimited by two `---` (three hyphens)
 and we create a new notebook,
 it looks like this:
 
-```yaml
+```{.yaml filename="YAML header"}
 ---
 title: "R Notebook"
 output: html_notebook
@@ -102,7 +102,7 @@ We can add new values,
 for example the author name
 and the date.
 
-```yaml
+```{.yaml filename="YAML header"}
 ---
 title: "R Notebook"
 output: html_notebook
@@ -121,7 +121,7 @@ and placing the table of contents on the side of the document.
 Since these are options to the output document,
 they are indented under that section with two or four spaces:
 
-```yaml
+```{.yaml filename="YAML header"}
 ---
 output:
   html_notebook:
@@ -134,7 +134,7 @@ output:
 Another useful option is to fold away your code,
 but still having it available for view if someone desires to see it.
 
-```yaml
+```{.yaml filename="YAML header"}
 ---
 output:
   html_document:

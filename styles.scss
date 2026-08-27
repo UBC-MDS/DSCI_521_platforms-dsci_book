@@ -97,3 +97,85 @@ main {
 .callout-exercise > .callout-header .callout-title-container::after {
   content: " " counter(exercise);
 }
+
+// ---------------------------------------------------------------- listings
+//
+// Every static listing in the book carries a label saying where its contents
+// belong -- "Terminal", "Output", "penguins.py". `bash` and `out` get theirs
+// from `code-labels.lua`; anything else carries an explicit `filename`. Both
+// routes emit Quarto's `.code-with-filename` markup, so everything here styles
+// one construct.
+//
+// The label is the second half of a pair of signals. The first is the copy
+// button, which Quarto only attaches to a `.sourceCode` block: a listing you
+// are meant to run or paste has one, and an `out` listing -- which is not a
+// language Pandoc highlights, so it never becomes `.sourceCode` -- does not.
+// That is why output is tagged `out` rather than `text` or a bare fence: it is
+// the fence that makes "do not copy this" visible.
+
+// Quarto's own bar is a flat grey (#dbdbdb light, #555 dark) sized for a
+// filename you read once. These sit above nearly every listing in the book --
+// forty of them down lecture 7a -- so they are pulled back to a quiet
+// monospace tag: small, muted, and painted in the book's own palette rather
+// than a grey that belongs to neither mode.
+.code-with-filename .code-with-filename-file {
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  font-family: $font-family-monospace;
+  font-size: 0.75em;
+  background-color: mix($brand-ubc-blue, $brand-white, 8%);
+  border-color: mix($brand-ubc-blue, $brand-white, 8%);
+  color: mix($brand-ubc-blue, $brand-white, 70%); // 5.21:1 on the bar
+
+  // Quarto flattens the label to `font-weight: 400`, which at this size reads
+  // as a caption rather than a heading for the block below it.
+  strong {
+    font-weight: 600;
+  }
+}
+
+// Quarto squares off the top of a `div.sourceCode` sitting under a label bar,
+// but writes no matching rule for a bare `<pre>` -- which is what an `out`
+// listing is. Without this the output block keeps its rounded top corners and
+// its own top margin, and floats away from the label naming it.
+.code-with-filename pre.out {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+// `out` is the machine answering the command above it, so it reads as the
+// quieter half of the pair: its own surface instead of the code surface, and
+// muted text. Colours and the contrast ratios behind them are in `_brand.yml`.
+//
+// A bare `<pre>` gets none of the geometry Quarto gives a `div.sourceCode`, so
+// it is matched here: the same 0.4em inset, and a 1px border painted in its own
+// background so the two blocks come out the same width. That invisible border
+// is how Quarto sizes a code block too -- borrowing it keeps a command and its
+// output aligned to the pixel, and keeps every listing a plain fill rather than
+// giving output an outline nothing else on the page has.
+pre.out {
+  padding: 0.4em;
+  border: 1px solid $brand-output-bg;
+  border-radius: $border-radius;
+  background-color: $brand-output-bg;
+  color: $brand-output-fg;
+
+  code {
+    color: inherit;
+  }
+}
+
+body.quarto-dark {
+  .code-with-filename .code-with-filename-file {
+    background-color: mix($brand-white, $brand-ubc-blue-video, 10%);
+    border-color: mix($brand-white, $brand-ubc-blue-video, 10%);
+    color: mix($brand-white, $brand-ubc-blue-video, 65%); // 6.29:1 on the bar
+  }
+
+  pre.out {
+    border-color: $brand-output-bg-dark;
+    background-color: $brand-output-bg-dark;
+    color: $brand-output-fg-dark;
+  }
+}

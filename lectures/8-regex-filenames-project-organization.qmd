@@ -11,11 +11,11 @@ output-file: regex-filenames-project-organization.html
 Imagine you are starting a new data science project. Based on what you know about project organization, how would you structure your project directory? Consider where you would place important files like raw data, processed data, code, reports, and environment settings.
 
 Take a moment to think through these questions:
-```
+
 - What folders would you create, and why?
 - Where would you place key files like your `.csv` data, analysis notebooks, and README?
 - How would you structure the project to ensure it is easy to maintain and reproducible?
-```
+
 Jot down your ideas.
 
 After reflecting on your answers, compare your project structure with your partner's. Identify similarities and differences between your approaches. What organizational choices did you both make? Were there any unique folder structures or file placements?
@@ -122,13 +122,12 @@ Benjamin Franklin
 
 :::{.activity}
 Which set of file(name)s do you want at 3 a.m. before a deadline?
-```
-A. `Joe’s Filenames Use Spaces and Punctuation.xlsx`
-B. `figure 1.png`
-C. `JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt`
-D. `2014-06-08_abstract-for-sla.docx`
-E. `myabstract.docx`
-```
+
+A.  `Joe’s Filenames Use Spaces and Punctuation.xlsx`
+B.  `figure 1.png`
+C.  `JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt`
+D.  `2014-06-08_abstract-for-sla.docx`
+E.  `myabstract.docx`
 :::
 
 ## Filenames
@@ -353,13 +352,11 @@ Pros:
 Which of the following items describe three important rules for naming files on a computer?
 Select all correct answers.
 
-```
-A. File name parts should be easy to extract programmatically
-B. Humans would understand something about file contents by looking at their names
-C. Files with appropriate names would be nicely organized by default
-D. File names should always use lower-case letters
-E. Human understanding of file names should be prioritized over machine understanding
-```
+A.  File name parts should be easy to extract programmatically
+B.  Humans would understand something about file contents by looking at their names
+C.  Files with appropriate names would be nicely organized by default
+D.  File names should always use lower-case letters
+E.  Human understanding of file names should be prioritized over machine understanding
 <!--comment because iClicker only allows 5 choices
 E. Underscores are the only allowed separator in file names
 -->
@@ -367,11 +364,10 @@ E. Underscores are the only allowed separator in file names
 
 :::{.activity}
 Which of the following are GOOD date formats to use in a filename?
-```
-A. 2020-01-26T0233
-B. 20200126T0233
-C. 2020-01-26
-```
+
+A.  2020-01-26T0233
+B.  20200126T0233
+C.  2020-01-26
 :::
 
 <!--
@@ -387,7 +383,6 @@ H. By following this principle, we can have a good idea of what is inside files 
 I. By following this principle, we can make our files more organized and understandable, and files more findable. Ordered lists will be sorted into a logical order and so it is easy to orient yourself in the directory and find the files you want to find.
 
 J. By following this principle, we will be sure that our files have the appropriate formatting in terms of their content. Such files will be ready for subsequent analysis in a data science pipeline.
-```
 :::
 -->
 

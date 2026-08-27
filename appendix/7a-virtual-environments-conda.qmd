@@ -13,7 +13,7 @@ output-file: virtual-environments-conda.html
 :::{.activity}
 Imagine you're working on a project with a colleague, and you've created a reproducible report to share your analysis. You want them to replicate your work on their own machine. To demonstrate this, try running the following code on your system:
 
-```python
+```{.python filename="Python"}
 from palmerpenguins import load_penguins
 penguins = load_penguins()
 penguins.head()
@@ -40,12 +40,10 @@ In MDS and quite often, broadly in data science projects, we use Miniforge distr
 :::{.activity}
 Which of the following items is NOT a benefit of using Conda environments?
 
-```
-A. Increase code performance
-B. Helping with reproducibility
-C. Using different versions of the same package
-D. Creating isolated computational environment for testing new packages
-```
+A.  Increase code performance
+B.  Helping with reproducibility
+C.  Using different versions of the same package
+D.  Creating isolated computational environment for testing new packages
 
 :::
 
@@ -92,7 +90,10 @@ You can cancel the current terminal operation by pressing
 :::
 
 ```bash
-$ conda update conda
+conda update conda
+```
+
+```out
 Retrieving notices: ...working... done
 Channels:
  - conda-forge
@@ -172,7 +173,7 @@ conda config --show channels
 
 You should see conda-forge at the top of the list (ideally the only entry)
 
-```
+```out
 channels:
   - conda-forge
 ```
@@ -353,7 +354,7 @@ The required dependencies will then be handled in an OS-specific manner during t
 which guarantees that they will work across OSes.
 This `environment.yaml` file would be much shorter and look something like this:
 
-```yaml
+```{.yaml filename="environment.yaml"}
 name: test_env
 channels:
   - conda-forge
@@ -387,7 +388,7 @@ What are good practices when exporting environments for git collaboration? (one 
 Now, let's install `environment.yaml` environment file above so that we can create a conda environment called `test_env`.
 
 ```bash
-$ conda env create --file environment.yaml
+conda env create --file environment.yaml
 ```
 
 ### Copying an environment
@@ -528,7 +529,10 @@ conda remove -n test_env rasterio
 ```
 
 ```bash
-$ conda remove -n test_env rasterio
+conda remove -n test_env rasterio
+```
+
+```out
 Channels:
  - conda-forge
 Platform: linux-64
@@ -553,18 +557,15 @@ Proceed ([y]/n)?
 Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
-
 ```
 
 :::{.activity}
 What command will activate the test_env environment you just created?
 
-```
-A. conda activate environment
-B. conda start test_env
-C. conda activate test_env
-D. conda start environment
-```
+A.  conda activate environment
+B.  conda start test_env
+C.  conda activate test_env
+D.  conda start environment
 
 :::
 

@@ -39,12 +39,10 @@ For MDS, this might mean you may need a separate `{renv}` file for each lab assi
 :::{.activity}
 Which of the following commands is used to initialize a new `renv` environment in an R project?
 
-```
-A. `renv::create()`
-B. `renv::activate()`
-C. `renv::init()`
-D. `renv::start()`
-```
+A.  `renv::create()`
+B.  `renv::activate()`
+C.  `renv::init()`
+D.  `renv::start()`
 
 :::
 
@@ -81,7 +79,7 @@ Before we talk about which each file and directory does,
 now when you start a new R session or re-open your RStudio project,
 you will see a line that will read something like:
 
-```markdown
+```out
 - Project '~/Desktop/my_r_project' loaded. [renv 1.0.7]
 ```
 
@@ -101,7 +99,7 @@ You can read more about these initialization files
 
 The `{renv}` `.Rprofile` will add a single line:
 
-```R
+```{.r filename=".Rprofile"}
 source("renv/activate.R")
 ```
 

@@ -67,7 +67,7 @@ navigate to `New File -> R Script`.
 Write a few lines of code,
 e.g.
 
-```R
+```{.r filename="R Script"}
 x <- 5
 y <- x + 3
 print(paste0("y = ", y))
@@ -92,7 +92,7 @@ You can try it by adding the following line to the script
 and clicking to run it
 (it uses a built-in data set called "cars"):
 
-```R
+```{.r filename="R Script"}
 plot(cars)
 ```
 
@@ -140,7 +140,7 @@ which can easily create paths relative from the root project dir
 :::{.activity}
 You have cloned a project folder containing an `.Rmd` file that loads data using the following code:
 
-```r
+```{.r filename=".Rmd"}
 cars <- read.csv("data/cars.csv")
 ```
 What could go wrong when you try to render this file, and how could you modify the code to prevent potential issues?
@@ -754,7 +754,7 @@ which is stored in a temporary folder and later deleted.
 This format does not have as many options as HTML,
 and you can use it like this:
 
-```yaml
+```{.yaml filename="YAML header"}
 output: github_document
 ```
 
@@ -766,7 +766,7 @@ We will see how to create a presentation soon.
 
 A word document can be created with this YAML header:
 
-```yaml
+```{.yaml filename="YAML header"}
 output: word_document
 ```
 
@@ -777,7 +777,7 @@ by opening one of our previously exported word files
 saving this under a new name,
 and then using it as a template:
 
-```yaml
+```{.yaml filename="YAML header"}
 output:
   word_document:
     reference_docx: "our-style-doc.docx"

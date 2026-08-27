@@ -62,7 +62,7 @@ github-flavored markdown `README.md` file.
 
 In Quarto, you will need to set the format in the YAML to `gfm`:
 
-```yaml
+```{.yaml filename="YAML header"}
 format: gfm
 ```
 
@@ -70,7 +70,7 @@ This process is similar to R Markdown documents rendering from `README.Rmd` file
 The main difference here is that in R Markdown you will be using a different output
 string, `github_document`:
 
-```yaml
+```{.yaml filename="YAML header"}
 output: github_document
 ```
 
@@ -115,7 +115,7 @@ of what you can do with Quarto presentations using `reveal.js` framework.
 
 In the YAML header, you will need to change the `format` option to `revealjs`.
 
-```yaml
+```{.yaml filename="YAML header"}
 format: revealjs
 ```
 
@@ -129,7 +129,7 @@ If you want to create your `revealjs` html slides and be able to share
 a **single** html file with others as a slide,
 you may need to embed and make the slide "self-contained".
 
-```yaml
+```{.yaml filename="YAML header"}
 format:
   revealjs:
     embed-resources: true
@@ -155,13 +155,13 @@ you need to install.
 We'll show you how you can create a `reaveal.js` and `xaringan` presentation,
 but you may need to install a few packages first.
 
-```r
+```{.r filename="R Console"}
 install.packages(c('xaringan', 'revealjs'))
 ```
 
 #### Reveal.js
 
-```yaml
+```{.yaml filename="YAML header"}
 output: revealjs::revealjs_presentation
 ```
 

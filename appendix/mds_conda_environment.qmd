@@ -19,7 +19,7 @@ conda install python=3.11 pandas jupyterlab jupyterlab-git jupyterlab-spellcheck
 
 You can choose to manually curate an `environment.yml` file as such:
 
-```yaml
+```{.yaml filename="environment.yml"}
 name: mds-base
 channels:
   - conda-forge

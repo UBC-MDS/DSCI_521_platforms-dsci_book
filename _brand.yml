@@ -42,6 +42,19 @@ color:
     # A lifted navy for panels sitting on the dark background.
     ubc-blue-panel: "#0B2540"
 
+    # Terminal output surfaces. An `out` listing is the machine answering the
+    # command above it, so it reads as the quieter of the pair: its own surface
+    # rather than the code surface, and text muted well short of the body
+    # foreground. Both still clear AA comfortably -- the muting is a step down
+    # from the 14.53:1 and 13.31:1 that code text gets, not down to the line.
+    #
+    # The light surface is deliberately neutral grey where the code surface is
+    # blue-tinted, so the two are told apart by hue as well as by lightness.
+    output-bg: "#E7EAEE" # 1.09 against the code surface, 1.21 against the page
+    output-fg: "#3D5166" # 6.78:1 on output-bg
+    output-bg-dark: "#071D33" # 1.10 against the code surface, 1.10 against the page
+    output-fg-dark: "#A9BACB" # 8.58:1 on output-bg-dark
+
     # -- Outside the UBC palette ---------------------------------------------
     # UBC publishes no green or red, so `success` and `danger` are chosen to
     # sit with the blues and clear AA. The green is the one the exercise

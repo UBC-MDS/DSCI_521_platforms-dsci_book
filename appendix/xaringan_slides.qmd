@@ -40,7 +40,7 @@ You can also style the slides
 by using any of the themes listed by `names(xaringan:::list_css())`,
 e.g.
 
-```yaml
+```{.yaml filename="YAML header"}
 ---
 output:
   xaringan::moon_reader:

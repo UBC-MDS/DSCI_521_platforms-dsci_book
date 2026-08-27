@@ -70,27 +70,65 @@ and <kbd>Ctrl</kbd> + <kbd>r</kbd> to search it.
 
 ## Code
 
-Static listings first, one per language the book uses,
-then cells that actually run.
+Every static listing carries a label saying where its contents belong, and the
+copy button says whether you are meant to take it: a listing you run or paste
+has one, a listing showing what the machine said back does not.
 
-```r
-# r code
-a <- 1
-a^2
-```
+| You are looking at | Fence | Label | Copy button |
+|---|---|---|---|
+| a command to run in the terminal | `bash` | automatic | yes |
+| what the terminal printed back | `out` | automatic | no |
+| code in a file, or typed at a console | `python`, `r` | `filename` | yes |
+| the contents of a file | its own language, or `default` | `filename` | yes |
+
+`bash` and `out` are labelled by `code-labels.lua`, because those two labels
+never vary. Everything else says where it belongs with an explicit `filename`,
+because that is where a label earns its keep -- `penguins.py` and
+`pyproject.toml` tell you something "Python" and "TOML" do not.
+
+A command and what it printed, which is the pairing most of the book is made
+of. They are two listings, never one, so the command can be copied without
+dragging the output along with it:
 
 ```bash
-# a bash command (terminal) using bash listing
 ls
 ```
 
 ```out
-# bash output using out listing
-
 Applications    Pictures
-Desktop			Documents		Movies
-Downloads		Music
+Desktop         Documents       Movies
+Downloads       Music
 ```
+
+A listing that is a file, labelled with the file's name:
+
+```{.python filename="penguins.py"}
+from palmerpenguins import load_penguins
+
+penguins = load_penguins()
+print(penguins.head())
+```
+
+```{.toml filename="pyproject.toml"}
+[project]
+requires-python = ">=3.12"
+```
+
+A file with no language of its own. `default` is the fence for these: no
+highlighting, but still a copy button, because it is a listing you are meant to
+put somewhere:
+
+```{.default filename=".python-version"}
+3.14
+```
+
+A listing typed at a console rather than saved to a file:
+
+```{.r filename="R Console"}
+install.packages(c("xaringan", "revealjs"))
+```
+
+The remaining languages, which reach the page the same way:
 
 ```yaml
 # yaml listing, used for _quarto.yml and the GitHub Actions workflow
@@ -98,23 +136,16 @@ project:
   type: website
 ```
 
-```toml
-# toml listing, used for pyproject.toml
-[project]
-requires-python = ">=3.12"
-```
-
-```python
-# a python listing that is shown but not run
-a = 3
-```
-
 ```markdown
 # markdown listing
 ```
 
+```{.json filename="sample_notebook.ipynb"}
+{"cells": [{"cell_type": "markdown", "source": ["# A heading"]}]}
 ```
-# empty listing
+
+```
+# a bare fence: no label, no highlighting, no copy button
 ```
 
 A listing wider than the page, so the horizontal scrollbar can be checked.
@@ -122,6 +153,23 @@ Real lines in the book reach about 150 characters:
 
 ```bash
 uv run --with 'numpy>=2.5.2' --with 'matplotlib>=3.11.1' python -c "import sys; print(sys.executable)" --directory ~/a/deeply/nested/project/path
+```
+
+Output wide enough to scroll, so the same can be checked on the quieter
+surface:
+
+```out
+cpython-3.14.7-macos-aarch64-none    /opt/homebrew/bin/python3.14 -> ../Cellar/python@3.14/3.14.7/bin/python3.14
+```
+
+A one-line command and a one-line output, the shortest the pairing gets:
+
+```bash
+uv --version
+```
+
+```out
+uv 0.12.6
 ```
 
 ### Executed cells

@@ -55,7 +55,7 @@ mentioned in the previous cell
 in order to visualize how your regex is matching the text.
 We will use a list of fruits to learn about regex.
 
-```markdown
+```{.default filename="Fruit list"}
 applesas
 apple
 apricot
@@ -116,7 +116,7 @@ Remember to use one of the websites linked above to help you understand
 what your regex is matching
 (<https://regexr.com/> or <https://regex101.com/>).
 
-```
+```{.default filename="Pattern"}
 [aeiou][aeiou]
 ```
 :::
@@ -146,7 +146,7 @@ where every character is represented by a number.
 The first character in the list is ` ` (space) and the last is `~` (tilde).
 The full list is shown below:
 
-```
+```out
  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
 ```
 
@@ -170,16 +170,14 @@ which matches any character that normally occurs inside a word
 :::{.exercise}
 What is the difference between writing `[A-Za-z]` and [`A-z`]?
 
-```
-[A-z] will also match the characters `[/]^_`, as you can see in the list above.
-```
+`[A-z]` will also match the characters `[/]^_`, as you can see in the list above.
 :::
 
 
 :::{.exercise}
 Match any characters between two `_`.
 
-```
+```{.default filename="Pattern"}
 _.*_
 ```
 :::
@@ -200,7 +198,7 @@ Another useful anchor is `\b`, which matches end of word.
 Write a regex that will match a line that contains only pineapple.
 (Hint: you cannot just write `pineapple` - it will not work - why?)
 
-```
+```{.default filename="Pattern"}
 ^pineapple$
 ```
 
@@ -233,7 +231,7 @@ but it will match `apples`, `appless`, `applesss`, etc.
 :::{.exercise}
 Find the fruits with names between 10 and 12 characters.
 
-```
+```{.default filename="Pattern"}
 .{10,12}
 ```
 :::
@@ -241,7 +239,7 @@ Find the fruits with names between 10 and 12 characters.
 :::{.exercise}
 Find the lines with no more than 4 letters.
 
-```
+```{.default filename="Pattern"}
 ^.{0,4}$
 ```
 :::
@@ -250,11 +248,11 @@ Find the lines with no more than 4 letters.
 Find all the words that contain at least two consecutive vowels.
 
 
-```
+```{.default filename="Pattern"}
 [aeiou]{2,}
 ```
 
-```
+```{.default filename="Pattern"}
 [aeiou][aeiou]+
 ```
 :::
@@ -262,7 +260,7 @@ Find all the words that contain at least two consecutive vowels.
 :::{.exercise}
 This is a bit harder and derives from all previous sections: Match entire words that end in `_`.
 
-```
+```{.default filename="Pattern"}
 \\w*_\\b
 ```
 :::

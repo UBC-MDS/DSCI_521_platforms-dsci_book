@@ -108,6 +108,10 @@ website:
             href: appendix/mds_conda_environment.qmd
 
 filters:
+  # Supplies the "Terminal" / "Output" label on `bash` and `out` listings, so
+  # only a listing with something more specific to say carries a `filename`.
+  # See the header of the file for why it builds Quarto's own header bar.
+  - code-labels.lua
   - custom-callout
 
 # The extension needs literal hex here (it cannot read Sass), so these two

@@ -43,7 +43,10 @@ There are a few ways you can always check if a terminal program exists and can b
   This is the order where your computer is looking for programs.
 
 ```bash
-$ which quarto
+which quarto
+```
+
+```out
 /usr/bin/quarto
 ```
 
@@ -52,7 +55,10 @@ $ which quarto
   If the program does not exist you will see a `command not found` message.
 
 ```bash
-$ quarto --version
+quarto --version
+```
+
+```out
 1.5.55
 ```
 
@@ -63,8 +69,10 @@ $ quarto --version
   For quarto we can use the `--help` flag to also confirm that things are working
 
 ```bash
-$ quarto --help
+quarto --help
+```
 
+```out
 Usage:   quarto
 Version: 1.5.55
 
@@ -107,8 +115,10 @@ We can use `quarto create` to aid in creating the template files for a website.
 These template files and code is also known as "boilerplate".
 
 ```bash
-$ quarto create --help
+quarto create --help
+```
 
+```out
 Usage:   quarto create [type] [commands...]
 Version: 1.5.55
 
@@ -137,7 +147,10 @@ We are going to create a quarto project, but we may still need to know the type 
 When we run `quarto create project` we get a terminal option to pick what kind of type.
 
 ```bash
-$ quarto create project
+quarto create project
+```
+
+```out
  ? Type
  ❯ default
    website
@@ -153,10 +166,12 @@ We'll use `website` in this lecture.
 It will then ask you for a directory:
 
 ```bash
-$ quarto create project
+quarto create project
+```
+
+```out
  ? Type › website
  ? Directory ›
-
 ```
 
 Here we can provide the __relative__ path from your current working directory (i.e., `pwd`) where `quarto` will
@@ -164,7 +179,7 @@ dump all its files.
 
 You will see how it created a few files, and prompt you to open the directory in a text editor:
 
-```bash
+```out
   - Created _quarto.yml
   - Created index.qmd
   - Created about.qmd
@@ -187,7 +202,7 @@ Your folder structure should look like the one below.
 If it does not, you need to move your files to the correct path,
 or start over
 
-```
+```out
 USERNAME.github.io/
 ├── about.qmd
 ├── index.qmd
@@ -202,7 +217,7 @@ Some quarto commands and options may need to run in a quarto project.
 The contents of the `_quarto.yml` (in this example) file tells quarto that we are going to be
 creating a website.
 
-```yml
+```{.yaml filename="_quarto.yml"}
 project:
   type: website
 ```
@@ -265,7 +280,7 @@ If you sill want to have `preview` auto render on save you can do it in one of 3
 2. Change your VSCode quarto extension option to have Render on Save as a default
 3. Add the option to the `_quarto.yml` file or individual document YAML header with:
 
-```yaml
+```{.yaml filename="_quarto.yml"}
 editor:
   render-on-save: true
 ```
@@ -275,7 +290,10 @@ See this page in the quarto help documentaion on
 :::
 
 ```bash
-$ quarto preview
+quarto preview
+```
+
+```out
 Preparing to preview
 
 Watching files for changes
@@ -296,7 +314,10 @@ When we use `quarto render` it will create the website `html` files and give our
 We will have to manually navigate to the `index.html` file to see the website changes as we go.
 
 ```bash
-$ quarto render
+quarto render
+```
+
+```out
 [1/2] about.qmd
 [2/2] index.qmd
 
@@ -399,7 +420,7 @@ This is a problem because our quarto website defaults to putting all the website
 We can change the directory `quarto` renders the files into by editing our `_quarto.yml` file.
 Let's have it render the website files into a folder github understands.
 
-```yml
+```{.yaml filename="_quarto.yml"}
 project:
   type: website
   output-dir: docs
@@ -408,7 +429,10 @@ project:
 When you re-render your site now, the output should reflect your new output directory:
 
 ```bash
-$ quarto render
+quarto render
+```
+
+```out
 [1/2] about.qmd
 [2/2] index.qmd
 
@@ -432,8 +456,10 @@ This can be particularly useful when trying to export out `pdf` documents from a
 if other methods are not working.
 
 ```bash
-$ quarto help render
+quarto help render
+```
 
+```out
 Usage:   quarto render [input] [args...]
 Version: 1.5.55
 
@@ -529,7 +555,7 @@ D. docs
 3. **Customize Your Quarto Website:**
    - Open the `_quarto.yml` file in a text editor and customize the settings as needed.
 
-   ```yml
+   ```{.yaml filename="_quarto.yml"}
    project:
      type: website
      output-dir: docs

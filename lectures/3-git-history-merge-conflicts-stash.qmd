@@ -138,7 +138,7 @@ In the second case, you have to help git by telling it which changes you want to
 If you have committed some changes locally,
 you might see something like this when you try to `push` them:
 
-```
+```out
 To https://github.com/joelostblom/DSCI_521_lab1_jostblom
  ! [rejected]        master -> master (non-fast-forward)
 error: failed to push some refs to 'https://github.com/joelostblom/DSCI_521_lab1_jostblom'
@@ -156,7 +156,7 @@ Git will say that everything went OK and you can `push` up your new changes.
 
 If there are conflicts, you will see something like this:
 
-```
+```out
 
 remote: Enumerating objects: 5, done.
 remote: Counting objects: 100% (5/5), done.
@@ -212,7 +212,7 @@ D. Work only locally or only in the remote repository.
 
 Here's an example of a text file with a conflict and how it can look after you have resolved it:
 
-```
+```{.default filename="README.md"}
 Some text up here
 that is not part of the merge conflict,
 but just included for context.
@@ -248,7 +248,7 @@ For example, this notebook of 2 cells:
 ![alt tag](img/sample_notebook.png)
 
 is encoded by the following JSON:
-```
+```{.json filename="sample_notebook.ipynb"}
 {
  "cells": [
   {
@@ -319,7 +319,7 @@ JupyterLab IDE has made really easy now fix merge conflicts. ...
 If we chose to write something new to replace both commits,
 it could look like this:
 
-```
+```{.default filename="README.md"}
 Some text up here
 that is not part of the merge conflict,
 but just included for context.
@@ -344,7 +344,7 @@ or they are not in the same file you modified.
 If they are in the same file,
 you will get an error message like this:
 
-```
+```out
 error: Your local changes to the following files would be overwritten by merge:
         README.md
 Please commit your changes or stash them before you merge.
@@ -382,11 +382,11 @@ and finish working on the most urgent feature first.
 
 You may have encountered this before:
 
-```
+```bash
 git status
 ```
 
-```
+```out
 On branch timberst-master
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
@@ -403,20 +403,20 @@ Git is letting us know about untracked files (ones we have never committed befor
 
 Using the plain text editor of your choice (mine is VS Code) create a file called `.gitignore` inside your Git repo. To do this with VS Code, I would type:
 
-```
+```bash
 code .gitignore
 ```
 
 Inside the text file, list the files and folders you would like to ignore, one per line. For example:
 
-```
+```{.default filename=".gitignore"}
 .ipynb_checkpoints/
 .DS_Store
 ```
 
 Save the file, and `add` and `commit` it with Git. Then try `git status` again. You should see:
 
-```
+```out
 On branch timberst-master
 nothing to commit, working tree clean
 ```
@@ -441,7 +441,7 @@ In Git, we have the flexibility to handle changes in several ways. We can choose
 
 To move the branch we are currently on back to a previously created commit, we can use the `git reset` command. For example, let's say we are on the master branch of a repository and the output of `git log --oneline` looks like this:
 
-```
+```out
 fb962e0 (HEAD -> master) Add md demo
 bcb541e Make heading more precise
 5c01f2f Initial commit
@@ -455,7 +455,7 @@ So to move to the previous commit,
 we would type `git reset bcb541e`.
 Our git log would now show this:
 
-```
+```out
 bcb541e (HEAD -> master) Make heading more precise
 5c01f2f Initial commit
 ```
@@ -464,7 +464,7 @@ What happened to the changes that were made in commit `fb962e0`?
 The default behavior is to move them back into the working area,
 which was indicated by this message that showed up after we did `git reset bcb541e`:
 
-```
+```out
 Unstaged changes after reset:
 M       README.md
 ```
@@ -479,7 +479,7 @@ since the changes are not unstaged,
 they are discarded.
 Our log now looks like this
 
-```
+```out
 5c01f2f (HEAD -> master) Initial commit
 ```
 
@@ -553,7 +553,7 @@ that undoes an old one.
 1. **Access Your GitHub Home for MDS:**
    - Open your web browser and navigate to:
 
-   ```https://github.ubc.ca/MDS-2021-22/yourCWL_home```
+   `https://github.ubc.ca/MDS-2021-22/yourCWL_home`
 
    - Replace `yourCWL` with your actual CWL.
    - Here you will find links to all the courses' repositories and labs' repositories.
