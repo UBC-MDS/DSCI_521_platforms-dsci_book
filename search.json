@@ -668,135 +668,218 @@
     ]
   },
   {
-    "objectID": "learning_objectives/lo-ch-08.html",
-    "href": "learning_objectives/lo-ch-08.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
+    "objectID": "lectures/book-conventions.html",
+    "href": "lectures/book-conventions.html",
+    "title": "Conventions in the Book",
     "section": "",
-    "text": "Understand the basic syntax and functionality of regular expressions (regex) for pattern matching.\nExplore the use of special characters, ranges, and anchors in regex to match specific patterns within text.\nApply regex to search, extract, and manipulate data in various formats using practical examples.\nUse regular expressions to navigate and organize files within the filesystem."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-06.html",
-    "href": "learning_objectives/lo-ch-06.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Understand how Quarto extend R Markdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-04.html",
-    "href": "learning_objectives/lo-ch-04.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Use the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website"
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-02.html",
-    "href": "learning_objectives/lo-ch-02.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Implement SSH authentication\nDifferentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.\nCreate a Git repository.\nImplement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in VS Code.\nUnderstand what implies using the staging area in a Git workflow.\nRecognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier."
-  },
-  {
-    "objectID": "learning_objectives/lo-ch-00.html",
-    "href": "learning_objectives/lo-ch-00.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface"
-  },
-  {
-    "objectID": "appendix/xaringan_slides.html",
-    "href": "appendix/xaringan_slides.html",
-    "title": "Xaringan Slides",
-    "section": "",
-    "text": "One of the templates you can use is to create a “Ninja presentation” using xaringan. I will let the package author explain why it is named that way:\n\n[Sharingan is] an R package for creating slideshows with remark.js through R Markdown. The package name xaringan comes from Sharingan, a dōjutsu in Naruto with two abilities: the “Eye of Insight” and the “Eye of Hypnotism”. A presentation ninja should have these basic abilities, and I think remark.js may help you acquire these abilities, even if you are not a member of the Uchiha clan.\nhttps://github.com/yihui/xaringan\n\nThe xaringan template is great and lists everything you can do so I won’t repeat everything here. Briefly, slides are separated with ---, and have class labels:\n\ninverse inverts the colors\ncenter centers horizontally\nmiddle centers vertically\n\nInside the slides, you can use R Markdown syntax with some special syntax, such as .pull-left[] and .pull-right[] to create to columns of text. It has support for some interactive features such as table pagination. You can also style the slides by using any of the themes listed by names(xaringan:::list_css()), e.g.\n---\noutput:\n  xaringan::moon_reader:\n    css: [metropolis, metropolis-fonts]\n---\nFor more customization, you can download xaringanthemer (and it’s dependency showtext, which does not seem to install automatically):\n\ninstall.packages(c(\"xaringanthemer\", \"showtext\"))\n\nAnd then select to create a “themed” Ninja presentation via the same process as above. Now there is a code chunk added where you can select the different colors to use for your presentation.",
+    "text": "One page holding every construct the book uses, so a theme or CSS change can be checked in one place, in both light and dark mode. This is a good reference page for how source code renders to the page.\nYou can learn more about features in the Quarto Guide.",
     "crumbs": [
       "Home",
-      "Older Materials",
-      "Xaringan Slides"
+      "Orientation",
+      "Conventions in this Book"
     ]
   },
   {
-    "objectID": "appendix/xaringan_slides.html#presentations-with-r-markdown-via-xaringan",
-    "href": "appendix/xaringan_slides.html#presentations-with-r-markdown-via-xaringan",
-    "title": "Xaringan Slides",
-    "section": "",
-    "text": "One of the templates you can use is to create a “Ninja presentation” using xaringan. I will let the package author explain why it is named that way:\n\n[Sharingan is] an R package for creating slideshows with remark.js through R Markdown. The package name xaringan comes from Sharingan, a dōjutsu in Naruto with two abilities: the “Eye of Insight” and the “Eye of Hypnotism”. A presentation ninja should have these basic abilities, and I think remark.js may help you acquire these abilities, even if you are not a member of the Uchiha clan.\nhttps://github.com/yihui/xaringan\n\nThe xaringan template is great and lists everything you can do so I won’t repeat everything here. Briefly, slides are separated with ---, and have class labels:\n\ninverse inverts the colors\ncenter centers horizontally\nmiddle centers vertically\n\nInside the slides, you can use R Markdown syntax with some special syntax, such as .pull-left[] and .pull-right[] to create to columns of text. It has support for some interactive features such as table pagination. You can also style the slides by using any of the themes listed by names(xaringan:::list_css()), e.g.\n---\noutput:\n  xaringan::moon_reader:\n    css: [metropolis, metropolis-fonts]\n---\nFor more customization, you can download xaringanthemer (and it’s dependency showtext, which does not seem to install automatically):\n\ninstall.packages(c(\"xaringanthemer\", \"showtext\"))\n\nAnd then select to create a “themed” Ninja presentation via the same process as above. Now there is a code chunk added where you can select the different colors to use for your presentation.",
+    "objectID": "lectures/book-conventions.html#text",
+    "href": "lectures/book-conventions.html#text",
+    "title": "Conventions in the Book",
+    "section": "Text",
+    "text": "Text\nBody text, with bold, italic, inline code, a link to another page and an external link. Keyboard keys are written with &lt;kbd&gt;. Enough of them to wrap, so their boxes can be checked against each other on neighbouring lines: press Ctrl + C to stop a running command, Ctrl + D to close the shell, Tab to complete a path, Up and Down to walk back through your history, and Ctrl + R to search it.\n\nA third-level heading\n\nA fourth-level heading\n\nAn unordered list\nwith a second item\n\nand a nested item\n\n\n\nAn ordered list\nwith a second item\n\n\nA blockquote.",
     "crumbs": [
       "Home",
-      "Older Materials",
-      "Xaringan Slides"
+      "Orientation",
+      "Conventions in this Book"
     ]
   },
   {
-    "objectID": "appendix/xaringan_slides.html#sharing-xaringan",
-    "href": "appendix/xaringan_slides.html#sharing-xaringan",
-    "title": "Xaringan Slides",
-    "section": "Sharing xaringan",
-    "text": "Sharing xaringan\nWe can’t use HTML preview with xaringan because it relies on external web resources that are not loaded correctly with the preview trick. This means that there is no way for us to privately preview out presentation. However, if we are looking to share our slides publicly, this is still possible via GitHub Pages.\nGitHub Pages can create a public URL for any GitHub repository that you own, and automatically renders any HTML files within this repo. You can find a short tutorial on how to setup Pages for your repo here, but in brief you need to go to the settings page of your GitHub repo, scroll down to where it says “GitHub Pages” on the main settings page and select which branch you want to publish. It is common to create a separate branch called gh-pages and keep all files that should be available to the public on this branch, but if you just want to experiment in and otherwise empty repo, it is fine to use the master branch.\nBy default, GitHub pages will render a README.md file or an index.html file if you have these at the root of your repo. So in our case, we could name our presentation file index.html and put it at the root of the repo, and then share the GH Pages link of the repo with others (you can find this link in the settings page where you enabled GH Pages).\nYou could create links to other files yourself, but commonly a framework is used to automate this and add many other functions to your GH Pages, such as Jekyll or Hugo. A rewarding way to learn how to work with GH Pages is to create a personal web page. I used Hugo via the “Academic” theme to create my site, and I think it was great and their documentation is comprehensive albeit a bit long. Distill package can also help you to create webpages and blogs using R Markdown.",
+    "objectID": "lectures/book-conventions.html#code",
+    "href": "lectures/book-conventions.html#code",
+    "title": "Conventions in the Book",
+    "section": "Code",
+    "text": "Code\nStatic listings first, one per language the book uses, then cells that actually run.\n# r code\na &lt;- 1\na^2\n# a bash command (terminal) using bash listing\nls\n# bash output using out listing\n\nApplications    Pictures\nDesktop         Documents       Movies\nDownloads       Music\n# yaml listing, used for _quarto.yml and the GitHub Actions workflow\nproject:\n  type: website\n# toml listing, used for pyproject.toml\n[project]\nrequires-python = \"&gt;=3.12\"\n# a python listing that is shown but not run\na = 3\n# markdown listing\n# empty listing\nA listing wider than the page, so the horizontal scrollbar can be checked. Real lines in the book reach about 150 characters:\nuv run --with 'numpy&gt;=2.5.2' --with 'matplotlib&gt;=3.11.1' python -c \"import sys; print(sys.executable)\" --directory ~/a/deeply/nested/project/path\n\nExecuted cells\nA cell and its output:\n\n# python code\na = 3\na**2\n\n9\n\n\nA cell showing its own fence, which is how the book explains chunk options:\n\n```{python}\na + 1\n```\n\n4\n\n\nAn R cell and its output. The page is pinned to the knitr engine in the front matter, so the Python cells above run through reticulate, which picks up the uv venv from VIRTUAL_ENV when the book is rendered with uv run:\n\n# r code\na &lt;- 1:5\na^2\n\n[1]  1  4  9 16 25\n\n\nA cell that writes to stderr, which Quarto puts in an output block of its own. This one is R, because under knitr a Python warning arrives on stdout instead:\n\nwarning(\"a warning from a cell\")\n\nWarning: a warning from a cell\n\n\nA cell whose output is a figure:\n\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3], [1, 4, 9])\nplt.show()",
     "crumbs": [
       "Home",
-      "Older Materials",
-      "Xaringan Slides"
+      "Orientation",
+      "Conventions in this Book"
     ]
   },
   {
-    "objectID": "appendix/rstudio_config.html",
-    "href": "appendix/rstudio_config.html",
-    "title": "RStudio Configuration",
+    "objectID": "lectures/book-conventions.html#callouts",
+    "href": "lectures/book-conventions.html#callouts",
+    "title": "Conventions in the Book",
+    "section": "Callouts",
+    "text": "Callouts\n\n\n\n\n\n\nNote\n\n\n\nA note!\n\n\n\n\n\n\n\n\nTip\n\n\n\nA tip!\n\n\n\n\n\n\n\n\nWarning\n\n\n\nA warning!\n\n\n\n\n\n\n\n\nImportant\n\n\n\nAn important!\n\n\n\n\n\n\n\n\nCaution\n\n\n\nA caution!\n\n\n\n\n\n\n\n\nExerciseExercise\n\n\n\nAn exercise!\n\n\n\n\n\n\n\n\nActivityActivity\n\n\n\nAn activity!\n\n\n\n\n\n\n\n\nExerciseExercise\n\n\n\nAnother exercise!\n\n\n\n\n\n\n\n\nActivityActivity\n\n\n\nAnother activity!\n\n\nCallouts hold listings too, and Quarto styles those differently from a listing out in the body:\n\n\n\n\n\n\nNote\n\n\n\nA note with a listing in it:\nls -la",
+    "crumbs": [
+      "Home",
+      "Orientation",
+      "Conventions in this Book"
+    ]
+  },
+  {
+    "objectID": "lectures/book-conventions.html#tables",
+    "href": "lectures/book-conventions.html#tables",
+    "title": "Conventions in the Book",
+    "section": "Tables",
+    "text": "Tables\n\n\n\nCommand\nPurpose\nExample use\n\n\n\n\npwd\nPrint Working Directory\npwd\n\n\nls\nLiSt contents\nls Documents\n\n\ncd\nChange Directory\ncd Desktop",
+    "crumbs": [
+      "Home",
+      "Orientation",
+      "Conventions in this Book"
+    ]
+  },
+  {
+    "objectID": "lectures/book-conventions.html#math",
+    "href": "lectures/book-conventions.html#math",
+    "title": "Conventions in the Book",
+    "section": "Math",
+    "text": "Math\nInline math, \\(y = mx + b\\), and display math:\n\\[f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x-a}\\]",
+    "crumbs": [
+      "Home",
+      "Orientation",
+      "Conventions in this Book"
+    ]
+  },
+  {
+    "objectID": "lectures/book-conventions.html#figures",
+    "href": "lectures/book-conventions.html#figures",
+    "title": "Conventions in the Book",
+    "section": "Figures",
+    "text": "Figures\n\n\n\nA figure with a caption. Most figures in the book have no caption.",
+    "crumbs": [
+      "Home",
+      "Orientation",
+      "Conventions in this Book"
+    ]
+  },
+  {
+    "objectID": "lectures/book-conventions.html#tabsets",
+    "href": "lectures/book-conventions.html#tabsets",
+    "title": "Conventions in the Book",
+    "section": "Tabsets",
+    "text": "Tabsets\n\nMacOS + *nixWindows\n\n\nThe contents of one tab, which is usually a listing:\nssh-keygen -t ed25519 -C \"you@example.com\"\n\n\nThe contents of the other tab.",
+    "crumbs": [
+      "Home",
+      "Orientation",
+      "Conventions in this Book"
+    ]
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-07.html",
+    "href": "learning_objectives/lo-ch-07.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
     "section": "",
-    "text": "In the Tools &gt; Global Options &gt; General Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no .RData is saved when you quit RStudio, and to never save the .RData (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).",
+    "text": "Understand what a computational environment is and how it can ensure the reproducibility of a project\nDifferentiate Python, PyPI, pip, venv, and uv\nDistinguish between the packages a project declares (pyproject.toml, DESCRIPTION) and the packages a project locks (uv.lock, renv.lock)\nManage packages and environments in Python using uv\nManage packages and environments in R using renv"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-05.html",
+    "href": "learning_objectives/lo-ch-05.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Create RProjects in RStudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown.\nExplain markdown usage in relation to dynamic documents.\nDifferentiate between code chunks and code cells in RMarkdown and Jupyter Notebooks.\nSelect appropriate code chunk options for RMarkdown.\nUse semantic line breaks for version control files.\nSpecify metadata in the YAML header block."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-03.html",
+    "href": "learning_objectives/lo-ch-03.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Explore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-01.html",
+    "href": "learning_objectives/lo-ch-01.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Recognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.\nDistinguish common operators and representations of the different filesystem elements typically used in Bash.\nExplore the filesystem using Bash commands as ls, pwd and cd.\nTranslate an absolute path into a relative path and vice versa.\nUse command-line arguments to produce alternative outputs of commands.\nCreate, edit, move, and delete files and folders using the command line and VS Code."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-00-rstudio.html",
+    "href": "learning_objectives/lo-ch-00-rstudio.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Launch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface"
+  },
+  {
+    "objectID": "appendix/semantic_line_breaks.html",
+    "href": "appendix/semantic_line_breaks.html",
+    "title": "Semantic Line Breaks",
+    "section": "",
+    "text": "Most documents go through several versions (always more than you expected) before they are finally finished. Accordingly, you should do whatever possible to make the job of changing them easy.\nFirst, when you do the purely mechanical operations of typing, type so subsequent editing will be easy. Start each sentence on a new line. Make lines short, and break lines at natural places, such as after commas and semicolons, rather than randomly. Since most people change documents by rewriting phrases and adding, deleting and rearranging sentences, these precautions simplify any editing you have to do later.\n— Brian W. Kernighan, 1974 [9]\n\nSemantic line breaks utilize how markdown treats line breaks and tries to combine it with regular prose text. You can read more about semantic line breaks here: https://sembr.org/\nHere are examples of how it works with markdown syntax\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\nis rendered as:\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\nthis is a very long line that has\nover 80 characterslasdfja asldfja\nsljf lsd jflkadjsf\nis rendered as:\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\n\nAdd a line break\nMarkdown allows 2 spaces at the end of a line for a line break\nthis is a very long line that has&lt;br/&gt;\nover 80 characterslasdfja asldfja&lt;br/&gt;\nsljf lsd jflkadjsf\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\nMarkdown also allows 2 spaces at the end of a line for a line break. THis may not work with many text editor options that strip trailing white space\n\n\nAdd an empty line for a paragraph break\nthis is a very long line that has\n\nover 80 characterslasdfja asldfja\n\nsljf lsd jflkadjsf\nRendered as:\nthis is a very long line that has\nover 80 characterslasdfja asldfja\nsljf lsd jflkadjsf",
     "crumbs": [
       "Home",
       "Additional Information",
-      "RStudio Configuration"
+      "Semantic Line Breaks"
     ]
   },
   {
-    "objectID": "appendix/rstudio_config.html#global-setup",
-    "href": "appendix/rstudio_config.html#global-setup",
-    "title": "RStudio Configuration",
+    "objectID": "appendix/rmarkdown_tips.html",
+    "href": "appendix/rmarkdown_tips.html",
+    "title": "R Markdown Tips",
     "section": "",
-    "text": "In the Tools &gt; Global Options &gt; General Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no .RData is saved when you quit RStudio, and to never save the .RData (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).",
+    "text": "R Markdown repetition and a few tips\nLet’s start with creating an r project again. To use this with an existing git repo, with can select “Existing dir”. You can also create an empty one and move your git repo in here later, as long as there is an .git folder RStudio will show you the context menu for git.\nNext, let’s create an R Notebook. We could have a create an R Markdown document also, but the notebook offers a few conveniences. Mostly that it has a preview option html_notebook that renders the notebook to HTML in its curent state. In contrast, knitting the notebook to HTML via html_document will run all cells so this takes longer.\nNote that it is important to knit to HTML before sharing so that you are sure everything works from scratch. This is the same reason we should do “Run all” in Jupyter Lab before sharing and why we don’t want to store our R workspace sessions. We need to make sure that someone new can run this from it’s current state. Another useful tool for this in R is to use devtools::session_info() at the top or bottom of your document (I put it at the end of the chunk where I load libraries) to ensure that you have included information about the versions of the packages you are running so that someone else can use the same version. There are more robust ways of version control that we will get into later in MDS, but this is a good minimum measure that is easy for you to get into the habit of doing.\nA couple of features that are good to know in addition to those we learnt last time, are block commenting and automatic code reformatting. If I type a few lines where I for example forget to add whitespace around an operator or assignment, going to Code -&gt; Reformat code ( Ctrl + Shift + A on Windows/Linux or ⌘ + Shift + A on a Mac ) will fix this automatically for all highlighted lines. If I want to toogle commenting for some lines, I can click Code -&gt; Comment/Uncomment line ( Ctrl + Shift + C on Windows/Linux or ⌘ + Shift + C on a Mac ), instead of manually adding # in front of each line.\nOne final tip is the use of the here package for file paths. We have already solved the part of setting working directory by creating an R proj. If you only plant on using R Markdown file, you would be fine writing relative paths (e.g. ../data/cars.csv) the same way you would write them in Python because they look relative their own location. However, if you also need to run something from a script or the console, note that the working directory path will now be used as the current directory, rather than the directoy of the script so the same relative path will not work (you would need data/cars.csv instead). here solves this by allowing you to type here::here('data', 'cars.csv') from wherever you are which also makes sure that file paths work across operating systems (more info on here here.\n\n\nR Markdown YAML header\nThe YAML header (also called the “front matter”) is where we can specify metadata about our project. It is delimited by two --- (three hyphens) and we create a new notebook, it looks like this:\n---\ntitle: \"R Notebook\"\noutput: html_notebook\n---\nIn YAML, data is stored as a key: value pair, just like a Python dictionary. We can add new values, for example the author name and the date.\n---\ntitle: \"R Notebook\"\noutput: html_notebook\nauthor: Joel Ostblom\ndate: 2020-09-23\n---\nR code can be evaluated inside the YAML header, so if we wanted the date to be updated every time we stitch the document, we could instead write date: `r Sys.Date()`. Other useful options include the ones for numbering headings, adding a table of contents, and placing the table of contents on the side of the document. Since these are options to the output document, they are indented under that section with two or four spaces:\n---\noutput:\n  html_notebook:\n    toc: yes\n    toc_float: yes\n    number_sections: yes\n---\nAnother useful option is to fold away your code, but still having it available for view if someone desires to see it.\n---\noutput:\n  html_document:\n    code_folding: hide\n---",
     "crumbs": [
       "Home",
       "Additional Information",
-      "RStudio Configuration"
+      "R Markdown tips"
     ]
   },
   {
-    "objectID": "appendix/rstudio_config.html#latex-and-xelatex",
-    "href": "appendix/rstudio_config.html#latex-and-xelatex",
-    "title": "RStudio Configuration",
-    "section": "LaTeX and XeLaTeX",
-    "text": "LaTeX and XeLaTeX\nIn the Sweave option\nchange the Sweave option to Knitr, and pdflatex to xelatex.",
-    "crumbs": [
-      "Home",
-      "Additional Information",
-      "RStudio Configuration"
-    ]
-  },
-  {
-    "objectID": "appendix/rstudio_config.html#code-snippets",
-    "href": "appendix/rstudio_config.html#code-snippets",
-    "title": "RStudio Configuration",
-    "section": "Code snippets",
-    "text": "Code snippets\nAs we started to type for above, the code completion popped up and the first entry said “snippet”, what is that? A code snippet is a text macro, which means that you can type a short string of characters to insert a template or snippet of text by pressing TAB. You can see all the default snippets and define your own by going to Tools -&gt; Global options -&gt; Code -&gt; Edit snippets. Snippets are available anywhere in RStudio, not just in R Markdown documents.",
-    "crumbs": [
-      "Home",
-      "Additional Information",
-      "RStudio Configuration"
-    ]
-  },
-  {
-    "objectID": "appendix/mds_conda_environment.html",
-    "href": "appendix/mds_conda_environment.html",
-    "title": "MDS Conda Python Environment",
+    "objectID": "appendix/git_config.html",
+    "href": "appendix/git_config.html",
+    "title": "Git Configuration",
     "section": "",
-    "text": "The MDS Installation Guide has a section on the Python setup. After you install miniforge3, you can install the packages we had you install from the guide using. In the installation guide, we had you run this in the base conda environment. By the end of this course, you should know how to create, activate, and install these packages in a separate environment.\nconda install python=3.11 pandas jupyterlab jupyterlab-git jupyterlab-spellchecker otter-grader\nYou can choose to manually curate an environment.yml file as such:\nname: mds-base\nchannels:\n  - conda-forge\ndependencies:\n  - conda\n  - python=3.12\n  - pandas\n  - jupyterlab\n  - jupyterlab-git\n  - jupyterlab-spellchecker\n  - otter-grader\nThis is a great base reference file for all the classes you will need in MDS.",
+    "text": "A short list of commands for git setup from the installation instructions and other settings to get goit working from the course\nConfigure your git commit messages (User and Email)\nUse your email for github.com (not ubc github)\nSSH keys\nEdit ~/.ssh/config\nUse your ~/.ssh/id_ed25519.pub file and copy paste the contents to register your SSH key in BOTH the github.com and github.ubc.ca accounts.",
     "crumbs": [
       "Home",
-      "Older Materials",
-      "MDS Conda Python Environment"
+      "Additional Information",
+      "Git Configuration"
     ]
+  },
+  {
+    "objectID": "appendix/git_config.html#git-pull-merge-option",
+    "href": "appendix/git_config.html#git-pull-merge-option",
+    "title": "Git Configuration",
+    "section": "Git pull merge option",
+    "text": "Git pull merge option\nIf you push and try to pull with changes in the remote, you need to tell git how to reconcile the differences.\nYou may see this:\nhint: You have divergent branches and need to specify how to reconcile them.\nhint: You can do so by running one of the following commands sometime before\nhint: your next pull:\nhint:\nhint:   git config pull.rebase false  # merge\nhint:   git config pull.rebase true   # rebase\nhint:   git config pull.ff only       # fast-forward only\nhint:\nhint: You can replace \"git config\" with \"git config --global\" to set a default\nhint: preference for all repositories. You can also pass --rebase, --no-rebase,\nhint: or --ff-only on the command line to override the configured default per\nhint: invocation.\nfatal: Need to specify how to reconcile divergent branches.\nWe will use the old git default setting of rebase false (the first option).\nYou can do this as a repo specific setting or as a global setting (add a --global flag) like you did with user.name and user.email\n\nRepo setting: git config pull.rebase false\nGlobal: git config --global pull.rebase false\n\nTHen you can pull again, where you may or may not see a merge conflict.",
+    "crumbs": [
+      "Home",
+      "Additional Information",
+      "Git Configuration"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "How to install, maintain, and use the data scientific software “stack”. The Unix operating system, integrated development environments, and problem solving strategies."
+  },
+  {
+    "objectID": "index.html#course-learning-objectives",
+    "href": "index.html#course-learning-objectives",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "Course Learning Objectives",
+    "text": "Course Learning Objectives\n\nUse the Unix command line to navigate their computer’s filesystem.\nDefine and distinguish between absolute file paths and relative file paths.\nEffectively use local and remote version control software (e.g., Git and GitHub) to organize projects and manage file versions.\nCreate, edit and run reproducible literate Python and R code documents (e.g., reports and presentations) using Jupyter and RMarkdown.\nWrite and edit Markdown and in-line LaTeX syntax within literate code documents.\nDefine and correctly use a project working directory.\nDiagnose and troubleshoot programming and development environment problems, and explain how such problems can be avoided."
+  },
+  {
+    "objectID": "index.html#lesson-learning-objectives-and-readings",
+    "href": "index.html#lesson-learning-objectives-and-readings",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "Lesson Learning Objectives and Readings",
+    "text": "Lesson Learning Objectives and Readings\nLesson 0\n\nLaunch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface\nLaunch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface\n\nLesson 1\n\nRecognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.\nDistinguish common operators and representations of the different filesystem elements typically used in Bash.\nExplore the filesystem using Bash commands as ls, pwd and cd.\nTranslate an absolute path into a relative path and vice versa.\nUse command-line arguments to produce alternative outputs of commands.\nCreate, edit, move, and delete files and folders using the command line and VS Code.\n\n\nThe Unix Shell: Navigating Files and Directories or The shell\nIntroduce yourself to Git\nConnect to GitHub\nJupyter Notebook Tutorial: The Definitive Guide\n\nLesson 2\n\nImplement SSH authentication\nDifferentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.\nCreate a Git repository.\nImplement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in VS Code.\nUnderstand what implies using the staging area in a Git workflow.\nRecognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier.\n\n\nExcuse me, do you have a moment to talk about version control? by Jenny Bryan\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks\n\nLesson 3\n\nExplore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project.\n\n\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks\n\nLesson 4\n\nUse the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website\n\n\nQuarto Guides\nGetting Started with GitHub Pages\n\nLesson 5\n\nCreate RProjects in RStudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown.\nExplain markdown usage in relation to dynamic documents.\nDifferentiate between code chunks and code cells in RMarkdown and Jupyter Notebooks.\nSelect appropriate code chunk options for RMarkdown.\nUse semantic line breaks for version control files.\nSpecify metadata in the YAML header block.\n\n\nUsing RStudio Projects\nR Markdown Cheat Sheet\nR Markdown home page\nR Markdown: The Definitive Guide\nR Markdown code chunk options\nWhat they forgot to teach you about R\nConnect RStudio to Git and GitHub\nR-cubed rostools workshop\n\nLesson 6\n\nUnderstand how Quarto extend R Markdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages.\n\n\nR Markdown presentations with xaringan\nJupyter presentations\nQuarto Presentations\n\nLesson 7\n\nUnderstand what a computational environment is and how it can ensure the reproducibility of a project\nDifferentiate Python, PyPI, pip, venv, and uv\nDistinguish between the packages a project declares (pyproject.toml, DESCRIPTION) and the packages a project locks (uv.lock, renv.lock)\nManage packages and environments in Python using uv\nManage packages and environments in R using renv\n\n\nconda environemnts\nrenv\nWorkflow: projects\n\nLesson 8\n\nUnderstand the basic syntax and functionality of regular expressions (regex) for pattern matching.\nExplore the use of special characters, ranges, and anchors in regex to match specific patterns within text.\nApply regex to search, extract, and manipulate data in various formats using practical examples.\nUse regular expressions to navigate and organize files within the filesystem.\n\n\nRegex\nRegex test\nPracticing Regex\nThree tips for posting good questions to R-help and Stack Overflow\nHow to create a Minimal, Complete, and Verifiable example\nGood Enough Practices in Scientific Computing\n.gitignore"
+  },
+  {
+    "objectID": "index.html#attributions",
+    "href": "index.html#attributions",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "Attributions",
+    "text": "Attributions\nMaterials were inspired, re-used and re-mixed from the following sources: - Software Carpentry, specifically the Unix Shell and Git lessons - Happy Git and GitHub for the useR by Jenny Bryan and the STAT 545 TAs - Data 8: The Foundations of Data Science, specifically Lab 01 - Data Carpentry Reproducible Science Workshop"
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "License",
+    "text": "License\nThe UBC Master of Data Science DSCI 521: Computing Platforms for Data Science course materials here are licensed under the Creative Commons Attribution 2.5 Canada License (CC BY 2.5 CA). If re-using/re-mixing please provide attribution and link to this webpage."
   },
   {
     "objectID": "appendix/virtual-environments-conda.html",
@@ -931,122 +1014,135 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
+    "objectID": "appendix/mds_conda_environment.html",
+    "href": "appendix/mds_conda_environment.html",
+    "title": "MDS Conda Python Environment",
     "section": "",
-    "text": "How to install, maintain, and use the data scientific software “stack”. The Unix operating system, integrated development environments, and problem solving strategies."
-  },
-  {
-    "objectID": "index.html#course-learning-objectives",
-    "href": "index.html#course-learning-objectives",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "Course Learning Objectives",
-    "text": "Course Learning Objectives\n\nUse the Unix command line to navigate their computer’s filesystem.\nDefine and distinguish between absolute file paths and relative file paths.\nEffectively use local and remote version control software (e.g., Git and GitHub) to organize projects and manage file versions.\nCreate, edit and run reproducible literate Python and R code documents (e.g., reports and presentations) using Jupyter and RMarkdown.\nWrite and edit Markdown and in-line LaTeX syntax within literate code documents.\nDefine and correctly use a project working directory.\nDiagnose and troubleshoot programming and development environment problems, and explain how such problems can be avoided."
-  },
-  {
-    "objectID": "index.html#lesson-learning-objectives-and-readings",
-    "href": "index.html#lesson-learning-objectives-and-readings",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "Lesson Learning Objectives and Readings",
-    "text": "Lesson Learning Objectives and Readings\nLesson 0\n\nLaunch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface\nLaunch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface\n\nLesson 1\n\nRecognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.\nDistinguish common operators and representations of the different filesystem elements typically used in Bash.\nExplore the filesystem using Bash commands as ls, pwd and cd.\nTranslate an absolute path into a relative path and vice versa.\nUse command-line arguments to produce alternative outputs of commands.\nCreate, edit, move, and delete files and folders using the command line and VS Code.\n\n\nThe Unix Shell: Navigating Files and Directories or The shell\nIntroduce yourself to Git\nConnect to GitHub\nJupyter Notebook Tutorial: The Definitive Guide\n\nLesson 2\n\nImplement SSH authentication\nDifferentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.\nCreate a Git repository.\nImplement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in VS Code.\nUnderstand what implies using the staging area in a Git workflow.\nRecognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier.\n\n\nExcuse me, do you have a moment to talk about version control? by Jenny Bryan\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks\n\nLesson 3\n\nExplore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project.\n\n\nComparing commits across time\nResolving a merge conflict using the command line\nnbdime – diffing and merging of Jupyter Notebooks\n\nLesson 4\n\nUse the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website\n\n\nQuarto Guides\nGetting Started with GitHub Pages\n\nLesson 5\n\nCreate RProjects in RStudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown.\nExplain markdown usage in relation to dynamic documents.\nDifferentiate between code chunks and code cells in RMarkdown and Jupyter Notebooks.\nSelect appropriate code chunk options for RMarkdown.\nUse semantic line breaks for version control files.\nSpecify metadata in the YAML header block.\n\n\nUsing RStudio Projects\nR Markdown Cheat Sheet\nR Markdown home page\nR Markdown: The Definitive Guide\nR Markdown code chunk options\nWhat they forgot to teach you about R\nConnect RStudio to Git and GitHub\nR-cubed rostools workshop\n\nLesson 6\n\nUnderstand how Quarto extend R Markdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages.\n\n\nR Markdown presentations with xaringan\nJupyter presentations\nQuarto Presentations\n\nLesson 7\n\nUnderstand what a computational environment is and how it can ensure the reproducibility of a project\nDifferentiate Python, PyPI, pip, venv, and uv\nDistinguish between the packages a project declares (pyproject.toml, DESCRIPTION) and the packages a project locks (uv.lock, renv.lock)\nManage packages and environments in Python using uv\nManage packages and environments in R using renv\n\n\nconda environemnts\nrenv\nWorkflow: projects\n\nLesson 8\n\nUnderstand the basic syntax and functionality of regular expressions (regex) for pattern matching.\nExplore the use of special characters, ranges, and anchors in regex to match specific patterns within text.\nApply regex to search, extract, and manipulate data in various formats using practical examples.\nUse regular expressions to navigate and organize files within the filesystem.\n\n\nRegex\nRegex test\nPracticing Regex\nThree tips for posting good questions to R-help and Stack Overflow\nHow to create a Minimal, Complete, and Verifiable example\nGood Enough Practices in Scientific Computing\n.gitignore"
-  },
-  {
-    "objectID": "index.html#attributions",
-    "href": "index.html#attributions",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "Attributions",
-    "text": "Attributions\nMaterials were inspired, re-used and re-mixed from the following sources: - Software Carpentry, specifically the Unix Shell and Git lessons - Happy Git and GitHub for the useR by Jenny Bryan and the STAT 545 TAs - Data 8: The Foundations of Data Science, specifically Lab 01 - Data Carpentry Reproducible Science Workshop"
-  },
-  {
-    "objectID": "index.html#license",
-    "href": "index.html#license",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "License",
-    "text": "License\nThe UBC Master of Data Science DSCI 521: Computing Platforms for Data Science course materials here are licensed under the Creative Commons Attribution 2.5 Canada License (CC BY 2.5 CA). If re-using/re-mixing please provide attribution and link to this webpage."
-  },
-  {
-    "objectID": "appendix/git_config.html",
-    "href": "appendix/git_config.html",
-    "title": "Git Configuration",
-    "section": "",
-    "text": "A short list of commands for git setup from the installation instructions and other settings to get goit working from the course\nConfigure your git commit messages (User and Email)\nUse your email for github.com (not ubc github)\nSSH keys\nEdit ~/.ssh/config\nUse your ~/.ssh/id_ed25519.pub file and copy paste the contents to register your SSH key in BOTH the github.com and github.ubc.ca accounts.",
+    "text": "The MDS Installation Guide has a section on the Python setup. After you install miniforge3, you can install the packages we had you install from the guide using. In the installation guide, we had you run this in the base conda environment. By the end of this course, you should know how to create, activate, and install these packages in a separate environment.\nconda install python=3.11 pandas jupyterlab jupyterlab-git jupyterlab-spellchecker otter-grader\nYou can choose to manually curate an environment.yml file as such:\nname: mds-base\nchannels:\n  - conda-forge\ndependencies:\n  - conda\n  - python=3.12\n  - pandas\n  - jupyterlab\n  - jupyterlab-git\n  - jupyterlab-spellchecker\n  - otter-grader\nThis is a great base reference file for all the classes you will need in MDS.",
     "crumbs": [
       "Home",
-      "Additional Information",
-      "Git Configuration"
+      "Older Materials",
+      "MDS Conda Python Environment"
     ]
   },
   {
-    "objectID": "appendix/git_config.html#git-pull-merge-option",
-    "href": "appendix/git_config.html#git-pull-merge-option",
-    "title": "Git Configuration",
-    "section": "Git pull merge option",
-    "text": "Git pull merge option\nIf you push and try to pull with changes in the remote, you need to tell git how to reconcile the differences.\nYou may see this:\nhint: You have divergent branches and need to specify how to reconcile them.\nhint: You can do so by running one of the following commands sometime before\nhint: your next pull:\nhint:\nhint:   git config pull.rebase false  # merge\nhint:   git config pull.rebase true   # rebase\nhint:   git config pull.ff only       # fast-forward only\nhint:\nhint: You can replace \"git config\" with \"git config --global\" to set a default\nhint: preference for all repositories. You can also pass --rebase, --no-rebase,\nhint: or --ff-only on the command line to override the configured default per\nhint: invocation.\nfatal: Need to specify how to reconcile divergent branches.\nWe will use the old git default setting of rebase false (the first option).\nYou can do this as a repo specific setting or as a global setting (add a --global flag) like you did with user.name and user.email\n\nRepo setting: git config pull.rebase false\nGlobal: git config --global pull.rebase false\n\nTHen you can pull again, where you may or may not see a merge conflict.",
+    "objectID": "appendix/rstudio_config.html",
+    "href": "appendix/rstudio_config.html",
+    "title": "RStudio Configuration",
+    "section": "",
+    "text": "In the Tools &gt; Global Options &gt; General Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no .RData is saved when you quit RStudio, and to never save the .RData (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).",
     "crumbs": [
       "Home",
       "Additional Information",
-      "Git Configuration"
+      "RStudio Configuration"
     ]
   },
   {
-    "objectID": "appendix/rmarkdown_tips.html",
-    "href": "appendix/rmarkdown_tips.html",
-    "title": "R Markdown Tips",
+    "objectID": "appendix/rstudio_config.html#global-setup",
+    "href": "appendix/rstudio_config.html#global-setup",
+    "title": "RStudio Configuration",
     "section": "",
-    "text": "R Markdown repetition and a few tips\nLet’s start with creating an r project again. To use this with an existing git repo, with can select “Existing dir”. You can also create an empty one and move your git repo in here later, as long as there is an .git folder RStudio will show you the context menu for git.\nNext, let’s create an R Notebook. We could have a create an R Markdown document also, but the notebook offers a few conveniences. Mostly that it has a preview option html_notebook that renders the notebook to HTML in its curent state. In contrast, knitting the notebook to HTML via html_document will run all cells so this takes longer.\nNote that it is important to knit to HTML before sharing so that you are sure everything works from scratch. This is the same reason we should do “Run all” in Jupyter Lab before sharing and why we don’t want to store our R workspace sessions. We need to make sure that someone new can run this from it’s current state. Another useful tool for this in R is to use devtools::session_info() at the top or bottom of your document (I put it at the end of the chunk where I load libraries) to ensure that you have included information about the versions of the packages you are running so that someone else can use the same version. There are more robust ways of version control that we will get into later in MDS, but this is a good minimum measure that is easy for you to get into the habit of doing.\nA couple of features that are good to know in addition to those we learnt last time, are block commenting and automatic code reformatting. If I type a few lines where I for example forget to add whitespace around an operator or assignment, going to Code -&gt; Reformat code ( Ctrl + Shift + A on Windows/Linux or ⌘ + Shift + A on a Mac ) will fix this automatically for all highlighted lines. If I want to toogle commenting for some lines, I can click Code -&gt; Comment/Uncomment line ( Ctrl + Shift + C on Windows/Linux or ⌘ + Shift + C on a Mac ), instead of manually adding # in front of each line.\nOne final tip is the use of the here package for file paths. We have already solved the part of setting working directory by creating an R proj. If you only plant on using R Markdown file, you would be fine writing relative paths (e.g. ../data/cars.csv) the same way you would write them in Python because they look relative their own location. However, if you also need to run something from a script or the console, note that the working directory path will now be used as the current directory, rather than the directoy of the script so the same relative path will not work (you would need data/cars.csv instead). here solves this by allowing you to type here::here('data', 'cars.csv') from wherever you are which also makes sure that file paths work across operating systems (more info on here here.\n\n\nR Markdown YAML header\nThe YAML header (also called the “front matter”) is where we can specify metadata about our project. It is delimited by two --- (three hyphens) and we create a new notebook, it looks like this:\n---\ntitle: \"R Notebook\"\noutput: html_notebook\n---\nIn YAML, data is stored as a key: value pair, just like a Python dictionary. We can add new values, for example the author name and the date.\n---\ntitle: \"R Notebook\"\noutput: html_notebook\nauthor: Joel Ostblom\ndate: 2020-09-23\n---\nR code can be evaluated inside the YAML header, so if we wanted the date to be updated every time we stitch the document, we could instead write date: `r Sys.Date()`. Other useful options include the ones for numbering headings, adding a table of contents, and placing the table of contents on the side of the document. Since these are options to the output document, they are indented under that section with two or four spaces:\n---\noutput:\n  html_notebook:\n    toc: yes\n    toc_float: yes\n    number_sections: yes\n---\nAnother useful option is to fold away your code, but still having it available for view if someone desires to see it.\n---\noutput:\n  html_document:\n    code_folding: hide\n---",
+    "text": "In the Tools &gt; Global Options &gt; General Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no .RData is saved when you quit RStudio, and to never save the .RData (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).",
     "crumbs": [
       "Home",
       "Additional Information",
-      "R Markdown tips"
+      "RStudio Configuration"
     ]
   },
   {
-    "objectID": "appendix/semantic_line_breaks.html",
-    "href": "appendix/semantic_line_breaks.html",
-    "title": "Semantic Line Breaks",
-    "section": "",
-    "text": "Most documents go through several versions (always more than you expected) before they are finally finished. Accordingly, you should do whatever possible to make the job of changing them easy.\nFirst, when you do the purely mechanical operations of typing, type so subsequent editing will be easy. Start each sentence on a new line. Make lines short, and break lines at natural places, such as after commas and semicolons, rather than randomly. Since most people change documents by rewriting phrases and adding, deleting and rearranging sentences, these precautions simplify any editing you have to do later.\n— Brian W. Kernighan, 1974 [9]\n\nSemantic line breaks utilize how markdown treats line breaks and tries to combine it with regular prose text. You can read more about semantic line breaks here: https://sembr.org/\nHere are examples of how it works with markdown syntax\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\nis rendered as:\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\nthis is a very long line that has\nover 80 characterslasdfja asldfja\nsljf lsd jflkadjsf\nis rendered as:\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\n\nAdd a line break\nMarkdown allows 2 spaces at the end of a line for a line break\nthis is a very long line that has&lt;br/&gt;\nover 80 characterslasdfja asldfja&lt;br/&gt;\nsljf lsd jflkadjsf\nthis is a very long line that has over 80 characterslasdfja asldfja sljf lsd jflkadjsf\nMarkdown also allows 2 spaces at the end of a line for a line break. THis may not work with many text editor options that strip trailing white space\n\n\nAdd an empty line for a paragraph break\nthis is a very long line that has\n\nover 80 characterslasdfja asldfja\n\nsljf lsd jflkadjsf\nRendered as:\nthis is a very long line that has\nover 80 characterslasdfja asldfja\nsljf lsd jflkadjsf",
+    "objectID": "appendix/rstudio_config.html#latex-and-xelatex",
+    "href": "appendix/rstudio_config.html#latex-and-xelatex",
+    "title": "RStudio Configuration",
+    "section": "LaTeX and XeLaTeX",
+    "text": "LaTeX and XeLaTeX\nIn the Sweave option\nchange the Sweave option to Knitr, and pdflatex to xelatex.",
     "crumbs": [
       "Home",
       "Additional Information",
-      "Semantic Line Breaks"
+      "RStudio Configuration"
     ]
   },
   {
-    "objectID": "learning_objectives/lo-ch-00-rstudio.html",
-    "href": "learning_objectives/lo-ch-00-rstudio.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Launch RStudio\nUse the .R script and RMarkdown .Rmd interface inside RStudio\nKnow your way around the RStudio user interface"
+    "objectID": "appendix/rstudio_config.html#code-snippets",
+    "href": "appendix/rstudio_config.html#code-snippets",
+    "title": "RStudio Configuration",
+    "section": "Code snippets",
+    "text": "Code snippets\nAs we started to type for above, the code completion popped up and the first entry said “snippet”, what is that? A code snippet is a text macro, which means that you can type a short string of characters to insert a template or snippet of text by pressing TAB. You can see all the default snippets and define your own by going to Tools -&gt; Global options -&gt; Code -&gt; Edit snippets. Snippets are available anywhere in RStudio, not just in R Markdown documents.",
+    "crumbs": [
+      "Home",
+      "Additional Information",
+      "RStudio Configuration"
+    ]
   },
   {
-    "objectID": "learning_objectives/lo-ch-01.html",
-    "href": "learning_objectives/lo-ch-01.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
+    "objectID": "appendix/xaringan_slides.html",
+    "href": "appendix/xaringan_slides.html",
+    "title": "Xaringan Slides",
     "section": "",
-    "text": "Recognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.\nDistinguish common operators and representations of the different filesystem elements typically used in Bash.\nExplore the filesystem using Bash commands as ls, pwd and cd.\nTranslate an absolute path into a relative path and vice versa.\nUse command-line arguments to produce alternative outputs of commands.\nCreate, edit, move, and delete files and folders using the command line and VS Code."
+    "text": "One of the templates you can use is to create a “Ninja presentation” using xaringan. I will let the package author explain why it is named that way:\n\n[Sharingan is] an R package for creating slideshows with remark.js through R Markdown. The package name xaringan comes from Sharingan, a dōjutsu in Naruto with two abilities: the “Eye of Insight” and the “Eye of Hypnotism”. A presentation ninja should have these basic abilities, and I think remark.js may help you acquire these abilities, even if you are not a member of the Uchiha clan.\nhttps://github.com/yihui/xaringan\n\nThe xaringan template is great and lists everything you can do so I won’t repeat everything here. Briefly, slides are separated with ---, and have class labels:\n\ninverse inverts the colors\ncenter centers horizontally\nmiddle centers vertically\n\nInside the slides, you can use R Markdown syntax with some special syntax, such as .pull-left[] and .pull-right[] to create to columns of text. It has support for some interactive features such as table pagination. You can also style the slides by using any of the themes listed by names(xaringan:::list_css()), e.g.\n---\noutput:\n  xaringan::moon_reader:\n    css: [metropolis, metropolis-fonts]\n---\nFor more customization, you can download xaringanthemer (and it’s dependency showtext, which does not seem to install automatically):\n\ninstall.packages(c(\"xaringanthemer\", \"showtext\"))\n\nAnd then select to create a “themed” Ninja presentation via the same process as above. Now there is a code chunk added where you can select the different colors to use for your presentation.",
+    "crumbs": [
+      "Home",
+      "Older Materials",
+      "Xaringan Slides"
+    ]
   },
   {
-    "objectID": "learning_objectives/lo-ch-03.html",
-    "href": "learning_objectives/lo-ch-03.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
+    "objectID": "appendix/xaringan_slides.html#presentations-with-r-markdown-via-xaringan",
+    "href": "appendix/xaringan_slides.html#presentations-with-r-markdown-via-xaringan",
+    "title": "Xaringan Slides",
     "section": "",
-    "text": "Explore the Git history via git log in the terminal and GitHub.\nCompare commits using git diff in the terminal and GitHub.\nSolve merge conflicts at the command line and in VS Code.\nSave transitory changes with git stash.\nManage to avoid pushing specific local files by including a .gitignore.\nDifferenciate among different ways to restore your project history (git reset --hard/--soft, git revert) when working on an older version of a project."
+    "text": "One of the templates you can use is to create a “Ninja presentation” using xaringan. I will let the package author explain why it is named that way:\n\n[Sharingan is] an R package for creating slideshows with remark.js through R Markdown. The package name xaringan comes from Sharingan, a dōjutsu in Naruto with two abilities: the “Eye of Insight” and the “Eye of Hypnotism”. A presentation ninja should have these basic abilities, and I think remark.js may help you acquire these abilities, even if you are not a member of the Uchiha clan.\nhttps://github.com/yihui/xaringan\n\nThe xaringan template is great and lists everything you can do so I won’t repeat everything here. Briefly, slides are separated with ---, and have class labels:\n\ninverse inverts the colors\ncenter centers horizontally\nmiddle centers vertically\n\nInside the slides, you can use R Markdown syntax with some special syntax, such as .pull-left[] and .pull-right[] to create to columns of text. It has support for some interactive features such as table pagination. You can also style the slides by using any of the themes listed by names(xaringan:::list_css()), e.g.\n---\noutput:\n  xaringan::moon_reader:\n    css: [metropolis, metropolis-fonts]\n---\nFor more customization, you can download xaringanthemer (and it’s dependency showtext, which does not seem to install automatically):\n\ninstall.packages(c(\"xaringanthemer\", \"showtext\"))\n\nAnd then select to create a “themed” Ninja presentation via the same process as above. Now there is a code chunk added where you can select the different colors to use for your presentation.",
+    "crumbs": [
+      "Home",
+      "Older Materials",
+      "Xaringan Slides"
+    ]
   },
   {
-    "objectID": "learning_objectives/lo-ch-05.html",
-    "href": "learning_objectives/lo-ch-05.html",
-    "title": "DSCI 521: Computing Platforms for Data Science",
-    "section": "",
-    "text": "Create RProjects in RStudio using here to define robust file paths.\nDetect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown.\nExplain markdown usage in relation to dynamic documents.\nDifferentiate between code chunks and code cells in RMarkdown and Jupyter Notebooks.\nSelect appropriate code chunk options for RMarkdown.\nUse semantic line breaks for version control files.\nSpecify metadata in the YAML header block."
+    "objectID": "appendix/xaringan_slides.html#sharing-xaringan",
+    "href": "appendix/xaringan_slides.html#sharing-xaringan",
+    "title": "Xaringan Slides",
+    "section": "Sharing xaringan",
+    "text": "Sharing xaringan\nWe can’t use HTML preview with xaringan because it relies on external web resources that are not loaded correctly with the preview trick. This means that there is no way for us to privately preview out presentation. However, if we are looking to share our slides publicly, this is still possible via GitHub Pages.\nGitHub Pages can create a public URL for any GitHub repository that you own, and automatically renders any HTML files within this repo. You can find a short tutorial on how to setup Pages for your repo here, but in brief you need to go to the settings page of your GitHub repo, scroll down to where it says “GitHub Pages” on the main settings page and select which branch you want to publish. It is common to create a separate branch called gh-pages and keep all files that should be available to the public on this branch, but if you just want to experiment in and otherwise empty repo, it is fine to use the master branch.\nBy default, GitHub pages will render a README.md file or an index.html file if you have these at the root of your repo. So in our case, we could name our presentation file index.html and put it at the root of the repo, and then share the GH Pages link of the repo with others (you can find this link in the settings page where you enabled GH Pages).\nYou could create links to other files yourself, but commonly a framework is used to automate this and add many other functions to your GH Pages, such as Jekyll or Hugo. A rewarding way to learn how to work with GH Pages is to create a personal web page. I used Hugo via the “Academic” theme to create my site, and I think it was great and their documentation is comprehensive albeit a bit long. Distill package can also help you to create webpages and blogs using R Markdown.",
+    "crumbs": [
+      "Home",
+      "Older Materials",
+      "Xaringan Slides"
+    ]
   },
   {
-    "objectID": "learning_objectives/lo-ch-07.html",
-    "href": "learning_objectives/lo-ch-07.html",
+    "objectID": "learning_objectives/lo-ch-00.html",
+    "href": "learning_objectives/lo-ch-00.html",
     "title": "DSCI 521: Computing Platforms for Data Science",
     "section": "",
-    "text": "Understand what a computational environment is and how it can ensure the reproducibility of a project\nDifferentiate Python, PyPI, pip, venv, and uv\nDistinguish between the packages a project declares (pyproject.toml, DESCRIPTION) and the packages a project locks (uv.lock, renv.lock)\nManage packages and environments in Python using uv\nManage packages and environments in R using renv"
+    "text": "Launch JupyterLab\nUse the Notebook interface inside Jupyterlab\nKnow your way around the JupyterLab user interface"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-02.html",
+    "href": "learning_objectives/lo-ch-02.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Implement SSH authentication\nDifferentiate between the use of GitHub as a remote hosting service for version control and Git as a version control system.\nCreate a Git repository.\nImplement Git’s clone, add, status, commit, pull, and push operations on the command line and their equivalent use in VS Code.\nUnderstand what implies using the staging area in a Git workflow.\nRecognize the commit as the primary building block for storing a project version characterized by an attached message and a hash that serves as a unique identifier."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-04.html",
+    "href": "learning_objectives/lo-ch-04.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Use the quarto terminal command to create different quarto projects\nCreate and edit a Quarto website\nDiscover how GitHub can be used to serve static websites\nModify a GitHub repository to publish a website"
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-06.html",
+    "href": "learning_objectives/lo-ch-06.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Understand how Quarto extend R Markdown documents functionalities.\nExplore different data science products to communicate your results: slides, blogs and books.\nCreate slides using Jupyter Notebook and Quarto slides with reveal.js\nCreate a Jupyter Book and a Quarto books.\nCreate a Quarto Blog.\nSharing rendered HTML files publicly via GitHub Pages."
+  },
+  {
+    "objectID": "learning_objectives/lo-ch-08.html",
+    "href": "learning_objectives/lo-ch-08.html",
+    "title": "DSCI 521: Computing Platforms for Data Science",
+    "section": "",
+    "text": "Understand the basic syntax and functionality of regular expressions (regex) for pattern matching.\nExplore the use of special characters, ranges, and anchors in regex to match specific patterns within text.\nApply regex to search, extract, and manipulate data in various formats using practical examples.\nUse regular expressions to navigate and organize files within the filesystem."
   },
   {
     "objectID": "lectures/jupyterlab-orientation-intro.html",

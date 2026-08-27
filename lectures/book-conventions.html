@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Organization of Data Science projects and some useful tools – DSCI 521: Computing Platforms for Data Science</title>
+<title>Conventions in the Book – DSCI 521: Computing Platforms for Data Science</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,8 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../lectures/regex.html" rel="next">
-<link href="../lectures/virtual-environments-renv.html" rel="prev">
+<link href="../lectures/mdstools-bash-filesystem.html" rel="next">
+<link href="../lectures/rstudio-orientation-intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -155,18 +155,47 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 }
 </style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Organization of Data Science projects and some useful tools – DSCI 521: Computing Platforms for Data Science">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Conventions in the Book – DSCI 521: Computing Platforms for Data Science">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/cheers.png">
+<meta property="og:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/0-convensions_files/figure-html/unnamed-chunk-6-1.png">
 <meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
-<meta property="og:image:height" content="284">
-<meta property="og:image:width" content="692">
-<meta name="twitter:title" content="Organization of Data Science projects and some useful tools – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:image:height" content="960">
+<meta property="og:image:width" content="1344">
+<meta name="twitter:title" content="Conventions in the Book – DSCI 521: Computing Platforms for Data Science">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/cheers.png">
-<meta name="twitter:image-height" content="284">
-<meta name="twitter:image-width" content="692">
+<meta name="twitter:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/0-convensions_files/figure-html/unnamed-chunk-6-1.png">
+<meta name="twitter:image-height" content="960">
+<meta name="twitter:image-width" content="1344">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -376,7 +405,7 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/virtual-environments-uv.html">Week 4</a></li><li class="breadcrumb-item"><a href="../lectures/regex-filenames-project-organization.html">Organization of Data Science Projects</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/jupyterlab-orientation-intro.html">Orientation</a></li><li class="breadcrumb-item"><a href="../lectures/book-conventions.html">Conventions in this Book</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -425,7 +454,7 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/book-conventions.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/book-conventions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Conventions in this Book</span></a>
   </div>
 </li>
@@ -523,7 +552,7 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link active">
+  <a href="../lectures/regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Organization of Data Science Projects</span></a>
   </div>
 </li>
@@ -615,21 +644,19 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
-  <li><a href="#project-organization" id="toc-project-organization" class="nav-link" data-scroll-target="#project-organization">Project organization</a></li>
-  <li><a href="#filenames" id="toc-filenames" class="nav-link" data-scroll-target="#filenames">Filenames</a>
+  <li><a href="#text" id="toc-text" class="nav-link active" data-scroll-target="#text">Text</a>
   <ul class="collapse">
-  <li><a href="#names-matter" id="toc-names-matter" class="nav-link" data-scroll-target="#names-matter">Names matter</a></li>
-  <li><a href="#what-works-what-doesnt" id="toc-what-works-what-doesnt" class="nav-link" data-scroll-target="#what-works-what-doesnt">What works, what doesn’t?</a></li>
+  <li><a href="#a-third-level-heading" id="toc-a-third-level-heading" class="nav-link" data-scroll-target="#a-third-level-heading">A third-level heading</a></li>
   </ul></li>
-  <li><a href="#three-principles-for-file-names" id="toc-three-principles-for-file-names" class="nav-link" data-scroll-target="#three-principles-for-file-names">Three principles for (file) names</a>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a>
   <ul class="collapse">
-  <li><a href="#machine-readable" id="toc-machine-readable" class="nav-link" data-scroll-target="#machine-readable">Machine readable</a></li>
-  <li><a href="#human-readable" id="toc-human-readable" class="nav-link" data-scroll-target="#human-readable">Human readable</a></li>
-  <li><a href="#plays-well-with-default-ordering" id="toc-plays-well-with-default-ordering" class="nav-link" data-scroll-target="#plays-well-with-default-ordering">Plays well with default ordering</a></li>
-  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#executed-cells" id="toc-executed-cells" class="nav-link" data-scroll-target="#executed-cells">Executed cells</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#callouts" id="toc-callouts" class="nav-link" data-scroll-target="#callouts">Callouts</a></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">Tables</a></li>
+  <li><a href="#math" id="toc-math" class="nav-link" data-scroll-target="#math">Math</a></li>
+  <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures">Figures</a></li>
+  <li><a href="#tabsets" id="toc-tabsets" class="nav-link" data-scroll-target="#tabsets">Tabsets</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -637,9 +664,9 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/virtual-environments-uv.html">Week 4</a></li><li class="breadcrumb-item"><a href="../lectures/regex-filenames-project-organization.html">Organization of Data Science Projects</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/jupyterlab-orientation-intro.html">Orientation</a></li><li class="breadcrumb-item"><a href="../lectures/book-conventions.html">Conventions in this Book</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Organization of Data Science projects and some useful tools</h1>
+<h1 class="title">Conventions in the Book</h1>
 </div>
 
 
@@ -656,442 +683,301 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </header>
 
 
-<section id="learning-outcomes" class="level2">
-<h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
-<ol type="1">
-<li>Understand the basic syntax and functionality of regular expressions (regex) for pattern matching.</li>
-<li>Explore the use of special characters, ranges, and anchors in regex to match specific patterns within text.</li>
-<li>Apply regex to search, extract, and manipulate data in various formats using practical examples.</li>
-<li>Use regular expressions to navigate and organize files within the filesystem.</li>
-</ol>
-<div class="callout callout-style-default callout-activity callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Activity</span>Activity
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Imagine you are starting a new data science project. Based on what you know about project organization, how would you structure your project directory? Consider where you would place important files like raw data, processed data, code, reports, and environment settings.</p>
-<p>Take a moment to think through these questions:</p>
-<pre><code>- What folders would you create, and why?
-- Where would you place key files like your `.csv` data, analysis notebooks, and README?
-- How would you structure the project to ensure it is easy to maintain and reproducible?</code></pre>
-<p>Jot down your ideas.</p>
-<p>After reflecting on your answers, compare your project structure with your partner’s. Identify similarities and differences between your approaches. What organizational choices did you both make? Were there any unique folder structures or file placements?</p>
-</div>
-</div>
-</section>
-<section id="project-organization" class="level2">
-<h2 class="anchored" data-anchor-id="project-organization">Project organization</h2>
-<p>Broadly speaking you will find two different ways of organizing a project: as a data analysis project and code project. Neither of this options is rigid enough to can give you here a exhaustive list of folder types and files you would expect on this projects. You will spend some time exploring different examples. However, we can work with a general structure:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">project/</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> data/              <span class="pp">*</span>.csv</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── processed/</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── raw/</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> reports/           <span class="pp">*</span>.ipynb <span class="pp">*</span>.Rmd</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> src/               <span class="pp">*</span>.py <span class="pp">*</span>.R</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> doc/               <span class="pp">*</span>.md</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> environment.yaml <span class="er">(</span><span class="ex">or</span> renv.lock<span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>data</strong> If your original data file is stored as part of the repository and should never be overridden. That is why the original files are stored in a sub-folder called <code>raw</code>.</p>
-<p><strong>reports</strong> The documentation is the biggest difference between data analysis projects and software projects. Would you expect a report on a software project? In general notebooks and other <a href="../lectures/rstudio-projects-notebooks.html">literate programming documents</a> (that prioritize narrative and storytelling) are the favorite options to share data analysis results [1]. You will create your first data science project in DSCI 522: Statistical Inference and Computation. Software projects are mostly focused in the development of tools and in this cases other types of documentation (docstrings, vignettes, readtheDocs, JupyterBooks) are the favorite source of documentation for this kind of projects. We will learn more about them in DSCI 524: Collaborative Software Development.</p>
-<p><strong>src</strong> is where the source code for your project will be. If you are not creating a package, you may use the <strong>analysis</strong> directory. In package development, you will have a <code>src/project_name</code> directory in Python, and just the <code>R</code> directory (instead of <code>src</code>) in R. You will learn more about project hierarchy when making packages in DSCI 524.</p>
-<p><strong>doc</strong> Documentation. You can also use this directory for a GitHub pages enabled website.</p>
-<p><strong>README.md</strong> The README file is probably the first file a potential user/contributor will read.</p>
-<p><strong>environment</strong> Specifying the computational environment will help you to ensure the reproducibility of your analysis.</p>
-<!--
-A place for everything, everything in its place.
-
-Benjamin Franklin
-
-
-
----
-
-![beer_messy_tidy](img/beer_messy_tidy.png)
-
----
-
-![files_messy_tidy](img/files_messy_tidy.png)
-
-## Face it...
-
-- There are going to be files
-
-- LOTS of files
-
-- The files will change over time
-
-- The files will have relationships to each other
-
-- It'll probably get complicated
-
-## Mighty weapon
-
-- File organization and naming is a mighty weapon against chaos
-
-- Make a file's name and location VERY INFORMATIVE about what it is, why it exists, how it relates to other things
-
-- The more things are self-explanatory, the better
-
-- READMEs are great, but don't document something if you could just make that thing self-documenting by definition
-
-
-## Attribution:
-
-- Slides borrowed from the [Data Carpentry](https://datacarpentry.org/) [Reproducible Science Workshop](https://datacarpentry.org/rr-organization1/)
-
--->
-<div class="callout callout-style-default callout-activity callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Activity</span>Activity
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Which set of file(name)s do you want at 3 a.m. before a deadline?</p>
-<pre><code>A. `Joe’s Filenames Use Spaces and Punctuation.xlsx`
-B. `figure 1.png`
-C. `JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt`
-D. `2014-06-08_abstract-for-sla.docx`
-E. `myabstract.docx`</code></pre>
-</div>
-</div>
-</section>
-<section id="filenames" class="level2">
-<h2 class="anchored" data-anchor-id="filenames">Filenames</h2>
-<p>In our first lecture, we learned about bash and talked about the downsides of making your files and folder names “too pretty” with capitalizations and spaces. Here we will discuss better ways to name our files and folders.</p>
-<p>The below section comes from Jenny Bryan’s <a href="https://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf">Naming things</a></p>
+<p>One page holding every construct the book uses, so a theme or CSS change can be checked in one place, in both light and dark mode. This is a good reference page for how source code renders to the page.</p>
+<p>You can learn more about features in the <a href="https://quarto.org/docs/guide/">Quarto Guide</a>.</p>
+<section id="text" class="level2">
+<h2 class="anchored" data-anchor-id="text">Text</h2>
+<p>Body text, with <strong>bold</strong>, <em>italic</em>, <code>inline code</code>, a <a href="../lectures/mdstools-bash-filesystem.html">link to another page</a> and an <a href="https://quarto.org">external link</a>. Keyboard keys are written with <code>&lt;kbd&gt;</code>. Enough of them to wrap, so their boxes can be checked against each other on neighbouring lines: press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop a running command, <kbd>Ctrl</kbd> + <kbd>D</kbd> to close the shell, <kbd>Tab</kbd> to complete a path, <kbd>Up</kbd> and <kbd>Down</kbd> to walk back through your history, and <kbd>Ctrl</kbd> + <kbd>R</kbd> to search it.</p>
+<section id="a-third-level-heading" class="level3">
+<h3 class="anchored" data-anchor-id="a-third-level-heading">A third-level heading</h3>
+<section id="a-fourth-level-heading" class="level4">
+<h4 class="anchored" data-anchor-id="a-fourth-level-heading">A fourth-level heading</h4>
 <ul>
-<li>slides: <a href="https://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf" class="uri">https://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf</a></li>
-<li>Source code: <a href="https://github.com/jennybc/organization-and-naming" class="uri">https://github.com/jennybc/organization-and-naming</a></li>
+<li>An unordered list</li>
+<li>with a second item
+<ul>
+<li>and a nested item</li>
+</ul></li>
 </ul>
-<section id="names-matter" class="level3">
-<h3 class="anchored" data-anchor-id="names-matter">Names matter</h3>
+<ol type="1">
+<li>An ordered list</li>
+<li>with a second item</li>
+</ol>
+<blockquote class="blockquote">
+<p>A blockquote.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
+<p>Static listings first, one per language the book uses, then cells that actually run.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># r code</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a bash command (terminal) using bash listing</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="out"><code># bash output using out listing
+
+Applications    Pictures
+Desktop         Documents       Movies
+Downloads       Music</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># yaml listing, used for _quarto.yml and the GitHub Actions workflow</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># toml listing, used for pyproject.toml</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">[project]</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">requires-python</span> <span class="op">=</span> <span class="st">"&gt;=3.12"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a python listing that is shown but not run</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># markdown listing</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code># empty listing</code></pre>
+<p>A listing wider than the page, so the horizontal scrollbar can be checked. Real lines in the book reach about 150 characters:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run <span class="at">--with</span> <span class="st">'numpy&gt;=2.5.2'</span> <span class="at">--with</span> <span class="st">'matplotlib&gt;=3.11.1'</span> python <span class="at">-c</span> <span class="st">"import sys; print(sys.executable)"</span> <span class="at">--directory</span> ~/a/deeply/nested/project/path</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="executed-cells" class="level3">
+<h3 class="anchored" data-anchor-id="executed-cells">Executed cells</h3>
+<p>A cell and its output:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># python code</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>a<span class="op">**</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>9</code></pre>
+</div>
+</div>
+<p>A cell showing its own fence, which is how the book explains chunk options:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4</code></pre>
+</div>
+</div>
+<p>An R cell and its output. The page is pinned to the knitr engine in the front matter, so the Python cells above run through reticulate, which picks up the uv venv from <code>VIRTUAL_ENV</code> when the book is rendered with <code>uv run</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># r code</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  4  9 16 25</code></pre>
+</div>
+</div>
+<p>A cell that writes to stderr, which Quarto puts in an output block of its own. This one is R, because under knitr a Python warning arrives on stdout instead:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">warning</span>(<span class="st">"a warning from a cell"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: a warning from a cell</code></pre>
+</div>
+</div>
+<p>A cell whose output is a figure:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">9</span>])</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-convensions_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="callouts" class="level2">
+<h2 class="anchored" data-anchor-id="callouts">Callouts</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A note!</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A tip!</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A warning!</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An important!</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A caution!</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-exercise callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exercise</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An exercise!</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An activity!</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-exercise callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exercise</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Another exercise!</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Another activity!</p>
+</div>
+</div>
+<p>Callouts hold listings too, and Quarto styles those differently from a listing out in the body:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A note with a listing in it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="tables" class="level2">
+<h2 class="anchored" data-anchor-id="tables">Tables</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Purpose</th>
+<th>Example use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pwd</code></td>
+<td>Print Working Directory</td>
+<td><code>pwd</code></td>
+</tr>
+<tr class="even">
+<td><code>ls</code></td>
+<td>LiSt contents</td>
+<td><code>ls Documents</code></td>
+</tr>
+<tr class="odd">
+<td><code>cd</code></td>
+<td>Change Directory</td>
+<td><code>cd Desktop</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="math" class="level2">
+<h2 class="anchored" data-anchor-id="math">Math</h2>
+<p>Inline math, <span class="math inline">\(y = mx + b\)</span>, and display math:</p>
+<p><span class="math display">\[f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}\]</span></p>
+</section>
+<section id="figures" class="level2">
+<h2 class="anchored" data-anchor-id="figures">Figures</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/cheers.png" class="img-fluid figure-img"></p>
-<figcaption>cheers</figcaption>
+<figcaption>A figure with a caption. Most figures in the book have no caption.</figcaption>
 </figure>
 </div>
 </section>
-<section id="what-works-what-doesnt" class="level3">
-<h3 class="anchored" data-anchor-id="what-works-what-doesnt">What works, what doesn’t?</h3>
-<p><strong>NO</strong></p>
-<pre><code>myabstract.docx
-Joe’s Filenames Use Spaces and Punctuation.xlsx
-figure 1.png
-fig 2.png
-JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt</code></pre>
-<p><strong>YES</strong></p>
-<pre><code>2014-06-08_abstract-for-sla.docx
-joes-filenames-are-getting-better.xlsx
-fig01_talk-scatterplot-length-vs-interest.png
-fig02_talk-histogram-attendance.png
-1986-01-28_raw-data-from-challenger-o-rings.txt</code></pre>
-</section>
-</section>
-<section id="three-principles-for-file-names" class="level2">
-<h2 class="anchored" data-anchor-id="three-principles-for-file-names">Three principles for (file) names</h2>
-<ol type="1">
-<li>Machine readable</li>
-<li>Human readable</li>
-<li>Plays well with default ordering</li>
-</ol>
-<section id="machine-readable" class="level3">
-<h3 class="anchored" data-anchor-id="machine-readable">Machine readable</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/awesome_names.png" class="img-fluid figure-img"></p>
-<figcaption>awesome_names</figcaption>
-</figure>
+<section id="tabsets" class="level2">
+<h2 class="anchored" data-anchor-id="tabsets">Tabsets</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">MacOS + *nix</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Windows</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>The contents of one tab, which is usually a listing:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"you@example.com"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<ul>
-<li>Regular expression and globbing friendly
-<ul>
-<li>Avoid spaces, punctuation, accented characters, case sensitivity</li>
-</ul></li>
-<li>Easy to compute on
-<ul>
-<li>Deliberate use of delimiters</li>
-</ul></li>
-</ul>
-<section id="globbing" class="level4">
-<h4 class="anchored" data-anchor-id="globbing">Globbing</h4>
-<p><strong>Excerpt of complete file listing:</strong></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/plasmid_names.png" class="img-fluid figure-img"></p>
-<figcaption>plasmid_names</figcaption>
-</figure>
-</div>
-<hr>
-<p><strong>Example of globbing to narrow file listing:</strong></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/plasmid_glob.png" class="img-fluid figure-img"></p>
-<figcaption>plasmid_names</figcaption>
-</figure>
-</div>
-</section>
-<section id="same-using-mac-os-finder-search-facilities" class="level4">
-<h4 class="anchored" data-anchor-id="same-using-mac-os-finder-search-facilities">Same using Mac OS Finder search facilities</h4>
-<center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/plasmid_mac_os_search.png" class="img-fluid figure-img"></p>
-<figcaption>plasmid_mac_os_search</figcaption>
-</figure>
-</div>
-</center>
-</section>
-<section id="same-using-regex-in-r" class="level4">
-<h4 class="anchored" data-anchor-id="same-using-regex-in-r">Same using regex in R</h4>
-<center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/plasmid_regex.png" class="img-fluid figure-img"></p>
-<figcaption>plasmid_regex</figcaption>
-</figure>
-</div>
-</center>
-</section>
-<section id="punctuation" class="level4 smaller">
-<h4 class="smaller anchored" data-anchor-id="punctuation">Punctuation</h4>
-<p>Deliberate use of <code>"-"</code> and <code>"_"</code> allows recovery of meta-data from the filenames:</p>
-<ul>
-<li><code>"_"</code> underscore used to delimit units of meta-data I want later</li>
-<li><code>"-"</code> hyphen used to delimit words so my eyes don’t bleed</li>
-</ul>
-<center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/plasmid_delimiters.png" class="img-fluid figure-img"></p>
-<figcaption>plasmid_delimiters</figcaption>
-</figure>
-</div>
-</center>
-<hr>
-<center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/plasmid_delimiters_code.png" class="img-fluid figure-img"></p>
-<figcaption>plasmid_delimiters_code</figcaption>
-</figure>
-</div>
-</center>
-<p>This happens to be R but also possible in the shell, Python, etc.</p>
-</section>
-<section id="recap-machine-readable" class="level4">
-<h4 class="anchored" data-anchor-id="recap-machine-readable">Recap: machine readable</h4>
-<ul>
-<li><p>Easy to search for files later</p></li>
-<li><p>Easy to narrow file lists based on names</p></li>
-<li><p>Easy to extract info from file names, e.g.&nbsp;by splitting</p></li>
-<li><p>New to regular expressions and globbing? be kind to yourself and avoid</p>
-<ul>
-<li>Spaces in file names</li>
-<li>Punctuation</li>
-<li>Accented characters</li>
-<li>Different files named <code>foo</code> and <code>Foo</code></li>
-</ul></li>
-</ul>
-</section>
-</section>
-<section id="human-readable" class="level3">
-<h3 class="anchored" data-anchor-id="human-readable">Human readable</h3>
-<ul>
-<li><p>Name contains info on content</p></li>
-<li><p>Connects to concept of a <em>slug</em> from semantic URLs</p></li>
-</ul>
-<p><strong>Which set of file(name)s do you want at 3 a.m. before a deadline?</strong></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/human_readable_not_options.png" class="img-fluid figure-img"></p>
-<figcaption>human_readable_not_options</figcaption>
-</figure>
-</div>
-<section id="embrace-the-slug" class="level4">
-<h4 class="anchored" data-anchor-id="embrace-the-slug">Embrace the slug</h4>
-<div class="columns-2">
-<p>slug filenames <img src="img/slug_filenames.png" class="img-fluid"></p>
-<p>slug <img src="img/slug.jpg" class="img-fluid"></p>
-</div>
-</section>
-<section id="recap-human-readable" class="level4">
-<h4 class="anchored" data-anchor-id="recap-human-readable">Recap: Human readable</h4>
-<p>Easy to figure out what the heck something is, based on its name</p>
-</section>
-</section>
-<section id="plays-well-with-default-ordering" class="level3">
-<h3 class="anchored" data-anchor-id="plays-well-with-default-ordering">Plays well with default ordering</h3>
-<ul>
-<li>Put something numeric first</li>
-<li>Use the ISO 8601 standard for dates</li>
-<li>Left pad other numbers with zeros</li>
-</ul>
-<p><strong>Chronological order:</strong></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/chronological_order.png" class="img-fluid figure-img"></p>
-<figcaption>chronological_order</figcaption>
-</figure>
-</div>
-<hr>
-<p><strong>Logical order:</strong> Put something numeric first</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/logical_order.png" class="img-fluid figure-img"></p>
-<figcaption>logical_order</figcaption>
-</figure>
-</div>
-<section id="dates" class="level4">
-<h4 class="anchored" data-anchor-id="dates">Dates</h4>
-<p>Use the ISO 8601 standard for dates: YYYY-MM-DD</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img//chronological_order.png" class="img-fluid figure-img"></p>
-<figcaption>chronological_order</figcaption>
-</figure>
-</div>
-<center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/iso_8601.tiff" class="img-fluid figure-img"></p>
-<figcaption>iso_psa</figcaption>
-</figure>
-</div>
-</center>
-</section>
-<section id="comprehensive-map-of-all-countries-in-the-world-that-use-the-mm-dd-yyyy-format" class="level4">
-<h4 class="anchored" data-anchor-id="comprehensive-map-of-all-countries-in-the-world-that-use-the-mm-dd-yyyy-format">Comprehensive map of all countries in the world that use the MM-DD-YYYY format</h4>
-<center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/map_mmddyyy.tiff" class="img-fluid figure-img"></p>
-<figcaption>map_mmddyyy</figcaption>
-</figure>
-</div>
-</center>
-<p><br></p>
-<p>From https://twitter.com/donohoe/status/597876118688026624.</p>
-</section>
-<section id="left-pad-other-numbers-with-zeros" class="level4">
-<h4 class="anchored" data-anchor-id="left-pad-other-numbers-with-zeros">Left pad other numbers with zeros</h4>
-<center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/logical_order.png" class="img-fluid figure-img"></p>
-<figcaption>logical_order</figcaption>
-</figure>
-</div>
-</center>
-<p><br></p>
-<p>If you don’t left pad, you get this:</p>
-<pre><code>10_final-figs-for-publication.R
-1_data-cleaning.R
-2_fit-model.R</code></pre>
-<p>which is just sad :(</p>
-</section>
-<section id="recap-plays-well-with-default-ordering" class="level4">
-<h4 class="anchored" data-anchor-id="recap-plays-well-with-default-ordering">Recap: Plays well with default ordering</h4>
-<ul>
-<li>Put something numeric first</li>
-<li>Use the ISO 8601 standard for dates</li>
-<li>Left pad other numbers with zeros</li>
-</ul>
-</section>
-</section>
-<section id="recap" class="level3">
-<h3 class="anchored" data-anchor-id="recap">Recap</h3>
-<p>Three principles for (file) names</p>
-<ol type="1">
-<li>Machine readable</li>
-<li>Human readable</li>
-<li>Plays well with default ordering</li>
-</ol>
-<p>Pros: - Easy to implement NOW - Payoffs accumulate as your skills evolve and projects get more complex</p>
-<section id="go-forth-and-use-awesome-file-names" class="level4">
-<h4 class="anchored" data-anchor-id="go-forth-and-use-awesome-file-names">Go forth and use awesome file names :)</h4>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/chronological_order.png" class="img-fluid figure-img"></p>
-<figcaption>chronological_order</figcaption>
-</figure>
-</div>
-<p><br></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/logical_order.png" class="img-fluid figure-img"></p>
-<figcaption>logical_order</figcaption>
-</figure>
-</div>
-<hr>
-<div class="callout callout-style-default callout-activity callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Activity</span>Activity
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>The contents of the other tab.</p>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Which of the following items describe three important rules for naming files on a computer? Select all correct answers.</p>
-<pre><code>A. File name parts should be easy to extract programmatically
-B. Humans would understand something about file contents by looking at their names
-C. Files with appropriate names would be nicely organized by default
-D. File names should always use lower-case letters
-E. Human understanding of file names should be prioritized over machine understanding</code></pre>
-<!--comment because iClicker only allows 5 choices
-E. Underscores are the only allowed separator in file names
--->
 </div>
-</div>
-<div class="callout callout-style-default callout-activity callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Activity</span>Activity
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Which of the following are GOOD date formats to use in a filename?</p>
-<pre><code>A. 2020-01-26T0233
-B. 20200126T0233
-C. 2020-01-26</code></pre>
-</div>
-</div>
-<!--
-
-:::{.activity}
-Match each explanation with its corresponding file naming principle:
-
-G.  By following this principle, we are able to use tools such as regular expressions and file-name globbing to search, select and manipulate files using tools such as the unix shell, R and Python.
-
-H. By following this principle, we can have a good idea of what is inside files without having to open them (saves us time) and when we come back to work on a project we haven't worked on in a while it is much easier for us to remember what we were working on and get started again.
-
-
-I. By following this principle, we can make our files more organized and understandable, and files more findable. Ordered lists will be sorted into a logical order and so it is easy to orient yourself in the directory and find the files you want to find.
-
-J. By following this principle, we will be sure that our files have the appropriate formatting in terms of their content. Such files will be ready for subsequent analysis in a data science pipeline.
-```
-:::
--->
-</section>
-</section>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p>[1] Kery, M. B., Radensky, M., Arya, M., John, B. E., &amp; Myers, B. A. (2018, April). The story in the notebook: Exploratory data science using a literate programming tool. In Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems (pp.&nbsp;1-11).</p>
 
 
 </section>
@@ -1512,13 +1398,13 @@ J. By following this principle, we will be sure that our files have the appropri
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../lectures/virtual-environments-renv.html" class="pagination-link" aria-label="Virtual Environments: renv">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Virtual Environments: renv</span>
+      <a href="../lectures/rstudio-orientation-intro.html" class="pagination-link" aria-label="RStudio Orientation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RStudio Orientation</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../lectures/regex.html" class="pagination-link" aria-label="Introduction to Regular Expressions (RegEx)">
-        <span class="nav-page-text">Introduction to Regular Expressions (RegEx)</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../lectures/mdstools-bash-filesystem.html" class="pagination-link" aria-label="MDS Software and Bash">
+        <span class="nav-page-text">MDS Software and Bash</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
