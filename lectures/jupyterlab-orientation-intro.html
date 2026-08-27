@@ -710,40 +710,183 @@ window.Quarto = {
 </section>
 <section id="local-machine" class="level3">
 <h3 class="anchored" data-anchor-id="local-machine">Local Machine</h3>
-<p>If you have already completed the <a href="https://ubc-mds.github.io/resources_pages/installation_instructions/">installation instructions</a>, you can open the terminal and run:</p>
+<p>If you have already completed the <a href="https://ubc-mds.github.io/resources_pages/installation_instructions/">installation instructions</a>, you have a program called <code>uv</code> on your machine.</p>
+<p>What you do <em>not</em> have is a JupyterLab you can start from anywhere, and that is on purpose. Every assignment carries its own copy of JupyterLab, along with the exact versions of every other package that assignment needs, so that it works the same way on your laptop as it does on ours.</p>
+<p>Every assignment you get in this program arrives with two extra files in it, <code>pyproject.toml</code> and <code>uv.lock</code>, which between them list those packages. Starting JupyterLab is three commands, and they are the same three commands every single time:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> lab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/your/assignment</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> sync</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run jupyter lab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>JupyterLab will open in a browser whether you run it locally or you are using it through UBC server. Note that if you are running JupyterLab in your machine, the URL could be similar to <code>https://localhost:8888/lab</code>. In this case <code>localhost</code> is referring to your computer, not to a webpage.</p>
+<ul>
+<li><code>cd</code> moves you into the assignment folder. Everything after this depends on being in the right place.</li>
+<li><code>uv sync</code> reads <code>pyproject.toml</code> and <code>uv.lock</code> and installs the packages they list into that folder.</li>
+<li><code>uv run</code> runs a command using the packages <code>uv sync</code> just installed.</li>
+</ul>
+<p>The first <code>uv sync</code> in a new assignment takes a minute or so. Every one after that is close to instant, and it is always safe to run again.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Typing out a path is fiddly before you have met the filesystem properly. In most terminals you can type <code>cd</code> (with a space after it) and then drag the assignment folder onto the terminal window, which fills in the path for you. Moving around the filesystem is covered in <a href="../lectures/mdstools-bash-filesystem.html">MDS Software and Bash</a>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is no step where you “activate” anything. If a command in this course starts with <code>jupyter</code>, <code>python</code>, or <code>quarto</code>, put <code>uv run</code> in front of it and run it from inside the assignment folder.</p>
+</div>
+</div>
+<p>We come back to what <code>uv</code> is actually doing in <a href="../lectures/virtual-environments-uv.html">Virtual Environments: uv</a>. For now, those three lines are all you need.</p>
+<p>JupyterLab will open in a browser whether you run it locally or you are using it through UBC server. Note that if you are running JupyterLab in your machine, the URL could be similar to <code>http://localhost:8888/lab</code>. In this case <code>localhost</code> is referring to your computer, not to a webpage.</p>
+<section id="one-jupyterlab-per-assignment" class="level4">
+<h4 class="anchored" data-anchor-id="one-jupyterlab-per-assignment">One JupyterLab per assignment</h4>
+<p>The numbers after <code>localhost</code> is the port number. If you have multiple JupyterLab instances running, each of them will run on a different port.</p>
+<p>When you start a second one, it takes the next free port. The first is at <code>http://localhost:8888/lab</code>, the second at <code>http://localhost:8889/lab</code>, and so on.</p>
+<p>Do not reuse one terminal and one JupyterLab for all of your homework. Each assignment gets its own terminal and its own <code>uv run jupyter lab</code>. A JupyterLab can only see the folder it was started from, and it can only use the packages that folder’s <code>uv sync</code> installed, so one JupyterLab cannot serve two assignments.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>This does not fill up your laptop
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An environment with JupyterLab in it reports as about 160 MB, and you are about to have one of them per assignment. They are not really separate copies.</p>
+<p><code>uv</code> downloads each version of each package once into a single cache in your home folder. Every project after that gets a <a href="https://docs.astral.sh/uv/reference/settings/#link-mode">clone or a hard link</a> of what is already in that cache instead of a fresh copy, so the files show up in both projects while sharing the same blocks on disk.</p>
+<p>Measured on a Mac while writing this: a second project whose packages matched an existing one reported as 162 MB and cost 8 MB of actual free space. This is also why the first <code>uv sync</code> is the slow one and every later one is quick, and why deleting a <code>.venv</code> you are finished with is safe – <code>uv sync</code> builds it back from the cache in seconds.</p>
+</div>
+</div>
+<p>Once you have two of them open, the browser tabs look almost identical. The kernel in both says <strong>Python 3 (ipykernel)</strong>, because that is what the kernel is called in every assignment – the name tells you the language, not which assignment you are in.</p>
+<p>The port is what tells them apart. It is in your browser’s address bar, and from any assignment folder you can ask which folder each port is serving:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run jupyter server list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>Currently running servers:
+http://localhost:8888/?token=5649c5f3e7c00620e557912559084c24 :: /Users/you/mds/lab1
+http://localhost:8889/?token=7351f3ad976f3db12618ae163b75f038 :: /Users/you/mds/lab2</code></pre>
+</div>
+<p>Read that as “port 8888 is showing me <code>lab1</code>, port 8889 is showing me <code>lab2</code>”.</p>
+<p>When you are finished with an assignment, shut its JupyterLab down by its port:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run jupyter server stop 8889</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>That is tidier than hunting for the right terminal window, and it frees the port up again.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you open a notebook in the <em>wrong</em> JupyterLab, nothing warns you. The notebook opens, the kernel says Python 3 the way it always does, and then some <code>import</code> fails for a package that the other assignment declared and this one did not. Check the port before you go looking for a bug in your own code.</p>
+</div>
+</div>
+<p>We will come back to this in lab.</p>
+</section>
+<section id="if-it-does-not-start" class="level4">
+<h4 class="anchored" data-anchor-id="if-it-does-not-start">If it does not start</h4>
+<p>Nearly every problem at this stage is the same problem: the terminal is not in the assignment folder.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>What you see</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>error: No `pyproject.toml` found in current directory or any parent directory</code></td>
+<td>You are not inside the assignment folder. <code>cd</code> into it and try again.</td>
+</tr>
+<tr class="even">
+<td><code>error: Failed to spawn: `jupyter`</code></td>
+<td>The same thing, or you have not run <code>uv sync</code> yet.</td>
+</tr>
+<tr class="odd">
+<td><code>ModuleNotFoundError: No module named ...</code></td>
+<td>You left off <code>uv run</code>, or you are in the wrong folder.</td>
+</tr>
+<tr class="even">
+<td>JupyterLab starts, but your imports fail</td>
+<td>You launched from the wrong folder. <code>uv</code> does not always complain about this, so check the folder before you suspect anything else.</td>
+</tr>
+<tr class="odd">
+<td>Imports fail in a notebook that worked yesterday</td>
+<td>You are in the JupyterLab you started for a <em>different</em> assignment. Check the port in the address bar.</td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 </section>
 <section id="using-jupyter-notebooks" class="level2">
 <h2 class="anchored" data-anchor-id="using-jupyter-notebooks">Using Jupyter Notebooks</h2>
 <p><img src="img/jupyterlab-start.png" class="img-fluid"></p>
-<p>We’re greeted by the launcher tab where we see that we can start either a Notebook or Console for Python or R, as well as some other utility programs. Let’s start by explaining one of the most popular options, the Jupyter Notebook. The Notebook provides and interface where you can mix text, code, mathematical expressions, plot output, videos, and more, all in the same file. So instead of the traditional IDE experience where you would write code in a text file and then have figures pop up in a different panel, this information now all resides in the same document, which facilitates reproducibility and collaboration. The Notebooks can be exported to many formats, including PDF and HTML, which makes it easy to share your project with anyone. The cell that is encircled in blue is where we can input Python code, click here and type any mathematical expression, and then run the cell by clicking the play button in the top toolbar:</p>
-<div id="392c9c57" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>We’re greeted by the launcher tab where we see that we can start either a Notebook or a Console, as well as some other utility programs.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The screenshot above is from the UBC Jupyter server, which offers both Python and R. On your own machine you will normally see only Python 3, because the MDS setup does not install an R kernel for Jupyter. We write R in RStudio instead, which is the subject of the <a href="../lectures/rstudio-orientation-intro.html">RStudio Orientation</a>.</p>
+</div>
+</div>
+<p>Let’s start by explaining one of the most popular options, the Jupyter Notebook. The Notebook provides and interface where you can mix text, code, mathematical expressions, plot output, videos, and more, all in the same file. So instead of the traditional IDE experience where you would write code in a text file and then have figures pop up in a different panel, this information now all resides in the same document, which facilitates reproducibility and collaboration. The Notebooks can be exported to many formats, including PDF and HTML, which makes it easy to share your project with anyone. The cell that is encircled in blue is where we can input Python code, click here and type any mathematical expression, and then run the cell by clicking the play button in the top toolbar:</p>
+<div id="0c905ef3" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>7</code></pre>
 </div>
 </div>
 <p><img src="img/jupyterlab-run-cell.png" class="img-fluid"></p>
 <p>As you can see, the output is returned just under input, and a new input cell was created. We could also have clicked the plus sign to create a new cell. Here, we can do anything we can do in Python, e.g.&nbsp;variable assignment:</p>
-<div id="6825e919" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="28b0b88f" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>There is no output because we just assigned a value to a variable, without asking for the value of that variable, which we can do by typing out the variable name:</p>
-<div id="2c6c0083" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="2a30c3f4" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>5</code></pre>
 </div>
 </div>
 <p>Jupyter Notebooks also supports editing code on multiple lines, so we could have done this instead:</p>
-<div id="169768d2" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="7403f302" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>3</code></pre>
 </div>
@@ -771,14 +914,14 @@ window.Quarto = {
 <div class="code-with-filename-file">
 <pre><strong>Markdown cell</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-filename="Markdown cell"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Markdown Example: Heading Level Four</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A bullet point</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>*Emphasis in italics*</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Strong emphasis in bold**</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This is a <span class="co">[</span><span class="ot">link to learn more about markdown</span><span class="co">](https://guides.github.com/features/mastering-markdown/)</span>.</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Support for $\LaTeX$ equations:</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>$$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}$$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-filename="Markdown cell"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Markdown Example: Heading Level Four</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A bullet point</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>*Emphasis in italics*</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Strong emphasis in bold**</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This is a <span class="co">[</span><span class="ot">link to learn more about markdown</span><span class="co">](https://guides.github.com/features/mastering-markdown/)</span>.</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Support for $\LaTeX$ equations:</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>$$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}$$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>will be rendered as:</p>
 <section id="markdown-example-heading-level-four" class="level4">
@@ -817,7 +960,7 @@ window.Quarto = {
 <div class="code-with-filename-file">
 <pre><strong>Markdown cell</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename="Markdown cell"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># JupyterLab Tutorial</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-filename="Markdown cell"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># JupyterLab Tutorial</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p>This will create a first-level heading (h1) with the title “JupyterLab Tutorial.”</p></li>
 </ul></li>
@@ -851,22 +994,22 @@ window.Quarto = {
 <section id="static-figure-creation" class="level3">
 <h3 class="anchored" data-anchor-id="static-figure-creation">Static figure creation</h3>
 <p>To show an example of how plots are rendered, we will use the <code>seaborn</code> plotting package which is a high level interface to the more widely known <code>matplotlib</code> package. This is only to illustrate how plots show up in the notebook, rather than a tutorial on how to plot in Python, so I will not go into details on what these commands mean.</p>
-<div id="c3dd3b27" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You don't have to understand what is going on in this cell</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># it is only to show you how a static plot looks inside JupyterLab</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.rand(N)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.rand(N)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> np.random.rand(N)</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>area <span class="op">=</span> (<span class="dv">30</span> <span class="op">*</span> np.random.rand(N))<span class="op">**</span><span class="dv">2</span>  <span class="co"># 0 to 15 point radii</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>plt.scatter(x, y, s<span class="op">=</span>area, c<span class="op">=</span>colors, alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="759bf628" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You don't have to understand what is going on in this cell</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># it is only to show you how a static plot looks inside JupyterLab</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.rand(N)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.rand(N)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> np.random.rand(N)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>area <span class="op">=</span> (<span class="dv">30</span> <span class="op">*</span> np.random.rand(N))<span class="op">**</span><span class="dv">2</span>  <span class="co"># 0 to 15 point radii</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>plt.scatter(x, y, s<span class="op">=</span>area, c<span class="op">=</span>colors, alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -883,12 +1026,12 @@ window.Quarto = {
 <p>The combination of code, plots, and markdown is powerful. With these three elements, you can keep all your analysis code and interpretations in the same document, instead of spread across different files. Notebooks are excellent tools to build entire reports, since they can contain formatting such as a table of contents, links to sections and files, footnotes, images, bibliographies, and even videos, which we will learn more about later. There are a few ways we can export jupyter notebooks into a PDF file. The method will depend on which packages are successfully installed and working from the <a href="https://ubc-mds.github.io/resources_pages/installation_instructions/">MDS installation instructions</a>.</p>
 <section id="export-with-quarto" class="level4">
 <h4 class="anchored" data-anchor-id="export-with-quarto">Export with Quarto</h4>
-<p>This will be our preferred way to create PDFs. In the terminal, go to where your notebook file is, and create a new terminal</p>
+<p>This will be our preferred way to create PDFs. From inside JupyterLab, create a new terminal:</p>
 <p><img src="img/jupyterlab-create-terminal.png" class="img-fluid"></p>
-<p>In the terminal use the <code>quarto render</code> command and specify the output to <code>pdf</code>.</p>
+<p>That terminal opens in the folder you launched JupyterLab from, which is the assignment folder, so you are already in the right place. Use the <code>quarto render</code> command, with <code>uv run</code> in front of it as always, and specify the output as <code>pdf</code>:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render Untitled.ipynb <span class="at">--to</span> pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run quarto render Untitled.ipynb <span class="at">--to</span> pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -900,9 +1043,10 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The commands are case-sensitive, make sure you are typing the file exacatly as it is named.</p>
+<p>The commands are case-sensitive, make sure you are typing the file exactly as it is named.</p>
 </div>
 </div>
+<p>The <code>uv run</code> is what hands Quarto the Python it needs to run the code cells in your notebook. Without it, Quarto goes looking for any Python it can find on your computer, and finds either the wrong one or none at all.</p>
 <p>You can also change the <code>--to pdf</code> to <code>--to html</code>, and any interactive figures will be retained.</p>
 </section>
 <section id="export-in-jupyterlab-pdf" class="level4">
