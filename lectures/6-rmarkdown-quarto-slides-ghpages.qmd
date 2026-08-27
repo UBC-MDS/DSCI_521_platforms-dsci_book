@@ -251,7 +251,7 @@ and sub-slides in the vertical direction.
 - `Sub-slide`: Sub-topic of a slide, navigated to via up and down arrows.
 - `Fragment`: Animated in as part of the previous slide, could e.g. be a bullet point in a list.
 - `-` (or empty): Will appear in the same cell as the previous slide.
-- `Notes`: Speaker notes are visible when you press `t`
+- `Notes`: Speaker notes are visible when you press <kbd>t</kbd>
 - `Skip`: Not included
 
 You will notice that images that are referenced via `![]()` or `<img>` do not show up in the exported slides

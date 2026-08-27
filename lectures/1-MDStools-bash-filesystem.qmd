@@ -180,7 +180,7 @@ The default prompt character:
 $
 ```
 
-Typing in the `whoami` command for showing your username and pressing enter to run it:
+Typing in the `whoami` command for showing your username and pressing <kbd>Enter</kbd> to run it:
 
 ```bash
 whoami
@@ -297,7 +297,7 @@ In the lecture,
 we cover some of the most useful commands
 with the main goal of making you familiar with moving around using Bash.
 The most important commands that we covered are listed in the table below.
-Remember that you can press <kbd>TAB</kbd>
+Remember that you can press <kbd>Tab</kbd>
 to automatically complete commands and file names as you are typing.
 
 ### Shell commands for navigating and manipulating the filesystem
@@ -781,11 +781,11 @@ Some helpful commands while navigating the manual pages in `less`
 - <kbd>q</kbd>: Quits the manual and takes you back to the shell prompt
 - <kbd>Space</kbd>: Go down the page
 - <kbd>b</kbd>: Go **B**ack up the page
-- <kbd>Up Arrow</kbd> / <kbd>Down Arrow</kbd>: you can also use the arrow keys to go up and down the page
+- <kbd>Up</kbd> / <kbd>Down</kbd>: you can also use the arrow keys to go up and down the page
 - <kbd>/</kbd>: starts a search
     - Type in the search term and press <kbd>Enter</kbd> to go to the first hit
     - <kbd>n</kbd>: To continue to the **n**ext search hit
-    - <kbd>Shift</kbd> + <kbd>n</kbd>.: Go to the previous hit
+    - <kbd>N</kbd> (<kbd>Shift</kbd> + <kbd>n</kbd>): Go to the previous hit
 
 :::{.callout-note}
 If you notice a `:` in the bottom left of your terminal,

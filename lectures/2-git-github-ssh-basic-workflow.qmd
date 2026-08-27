@@ -283,7 +283,7 @@ However, if you intend to run the code on your own machine and make modification
 
 * Step 4: Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command.
 
-* Step 5: Type git clone followed by the URL, for example `git clone https://github.com/github_username/repository_name.git`and press enter.
+* Step 5: Type git clone followed by the URL, for example `git clone https://github.com/github_username/repository_name.git` and press <kbd>Enter</kbd>.
 
 * Step 6: After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.
 
@@ -413,8 +413,8 @@ The staging area allows more control over what you are about to commit,
 allowing you to commit parts of a file or multiple files together
 with a single descriptive message.
 To add parts of a file instead of everything type `git add -p`
-and then interactively choose which parts you want by typing either `n` (no)
-or `y` (yes) followed by pressing enter for each chunk of code.
+and then interactively choose which parts you want by typing either <kbd>n</kbd> (no)
+or <kbd>y</kbd> (yes) followed by pressing <kbd>Enter</kbd> for each chunk of code.
 This workflow is great for reviewing the changes as you add them
 to the staging area,
 which ensures you don't commit anything by mistake.
@@ -453,7 +453,7 @@ you can type `git restore --staged name-of-your-file.txt`
 ## Commit your files
 
 To include a description in your commit using the terminal,
-you should write the command `git commit` and press ENTER.
+you should write the command `git commit` and press <kbd>Enter</kbd>.
 After doing that, a file called `COMMIT_EDITMSG` will open in your editor.
 There you can write the title and body of the commit message
 that you want to associate with your changes.

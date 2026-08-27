@@ -23,7 +23,7 @@ We have already seen RStudio in [Lecture 0b](0-rstudio-orientation-intro.qmd).
 RStudio is an Interactive Development Environment (IDE),
 just like JupyterLab.
 This means it comes with some conveniences,
-such as code completion when pressing <kbd>TAB</kbd>,
+such as code completion when pressing <kbd>Tab</kbd>,
 highlighting of syntax errors,
 and debugging tools.
 

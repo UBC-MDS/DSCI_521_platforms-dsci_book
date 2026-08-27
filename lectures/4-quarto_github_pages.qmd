@@ -147,7 +147,7 @@ $ quarto create project
    confluence
 ```
 
-We can use our arrow keys to select the project type we want, and hit enter to create the skeleton for that project.
+We can use our arrow keys to select the project type we want, and hit <kbd>Enter</kbd> to create the skeleton for that project.
 We'll use `website` in this lecture.
 
 It will then ask you for a directory:
@@ -288,7 +288,7 @@ Here you can see we can navigate to `http://localhost:4463/` in our browser and 
 The URL essentially says to look at port `4463` on our local machine (i.e., `localhost`).
 Your port number may differ and change, so always pay attention to what port your current site is running on.
 If something is not updating after you make a change,
-try exiting out of `preview` with <kbd>CTRL</kbd> + <kbd>c</kbd> (Windows/Linux) or <kbd>⌘</kbd> + <kbd>c</kbd> (Mac) and re-`preview`-ing.
+try exiting out of `preview` with <kbd>Ctrl</kbd> + <kbd>c</kbd> (Windows/Linux) or <kbd>⌘</kbd> + <kbd>c</kbd> (Mac) and re-`preview`-ing.
 
 
 

@@ -31,7 +31,7 @@ and the first entry said "snippet",
 what is that?
 A code snippet is a text macro,
 which means that you can type a short string of characters
-to insert a template or snippet of text by pressing <kbd>TAB</kbd>.
+to insert a template or snippet of text by pressing <kbd>Tab</kbd>.
 You can see all the default snippets
 and define your own by going to
 `Tools -> Global options -> Code -> Edit snippets`.

@@ -206,7 +206,7 @@ To practice creating a Markdown cell with a heading and repositioning it within 
 
 1. **Create a Markdown Cell:**
    - In your JupyterLab notebook, add a new cell by clicking the "+" button in the toolbar.
-   - Change the cell type to "Markdown" by selecting "Markdown" from the dropdown menu or using the shortcut `Esc + M`.
+   - Change the cell type to "Markdown" by selecting "Markdown" from the dropdown menu or using the shortcut <kbd>Esc</kbd> + <kbd>m</kbd>.
    - Type the following text in the Markdown cell:
 
      ```markdown
@@ -216,7 +216,7 @@ To practice creating a Markdown cell with a heading and repositioning it within 
    - This will create a first-level heading (h1) with the title "JupyterLab Tutorial."
 
 2. **Run the Cell:**
-   - Execute the cell by pressing `Shift + Enter` or clicking the "Run" button. The text should now be formatted as a heading.
+   - Execute the cell by pressing <kbd>Shift</kbd> + <kbd>Enter</kbd> or clicking the "Run" button. The text should now be formatted as a heading.
 
 3. **Reposition the Cell:**
    - Click and hold the left mouse button on the cell's input area (the left side of the cell).
@@ -263,9 +263,9 @@ The above is a static figure,
 which means an image is created and included in the notebook.
 To save this image,
 you can either use a save command in the plotting library
-or you can hold shift and right click.
+or you can hold <kbd>Shift</kbd> and right click.
 Just right clicking is the JupyterLab menu,
-but holding the `shift` key brings up the browser menu,
+but holding the <kbd>Shift</kbd> key brings up the browser menu,
 which includes the common options for images such as open in new tab and save.
 
 ![](img/jupyterlab-save_fig.png)
@@ -379,7 +379,7 @@ you can instead press
 <kbd>Shift</kbd> + <kbd>Tab</kbd>
 to bring up a help dialogue.
 JupyterLab also supports tab completion,
-you can start typing a name and then press tab to see suggestions to expand to.
+you can start typing a name and then press <kbd>Tab</kbd> to see suggestions to expand to.
 Additional help is available via the "Help" menu,
 which links to useful online resources (for example `Help --> JupyterLab Reference`).
 

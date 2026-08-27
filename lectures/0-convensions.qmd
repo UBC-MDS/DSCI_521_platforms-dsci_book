@@ -36,13 +36,22 @@ Body text, with **bold**, *italic*, `inline code`,
 a [link to another page](1-MDStools-bash-filesystem.qmd)
 and an [external link](https://quarto.org).
 Keyboard keys are written with `<kbd>`.
+Named keys take title case: <kbd>Ctrl</kbd>, <kbd>Shift</kbd>, <kbd>Tab</kbd>,
+<kbd>Enter</kbd>, <kbd>Esc</kbd>, <kbd>Space</kbd>, <kbd>Up</kbd>,
+<kbd>Down</kbd>.
+A letter key stays lowercase unless <kbd>Shift</kbd> is genuinely part of the
+shortcut, so that an uppercase letter never implies a <kbd>Shift</kbd> that
+isn't there: <kbd>Ctrl</kbd> + <kbd>c</kbd> interrupts a command, while
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> opens the browser console.
+The same rule reads correctly for a program that treats case as meaning,
+such as <kbd>n</kbd> and <kbd>N</kbd> in `less`.
 Enough of them to wrap, so their boxes can be checked against each other on
 neighbouring lines:
-press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop a running command,
-<kbd>Ctrl</kbd> + <kbd>D</kbd> to close the shell,
+press <kbd>Ctrl</kbd> + <kbd>c</kbd> to stop a running command,
+<kbd>Ctrl</kbd> + <kbd>d</kbd> to close the shell,
 <kbd>Tab</kbd> to complete a path,
 <kbd>Up</kbd> and <kbd>Down</kbd> to walk back through your history,
-and <kbd>Ctrl</kbd> + <kbd>R</kbd> to search it.
+and <kbd>Ctrl</kbd> + <kbd>r</kbd> to search it.
 
 ### A third-level heading
 
