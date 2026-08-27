@@ -175,8 +175,7 @@ You will see how it created a few files, and prompt you to open the directory in
    (don't open)
 ```
 
-::: {.note}
-Note
+:::{.callout-note}
 If you already created a new folder and `cd` into it.
 You can use `.` to have the files created in the current location.
 Otherwise, you can specify a new folder name, and it will create a new folder with
@@ -252,16 +251,13 @@ Think of `preview` as a way to quickly see how the website changes as you are wo
 When using `quarto preview` your current terminal will be used to look for changes and re-render your site.
 
 :::{.callout-tip}
-## Tip 
-
 If you are using VSCode, you may need to set the `render-on-save` option as a default,
 in either the IDE, the `_quarto.yml` file or the individual `.qmd` document:
 
 <https://quarto.org/docs/tools/vscode.html#render-on-save>
 :::
 
-::: {.tip}
-## Tip
+:::{.callout-tip}
 If you are using VSCode, and use the `Quarto: Preview` command from the command pallete (you will need the VSCode Quarto extension),
 this will run `quarto preview ` with the `--no-watch-inputs` by defualt.
 This will prevent saving the file to auto complile the project.

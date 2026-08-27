@@ -125,9 +125,7 @@ There are three ways to set your working directory:
 
 * Method 4. *Set the working directory using the console*: Type `setwd("PATH")` in the console, replacing "PATH" with the path to your desired directory. Use this method with care, as explained in Jenny's [article on workflow vs. script](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/).
 
-:::{.warning}
-## Warning
-
+:::{.callout-warning}
 The RStudio project method (Method 1) is the **only** way you can consistently set
 a working directory that also works in a collaborative workflow.
 :::
@@ -428,9 +426,7 @@ and runs through the entire document from the beginning
 to make sure it will work when you send it to someone else.
 
 
-:::{.tip}
-## Tip 
-
+:::{.callout-tip}
 Given that you need to render the entire document to see your Markdown and LaTeX rendered,
 **it is important to "knit" often as you make changes**.
 If you make an error in a LaTeX equation for example,
@@ -500,9 +496,7 @@ the plot shows up inside the notebook
 rather than in the side panel
 as when we ran the same line from within the script script.
 
-:::{.note}
-## Note
-
+:::{.callout-note}
 The main difference in an R Markdown document and an R Notebook document,
 is that R Markdown will "knit" the document in a new R session from top to bottom
 **every time**.
@@ -539,9 +533,7 @@ There are other language engines that can be used in RMarkdown,
 you can learn more about that
 [here](https://bookdown.org/yihui/rmarkdown/language-engines.html).
 
-:::{.note}
-## Note
-
+:::{.callout-note}
 R Markdown documents can also execute Python code,
 you will need to have the R `{reticulate}` package installed,
 and then point your R installation to the Python version you need.
@@ -706,7 +698,7 @@ you can re-write the `correlation no warning` chunk as
 cor( c( 1 , 1 ), c( 2 , 3 ) )
 ```
 
-:::{note}
+:::{.callout-note}
 The `#|` chunk option notation takes in a different format than the inline option.
 E.g., we use YAML `true`, and `false` values, instead of R's `TRUE`, and `FALSE`.
 We also use `:` to set key-value pairs, instead of `=`.

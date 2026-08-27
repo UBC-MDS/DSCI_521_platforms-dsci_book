@@ -299,14 +299,9 @@ In the terminal use the `quarto render` command and specify the output to `pdf`.
 ```bash
 quarto render Untitled.ipynb --to pdf
 ```
-:::{.note}
-::::{.note-header}
-Note
-::::
-::::{.note-container}
+:::{.callout-note}
 The commands are case-sensitive,
 make sure you are typing the file exacatly as it is named.
-::::
 :::
 
 You can also change the `--to pdf` to `--to html`,
@@ -391,14 +386,11 @@ you can start typing a name and then press tab to see suggestions to expand to.
 Additional help is available via the "Help" menu,
 which links to useful online resources (for example `Help --> JupyterLab Reference`).
 
-:::{.note}
-::::{.note-header}
-Note about UBC Jupyter Server
-::::
-::::{.note-container}
+:::{.callout-note}
+## Note about UBC Jupyter Server
+
 All your files will be saved between restarts,
 but any Python packages you have installed yourself will be reset,
 so you need to contact UBC IT
 to have additional Python packages installed with persistence.
-::::
 :::

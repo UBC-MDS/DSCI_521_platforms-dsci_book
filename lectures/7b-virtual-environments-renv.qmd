@@ -32,9 +32,7 @@ via the `install.packages()` and `remove.packages()` commands.
 Unlike conda that lets you "activate" an environment and let you move across different projects,
 `{renv}` prefers it when all your work is contained in a single project.
 
-:::{.note}
-## Note
-
+:::{.callout-note}
 For MDS, this might mean you may need a separate `{renv}` file for each lab assignment.
 :::
 

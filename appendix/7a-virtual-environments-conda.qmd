@@ -88,8 +88,7 @@ The default choice is indicated with `[]`,
 and you can press <kbd>Enter</kbd> to accept it.
 It would look similar to this the output below.
 
-:::{.tip}
-## Tip
+:::{.callout-tip}
 You should see `conda-forge` listed in the top of the output,
 if not, set the proper channel before running more conda commands (next section).
 You can cancel the current terminal operation by pressing
@@ -262,9 +261,7 @@ but we can use the `-c` flag to specify any package channel (even the anaconda c
 conda create -n test_env -c conda-forge python=3.12 pandas=2.2.2 jupyterlab
 ```
 
-:::{.note}
-## Note
-
+:::{.callout-note}
 In the MDS instructions you should have conda-forge set as a default channel,
 so the `-c conda-forge` is redundant,
 but you may see it while looking for installation instructions.
@@ -322,9 +319,7 @@ and using it makes it easy for others
 to recognize that this is a conda env file,
 the extension can be either `.yaml` or `.yml`):
 
-:::{.warning}
-## Warning
-
+:::{.callout-warning}
 While you can choose to export your _entire_ environment into a file
 
 ```bash
@@ -491,9 +486,7 @@ wheel                     0.44.0             pyhd8ed1ab_0    conda-forge
 xz                        5.2.6                h166bdaf_0    conda-forge
 ```
 
-:::{.note}
-## Note
-
+:::{.callout-note}
 You will typically want to have an empty `base` environment where no
 packages are installed.
 All your work in separate classes/projects should exist in their own environment.

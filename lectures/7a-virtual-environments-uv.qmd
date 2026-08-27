@@ -278,7 +278,7 @@ and never says which.
 `pyproject.toml` declares,
 and `uv.lock` locks.
 
-:::{.note}
+:::{.callout-note}
 ## Pip can install from `pyproject.toml`
 
 `pip` has caught up on the declaring half of this.
@@ -332,9 +332,7 @@ Things `uv` can do for you:
 - writes a lockfile recording exactly what it installed
 
 
-:::{.note}
-## Note
-
+:::{.callout-note}
 If you have used `conda` before,
 `uv` fills the same role,
 but the commands and the philosophy are different.
@@ -619,9 +617,7 @@ The `--bare` flag says
 "only create the `pyproject.toml`, nothing else".
 That is what you want for a data analysis project.
 
-:::{.warning}
-## Warning
-
+:::{.callout-warning}
 If you run `uv init` *without* `--bare`,
 `uv` sets you up to build and publish a Python **package**:
 it creates a `src/` directory, a `README.md`,
@@ -672,9 +668,7 @@ Commit this file.
 It is what makes `uv` pick the same interpreter on your collaborator's machine
 as it did on yours.
 
-:::{.note}
-## Note
-
+:::{.callout-note}
 `.python-version` and `requires-python` have to agree.
 If you ask for a pin that the `pyproject.toml` forbids,
 `uv` will refuse rather than quietly do the wrong thing:
@@ -787,9 +781,7 @@ The lockfile covers every operating system,
 which is why it lists a separate wheel for macOS, Linux, and Windows.
 That is what lets one lockfile work for your whole lab group.
 
-:::{.warning}
-## Warning
-
+:::{.callout-warning}
 This is also where the `pip freeze` file we saw earlier falls down:
 
 ```bash
@@ -892,9 +884,7 @@ uv run quarto render
 uv run pytest
 ```
 
-:::{.tip}
-## Tip
-
+:::{.callout-tip}
 The reason to prefer `uv run` over activating an environment
 is that it removes an entire category of bug.
 There is no "which environment am I in?" question to get wrong,
@@ -1142,9 +1132,7 @@ dev = [
 `uv sync` installs the `dev` group by default,
 which is what you want on your own machine.
 
-:::{.note}
-## Note
-
+:::{.callout-note}
 Groups are optional,
 and for a course project you often do not need them.
 This book's own `pyproject.toml` deliberately keeps everything
@@ -1175,9 +1163,7 @@ show up as a *kernel* a notebook can attach to,
 and because JupyterLab is running inside the project environment,
 the default kernel is already the right one.
 
-:::{.tip}
-## Tip
-
+:::{.callout-tip}
 If you open a notebook and your imports fail,
 the first thing to check is which kernel the notebook is using
 (top-right corner in JupyterLab).
