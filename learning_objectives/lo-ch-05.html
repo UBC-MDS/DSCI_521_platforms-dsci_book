@@ -88,20 +88,6 @@ gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
 <style>
-div.callout-exercise.callout {
-  border-left-color: #1c5f2e;
-}
-div.callout-exercise.callout-style-default .callout-header {
-  background-color: rgba(28, 95, 46, 0.13);
-}
-div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f44b' !important;
-  background-image: none;
-}
 div.callout-activity.callout {
   border-left-color: #0055b7;
 }
@@ -114,6 +100,20 @@ div.callout-activity.callout-style-default .callout-icon::before, div.callout-ac
   font-weight: 900;
   font-style: normal;
   content: '\e53d' !important;
+  background-image: none;
+}
+div.callout-exercise.callout {
+  border-left-color: #1c5f2e;
+}
+div.callout-exercise.callout-style-default .callout-header {
+  background-color: rgba(28, 95, 46, 0.13);
+}
+div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f44b' !important;
   background-image: none;
 }
 </style>
@@ -582,13 +582,12 @@ div.callout-activity.callout-style-default .callout-icon::before, div.callout-ac
 
 
 <ol type="1">
-<li>Create RProjects in RStudio using <code>here</code> to define robust file paths.</li>
-<li>Detect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown.</li>
-<li>Explain markdown usage in relation to dynamic documents.</li>
-<li>Differentiate between code chunks and code cells in RMarkdown and Jupyter Notebooks.</li>
-<li>Select appropriate code chunk options for RMarkdown.</li>
-<li>Use semantic line breaks for version control files.</li>
-<li>Specify metadata in the YAML header block.</li>
+<li>Explore the Git history via <code>git log</code> in the terminal and GitHub.</li>
+<li>Compare commits using <code>git diff</code> in the terminal and GitHub.</li>
+<li>Solve merge conflicts at the command line and in Positron.</li>
+<li>Save transitory changes with <code>git stash</code>.</li>
+<li>Manage to avoid pushing specific local files by including a <code>.gitignore</code>.</li>
+<li>Differenciate among different ways to restore your project history (<code>git reset --hard/--soft</code>, <code>git revert</code>) when working on an older version of a project.</li>
 </ol>
 
 

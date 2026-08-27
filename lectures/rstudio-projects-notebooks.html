@@ -125,20 +125,6 @@ gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
 <style>
-div.callout-exercise.callout {
-  border-left-color: #1c5f2e;
-}
-div.callout-exercise.callout-style-default .callout-header {
-  background-color: rgba(28, 95, 46, 0.13);
-}
-div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f44b' !important;
-  background-image: none;
-}
 div.callout-activity.callout {
   border-left-color: #0055b7;
 }
@@ -151,6 +137,20 @@ div.callout-activity.callout-style-default .callout-icon::before, div.callout-ac
   font-weight: 900;
   font-style: normal;
   content: '\e53d' !important;
+  background-image: none;
+}
+div.callout-exercise.callout {
+  border-left-color: #1c5f2e;
+}
+div.callout-exercise.callout-style-default .callout-header {
+  background-color: rgba(28, 95, 46, 0.13);
+}
+div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f44b' !important;
   background-image: none;
 }
 </style>
@@ -706,10 +706,10 @@ div.callout-activity.callout-style-default .callout-icon::before, div.callout-ac
 </section>
 <section id="rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="rstudio">RStudio</h2>
-<p>We have already seen RStudio in <a href="../lectures/rstudio-orientation-intro.html">Lecture 0b</a>. RStudio is an Interactive Development Environment (IDE), just like JupyterLab. This means it comes with some conveniences, such as code completion when pressing <kbd>Tab</kbd>, highlighting of syntax errors, and debugging tools.</p>
+<p>We have already seen RStudio in the <a href="../lectures/rstudio-orientation-intro.html">RStudio Orientation</a>. RStudio is an Interactive Development Environment (IDE), just like JupyterLab. This means it comes with some conveniences, such as code completion when pressing <kbd>Tab</kbd>, highlighting of syntax errors, and debugging tools.</p>
 <p><img src="img/rstudio_ide.png" class="img-fluid"></p>
 <p>The interface is also similar to JupyterLab (and many other IDEs) as it has panels for browsing files, reading help documentation, and running code in a console. You are already familiar with the concept of many of these from running JupyterLab, but they are arranged slightly different in RStudio. While you can write both R and Python code in RStudio, we’ll use it mostly for R in MDS.</p>
-<p>Please see the <a href="../lectures/rstudio-orientation-intro.html#recommended-rstudio-setup">Lecture 0b: Recommended RStudio Setup</a> to configure the IDE with safe defaults on launch.</p>
+<p>Please see the <a href="../lectures/rstudio-orientation-intro.html#recommended-rstudio-setup">RStudio Orientation: Recommended RStudio Setup</a> to configure the IDE with safe defaults on launch.</p>
 <p><img src="img/rstudio-global_options-general.png" class="img-fluid"></p>
 <section id="editing-rstudio-settings-to-not-save-workspace-data" class="level3">
 <h3 class="anchored" data-anchor-id="editing-rstudio-settings-to-not-save-workspace-data">Editing RStudio settings to not save workspace data</h3>
@@ -895,7 +895,7 @@ Warning
 <p>The official markdown specifications is ambiguous which lead to different implementations of <a href="https://babelmark.github.io/faq/">markdown</a> [6]. The same markdown syntax can render different outputs depending on the rendering engine. For example, a <code>README.md</code> file can render differently on GitHub than from <code>pandoc</code>. <a href="https://babelmark.github.io">Babelmark III</a> is a website that can detect and return all the different markdown variants, as well as list well known pitfalls. Markdown also has many <strong>extensions</strong>, and not all extensions will work on all flavors of markdown.</p>
 <p>In MDS we handle a limited number of markdown flavours (in order of appearance in DSCI 521):</p>
 <ol type="1">
-<li><a href="https://jupyterbook.org/en/stable/file-types/markdown.html">Jupyter Notebook (and Jupyter Book) Markdown</a>: is an extension of a Markdown flavour called <a href="https://commonmark.org/">CommonMark Markdown</a>. If you completed the tutorial from Lecture 0, you already have some practice on it! <a href="https://commonmark.org/help/tutorial/" class="uri">https://commonmark.org/help/tutorial/</a></li>
+<li><a href="https://jupyterbook.org/en/stable/file-types/markdown.html">Jupyter Notebook (and Jupyter Book) Markdown</a>: is an extension of a Markdown flavour called <a href="https://commonmark.org/">CommonMark Markdown</a>. If you completed the tutorial from the orientation lessons, you already have some practice on it! <a href="https://commonmark.org/help/tutorial/" class="uri">https://commonmark.org/help/tutorial/</a></li>
 <li><a href="https://github.github.com/gfm/#what-is-github-flavored-markdown-">GitHub flavoured Markdown</a>. To write issues, pull request, render your <code>README.md</code> file in the first page of your repository you will be using this Markdown flavour. It is a (different) extension of the CommonMark Spec also used for Jupyter Notebooks.
 <ul>
 <li>Read how to use it <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">here!</a></li>
