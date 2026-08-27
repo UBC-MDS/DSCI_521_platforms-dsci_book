@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../lectures/regex-filenames-project-organization.html" rel="next">
-<link href="../lectures/rstudio-projects-notebooks.html" rel="prev">
+<link href="../lectures/virtual-environments-uv.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -345,7 +345,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Week 4</li><li class="breadcrumb-item"><a href="../lectures/virtual-environments-renv.html">Virtual Environments: renv</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/virtual-environments-uv.html">Week 4</a></li><li class="breadcrumb-item"><a href="../lectures/virtual-environments-renv.html">Virtual Environments: renv</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -473,8 +473,11 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Virtual Environments: uv</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/virtual-environments-uv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Virtual Environments: uv</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/virtual-environments-renv.html" class="sidebar-item-text sidebar-link active">
@@ -594,7 +597,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Week 4</li><li class="breadcrumb-item"><a href="../lectures/virtual-environments-renv.html">Virtual Environments: renv</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/virtual-environments-uv.html">Week 4</a></li><li class="breadcrumb-item"><a href="../lectures/virtual-environments-renv.html">Virtual Environments: renv</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Virtual Environments: R</h1>
 </div>
@@ -616,7 +619,10 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <section id="learning-outcomes" class="level2">
 <h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
 <ol type="1">
-<li>Understand what is a computational environment and how can ensure the reproducibility of a project</li>
+<li>Understand what a computational environment is and how it can ensure the reproducibility of a project</li>
+<li>Differentiate Python, PyPI, <code>pip</code>, <code>venv</code>, and <code>uv</code></li>
+<li>Distinguish between the packages a project <em>declares</em> (<code>pyproject.toml</code>, <code>DESCRIPTION</code>) and the packages a project <em>locks</em> (<code>uv.lock</code>, <code>renv.lock</code>)</li>
+<li>Manage packages and environments in Python using <code>uv</code></li>
 <li>Manage packages and environments in R using <code>renv</code></li>
 </ol>
 <p><strong>Platform in focus</strong> R, RStudio</p>
@@ -1117,8 +1123,8 @@ D. `renv::start()`</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../lectures/rstudio-projects-notebooks.html" class="pagination-link" aria-label="RStudio Projects and Literate Programming">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RStudio Projects and Literate Programming</span>
+      <a href="../lectures/virtual-environments-uv.html" class="pagination-link" aria-label="Virtual Environments: uv">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Virtual Environments: uv</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -430,8 +430,11 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Virtual Environments: uv</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./lectures/virtual-environments-uv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Virtual Environments: uv</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lectures/virtual-environments-renv.html" class="sidebar-item-text sidebar-link">
@@ -677,7 +680,10 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </ul>
 <p>Lesson 7</p>
 <ol type="1">
-<li>Understand what is a computational environment and how can ensure the reproducibility of a project</li>
+<li>Understand what a computational environment is and how it can ensure the reproducibility of a project</li>
+<li>Differentiate Python, PyPI, <code>pip</code>, <code>venv</code>, and <code>uv</code></li>
+<li>Distinguish between the packages a project <em>declares</em> (<code>pyproject.toml</code>, <code>DESCRIPTION</code>) and the packages a project <em>locks</em> (<code>uv.lock</code>, <code>renv.lock</code>)</li>
+<li>Manage packages and environments in Python using <code>uv</code></li>
 <li>Manage packages and environments in R using <code>renv</code></li>
 </ol>
 <ul>
