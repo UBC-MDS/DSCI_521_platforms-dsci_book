@@ -84,9 +84,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-e28926105f6bad59fcb2c612f536f61c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ee7b81851c4c5db8428876910e5508a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,6 +124,36 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
+<style>
+div.callout-activity.callout {
+  border-left-color: #0055b7;
+}
+div.callout-activity.callout-style-default .callout-header {
+  background-color: rgba(0, 85, 183, 0.13);
+}
+div.callout-activity .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-activity.callout-style-default .callout-icon::before, div.callout-activity.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\e53d' !important;
+  background-image: none;
+}
+div.callout-exercise.callout {
+  border-left-color: #1c5f2e;
+}
+div.callout-exercise.callout-style-default .callout-header {
+  background-color: rgba(28, 95, 46, 0.13);
+}
+div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f44b' !important;
+  background-image: none;
+}
+</style>
 
 
 <meta property="og:title" content="Introduction to MDS software and Bash – DSCI 521: Computing Platforms for Data Science">
@@ -581,9 +612,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#instructions-for-accessing-iclicker" id="toc-instructions-for-accessing-iclicker" class="nav-link" data-scroll-target="#instructions-for-accessing-iclicker">Instructions for Accessing iClicker</a></li>
-  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity 1</a></li>
   <li><a href="#the-mds-software-stack" id="toc-the-mds-software-stack" class="nav-link" data-scroll-target="#the-mds-software-stack">The MDS software stack</a></li>
-  <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity 2</a></li>
   <li><a href="#introduction-to-computing" id="toc-introduction-to-computing" class="nav-link" data-scroll-target="#introduction-to-computing">Introduction to computing</a>
   <ul class="collapse">
   <li><a href="#text-based-communication" id="toc-text-based-communication" class="nav-link" data-scroll-target="#text-based-communication">Text-based communication</a></li>
@@ -592,15 +621,11 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <li><a href="#your-first-words" id="toc-your-first-words" class="nav-link" data-scroll-target="#your-first-words">Your first words</a></li>
   <li><a href="#exploring-the-files-system" id="toc-exploring-the-files-system" class="nav-link" data-scroll-target="#exploring-the-files-system">Exploring the files system</a></li>
   <li><a href="#using-commands-with-options" id="toc-using-commands-with-options" class="nav-link" data-scroll-target="#using-commands-with-options">Using commands with options</a></li>
-  <li><a href="#activity-3" id="toc-activity-3" class="nav-link" data-scroll-target="#activity-3">Activity 3</a></li>
   <li><a href="#navigating-and-manipulating-the-filesystem-using-bash" id="toc-navigating-and-manipulating-the-filesystem-using-bash" class="nav-link" data-scroll-target="#navigating-and-manipulating-the-filesystem-using-bash">Navigating and manipulating the filesystem using Bash</a>
   <ul class="collapse">
   <li><a href="#shell-commands-for-navigating-and-manipulating-the-filesystem" id="toc-shell-commands-for-navigating-and-manipulating-the-filesystem" class="nav-link" data-scroll-target="#shell-commands-for-navigating-and-manipulating-the-filesystem">Shell commands for navigating and manipulating the filesystem</a></li>
   <li><a href="#useful-shell-special-characters" id="toc-useful-shell-special-characters" class="nav-link" data-scroll-target="#useful-shell-special-characters">Useful shell special characters</a></li>
   </ul></li>
-  <li><a href="#activity-4" id="toc-activity-4" class="nav-link" data-scroll-target="#activity-4">Activity 4</a></li>
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#working-with-files-and-directories" id="toc-working-with-files-and-directories" class="nav-link" data-scroll-target="#working-with-files-and-directories">Working with Files and Directories</a>
   <ul class="collapse">
   <li><a href="#naming-guidelines" id="toc-naming-guidelines" class="nav-link" data-scroll-target="#naming-guidelines">Naming guidelines</a></li>
@@ -663,17 +688,26 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <section id="instructions-for-accessing-iclicker" class="level2">
 <h2 class="anchored" data-anchor-id="instructions-for-accessing-iclicker">Instructions for Accessing iClicker</h2>
 <p>Please follow these instructions for accessing iClicker: <a href="https://lthub.ubc.ca/guides/iclicker-cloud-student-guide/">iClicker Cloud Student Guide</a></p>
-</section>
-<section id="activity-1" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-1">Activity 1</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>What is a Data Scientist?</p>
 <p>A. Someone whose job is to extract value from data through reproducible and auditable processes.</p>
 <p>B. Someone whose job is to apply machine learning algorithms.</p>
 <p>C. Someone whose job is to analyze large volumes of often unstructured data to produce meaningful insights. <a href="https://www.springboard.com/blog/data-science/data-science-definition/" class="uri">https://www.springboard.com/blog/data-science/data-science-definition/</a></p>
 <p>D. All of the above.</p>
 <p>E. Someone whose job is to get well paid.</p>
-</section>
+</div>
+</div>
 <p>Most of the tools we are going to learn during DSCI 521 are tools that programmers used. Programming involves interacting with the system using commands</p>
+</section>
 <section id="the-mds-software-stack" class="level2">
 <h2 class="anchored" data-anchor-id="the-mds-software-stack">The MDS software stack</h2>
 <p>The following are the core programs that you will be using throughout the MDS program.</p>
@@ -691,15 +725,24 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <li>It is becoming the standard in many tech companies.</li>
 <li>Being a part of an awesome and active community!</li>
 </ul>
-</section>
-<section id="activity-2" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>In what scenario is the command line preferable over JupyterLab?</p>
 <p>A. When scripting and automating tasks due to its quick execution of commands and ease of integration into workflows.</p>
 <p>B. For interactive data exploration due to its rich user interface.</p>
 <p>C. For beginners because of its simpler interface.</p>
 <p>D. For large-scale data processing due to its efficiency in handling data.</p>
 <p>E. Both are equally effective.</p>
+</div>
+</div>
 </section>
 <section id="introduction-to-computing" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-to-computing">Introduction to computing</h2>
@@ -758,9 +801,16 @@ Pictures      my_program</code></pre>
 Documents/    todo.txt
 Pictures/     my_program*</code></pre>
 <p>We can modify output of <code>ls</code> by providing optional “flags”. In this example, the <code>-F</code> option tells <code>ls</code> to decorate the output to show what type of file each entry is. A trailing <code>/</code> indicates a directory, while a trailing <code>*</code> tells us the file is a runnable program. Depending on our setup, the shell might also use colors to indicate whether each entry is a file or directory.</p>
-</section>
-<section id="activity-3" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-3">Activity 3</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Can you recognize the following folders in the picture?</p>
 <ol type="1">
 <li>Home directory</li>
@@ -769,6 +819,8 @@ Pictures/     my_program*</code></pre>
 <li>Root directory</li>
 </ol>
 <p><img src="img/diagram-files-activity.png" class="img-fluid"></p>
+</div>
+</div>
 </section>
 <section id="navigating-and-manipulating-the-filesystem-using-bash" class="level2">
 <h2 class="anchored" data-anchor-id="navigating-and-manipulating-the-filesystem-using-bash">Navigating and manipulating the filesystem using Bash</h2>
@@ -852,18 +904,33 @@ Pictures/     my_program*</code></pre>
 </tr>
 </tbody>
 </table>
-</section>
-</section>
-<section id="activity-4" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-4">Activity 4</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Which command would move you to the parent directory?</p>
 <pre><code>A. cd .
 B. cd ..
 C. cd ~
 D. cd</code></pre>
-</section>
-<section id="exercise-1" class="level3 exercise">
-<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
+</div>
+</div>
+<div class="callout callout-style-default callout-exercise callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exercise</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Navigating the Command Line</strong></p>
 <p><strong>Objective:</strong> By completing this exercise, students will practice basic navigation commands in the command line interface.</p>
 <p><strong>Instructions:</strong></p>
@@ -888,9 +955,18 @@ D. cd</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../Desktop</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This command uses <code>..</code> to move up one level to the home directory and then enters the Desktop folder.</p></li>
 </ol>
-</section>
-<section id="exercise-2" class="level3 exercise">
-<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
+</div>
+</div>
+<div class="callout callout-style-default callout-exercise callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exercise</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Understanding the <code>ls</code> Command and Directory Navigation</strong></p>
 <p><strong>Objective:</strong> By completing this exercise, students will learn to use the <code>ls</code> command with options and understand directory structures.</p>
 <p><strong>Instructions:</strong></p>
@@ -928,6 +1004,9 @@ D. cd</code></pre>
 <li><p>What does the <code>-a</code> option do in the <code>ls</code> command?</p></li>
 <li><p>What do the <code>./</code> and <code>../</code> folders represent as output of the <code>ls -a</code> command?</p></li>
 </ol>
+</div>
+</div>
+</section>
 </section>
 <section id="working-with-files-and-directories" class="level2">
 <h2 class="anchored" data-anchor-id="working-with-files-and-directories">Working with Files and Directories</h2>

@@ -84,9 +84,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-e28926105f6bad59fcb2c612f536f61c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ee7b81851c4c5db8428876910e5508a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,6 +124,36 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
+<style>
+div.callout-activity.callout {
+  border-left-color: #0055b7;
+}
+div.callout-activity.callout-style-default .callout-header {
+  background-color: rgba(0, 85, 183, 0.13);
+}
+div.callout-activity .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-activity.callout-style-default .callout-icon::before, div.callout-activity.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\e53d' !important;
+  background-image: none;
+}
+div.callout-exercise.callout {
+  border-left-color: #1c5f2e;
+}
+div.callout-exercise.callout-style-default .callout-header {
+  background-color: rgba(28, 95, 46, 0.13);
+}
+div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f44b' !important;
+  background-image: none;
+}
+</style>
 
 
 <meta property="og:title" content="Introduction to Quarto and Github Pages – DSCI 521: Computing Platforms for Data Science">
@@ -573,26 +604,22 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
-  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity 1</a></li>
   <li><a href="#what-is-quarto" id="toc-what-is-quarto" class="nav-link" data-scroll-target="#what-is-quarto">What is Quarto</a></li>
   <li><a href="#installing-quarto" id="toc-installing-quarto" class="nav-link" data-scroll-target="#installing-quarto">Installing Quarto</a>
   <ul class="collapse">
   <li><a href="#checking-your-installation" id="toc-checking-your-installation" class="nav-link" data-scroll-target="#checking-your-installation">Checking your installation</a></li>
   </ul></li>
-  <li><a href="#your-first-quarto-website" id="toc-your-first-quarto-website" class="nav-link" data-scroll-target="#your-first-quarto-website">Your first Quarto website</a></li>
-  <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity 2</a></li>
+  <li><a href="#your-first-quarto-website" id="toc-your-first-quarto-website" class="nav-link" data-scroll-target="#your-first-quarto-website">Your first Quarto website</a>
+  <ul class="collapse">
   <li><a href="#tweaking-your-website" id="toc-tweaking-your-website" class="nav-link" data-scroll-target="#tweaking-your-website">Tweaking your website</a></li>
   <li><a href="#rendering-your-website" id="toc-rendering-your-website" class="nav-link" data-scroll-target="#rendering-your-website">Rendering your website</a></li>
-  <li><a href="#tip-1" id="toc-tip-1" class="nav-link" data-scroll-target="#tip-1">Tip</a></li>
-  <li><a href="#activity-3" id="toc-activity-3" class="nav-link" data-scroll-target="#activity-3">Activity 3</a></li>
+  </ul></li>
   <li><a href="#github-pages" id="toc-github-pages" class="nav-link" data-scroll-target="#github-pages">GitHub Pages</a>
   <ul class="collapse">
   <li><a href="#github-pages-and-repositories" id="toc-github-pages-and-repositories" class="nav-link" data-scroll-target="#github-pages-and-repositories">Github Pages and repositories</a></li>
   <li><a href="#github-pages-and-quarto" id="toc-github-pages-and-quarto" class="nav-link" data-scroll-target="#github-pages-and-quarto">Github Pages and Quarto</a></li>
   </ul></li>
   <li><a href="#quarto-for-rendering-your-mds-assignments" id="toc-quarto-for-rendering-your-mds-assignments" class="nav-link" data-scroll-target="#quarto-for-rendering-your-mds-assignments">Quarto for rendering your MDS assignments</a></li>
-  <li><a href="#activity-4" id="toc-activity-4" class="nav-link" data-scroll-target="#activity-4">Activity 4</a></li>
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#improving-your-quarto-experience" id="toc-improving-your-quarto-experience" class="nav-link" data-scroll-target="#improving-your-quarto-experience">Improving your quarto experience</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
@@ -629,10 +656,19 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <li>Modify a GitHub repository to publish a website</li>
 </ol>
 <p><strong>Platform in focus</strong> Quarto and GitHub</p>
-</section>
-<section id="activity-1" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-1">Activity 1</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Have you ever considered creating a website to showcase your projects, research, or personal brand?</p>
+</div>
+</div>
 </section>
 <section id="what-is-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-quarto">What is Quarto</h2>
@@ -744,9 +780,19 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> <span class="ex">?</span> Open With</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a> <span class="ex">❯</span> vscode</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>   <span class="kw">(</span><span class="ex">don</span><span class="st">'t open)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="note">
-<p>Note If you already created a new folder and <code>cd</code> into it. You can use <code>.</code> to have the files created in the current location. Otherwise, you can specify a new folder name, and it will create a new folder with the new files in it for you.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you already created a new folder and <code>cd</code> into it. You can use <code>.</code> to have the files created in the current location. Otherwise, you can specify a new folder name, and it will create a new folder with the new files in it for you.</p>
 <p>If you do create a new folder, remember you will need to <code>cd</code> into it.</p>
+</div>
 </div>
 <p>Your folder structure should look like the one below. If it does not, you need to move your files to the correct path, or start over</p>
 <pre><code>USERNAME.github.io/
@@ -758,15 +804,23 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <p>The most important file is the <code>_quarto.yml</code> file, this is how quarto knows you are using a quarto project. Some quarto commands and options may need to run in a quarto project. The contents of the <code>_quarto.yml</code> (in this example) file tells quarto that we are going to be creating a website.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="activity-2" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Which file is crucial for Quarto to recognize that you are working on a Quarto project, such as a website?</p>
 <p>A. index.qmd</p>
 <p>B. about.qmd</p>
 <p>C. _quarto.yml</p>
 <p>D. styles.css</p>
-</section>
+</div>
+</div>
 <section id="tweaking-your-website" class="level3">
 <h3 class="anchored" data-anchor-id="tweaking-your-website">Tweaking your website</h3>
 <p>The <code>_quarto.yml</code> file defines many (if not all) of the options you can use to tweak how your website (or project) renders or behaves. This file is a YAML file. This is a common format many tools use to provide configuration settings. Just note the indentation, white space, and dashes <code>-</code> are all really important and imply different things. YAML is a “recursive acronym”, it stands for “YAML Ain’t Markup Language”.</p>
@@ -787,7 +841,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Tip
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -795,9 +849,16 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <p><a href="https://quarto.org/docs/tools/vscode.html#render-on-save" class="uri">https://quarto.org/docs/tools/vscode.html#render-on-save</a></p>
 </div>
 </div>
-</section>
-<section id="tip-1" class="level2 tip">
-<h2 class="anchored" data-anchor-id="tip-1">Tip</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>If you are using VSCode, and use the <code>Quarto: Preview</code> command from the command pallete (you will need the VSCode Quarto extension), this will run <code>quarto preview</code> with the <code>--no-watch-inputs</code> by defualt. This will prevent saving the file to auto complile the project.</p>
 <p>If you sill want to have <code>preview</code> auto render on save you can do it in one of 3 ways:</p>
 <ol type="1">
@@ -808,7 +869,8 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">render-on-save</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>See this page in the quarto help documentaion on <a href="https://quarto.org/docs/tools/vscode.html#render-on-save">Render on Save</a>.</p>
-</section>
+</div>
+</div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto preview</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Preparing</span> to preview</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -824,13 +886,24 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Output</span> created: _site/index.html</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Always <code>render</code> your site before your final deployment, not all changes to your quarto files will trigger an automatic regeneration + rendering.</p>
-<section id="activity-3" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-3">Activity 3</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Which command would you use to look at a Quarto file when changes are made?</p>
 <p>A. <code>quarto render --preview</code></p>
 <p>B. <code>quarto render --watch</code></p>
 <p>C. <code>quarto preview</code></p>
 <p>D. <code>quarto serve</code></p>
+</div>
+</div>
+</section>
 </section>
 <section id="github-pages" class="level2">
 <h2 class="anchored" data-anchor-id="github-pages">GitHub Pages</h2>
@@ -963,17 +1036,33 @@ Important
 <span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a>                      <span class="ex">quarto</span> render document.qmd <span class="at">-M</span> code-fold:true</span>
 <span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Render</span> to Stdout:   quarto render document.qmd <span class="at">--output</span> <span class="at">-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can also use <code>quarto render --help</code> to get the same help output.</p>
-</section>
-<section id="activity-4" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-4">Activity 4</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Which GitHub repository name allows you to create a personal website with the URL https://USERNAME.github.io/?</p>
 <p>A. README.md</p>
 <p>B. USERNAME.github.io</p>
 <p>C. index.html</p>
 <p>D. docs</p>
-</section>
-<section id="exercise-1" class="level2 exercise">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+</div>
+</div>
+<div class="callout callout-style-default callout-exercise callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exercise</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Creating and Deploying a Quarto Website</strong></p>
 <p><strong>Objective:</strong> By completing this exercise, students will gain hands-on experience in creating a Quarto website and deploying it using GitHub Pages.</p>
 <p><strong>Instructions:</strong></p>
@@ -1046,6 +1135,8 @@ Important
 <li>How do you initialize a Git repository and push it to GitHub?</li>
 <li>What settings do you need to change in GitHub to enable GitHub Pages for your website?</li>
 </ol>
+</div>
+</div>
 </section>
 <section id="improving-your-quarto-experience" class="level2">
 <h2 class="anchored" data-anchor-id="improving-your-quarto-experience">Improving your quarto experience</h2>

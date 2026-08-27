@@ -84,9 +84,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-e28926105f6bad59fcb2c612f536f61c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ee7b81851c4c5db8428876910e5508a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,6 +124,36 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
+<style>
+div.callout-exercise.callout {
+  border-left-color: #1c5f2e;
+}
+div.callout-exercise.callout-style-default .callout-header {
+  background-color: rgba(28, 95, 46, 0.13);
+}
+div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f44b' !important;
+  background-image: none;
+}
+div.callout-activity.callout {
+  border-left-color: #0055b7;
+}
+div.callout-activity.callout-style-default .callout-header {
+  background-color: rgba(0, 85, 183, 0.13);
+}
+div.callout-activity .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-activity.callout-style-default .callout-icon::before, div.callout-activity.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\e53d' !important;
+  background-image: none;
+}
+</style>
 
 
 <meta property="og:title" content="Virtual Environments: R – DSCI 521: Computing Platforms for Data Science">
@@ -580,8 +611,6 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <ul>
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
   <li><a href="#r-environments" id="toc-r-environments" class="nav-link" data-scroll-target="#r-environments">R environments</a></li>
-  <li><a href="#note" id="toc-note" class="nav-link" data-scroll-target="#note">Note</a></li>
-  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity 1</a></li>
   <li><a href="#an-example-r-project" id="toc-an-example-r-project" class="nav-link" data-scroll-target="#an-example-r-project">An example R Project</a>
   <ul class="collapse">
   <li><a href="#environment-files" id="toc-environment-files" class="nav-link" data-scroll-target="#environment-files">Environment Files</a></li>
@@ -589,7 +618,6 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <li><a href="#restore-packages" id="toc-restore-packages" class="nav-link" data-scroll-target="#restore-packages">Restore Packages</a></li>
   </ul></li>
   <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
-  <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity 2</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -637,20 +665,38 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <li><code>renv::restore()</code>: updates current environment from the <code>renv.lock</code> file</li>
 </ul>
 <p><code>{renv}</code> assumes and enforces the “one project one environment” mantra of virtual environments. Unlike conda that lets you “activate” an environment and let you move across different projects, <code>{renv}</code> prefers it when all your work is contained in a single project.</p>
-</section>
-<section id="note" class="level2 note">
-<h2 class="anchored" data-anchor-id="note">Note</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>For MDS, this might mean you may need a separate <code>{renv}</code> file for each lab assignment.</p>
-</section>
-<section id="activity-1" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-1">Activity 1</h2>
+</div>
+</div>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Which of the following commands is used to initialize a new <code>renv</code> environment in an R project?</p>
 <pre><code>A. `renv::create()`
 B. `renv::activate()`
 C. `renv::init()`
 D. `renv::start()`</code></pre>
-</section>
+</div>
+</div>
 <p>One of the other distinguishing factors between R and Python is CRAN (the package repository for R), <em>guarantees</em> that on any given calendar day, all the packages on CRAN are installable.</p>
+</section>
 <section id="an-example-r-project" class="level2">
 <h2 class="anchored" data-anchor-id="an-example-r-project">An example R Project</h2>
 <p>Here we’ll go through an example of using <code>{renv}</code> in the context of an RStudio project. Unlike conda environments, you don’t necessarily, “activate” and “deactivate” it manually. One of the nice things is <code>{renv}</code> works naturally within an RStudio project.</p>
@@ -693,9 +739,16 @@ D. `renv::start()`</code></pre>
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
 <p><code>{renv}</code> is not the same as a conda environment where you can activate an environment, and move anywhere in your filesystem to run code. Many virtual environment systems actually assume you have a single environment for each project/directory. Sometimes IDES allow you do override the currently activated environment, but it lowers the reproducibility of your projects if you do that.</p>
 <p>Finally, the <code>renv.lock</code> file does track <strong>every</strong> package and dependency you use in your project, which is a bit different from the recommendation we gave in the conda environment section. To just track individual packages and not the entire snapshot, you will learn about the <code>DESCRIPTION</code> file used for packaging later on in the program. However, we can get away with this because CRAN does guarantee all packages to be installable on any given calendar day.</p>
-</section>
-<section id="activity-2" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>What would be the main files committed to the repository by default when using <code>renv</code>?</p>
 <ul>
 <li>A. All content of the <code>renv</code> folder in your project, because <code>renv</code> stores all packages there.</li>
@@ -703,9 +756,11 @@ D. `renv::start()`</code></pre>
 <li>C. <code>renv/library</code> and <code>renv/staging</code> directories, because <code>renv</code>, in contrast to <code>conda</code>, needs to have binary packages in the repository.</li>
 <li>D. Only the source code of the packages in <code>renv/library</code> because we want our environment to be identical</li>
 </ul>
+</div>
+</div>
+
+
 </section>
-
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

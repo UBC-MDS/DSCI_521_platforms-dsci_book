@@ -84,9 +84,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-e28926105f6bad59fcb2c612f536f61c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ee7b81851c4c5db8428876910e5508a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,6 +124,36 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
+<style>
+div.callout-activity.callout {
+  border-left-color: #0055b7;
+}
+div.callout-activity.callout-style-default .callout-header {
+  background-color: rgba(0, 85, 183, 0.13);
+}
+div.callout-activity .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-activity.callout-style-default .callout-icon::before, div.callout-activity.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\e53d' !important;
+  background-image: none;
+}
+div.callout-exercise.callout {
+  border-left-color: #1c5f2e;
+}
+div.callout-exercise.callout-style-default .callout-header {
+  background-color: rgba(28, 95, 46, 0.13);
+}
+div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f44b' !important;
+  background-image: none;
+}
+</style>
 
 
 <meta property="og:title" content="Organization of Data Science projects and some useful tools – DSCI 521: Computing Platforms for Data Science">
@@ -579,9 +610,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
-  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity 1</a></li>
   <li><a href="#project-organization" id="toc-project-organization" class="nav-link" data-scroll-target="#project-organization">Project organization</a></li>
-  <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity 2</a></li>
   <li><a href="#filenames" id="toc-filenames" class="nav-link" data-scroll-target="#filenames">Filenames</a>
   <ul class="collapse">
   <li><a href="#names-matter" id="toc-names-matter" class="nav-link" data-scroll-target="#names-matter">Names matter</a></li>
@@ -594,8 +623,6 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <li><a href="#plays-well-with-default-ordering" id="toc-plays-well-with-default-ordering" class="nav-link" data-scroll-target="#plays-well-with-default-ordering">Plays well with default ordering</a></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   </ul></li>
-  <li><a href="#activity-3" id="toc-activity-3" class="nav-link" data-scroll-target="#activity-3">Activity 3</a></li>
-  <li><a href="#activity-4" id="toc-activity-4" class="nav-link" data-scroll-target="#activity-4">Activity 4</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
@@ -631,9 +658,16 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <li>Apply regex to search, extract, and manipulate data in various formats using practical examples.</li>
 <li>Use regular expressions to navigate and organize files within the filesystem.</li>
 </ol>
-</section>
-<section id="activity-1" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-1">Activity 1</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Imagine you are starting a new data science project. Based on what you know about project organization, how would you structure your project directory? Consider where you would place important files like raw data, processed data, code, reports, and environment settings.</p>
 <p>Take a moment to think through these questions:</p>
 <pre><code>- What folders would you create, and why?
@@ -641,6 +675,8 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 - How would you structure the project to ensure it is easy to maintain and reproducible?</code></pre>
 <p>Jot down your ideas.</p>
 <p>After reflecting on your answers, compare your project structure with your partner’s. Identify similarities and differences between your approaches. What organizational choices did you both make? Were there any unique folder structures or file placements?</p>
+</div>
+</div>
 </section>
 <section id="project-organization" class="level2">
 <h2 class="anchored" data-anchor-id="project-organization">Project organization</h2>
@@ -703,15 +739,24 @@ Benjamin Franklin
 - Slides borrowed from the [Data Carpentry](https://datacarpentry.org/) [Reproducible Science Workshop](https://datacarpentry.org/rr-organization1/)
 
 -->
-</section>
-<section id="activity-2" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Which set of file(name)s do you want at 3 a.m. before a deadline?</p>
 <pre><code>A. `Joe’s Filenames Use Spaces and Punctuation.xlsx`
 B. `figure 1.png`
 C. `JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt`
 D. `2014-06-08_abstract-for-sla.docx`
 E. `myabstract.docx`</code></pre>
+</div>
+</div>
 </section>
 <section id="filenames" class="level2">
 <h2 class="anchored" data-anchor-id="filenames">Filenames</h2>
@@ -982,11 +1027,16 @@ fig02_talk-histogram-attendance.png
 </figure>
 </div>
 <hr>
-</section>
-</section>
-</section>
-<section id="activity-3" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-3">Activity 3</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Which of the following items describe three important rules for naming files on a computer? Select all correct answers.</p>
 <pre><code>A. File name parts should be easy to extract programmatically
 B. Humans would understand something about file contents by looking at their names
@@ -996,18 +1046,27 @@ E. Human understanding of file names should be prioritized over machine understa
 <!--comment because iClicker only allows 5 choices
 E. Underscores are the only allowed separator in file names
 -->
-</section>
-<section id="activity-4" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-4">Activity 4</h2>
+</div>
+</div>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Which of the following are GOOD date formats to use in a filename?</p>
 <pre><code>A. 2020-01-26T0233
 B. 20200126T0233
 C. 2020-01-26</code></pre>
-</section>
+</div>
+</div>
 <!--
 
 :::{.activity}
-## Activity 4
 Match each explanation with its corresponding file naming principle:
 
 G.  By following this principle, we are able to use tools such as regular expressions and file-name globbing to search, select and manipulate files using tools such as the unix shell, R and Python.
@@ -1021,6 +1080,9 @@ J. By following this principle, we will be sure that our files have the appropri
 ```
 :::
 -->
+</section>
+</section>
+</section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <p>[1] Kery, M. B., Radensky, M., Arya, M., John, B. E., &amp; Myers, B. A. (2018, April). The story in the notebook: Exploratory data science using a literate programming tool. In Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems (pp.&nbsp;1-11).</p>

@@ -84,9 +84,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-e28926105f6bad59fcb2c612f536f61c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ee7b81851c4c5db8428876910e5508a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,6 +124,36 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
+<style>
+div.callout-exercise.callout {
+  border-left-color: #1c5f2e;
+}
+div.callout-exercise.callout-style-default .callout-header {
+  background-color: rgba(28, 95, 46, 0.13);
+}
+div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f44b' !important;
+  background-image: none;
+}
+div.callout-activity.callout {
+  border-left-color: #0055b7;
+}
+div.callout-activity.callout-style-default .callout-header {
+  background-color: rgba(0, 85, 183, 0.13);
+}
+div.callout-activity .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-activity.callout-style-default .callout-icon::before, div.callout-activity.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\e53d' !important;
+  background-image: none;
+}
+</style>
 
 
 <meta property="og:title" content="Virtual Environments: Python + uv – DSCI 521: Computing Platforms for Data Science">
@@ -573,38 +604,32 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
-  <li><a href="#activity" id="toc-activity" class="nav-link" data-scroll-target="#activity">Activity</a></li>
   <li><a href="#you-have-already-used-uv" id="toc-you-have-already-used-uv" class="nav-link" data-scroll-target="#you-have-already-used-uv">You have already used uv</a></li>
   <li><a href="#virtual-environments" id="toc-virtual-environments" class="nav-link" data-scroll-target="#virtual-environments">Virtual environments</a></li>
   <li><a href="#the-python-packaging-ecosystem" id="toc-the-python-packaging-ecosystem" class="nav-link" data-scroll-target="#the-python-packaging-ecosystem">The Python packaging ecosystem</a>
   <ul class="collapse">
   <li><a href="#what-a-requirements.txt-does-not-tell-you" id="toc-what-a-requirements.txt-does-not-tell-you" class="nav-link" data-scroll-target="#what-a-requirements.txt-does-not-tell-you">What a <code>requirements.txt</code> does not tell you</a></li>
-  </ul></li>
-  <li><a href="#pip-can-install-from-pyproject.toml" id="toc-pip-can-install-from-pyproject.toml" class="nav-link" data-scroll-target="#pip-can-install-from-pyproject.toml">Pip can install from <code>pyproject.toml</code></a></li>
   <li><a href="#doing-it-by-hand" id="toc-doing-it-by-hand" class="nav-link" data-scroll-target="#doing-it-by-hand">Doing it by hand</a></li>
-  <li><a href="#note" id="toc-note" class="nav-link" data-scroll-target="#note">Note</a></li>
-  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity</a></li>
+  </ul></li>
   <li><a href="#managing-uv" id="toc-managing-uv" class="nav-link" data-scroll-target="#managing-uv">Managing uv</a>
   <ul class="collapse">
   <li><a href="#updating-uv" id="toc-updating-uv" class="nav-link" data-scroll-target="#updating-uv">Updating uv</a></li>
   </ul></li>
   <li><a href="#managing-python-versions" id="toc-managing-python-versions" class="nav-link" data-scroll-target="#managing-python-versions">Managing Python versions</a></li>
-  <li><a href="#creating-a-project" id="toc-creating-a-project" class="nav-link" data-scroll-target="#creating-a-project">Creating a project</a></li>
-  <li><a href="#warning" id="toc-warning" class="nav-link" data-scroll-target="#warning">Warning</a></li>
+  <li><a href="#creating-a-project" id="toc-creating-a-project" class="nav-link" data-scroll-target="#creating-a-project">Creating a project</a>
+  <ul class="collapse">
   <li><a href="#pinning-the-python-version" id="toc-pinning-the-python-version" class="nav-link" data-scroll-target="#pinning-the-python-version">Pinning the Python version</a></li>
-  <li><a href="#note-1" id="toc-note-1" class="nav-link" data-scroll-target="#note-1">Note</a></li>
+  </ul></li>
   <li><a href="#adding-packages" id="toc-adding-packages" class="nav-link" data-scroll-target="#adding-packages">Adding packages</a></li>
   <li><a href="#the-two-files-that-matter" id="toc-the-two-files-that-matter" class="nav-link" data-scroll-target="#the-two-files-that-matter">The two files that matter</a></li>
-  <li><a href="#warning-1" id="toc-warning-1" class="nav-link" data-scroll-target="#warning-1">Warning</a></li>
-  <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity</a></li>
-  <li><a href="#running-your-code" id="toc-running-your-code" class="nav-link" data-scroll-target="#running-your-code">Running your code</a></li>
-  <li><a href="#tip" id="toc-tip" class="nav-link" data-scroll-target="#tip">Tip</a></li>
+  <li><a href="#running-your-code" id="toc-running-your-code" class="nav-link" data-scroll-target="#running-your-code">Running your code</a>
+  <ul class="collapse">
   <li><a href="#running-something-once" id="toc-running-something-once" class="nav-link" data-scroll-target="#running-something-once">Running something once</a></li>
+  </ul></li>
   <li><a href="#sharing-your-environment" id="toc-sharing-your-environment" class="nav-link" data-scroll-target="#sharing-your-environment">Sharing your environment</a>
   <ul class="collapse">
   <li><a href="#sync-makes-the-environment-match-in-both-directions" id="toc-sync-makes-the-environment-match-in-both-directions" class="nav-link" data-scroll-target="#sync-makes-the-environment-match-in-both-directions">Sync makes the environment <em>match</em>, in both directions</a></li>
   </ul></li>
-  <li><a href="#activity-3" id="toc-activity-3" class="nav-link" data-scroll-target="#activity-3">Activity</a></li>
   <li><a href="#managing-packages" id="toc-managing-packages" class="nav-link" data-scroll-target="#managing-packages">Managing packages</a>
   <ul class="collapse">
   <li><a href="#seeing-what-is-installed" id="toc-seeing-what-is-installed" class="nav-link" data-scroll-target="#seeing-what-is-installed">Seeing what is installed</a></li>
@@ -612,9 +637,7 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
   <li><a href="#upgrading-a-package" id="toc-upgrading-a-package" class="nav-link" data-scroll-target="#upgrading-a-package">Upgrading a package</a></li>
   <li><a href="#dependency-groups" id="toc-dependency-groups" class="nav-link" data-scroll-target="#dependency-groups">Dependency groups</a></li>
   </ul></li>
-  <li><a href="#note-2" id="toc-note-2" class="nav-link" data-scroll-target="#note-2">Note</a></li>
   <li><a href="#working-with-jupyterlab" id="toc-working-with-jupyterlab" class="nav-link" data-scroll-target="#working-with-jupyterlab">Working with JupyterLab</a></li>
-  <li><a href="#tip-1" id="toc-tip-1" class="nav-link" data-scroll-target="#tip-1">Tip</a></li>
   <li><a href="#standalone-scripts" id="toc-standalone-scripts" class="nav-link" data-scroll-target="#standalone-scripts">Standalone scripts</a></li>
   <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
   <li><a href="#additional-links" id="toc-additional-links" class="nav-link" data-scroll-target="#additional-links">Additional Links</a></li>
@@ -654,13 +677,22 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <li>Manage packages and environments in R using <code>renv</code></li>
 </ol>
 <p><strong>Platform in focus</strong> uv</p>
-</section>
-<section id="activity" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity">Activity</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Imagine you’re working on a project with a colleague, and you’ve created a reproducible report to share your analysis. You want them to replicate your work on their own machine. To demonstrate this, try running the following code on your system (doesn’t matter how/where you write it)</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> palmerpenguins <span class="im">import</span> load_penguins</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> load_penguins()</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>penguins.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 </section>
 <section id="you-have-already-used-uv" class="level2">
 <h2 class="anchored" data-anchor-id="you-have-already-used-uv">You have already used uv</h2>
@@ -782,14 +814,22 @@ six==1.17.0</code></pre>
 <li>what a project <strong>locks</strong> — the packages you actually got, at exact versions</li>
 </ul>
 <p>A <code>requirements.txt</code> can be either one of those, and never says which. <code>uv</code> gives the two jobs two separate files instead: <code>pyproject.toml</code> declares, and <code>uv.lock</code> locks.</p>
-</section>
-</section>
-<section id="pip-can-install-from-pyproject.toml" class="level2 note">
-<h2 class="anchored" data-anchor-id="pip-can-install-from-pyproject.toml">Pip can install from <code>pyproject.toml</code></h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Pip can install from <code>pyproject.toml</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><code>pip</code> has caught up on the declaring half of this. Recent versions can install straight from a <code>pyproject.toml</code> using:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--only-deps</span> .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This installs a project’s dependencies without installing the project itself, and <code>pip install --group dev</code> installs a named group (we’ll cover more about this in 524 - ).</p>
 <p>What <code>pip</code> cannot handle locking. There is no <code>pip.lock</code>. Nothing in a plain <code>pip</code> workflow writes down what you actually got, which is the gap <code>uv.lock</code> fills and the reason this chapter is about <code>uv</code> rather than about <code>pip</code>.</p>
+</div>
+</div>
 </section>
 <section id="doing-it-by-hand" class="level3">
 <h3 class="anchored" data-anchor-id="doing-it-by-hand">Doing it by hand</h3>
@@ -809,19 +849,38 @@ six==1.17.0</code></pre>
 <li>manages your Python interpreter versions</li>
 <li>writes a lockfile recording exactly what it installed</li>
 </ul>
-</section>
-<section id="note" class="level2 note">
-<h2 class="anchored" data-anchor-id="note">Note</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>If you have used <code>conda</code> before, <code>uv</code> fills the same role, but the commands and the philosophy are different. There is an older chapter on <code>conda</code> in the <a href="../appendix/virtual-environments-conda.html">Additional Information</a> section of this book if you need it for a project.</p>
 <p>The biggest difference is that <code>uv</code> ties an environment to a <em>project directory</em> rather than to a <em>name</em>. This is much closer to how <code>{renv}</code> works in R, which you will see in the <a href="../lectures/virtual-environments-renv.html">next chapter</a>.</p>
-</section>
-<section id="activity-1" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-1">Activity</h2>
+</div>
+</div>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Which of the following items is NOT a benefit of using virtual environments?</p>
 <pre><code>A. Increase code performance
 B. Helping with reproducibility
 C. Using different versions of the same package
 D. Creating isolated computational environment for testing new packages</code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="managing-uv" class="level2">
 <h2 class="anchored" data-anchor-id="managing-uv">Managing uv</h2>
@@ -969,12 +1028,20 @@ cpython-3.9.6-macos-aarch64-none      /usr/bin/python3</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> uv init <span class="at">--bare</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Initialized</span> project <span class="kw">`</span><span class="ex">penguin-analysis</span><span class="kw">`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The <code>--bare</code> flag says “only create the <code>pyproject.toml</code>, nothing else”. That is what you want for a data analysis project.</p>
-</section>
-<section id="warning" class="level2 warning">
-<h2 class="anchored" data-anchor-id="warning">Warning</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>If you run <code>uv init</code> <em>without</em> <code>--bare</code>, <code>uv</code> sets you up to build and publish a Python <strong>package</strong>: it creates a <code>src/</code> directory, a <code>README.md</code>, a <code>[build-system]</code> block, and a git repository.</p>
 <p>That is the right thing when you are writing a library (which you will do in DSCI 524), but it is a lot of scaffolding you do not need for a folder of notebooks and scripts. Start with <code>--bare</code> and add what you need.</p>
-</section>
+</div>
+</div>
 <p>Let’s look at the one file it made:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat pyproject.toml</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[project]</span></span>
@@ -992,13 +1059,23 @@ cpython-3.9.6-macos-aarch64-none      /usr/bin/python3</code></pre>
 <p>This creates a <code>.python-version</code> file containing a single line:</p>
 <pre><code>3.14</code></pre>
 <p>Commit this file. It is what makes <code>uv</code> pick the same interpreter on your collaborator’s machine as it did on yours.</p>
-</section>
-<section id="note-1" class="level2 note">
-<h2 class="anchored" data-anchor-id="note-1">Note</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><code>.python-version</code> and <code>requires-python</code> have to agree. If you ask for a pin that the <code>pyproject.toml</code> forbids, <code>uv</code> will refuse rather than quietly do the wrong thing:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> uv python pin 3.12</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="ex">error:</span> The requested Python version <span class="kw">`</span><span class="ex">3.12</span><span class="kw">`</span> is incompatible with the project</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="kw">`</span><span class="ex">requires-python</span><span class="kw">`</span> value of <span class="kw">`</span><span class="op">&gt;</span>=3.14<span class="kw">`</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
 </section>
 <section id="adding-packages" class="level2">
 <h2 class="anchored" data-anchor-id="adding-packages">Adding packages</h2>
@@ -1059,14 +1136,22 @@ cpython-3.9.6-macos-aarch64-none      /usr/bin/python3</code></pre>
 <span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    <span class="er">...</span></span>
 <span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Every package, at an exact version, including the ones you never named, with the URL it came from and a checksum of the file. The lockfile covers every operating system, which is why it lists a separate wheel for macOS, Linux, and Windows. That is what lets one lockfile work for your whole lab group.</p>
-</section>
-<section id="warning-1" class="level2 warning">
-<h2 class="anchored" data-anchor-id="warning-1">Warning</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>This is also where the <code>pip freeze</code> file we saw earlier falls down:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> freeze <span class="op">&gt;</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>pip freeze</code> writes down whatever happens to be installed in your environment <em>right now</em>, on <em>your</em> operating system, with no distinction between the packages you asked for and the packages that came along for the ride. Send that file to someone on a different OS and it may simply not install.</p>
 <p><code>uv.lock</code> is not that. It is generated from your <code>pyproject.toml</code> by a solver that knows about all platforms at once. This separation, declared versus locked, is the whole point, and it is the same idea as <code>renv.lock</code> in R.</p>
-</section>
+</div>
+</div>
 <p>Both files get committed to git. The <code>.venv/</code> directory does <strong>not</strong>: it contains hundreds of megabytes of installed packages that <code>uv</code> can rebuild in seconds from the lockfile.</p>
 <p>A minimal <code>.gitignore</code> for a <code>uv</code> project:</p>
 <pre><code># Python-generated files
@@ -1075,8 +1160,16 @@ __pycache__/
 
 # Virtual environments
 .venv</code></pre>
-<section id="activity-2" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-2">Activity</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Which files should you commit to your repository when using <code>uv</code>? (one or more correct answers)</p>
 <ul>
 <li>A. <code>pyproject.toml</code>, because it declares which packages the project needs</li>
@@ -1085,6 +1178,8 @@ __pycache__/
 <li>D. <code>.venv/</code>, because your collaborators need the installed packages</li>
 <li>E. Only <code>uv.lock</code>, since it contains everything in <code>pyproject.toml</code> anyway</li>
 </ul>
+</div>
+</div>
 </section>
 <section id="running-your-code" class="level2">
 <h2 class="anchored" data-anchor-id="running-your-code">Running your code</h2>
@@ -1113,14 +1208,22 @@ __pycache__/
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run jupyter lab</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run quarto render</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run pytest</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="tip" class="level2 tip">
-<h2 class="anchored" data-anchor-id="tip">Tip</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>The reason to prefer <code>uv run</code> over activating an environment is that it removes an entire category of bug. There is no “which environment am I in?” question to get wrong, and no half-remembered <code>activate</code> step between you and a reproducible result.</p>
 <p>You <em>can</em> activate the environment the traditional way if some tool requires it:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>But if you find yourself doing this often, it is usually a sign that a <code>uv run</code> would have been simpler.</p>
-</section>
+</div>
+</div>
 <section id="running-something-once" class="level3">
 <h3 class="anchored" data-anchor-id="running-something-once">Running something once</h3>
 <p>Sometimes you want a package for a single command and you do not want it in your project. <code>uv run --with</code> installs it temporarily:</p>
@@ -1137,6 +1240,7 @@ __pycache__/
 <span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>                                 <span class="kw">||</span><span class="ex">----w</span> <span class="kw">|</span></span>
 <span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>                                 <span class="kw">||</span>     <span class="kw">||</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Afterwards, <code>cowsay</code> is not in your project’s environment, your <code>pyproject.toml</code> is unchanged, and your lockfile is unchanged.</p>
+</section>
 </section>
 <section id="sharing-your-environment" class="level2">
 <h2 class="anchored" data-anchor-id="sharing-your-environment">Sharing your environment</h2>
@@ -1173,15 +1277,24 @@ __pycache__/
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> cowsay==6.1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>uv sync</code> installs what is missing <strong>and removes what does not belong</strong>. This is a feature, not a surprise. It means an environment you built with <code>uv sync</code> contains exactly what the lockfile says and nothing else, which is the only way “it works on my machine” can be a meaningful claim.</p>
 <p>The lesson: add packages with <code>uv add</code>, not <code>uv pip install</code>. The <code>uv pip</code> subcommands exist so that older tutorials and scripts keep working, but anything installed that way is invisible to your project files.</p>
-</section>
-</section>
-<section id="activity-3" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-3">Activity</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Your collaborator pulls your latest changes and gets an <code>ModuleNotFoundError: No module named 'matplotlib'</code> when running your script. You added <code>matplotlib</code> to the project yesterday. What should they run?</p>
 <pre><code>A. pip install matplotlib
 B. uv sync
 C. uv init
 D. uv add matplotlib</code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="managing-packages" class="level2">
 <h2 class="anchored" data-anchor-id="managing-packages">Managing packages</h2>
@@ -1241,12 +1354,21 @@ D. uv add matplotlib</code></pre>
 <span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pytest&gt;=9.1.1"</span><span class="op">,</span></span>
 <span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>uv sync</code> installs the <code>dev</code> group by default, which is what you want on your own machine.</p>
-</section>
-</section>
-<section id="note-2" class="level2 note">
-<h2 class="anchored" data-anchor-id="note-2">Note</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Groups are optional, and for a course project you often do not need them. This book’s own <code>pyproject.toml</code> deliberately keeps everything in a single <code>dependencies</code> list so that there is exactly one install command to remember.</p>
 <p>You will meet dependency groups again in DSCI 524 when you start publishing packages, where the distinction between “what my users need” and “what I need to develop this” starts to matter a great deal.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="working-with-jupyterlab" class="level2">
 <h2 class="anchored" data-anchor-id="working-with-jupyterlab">Working with JupyterLab</h2>
@@ -1255,10 +1377,19 @@ D. uv add matplotlib</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add jupyterlab ipykernel</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run jupyter lab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>ipykernel</code> is the package that lets a Python environment show up as a <em>kernel</em> a notebook can attach to, and because JupyterLab is running inside the project environment, the default kernel is already the right one.</p>
-</section>
-<section id="tip-1" class="level2 tip">
-<h2 class="anchored" data-anchor-id="tip-1">Tip</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>If you open a notebook and your imports fail, the first thing to check is which kernel the notebook is using (top-right corner in JupyterLab). A notebook attached to the wrong kernel is running against a different set of packages entirely, and the error you get, <code>ModuleNotFoundError</code>, looks identical to the package simply not being installed.</p>
+</div>
+</div>
 </section>
 <section id="standalone-scripts" class="level2">
 <h2 class="anchored" data-anchor-id="standalone-scripts">Standalone scripts</h2>

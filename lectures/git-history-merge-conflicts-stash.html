@@ -84,9 +84,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-e28926105f6bad59fcb2c612f536f61c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ee7b81851c4c5db8428876910e5508a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,6 +124,36 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
+<style>
+div.callout-exercise.callout {
+  border-left-color: #1c5f2e;
+}
+div.callout-exercise.callout-style-default .callout-header {
+  background-color: rgba(28, 95, 46, 0.13);
+}
+div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f44b' !important;
+  background-image: none;
+}
+div.callout-activity.callout {
+  border-left-color: #0055b7;
+}
+div.callout-activity.callout-style-default .callout-header {
+  background-color: rgba(0, 85, 183, 0.13);
+}
+div.callout-activity .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-activity.callout-style-default .callout-icon::before, div.callout-activity.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\e53d' !important;
+  background-image: none;
+}
+</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -615,8 +646,8 @@ window.Quarto = {
   <li><a href="#viewing-the-history-of-a-project" id="toc-viewing-the-history-of-a-project" class="nav-link" data-scroll-target="#viewing-the-history-of-a-project">Viewing the history of a project</a>
   <ul class="collapse">
   <li><a href="#steps-to-follow-1" id="toc-steps-to-follow-1" class="nav-link" data-scroll-target="#steps-to-follow-1">Steps to follow:</a></li>
-  </ul></li>
   <li><a href="#reflection-point" id="toc-reflection-point" class="nav-link" data-scroll-target="#reflection-point">Reflection point</a></li>
+  </ul></li>
   <li><a href="#restoring-an-older-version-of-a-file" id="toc-restoring-an-older-version-of-a-file" class="nav-link" data-scroll-target="#restoring-an-older-version-of-a-file">Restoring an older version of a file</a>
   <ul class="collapse">
   <li><a href="#steps-to-follow-2" id="toc-steps-to-follow-2" class="nav-link" data-scroll-target="#steps-to-follow-2">Steps to follow:</a></li>
@@ -739,13 +770,16 @@ window.Quarto = {
 </ul></li>
 </ul></li>
 </ul>
-</section>
-</section>
-<div class="activity">
-<section id="activity-1" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="activity-1">Activity 1</h2>
-</section>
-<div class="activity-container">
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>What are the main methods to view your Git history?</p>
 <p>A. Using GitHub through the repository’s code commit view</p>
 <p>B. Using Jupyter Lab through the repository’s code commit view</p>
@@ -753,9 +787,11 @@ window.Quarto = {
 <p>D. All of the above</p>
 </div>
 </div>
+</section>
 <section id="reflection-point" class="level3">
 <h3 class="anchored" data-anchor-id="reflection-point">Reflection point</h3>
 <p>How similar are the local and webpage log views?? Do you get the same information from both? Which seems easier to read/navigate?</p>
+</section>
 </section>
 <section id="restoring-an-older-version-of-a-file" class="level2">
 <h2 class="anchored" data-anchor-id="restoring-an-older-version-of-a-file">Restoring an older version of a file</h2>
@@ -818,12 +854,16 @@ fatal: Need to specify how to reconcile divergent branches.
 </code></pre>
 <p>You have a merge conflict. Merge conflicts are not bad, they happen to everyone and you will need to know how to instruct git what to do.</p>
 <p>We usually want git to help us solve the conflict via merge, so a reasonable next step is <code>git pull --rebase=false</code>, which specifically tells git that we want to reconcile by merging.</p>
-</section>
-<div class="activity">
-<section id="activity-2" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
-</section>
-<div class="activity-container">
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>What of the following practices do you think could be a good idea in order to avoid having merge conflicts?</p>
 <p>A. Push changes to the remote repository daily before starting to work on your local changes.</p>
 <p>B. Pull changes to the remote repository daily before starting to work on your local changes.</p>
@@ -831,6 +871,7 @@ fatal: Need to specify how to reconcile divergent branches.
 <p>D. Work only locally or only in the remote repository.</p>
 </div>
 </div>
+</section>
 <section id="what-do-you-do-to-fix-a-merge-conflict" class="level2">
 <h2 class="anchored" data-anchor-id="what-do-you-do-to-fix-a-merge-conflict">What do you do to fix a merge conflict?</h2>
 <section id="steps-to-follow-3" class="level3">
@@ -855,17 +896,22 @@ This line was added somewhere else
 <li><code>=======</code> is a separator between the conflicting changes</li>
 <li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d</code> flags the end of the conflicting change you pulled from GitHub</li>
 </ul>
-</section>
-</section>
-<div class="activity">
-<section id="activity-3" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="activity-3">Activity 3</h2>
-</section>
-<div class="activity-container">
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>True or False?</p>
 <p>You can solve a merge conflict by not accepting either the current changes or the incoming changes.</p>
 </div>
 </div>
+</section>
+</section>
 <section id="what-about-merge-conflicts-of-jupyter-notebooks" class="level2">
 <h2 class="anchored" data-anchor-id="what-about-merge-conflicts-of-jupyter-notebooks">What about merge conflicts of Jupyter notebooks?</h2>
 <section id="first---a-bit-about-what-a-jupyter-notebook-is-made-up-of" class="level3">
@@ -1017,17 +1063,22 @@ M       README.md</code></pre>
 <p>That means we could now make any modification we wish and then commit again with a new commit message. If we want to discard the changes instead of moving them to the working area, we can add the <code>--hard</code> flag. Typing <code>git reset --hard 5c01f2f</code> will not show us any message, since the changes are not unstaged, they are discarded. Our log now looks like this</p>
 <pre><code>5c01f2f (HEAD -&gt; master) Initial commit</code></pre>
 <p>Are the previous changes lost forever? Not yet, git keeps a backup of everything that happens in the repo in its “reflog”. Commits that are not part of any branch are referred to as being “dangling”, and are cleared out at regular intervals, rather than immediately. So if we realize that we made a mistake right away, we could get our changes back by doing <code>git reset bcb541e</code>, which would move us forward to the commit we just “deleted”. <strong>This behavior should not be relied upon</strong> because when the reflog is automatically cleared by git, your changes are gone forever.</p>
-</section>
-</section>
-<div class="activity">
-<section id="activity-4" class="level2 activity-header">
-<h2 class="anchored" data-anchor-id="activity-4">Activity 4</h2>
-</section>
-<div class="activity-container">
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>True or false?</p>
 <p>The <code>.gitignore</code> file itself can be committed and pushed to a remote repository.</p>
 </div>
 </div>
+</section>
+</section>
 <section id="syncing-with-a-remote-after-resetting" class="level2">
 <h2 class="anchored" data-anchor-id="syncing-with-a-remote-after-resetting">Syncing with a remote after resetting</h2>
 <p><strong>This is a dangerous operation that can delete all your work.</strong> If we want to get rid of a commit on a remote, we will need to push our changes. But as we have seen before, git will refuse to push changes when the remote is ahead of the local branch. To override this warning and force git to push to the remote we can use the <code>-f/--force</code> flag.</p>
@@ -1035,12 +1086,16 @@ M       README.md</code></pre>
 <p>Times when a force push is legitimate includes when you have have rebased a feature branch to syn it with master or if you are working alone and you are 100% sure that you want to remove a commit from GitHub. A safer way to undo a change in a commit, is to make a new commit that removes the content of the old one. You can do this manually, or use <code>git revert &lt;sha&gt;</code> to automatically create a new commit that undoes an old one.</p>
 <section id="exercise-accessing-and-working-with-github" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-accessing-and-working-with-github">Exercise: Accessing and Working with GitHub</h3>
-</section>
-<div class="exercise">
-<section id="exercise-1" class="level3 exercise-header">
-<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
-</section>
-<div class="exercise-container">
+<div class="callout callout-style-default callout-exercise callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exercise</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Accessing and Working with GitHub</strong></p>
 <p><strong>Objective:</strong> By completing this exercise, students will gain hands-on experience in accessing their GitHub home for MDS, creating, cloning, modifying, and pushing changes to a GitHub repository.</p>
 <p><strong>Instructions:</strong></p>
@@ -1142,6 +1197,7 @@ M       README.md</code></pre>
 </div>
 
 
+</section>
 </section>
 </section>
 

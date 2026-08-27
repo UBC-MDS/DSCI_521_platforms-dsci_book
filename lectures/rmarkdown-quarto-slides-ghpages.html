@@ -84,9 +84,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-e28926105f6bad59fcb2c612f536f61c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-b7ee215cb13d6a5ad4ca4e73128a389d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ee7b81851c4c5db8428876910e5508a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-04e5d967c3c6ebcd1748ee35faf1e80b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,6 +124,36 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
+<style>
+div.callout-activity.callout {
+  border-left-color: #0055b7;
+}
+div.callout-activity.callout-style-default .callout-header {
+  background-color: rgba(0, 85, 183, 0.13);
+}
+div.callout-activity .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-activity.callout-style-default .callout-icon::before, div.callout-activity.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\e53d' !important;
+  background-image: none;
+}
+div.callout-exercise.callout {
+  border-left-color: #1c5f2e;
+}
+div.callout-exercise.callout-style-default .callout-header {
+  background-color: rgba(28, 95, 46, 0.13);
+}
+div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f44b' !important;
+  background-image: none;
+}
+</style>
  
   <style>
   .slide-deck {
@@ -589,24 +620,19 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
-  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity 1</a></li>
   <li><a href="#quarto-documents" id="toc-quarto-documents" class="nav-link" data-scroll-target="#quarto-documents">Quarto Documents</a>
   <ul class="collapse">
   <li><a href="#jupyter-notebooks-for-python-and-rmarkdown-for-r" id="toc-jupyter-notebooks-for-python-and-rmarkdown-for-r" class="nav-link" data-scroll-target="#jupyter-notebooks-for-python-and-rmarkdown-for-r">Jupyter Notebooks for Python and RMarkdown for R?</a></li>
   <li><a href="#github-readme.md" id="toc-github-readme.md" class="nav-link" data-scroll-target="#github-readme.md">Github <code>README.md</code></a></li>
   </ul></li>
-  <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity 2</a></li>
-  <li><a href="#activity-3" id="toc-activity-3" class="nav-link" data-scroll-target="#activity-3">Activity 3</a></li>
   <li><a href="#presentations-with-jupyterlab-rmarkdown-and-quarto" id="toc-presentations-with-jupyterlab-rmarkdown-and-quarto" class="nav-link" data-scroll-target="#presentations-with-jupyterlab-rmarkdown-and-quarto">Presentations with JupyterLab, RMarkdown and Quarto</a>
   <ul class="collapse">
   <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
   <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link" data-scroll-target="#r-markdown">R Markdown</a></li>
-  </ul></li>
-  <li><a href="#activity-4" id="toc-activity-4" class="nav-link" data-scroll-target="#activity-4">Activity 4</a></li>
   <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks">Jupyter Notebooks</a></li>
+  </ul></li>
   <li><a href="#book-output" id="toc-book-output" class="nav-link" data-scroll-target="#book-output">Book output</a></li>
   <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a></li>
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -644,14 +670,23 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <li>Sharing rendered HTML files publicly via GitHub Pages.</li>
 </ol>
 <p><strong>Platform in focus</strong> Jupyter Lab, RStudio IDE, Quarto</p>
-</section>
-<section id="activity-1" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-1">Activity 1</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Check the following data science analysis. How are the analysis files loaded into the working directory? Are there differences between the R and Python code?</p>
 <ul>
 <li>R: <a href="https://github.com/ttimbers/breast_cancer_predictor" class="uri">https://github.com/ttimbers/breast_cancer_predictor</a></li>
 <li>Python: <a href="https://github.com/ttimbers/breast_cancer_predictor_py" class="uri">https://github.com/ttimbers/breast_cancer_predictor_py</a></li>
 </ul>
+</div>
+</div>
 </section>
 <section id="quarto-documents" class="level2">
 <h2 class="anchored" data-anchor-id="quarto-documents">Quarto Documents</h2>
@@ -669,19 +704,34 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> gfm</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This process is similar to R Markdown documents rendering from <code>README.Rmd</code> file. The main difference here is that in R Markdown you will be using a different output string, <code>github_document</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-</section>
-<section id="activity-2" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-2">Activity 2</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Why does using R Markdown and Quarto documents make your work more reproducible?</p>
 <p>A. <code>.Rmd</code> and <code>.qmd</code> are plain-text files; they can be opened and edited with almost any editor.</p>
 <p>B. Including text in the final reports created involves a more detailed explanation of your work than only commenting on the code.</p>
 <p>C. They use Pandoc to render the files in different formats.</p>
 <p>D. Because they create a versatile <code>.md</code> file as an intermediate step.</p>
 <p>E. They allow running code as inline code or in code chunks.</p>
-</section>
-<section id="activity-3" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-3">Activity 3</h2>
+</div>
+</div>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Now that you’ve completed your reproducible report, imagine you need to present this work to a real-world audience, such as at a conference, to your boss, or an executive group. Let’s use that example above again:</p>
 <ul>
 <li>R: <a href="https://github.com/ttimbers/breast_cancer_predictor" class="uri">https://github.com/ttimbers/breast_cancer_predictor</a></li>
@@ -689,6 +739,9 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </ul>
 <p>How would you use tools like PowerPoint or Word documents to effectively present your findings and pitch your ideas? Consider elements such as visualizations, narrative, and the overall format of the report.</p>
 <p>Discuss with your partner and prepare to share your strategies with the class. Could there be a more efficient way of doing this directly within your Markdown files? What challenges might you encounter, such as issues with reproducibility?</p>
+</div>
+</div>
+</section>
 </section>
 <section id="presentations-with-jupyterlab-rmarkdown-and-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="presentations-with-jupyterlab-rmarkdown-and-quarto">Presentations with JupyterLab, RMarkdown and Quarto</h2>
@@ -786,21 +839,25 @@ gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 <h4 class="anchored" data-anchor-id="xaringan">Xaringan</h4>
 <p>Many people who are still working with R Markdown documents, will create their slides using <code>{xaringan}</code>. This lessons uses <code>reveal.js</code> for R Markdown slides to keep the output type consistent.</p>
 <p>If you want to learn more about Xaringan slides, see the <a href="../appendix/xaringan_slides.html">Xaringan Slides Chapter</a></p>
-</section>
-</section>
-</section>
-<section id="activity-4" class="level2 activity">
-<h2 class="anchored" data-anchor-id="activity-4">Activity 4</h2>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Which of the following is the <strong>correct</strong> output format for creating slides in Quarto markdown?</p>
 <p>A. <code>revealjs::revealjs_presentation</code></p>
 <p>B. <code>xaringan::sun_reader</code></p>
 <p>C. <code>format: revealjs</code></p>
 <p>D. <code>ioslides_presentation</code></p>
-</section>
+</div>
+</div>
 <!--
 :::{.activity}
-## Activity 5
-
 What is the primary difference between slides created with R Markdown's `revealjs` and `xaringan`?
 
 A. `xaringan` slides are two-dimensional, allowing horizontal and vertical navigation, while `reveal.js` slides are one-dimensional.
@@ -813,6 +870,8 @@ D. `xaringan` uses `pandoc` for rendering slides, whereas `reveal.js` does not.
 
 :::
 -->
+</section>
+</section>
 <section id="jupyter-notebooks" class="level3">
 <h3 class="anchored" data-anchor-id="jupyter-notebooks">Jupyter Notebooks</h3>
 <p>Jupyter notebooks also support slides with RISE.</p>
@@ -841,6 +900,7 @@ D. `xaringan` uses `pandoc` for rendering slides, whereas `reveal.js` does not.
     </div>
   
 </section>
+</section>
 <section id="book-output" class="level2">
 <h2 class="anchored" data-anchor-id="book-output">Book output</h2>
 <p>Jupyter, R Markdown, and Quarto also have “book” outputs. This is a special website format that can also be converted into PDFs and ePUB files for physical book publishing.</p>
@@ -865,14 +925,23 @@ D. `xaringan` uses `pandoc` for rendering slides, whereas `reveal.js` does not.
 <li>Git + GitHub Pages for website publishing</li>
 <li><code>.gitignore</code> files</li>
 </ul>
-</section>
-<section id="exercise-1" class="level2 exercise">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<div class="callout callout-style-default callout-exercise callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exercise</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Take 5 minutes of the class and convert one of your <code>.Rmd</code>, <code>.qmd</code> or <code>.ipynb</code> to a set of slides.</p>
 <p>You can convert the slides manually or look into the <a href="https://jupytext.readthedocs.io/en/latest/install.html">jupytext</a> or <code>quarto convert</code> tools to do an initial file conversion.</p>
+</div>
+</div>
+
+
 </section>
-
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
