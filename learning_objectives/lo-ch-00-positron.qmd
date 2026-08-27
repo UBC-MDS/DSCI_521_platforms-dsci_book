@@ -1,0 +1,4 @@
+1. Launch Positron and open an assignment as a folder
+2. Know your way around the Positron user interface
+3. Start, switch, and restart an R or Python session
+4. Run code from a script, a Jupyter notebook, and a Quarto document
