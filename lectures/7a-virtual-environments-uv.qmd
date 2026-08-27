@@ -1,0 +1,1313 @@
+---
+title: "Virtual Environments: Python + uv"
+output-file: virtual-environments-uv.html
+---
+
+## Learning outcomes
+
+{{< include ../learning_objectives/lo-ch-07.qmd >}}
+
+**Platform in focus** uv
+
+:::{.activity}
+## Activity
+
+Imagine you're working on a project with a colleague,
+and you've created a reproducible report to share your analysis.
+You want them to replicate your work on their own machine.
+To demonstrate this, try running the following code on your system
+(doesn't matter how/where you write it)
+
+```python
+from palmerpenguins import load_penguins
+penguins = load_penguins()
+penguins.head()
+```
+:::
+
+## You have already used uv
+
+At the end of the MDS installation guide,
+you ran a setup check.
+That script downloaded the
+[`mds-setup-check`](https://github.com/UBC-MDS/mds-setup-check)
+project into `~/mds-setup-check`
+and built its Python environment for you.
+The first thing it ran was one line:
+
+```bash
+uv sync
+```
+
+That single command read two files
+that were already in the repository,
+`pyproject.toml` and `uv.lock`,
+and created a `.venv/` folder holding every Python package the check needed:
+`jupyter`, `nbconvert`, `playwright`, and a few dozen others
+that came along as dependencies.
+Nobody installed those by hand,
+and every student in the cohort ended up with the same versions.
+
+Every Python command in that project then went through `uv run`:
+
+```bash
+uv run playwright install chromium
+uv run quarto render check-quarto-py.qmd
+uv run jupyter nbconvert --to html check-notebook.ipynb
+```
+
+and the README was explicit that you should keep doing it:
+`uv run jupyter lab`, not `jupyter lab`.
+
+That was not a one-time thing at install.
+Every Python lab assignment you have cloned since
+has arrived with a `pyproject.toml` and a `uv.lock` already committed to it,
+and `uv sync` is what you run after `git clone`
+to turn that repository into something you can actually work in:
+
+```bash
+cd <your lab repo>
+uv sync
+uv run jupyter lab
+```
+
+So you already know *what* to type.
+
+The rest of this chapter is the *how* and the *why*:
+
+- What `uv sync` is actually doing to your machine
+- Why `uv run` is worth the extra word
+- What those two files are and why there are two of them
+- How to build a project like that yourself for work that is your own
+
+## Virtual environments
+
+Virtual environments let you have multiple versions of packages
+and programs on the same computer
+without them creating conflicts with each other.
+You will be using virtual Python and R environments
+throughout the program to setup your packages for different courses.
+
+There are several major benefits of using environments:
+
+- You can guarantee that someone else can reproduce your project
+  by specifying which package versions you used
+  and making it easy for others to install the same versions.
+- If two of your projects rely on different versions of the same package,
+  you can install these in different environments.
+- If you want to play around with a new package,
+  you don't have to change the packages you use for your data analysis
+  and risk messing something up.
+- When you develop your own packages,
+  you need to know exactly which packages yours depend on,
+  so that it runs on other systems than your own.
+
+## The Python packaging ecosystem
+
+Before we talk about `uv`,
+it helps to know the pieces it is standing on top of.
+
+- **Python** is the language.
+- The Python standard library includes a module called `venv`
+  that can create an isolated folder of packages.
+- **`pip`** is the package installer that comes with Python.
+  It downloads packages from **PyPI**
+  (the [Python Package Index](https://pypi.org/)),
+  the central repository for Python packages.
+- **`requirements.txt`** is a list of packages to install,
+  one per line,
+  sometimes with a version attached.
+  - It is input for `pip`, and needs no other tool:
+    `pip install -r requirements.txt`.
+    There is nothing else in the file.
+    It is an instruction to install some things,
+    not a description of a project.
+    Historically it is also what people reached for
+    when they wanted a lock file,
+    which is where the trouble starts.
+  - You will still see it around because
+    it works with python without any additional tools/packages.
+- **`pyproject.toml`** describes the project itself.
+  It holds a lot of metadata about a Python project,
+  including the verion of python and packages that need to be installed.
+  - It is not specific to any one tool;
+    it is the format the Python community agreed on,
+    which is why `uv` and `pip` can both read it.
+  - You may see this in your MDS assignments and projects.
+
+:::{.callout-note}
+## Commands and modules
+
+Unlike `venv`, `pip` does install a command of its own,
+so both `pip install` and `python -m pip install` work.
+:::
+
+:::{.callout-note}
+## Where `pyproject.toml` came from
+
+🤖 A mini research from Claude Opus 5:
+
+`pyproject.toml` was not designed all at once.
+It was assembled one piece at a time
+through a series of Python Enhancement Proposals (PEPs),
+the documents the Python community uses
+to propose, debate, and ratify changes
+to the language and the tools around it.
+Each PEP below added one part of the file
+you now write in a single sitting:
+
+- [PEP 517](https://peps.python.org/pep-0517/)
+  (proposed September 2015, accepted September 2017)
+  separated *what* a project is from *how* it gets built,
+  which is what the `build-backend` setting names.
+  Before this, building a Python package meant `setuptools`.
+- [PEP 518](https://peps.python.org/pep-0518/)
+  (proposed May 2016, accepted May 2016)
+  created the file itself.
+  It defined the `[build-system]` section,
+  and reserved a `[tool]` section
+  where individual tools can keep their own settings,
+  which is why `uv` is allowed to write `[tool.uv]`.
+- [PEP 621](https://peps.python.org/pep-0621/)
+  (proposed June 2020, accepted November 2020)
+  added the `[project]` section:
+  the project's `name`,
+  the `requires-python` version,
+  and the `dependencies` list.
+  This is the part you will edit most often.
+  - [PEP 631](https://peps.python.org/pep-0631/)
+    (proposed August 2020, superseded by PEP 621)
+    was a competing proposal
+    for how to write that same dependency list.
+    It was never accepted.
+    Its approach was folded into PEP 621,
+    and the PEP itself is now marked *Superseded*.
+- [PEP 735](https://peps.python.org/pep-0735/)
+  (proposed November 2023, accepted October 2024)
+  added `[dependency-groups]`,
+  for the packages you need only while developing,
+  such as a test runner or a linter.
+  This is what `uv add --dev` writes to.
+
+Look at the years.
+PEP 518 was accepted in the same month it was proposed,
+but the build backend idea that came *before* it
+took two years to settle,
+and was not final until 2017,
+a year after the file it lives in already existed.
+Agreeing on how to write down a list of dependencies
+took two competing proposals in 2020,
+one of which was superseded by the other.
+And saying "this package is only for development"
+was not standardized until the end of 2024.
+That is roughly a decade
+to agree on a single configuration file.
+
+This is why `requirements.txt` is still everywhere.
+A standard being finished is not the same as a standard being adopted:
+tools have to implement it,
+and people have to learn it.
+
+The PEPs are the historical record of *who decided what, and why*.
+They are frozen once accepted,
+so they are not the place to look up what a setting means today.
+For that, use the maintained specification:
+<https://packaging.python.org/en/latest/specifications/pyproject-toml/>
+:::
+
+### What a `requirements.txt` does not tell you
+
+The problem with a `requirements.txt`
+is that it can document projects in different ways,
+and it is not obvious how it is documented.
+
+Someone might write it by hand,
+listing only the packages they actually asked for:
+
+```
+pandas
+palmerpenguins
+```
+
+Or they version only the packages they asked for
+
+```
+pandas==3.0.5
+palmerpenguins
+```
+
+Or they might generate it from an environment they had already built,
+using `pip freeze`:
+
+```
+iniconfig==2.3.0
+numpy==2.5.2
+packaging==26.3
+palmerpenguins==0.1.6
+pandas==3.0.5
+pluggy==1.6.0
+pygments==2.21.0
+pytest==9.1.1
+python-dateutil==2.9.0.post0
+six==1.17.0
+```
+
+All files describe the same project.
+All are called `requirements.txt`.
+All are a list of packages.
+But, nothing inside either one tells you which kind you are holding.
+
+Only two of those ten packages are ones the analysis actually asked for.
+`numpy` and `six` came along as dependencies of `pandas`.
+Technically, you only needed `palmerpengins` since `pandas` is a dependency.
+
+`pytest` was installed deliberately,
+but it is a testing tool and has nothing to do with the analysis itself.
+`pip freeze` cannot separate any of them,
+because all it does is report what is currently installed.
+
+That distinction has a name,
+and the rest of this chapter is built on it:
+
+- what a project **declares** — the packages you asked for
+- what a project **locks** — the packages you actually got, at exact versions
+
+A `requirements.txt` can be either one of those,
+and never says which.
+`uv` gives the two jobs two separate files instead:
+`pyproject.toml` declares,
+and `uv.lock` locks.
+
+:::{.note}
+## Pip can install from `pyproject.toml`
+
+`pip` has caught up on the declaring half of this.
+Recent versions can install straight from a `pyproject.toml` using:
+
+```bash
+pip install --only-deps .
+```
+
+This installs a project's dependencies
+without installing the project itself,
+and `pip install --group dev` installs a named group
+(we'll cover more about this in 524 - ).
+
+What `pip` cannot handle locking.
+There is no `pip.lock`.
+Nothing in a plain `pip` workflow writes down what you actually got,
+which is the gap `uv.lock` fills
+and the reason this chapter is about `uv` rather than about `pip`.
+:::
+
+### Doing it by hand
+
+Doing this by hand using `venv` and `pip`
+means running several separate tools in the right order:
+
+1. create a virtual environment with `python -m venv`
+2. remember to activate it
+3. install packages with `pip`
+4. keep a `requirements.txt` up to date yourself
+
+Nothing keeps those steps in sync,
+and forgetting the activation step is how packages end up
+installed somewhere you did not intend.
+Again, `venv` and `pip` are still heavily used together
+because it comes with Python
+without install anymore things.
+
+[**uv**](https://docs.astral.sh/uv/)
+is a **project and package manager** for Python
+that does all of those jobs with one program.
+It is written in Rust,
+which is why it resolves and installs packages
+noticeably faster than the tools it replaces.
+
+Things `uv` can do for you:
+
+- creates the environment
+- resolves and installs the packages
+- manages your Python interpreter versions
+- writes a lockfile recording exactly what it installed
+
+
+:::{.note}
+## Note
+
+If you have used `conda` before,
+`uv` fills the same role,
+but the commands and the philosophy are different.
+There is an older chapter on `conda`
+in the [Additional Information](../appendix/7a-virtual-environments-conda.qmd)
+section of this book if you need it for a project.
+
+The biggest difference is that `uv` ties an environment
+to a *project directory* rather than to a *name*.
+This is much closer to how `{renv}` works in R,
+which you will see in the [next chapter](./7b-virtual-environments-renv.qmd).
+:::
+
+:::{.activity}
+## Activity
+
+Which of the following items is NOT a benefit of using virtual environments?
+
+```
+A. Increase code performance
+B. Helping with reproducibility
+C. Using different versions of the same package
+D. Creating isolated computational environment for testing new packages
+```
+
+:::
+
+## Managing uv
+
+Let's first start by checking that `uv` is installed.
+This is the same pair of checks we used for `quarto`:
+`which` tells you *where* the program is,
+and `--version` confirms that it actually runs.
+
+```bash
+$ which uv
+/opt/homebrew/bin/uv
+
+$ uv --version
+uv 0.12.6
+```
+
+If you get a `command not found` message,
+go back to the
+[MDS installation instructions](https://ubc-mds.github.io/resources_pages/installation_instructions/).
+
+To see which `uv` commands are available,
+type `uv --help`.
+To see the full documentation for any of these commands,
+type the command followed by `--help`.
+For example,
+to learn about the `uv add` command:
+
+```bash
+uv add --help
+```
+
+```bash
+$ uv --help
+An extremely fast Python package manager.
+
+Usage: uv [OPTIONS] <COMMAND>
+
+Commands:
+  auth       Manage authentication
+  run        Run a command or script
+  init       Create a new project
+  add        Add dependencies to the project
+  remove     Remove dependencies from the project
+  version    Read or update the project's version
+  sync       Update the project's environment
+  lock       Update the project's lockfile
+  export     Export the project's lockfile to an alternate format
+  tree       Display the project's dependency tree
+  format     Format Python code in the project
+  check      Run checks on the project
+  audit      Audit the project's dependencies
+  tool       Run and install commands provided by Python packages
+  python     Manage Python versions and installations
+  pip        Manage Python packages with a pip-compatible interface
+  venv       Create a virtual environment
+  build      Build Python packages into source distributions and wheels
+  publish    Upload distributions to an index
+  workspace  Inspect uv workspaces
+  cache      Manage uv's cache
+  self       Manage the uv executable
+  help       Display documentation for a command
+
+```
+
+That list is worth reading once.
+The commands in the top block (`run`, `init`, `add`, `remove`, `sync`, `lock`)
+are the ones you will use every day,
+and they are the ones this chapter covers.
+
+### Updating uv
+
+If you installed `uv` with the standalone installer,
+it can update itself:
+
+```bash
+uv self update
+```
+
+If you installed it through a package manager,
+`uv` will tell you so and hand you the right command instead:
+
+```bash
+$ uv self update
+error: uv was installed through an external package manager and cannot update itself.
+
+hint: You installed uv using Homebrew. To update uv, run `brew update && brew upgrade uv`
+```
+
+This is a nice example of a program giving you an error message
+that also tells you how to fix it.
+Read your error messages.
+
+## Managing Python versions
+
+One of the jobs `uv` takes over is installing Python itself.
+You do not need to download Python from python.org
+or install it through Homebrew first.
+
+To see the Python versions `uv` knows about
+(both the ones already on your machine and the ones it could download):
+
+```bash
+uv python list
+```
+
+The output is longer than you expect,
+and it is important to understand what it is *not*:
+
+```bash
+$ uv python list
+cpython-3.15.0rc1-macos-aarch64-none              <download available>
+cpython-3.14.7-macos-aarch64-none                 <download available>
+cpython-3.14.7+freethreaded-macos-aarch64-none    <download available>
+cpython-3.13.15-macos-aarch64-none                <download available>
+cpython-3.12.14-macos-aarch64-none                <download available>
+cpython-3.9.6-macos-aarch64-none                  /usr/bin/python3
+pypy-3.11.15-macos-aarch64-none                   <download available>
+```
+
+(shortened, your own list will be longer)
+
+This is a **catalogue, not an inventory**.
+It is not a list of the Python versions you have installed.
+It is a list of the versions `uv` can give you,
+and on a new computer nearly every line will say `<download available>`,
+meaning that version is *not* on your machine
+and `uv` is offering to download it.
+
+:::{.callout-note}
+## One installation can appear on several lines
+
+`uv` lists every *path* that leads to a Python,
+not every copy of Python.
+One installation reached by two names is two lines.
+This surprises people who have installed Python
+through Homebrew or python.org before starting the course.
+
+Here is a real example, filtered to just the 3.14 entries:
+
+```bash
+$ uv python list | grep 3.14
+cpython-3.14.7-macos-aarch64-none    /opt/homebrew/bin/python3.14 -> ../Cellar/python@3.14/3.14.7/bin/python3.14
+cpython-3.14.7-macos-aarch64-none    /opt/homebrew/bin/python3 -> ../Cellar/python@3.14/3.14.7/bin/python3
+cpython-3.14.7-macos-aarch64-none    <download available>
+cpython-3.14.7+freethreaded-macos-aarch64-none    <download available>
+cpython-3.14.3-macos-aarch64-none    /Users/dan/.local/bin/python3.14 -> /Users/dan/.local/share/uv/python/cpython-3.14-macos-aarch64-none/bin/python3.14
+cpython-3.14.3-macos-aarch64-none    /Users/dan/.local/share/uv/python/cpython-3.14-macos-aarch64-none/bin/python3.14
+```
+
+Six lines, but only **two** Pythons are installed:
+
+- Lines 1 and 2 are the *same* Homebrew installation.
+  The `->` shows a symlink,
+  and both `python3.14` and `python3` point into the same folder.
+- Lines 3 and 4 are not installed at all.
+  `uv` is offering to download its own 3.14.7,
+  which is a different build than Homebrew's
+  even though the version number matches.
+- Lines 5 and 6 are the *same* `uv`-managed installation:
+  first the shortcut in `~/.local/bin`,
+  then the real file in `~/.local/share/uv/python/` that it points to.
+
+Anything under `~/.local/share/uv/python/` is a Python that `uv` installed
+and that `uv` manages.
+That is where your course Pythons will live.
+:::
+
+There are two columns.
+The left is the version's full name,
+and the right is either where it lives on your computer
+or `<download available>`.
+
+The name is made of five parts separated by dashes,
+`cpython-3.14.7-macos-aarch64-none`:
+
+- the **implementation**, `cpython`,
+  which is the standard Python that almost everyone means by "Python".
+  You will also see `pypy` and `graalpy`, which are alternative implementations.
+  You do not need them.
+- the **version**, `3.14.7`
+- the **operating system**, `macos`
+- the **architecture**, `aarch64` for Apple silicon,
+  or `x86_64` for Intel machines
+- the **libc**, which is `none` on macOS,
+  and `gnu` or `musl` on Linux
+
+A `+freethreaded` in the name,
+such as `cpython-3.14.7+freethreaded-macos-aarch64-none`,
+is a special build of Python that runs without the
+GIL (global interpreter lock).
+Ignore it for this course.
+
+If what you actually want to ask is
+"which Pythons do I have?",
+there is a flag for that:
+
+```bash
+uv python list --only-installed
+```
+
+example output:
+
+```
+❯ uv python list --only-installed
+cpython-3.14.7-macos-aarch64-none     /opt/homebrew/bin/python3.14 -> ../Cellar/python@3.14/3.14.7/bin/python3.14
+cpython-3.14.7-macos-aarch64-none     /opt/homebrew/bin/python3 -> ../Cellar/python@3.14/3.14.7/bin/python3
+cpython-3.14.3-macos-aarch64-none     .local/bin/python3.14 -> .local/share/uv/python/cpython-3.14-macos-aarch64-none/bin/python3.14
+cpython-3.14.3-macos-aarch64-none     .local/share/uv/python/cpython-3.14-macos-aarch64-none/bin/python3.14
+cpython-3.13.12-macos-aarch64-none    .local/bin/python3.13 -> .local/share/uv/python/cpython-3.13-macos-aarch64-none/bin/python3.13
+cpython-3.13.12-macos-aarch64-none    .local/share/uv/python/cpython-3.13-macos-aarch64-none/bin/python3.13
+cpython-3.13.0-macos-aarch64-none     .local/share/uv/python/cpython-3.13.0-macos-aarch64-none/bin/python3.13
+cpython-3.12.13-macos-aarch64-none    .local/share/uv/python/cpython-3.12-macos-aarch64-none/bin/python3.12
+cpython-3.9.6-macos-aarch64-none      /usr/bin/python3
+```
+
+:::{.callout-warning}
+## Do not use system python
+
+Depending on your operating system and computer,
+Python may be installed by default (e.g., `/usr/bin/python3`).
+This is the system Python.
+This is the Python that your operating system uses to do its computer things.
+Do not use or mess with this version of python,
+you can break operating system tools that depend on it.
+This is another reason why virtual environments are important.
+:::
+
+To install a specific version:
+
+```bash
+uv python install 3.14
+```
+
+You will rarely run that command directly.
+More often you will pin a version for a project,
+and `uv` will download it for you the first time it needs it.
+
+## Creating a project
+
+We'll build a small analysis project to work through the commands.
+Make a directory and move into it:
+
+```bash
+mkdir penguin_analysis
+cd penguin_analysis
+```
+
+Now create the project:
+
+```bash
+$ uv init --bare
+Initialized project `penguin-analysis`
+```
+
+The `--bare` flag says
+"only create the `pyproject.toml`, nothing else".
+That is what you want for a data analysis project.
+
+:::{.warning}
+## Warning
+
+If you run `uv init` *without* `--bare`,
+`uv` sets you up to build and publish a Python **package**:
+it creates a `src/` directory, a `README.md`,
+a `[build-system]` block,
+and a git repository.
+
+That is the right thing when you are writing a library
+(which you will do in DSCI 524),
+but it is a lot of scaffolding you do not need
+for a folder of notebooks and scripts.
+Start with `--bare` and add what you need.
+:::
+
+Let's look at the one file it made:
+
+```bash
+$ cat pyproject.toml
+[project]
+name = "penguin-analysis"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = []
+```
+
+This is the file where your project **declares** what it needs.
+Right now it needs nothing.
+
+### Pinning the Python version
+
+`requires-python` above says "any Python 3.14 or newer will do".
+That is a rule for the *solver*.
+It does not say which Python you are actually using.
+
+To record the exact version this project is built with:
+
+```bash
+$ uv python pin 3.14
+Pinned `.python-version` to `3.14`
+```
+
+This creates a `.python-version` file containing a single line:
+
+```
+3.14
+```
+
+Commit this file.
+It is what makes `uv` pick the same interpreter on your collaborator's machine
+as it did on yours.
+
+:::{.note}
+## Note
+
+`.python-version` and `requires-python` have to agree.
+If you ask for a pin that the `pyproject.toml` forbids,
+`uv` will refuse rather than quietly do the wrong thing:
+
+```bash
+$ uv python pin 3.12
+error: The requested Python version `3.12` is incompatible with the project
+`requires-python` value of `>=3.14`.
+```
+:::
+
+## Adding packages
+
+Now let's add the packages our analysis needs.
+
+```bash
+$ uv add pandas palmerpenguins
+Using CPython 3.14.3
+Creating virtual environment at: .venv
+Resolved 7 packages in 335ms
+Prepared 1 package in 207ms
+Installed 5 packages in 71ms
+ + numpy==2.5.2
+ + palmerpenguins==0.1.6
+ + pandas==3.0.5
+ + python-dateutil==2.9.0.post0
+ + six==1.17.0
+```
+
+Read that output line by line,
+because a single `uv add` did four separate things:
+
+1. **Found an interpreter** matching our pin (CPython 3.14.3).
+2. **Created the virtual environment** in a `.venv/` folder inside the project.
+   You never asked for this.
+   `uv` makes it the first time you need it.
+3. **Resolved** 7 packages.
+   We asked for 2;
+   the other 5 are dependencies of the ones we asked for.
+4. **Installed** 5 packages, at exact versions.
+
+And the project directory now looks like this:
+
+```bash
+$ ls -a
+.python-version
+.venv
+pyproject.toml
+uv.lock
+```
+
+Two new things appeared: `.venv/` and `uv.lock`.
+Our `pyproject.toml` also grew a `dependencies` list:
+
+```toml
+[project]
+name = "penguin-analysis"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "palmerpenguins>=0.1.6",
+    "pandas>=3.0.5",
+]
+```
+
+Notice that `uv` wrote `>=` and not `==`.
+It recorded "this project needs at least pandas 3.0.5",
+because that is what was current when you asked.
+If you need an exact version,
+say so when you add it:
+
+```bash
+uv add "pandas==3.0.5"
+```
+
+The quotes matter.
+Without them,
+Bash will try to interpret the `==` before `uv` ever sees it.
+
+## The two files that matter
+
+This is the most important section of the chapter.
+
+`pyproject.toml` records what your project **asks for**.
+`uv.lock` records what it actually **got**.
+
+Open `uv.lock` in VS Code and you will find something much longer
+than the four lines you wrote in `pyproject.toml`:
+
+```toml
+version = 1
+revision = 3
+requires-python = ">=3.14"
+
+[[package]]
+name = "numpy"
+version = "2.5.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/9a/80/.../numpy-2.5.2.tar.gz", hash = "sha256:d482d171c406..." }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ac/f8/.../numpy-2.5.2-cp314-cp314-macosx_10_15_x86_64.whl", hash = "sha256:d787cf769c3b..." },
+    ...
+]
+```
+
+Every package, at an exact version,
+including the ones you never named,
+with the URL it came from and a checksum of the file.
+The lockfile covers every operating system,
+which is why it lists a separate wheel for macOS, Linux, and Windows.
+That is what lets one lockfile work for your whole lab group.
+
+:::{.warning}
+## Warning
+
+This is also where the `pip freeze` file we saw earlier falls down:
+
+```bash
+pip freeze > requirements.txt
+```
+
+`pip freeze` writes down whatever happens to be installed in your environment
+*right now*,
+on *your* operating system,
+with no distinction between the packages you asked for
+and the packages that came along for the ride.
+Send that file to someone on a different OS and it may simply not install.
+
+`uv.lock` is not that.
+It is generated from your `pyproject.toml` by a solver
+that knows about all platforms at once.
+This separation, declared versus locked,
+is the whole point,
+and it is the same idea as `renv.lock` in R.
+:::
+
+Both files get committed to git.
+The `.venv/` directory does **not**:
+it contains hundreds of megabytes of installed packages
+that `uv` can rebuild in seconds from the lockfile.
+
+A minimal `.gitignore` for a `uv` project:
+
+```
+# Python-generated files
+__pycache__/
+*.py[oc]
+
+# Virtual environments
+.venv
+```
+
+:::{.activity}
+## Activity
+
+Which files should you commit to your repository when using `uv`?
+(one or more correct answers)
+
+- A. `pyproject.toml`, because it declares which packages the project needs
+- B. `uv.lock`, because it records the exact versions that were installed
+- C. `.python-version`, because it records which interpreter the project uses
+- D. `.venv/`, because your collaborators need the installed packages
+- E. Only `uv.lock`, since it contains everything in `pyproject.toml` anyway
+
+:::
+
+## Running your code
+
+Here is where `uv` differs most from what you may have seen before.
+You do **not** activate the environment.
+
+Put this in a file called `penguins.py`:
+
+```python
+from palmerpenguins import load_penguins
+
+penguins = load_penguins()
+print(penguins.head())
+```
+
+And run it with `uv run`:
+
+```bash
+$ uv run penguins.py
+  species     island  bill_length_mm  ...  body_mass_g     sex  year
+0  Adelie  Torgersen            39.1  ...       3750.0    male  2007
+1  Adelie  Torgersen            39.5  ...       3800.0  female  2007
+2  Adelie  Torgersen            40.3  ...       3250.0  female  2007
+3  Adelie  Torgersen             NaN  ...          NaN     NaN  2007
+4  Adelie  Torgersen            36.7  ...       3450.0  female  2007
+
+[5 rows x 8 columns]
+```
+
+`uv run` does three things before it runs anything:
+it finds the project by walking up from your current directory,
+makes sure the environment matches the lockfile,
+and *then* runs your command inside that environment.
+
+You can confirm which interpreter you actually got:
+
+```bash
+$ uv run python -c "import sys; print(sys.executable)"
+/Users/dan/penguin_analysis/.venv/bin/python3
+```
+
+That is the project's `.venv`,
+not the system Python that `which python3` would have found.
+
+This works for any command, not just Python scripts:
+
+```bash
+uv run jupyter lab
+uv run quarto render
+uv run pytest
+```
+
+:::{.tip}
+## Tip
+
+The reason to prefer `uv run` over activating an environment
+is that it removes an entire category of bug.
+There is no "which environment am I in?" question to get wrong,
+and no half-remembered `activate` step
+between you and a reproducible result.
+
+You *can* activate the environment the traditional way
+if some tool requires it:
+
+```bash
+source .venv/bin/activate
+```
+
+But if you find yourself doing this often,
+it is usually a sign that a `uv run` would have been simpler.
+:::
+
+### Running something once
+
+Sometimes you want a package for a single command
+and you do not want it in your project.
+`uv run --with` installs it temporarily:
+
+```bash
+$ uv run --with cowsay cowsay -t "uv run --with is temporary"
+Installed 1 package in 3ms
+  __________________________
+| uv run --with is temporary |
+  ==========================
+                          \
+                           \
+                             ^__^
+                             (oo)\_______
+                             (__)\       )\/\
+                                 ||----w |
+                                 ||     ||
+```
+
+Afterwards, `cowsay` is not in your project's environment,
+your `pyproject.toml` is unchanged,
+and your lockfile is unchanged.
+
+## Sharing your environment
+
+This is the payoff for everything above.
+
+Your collaborator clones your repository.
+They get `pyproject.toml`, `uv.lock`, `.python-version`, and your code,
+but no `.venv/`.
+They run one command:
+
+```bash
+$ uv sync
+Using CPython 3.14.3
+Creating virtual environment at: .venv
+Resolved 13 packages in 4ms
+Installed 10 packages in 62ms
+ + iniconfig==2.3.0
+ + numpy==2.5.2
+ + packaging==26.3
+ + palmerpenguins==0.1.6
+ + pandas==3.0.5
+ + pluggy==1.6.0
+ + pygments==2.21.0
+ + pytest==9.1.1
+ + python-dateutil==2.9.0.post0
+ + six==1.17.0
+```
+
+Their environment now matches yours exactly,
+down to the version number of a package neither of you has heard of.
+
+You have been on the receiving end of this all term.
+It is what the setup check did on your machine before the program started,
+and it is what happens every time you `uv sync` a lab assignment:
+somebody else built an environment,
+`uv.lock` wrote down exactly what it contained,
+and that one command reproduced it on your computer.
+The only new thing in this chapter
+is that you are now the person on the other end,
+building the environment that someone else will sync.
+
+`uv sync` is the command you will run most often when working with others.
+Run it any time you clone a repository with a lockfile in it,
+and after every `git pull` that touched `uv.lock`.
+
+### Sync makes the environment *match*, in both directions
+
+It is worth being precise about what "sync" means,
+because it is stronger than "install".
+Suppose someone installs a package directly,
+bypassing `uv add`:
+
+```bash
+$ uv pip install cowsay
+Installed 1 package in 3ms
+ + cowsay==6.1
+```
+
+`cowsay` is now in the environment
+but it is not in `pyproject.toml` and not in `uv.lock`.
+The environment and the lockfile disagree.
+The next `uv sync` resolves that disagreement
+in favour of the lockfile:
+
+```bash
+$ uv sync
+Resolved 7 packages in 6ms
+Uninstalled 1 package in 1ms
+ - cowsay==6.1
+```
+
+`uv sync` installs what is missing **and removes what does not belong**.
+This is a feature, not a surprise.
+It means an environment you built with `uv sync`
+contains exactly what the lockfile says and nothing else,
+which is the only way "it works on my machine" can be a meaningful claim.
+
+The lesson: add packages with `uv add`, not `uv pip install`.
+The `uv pip` subcommands exist so that older tutorials and scripts keep working,
+but anything installed that way is invisible to your project files.
+
+:::{.activity}
+## Activity
+
+Your collaborator pulls your latest changes and gets an
+`ModuleNotFoundError: No module named 'matplotlib'`
+when running your script.
+You added `matplotlib` to the project yesterday.
+What should they run?
+
+```
+A. pip install matplotlib
+B. uv sync
+C. uv init
+D. uv add matplotlib
+```
+
+:::
+
+## Managing packages
+
+### Seeing what is installed
+
+`uv tree` shows you the packages you asked for
+and what each of them dragged in:
+
+```bash
+$ uv tree
+Resolved 7 packages in 4ms
+penguin-analysis v0.1.0
+├── palmerpenguins v0.1.6
+│   ├── numpy v2.5.2
+│   └── pandas v3.0.5
+│       ├── numpy v2.5.2
+│       └── python-dateutil v2.9.0.post0
+│           └── six v1.17.0
+└── pandas v3.0.5 (*)
+(*) Package tree already displayed
+```
+
+The indentation tells the story:
+we asked for `palmerpenguins` and `pandas`;
+`numpy`, `python-dateutil`, and `six` are along for the ride.
+This is the difference between `pyproject.toml` and `uv.lock`,
+drawn as a picture.
+
+For a flat list of what is actually in the environment,
+`uv pip list` works the way you would expect:
+
+```bash
+$ uv pip list
+Package         Version
+--------------- -----------
+numpy           2.5.2
+palmerpenguins  0.1.6
+pandas          3.0.5
+python-dateutil 2.9.0.post0
+six             1.17.0
+```
+
+### Removing a package
+
+```bash
+uv remove pandas
+```
+
+This drops the line from `pyproject.toml`,
+updates `uv.lock`,
+and uninstalls the package from `.venv/`
+along with any dependency that nothing else needs any more.
+One command keeps all three in step.
+
+### Upgrading a package
+
+Your lockfile pins exact versions on purpose,
+so `uv sync` will not silently upgrade anything.
+When you *do* want a newer version,
+ask for it:
+
+```bash
+uv lock --upgrade-package pandas
+```
+
+This re-resolves just that package,
+leaving everything else pinned where it is,
+and writes the change into `uv.lock`.
+Then `uv sync` to apply it.
+
+Commit the resulting change to `uv.lock`.
+A diff on a lockfile is a record of exactly what changed in your environment
+and when,
+which is a genuinely useful thing to have
+when a project that worked last month stops working today.
+
+### Dependency groups
+
+This section will be covered in DSCI 524: Collaborative Software Development
+
+Some packages are needed to *develop* the project
+but not to *run* it:
+a test runner, a linter, a formatter.
+These go in a dependency group rather than the main list:
+
+```bash
+uv add --dev pytest
+```
+
+```toml
+[project]
+name = "penguin-analysis"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "palmerpenguins>=0.1.6",
+    "pandas==3.0.5",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+```
+
+`uv sync` installs the `dev` group by default,
+which is what you want on your own machine.
+
+:::{.note}
+## Note
+
+Groups are optional,
+and for a course project you often do not need them.
+This book's own `pyproject.toml` deliberately keeps everything
+in a single `dependencies` list
+so that there is exactly one install command to remember.
+
+You will meet dependency groups again in DSCI 524
+when you start publishing packages,
+where the distinction between
+"what my users need" and "what I need to develop this"
+starts to matter a great deal.
+:::
+
+## Working with JupyterLab
+
+Since you will be writing notebooks all program,
+you need JupyterLab to see your project's environment.
+
+The simplest approach is to make JupyterLab part of the project:
+
+```bash
+uv add jupyterlab ipykernel
+uv run jupyter lab
+```
+
+`ipykernel` is the package that lets a Python environment
+show up as a *kernel* a notebook can attach to,
+and because JupyterLab is running inside the project environment,
+the default kernel is already the right one.
+
+:::{.tip}
+## Tip
+
+If you open a notebook and your imports fail,
+the first thing to check is which kernel the notebook is using
+(top-right corner in JupyterLab).
+A notebook attached to the wrong kernel
+is running against a different set of packages entirely,
+and the error you get,
+`ModuleNotFoundError`,
+looks identical to the package simply not being installed.
+:::
+
+## Standalone scripts
+
+Not everything is a project.
+Sometimes you want a single `.py` file that you can email to someone
+and have it just work.
+
+`uv` supports putting the dependencies *inside the script*.
+
+First create a `penguins2.py` script:
+
+```python
+from palmerpenguins import load_penguins
+
+penguins = load_penguins()
+print(penguins.shape)
+```
+
+Then run:
+
+```bash
+uv add --script penguins2.py palmerpenguins
+```
+
+which adds a comment block at the top of the file:
+
+```python
+# /// script
+# requires-python = ">=3.14"
+# dependencies = [
+#     "palmerpenguins>=0.1.6",
+# ]
+# ///
+from palmerpenguins import load_penguins
+
+penguins = load_penguins()
+print(penguins.shape)
+```
+
+:::{.callout-important}
+## The script has to exist first
+
+`uv add --script` edits a file that is already there,
+it does not create one.
+If you run it before you have written the script,
+you get:
+
+```bash
+$ uv add --script penguins2.py palmerpenguins
+error: failed to read from file `penguins2.py`: No such file or directory (os error 2)
+```
+
+Write the script first, then add to it.
+:::
+
+Anyone with `uv` installed can now run that file
+with no setup at all:
+
+```bash
+$ uv run penguins2.py
+Installed 5 packages in 28ms
+(344, 8)
+```
+
+`uv` reads the comment block,
+builds a throwaway environment,
+and runs the script in it.
+Those `#` lines are a comment to Python
+and a specification to `uv`,
+so the file is still a perfectly ordinary Python script.
+
+This is a good option for a one-off analysis or a utility script.
+It is not a replacement for a project
+once you have more than one file.
+
+## Takeaway
+
+`uv` ties one environment to one project directory,
+and `uv run` is how you use it.
+There is no environment to activate and no environment name to remember,
+which is much closer to how `{renv}` behaves in R
+than to how `conda` behaves.
+
+The commands that do almost all the work:
+
+| Command | What it does |
+| --- | --- |
+| `uv init --bare` | start a project (creates `pyproject.toml`) |
+| `uv python pin 3.14` | record the interpreter version |
+| `uv add <package>` | add a dependency, install it, update the lockfile |
+| `uv remove <package>` | the reverse |
+| `uv sync` | make the environment match `uv.lock` |
+| `uv run <command>` | run something inside the environment |
+| `uv tree` | see what you asked for and what came with it |
+| `uv lock --upgrade-package <package>` | deliberately move one package forward |
+
+And the three files that make the project reproducible,
+all of which belong in git:
+
+| File | Records |
+| --- | --- |
+| `pyproject.toml` | what the project **asks for** |
+| `uv.lock` | what the project **got**, exactly, for every OS |
+| `.python-version` | which interpreter to use |
+
+`.venv/` is not in that table.
+It is disposable,
+and `uv sync` rebuilds it in seconds.
+
+This is the same division of labour you will see in the next chapter with R:
+`DESCRIPTION` and `renv.lock` play the parts of
+`pyproject.toml` and `uv.lock`.
+Learning to see that split,
+declared versus locked,
+is more durable than any particular tool's command names.
+
+## Additional Links
+
+- uv documentation: <https://docs.astral.sh/uv/>
+- Working on projects: <https://docs.astral.sh/uv/guides/projects/>
+- Locking and syncing: <https://docs.astral.sh/uv/concepts/projects/sync/>
+- Using uv with Jupyter: <https://docs.astral.sh/uv/guides/integration/jupyter/>
+- Running scripts with inline metadata: <https://docs.astral.sh/uv/guides/scripts/>
+- The `pyproject.toml` specification: <https://packaging.python.org/en/latest/specifications/pyproject-toml/>

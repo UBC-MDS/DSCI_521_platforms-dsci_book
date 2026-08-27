@@ -1,2 +1,5 @@
-1. Understand what is a computational environment and how can ensure the reproducibility of a project
-2. Manage packages and environments in R using `renv`
+1. Understand what a computational environment is and how it can ensure the reproducibility of a project
+2. Differentiate Python, PyPI, `pip`, `venv`, and `uv`
+3. Distinguish between the packages a project *declares* (`pyproject.toml`, `DESCRIPTION`) and the packages a project *locks* (`uv.lock`, `renv.lock`)
+4. Manage packages and environments in Python using `uv`
+5. Manage packages and environments in R using `renv`

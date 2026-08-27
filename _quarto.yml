@@ -72,7 +72,8 @@ website:
 
       - section: "Week 4"
         contents:
-          - text: "Virtual Environments: uv" # TODO: write this chapter
+          - text: "Virtual Environments: uv"
+            href: lectures/7a-virtual-environments-uv.qmd
 
           - text: "Virtual Environments: renv"
             href: lectures/7b-virtual-environments-renv.qmd
