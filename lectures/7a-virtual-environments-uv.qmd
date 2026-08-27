@@ -1011,6 +1011,82 @@ building the environment that someone else will sync.
 Run it any time you clone a repository with a lockfile in it,
 and after every `git pull` that touched `uv.lock`.
 
+### One download, many environments
+
+When we ran `uv sync` it showed:
+ten packages installed in 62 milliseconds.
+
+Nothing was downloaded.
+
+By the end of the program you will have a `.venv` in every lab repository,
+every project, and every bit of scratch work you keep,
+and a good number of them will contain the same `pandas`.
+Those are not separate copies of it.
+
+`uv` keeps one cache of every version of every package
+it has ever downloaded for you:
+
+```bash
+uv cache dir
+```
+
+```out
+/Users/you/.cache/uv
+```
+
+A package is downloaded into that cache once.
+When a project needs one that is already in there,
+`uv` does not copy it into that project's `.venv`.
+It uses the cheapest thing the filesystem offers:
+a **copy-on-write clone** on macOS and Linux,
+a **hard link** on Windows.
+That choice is uv's
+[`link-mode`](https://docs.astral.sh/uv/reference/settings/#link-mode)
+setting, and you will almost certainly never need to change it.
+Either way the file appears inside the `.venv`
+while sharing its blocks on disk with the cached original,
+so the second environment costs close to nothing.
+
+The effect is easy to measure.
+A freshly synced environment with JupyterLab in it
+reports as 162 MB:
+
+```bash
+du -sh .venv
+```
+
+```out
+162M    .venv
+```
+
+Sync a *second* project that needs those same versions,
+and the free space on the disk drops by about 8 MB, not 162.
+
+Two things follow from this that are worth knowing:
+
+- **The first `uv sync` for a set of packages is the slow one**,
+  because it is the one doing the downloading.
+  Every later `uv sync` that wants the same versions is close to instant.
+- **Deleting a `.venv` is cheap and safe.**
+  If an environment gets into a strange state,
+  `rm -rf .venv` followed by `uv sync`
+  rebuilds it from the cache in seconds.
+  That is a reasonable *first* thing to try,
+  and it is not something you would casually do
+  to a conda environment.
+
+The cache does grow over time.
+You can look at it, and tidy it up, with:
+
+```bash
+uv cache size
+uv cache prune
+```
+
+`uv cache prune` removes entries nothing points at any more.
+`uv cache clean` empties the cache completely,
+after which the next `uv sync` downloads everything again.
+
 ### Sync makes the environment *match*, in both directions
 
 It is worth being precise about what "sync" means,
