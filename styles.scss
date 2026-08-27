@@ -1,24 +1,11 @@
 /*-- scss:rules --*/
 
-/* Color Variables */
-$ubc-blue: #136ecf;
-$white: #FFFFFF;
-$light-blue: #97D4E9;
-$medium-blue: #6EC4E8;
-$dark-blue: #062f5b;
-$exercise-dark-green: #005f56;
-$exercise-light-green: #88d4ab;
-$exercise-dark-gray: #2f4f4f;
-$exercise-light-gray: #dcdcdc;
-$blue-light: #d0e7ff;
-$blue-medium: #7fbfff;
-$blue-dark: #136ecf;
-$blue-darker: #0b4b91;
-$blue-lightest: #eaf4ff;
-$blue-medium-light: #a9d1ff;
-$blue-dark-light: #4d97e0;
-$grey-medium: #999999;
-
+// Colours and fonts live in `_brand.yml`, which Quarto layers in ahead of this
+// file (see `format.html.theme` in `_quarto.yml`). Everything from its palette
+// is available here as `$brand-<name>`, and as `--brand-<name>` in CSS.
+//
+// What is left in this file is the part brand.yml cannot express: the two
+// custom callouts.
 
 // Custom callouts: `.activity` and `.exercise`, rendered by the
 // coatless-quarto/custom-callout extension (configured in `_quarto.yml`).
@@ -27,10 +14,12 @@ $grey-medium: #999999;
 // image, so the glyph needs its own spacing and colour, and it only emits one
 // colour per callout, so the dark-theme variants are set here.
 //
-// NOTE: keep $activity-color / $exercise-color in sync with the `color:` values
-// under `custom-callout:` in `_quarto.yml`.
-$activity-color: #0055b7;
-$exercise-color: #1c5f2e;
+// NOTE: the `color:` values under `custom-callout:` in `_quarto.yml` have to be
+// literal hex — that YAML cannot see Sass — so keep them in sync with these:
+//   activity -> $brand-ubc-blue-deep (#0055B7)
+//   exercise -> $brand-mds-green     (#1C5F2E)
+$activity-color: $brand-ubc-blue-deep;
+$exercise-color: $brand-mds-green;
 
 div.callout-activity .callout-icon::before,
 div.callout-exercise .callout-icon::before {
@@ -45,23 +34,23 @@ div.callout-exercise .callout-icon::before {
   color: $exercise-color;
 }
 
-// The base colours are too dark to read against the slate background,
-// so lighten the border and icon for the dark theme.
+// The base colours are too dark to read against the dark background, so
+// lighten the border and icon for the dark theme.
 body.quarto-dark {
   div.callout-activity.callout {
-    border-left-color: $blue-dark-light;
+    border-left-color: $brand-ubc-blue-light;
   }
 
   div.callout-activity .callout-icon::before {
-    color: $blue-dark-light;
+    color: $brand-ubc-blue-light;
   }
 
   div.callout-exercise.callout {
-    border-left-color: $exercise-light-green;
+    border-left-color: $brand-mds-green-light;
   }
 
   div.callout-exercise .callout-icon::before {
-    color: $exercise-light-green;
+    color: $brand-mds-green-light;
   }
 }
 

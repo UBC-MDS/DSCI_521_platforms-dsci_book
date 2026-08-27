@@ -108,6 +108,9 @@ website:
 filters:
   - custom-callout
 
+# The extension needs literal hex here (it cannot read Sass), so these two
+# colours are duplicated from `_brand.yml`: $brand-mds-green and
+# $brand-ubc-blue-deep. `styles.scss` carries the matching note.
 custom-callout:
   exercise:
     title: "Exercise"
@@ -122,9 +125,12 @@ custom-callout:
 
 format:
   html:
+    # Colours and fonts come from `_brand.yml`; `styles.scss` layers on top of
+    # it for the things brand.yml cannot express (the custom callouts).
+    # Precedence is left-to-right, so styles.scss wins over the brand.
     theme:
-      light: [cosmo, styles.scss]
-      dark: [slate, styles.scss]
+      light: [brand, styles.scss]
+      dark: [brand, styles.scss]
     toc: true
     toc-depth: 3
     toc-expand: 3
