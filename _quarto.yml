@@ -31,6 +31,19 @@ website:
         text: Home
       - href: https://ubc-mds.github.io/resources_pages/installation_instructions/
         text: Installation Guide
+      # Mirrors the "Labs and quizzes" section of https://ubc-mds.github.io/resources/
+      - text: "Labs and Quizzes"
+        menu:
+          - text: "General Lab Instructions"
+            href: https://ubc-mds.github.io/resources_pages/general_lab_instructions/
+          - text: "MDS Rubrics"
+            href: https://github.com/UBC-MDS/public/tree/master/rubric#guide-to-rubrics
+          - text: "MDS Quiz Guidelines"
+            href: https://ubc-mds.github.io/resources_pages/quiz_guidelines/
+          - text: "MDS Quiz Procedures"
+            href: https://ubc-mds.github.io/resources_pages/quiz/
+          - text: "MDS Quiz Procedures - Center for Accessibility"
+            href: https://ubc-mds.github.io/resources_pages/quiz_cfa/
 
   sidebar:
     logo: MDSlogo.png
