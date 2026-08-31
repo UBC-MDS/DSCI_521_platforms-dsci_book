@@ -16,10 +16,6 @@ Welcome to Computer Platforms in Data Science!
 This week we are going to learn about exploring
 the filesystem, using the command line, and some other useful tools.
 
-## Instructions for Accessing iClicker
-
-Please follow these instructions for accessing iClicker: [iClicker Cloud Student Guide](https://lthub.ubc.ca/guides/iclicker-cloud-student-guide/)
-
 :::{.activity}
 What is a Data Scientist?
 
@@ -70,22 +66,6 @@ such as
 - Open-source software is customizable and flexible.
 - It is becoming the standard in many tech companies.
 - Being a part of an awesome and active community!
-
-
-:::{.activity}
-In what scenario is the command line preferable over JupyterLab?
-
-A. When scripting and automating tasks due to its quick execution of commands and ease of integration into workflows.
-
-B. For interactive data exploration due to its rich user interface.
-
-C. For beginners because of its simpler interface.
-
-D. For large-scale data processing due to its efficiency in handling data.
-
-E. Both are equally effective.
-
-:::
 
 
 ## Introduction to computing
@@ -140,6 +120,21 @@ it would be even faster to speak or even just think of what you want to do
 and have it executed by the computer,
 this is what speech- and brain-computer interfaces are concerned with.
 
+```quizdown
+---
+shuffle_answers: true
+---
+
+## Which is the better fit for each job? Some categories apply to more than one item.
+
+- Run the same cleaning script on 200 files without opening each one :: Command line
+- Move and rename a batch of files :: Command line
+- Start JupyterLab in the first place :: Command line
+- Try a plot, tweak one parameter, look again :: JupyterLab
+- Write a report that mixes prose, code, and figures :: JupyterLab
+- Walk through a new dataset one step at a time, keeping every output :: JupyterLab
+```
+
 ### Bash
 
 `bash` is the most commonly used text shell.
@@ -171,6 +166,18 @@ evaluates it (i.e., executes it),
 prints the command’s output,
 and loops around to wait for another command.
 Let's see how to do that next!
+
+```quizdown
+## Put the steps of one trip around the shell's loop in order
+
+You type `ls -F` after the `$` prompt and press <kbd>Enter</kbd>.
+Drag the steps into the order they happen.
+
+1. The shell takes in the line you typed
+2. The shell finds the `ls` program and runs it with the `-F` option
+3. The program's output is written to the terminal
+4. A fresh `$` prompt appears, waiting for the next command
+```
 
 ## Your first words
 
@@ -274,6 +281,26 @@ while a trailing `*` tells us the file is a runnable program.
 Depending on our setup,
 the shell might also use colors to indicate whether each entry is a file or directory.
 
+Another common option is `-l` ("long"),
+which shows one entry per line together with its size
+and the date it was last changed:
+
+```bash
+ls -l
+```
+
+```out
+drwxr-xr-x  5 username  staff   160 Aug 28 09:12 Documents
+drwxr-xr-x  3 username  staff    96 Aug 12 17:40 Downloads
+drwxr-xr-x  2 username  staff    64 Jul  3 11:05 Music
+drwxr-xr-x  4 username  staff   128 Aug 20 14:31 Pictures
+-rwxr-xr-x  1 username  staff  2048 Aug 27 16:02 my_program
+-rw-r--r--  1 username  staff   412 Aug 29 08:45 todo.txt
+```
+
+Options can be combined,
+so `ls -l -a` (or `ls -la`) gives the long listing including hidden files.
+
 
 :::{.activity}
 Can you recognize the following folders in the picture?
@@ -340,14 +367,21 @@ in you terminal to see a list of all commands we use in MDS.
 | `..`   | Parent directory          |
 | `~`    | HOME directory            |
 
-:::{.activity}
-Which command would move you to the parent directory?
+```quizdown
+---
+shuffle_answers: true
+---
 
-A.  cd .
-B.  cd ..
-C.  cd ~
-D.  cd
-:::
+## Match each description to the shell shorthand for it. (Not all symbols will be used.)
+
+- The directory you are in right now :: `.`
+- The directory that contains the one you are in :: `..`
+- The directory the shell starts in when you open it :: `~`
+- The top of the whole filesystem tree :: `/`
+- :: `-`
+- :: `*`
+
+```
 
 :::{.exercise}
 **Navigating the Command Line**
@@ -644,6 +678,95 @@ we would have to specify the `-r` flag,
 which indicates that we want to copy the directory recursively,
 i.e. also making a copy of all the directory contents.
 
+### Removing files and directories
+
+To delete a file we use `rm` (**r**e**m**ove).
+Let's remove the backup copy we just made:
+
+```bash
+rm note_2022-06-20.md.bkp
+ls
+```
+
+```out
+note_2022-06-20.md
+```
+
+There is no trash can on the command line.
+`rm` does not ask for confirmation,
+and there is no undo.
+The `-i` ("interactive") option we saw with `mv`
+works here too,
+and makes `rm` ask before each deletion:
+
+```bash
+rm -i note_2022-06-20.md
+```
+
+```out
+rm: remove regular file 'note_2022-06-20.md'? n
+```
+
+Answering <kbd>n</kbd> keeps the file.
+
+Just like `cp`,
+`rm` refuses to act on a directory
+unless we pass `-r` to make it recursive:
+
+```bash
+rm notes
+```
+
+```out
+rm: cannot remove 'notes': Is a directory
+```
+
+If we really wanted to remove the whole `notes` directory
+we would go up one level and run `rm -r notes`,
+which deletes the directory and everything inside it,
+with no confirmation and no way back.
+Treat `rm -r` with respect,
+and double check the path before you press <kbd>Enter</kbd>.
+
+```quizdown
+---
+shuffle_answers: true
+---
+
+## What happens when you run each command? (Not all outcomes will be used.)
+
+Your working directory contains the file `note.md` and the directory `notes/`, which has files in it.
+
+- `rm note.md` :: Deletes the file right away, no confirmation
+- `rm -i note.md` :: Asks before deleting the file
+- `rm notes` :: Refuses, saying it is a directory
+- `rm -r notes` :: Deletes the directory and everything inside it
+- :: Moves the file to the Trash
+- :: Deletes the directory, but only if it is empty
+
+```
+
+```quizdown
+## Put the commands in the order that makes them work
+
+You open a terminal, which starts in your home directory.
+Here is what you want to do:<br>
+— change into your `Documents` folder<br>
+— make a new folder there called `notes`<br>
+— step into `notes`<br>
+— create a file `my-first-note.md` in it, using VS Code<br>
+— move that file up one level, into `Documents`<br>
+— show the first lines of the moved file, from where you are standing<br><br>
+Every command depends on the one before it.
+
+1. `cd ~/Documents`
+2. `mkdir notes`
+3. `cd notes`
+4. `code my-first-note.md`
+5. `mv my-first-note.md ..`
+6. `head ../my-first-note.md`
+```
+
 ### Wildcards
 
 Wildcards (also called "globbing") simplifies targeting multiple files with similar names
@@ -794,6 +917,26 @@ You can enter `less` in multiple ways when working in the terminal,
 it is not exclusive to only looking at the `man` pages.
 :::
 
+```quizdown
+---
+shuffle_answers: true
+---
+
+## Pick the option that does the job. (Not all options will be used.)
+
+Each situation below needs one of the options introduced in this chapter.
+
+- Copy a directory *together with everything inside it* :: `-r`
+- Make `mv` ask before it overwrites a file that already exists :: `-i`
+- See the files whose names start with a dot :: `-a`
+- Tell directories and runnable programs apart in a listing :: `-F`
+- Print exactly what `mv` renamed :: `-v`
+- See each entry's size and when it was last changed :: `-l`
+- :: `--help`
+- :: `-n`
+
+```
+
 ### Relative vs absolute path
 
 We've seen a bit of usage around `.` and `..`.
@@ -842,6 +985,53 @@ which is indicated by a leading slash,
 the leading `/` tells the computer to follow the path from the root of the file system,
 so it always refers to exactly one directory,
 no matter where we are when we run the command.
+
+```quizdown
+---
+shuffle_answers: true
+---
+
+## Absolute or relative?
+
+The same idea shows up outside the filesystem.
+An **absolute** reference works no matter where you are.
+A **relative** reference only makes sense from a particular starting point.
+Sort each one. Some categories apply to more than one item.
+
+- `+1 604 822 2211` :: Absolute
+- `822 2211` :: Relative
+- `2366 Main Mall, Vancouver, BC V6T 1Z4` :: Absolute
+- Walk past the Nest, turn right at the bus loop, second building on your left :: Relative
+- `49.2606° N, 123.2460° W` :: Absolute
+- Two floors up from here :: Relative
+- 14:30 PT on 2026-09-01 :: Absolute
+- In twenty minutes :: Relative
+- :: A nickname
+
+```
+
+```quizdown
+---
+shuffle_answers: true
+---
+
+## Where does each command leave you?
+
+Your working directory is `/home/username/Documents/notes`.
+Drag each command to the directory it lands you in.
+Some directories are used more than once.
+
+- `cd ..` :: `/home/username/Documents`
+- `cd ~/Documents` :: `/home/username/Documents`
+- `cd ~` :: `/home/username`
+- `cd ../..` :: `/home/username`
+- `cd .` :: `/home/username/Documents/notes`
+- `cd /home/username/Documents/notes` :: `/home/username/Documents/notes`
+- `cd /` :: `/`
+- `cd ../../../..` :: `/`
+- :: `/home`
+
+```
 
 ## References
 

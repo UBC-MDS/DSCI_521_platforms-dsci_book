@@ -128,6 +128,7 @@ filters:
   # See the header of the file for why it builds Quarto's own header bar.
   - code-labels.lua
   - custom-callout
+  - quizdown
 
 # The extension needs literal hex here (it cannot read Sass), so these two
 # colours are duplicated from `_brand.yml`: $brand-mds-green and
