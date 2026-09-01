@@ -1250,6 +1250,18 @@
     ]
   },
   {
+    "objectID": "lectures/book-conventions.html#quizzes",
+    "href": "lectures/book-conventions.html#quizzes",
+    "title": "Conventions in the Book",
+    "section": "Quizzes",
+    "text": "Quizzes\nQuizzes are written in a quizdown fence and rendered by _extensions/quizdown, a fork of quizdown-js kept at UBC-MDS/quarto-quizdown-mds-ext. The fence never says which kind of question it holds – the type comes out of the shape of the list you write:\n\n\n\n\n\n\n\nYou write\nYou get\n\n\n\n\nan unordered list whose items hold ::\nmatching: drag a chip into a slot\n\n\nan ordered list with no checkboxes\nsequence: drag the lines into order\n\n\nan unordered list of - [ ] and - [x]\nmultiple choice: tick every right answer\n\n\nan ordered list of 1. [ ] and 1. [x]\nsingle choice: tick the one right answer\n\n\n\nThree optional pieces work in all four: a --- block of options above the question, a &gt; blockquote under the heading, which becomes a hint behind a button, and a &gt; blockquote indented under one answer, which becomes the feedback shown for that answer once the quiz is marked.\nA quiz renders into a shadow root, which is a corner of the page that no stylesheet can reach into from outside. So the colours below do not come from styles.scss like everything else on this page – they come from quizdown-theme.html, which injects one stylesheet into each quiz. That is the thing all four of these are really here to check.\nThe book only uses the first two types so far. The other two are on this page anyway, because an unused construct is the one that breaks without anyone noticing.\n\nMatching\nOptions, a hint and per-answer feedback, which the other three take the same way. An item with nothing on the left of its :: is a distractor: it joins the pool of chips but matches no prompt.\n\n---\nshuffle_answers: true\n---\n\n## Match each command to what it does\n\n&gt; Every one of these appears in the first lecture.\n\n- `pwd` :: prints the directory you are in\n\n    &gt; Print Working Directory.\n\n- `ls` :: lists what is beside you\n- `cd` :: moves you somewhere else\n- :: prints your username\n\n\n\nSequence\n\n## Put the steps of one trip around the shell's loop in order\n\nYou type `ls -F` after the `$` prompt and press Enter.\n\n1. The shell takes in the line you typed\n2. The shell finds the `ls` program and runs it with the `-F` option\n3. The program's output is written to the terminal\n4. A fresh `$` prompt appears, waiting for the next command\n\n\n\nMultiple choice\n\n## Which of these are shells?\n\n- [x] `bash`\n- [x] `zsh`\n- [ ] `ls`\n\n    &gt; `ls` is a program you run *from* a shell.\n\n- [ ] JupyterLab\n\n\n\nSingle choice\n\n## Which command prints the directory you are in?\n\n1. [ ] `cd`\n2. [x] `pwd`\n3. [ ] `ls`\n4. [ ] `whoami`",
+    "crumbs": [
+      "Home",
+      "Orientation",
+      "Conventions in this Book"
+    ]
+  },
+  {
     "objectID": "lectures/book-conventions.html#tables",
     "href": "lectures/book-conventions.html#tables",
     "title": "Conventions in the Book",

@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-717a1de2394aff971b7ede6d174c0923.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a135521d5b91d00d41fd6bacfacf7a9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-cf3724262f66d8935e77b7bdf41003fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-a135521d5b91d00d41fd6bacfacf7a9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-45100720d3f54066ef127b942bb453b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fb4d70f7a5d22372ff6e6331a6422932.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-45100720d3f54066ef127b942bb453b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdown.js"></script>
 <script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdownKatex.js"></script>
 <script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdownHighlight.js"></script>
@@ -129,20 +129,6 @@ gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
 <style>
-div.callout-activity.callout {
-  border-left-color: #0055b7;
-}
-div.callout-activity.callout-style-default .callout-header {
-  background-color: rgba(0, 85, 183, 0.13);
-}
-div.callout-activity .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-activity.callout-style-default .callout-icon::before, div.callout-activity.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\e53d' !important;
-  background-image: none;
-}
 div.callout-exercise.callout {
   border-left-color: #1c5f2e;
 }
@@ -155,6 +141,20 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
   font-weight: 900;
   font-style: normal;
   content: '\f44b' !important;
+  background-image: none;
+}
+div.callout-activity.callout {
+  border-left-color: #0055b7;
+}
+div.callout-activity.callout-style-default .callout-header {
+  background-color: rgba(0, 85, 183, 0.13);
+}
+div.callout-activity .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-activity.callout-style-default .callout-icon::before, div.callout-activity.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\e53d' !important;
   background-image: none;
 }
 </style>
@@ -690,6 +690,13 @@ window.Quarto = {
   <li><a href="#executed-cells" id="toc-executed-cells" class="nav-link" data-scroll-target="#executed-cells">Executed cells</a></li>
   </ul></li>
   <li><a href="#callouts" id="toc-callouts" class="nav-link" data-scroll-target="#callouts">Callouts</a></li>
+  <li><a href="#quizzes" id="toc-quizzes" class="nav-link" data-scroll-target="#quizzes">Quizzes</a>
+  <ul class="collapse">
+  <li><a href="#matching" id="toc-matching" class="nav-link" data-scroll-target="#matching">Matching</a></li>
+  <li><a href="#sequence" id="toc-sequence" class="nav-link" data-scroll-target="#sequence">Sequence</a></li>
+  <li><a href="#multiple-choice" id="toc-multiple-choice" class="nav-link" data-scroll-target="#multiple-choice">Multiple choice</a></li>
+  <li><a href="#single-choice" id="toc-single-choice" class="nav-link" data-scroll-target="#single-choice">Single choice</a></li>
+  </ul></li>
   <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">Tables</a></li>
   <li><a href="#math" id="toc-math" class="nav-link" data-scroll-target="#math">Math</a></li>
   <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures">Figures</a></li>
@@ -1055,6 +1062,102 @@ Note
 </div>
 </div>
 </section>
+<section id="quizzes" class="level2">
+<h2 class="anchored" data-anchor-id="quizzes">Quizzes</h2>
+<p>Quizzes are written in a <code>quizdown</code> fence and rendered by <code>_extensions/quizdown</code>, a fork of <code>quizdown-js</code> kept at <a href="https://github.com/UBC-MDS/quarto-quizdown-mds-ext">UBC-MDS/quarto-quizdown-mds-ext</a>. The fence never says which kind of question it holds – the type comes out of the shape of the list you write:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>You write</th>
+<th>You get</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>an unordered list whose items hold <code>::</code></td>
+<td>matching: drag a chip into a slot</td>
+</tr>
+<tr class="even">
+<td>an ordered list with no checkboxes</td>
+<td>sequence: drag the lines into order</td>
+</tr>
+<tr class="odd">
+<td>an unordered list of <code>- [ ]</code> and <code>- [x]</code></td>
+<td>multiple choice: tick every right answer</td>
+</tr>
+<tr class="even">
+<td>an ordered list of <code>1. [ ]</code> and <code>1. [x]</code></td>
+<td>single choice: tick the one right answer</td>
+</tr>
+</tbody>
+</table>
+<p>Three optional pieces work in all four: a <code>---</code> block of options above the question, a <code>&gt;</code> blockquote under the heading, which becomes a hint behind a button, and a <code>&gt;</code> blockquote indented under one answer, which becomes the feedback shown for that answer once the quiz is marked.</p>
+<p>A quiz renders into a shadow root, which is a corner of the page that no stylesheet can reach into from outside. So the colours below do not come from <code>styles.scss</code> like everything else on this page – they come from <code>quizdown-theme.html</code>, which injects one stylesheet into each quiz. That is the thing all four of these are really here to check.</p>
+<p>The book only uses the first two types so far. The other two are on this page anyway, because an unused construct is the one that breaks without anyone noticing.</p>
+<section id="matching" class="level3">
+<h3 class="anchored" data-anchor-id="matching">Matching</h3>
+<p>Options, a hint and per-answer feedback, which the other three take the same way. An item with nothing on the left of its <code>::</code> is a distractor: it joins the pool of chips but matches no prompt.</p>
+<div class="quizdown">
+---
+shuffle_answers: true
+---
+
+## Match each command to what it does
+
+&gt; Every one of these appears in the first lecture.
+
+- `pwd` :: prints the directory you are in
+
+    &gt; Print Working Directory.
+
+- `ls` :: lists what is beside you
+- `cd` :: moves you somewhere else
+- :: prints your username
+</div>
+</section>
+<section id="sequence" class="level3">
+<h3 class="anchored" data-anchor-id="sequence">Sequence</h3>
+<div class="quizdown">
+## Put the steps of one trip around the shell's loop in order
+
+You type `ls -F` after the `$` prompt and press <kbd>Enter</kbd>.
+
+1. The shell takes in the line you typed
+2. The shell finds the `ls` program and runs it with the `-F` option
+3. The program's output is written to the terminal
+4. A fresh `$` prompt appears, waiting for the next command
+</div>
+</section>
+<section id="multiple-choice" class="level3">
+<h3 class="anchored" data-anchor-id="multiple-choice">Multiple choice</h3>
+<div class="quizdown">
+## Which of these are shells?
+
+- [x] `bash`
+- [x] `zsh`
+- [ ] `ls`
+
+    &gt; `ls` is a program you run *from* a shell.
+
+- [ ] JupyterLab
+</div>
+</section>
+<section id="single-choice" class="level3">
+<h3 class="anchored" data-anchor-id="single-choice">Single choice</h3>
+<div class="quizdown">
+## Which command prints the directory you are in?
+
+1. [ ] `cd`
+2. [x] `pwd`
+3. [ ] `ls`
+4. [ ] `whoami`
+</div>
+</section>
+</section>
 <section id="tables" class="level2">
 <h2 class="anchored" data-anchor-id="tables">Tables</h2>
 <table class="caption-top table">
@@ -1120,6 +1223,216 @@ Note
 </section>
 
 </main> <!-- /main -->
+<!--
+  Theme the quizdown quizzes.
+
+  `_extensions/quizdown` renders every quiz into a shadow root
+  (`attachShadow({mode: "open"})`), so nothing in `styles.scss` reaches inside
+  one -- a quiz arrives on the page wearing quizdown's own defaults, which are
+  `steelblue` on `#f2f2f2` with black text. In dark mode that is not merely
+  off-brand, it is unreadable: the parts that take a *background* from
+  quizdown's palette but *inherit* their text colour -- the left column of a
+  matching question, an evaluated slot, the per-pair feedback -- end up
+  painting the page's near-white body text onto a near-white fill, 1.03:1.
+
+  Two facts make that fixable from outside the shadow root:
+
+    * custom properties inherit *through* the shadow boundary, so the
+      `--mds-quiz-*` values set on `:root` in `styles.scss` are readable from
+      inside a quiz;
+    * quizdown writes its three colours as inline styles on
+      `.quizdown-content`, and `!important` in a stylesheet beats an inline
+      declaration.
+
+  So this file injects one stylesheet into each quiz's shadow root, written
+  entirely against `--mds-quiz-*`. The light and dark values of those live in
+  `styles.scss` and `styles-dark.scss`, and Quarto swaps those two bundles on
+  the colour-mode toggle -- so a quiz follows the toggle with no JavaScript of
+  its own.
+
+  Wired in from `format.html.include-after-body` in `_quarto.yml`, which is
+  what keeps the vendored extension under `_extensions/quizdown/` untouched: a
+  re-add or an update of that extension cannot clobber any of this.
+
+  Two things are deliberately left alone:
+
+    * `.hljs`, the highlight.js "github" theme quizdown bundles for a *fenced*
+      code block inside a question. Its plate is light in both colour modes,
+      but so are the token colours painted on it, so it stays self-consistent
+      and readable; re-tinting the plate alone would break it, and re-tinting
+      the tokens means shipping a second syntax theme. No question in the book
+      uses a fenced block -- inline code is themed below, and inline code is
+      what the questions actually use.
+    * `.print-review`, the plain questions-and-answers block quizdown reveals
+      under `@media print`. Paper is white in both colour modes, so the light
+      colours there are already the right ones.
+-->
+<script>
+  (() => {
+    // Note for editing: this is a template literal, so nothing inside it may
+    // be quoted in backticks the way the prose around it is -- a stray one
+    // ends the string, and the page fails with a JavaScript syntax error
+    // rather than with anything you would notice in the CSS.
+    //
+    // Every declaration below is `!important`, for two reasons that are not
+    // about winning an argument with the extension. Svelte scopes its own
+    // rules with a build hash (`.prompt.svelte-1ge161l`), which out-specifies
+    // anything we can write without hard-coding a hash that changes on every
+    // quizdown release; and the order our <style> ends up in relative to
+    // Svelte's, inside a shadow root neither of us owns, is not ours to pick.
+    const CSS = `
+      /* ---- the three knobs quizdown itself exposes ------------------------
+         Set as inline styles on .quizdown-content from the quiz config, so
+         !important is the only thing that can move them. Remapping these three
+         alone fixes most of dark mode: everything that reads its background
+         from --quizdown-color-secondary and inherits its text colour then
+         lands on a surface that belongs to the current mode. */
+      .quizdown-content {
+        --quizdown-color-primary: var(--mds-quiz-accent) !important;
+        --quizdown-color-secondary: var(--mds-quiz-surface) !important;
+        --quizdown-color-text: var(--mds-quiz-fg) !important;
+      }
+
+      /* ---- inline code in a question -------------------------------------
+         quizdown paints this #333 on #f8f8f8 in both modes. The book has its
+         own inline-code pair, one per mode, under typography.monospace-inline
+         in _brand.yml. */
+      code {
+        color: var(--mds-quiz-code-fg) !important;
+        background-color: var(--mds-quiz-code-bg) !important;
+      }
+
+      /* ---- buttons -------------------------------------------------------
+         Hard-coded to a white fill, which is a glaring plate on the dark page.
+         The hover is brightness(0.9): darkening is only a change you can see
+         when the surface starts light, so its direction is per-mode too. */
+      button {
+        background-color: var(--mds-quiz-surface) !important;
+        color: var(--mds-quiz-fg) !important;
+      }
+      button:disabled {
+        background-color: var(--mds-quiz-surface) !important;
+        color: var(--mds-quiz-muted) !important;
+      }
+      button:hover:not(:checked):not(:active):not(:disabled) {
+        filter: var(--mds-quiz-press) !important;
+      }
+
+      /* ---- multiple choice and single choice ------------------------------
+         The option rows are already painted from the two variables remapped
+         above; only the hover is hard-coded. */
+      [type='checkbox']:hover + span,
+      [type='checkbox']:focus + span,
+      [type='radio']:hover + span,
+      [type='radio']:focus + span {
+        filter: var(--mds-quiz-press) !important;
+      }
+
+      /* ---- sequence (drag to order) --------------------------------------
+         The rows come from the variables; the reorder buttons take a black
+         focus ring, which is invisible on the dark page. */
+      .buttons button:focus {
+        border-color: var(--mds-quiz-accent) !important;
+      }
+
+      /* ---- matching (drag a chip into a slot) -----------------------------
+         The type with the most hard-coded colour in it, and the one where the
+         dark-mode failure was actually visible: .prompt takes its fill from
+         quizdown's palette and its text colour from the page, so it painted
+         near-white body text onto near-white #f2f2f2. */
+      .arrow,
+      .placeholder {
+        color: var(--mds-quiz-muted) !important;
+      }
+      .slot,
+      .pool {
+        border-color: var(--mds-quiz-border) !important;
+      }
+      .slot-selected,
+      .slot-dragover,
+      .pool-dragover {
+        background-color: var(--mds-quiz-surface) !important;
+      }
+      .chip:hover {
+        filter: var(--mds-quiz-press) !important;
+      }
+      .chip-used {
+        background-color: var(--mds-quiz-surface) !important;
+        border-color: var(--mds-quiz-muted) !important;
+      }
+
+      /* ---- the evaluated state -------------------------------------------
+         Green and red, which the book already has: the success and danger
+         roles in _brand.yml each carry a value per mode. */
+      .slot.correct {
+        border-color: var(--mds-quiz-correct) !important;
+        background-color: var(--mds-quiz-correct-bg) !important;
+      }
+      .slot.wrong,
+      .slot.empty-eval {
+        border-color: var(--mds-quiz-wrong) !important;
+        background-color: var(--mds-quiz-wrong-bg) !important;
+      }
+      .badge-correct,
+      .correct-hint {
+        color: var(--mds-quiz-correct) !important;
+      }
+      .badge-wrong {
+        color: var(--mds-quiz-wrong) !important;
+      }
+      .pair-feedback {
+        border-left-color: var(--mds-quiz-correct) !important;
+        background-color: var(--mds-quiz-correct-bg) !important;
+      }
+      .pair-feedback-wrong {
+        border-left-color: var(--mds-quiz-wrong) !important;
+        background-color: var(--mds-quiz-wrong-bg) !important;
+      }
+
+      /* ---- the credit line under every quiz ------------------------------- */
+      .credits,
+      .credits a {
+        color: var(--mds-quiz-muted) !important;
+      }
+    `;
+
+    // Returns the number of quizzes that do not have a shadow root yet.
+    const paint = () => {
+      let waiting = 0;
+      for (const host of document.querySelectorAll(".quizdown")) {
+        const root = host.shadowRoot;
+        if (!root) {
+          waiting += 1;
+          continue;
+        }
+        if (root.querySelector("style[data-mds-quiz-theme]")) continue;
+        const style = document.createElement("style");
+        style.setAttribute("data-mds-quiz-theme", "");
+        style.textContent = CSS;
+        root.appendChild(style);
+      }
+      return waiting;
+    };
+
+    // quizdown creates the shadow roots from a `load` listener that it only
+    // registers once `DOMContentLoaded` has fired -- later than this script,
+    // which is inline at the end of <body>. A `load` listener added here would
+    // therefore run *before* the one that creates the thing we want to style,
+    // so the first attempt is deferred by a task, and then retried for a few
+    // frames in case a future version of the extension moves that work again.
+    // Bounded, so a quiz that never renders cannot leave a frame loop running.
+    const GIVE_UP_AFTER_MS = 5000;
+    addEventListener("load", () => {
+      const started = performance.now();
+      const tick = () => {
+        if (paint() > 0 && performance.now() - started < GIVE_UP_AFTER_MS) {
+          requestAnimationFrame(tick);
+        }
+      };
+      setTimeout(tick, 0);
+    });
+  })();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
