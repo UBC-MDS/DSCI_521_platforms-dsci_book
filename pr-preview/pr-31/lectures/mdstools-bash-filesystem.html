@@ -1,0 +1,2200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Introduction to MDS software and Bash – DSCI 521: Computing Platforms for Data Science</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../lectures/git-github-ssh-basic-workflow.html" rel="next">
+<link href="../lectures/book-conventions.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-717a1de2394aff971b7ede6d174c0923.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-1a2eaaa657737bc218486a026c59b8e6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-717a1de2394aff971b7ede6d174c0923.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-45100720d3f54066ef127b942bb453b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fb4d70f7a5d22372ff6e6331a6422932.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-45100720d3f54066ef127b942bb453b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdown.js"></script>
+<script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdownKatex.js"></script>
+<script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdownHighlight.js"></script>
+<script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdown-init.js"></script>
+<link href="../site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": true,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1RNLL8GPXK"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
+</script>
+<style>
+div.callout-activity.callout {
+  border-left-color: #0055b7;
+}
+div.callout-activity.callout-style-default .callout-header {
+  background-color: rgba(0, 85, 183, 0.13);
+}
+div.callout-activity .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-activity.callout-style-default .callout-icon::before, div.callout-activity.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\e53d' !important;
+  background-image: none;
+}
+div.callout-exercise.callout {
+  border-left-color: #1c5f2e;
+}
+div.callout-exercise.callout-style-default .callout-header {
+  background-color: rgba(28, 95, 46, 0.13);
+}
+div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f44b' !important;
+  background-image: none;
+}
+</style>
+
+
+<meta property="og:title" content="Introduction to MDS software and Bash – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/diagram-files-activity.png">
+<meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
+<meta property="og:image:height" content="759">
+<meta property="og:image:width" content="843">
+<meta name="twitter:title" content="Introduction to MDS software and Bash – DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/diagram-files-activity.png">
+<meta name="twitter:image-height" content="759">
+<meta name="twitter:image-width" content="843">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSCI 521: Computing Platforms for Data Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ubc-mds.github.io/resources_pages/installation_instructions/"> 
+<span class="menu-text">Installation Guide</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs-and-quizzes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Labs and Quizzes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labs-and-quizzes">    
+        <li>
+    <a class="dropdown-item" href="https://ubc-mds.github.io/resources_pages/general_lab_instructions/">
+ <span class="dropdown-text">General Lab Instructions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/UBC-MDS/public/tree/master/rubric#guide-to-rubrics">
+ <span class="dropdown-text">MDS Rubrics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ubc-mds.github.io/resources_pages/quiz_guidelines/">
+ <span class="dropdown-text">MDS Quiz Guidelines</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ubc-mds.github.io/resources_pages/quiz/">
+ <span class="dropdown-text">MDS Quiz Procedures</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ubc-mds.github.io/resources_pages/quiz_cfa/">
+ <span class="dropdown-text">MDS Quiz Procedures - Center for Accessibility</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/mdstools-bash-filesystem.html">Week 1</a></li><li class="breadcrumb-item"><a href="../lectures/mdstools-bash-filesystem.html">MDS Software and Bash</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../MDSlogo.png" alt="MDS Logo Image" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../MDSlogo.png" alt="MDS Logo Image" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Orientation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JupyterLab Orientation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/rstudio-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio Orientation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/positron-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Positron Orientation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/book-conventions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conventions in this Book</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/mdstools-bash-filesystem.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">MDS Software and Bash</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/git-github-ssh-basic-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git, GitHub, and SSH</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/quarto-github-pages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto and GitHub Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/rmarkdown-quarto-slides-ghpages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto, RMarkdown, and Jupyter Slides</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/git-history-merge-conflicts-stash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git: History, Conflicts, and Ignores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/rstudio-projects-notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio Projects and Literate Programming</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/virtual-environments-uv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Virtual Environments: uv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/virtual-environments-renv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Virtual Environments: renv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Organization of Data Science Projects</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Regular Expressions (RegEx)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/asking-questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Asking Effective Questions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Additional Information</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/git_config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/rstudio_config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/semantic_line_breaks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semantic Line Breaks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/rmarkdown_tips.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Markdown tips</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Older Materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/xaringan_slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Xaringan Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/virtual-environments-conda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Virtual Environments: conda</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/mds_conda_environment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MDS Conda Python Environment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#the-mds-software-stack" id="toc-the-mds-software-stack" class="nav-link" data-scroll-target="#the-mds-software-stack">The MDS software stack</a></li>
+  <li><a href="#introduction-to-computing" id="toc-introduction-to-computing" class="nav-link" data-scroll-target="#introduction-to-computing">Introduction to computing</a>
+  <ul class="collapse">
+  <li><a href="#text-based-communication" id="toc-text-based-communication" class="nav-link" data-scroll-target="#text-based-communication">Text-based communication</a></li>
+  <li><a href="#bash" id="toc-bash" class="nav-link" data-scroll-target="#bash">Bash</a></li>
+  </ul></li>
+  <li><a href="#your-first-words" id="toc-your-first-words" class="nav-link" data-scroll-target="#your-first-words">Your first words</a></li>
+  <li><a href="#exploring-the-files-system" id="toc-exploring-the-files-system" class="nav-link" data-scroll-target="#exploring-the-files-system">Exploring the files system</a></li>
+  <li><a href="#using-commands-with-options" id="toc-using-commands-with-options" class="nav-link" data-scroll-target="#using-commands-with-options">Using commands with options</a></li>
+  <li><a href="#navigating-and-manipulating-the-filesystem-using-bash" id="toc-navigating-and-manipulating-the-filesystem-using-bash" class="nav-link" data-scroll-target="#navigating-and-manipulating-the-filesystem-using-bash">Navigating and manipulating the filesystem using Bash</a>
+  <ul class="collapse">
+  <li><a href="#shell-commands-for-navigating-and-manipulating-the-filesystem" id="toc-shell-commands-for-navigating-and-manipulating-the-filesystem" class="nav-link" data-scroll-target="#shell-commands-for-navigating-and-manipulating-the-filesystem">Shell commands for navigating and manipulating the filesystem</a></li>
+  <li><a href="#useful-shell-special-characters" id="toc-useful-shell-special-characters" class="nav-link" data-scroll-target="#useful-shell-special-characters">Useful shell special characters</a></li>
+  </ul></li>
+  <li><a href="#working-with-files-and-directories" id="toc-working-with-files-and-directories" class="nav-link" data-scroll-target="#working-with-files-and-directories">Working with Files and Directories</a>
+  <ul class="collapse">
+  <li><a href="#naming-guidelines" id="toc-naming-guidelines" class="nav-link" data-scroll-target="#naming-guidelines">Naming guidelines</a></li>
+  <li><a href="#creating-a-file" id="toc-creating-a-file" class="nav-link" data-scroll-target="#creating-a-file">Creating a file</a></li>
+  <li><a href="#editing-a-file-in-vs-code" id="toc-editing-a-file-in-vs-code" class="nav-link" data-scroll-target="#editing-a-file-in-vs-code">Editing a file in VS Code</a></li>
+  <li><a href="#viewing-the-content-of-a-file-in-the-terminal" id="toc-viewing-the-content-of-a-file-in-the-terminal" class="nav-link" data-scroll-target="#viewing-the-content-of-a-file-in-the-terminal">Viewing the content of a file in the terminal</a></li>
+  <li><a href="#moving-files-and-directories" id="toc-moving-files-and-directories" class="nav-link" data-scroll-target="#moving-files-and-directories">Moving files and directories</a></li>
+  <li><a href="#renaming-a-file" id="toc-renaming-a-file" class="nav-link" data-scroll-target="#renaming-a-file">Renaming a file</a></li>
+  <li><a href="#copying-files-and-directories" id="toc-copying-files-and-directories" class="nav-link" data-scroll-target="#copying-files-and-directories">Copying files and directories</a></li>
+  <li><a href="#removing-files-and-directories" id="toc-removing-files-and-directories" class="nav-link" data-scroll-target="#removing-files-and-directories">Removing files and directories</a></li>
+  <li><a href="#wildcards" id="toc-wildcards" class="nav-link" data-scroll-target="#wildcards">Wildcards</a></li>
+  <li><a href="#searching-for-text-patterns-in-files" id="toc-searching-for-text-patterns-in-files" class="nav-link" data-scroll-target="#searching-for-text-patterns-in-files">Searching for text patterns in files</a></li>
+  <li><a href="#seeing-the-history-of-commands" id="toc-seeing-the-history-of-commands" class="nav-link" data-scroll-target="#seeing-the-history-of-commands">Seeing the history of commands</a></li>
+  <li><a href="#reading-the-manual" id="toc-reading-the-manual" class="nav-link" data-scroll-target="#reading-the-manual">Reading the manual</a></li>
+  <li><a href="#relative-vs-absolute-path" id="toc-relative-vs-absolute-path" class="nav-link" data-scroll-target="#relative-vs-absolute-path">Relative vs absolute path</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/mdstools-bash-filesystem.html">Week 1</a></li><li class="breadcrumb-item"><a href="../lectures/mdstools-bash-filesystem.html">MDS Software and Bash</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Introduction to MDS software and Bash</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
+<ol type="1">
+<li>Recognize the directory hierarchy as it is commonly represented in diagrams, paths, and file explorer software.</li>
+<li>Distinguish common operators and representations of the different filesystem elements typically used in Bash.</li>
+<li>Explore the filesystem using Bash commands as <code>ls</code>, <code>pwd</code> and <code>cd</code>.</li>
+<li>Translate an absolute path into a relative path and vice versa.</li>
+<li>Use command-line arguments to produce alternative outputs of commands.</li>
+<li>Create, edit, move, and delete files and folders using the command line and Positron.</li>
+</ol>
+<p><strong>Platform in focus</strong> BASH</p>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Welcome to Computer Platforms in Data Science!</p>
+<p>This week we are going to learn about exploring the filesystem, using the command line, and some other useful tools.</p>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What is a Data Scientist?</p>
+<p>A. Someone whose job is to extract value from data through reproducible and auditable processes.</p>
+<p>B. Someone whose job is to apply machine learning algorithms.</p>
+<p>C. Someone whose job is to analyze large volumes of often unstructured data to produce meaningful insights. <a href="https://www.springboard.com/blog/data-science/data-science-definition/" class="uri">https://www.springboard.com/blog/data-science/data-science-definition/</a></p>
+<p>D. All of the above.</p>
+<p>E. Someone whose job is to get well paid.</p>
+</div>
+</div>
+<p>Most of the tools we are going to learn during DSCI 521 are tools that programmers used. Programming involves interacting with the system using commands</p>
+</section>
+<section id="the-mds-software-stack" class="level2">
+<h2 class="anchored" data-anchor-id="the-mds-software-stack">The MDS software stack</h2>
+<p>The following are the core programs that you will be using throughout the MDS program.</p>
+<ul>
+<li><strong>Bash</strong>: Helps you navigate filesystem, run programs, and automate tasks on your computer.</li>
+<li><strong>Git and GitHub</strong>: Used to track changes in your code and collaborate with others on projects.</li>
+<li><strong>Python and R</strong>: Popular programming languages for analyzing data, creating visualizations, performing statistical analysis, and building machine learning models.</li>
+<li><strong>Visual Studio Code, JupyterLab, RStudio, and Positron</strong>: Tools that provide an integraded development environemnt (IDE) that make writing and running code easier. They also help create interactive notebooks and reports.</li>
+</ul>
+<p>These programs also have active development communities and are open source, which means that anyone can read the source code and contribute to these projects. Open source programs have many benefits, such as</p>
+<ul>
+<li>Being able to use the software after leaving school without paying exorbitant amounts of money.</li>
+<li>Having access to the source code can help you learn and fix bugs (even closed-source commercial software has bugs, but they are just harder to see and fix).</li>
+<li>Open-source software is customizable and flexible.</li>
+<li>It is becoming the standard in many tech companies.</li>
+<li>Being a part of an awesome and active community!</li>
+</ul>
+</section>
+<section id="introduction-to-computing" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-computing">Introduction to computing</h2>
+<p>Before we get into the different applications, let’s talk about computing. Essentially, computing is about humans communicating with machines to modulate flows of current in hardware. Early examples of human computer communication were quite primitive and included actually disconnecting a wire and connecting it again in a different spot.</p>
+<p>Luckily, we are not doing this anymore; instead we have graphical user interface with menus and buttons, which is what you are commonly using on your laptop.</p>
+<p>These graphical interface can be thought of as a layer (or <em>shell</em>) around the internal components of your operating system. Shells exist as an intermediate that both makes it easy for us to express our thoughts, and for computers to interpret them.</p>
+<section id="text-based-communication" class="level3">
+<h3 class="anchored" data-anchor-id="text-based-communication">Text-based communication</h3>
+<p>We will learn how to communicate to a computer via a text-based shell, rather than a graphical one.</p>
+<p>Using a text-based shell might at first seems counter-intuitive, since the reason for creating a shell in the first place was to facilitate user interaction with the computer. So now that we have these easy to use graphical user interfaces (GUIs), why would anyone in their right mind go back to using a text based interface?</p>
+<p>Well, it’s partly a misconception, GUIs are nice when you are new to something, but text based interfaces can be faster and easier to use when you know what you are doing, and provide a lot more flexibility.</p>
+<p>We can compare it to learning a language, in the beginning it’s nice to look things up in a dictionary (or a menu on the computer), but once I know what I want to say, it is just easer to say or type it directly, instead of looking in submenues.</p>
+<p>And by extension, it would be even faster to speak or even just think of what you want to do and have it executed by the computer, this is what speech- and brain-computer interfaces are concerned with.</p>
+<div class="quizdown">
+---
+shuffle_answers: true
+---
+
+## Which is the better fit for each job? Some categories apply to more than one item.
+
+- Run the same cleaning script on 200 files without opening each one :: Command line
+- Move and rename a batch of files :: Command line
+- Start JupyterLab in the first place :: Command line
+- Try a plot, tweak one parameter, look again :: JupyterLab
+- Write a report that mixes prose, code, and figures :: JupyterLab
+- Walk through a new dataset one step at a time, keeping every output :: JupyterLab
+</div>
+</section>
+<section id="bash" class="level3">
+<h3 class="anchored" data-anchor-id="bash">Bash</h3>
+<p><code>bash</code> is the most commonly used text shell. You have it installed on your computer by default if you are using Mac or Linux machine, and if you are on a Windows machine you downloaded bash as part of the setup instructions. For Macs the default shell is <code>zsh</code>, but we had you change it to bash in our setup instructions. Sometimes we might use “prompt”, “command line”, or “terminal”, which for the purposes of this lecture, refers to the same thing.</p>
+<p>The abbreviation BASH stands for Bourne Again SHell. Other shells existed before Bash, and one of the most successful early shells was invented by Stephen Bourne at Bell Labs in 1977, which he called the Bourne Shell. In 1989, the Free Software Foundation improved the Bourne Shell and as a pun, named it the Bourne Again Shell to symbolize it was now “reborn” with new features.</p>
+<p>Text-based shells are also called command-line interfaces (CLI). The heart of every CLI is a read-evaluate-print loop (REPL). When we type a command and press <kbd>Return</kbd> (also called <kbd>Enter</kbd>) the CLI reads the command, evaluates it (i.e., executes it), prints the command’s output, and loops around to wait for another command. Let’s see how to do that next!</p>
+<div class="quizdown">
+## Put the steps of one trip around the shell's loop in order
+
+You type `ls -F` after the `$` prompt and press <kbd>Enter</kbd>.
+Drag the steps into the order they happen.
+
+1. The shell takes in the line you typed
+2. The shell finds the `ls` program and runs it with the `-F` option
+3. The program's output is written to the terminal
+4. A fresh `$` prompt appears, waiting for the next command
+</div>
+</section>
+</section>
+<section id="your-first-words" class="level2">
+<h2 class="anchored" data-anchor-id="your-first-words">Your first words</h2>
+<p>The default prompt character:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Typing in the <code>whoami</code> command for showing your username and pressing <kbd>Enter</kbd> to run it:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">whoami</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>username</code></pre>
+</div>
+<p>The <code>pwd</code> command stands for Print Working Directory.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code># Linux
+/home/username
+
+# MacOS
+/Users/username
+
+# Windows
+/c/Users/username</code></pre>
+</div>
+<p>Our first shell commands will let us explore our folders and files, and will also introduce us to several conventions that most command line tools follow. To start, when <code>bash</code> runs it presents us with a prompt to indicate that it is waiting for us to type something. This prompt is a simple dollar sign by default (<code>$</code>). However, different shells may use a different symbol: for example, the default <code>zsh</code> shell on Macs uses <code>%</code>.</p>
+<p>If we run the command <code>whoami</code>, the computer will tell us who we are (our login name), and if we run <code>pwd</code> (Print Working Directory) the shell tells us where we are (the <code>home</code> directory by default when we launch the shell).</p>
+<p>Each user has a <code>home</code> directory; the function and location of this directory differs a little bit between operating systems. On Linux it is usually <code>/home/username</code>, on MacOS it is <code>/Users/username</code>, and on Windows it will show up as <code>/c/Users/username</code> (if you have Git Bash installed). Our examples in this module shows the Linux directory structure, but you will see that some of the other modules show what we would see on MacOS or Windows.</p>
+</section>
+<section id="exploring-the-files-system" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-the-files-system">Exploring the files system</h2>
+<p>Now that we know where we are, let’s see what we have using the command <code>ls</code> (short for “listing”), which prints the names of the files and directories in the current directory.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>Downloads     Music
+Documents     todo.txt
+Pictures      my_program</code></pre>
+</div>
+<p>Again, our results may be different depending on our operating system and what files or directories we have.</p>
+</section>
+<section id="using-commands-with-options" class="level2">
+<h2 class="anchored" data-anchor-id="using-commands-with-options">Using commands with options</h2>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-F</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>Downloads/    Music/
+Documents/    todo.txt
+Pictures/     my_program*</code></pre>
+</div>
+<p>We can modify output of <code>ls</code> by providing optional “flags”. In this example, the <code>-F</code> option tells <code>ls</code> to decorate the output to show what type of file each entry is. A trailing <code>/</code> indicates a directory, while a trailing <code>*</code> tells us the file is a runnable program. Depending on our setup, the shell might also use colors to indicate whether each entry is a file or directory.</p>
+<p>Another common option is <code>-l</code> (“long”), which shows one entry per line together with its size and the date it was last changed:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>drwxr-xr-x  5 username  staff   160 Aug 28 09:12 Documents
+drwxr-xr-x  3 username  staff    96 Aug 12 17:40 Downloads
+drwxr-xr-x  2 username  staff    64 Jul  3 11:05 Music
+drwxr-xr-x  4 username  staff   128 Aug 20 14:31 Pictures
+-rwxr-xr-x  1 username  staff  2048 Aug 27 16:02 my_program
+-rw-r--r--  1 username  staff   412 Aug 29 08:45 todo.txt</code></pre>
+</div>
+<p>Options can be combined, so <code>ls -l -a</code> (or <code>ls -la</code>) gives the long listing including hidden files.</p>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Can you recognize the following folders in the picture?</p>
+<ol type="1">
+<li>Home directory</li>
+<li>Parent directory</li>
+<li>Working directory</li>
+<li>Root directory</li>
+</ol>
+<p><img src="img/diagram-files-activity.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="navigating-and-manipulating-the-filesystem-using-bash" class="level2">
+<h2 class="anchored" data-anchor-id="navigating-and-manipulating-the-filesystem-using-bash">Navigating and manipulating the filesystem using Bash</h2>
+<p>Navigating the filesystem can be done via your visual operating system’s user interface (<em>e.g.,</em> Finder, Explorer, Nautilus, <em>etc</em>) or using a text-based shell such as Bash. In the lecture, we cover some of the most useful commands with the main goal of making you familiar with moving around using Bash. The most important commands that we covered are listed in the table below. Remember that you can press <kbd>Tab</kbd> to automatically complete commands and file names as you are typing.</p>
+<section id="shell-commands-for-navigating-and-manipulating-the-filesystem" class="level3">
+<h3 class="anchored" data-anchor-id="shell-commands-for-navigating-and-manipulating-the-filesystem">Shell commands for navigating and manipulating the filesystem</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Purpose</th>
+<th>Example use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pwd</code></td>
+<td>Print Working Directory</td>
+<td><code>pwd</code></td>
+</tr>
+<tr class="even">
+<td><code>ls</code></td>
+<td>LiSt contents</td>
+<td><code>ls Documents</code></td>
+</tr>
+<tr class="odd">
+<td><code>cd</code></td>
+<td>Change Directory</td>
+<td><code>cd Desktop</code></td>
+</tr>
+<tr class="even">
+<td><code>mkdir</code></td>
+<td>MaKe a DIRectory</td>
+<td><code>mkdir my-new-directory</code></td>
+</tr>
+<tr class="odd">
+<td><code>rm</code></td>
+<td>ReMove a file</td>
+<td><code>rm file-to-remove</code></td>
+</tr>
+<tr class="even">
+<td><code>mv</code></td>
+<td>MoVe a file</td>
+<td><code>mv file-to-move new-location</code></td>
+</tr>
+<tr class="odd">
+<td><code>cp</code></td>
+<td>CoPy a file</td>
+<td><code>cp file-to-copy copy-location</code></td>
+</tr>
+</tbody>
+</table>
+<p>To read the documentation for a command, you can type <code>man &lt;your_command&gt;</code> or <code>&lt;your_command&gt; --help</code> (e.g., to get the help pages for the <code>cp</code> copy command, <code>man cp</code> or <code>cp --help</code>). In the bash configuration that you copied from the installation instructions, we have also included a few shortcuts (also called “aliases”) in the MDS installation instructions to make it easier to type commonly used commands. The two relevant ones for this section are</p>
+<ul>
+<li><code>l</code> which lists details of all the files in the current directory and sorts them by modification time.</li>
+<li><code>jl</code> which is an alias for <code>jupyter lab</code>.</li>
+</ul>
+<p>Don’t worry if you have a hard time remembering some of these in the beginning. The key is to practice often, and when you forget a specific command you can type in the help command we have created <code>mds-help</code> in you terminal to see a list of all commands we use in MDS.</p>
+</section>
+<section id="useful-shell-special-characters" class="level3">
+<h3 class="anchored" data-anchor-id="useful-shell-special-characters">Useful shell special characters</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.</code></td>
+<td>Current working directory</td>
+</tr>
+<tr class="even">
+<td><code>..</code></td>
+<td>Parent directory</td>
+</tr>
+<tr class="odd">
+<td><code>~</code></td>
+<td>HOME directory</td>
+</tr>
+</tbody>
+</table>
+<div class="quizdown">
+---
+shuffle_answers: true
+---
+
+## Match each description to the shell shorthand for it. (Not all symbols will be used.)
+
+- The directory you are in right now :: `.`
+- The directory that contains the one you are in :: `..`
+- The directory the shell starts in when you open it :: `~`
+- The top of the whole filesystem tree :: `/`
+- :: `-`
+- :: `*`
+
+</div>
+<div class="callout callout-style-default callout-exercise callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exercise</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Navigating the Command Line</strong></p>
+<p><strong>Objective:</strong> By completing this exercise, students will practice basic navigation commands in the command line interface.</p>
+<p><strong>Instructions:</strong></p>
+<ol type="1">
+<li><p><strong>Figure Out Where You Are When You Open Your Command Line:</strong></p>
+<ul>
+<li>Open your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell on Windows).</li>
+<li>Use the command to display your current directory.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This command will print the working directory you are currently in.</p></li>
+<li><p><strong>Navigate to Your Documents Folder:</strong></p>
+<ul>
+<li>Change your directory to the Documents folder. Use the appropriate command based on your operating system.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Documents</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This command changes your directory to the Documents folder located in your home directory.</p></li>
+<li><p><strong>Navigate from Your Documents Folder to Your Desktop:</strong></p>
+<ul>
+<li>From the Documents folder, change your directory to the Desktop folder.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../Desktop</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This command uses <code>..</code> to move up one level to the home directory and then enters the Desktop folder.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-exercise callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exercise</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Understanding the <code>ls</code> Command and Directory Navigation</strong></p>
+<p><strong>Objective:</strong> By completing this exercise, students will learn to use the <code>ls</code> command with options and understand directory structures.</p>
+<p><strong>Instructions:</strong></p>
+<ol type="1">
+<li><p><strong>Check the Documentation of the <code>ls</code> Command:</strong></p>
+<ul>
+<li>Open your command line interface (Terminal on Mac/Linux, Command Prompt/PowerShell with Git Bash on Windows).</li>
+<li>View the manual or help documentation for the <code>ls</code> command to understand its options.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> ls</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>or</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">--help</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Identify what the <code>-a</code> option does.</li>
+</ul></li>
+<li><p><strong>Use the <code>ls -a</code> Command:</strong></p>
+<ul>
+<li>In your command line, navigate to your home directory (if not already there).</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>List all files, including hidden files, using the <code>-a</code> option with the <code>ls</code> command.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-a</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Note the presence of <code>./</code> and <code>../</code> in the output.</li>
+</ul></li>
+<li><p><strong>Understand <code>./</code> and <code>../</code>:</strong></p>
+<ul>
+<li>Explain what <code>./</code> and <code>../</code> represent in the context of the directory structure.</li>
+</ul></li>
+</ol>
+<p><strong>Questions:</strong></p>
+<ol type="1">
+<li><p>What does the <code>-a</code> option do in the <code>ls</code> command?</p></li>
+<li><p>What do the <code>./</code> and <code>../</code> folders represent as output of the <code>ls -a</code> command?</p></li>
+</ol>
+</div>
+</div>
+</section>
+</section>
+<section id="working-with-files-and-directories" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-files-and-directories">Working with Files and Directories</h2>
+<p>We now know how to explore files and directories, but how do we create them? That’s what we will find out in this chapter.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Documents</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># MaKe Directory</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> notes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="naming-guidelines" class="level3">
+<h3 class="anchored" data-anchor-id="naming-guidelines">Naming guidelines</h3>
+<p>Let’s go back to the <code>~/Documents</code> directory and create a subfolder called <code>notes</code>. For this we first use the <code>~</code> home directory shortcut, and then the <code>mkdir</code> command.</p>
+<p>We will talk more about useful naming conventions in module 6. For now it is enough if you remember these three guidelines.</p>
+<ol type="1">
+<li>Don’t use spaces</li>
+<li>Don’t begin the name with a <code>-</code> (hyphen)</li>
+<li>Stick to digits and letters (preferably lower case)</li>
+</ol>
+</section>
+<section id="creating-a-file" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-file">Creating a file</h3>
+<p>Since we just created the <code>notes</code> directory, <code>ls</code> doesn’t display anything when we ask for a listing of its contents.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-F</span> notes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Let’s change our working directory to <code>notes</code>, then use the VS Code editor to create a file called <code>my-first-note.md</code>. The command to invoke VS Code from the command line is <code>code</code>, and if we pass it a filename as an argument, the file will be created in the current directory. Now try launching it yourself!</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> notes</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> my-first-note.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The <code>.md</code> syntax means that we want to create a markdown file. File extensions like <code>.md</code> and <code>.py</code> don’t change anything about the content of the file, but they are an indicator to other program such as VS Code what type of content we are going to put inside the file. These program can then activate special functions for certain files, such as using the appropriate colors to highlight headings and functions.</p>
+<p>Let’s move on to the next slide to see how it looks when we are editing file in VS Code.</p>
+</section>
+<section id="editing-a-file-in-vs-code" class="level3">
+<h3 class="anchored" data-anchor-id="editing-a-file-in-vs-code">Editing a file in VS Code</h3>
+<p>This is what it looks like to edit a text file in VS Code. You will see that there is a small white circle next to the file name. This is an indication that the file is not saved yet.</p>
+<p>When we are done adding our edits, we can hit <kbd>Ctrl</kbd> + <kbd>s</kbd> (Windows/Linux) <kbd>⌘</kbd> + <kbd>s</kbd> (Mac) to save the file, which will make the white circle disappear. After saving the file, you can optionally close VS Code before returning to the terminal.</p>
+<p>We are only using VS Code as a simple text editor here, but it is worth knowing that you can use use it as a powerful editor for code as well.</p>
+</section>
+<section id="viewing-the-content-of-a-file-in-the-terminal" class="level3">
+<h3 class="anchored" data-anchor-id="viewing-the-content-of-a-file-in-the-terminal">Viewing the content of a file in the terminal</h3>
+<p>If we now type <code>ls</code> we will see the name of the file we just created in VS Code.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>my-first-note.md</code></pre>
+</div>
+<p>To see the content of the file, we can use the <code>head</code> command. <code>head</code> show the first few lines of a file (just as when we use <code>df.head()</code> in pandas), and optionally takes an argument for how many lines to show: <code>head -n 10</code> (the default is five).</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> my-first-note.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>These are the first
+few lines of content
+in the file.</code></pre>
+</div>
+<p><code>head</code> works with all plain text files, such as code and markdown files, your results will vary with binary files such as word documents, spreadsheets, or images. Generally, binary file output will be incomprehensible.</p>
+<p>To see the last few lines, you can use <code>tail</code> instead of <code>head</code>.</p>
+</section>
+<section id="moving-files-and-directories" class="level3">
+<h3 class="anchored" data-anchor-id="moving-files-and-directories">Moving files and directories</h3>
+<p>To <strong>m</strong>o<strong>v</strong>e a file around, we can use the <code>mv</code> command. For example, to move the text file we just created to the parent directory, we would type:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> my-first-note.md ..</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ..</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>Downloads/    Music/        my-first-note.md
+Documents/    todo.txt
+Pictures/     my_program*</code></pre>
+</div>
+<p>This moves it to the parent directory, and keeps the name the same as we can see if we do <code>ls ..</code></p>
+<p>If we want to move the file back to the current directory, we can use the <code>.</code> shortcut:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> ../my-fist-note.md .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="renaming-a-file" class="level3">
+<h3 class="anchored" data-anchor-id="renaming-a-file">Renaming a file</h3>
+<p>Renaming a file can be thought of as moving it to a new filename either in the same or a different directory. This might initially seem a bit different from a graphical file browser, where renaming and moving are two distinct functions, but the underlying operation is actually the same.</p>
+<p>To give our file a more descriptive name, we can use <code>mv</code> to include the date we created this file,</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> my-fist-note.md notte_2022-06-20.md <span class="co"># intensional typo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We intentionally made a typo here, let’s fix it while showing off the functionality of the <code>-v</code> (verbose) option, which prints what was moved/renamed so that it is easier to keep track of.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> <span class="at">-v</span> notte_2022-06-20.md note_2022-06-20.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>renamed 'notte_2022-06-20.md' -&gt; 'note_2022-06-20.md'</code></pre>
+</div>
+<p>We must be careful when specifying the destination because <code>mv</code> will overwrite existing files without warning. The option <code>-i</code> (“interactive”) makes <code>mv</code> ask us for confirmation before overwriting,. <code>mv</code> also works on directories where it renames the directory without changing its contents.</p>
+</section>
+<section id="copying-files-and-directories" class="level3">
+<h3 class="anchored" data-anchor-id="copying-files-and-directories">Copying files and directories</h3>
+<p>The <code>cp</code> command create a <strong>c</strong>o<strong>p</strong>y of a file. Just as with <code>mv</code>, we optionally rename the file as we are copying it.</p>
+<p>Here, we first copy the note we created to the parent directory and then show how we could use <code>cp</code> to create a backup of our file in the same directory. Remember that the file extension does not change the content of the file, so this is only a visual indicator for the file type, and helps the computer pick a default program when you open it.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy the file to the parent directory</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> note_2022-06-20.md ..</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a backup copy in the same directory</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> note_2022-06-20.md note_2022-06-20.md.bkp</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>note_2022-06-20.md
+note_2022-06-20.md.bkp</code></pre>
+</div>
+<p>If we ever wanted to copy a directory, we would have to specify the <code>-r</code> flag, which indicates that we want to copy the directory recursively, i.e.&nbsp;also making a copy of all the directory contents.</p>
+</section>
+<section id="removing-files-and-directories" class="level3">
+<h3 class="anchored" data-anchor-id="removing-files-and-directories">Removing files and directories</h3>
+<p>To delete a file we use <code>rm</code> (<strong>r</strong>e<strong>m</strong>ove). Let’s remove the backup copy we just made:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> note_2022-06-20.md.bkp</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>note_2022-06-20.md</code></pre>
+</div>
+<p>There is no trash can on the command line. <code>rm</code> does not ask for confirmation, and there is no undo. The <code>-i</code> (“interactive”) option we saw with <code>mv</code> works here too, and makes <code>rm</code> ask before each deletion:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-i</span> note_2022-06-20.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>rm: remove regular file 'note_2022-06-20.md'? n</code></pre>
+</div>
+<p>Answering <kbd>n</kbd> keeps the file.</p>
+<p>Just like <code>cp</code>, <code>rm</code> refuses to act on a directory unless we pass <code>-r</code> to make it recursive:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> notes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>rm: cannot remove 'notes': Is a directory</code></pre>
+</div>
+<p>If we really wanted to remove the whole <code>notes</code> directory we would go up one level and run <code>rm -r notes</code>, which deletes the directory and everything inside it, with no confirmation and no way back. Treat <code>rm -r</code> with respect, and double check the path before you press <kbd>Enter</kbd>.</p>
+<div class="quizdown">
+---
+shuffle_answers: true
+---
+
+## What happens when you run each command? (Not all outcomes will be used.)
+
+Your working directory contains the file `note.md` and the directory `notes/`, which has files in it.
+
+- `rm note.md` :: Deletes the file right away, no confirmation
+- `rm -i note.md` :: Asks before deleting the file
+- `rm notes` :: Refuses, saying it is a directory
+- `rm -r notes` :: Deletes the directory and everything inside it
+- :: Moves the file to the Trash
+- :: Deletes the directory, but only if it is empty
+
+</div>
+<div class="quizdown">
+## Put the commands in the order that makes them work
+
+You open a terminal, which starts in your home directory.
+Here is what you want to do:<br>
+— change into your `Documents` folder<br>
+— make a new folder there called `notes`<br>
+— step into `notes`<br>
+— create a file `my-first-note.md` in it, using VS Code<br>
+— move that file up one level, into `Documents`<br>
+— show the first lines of the moved file, from where you are standing<br><br>
+Every command depends on the one before it.
+
+1. `cd ~/Documents`
+2. `mkdir notes`
+3. `cd notes`
+4. `code my-first-note.md`
+5. `mv my-first-note.md ..`
+6. `head ../my-first-note.md`
+</div>
+</section>
+<section id="wildcards" class="level3">
+<h3 class="anchored" data-anchor-id="wildcards">Wildcards</h3>
+<p>Wildcards (also called “globbing”) simplifies targeting multiple files with similar names in the same command. The most commonly used wildcard is <code>*</code> (a single asterisk). It matches zero or more characters, so typing <code>ls *.md</code> list all of the markdown files in the current directory.</p>
+<p>If we wanted to list all the files created in July (month 7), we would need to type ls <code>ls *07*</code>, which means that the filename can include anything before and after <code>07</code>. If we would have left out the second <code>*</code> and type <code>ls *07</code> we would not have seen any matches because there is not file that end in 07, they all have some characters after.</p>
+<p>Using wildcards is helpful when we want to delete, move, or copy files with a predictable naming pattern.</p>
+<!-- TODO: not particularly happy with this example, because it's forcing you
+           to use + learn touch (another thing we'd have to explain)
+           if we start off from the swcarpentry bash directory,
+           we can show this example much easier.
+-->
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> note_2022-06-20.md.bkp note_2022-07-02.md note_2022-07-02.md.bkp</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.bkp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>note_2022-06-20.md.bkp
+note_2022-07-02.md.bkp</code></pre>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>07<span class="pp">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>note_2022-07-02.md
+note_2022-07-02.md.bkp</code></pre>
+</div>
+</section>
+<section id="searching-for-text-patterns-in-files" class="level3">
+<h3 class="anchored" data-anchor-id="searching-for-text-patterns-in-files">Searching for text patterns in files</h3>
+<p>We can use the <code>grep</code> command to search for text in files. To search for the word “the” in our notes file, we can type <code>grep "the" note_2022-06-22.md</code>. This will return every line in the file that contains the word “the”.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"the"</span> note_2022-06-22.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>note_2022-06-22.md:These are the first
+note_2022-06-22.md:in the file.</code></pre>
+</div>
+</section>
+<section id="seeing-the-history-of-commands" class="level3">
+<h3 class="anchored" data-anchor-id="seeing-the-history-of-commands">Seeing the history of commands</h3>
+<p>Occasionally, we might want to re-use a command that we used in the past, but don’t remember exactly what it was. The <code>history</code> command can help us with this as it lists all the previous commands we have run and in which order we ran them.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="bu">history</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>1  pwd
+2  ls
+3  cd Documents/
+4  cd
+5  ls -F -a
+6  history</code></pre>
+</div>
+</section>
+<section id="reading-the-manual" class="level3">
+<h3 class="anchored" data-anchor-id="reading-the-manual">Reading the manual</h3>
+<p>How can we find out what options like <code>-t</code> and <code>-r</code> do if we don’t know of them already? By reading the built-in help manual! Typing <code>man ls</code> brings up the manual help page for the <code>ls</code> command. For some systems, you may need to run <code>--help</code> instead of <code>man</code>, e.g., <code>ls --help</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> ls</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>LS(1)                                                    User Commands
+
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+
+DESCRIPTION
+       List  information  about the FILEs (the current directory by default).  Sort entries alphabetically if none of -cftuvSUX
+       nor --sort is specified.
+
+       Mandatory arguments to long options are mandatory for short options too.
+
+       -a, --all
+              do not ignore entries starting with .
+
+       -A, --almost-all
+              do not list implied . and ..
+
+       --author
+              with -l, print the author of each file
+
+       -b, --escape
+              print C-style escapes for nongraphic characters
+
+       --block-size=SIZE
+              with -l, scale sizes by SIZE when printing them; e.g., '--block-size=M'; see SIZE format below
+
+       -B, --ignore-backups
+              do not list implied entries ending with ~
+...</code></pre>
+</div>
+<p>Some helpful commands while navigating the manual pages in <code>less</code></p>
+<!-- TODO: paste in the keyboard up and down arrow -->
+<ul>
+<li><kbd>q</kbd>: Quits the manual and takes you back to the shell prompt</li>
+<li><kbd>Space</kbd>: Go down the page</li>
+<li><kbd>b</kbd>: Go <strong>B</strong>ack up the page</li>
+<li><kbd>Up</kbd> / <kbd>Down</kbd>: you can also use the arrow keys to go up and down the page</li>
+<li><kbd>/</kbd>: starts a search
+<ul>
+<li>Type in the search term and press <kbd>Enter</kbd> to go to the first hit</li>
+<li><kbd>n</kbd>: To continue to the <strong>n</strong>ext search hit</li>
+<li><kbd>N</kbd> (<kbd>Shift</kbd> + <kbd>n</kbd>): Go to the previous hit</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you notice a <code>:</code> in the bottom left of your terminal, you are browsing the file in a program called <code>less</code>. To quit, you can press the letter <kbd>q</kbd> on your keyboard.</p>
+<p>You can enter <code>less</code> in multiple ways when working in the terminal, it is not exclusive to only looking at the <code>man</code> pages.</p>
+</div>
+</div>
+<div class="quizdown">
+---
+shuffle_answers: true
+---
+
+## Pick the option that does the job. (Not all options will be used.)
+
+Each situation below needs one of the options introduced in this chapter.
+
+- Copy a directory *together with everything inside it* :: `-r`
+- Make `mv` ask before it overwrites a file that already exists :: `-i`
+- See the files whose names start with a dot :: `-a`
+- Tell directories and runnable programs apart in a listing :: `-F`
+- Print exactly what `mv` renamed :: `-v`
+- See each entry's size and when it was last changed :: `-l`
+- :: `--help`
+- :: `-n`
+
+</div>
+</section>
+<section id="relative-vs-absolute-path" class="level3">
+<h3 class="anchored" data-anchor-id="relative-vs-absolute-path">Relative vs absolute path</h3>
+<p>We’ve seen a bit of usage around <code>.</code> and <code>..</code>. Let’s talk a bit more on how to reference files and directories.</p>
+<p>Let’s say you are here:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>/Users/timberst/Documents</code></pre>
+</div>
+<p>These are the files in your current working directory:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>DSCI-100  MDS-2018-19   textbooks   research</code></pre>
+</div>
+<p>You can navigate to the research directory using one of two options, a relative path:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> research</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>or, using an absolute path:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /Users/timberst/Documents/research</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>What is the difference?</p>
+<p>When you use a relative path with a command like <code>ls</code> or <code>cd</code>, it tries to find that location from where we are, rather than from the root of the file system. However, when you specify the absolute path to a directory by including its entire path from the root directory, which is indicated by a leading slash, the leading <code>/</code> tells the computer to follow the path from the root of the file system, so it always refers to exactly one directory, no matter where we are when we run the command.</p>
+<div class="quizdown">
+---
+shuffle_answers: true
+---
+
+## Absolute or relative?
+
+The same idea shows up outside the filesystem.
+An **absolute** reference works no matter where you are.
+A **relative** reference only makes sense from a particular starting point.
+Sort each one. Some categories apply to more than one item.
+
+- `+1 604 822 2211` :: Absolute
+- `822 2211` :: Relative
+- `2366 Main Mall, Vancouver, BC V6T 1Z4` :: Absolute
+- Walk past the Nest, turn right at the bus loop, second building on your left :: Relative
+- `49.2606° N, 123.2460° W` :: Absolute
+- Two floors up from here :: Relative
+- 14:30 PT on 2026-09-01 :: Absolute
+- In twenty minutes :: Relative
+- :: A nickname
+
+</div>
+<div class="quizdown">
+---
+shuffle_answers: true
+---
+
+## Where does each command leave you?
+
+Your working directory is `/home/username/Documents/notes`.
+Drag each command to the directory it lands you in.
+Some directories are used more than once.
+
+- `cd ..` :: `/home/username/Documents`
+- `cd ~/Documents` :: `/home/username/Documents`
+- `cd ~` :: `/home/username`
+- `cd ../..` :: `/home/username`
+- `cd .` :: `/home/username/Documents/notes`
+- `cd /home/username/Documents/notes` :: `/home/username/Documents/notes`
+- `cd /` :: `/`
+- `cd ../../../..` :: `/`
+- :: `/home`
+
+</div>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li>https://merely-useful.tech/py-rse/bash-tools.html</li>
+<li>https://missing.csail.mit.edu/</li>
+<li>https://datascienceatthecommandline.com/2e/chapter-1-introduction.html</li>
+<li>https://datascienceatthecommandline.com/resources/50-reasons.pdf</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<!--
+  Theme the quizdown quizzes.
+
+  `_extensions/quizdown` renders every quiz into a shadow root
+  (`attachShadow({mode: "open"})`), so nothing in `styles.scss` reaches inside
+  one -- a quiz arrives on the page wearing quizdown's own defaults, which are
+  `steelblue` on `#f2f2f2` with black text. In dark mode that is not merely
+  off-brand, it is unreadable: the parts that take a *background* from
+  quizdown's palette but *inherit* their text colour -- the left column of a
+  matching question, an evaluated slot, the per-pair feedback -- end up
+  painting the page's near-white body text onto a near-white fill, 1.03:1.
+
+  Two facts make that fixable from outside the shadow root:
+
+    * custom properties inherit *through* the shadow boundary, so the
+      `--mds-quiz-*` values set on `:root` in `styles.scss` are readable from
+      inside a quiz;
+    * quizdown writes its three colours as inline styles on
+      `.quizdown-content`, and `!important` in a stylesheet beats an inline
+      declaration.
+
+  So this file injects one stylesheet into each quiz's shadow root, written
+  entirely against `--mds-quiz-*`. The light and dark values of those live in
+  `styles.scss` and `styles-dark.scss`, and Quarto swaps those two bundles on
+  the colour-mode toggle -- so a quiz follows the toggle with no JavaScript of
+  its own.
+
+  Wired in from `format.html.include-after-body` in `_quarto.yml`, which is
+  what keeps the vendored extension under `_extensions/quizdown/` untouched: a
+  re-add or an update of that extension cannot clobber any of this.
+
+  Two things are deliberately left alone:
+
+    * `.hljs`, the highlight.js "github" theme quizdown bundles for a *fenced*
+      code block inside a question. Its plate is light in both colour modes,
+      but so are the token colours painted on it, so it stays self-consistent
+      and readable; re-tinting the plate alone would break it, and re-tinting
+      the tokens means shipping a second syntax theme. No question in the book
+      uses a fenced block -- inline code is themed below, and inline code is
+      what the questions actually use.
+    * `.print-review`, the plain questions-and-answers block quizdown reveals
+      under `@media print`. Paper is white in both colour modes, so the light
+      colours there are already the right ones.
+-->
+<script>
+  (() => {
+    // Note for editing: this is a template literal, so nothing inside it may
+    // be quoted in backticks the way the prose around it is -- a stray one
+    // ends the string, and the page fails with a JavaScript syntax error
+    // rather than with anything you would notice in the CSS.
+    //
+    // Every declaration below is `!important`, for two reasons that are not
+    // about winning an argument with the extension. Svelte scopes its own
+    // rules with a build hash (`.prompt.svelte-1ge161l`), which out-specifies
+    // anything we can write without hard-coding a hash that changes on every
+    // quizdown release; and the order our <style> ends up in relative to
+    // Svelte's, inside a shadow root neither of us owns, is not ours to pick.
+    const CSS = `
+      /* ---- the three knobs quizdown itself exposes ------------------------
+         Set as inline styles on .quizdown-content from the quiz config, so
+         !important is the only thing that can move them. Remapping these three
+         alone fixes most of dark mode: everything that reads its background
+         from --quizdown-color-secondary and inherits its text colour then
+         lands on a surface that belongs to the current mode. */
+      .quizdown-content {
+        --quizdown-color-primary: var(--mds-quiz-accent) !important;
+        --quizdown-color-secondary: var(--mds-quiz-surface) !important;
+        --quizdown-color-text: var(--mds-quiz-fg) !important;
+      }
+
+      /* ---- inline code in a question -------------------------------------
+         quizdown paints this #333 on #f8f8f8 in both modes. The book has its
+         own inline-code pair, one per mode, under typography.monospace-inline
+         in _brand.yml. */
+      code {
+        color: var(--mds-quiz-code-fg) !important;
+        background-color: var(--mds-quiz-code-bg) !important;
+      }
+
+      /* ---- buttons -------------------------------------------------------
+         Hard-coded to a white fill, which is a glaring plate on the dark page.
+         The hover is brightness(0.9): darkening is only a change you can see
+         when the surface starts light, so its direction is per-mode too. */
+      button {
+        background-color: var(--mds-quiz-surface) !important;
+        color: var(--mds-quiz-fg) !important;
+      }
+      button:disabled {
+        background-color: var(--mds-quiz-surface) !important;
+        color: var(--mds-quiz-muted) !important;
+      }
+      button:hover:not(:checked):not(:active):not(:disabled) {
+        filter: var(--mds-quiz-press) !important;
+      }
+
+      /* ---- multiple choice and single choice ------------------------------
+         The option rows are already painted from the two variables remapped
+         above; only the hover is hard-coded. */
+      [type='checkbox']:hover + span,
+      [type='checkbox']:focus + span,
+      [type='radio']:hover + span,
+      [type='radio']:focus + span {
+        filter: var(--mds-quiz-press) !important;
+      }
+
+      /* ---- sequence (drag to order) --------------------------------------
+         The rows come from the variables; the reorder buttons take a black
+         focus ring, which is invisible on the dark page. */
+      .buttons button:focus {
+        border-color: var(--mds-quiz-accent) !important;
+      }
+
+      /* ---- matching (drag a chip into a slot) -----------------------------
+         The type with the most hard-coded colour in it, and the one where the
+         dark-mode failure was actually visible: .prompt takes its fill from
+         quizdown's palette and its text colour from the page, so it painted
+         near-white body text onto near-white #f2f2f2. */
+      .arrow,
+      .placeholder {
+        color: var(--mds-quiz-muted) !important;
+      }
+      .slot,
+      .pool {
+        border-color: var(--mds-quiz-border) !important;
+      }
+      .slot-selected,
+      .slot-dragover,
+      .pool-dragover {
+        background-color: var(--mds-quiz-surface) !important;
+      }
+      .chip:hover {
+        filter: var(--mds-quiz-press) !important;
+      }
+      .chip-used {
+        background-color: var(--mds-quiz-surface) !important;
+        border-color: var(--mds-quiz-muted) !important;
+      }
+
+      /* ---- the evaluated state -------------------------------------------
+         Green and red, which the book already has: the success and danger
+         roles in _brand.yml each carry a value per mode. */
+      .slot.correct {
+        border-color: var(--mds-quiz-correct) !important;
+        background-color: var(--mds-quiz-correct-bg) !important;
+      }
+      .slot.wrong,
+      .slot.empty-eval {
+        border-color: var(--mds-quiz-wrong) !important;
+        background-color: var(--mds-quiz-wrong-bg) !important;
+      }
+      .badge-correct,
+      .correct-hint {
+        color: var(--mds-quiz-correct) !important;
+      }
+      .badge-wrong {
+        color: var(--mds-quiz-wrong) !important;
+      }
+      .pair-feedback {
+        border-left-color: var(--mds-quiz-correct) !important;
+        background-color: var(--mds-quiz-correct-bg) !important;
+      }
+      .pair-feedback-wrong {
+        border-left-color: var(--mds-quiz-wrong) !important;
+        background-color: var(--mds-quiz-wrong-bg) !important;
+      }
+
+      /* ---- the credit line under every quiz ------------------------------- */
+      .credits,
+      .credits a {
+        color: var(--mds-quiz-muted) !important;
+      }
+    `;
+
+    // Returns the number of quizzes that do not have a shadow root yet.
+    const paint = () => {
+      let waiting = 0;
+      for (const host of document.querySelectorAll(".quizdown")) {
+        const root = host.shadowRoot;
+        if (!root) {
+          waiting += 1;
+          continue;
+        }
+        if (root.querySelector("style[data-mds-quiz-theme]")) continue;
+        const style = document.createElement("style");
+        style.setAttribute("data-mds-quiz-theme", "");
+        style.textContent = CSS;
+        root.appendChild(style);
+      }
+      return waiting;
+    };
+
+    // quizdown creates the shadow roots from a `load` listener that it only
+    // registers once `DOMContentLoaded` has fired -- later than this script,
+    // which is inline at the end of <body>. A `load` listener added here would
+    // therefore run *before* the one that creates the thing we want to style,
+    // so the first attempt is deferred by a task, and then retried for a few
+    // frames in case a future version of the extension moves that work again.
+    // Bounded, so a quiz that never renders cannot leave a frame loop running.
+    const GIVE_UP_AFTER_MS = 5000;
+    addEventListener("load", () => {
+      const started = performance.now();
+      const tick = () => {
+        if (paint() > 0 && performance.now() - started < GIVE_UP_AFTER_MS) {
+          requestAnimationFrame(tick);
+        }
+      };
+      setTimeout(tick, 0);
+    });
+  })();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ubc-mds\.github\.io\/DSCI_521_platforms-dsci_book\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lectures/book-conventions.html" class="pagination-link" aria-label="Conventions in this Book">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Conventions in this Book</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../lectures/git-github-ssh-basic-workflow.html" class="pagination-link" aria-label="Git, GitHub, and SSH">
+        <span class="nav-page-text">Git, GitHub, and SSH</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

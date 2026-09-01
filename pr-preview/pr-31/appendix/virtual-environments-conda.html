@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Virtual Environments: Python + Conda – DSCI 521: Computing Platforms for Data Science</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../appendix/mds_conda_environment.html" rel="next">
+<link href="../appendix/xaringan_slides.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-717a1de2394aff971b7ede6d174c0923.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-1a2eaaa657737bc218486a026c59b8e6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-717a1de2394aff971b7ede6d174c0923.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-45100720d3f54066ef127b942bb453b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fb4d70f7a5d22372ff6e6331a6422932.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-45100720d3f54066ef127b942bb453b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdown.js"></script>
+<script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdownKatex.js"></script>
+<script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdownHighlight.js"></script>
+<script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdown-init.js"></script>
+<link href="../site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": true,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1RNLL8GPXK"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
+</script>
+<style>
+div.callout-activity.callout {
+  border-left-color: #0055b7;
+}
+div.callout-activity.callout-style-default .callout-header {
+  background-color: rgba(0, 85, 183, 0.13);
+}
+div.callout-activity .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-activity.callout-style-default .callout-icon::before, div.callout-activity.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\e53d' !important;
+  background-image: none;
+}
+div.callout-exercise.callout {
+  border-left-color: #1c5f2e;
+}
+div.callout-exercise.callout-style-default .callout-header {
+  background-color: rgba(28, 95, 46, 0.13);
+}
+div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f44b' !important;
+  background-image: none;
+}
+</style>
+
+
+<meta property="og:title" content="Virtual Environments: Python + Conda – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:title" content="Virtual Environments: Python + Conda – DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:description" content="">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSCI 521: Computing Platforms for Data Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ubc-mds.github.io/resources_pages/installation_instructions/"> 
+<span class="menu-text">Installation Guide</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs-and-quizzes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Labs and Quizzes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labs-and-quizzes">    
+        <li>
+    <a class="dropdown-item" href="https://ubc-mds.github.io/resources_pages/general_lab_instructions/">
+ <span class="dropdown-text">General Lab Instructions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/UBC-MDS/public/tree/master/rubric#guide-to-rubrics">
+ <span class="dropdown-text">MDS Rubrics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ubc-mds.github.io/resources_pages/quiz_guidelines/">
+ <span class="dropdown-text">MDS Quiz Guidelines</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ubc-mds.github.io/resources_pages/quiz/">
+ <span class="dropdown-text">MDS Quiz Procedures</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ubc-mds.github.io/resources_pages/quiz_cfa/">
+ <span class="dropdown-text">MDS Quiz Procedures - Center for Accessibility</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/xaringan_slides.html">Older Materials</a></li><li class="breadcrumb-item"><a href="../appendix/virtual-environments-conda.html">Virtual Environments: conda</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../MDSlogo.png" alt="MDS Logo Image" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../MDSlogo.png" alt="MDS Logo Image" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Orientation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JupyterLab Orientation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/rstudio-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio Orientation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/positron-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Positron Orientation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/book-conventions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conventions in this Book</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/mdstools-bash-filesystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MDS Software and Bash</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/git-github-ssh-basic-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git, GitHub, and SSH</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/quarto-github-pages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto and GitHub Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/rmarkdown-quarto-slides-ghpages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto, RMarkdown, and Jupyter Slides</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/git-history-merge-conflicts-stash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git: History, Conflicts, and Ignores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/rstudio-projects-notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio Projects and Literate Programming</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/virtual-environments-uv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Virtual Environments: uv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/virtual-environments-renv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Virtual Environments: renv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Organization of Data Science Projects</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Regular Expressions (RegEx)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/asking-questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Asking Effective Questions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Additional Information</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/git_config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/rstudio_config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/semantic_line_breaks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semantic Line Breaks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/rmarkdown_tips.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Markdown tips</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Older Materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/xaringan_slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Xaringan Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/virtual-environments-conda.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Virtual Environments: conda</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/mds_conda_environment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MDS Conda Python Environment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#virtual-environments" id="toc-virtual-environments" class="nav-link" data-scroll-target="#virtual-environments">Virtual environments</a></li>
+  <li><a href="#conda-and-its-ecosystem" id="toc-conda-and-its-ecosystem" class="nav-link" data-scroll-target="#conda-and-its-ecosystem">Conda and Its Ecosystem</a></li>
+  <li><a href="#managing-conda" id="toc-managing-conda" class="nav-link" data-scroll-target="#managing-conda">Managing Conda</a>
+  <ul class="collapse">
+  <li><a href="#update-conda" id="toc-update-conda" class="nav-link" data-scroll-target="#update-conda">Update Conda</a></li>
+  <li><a href="#setup-confirm-conda-forge-channel" id="toc-setup-confirm-conda-forge-channel" class="nav-link" data-scroll-target="#setup-confirm-conda-forge-channel">Setup / Confirm Conda-Forge Channel</a></li>
+  </ul></li>
+  <li><a href="#managing-environments" id="toc-managing-environments" class="nav-link" data-scroll-target="#managing-environments">Managing Environments</a>
+  <ul class="collapse">
+  <li><a href="#creating-environment-by-manually-specifying-packages" id="toc-creating-environment-by-manually-specifying-packages" class="nav-link" data-scroll-target="#creating-environment-by-manually-specifying-packages">Creating environment by manually specifying packages</a></li>
+  <li><a href="#sharing-environments-with-others" id="toc-sharing-environments-with-others" class="nav-link" data-scroll-target="#sharing-environments-with-others">Sharing Environments with others</a></li>
+  <li><a href="#creating-environment-from-an-environment-file" id="toc-creating-environment-from-an-environment-file" class="nav-link" data-scroll-target="#creating-environment-from-an-environment-file">Creating environment from an environment file</a></li>
+  <li><a href="#copying-an-environment" id="toc-copying-an-environment" class="nav-link" data-scroll-target="#copying-an-environment">Copying an environment</a></li>
+  <li><a href="#deleting-an-environment" id="toc-deleting-an-environment" class="nav-link" data-scroll-target="#deleting-an-environment">Deleting an environment</a></li>
+  <li><a href="#making-environments-work-well-with-jupyterlab" id="toc-making-environments-work-well-with-jupyterlab" class="nav-link" data-scroll-target="#making-environments-work-well-with-jupyterlab">Making environments work well with JupyterLab</a></li>
+  </ul></li>
+  <li><a href="#managing-packages" id="toc-managing-packages" class="nav-link" data-scroll-target="#managing-packages">Managing Packages</a>
+  <ul class="collapse">
+  <li><a href="#list-packages-in-the-current-environment" id="toc-list-packages-in-the-current-environment" class="nav-link" data-scroll-target="#list-packages-in-the-current-environment">List packages in the current environment</a></li>
+  <li><a href="#searching-for-a-certain-package" id="toc-searching-for-a-certain-package" class="nav-link" data-scroll-target="#searching-for-a-certain-package">Searching for a certain package</a></li>
+  <li><a href="#installing-conda-package" id="toc-installing-conda-package" class="nav-link" data-scroll-target="#installing-conda-package">Installing conda package</a></li>
+  </ul></li>
+  <li><a href="#removing-a-conda-package" id="toc-removing-a-conda-package" class="nav-link" data-scroll-target="#removing-a-conda-package">Removing a conda Package</a>
+  <ul class="collapse">
+  <li><a href="#when-there-is-no-conda-package" id="toc-when-there-is-no-conda-package" class="nav-link" data-scroll-target="#when-there-is-no-conda-package">When there is no conda package</a></li>
+  </ul></li>
+  <li><a href="#confirming-your-work" id="toc-confirming-your-work" class="nav-link" data-scroll-target="#confirming-your-work">Confirming your work</a>
+  <ul class="collapse">
+  <li><a href="#sec-conda-history" id="toc-sec-conda-history" class="nav-link" data-scroll-target="#sec-conda-history">Conda history and terminology</a></li>
+  <li><a href="#mamba" id="toc-mamba" class="nav-link" data-scroll-target="#mamba">Mamba</a></li>
+  <li><a href="#in-short" id="toc-in-short" class="nav-link" data-scroll-target="#in-short">In short…</a></li>
+  </ul></li>
+  <li><a href="#additional-links" id="toc-additional-links" class="nav-link" data-scroll-target="#additional-links">Additional Links</a></li>
+  <li><a href="#attribution" id="toc-attribution" class="nav-link" data-scroll-target="#attribution">Attribution</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/xaringan_slides.html">Older Materials</a></li><li class="breadcrumb-item"><a href="../appendix/virtual-environments-conda.html">Virtual Environments: conda</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Virtual Environments: Python + Conda</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
+<ol type="1">
+<li>Differenciate Python, Anaconda, MiniConda, Conda and <code>pip</code></li>
+<li>Manage packages and environments in Python using Conda</li>
+</ol>
+<p><strong>Platform in focus</strong> Conda</p>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Imagine you’re working on a project with a colleague, and you’ve created a reproducible report to share your analysis. You want them to replicate your work on their own machine. To demonstrate this, try running the following code on your system:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Python</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="Python"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> palmerpenguins <span class="im">import</span> load_penguins</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> load_penguins()</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>penguins.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="virtual-environments" class="level2">
+<h2 class="anchored" data-anchor-id="virtual-environments">Virtual environments</h2>
+<p>Virtual environments let you have multiple versions of packages and programs on the same computer without them creating conflicts with each other. You will be using virtual Python and R environments throughout the program to setup your packages for different courses.</p>
+</section>
+<section id="conda-and-its-ecosystem" class="level2">
+<h2 class="anchored" data-anchor-id="conda-and-its-ecosystem">Conda and Its Ecosystem</h2>
+<p><a href="http://conda.pydata.org/docs/"><strong>conda</strong></a> is an <strong>open source <code>package</code> and <code>environment</code> management system</strong>. It allows you to install libraries and packages as well as their accompanying dependencies. It can work with <em>any</em> programming language, but is mostly popular in the Python community.</p>
+<p>In MDS and quite often, broadly in data science projects, we use Miniforge distribution, which was created to be a bare-bones installation with conda and using <code>conda-forge</code> as the package channel. This is what we had you install in the MDS Python installation instructions. There are many variations of many parts of conda, see <a href="#sec-conda-history" class="quarto-xref">Section&nbsp;8.1</a>.</p>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which of the following items is NOT a benefit of using Conda environments?</p>
+<ol type="A">
+<li>Increase code performance</li>
+<li>Helping with reproducibility</li>
+<li>Using different versions of the same package</li>
+<li>Creating isolated computational environment for testing new packages</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="managing-conda" class="level2">
+<h2 class="anchored" data-anchor-id="managing-conda">Managing Conda</h2>
+<p>Let’s first start by checking if conda is installed.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">--version</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> conda</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>To see which conda commands are available, type <code>conda --help</code>. To see the full documentation for any command of these commands, type the command followed by <code>--help</code>. For example, to learn about the conda update command:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update <span class="at">--help</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="update-conda" class="level3">
+<h3 class="anchored" data-anchor-id="update-conda">Update Conda</h3>
+<p>Let’s update our conda to the latest version. Note that you might already have the latest version since we downloaded it recently.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update conda</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You will see some information about what there is to update and be asked if you want to confirm. The default choice is indicated with <code>[]</code>, and you can press <kbd>Enter</kbd> to accept it. It would look similar to the output below.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You should see <code>conda-forge</code> listed in the top of the output, if not, set the proper channel before running more conda commands (next section). You can cancel the current terminal operation by pressing <kbd>Ctrl</kbd> + <kbd>c</kbd></p>
+</div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update conda</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>Retrieving notices: ...working... done
+Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/dan/.pyenv/versions/miniforge3-latest
+
+  added / updated specs:
+    - conda
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2024.8.30  |       hbcca054_0         155 KB  conda-forge
+    certifi-2024.8.30          |     pyhd8ed1ab_0         160 KB  conda-forge
+    conda-24.7.1               |  py310hff52083_0         940 KB  conda-forge
+    frozendict-2.4.4           |  py310hc51659f_0          48 KB  conda-forge
+    libgcc-14.1.0              |       h77fa898_1         827 KB  conda-forge
+    libgcc-ng-14.1.0           |       h69a702a_1          51 KB  conda-forge
+    libgomp-14.1.0             |       h77fa898_1         449 KB  conda-forge
+    openssl-3.3.2              |       hb9d3cd8_0         2.8 MB  conda-forge
+    ------------------------------------------------------------
+                                           Total:         5.3 MB
+
+The following NEW packages will be INSTALLED:
+
+  frozendict         conda-forge/linux-64::frozendict-2.4.4-py310hc51659f_0
+  libgcc             conda-forge/linux-64::libgcc-14.1.0-h77fa898_1
+
+The following packages will be UPDATED:
+
+  ca-certificates                       2024.2.2-hbcca054_0 --&gt; 2024.8.30-hbcca054_0
+  certifi                             2024.2.2-pyhd8ed1ab_0 --&gt; 2024.8.30-pyhd8ed1ab_0
+  conda                              24.1.2-py310hff52083_0 --&gt; 24.7.1-py310hff52083_0
+  libgcc-ng                               13.2.0-h807b86a_5 --&gt; 14.1.0-h69a702a_1
+  libgomp                                 13.2.0-h807b86a_5 --&gt; 14.1.0-h77fa898_1
+  openssl                                  3.2.1-hd590300_1 --&gt; 3.3.2-hb9d3cd8_0
+
+
+Proceed ([y]/n)?
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done</code></pre>
+</div>
+<p>In this case, conda itself needed to be updated, and along with this update some dependencies also needed to be updated. There is also a NEW package that was INSTALLED in order to update conda. You don’t need to worry about remembering to update conda, it will let you know if it is out of date when you are installing new packages.</p>
+<p>You can find more information on managing <code>conda</code> in the official documentation: <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-conda.html" class="uri">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-conda.html</a></p>
+</section>
+<section id="setup-confirm-conda-forge-channel" class="level3">
+<h3 class="anchored" data-anchor-id="setup-confirm-conda-forge-channel">Setup / Confirm Conda-Forge Channel</h3>
+<p>The official conda-forge documentation has the setup instructions to make sure it is set up as the default conda package channel: <a href="https://conda-forge.org/docs/user/introduction/" class="uri">https://conda-forge.org/docs/user/introduction/</a></p>
+<p>You can check</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--show</span> channels</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You should see conda-forge at the top of the list (ideally the only entry)</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>channels:
+  - conda-forge</code></pre>
+</div>
+<p>From the <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html">managing channel documentation</a>:</p>
+<blockquote class="blockquote">
+<p>There will be no channel collisions if you use only the defaults channel. There will also be no channel collisions if all of the channels you use only contain packages that do not exist in any of the other channels in your list. The way conda resolves these collisions matters only when you have multiple channels in your channel list that host the same package.</p>
+</blockquote>
+<p>If you do not see <code>conda-forge</code> listed and if it’s not listed on the top of the channels list run the following commands to add and set it to the top.</p>
+<p>Add conda-forge as the highest priority channel.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels conda-forge</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Activate strict channel priority (strict will be activated by default in conda 5.0).</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--set</span> channel_priority strict</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You can then re-run <code>conda config --show channels</code> to confirm that <code>conda-forge</code> is listed in the highest priority.</p>
+</section>
+</section>
+<section id="managing-environments" class="level2">
+<h2 class="anchored" data-anchor-id="managing-environments">Managing Environments</h2>
+<p>Using <code>conda</code>, you can create an isolated python <em>environment</em> for your project. An environment is a set of packages that can be used in one or multiple projects. There are several major benefits of using environments:</p>
+<ul>
+<li>You can guarantee that someone else can reproduce your project by specifying which package versions you used and making it easy for others to install the same versions.</li>
+<li>If two of your projects rely on different versions of the same package, you can install these in different environments.</li>
+<li>If you want to play around with a new package, you don’t have to change the packages you use for your data analysis and risk messing something up.</li>
+<li>When you develop your own packages, it is essential to use environments, since you want to to make sure you know exactly which packages yours depend on, so that it runs on other systems than your own.</li>
+</ul>
+<p>The default environment is the <code>base</code> environment, which contains only the essential bare-bones python installation from Miniforge. You can see that your shell’s prompt string is prefaced with <code>(base)</code> when you are inside this environment. In the setup guide, we gave your instructions for how to activate this environment by default every time you open Bash. There are two ways of creating a conda environment.</p>
+<ol type="1">
+<li>Manual specifications of packages.</li>
+<li>An environment file in YAML format (<code>environment.yaml</code>).</li>
+</ol>
+<p>More information about managing conda environments can be found on the documentation page: <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html" class="uri">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a></p>
+<section id="creating-environment-by-manually-specifying-packages" class="level3">
+<h3 class="anchored" data-anchor-id="creating-environment-by-manually-specifying-packages">Creating environment by manually specifying packages</h3>
+<p>We can create <code>test_env</code> conda environment by typing <code>conda -n &lt;name-of-env&gt;</code>. However, it is often useful to specify more than just the name of the environment, e.g.&nbsp;the channel from which to install packages, the Python version, and a list of packages to install into the new environment.</p>
+<p>In the example below, we are creating a <code>test_env</code> environment that uses python 3.12 and a list of libraries: <code>jupyterlab</code> and <code>pandas</code>. Miniforge is already set to use the conda-forge channel by default, but we can use the <code>-c</code> flag to specify any package channel (even the anaconda channel)</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> test_env <span class="at">-c</span> conda-forge python=3.12 pandas=2.2.2 jupyterlab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the MDS instructions you should have conda-forge set as a default channel, so the <code>-c conda-forge</code> is redundant, but you may see it while looking for installation instructions.</p>
+</div>
+</div>
+<p>conda will solve any dependencies between the packages like before and create a new environment with those packages. Usually, we don’t need to specify the channel, but in this case I want to get the very latest version of these packages, and they are made available in <code>conda-forge</code> before they reach the default conda channel.</p>
+<p>To activate this new environment, you can type <code>conda activate test_env</code> (and <code>conda deactivate</code> for deactivating). Since you will do this often, we created an alias shortcut <code>ca</code> that you can use to activate environments. To know the current environment that you’re in you can look at the prefix of the prompt string in your shell which now changed to (<code>test_env</code>). And to see all your environments, you can type <code>conda env list</code>.</p>
+<section id="removing-environments" class="level4">
+<h4 class="anchored" data-anchor-id="removing-environments">Removing environments</h4>
+<p>If you are creating environments for practice, or you want to recreate an environment you can delete your conda environments by:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look for all the installed environments</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># delete an environment</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="at">--name</span> ENV_NAME <span class="at">--all</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Similarly, all your environments are installed within your <code>miniforge3</code> folder, which is typically located in <code>~/miniforge3</code> In here you will see an <code>env</code> folder. If you delete the folder with the corresponding environment name (e.g., with <code>rm</code>) you can also delete an environment this way too.</p>
+</section>
+</section>
+<section id="sharing-environments-with-others" class="level3">
+<h3 class="anchored" data-anchor-id="sharing-environments-with-others">Sharing Environments with others</h3>
+<p>To share an environment, you can export your conda environment to an environment file, which will list each package and its version in the format <code>package=version=build</code>.</p>
+<p>Exporting your environment to a file called <code>environment.yaml</code> (it could be called anything, but this is the conventional name and using it makes it easy for others to recognize that this is a conda env file, the extension can be either <code>.yaml</code> or <code>.yml</code>):</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While you can choose to export your <em>entire</em> environment into a file</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env export <span class="at">-f</span> environment.yaml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You typically do not want to do this in a shared repository because dependencies may change depending on the operating system used. If there is an actual dependency that needs to be managed, you will manually track it in the <code>environment.yaml</code>.</p>
+<p>The same general rule will apply for a <code>requirements.txt</code> file and using <code>pip freeze</code>.</p>
+</div>
+</div>
+<p>Remember that <code>.yaml</code> files are plain text, so you can use a text editor such as VS Code to open them. If you do, you will realize that this environment file has A LOT more packages than <code>jupyterlab</code> and <code>pandas</code>. This is because the default behavior is to also list the dependencies that were installed together with these packages, e.g.&nbsp;<code>numpy</code>. This is good in the sense that it gives an exact copy of <em>everything</em> in your environment.</p>
+<p>However, some dependencies might differ between operating systems, so this file <em>might</em> not work with someone from a different OS. To remedy this, you can append the <code>--from-history</code> flag, which look at the history of the packages you explicitly told conda to install and only list those in the export. The required dependencies will then be handled in an OS-specific manner during the installation, which guarantees that they will work across OSes. This <code>environment.yaml</code> file would be much shorter and look something like this:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>environment.yaml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" data-filename="environment.yaml"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> test_env</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">channels</span><span class="kw">:</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> conda-forge</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dependencies</span><span class="kw">:</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> conda</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> python=3.12</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> pandas==2.2.2</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> jupyterlab</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Importantly, this will not include the package version unless you included it when you installed with the <code>package==version</code> syntax. For an environment to be reproducible, you <strong>NEED</strong> to add the version string manually.</p>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What are good practices when exporting environments for git collaboration? (one or more correct answers)</p>
+<ul>
+<li>A. Exporting your entire environment via <code>conda env export -f environment.yaml</code></li>
+<li>B. Including only pip installed packages via <code>pip freeze &gt; requirements.txt</code></li>
+<li>C. Always exporting <code>base</code> conda environments for reproducibility</li>
+<li>D. Using <code>--from-history</code> flag to reduce the number of explicit requirements and potential conflicts</li>
+<li>E. Including your conda path into <code>environment.yml</code>: <code>prefix /Users/username/miniforge3</code> to make sure conda knows where to find files</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="creating-environment-from-an-environment-file" class="level3">
+<h3 class="anchored" data-anchor-id="creating-environment-from-an-environment-file">Creating environment from an environment file</h3>
+<p>Now, let’s install <code>environment.yaml</code> environment file above so that we can create a conda environment called <code>test_env</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> environment.yaml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="copying-an-environment" class="level3">
+<h3 class="anchored" data-anchor-id="copying-an-environment">Copying an environment</h3>
+<p>We can make an exact copy of an environment to an environment with a different name. This maybe useful for any testing versus live environments or different Python 2.7 versions for the same packages. In this example, <code>test_env</code> is cloned to create <code>live_env</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> live_env <span class="at">--clone</span> test_env</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="deleting-an-environment" class="level3">
+<h3 class="anchored" data-anchor-id="deleting-an-environment">Deleting an environment</h3>
+<p>Since we are only testing out our environment, we will delete <code>live_env</code> to remove some clutter. <em>Make sure that you are not currently using <code>live_env</code>.</em></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">-n</span> live_env</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="making-environments-work-well-with-jupyterlab" class="level3">
+<h3 class="anchored" data-anchor-id="making-environments-work-well-with-jupyterlab">Making environments work well with JupyterLab</h3>
+<p>In brief, you need to install the <code>ipykernel</code> package in any new environment your create, and the <code>nb_conda_kernels</code> package needs to be installed in the environment where JupyterLab is installed.</p>
+<p>By default, JupyterLab only sees the conda environment where it is installed. Since it is quite annoying to install JupyterLab and its extensions separately in each environment, there is a package called <code>nb_conda_kernels</code> that makes it possible to have a single installation of JupyterLab access kernels in other conda environments. This package needs to be installed in the conda environment where JupyterLab is installed.</p>
+<p>Lastly, you also need to install a kernel in the new conda environment so that it can be detected by <code>nb_conda_kernels</code>. This kernel can be installed via the package <code>ipykernel</code> for Python and the <code>r-irkernel</code> package for R (<a href="https://github.com/Anaconda-Platform/nb_conda_kernels#installation">more info in the nb_conda_kernels README</a>).</p>
+</section>
+</section>
+<section id="managing-packages" class="level2">
+<h2 class="anchored" data-anchor-id="managing-packages">Managing Packages</h2>
+<p>In this section, we will cover how to manage packages within any environment.</p>
+<section id="list-packages-in-the-current-environment" class="level3">
+<h3 class="anchored" data-anchor-id="list-packages-in-the-current-environment">List packages in the current environment</h3>
+<p>We will now check the packages that are available to us. The command below will list all the packages in an environment, in this case <code>test_env</code>. The list will include versions of each package, the specific build, and the channel that the package was downloaded from. <code>conda list</code> is also useful to ensure that you have installed the packages that you desire.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># packages in environment at /home/dan/.pyenv/versions/miniforge3-latest/envs/test_env:</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Name                    Version                   Build  Channel</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ex">_libgcc_mutex</span>             0.1                 conda_forge    conda-forge</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ex">_openmp_mutex</span>             4.5                       2_gnu    conda-forge</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">bzip2</span>                     1.0.8                h4bc722e_7    conda-forge</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ex">ca-certificates</span>           2024.8.30            hbcca054_0    conda-forge</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ld_impl_linux-64</span>          2.40                 hf3520f5_7    conda-forge</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="ex">libexpat</span>                  2.6.3                h5888daf_0    conda-forge</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="ex">libffi</span>                    3.4.2                h7f98852_5    conda-forge</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="ex">libgcc</span>                    14.1.0               h77fa898_1    conda-forge</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="ex">libgcc-ng</span>                 14.1.0               h69a702a_1    conda-forge</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="ex">libgomp</span>                   14.1.0               h77fa898_1    conda-forge</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="ex">libnsl</span>                    2.0.1                hd590300_0    conda-forge</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="ex">libsqlite</span>                 3.46.1               hadc24fc_0    conda-forge</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="ex">libuuid</span>                   2.38.1               h0b41bf4_0    conda-forge</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="ex">libxcrypt</span>                 4.4.36               hd590300_1    conda-forge</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="ex">libzlib</span>                   1.3.1                h4ab18f5_1    conda-forge</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="ex">ncurses</span>                   6.5                  he02047a_1    conda-forge</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="ex">openssl</span>                   3.3.2                hb9d3cd8_0    conda-forge</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span>                       24.2               pyh8b19718_1    conda-forge</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span>                    3.12.5          h2ad013b_0_cpython    conda-forge</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="ex">readline</span>                  8.2                  h8228510_1    conda-forge</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="ex">setuptools</span>                74.1.2             pyhd8ed1ab_0    conda-forge</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="ex">tk</span>                        8.6.13          noxft_h4845f30_101    conda-forge</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="ex">tzdata</span>                    2024a                h8827d51_1    conda-forge</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="ex">wheel</span>                     0.44.0             pyhd8ed1ab_0    conda-forge</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="fu">xz</span>                        5.2.6                h166bdaf_0    conda-forge</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will typically want to have an empty <code>base</code> environment where no packages are installed. All your work in separate classes/projects should exist in their own environment.</p>
+<p>The above set of packages is what an empty environment with only Python 3.12 installed looks like (on a linux machines). Notably, the typical python data science packages, <code>pandas</code>, <code>numpy</code>, <code>jupyter</code>, etc, are not in the environment.</p>
+</div>
+</div>
+</section>
+<section id="searching-for-a-certain-package" class="level3">
+<h3 class="anchored" data-anchor-id="searching-for-a-certain-package">Searching for a certain package</h3>
+<p>Some packages might not be available in conda, but are available in <a href="https://pypi.python.org/pypi">pypi</a>. For example, we will search for rasterio within the <a href="https://anaconda.org/">anaconda cloud</a>. <em>It is not necessary to create an account with anaconda cloud, unless you’d like to contribute in the future when you are pro with conda.</em></p>
+<p>In this example, we will use rasterio from conda-forge. The anaconda cloud page for rasterio will show how to install the package, compatible OS, individual files for that package, etc.</p>
+<p>With conda you can do this search within the command line:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> search rasterio</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="installing-conda-package" class="level3">
+<h3 class="anchored" data-anchor-id="installing-conda-package">Installing conda package</h3>
+<p>Under the name column of the result in the terminal or the package column in the Anaconda Cloud listing, shows the necessary information to install the package. e.g.&nbsp;conda-forge/rasterio. The first word list the channel that this package is from and the second part shows the name of the package.</p>
+<p>To install the latest version available within the channel, do not specify in the install command. We will install version 0.35 of <code>rasterio</code> from conda-forge into <code>test_env</code> in this example. Conda will also automatically install the dependencies for this package.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge rasterio=1.3.11</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="removing-a-conda-package" class="level2">
+<h2 class="anchored" data-anchor-id="removing-a-conda-package">Removing a conda Package</h2>
+<p>We decided that rasterio is not needed in this tutorial, so we will remove it from <code>test_env</code>. Note that this will remove the main package rasterio and its dependencies (unless a dependency was installed explicitly at an earlier point in time or is required be another package).</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="at">-n</span> test_env rasterio</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="at">-n</span> test_env rasterio</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: - WARNING conda.conda_libmamba_solver.solver:_export_solved_records(832): Tried to unlink __unix but it is not installed or manageable?
+done
+
+## Package Plan ##
+
+  environment location: /home/dan/.pyenv/versions/miniforge3-latest/envs/test_env
+
+  removed specs:
+    - rasterio
+
+
+The following packages will be REMOVED:
+
+...
+
+Proceed ([y]/n)?
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done</code></pre>
+</div>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What command will activate the test_env environment you just created?</p>
+<ol type="A">
+<li>conda activate environment</li>
+<li>conda start test_env</li>
+<li>conda activate test_env</li>
+<li>conda start environment</li>
+</ol>
+</div>
+</div>
+<section id="when-there-is-no-conda-package" class="level3">
+<h3 class="anchored" data-anchor-id="when-there-is-no-conda-package">When there is no conda package</h3>
+<p>If a conda package does not exist but does exist as a python package, you can use <code>pip</code> to install packages with <code>pip install &lt;package name&gt;</code>. When a package is installed using pip, your <code>environment.yml</code> will have a section for <code>pip</code> that will list the packages installed via pip.</p>
+<p>You do want to be careful not to constantly mix conda install commands with pip install commands. You are essentially using 2 different package resolution systems, and packages may not always be installed in the locations the other package manager knows about.</p>
+<p>If you end up installing <code>conda</code> and <code>pip</code> packages over the course a project you may end up with a corrupted python package environment. This is why the <code>environment.yml</code> is important, you can easily remove the corrupted environment, and install everything you need in a single step.</p>
+</section>
+</section>
+<section id="confirming-your-work" class="level2">
+<h2 class="anchored" data-anchor-id="confirming-your-work">Confirming your work</h2>
+<p>Multiple times in this lesson when we are searching, installing, removing packages the output will mention <code>conda-forge</code>. This makes sense since the current setup has only <code>conda-forge</code> in the package channels. You should not see <code>anaconda</code> or <code>default</code> in the output text before you confirm an action.https://conda.org/blog/2024-08-14-conda-ecosystem-explained/</p>
+<section id="sec-conda-history" class="level3">
+<h3 class="anchored" data-anchor-id="sec-conda-history">Conda history and terminology</h3>
+<p>There is a lot of history and backstory to conda, but we’ll just talk about the main players in the ecosystem.</p>
+<section id="anaconda-and-miniconda" class="level4">
+<h4 class="anchored" data-anchor-id="anaconda-and-miniconda">Anaconda and Miniconda</h4>
+<p>“Anaconda” can refer to one of three things: Anaconda, Inc the company, anaconda the python distribution, and anaconda the conda package channel.</p>
+<p><a href="https://www.anaconda.com/">Anaconda, Inc</a> (formerly, Continuum Analytics) is the <strong>company</strong> that originally created <code>conda</code>. Anaconda also created the <a href="https://www.anaconda.com/download">anaconda distribution</a>, which comes with <code>conda</code> and many other pre-installed Python packages. The anaconda distribution uses the <em>anaconda</em> channel as the default place to look for <code>conda</code> packages.</p>
+</section>
+<section id="conda-forge-and-miniforge" class="level4">
+<h4 class="anchored" data-anchor-id="conda-forge-and-miniforge">Conda-forge and Miniforge</h4>
+<p><a href="https://docs.anaconda.com/miniconda/">Miniconda</a> is also maintained by Anaconda, Inc. It uses <code>conda</code> as the package installer, and also anaconda as the default package channel. The difference is that miniconda does not come with pre-installed python packages. The “mini” is for a smaller more bare-bones installation.</p>
+<p>The anaconda channel is completely maintained by Anaconda, Inc. People who wanted get their own packages installable by <code>conda</code> needed their own mechanism to share their packages. Also, because Anaconda needs the anaconda distribution to work for their enterprise customers, not every package is on the latest version or would take a long time to get the latest versions of packages you needed. This led to the creation of <a href="https://conda-forge.org/">Conda-Forge</a>, a <strong>community</strong> maintained channel for conda packages. Now package maintainers can publish the latest versions of their packages to a community maintained repository.</p>
+<p>Since Miniconda is maintained by Anaconda, Inc with the default anaconda channel, Miniforge was created to be a bare-bones installation with conda and using conda-forge as the package channel. This is what we had you install in the <a href="https://ubc-mds.github.io/resources_pages/installation_instructions/">MDS Python installation instructions</a>.</p>
+</section>
+</section>
+<section id="mamba" class="level3">
+<h3 class="anchored" data-anchor-id="mamba">Mamba</h3>
+<p><code>conda</code> allows you to install libraries and packages along with their dependencies. One of the main complaints about <code>conda</code> was the package dependency resolution took a very long time. <code>mamba</code> was created to be a faster C++ implementation of the dependency solver. Since then, <code>mamba</code> has been a drop-in replacement for <code>conda</code>, and the <code>mamba</code> solver is now the default solver used in miniforge.</p>
+</section>
+<section id="in-short" class="level3">
+<h3 class="anchored" data-anchor-id="in-short">In short…</h3>
+<ul>
+<li>Anaconda (capital A): is a company</li>
+<li>anaconda (lower-case a): is a python distribution</li>
+<li>anaconda channel: Set of packages and versions maintained by Anaconda</li>
+<li><code>conda</code>: is a program that can install packages and their dependencies</li>
+<li>conda-forge is a community maintained channel for conda packages</li>
+<li>miniconda: is an Anaconda maintained python distribution that defaults to the anaconda package channel</li>
+<li>miniforge: is a community maintained python distribution that defaults to the conda-forge package channel</li>
+<li><code>mamba</code> is a faster drop-in replacement for <code>conda</code></li>
+</ul>
+<p>You can read more about these differences here: <a href="https://conda.org/blog/2024-08-14-conda-ecosystem-explained/" class="uri">https://conda.org/blog/2024-08-14-conda-ecosystem-explained/</a></p>
+</section>
+</section>
+<section id="additional-links" class="level2">
+<h2 class="anchored" data-anchor-id="additional-links">Additional Links</h2>
+<ul>
+<li>Pip and conda interoperability: <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/pip-interoperability.html" class="uri">https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/pip-interoperability.html</a></li>
+<li>They’re working on better conda + pip support: <a href="https://github.com/conda-incubator/conda-pypi" class="uri">https://github.com/conda-incubator/conda-pypi</a></li>
+<li>micromamba project: <a href="https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html" class="uri">https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html</a></li>
+<li>pixi (also defaults to conda-forge): <a href="https://github.com/prefix-dev/pixi" class="uri">https://github.com/prefix-dev/pixi</a></li>
+<li>Conda and Anaconda terms of use: <a href="https://www.anaconda.com/blog/is-conda-free" class="uri">https://www.anaconda.com/blog/is-conda-free</a></li>
+</ul>
+</section>
+<section id="attribution" class="level2">
+<h2 class="anchored" data-anchor-id="attribution">Attribution</h2>
+<p>The conda virtual environment section of this guide was originally published at <a href="http://geohackweek.github.io/" class="uri">http://geohackweek.github.io/</a> under a CC-BY license and has been updated to reflect recent changes in conda, as well as modified slightly to fit the MDS lecture format.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<!--
+  Theme the quizdown quizzes.
+
+  `_extensions/quizdown` renders every quiz into a shadow root
+  (`attachShadow({mode: "open"})`), so nothing in `styles.scss` reaches inside
+  one -- a quiz arrives on the page wearing quizdown's own defaults, which are
+  `steelblue` on `#f2f2f2` with black text. In dark mode that is not merely
+  off-brand, it is unreadable: the parts that take a *background* from
+  quizdown's palette but *inherit* their text colour -- the left column of a
+  matching question, an evaluated slot, the per-pair feedback -- end up
+  painting the page's near-white body text onto a near-white fill, 1.03:1.
+
+  Two facts make that fixable from outside the shadow root:
+
+    * custom properties inherit *through* the shadow boundary, so the
+      `--mds-quiz-*` values set on `:root` in `styles.scss` are readable from
+      inside a quiz;
+    * quizdown writes its three colours as inline styles on
+      `.quizdown-content`, and `!important` in a stylesheet beats an inline
+      declaration.
+
+  So this file injects one stylesheet into each quiz's shadow root, written
+  entirely against `--mds-quiz-*`. The light and dark values of those live in
+  `styles.scss` and `styles-dark.scss`, and Quarto swaps those two bundles on
+  the colour-mode toggle -- so a quiz follows the toggle with no JavaScript of
+  its own.
+
+  Wired in from `format.html.include-after-body` in `_quarto.yml`, which is
+  what keeps the vendored extension under `_extensions/quizdown/` untouched: a
+  re-add or an update of that extension cannot clobber any of this.
+
+  Two things are deliberately left alone:
+
+    * `.hljs`, the highlight.js "github" theme quizdown bundles for a *fenced*
+      code block inside a question. Its plate is light in both colour modes,
+      but so are the token colours painted on it, so it stays self-consistent
+      and readable; re-tinting the plate alone would break it, and re-tinting
+      the tokens means shipping a second syntax theme. No question in the book
+      uses a fenced block -- inline code is themed below, and inline code is
+      what the questions actually use.
+    * `.print-review`, the plain questions-and-answers block quizdown reveals
+      under `@media print`. Paper is white in both colour modes, so the light
+      colours there are already the right ones.
+-->
+<script>
+  (() => {
+    // Note for editing: this is a template literal, so nothing inside it may
+    // be quoted in backticks the way the prose around it is -- a stray one
+    // ends the string, and the page fails with a JavaScript syntax error
+    // rather than with anything you would notice in the CSS.
+    //
+    // Every declaration below is `!important`, for two reasons that are not
+    // about winning an argument with the extension. Svelte scopes its own
+    // rules with a build hash (`.prompt.svelte-1ge161l`), which out-specifies
+    // anything we can write without hard-coding a hash that changes on every
+    // quizdown release; and the order our <style> ends up in relative to
+    // Svelte's, inside a shadow root neither of us owns, is not ours to pick.
+    const CSS = `
+      /* ---- the three knobs quizdown itself exposes ------------------------
+         Set as inline styles on .quizdown-content from the quiz config, so
+         !important is the only thing that can move them. Remapping these three
+         alone fixes most of dark mode: everything that reads its background
+         from --quizdown-color-secondary and inherits its text colour then
+         lands on a surface that belongs to the current mode. */
+      .quizdown-content {
+        --quizdown-color-primary: var(--mds-quiz-accent) !important;
+        --quizdown-color-secondary: var(--mds-quiz-surface) !important;
+        --quizdown-color-text: var(--mds-quiz-fg) !important;
+      }
+
+      /* ---- inline code in a question -------------------------------------
+         quizdown paints this #333 on #f8f8f8 in both modes. The book has its
+         own inline-code pair, one per mode, under typography.monospace-inline
+         in _brand.yml. */
+      code {
+        color: var(--mds-quiz-code-fg) !important;
+        background-color: var(--mds-quiz-code-bg) !important;
+      }
+
+      /* ---- buttons -------------------------------------------------------
+         Hard-coded to a white fill, which is a glaring plate on the dark page.
+         The hover is brightness(0.9): darkening is only a change you can see
+         when the surface starts light, so its direction is per-mode too. */
+      button {
+        background-color: var(--mds-quiz-surface) !important;
+        color: var(--mds-quiz-fg) !important;
+      }
+      button:disabled {
+        background-color: var(--mds-quiz-surface) !important;
+        color: var(--mds-quiz-muted) !important;
+      }
+      button:hover:not(:checked):not(:active):not(:disabled) {
+        filter: var(--mds-quiz-press) !important;
+      }
+
+      /* ---- multiple choice and single choice ------------------------------
+         The option rows are already painted from the two variables remapped
+         above; only the hover is hard-coded. */
+      [type='checkbox']:hover + span,
+      [type='checkbox']:focus + span,
+      [type='radio']:hover + span,
+      [type='radio']:focus + span {
+        filter: var(--mds-quiz-press) !important;
+      }
+
+      /* ---- sequence (drag to order) --------------------------------------
+         The rows come from the variables; the reorder buttons take a black
+         focus ring, which is invisible on the dark page. */
+      .buttons button:focus {
+        border-color: var(--mds-quiz-accent) !important;
+      }
+
+      /* ---- matching (drag a chip into a slot) -----------------------------
+         The type with the most hard-coded colour in it, and the one where the
+         dark-mode failure was actually visible: .prompt takes its fill from
+         quizdown's palette and its text colour from the page, so it painted
+         near-white body text onto near-white #f2f2f2. */
+      .arrow,
+      .placeholder {
+        color: var(--mds-quiz-muted) !important;
+      }
+      .slot,
+      .pool {
+        border-color: var(--mds-quiz-border) !important;
+      }
+      .slot-selected,
+      .slot-dragover,
+      .pool-dragover {
+        background-color: var(--mds-quiz-surface) !important;
+      }
+      .chip:hover {
+        filter: var(--mds-quiz-press) !important;
+      }
+      .chip-used {
+        background-color: var(--mds-quiz-surface) !important;
+        border-color: var(--mds-quiz-muted) !important;
+      }
+
+      /* ---- the evaluated state -------------------------------------------
+         Green and red, which the book already has: the success and danger
+         roles in _brand.yml each carry a value per mode. */
+      .slot.correct {
+        border-color: var(--mds-quiz-correct) !important;
+        background-color: var(--mds-quiz-correct-bg) !important;
+      }
+      .slot.wrong,
+      .slot.empty-eval {
+        border-color: var(--mds-quiz-wrong) !important;
+        background-color: var(--mds-quiz-wrong-bg) !important;
+      }
+      .badge-correct,
+      .correct-hint {
+        color: var(--mds-quiz-correct) !important;
+      }
+      .badge-wrong {
+        color: var(--mds-quiz-wrong) !important;
+      }
+      .pair-feedback {
+        border-left-color: var(--mds-quiz-correct) !important;
+        background-color: var(--mds-quiz-correct-bg) !important;
+      }
+      .pair-feedback-wrong {
+        border-left-color: var(--mds-quiz-wrong) !important;
+        background-color: var(--mds-quiz-wrong-bg) !important;
+      }
+
+      /* ---- the credit line under every quiz ------------------------------- */
+      .credits,
+      .credits a {
+        color: var(--mds-quiz-muted) !important;
+      }
+    `;
+
+    // Returns the number of quizzes that do not have a shadow root yet.
+    const paint = () => {
+      let waiting = 0;
+      for (const host of document.querySelectorAll(".quizdown")) {
+        const root = host.shadowRoot;
+        if (!root) {
+          waiting += 1;
+          continue;
+        }
+        if (root.querySelector("style[data-mds-quiz-theme]")) continue;
+        const style = document.createElement("style");
+        style.setAttribute("data-mds-quiz-theme", "");
+        style.textContent = CSS;
+        root.appendChild(style);
+      }
+      return waiting;
+    };
+
+    // quizdown creates the shadow roots from a `load` listener that it only
+    // registers once `DOMContentLoaded` has fired -- later than this script,
+    // which is inline at the end of <body>. A `load` listener added here would
+    // therefore run *before* the one that creates the thing we want to style,
+    // so the first attempt is deferred by a task, and then retried for a few
+    // frames in case a future version of the extension moves that work again.
+    // Bounded, so a quiz that never renders cannot leave a frame loop running.
+    const GIVE_UP_AFTER_MS = 5000;
+    addEventListener("load", () => {
+      const started = performance.now();
+      const tick = () => {
+        if (paint() > 0 && performance.now() - started < GIVE_UP_AFTER_MS) {
+          requestAnimationFrame(tick);
+        }
+      };
+      setTimeout(tick, 0);
+    });
+  })();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ubc-mds\.github\.io\/DSCI_521_platforms-dsci_book\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../appendix/xaringan_slides.html" class="pagination-link" aria-label="Xaringan Slides">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Xaringan Slides</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../appendix/mds_conda_environment.html" class="pagination-link" aria-label="MDS Conda Python Environment">
+        <span class="nav-page-text">MDS Conda Python Environment</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>RStudio Projects and Literate Programming Documents – DSCI 521: Computing Platforms for Data Science</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../lectures/virtual-environments-uv.html" rel="next">
+<link href="../lectures/git-history-merge-conflicts-stash.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-717a1de2394aff971b7ede6d174c0923.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-1a2eaaa657737bc218486a026c59b8e6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-717a1de2394aff971b7ede6d174c0923.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-45100720d3f54066ef127b942bb453b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fb4d70f7a5d22372ff6e6331a6422932.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-45100720d3f54066ef127b942bb453b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdown.js"></script>
+<script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdownKatex.js"></script>
+<script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdownHighlight.js"></script>
+<script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdown-init.js"></script>
+<link href="../site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": true,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1RNLL8GPXK"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
+</script>
+<style>
+div.callout-activity.callout {
+  border-left-color: #0055b7;
+}
+div.callout-activity.callout-style-default .callout-header {
+  background-color: rgba(0, 85, 183, 0.13);
+}
+div.callout-activity .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-activity.callout-style-default .callout-icon::before, div.callout-activity.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\e53d' !important;
+  background-image: none;
+}
+div.callout-exercise.callout {
+  border-left-color: #1c5f2e;
+}
+div.callout-exercise.callout-style-default .callout-header {
+  background-color: rgba(28, 95, 46, 0.13);
+}
+div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f44b' !important;
+  background-image: none;
+}
+</style>
+
+
+<meta property="og:title" content="RStudio Projects and Literate Programming Documents – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/rstudio_ide.png">
+<meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
+<meta property="og:image:height" content="912">
+<meta property="og:image:width" content="1457">
+<meta name="twitter:title" content="RStudio Projects and Literate Programming Documents – DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/rstudio_ide.png">
+<meta name="twitter:image-height" content="912">
+<meta name="twitter:image-width" content="1457">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSCI 521: Computing Platforms for Data Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ubc-mds.github.io/resources_pages/installation_instructions/"> 
+<span class="menu-text">Installation Guide</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs-and-quizzes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Labs and Quizzes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labs-and-quizzes">    
+        <li>
+    <a class="dropdown-item" href="https://ubc-mds.github.io/resources_pages/general_lab_instructions/">
+ <span class="dropdown-text">General Lab Instructions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/UBC-MDS/public/tree/master/rubric#guide-to-rubrics">
+ <span class="dropdown-text">MDS Rubrics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ubc-mds.github.io/resources_pages/quiz_guidelines/">
+ <span class="dropdown-text">MDS Quiz Guidelines</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ubc-mds.github.io/resources_pages/quiz/">
+ <span class="dropdown-text">MDS Quiz Procedures</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ubc-mds.github.io/resources_pages/quiz_cfa/">
+ <span class="dropdown-text">MDS Quiz Procedures - Center for Accessibility</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/git-history-merge-conflicts-stash.html">Week 3</a></li><li class="breadcrumb-item"><a href="../lectures/rstudio-projects-notebooks.html">RStudio Projects and Literate Programming</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../MDSlogo.png" alt="MDS Logo Image" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../MDSlogo.png" alt="MDS Logo Image" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Orientation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/jupyterlab-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JupyterLab Orientation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/rstudio-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio Orientation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/positron-orientation-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Positron Orientation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/book-conventions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conventions in this Book</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/mdstools-bash-filesystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MDS Software and Bash</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/git-github-ssh-basic-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git, GitHub, and SSH</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/quarto-github-pages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto and GitHub Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/rmarkdown-quarto-slides-ghpages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto, RMarkdown, and Jupyter Slides</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/git-history-merge-conflicts-stash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git: History, Conflicts, and Ignores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/rstudio-projects-notebooks.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">RStudio Projects and Literate Programming</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/virtual-environments-uv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Virtual Environments: uv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/virtual-environments-renv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Virtual Environments: renv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/regex-filenames-project-organization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Organization of Data Science Projects</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Regular Expressions (RegEx)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/asking-questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Asking Effective Questions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Additional Information</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/git_config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/rstudio_config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/semantic_line_breaks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semantic Line Breaks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/rmarkdown_tips.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Markdown tips</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Older Materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/xaringan_slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Xaringan Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/virtual-environments-conda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Virtual Environments: conda</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/mds_conda_environment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MDS Conda Python Environment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a>
+  <ul class="collapse">
+  <li><a href="#editing-rstudio-settings-to-not-save-workspace-data" id="toc-editing-rstudio-settings-to-not-save-workspace-data" class="nav-link" data-scroll-target="#editing-rstudio-settings-to-not-save-workspace-data">Editing RStudio settings to not save workspace data</a></li>
+  </ul></li>
+  <li><a href="#r-scripts" id="toc-r-scripts" class="nav-link" data-scroll-target="#r-scripts">R Scripts</a></li>
+  <li><a href="#r-working-directory" id="toc-r-working-directory" class="nav-link" data-scroll-target="#r-working-directory">R Working Directory</a>
+  <ul class="collapse">
+  <li><a href="#setting-the-working-directory" id="toc-setting-the-working-directory" class="nav-link" data-scroll-target="#setting-the-working-directory">Setting the working directory</a></li>
+  </ul></li>
+  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio Projects</a>
+  <ul class="collapse">
+  <li><a href="#the-here-package" id="toc-the-here-package" class="nav-link" data-scroll-target="#the-here-package">The {here} Package</a></li>
+  <li><a href="#creating-rstudio-projects" id="toc-creating-rstudio-projects" class="nav-link" data-scroll-target="#creating-rstudio-projects">Creating RStudio projects</a></li>
+  </ul></li>
+  <li><a href="#literate-programming-documents" id="toc-literate-programming-documents" class="nav-link" data-scroll-target="#literate-programming-documents">Literate programming documents</a></li>
+  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown">Markdown</a>
+  <ul class="collapse">
+  <li><a href="#markdown-and-its-flavours" id="toc-markdown-and-its-flavours" class="nav-link" data-scroll-target="#markdown-and-its-flavours">Markdown and its flavours</a></li>
+  </ul></li>
+  <li><a href="#text-and-rendering-r-markdown-documents" id="toc-text-and-rendering-r-markdown-documents" class="nav-link" data-scroll-target="#text-and-rendering-r-markdown-documents">Text and rendering R Markdown documents</a></li>
+  <li><a href="#r-markdown-and-r-notebooks" id="toc-r-markdown-and-r-notebooks" class="nav-link" data-scroll-target="#r-markdown-and-r-notebooks">R Markdown and R Notebooks</a>
+  <ul class="collapse">
+  <li><a href="#create-run-and-edit-code-chunks" id="toc-create-run-and-edit-code-chunks" class="nav-link" data-scroll-target="#create-run-and-edit-code-chunks">Create, Run, and Edit Code Chunks</a></li>
+  <li><a href="#naming-code-chunks-and-r-markdown-document-sections" id="toc-naming-code-chunks-and-r-markdown-document-sections" class="nav-link" data-scroll-target="#naming-code-chunks-and-r-markdown-document-sections">Naming code chunks and R Markdown document sections</a></li>
+  <li><a href="#code-chunk-options" id="toc-code-chunk-options" class="nav-link" data-scroll-target="#code-chunk-options">Code chunk options</a></li>
+  <li><a href="#a-few-tips-and-tricks" id="toc-a-few-tips-and-tricks" class="nav-link" data-scroll-target="#a-few-tips-and-tricks">A few tips and tricks</a></li>
+  </ul></li>
+  <li><a href="#r-markdown-templates" id="toc-r-markdown-templates" class="nav-link" data-scroll-target="#r-markdown-templates">R Markdown templates</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/git-history-merge-conflicts-stash.html">Week 3</a></li><li class="breadcrumb-item"><a href="../lectures/rstudio-projects-notebooks.html">RStudio Projects and Literate Programming</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">RStudio Projects and Literate Programming Documents</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
+<ol type="1">
+<li>Create RProjects in RStudio using <code>here</code> to define robust file paths.</li>
+<li>Detect the basic components of a dynamic document in Jupyter Notebooks and in R Markdown.</li>
+<li>Explain markdown usage in relation to dynamic documents.</li>
+<li>Differentiate between code chunks and code cells in RMarkdown and Jupyter Notebooks.</li>
+<li>Select appropriate code chunk options for RMarkdown.</li>
+<li>Use semantic line breaks for version control files.</li>
+<li>Specify metadata in the YAML header block.</li>
+</ol>
+<p><strong>Platform in focus</strong> RStudio IDE</p>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You have been working on a breast cancer prediction report <a href="https://ttimbers.github.io/breast_cancer_predictor/doc/breast_cancer_predict_report.html">following report</a> and recently discovered an error in one of your calculations, affecting multiple results throughout the report.</p>
+<p>Given this situation, how would you approach correcting the report efficiently? Consider how you might use various tools, such as maintaining multiple versions of the document in Microsoft Word or tracking calculations in Excel. Are there other methods or tools you could use to streamline this process? How would you prevent similar errors in the future?</p>
+</div>
+</div>
+</section>
+<section id="rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio">RStudio</h2>
+<p>We have already seen RStudio in the <a href="../lectures/rstudio-orientation-intro.html">RStudio Orientation</a>. RStudio is an Interactive Development Environment (IDE), just like JupyterLab. This means it comes with some conveniences, such as code completion when pressing <kbd>Tab</kbd>, highlighting of syntax errors, and debugging tools.</p>
+<p><img src="img/rstudio_ide.png" class="img-fluid"></p>
+<p>The interface is also similar to JupyterLab (and many other IDEs) as it has panels for browsing files, reading help documentation, and running code in a console. You are already familiar with the concept of many of these from running JupyterLab, but they are arranged slightly different in RStudio. While you can write both R and Python code in RStudio, we’ll use it mostly for R in MDS.</p>
+<p>Please see the <a href="../lectures/rstudio-orientation-intro.html#recommended-rstudio-setup">RStudio Orientation: Recommended RStudio Setup</a> to configure the IDE with safe defaults on launch.</p>
+<p><img src="img/rstudio-global_options-general.png" class="img-fluid"></p>
+<section id="editing-rstudio-settings-to-not-save-workspace-data" class="level3">
+<h3 class="anchored" data-anchor-id="editing-rstudio-settings-to-not-save-workspace-data">Editing RStudio settings to not save workspace data</h3>
+<p>By default, R asks us to save workspace data and load it when we start a new session. In general, we <strong>NEVER</strong> want to save our workspace (or load a previous one). We can avoid accidentally doing this through turning it off in the RStudio global options in the Tools menu.</p>
+</section>
+</section>
+<section id="r-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="r-scripts">R Scripts</h2>
+<p>A script is a text file that contains multiple commands that you want to be executed all together. In DSCI-511, you have seen how you can use VS Code to create Python scripts in <code>.py</code> files. Here, we will use RStudio to create an R script and save it in a <code>.R</code> file.</p>
+<p>To create a new R Script, navigate to <code>New File -&gt; R Script</code>. Write a few lines of code, e.g.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R Script</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="R Script"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"y = "</span>, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You can press the “Source” button to run the entire script (running a script is often referred to as “sourcing” it, hence the name). As you can see, the Console shows you what line it ran in order to source the script (you could also type this out yourself), and then displayed any output from the script in the end. You can run just part of a script by pressing the “Run” button, which runs any highlighted lines (the current line by default, the keyboard shortcut is <kbd>Ctrl</kbd> + <kbd>Enter</kbd>).</p>
+<p>If a plot is generate from the executed code, it will show up in the “Plots” tab in the bottom left panel. You can try it by adding the following line to the script and clicking to run it (it uses a built-in data set called “cars”):</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R Script</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="R Script"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="r-working-directory" class="level2">
+<h2 class="anchored" data-anchor-id="r-working-directory">R Working Directory</h2>
+<p>Different from JupyterLab, when you open RStudio you open a <code>.R</code> or <code>.Rmd</code> file the RStudio, the current working directory is <strong>not</strong> necessarily the project working directory, or the directory of the file you opened.</p>
+<p><strong>EVERY SESSION</strong> you need to tell RStudio where you are working. Especially if you are loading other files outside of your <code>.R</code> or <code>.Rmd</code> file.</p>
+<p>So, where are you when you open RStudio? You can find out one of two ways:</p>
+<ol type="1">
+<li>type <code>getwd()</code> in the console</li>
+<li>In the files pane, click the Cog/More button and then click “Go To Working Directory”</li>
+</ol>
+<section id="setting-the-working-directory" class="level3">
+<h3 class="anchored" data-anchor-id="setting-the-working-directory">Setting the working directory</h3>
+<p>There are three ways to set your working directory:</p>
+<ul>
+<li><p>Method 1. <em>Use an RStudio project</em> (Best Option): RStudio projects help organize your work and manage your files and settings. More details on RStudio projects are provided below.</p></li>
+<li><p>Method 2. <em>Set the working directory through the Files pane</em>: Navigate to the desired location in your file structure using the Files pane. Once there, click the cog/More button and select “Set As Working Directory”.</p></li>
+<li><p>Method 3. <em>Set the working directory via the Session menu</em>: Go to the Session menu, click “Set Working Directory”, and then choose “Choose Directory”. This will open a file browser where you can navigate to and select the desired directory.</p></li>
+<li><p>Method 4. <em>Set the working directory using the console</em>: Type <code>setwd("PATH")</code> in the console, replacing “PATH” with the path to your desired directory. Use this method with care, as explained in Jenny’s <a href="https://www.tidyverse.org/articles/2017/12/workflow-vs-script/">article on workflow vs.&nbsp;script</a>.</p></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The RStudio project method (Method 1) is the <strong>only</strong> way you can consistently set a working directory that also works in a collaborative workflow.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="rstudio-projects" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-projects">RStudio Projects</h2>
+<p>An RStudio project is essentially a directory containing a special file: <code>*.Rproj</code>, which holds metadata for R about this project. RProjects set the working directory by default to be the root of the project and we recommend using it together with the <code>{here}</code> package, which can easily create paths relative from the root project dir</p>
+<section id="the-here-package" class="level3">
+<h3 class="anchored" data-anchor-id="the-here-package">The {here} Package</h3>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You have cloned a project folder containing an <code>.Rmd</code> file that loads data using the following code:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>.Rmd</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename=".Rmd"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cars <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/cars.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>What could go wrong when you try to render this file, and how could you modify the code to prevent potential issues?</p>
+<p>Hint: Think about file paths and project structure. You might consider using a specific function to handle paths.</p>
+</div>
+</div>
+<p>When you load the <code>{here}</code> package, it will echo the current project root directory. You should always confirm that this is the expected starting location for your project.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("here")</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at /home/runner/work/DSCI_521_platforms-dsci_book/DSCI_521_platforms-dsci_book</code></pre>
+</div>
+</div>
+<p>If your <code>iris.csv</code> data is in <code>project_root/files/data/</code> this will make sure that anyone using your project will get the correct path</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>(<span class="st">"files"</span>, <span class="st">"data"</span>, <span class="st">"iris.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/home/runner/work/DSCI_521_platforms-dsci_book/DSCI_521_platforms-dsci_book/files/data/iris.csv"</code></pre>
+</div>
+</div>
+<p>The <code>{here}</code> package finds the project root directory, and allows you to provide a relative path to any of the files from that root project directory. In turn, <code>here::here()</code> will return the absolute path to the specified file or directory.</p>
+<p>This method of having the user code always use a relative path, and the function resolving to an absolute path is a way files can be located across different computers, especially when working on a collaborative project.</p>
+<p>Another benefit of the <code>here::here()</code> function, is that if your data location does not change, and you move your analysis file into a different folder, you would not need to change your code, because the relative path to the data from the root directory stayed the same.</p>
+</section>
+<section id="creating-rstudio-projects" class="level3">
+<h3 class="anchored" data-anchor-id="creating-rstudio-projects">Creating RStudio projects</h3>
+<p>You can either create an empty RStudio project, or clone an existing GitHub repo, which also allows you to use the RStudio interface to control Git.</p>
+<ol type="1">
+<li>Start by making a GitHub repo</li>
+<li>Copy the URL needed to clone that repo from GitHub</li>
+<li>Then select <strong>File &gt; New Project &gt; Version Control &gt; Git</strong> and fill in.</li>
+</ol>
+<p><img src="img/new_project.png" class="img-fluid"></p>
+<p>Now you can use RStudio as a Git client via the colorful icon in the toolbar of the edit panel. This includes adding parts of a document do the staging area, committing, pushing, pulling, and more. Using terminal Git will still be more reliable, since it is available anywhere Git is installed, but feel free to use the RStudio (or VS Code) interfaces as a complement.</p>
+<p>Creating an RStudio Project this way is the same way as running <code>git clone</code> on the remote repository and then selecting “Existing Directory” in the New Project Wizard. The benefit of creating the repository on the remote first, is the same reason we discussed in the Git + GitHub chapters, and saves us the steps of running <code>git init</code> and manually hooking up the remote repositories.</p>
+</section>
+</section>
+<section id="literate-programming-documents" class="level2">
+<h2 class="anchored" data-anchor-id="literate-programming-documents">Literate programming documents</h2>
+<p>Our journey to understand what is a dynamic document is linked with the literate programming paradigm [2] proposed bu Knuth in 1984 [1].</p>
+<blockquote class="blockquote">
+<p><em>I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be works of literature. Hence, my title: “Literate Programming.”</em> <em>Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.”…</em></p>
+<p>–Donald Knuth. “Literate Programming (1984)” in Literate Programming. CSLI, 1992, pg. 99.</p>
+</blockquote>
+<p>In the <strong>literate programming</strong> paradigm, an author has two (equally important) tasks [2]:</p>
+<ol type="1">
+<li>Write program code to do computing</li>
+<li>Write narratives to explain what is being done by the program code</li>
+</ol>
+<p>Going back to <a href="#activity-1">first exercise of this lesson</a>, the best way would be to make sure all the plots and results can be replicated by the code and we can reference the generated artifacts in the report.</p>
+<p>However, code, even with documentation strings (i.e., docstrings), may not be easily understandable for people. Adding a narrative to the results will not only improve the capacity to understand the analysis and serve as a detailed documentation if not will allow to easily render again the document after changes in the code.</p>
+<p>The idea of accompanying the code with so much detailed text, was not widely adopted for software projects [3] but turn into an amazing tool for data scientists who frequently uses these documents as reports products of their analysis. The rendering of the plots, figures, and tables next to the text in a manuscript allows giving valuable context to the visualizations.</p>
+<p>Most of you are probably familiarized with dynamic literate programming documents as <strong>Jupyter Notebooks</strong> (<code>.ipynb</code>), <strong>RMarkdown documents</strong> (<code>.Rmd</code>), and <strong>Quarto documents</strong> (<code>.qmd</code>).</p>
+<p>From the two elements that compose the dynamic documents, there are three principal components that are the similar for Jupyter Notebooks, RMarkdown documents, and Quarto documents:</p>
+<ul>
+<li>The narrative is created with text formatted with <strong>markdown</strong></li>
+<li>The code can be run and it is combined with the text in two different ways:
+<ul>
+<li>Interleaved as part of the text, called <strong>inline code</strong>.</li>
+<li>In separated code blocks called <strong>code cells</strong> (Jupyter Notebooks, Quarto), or <strong>code chunks</strong> (RMarkdown) that allow rendering code.</li>
+</ul></li>
+</ul>
+<p><img src="img/rmd-inline.png" class="img-fluid" alt="alttag"> <em>Example inline code in RMarkdown</em> - <a href="https://rmarkdown.rstudio.com/articles_intro.html" class="uri">https://rmarkdown.rstudio.com/articles_intro.html</a> <img src="img/rmd-code.png" class="img-fluid" alt="alttag"> <em>Example code chunk in RMarkdown</em> - <a href="https://rmarkdown.rstudio.com/articles_intro.html" class="uri">https://rmarkdown.rstudio.com/articles_intro.html</a></p>
+</section>
+<section id="markdown" class="level2">
+<h2 class="anchored" data-anchor-id="markdown">Markdown</h2>
+<blockquote class="blockquote">
+<p>The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions.</p>
+<p>–John Gruber</p>
+</blockquote>
+<p>Jupyter Notebooks, RMarkdown documents, and Quarto documents use markdown to format the text. But, markdown has it’s own identity! We’ve already worked with markdown many times, including the <code>README.md</code> files of most of the projects we have created.</p>
+<p><a href="https://glosario.carpentries.org/en/#markdown">Markdown</a> is a <a href="https://glosario.carpentries.org/en/#markup_language">markup language</a> that you can use to add formatting elements to easy to read plain-text text documents [4,5]. Markdown files have their own file extension (<code>.md</code>) that could be easily converted other formats. One example is <a href="https://glosario.carpentries.org/en/#html">HTML</a>, that can be rendered as a web page.</p>
+<p>Now we can start to understand the power of markdown, and why it is so popular.</p>
+<ol type="1">
+<li><p><strong>Simple formatting syntax</strong>: Allows translation of content to HTML (and many other formats) without having to be an expert.</p></li>
+<li><p><strong>Human readable</strong>: Compare markdown and <code>HTML</code>, which one is easier to understand by reading only the code?</p></li>
+<li><p><strong>Plain-text document</strong>: This means that it is open by mostly any editor, making <code>.md</code> files quite reproducible.</p></li>
+</ol>
+<p>The markdown, <code>.md</code>, file is a common file format that can be used by tools such as []<code>pandoc</code>](https://pandoc.org/) to convert to many other types, e.g., <code>pdf</code>, <code>html</code>, <code>epub</code>, <code>docx</code>, <code>ppt</code>, etc.</p>
+<p>If your goal is to render the final <code>.html</code> document, keep in mind that you will need an extra step to view the file in a web browser. Also, <code>.html</code> documents can not only be render as web pages, you can create with them blogs, books, articles. We saw this in the <a href="../lectures/quarto-github-pages.html">Quarto and Git Hub Pages Lesson</a>.</p>
+<p>GitHub does will also render the <code>README.md</code> file of <strong>every</strong> directory in a repository.</p>
+<p><img src="img/markdown-flowchart.png" class="img-fluid"> Image extracted from: https://www.markdownguide.org/getting-started/</p>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What are the primary benefits of using Markdown for formatting text documents?</p>
+<p>A. It requires complex software to edit</p>
+<p>B. It is human-readable and easily converted to HTML</p>
+<p>C. It cannot be opened by most editors</p>
+<p>D. It is not suitable for web pages</p>
+</div>
+</div>
+<section id="markdown-and-its-flavours" class="level3">
+<h3 class="anchored" data-anchor-id="markdown-and-its-flavours">Markdown and its flavours</h3>
+<p>The official markdown specifications is ambiguous which lead to different implementations of <a href="https://babelmark.github.io/faq/">markdown</a> [6]. The same markdown syntax can render different outputs depending on the rendering engine. For example, a <code>README.md</code> file can render differently on GitHub than from <code>pandoc</code>. <a href="https://babelmark.github.io">Babelmark III</a> is a website that can detect and return all the different markdown variants, as well as list well known pitfalls. Markdown also has many <strong>extensions</strong>, and not all extensions will work on all flavors of markdown.</p>
+<p>In MDS we handle a limited number of markdown flavours (in order of appearance in DSCI 521):</p>
+<ol type="1">
+<li><a href="https://jupyterbook.org/en/stable/file-types/markdown.html">Jupyter Notebook (and Jupyter Book) Markdown</a>: is an extension of a Markdown flavour called <a href="https://commonmark.org/">CommonMark Markdown</a>. If you completed the tutorial from the orientation lessons, you already have some practice on it! <a href="https://commonmark.org/help/tutorial/" class="uri">https://commonmark.org/help/tutorial/</a></li>
+<li><a href="https://github.github.com/gfm/#what-is-github-flavored-markdown-">GitHub flavoured Markdown</a>. To write issues, pull request, render your <code>README.md</code> file in the first page of your repository you will be using this Markdown flavour. It is a (different) extension of the CommonMark Spec also used for Jupyter Notebooks.
+<ul>
+<li>Read how to use it <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">here!</a></li>
+</ul></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">R Markdown documents</a>. R Markdown is an implementation of <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc Markdown (with a wide list of interesting extensions!)</a></li>
+</ol>
+<p>Don’t panic! The important take-home message of this is that you should always check the documentation of the technology you are using. Even if for most of the cases could be quite similar, there is not an universal markdown cheatsheet or proceeding that will possible to be used with all of them.</p>
+<section id="a-good-practice-when-writing-in-markdown-semantic-line-breaks" class="level4">
+<h4 class="anchored" data-anchor-id="a-good-practice-when-writing-in-markdown-semantic-line-breaks">A good practice when writing in markdown: <strong>Semantic line breaks</strong></h4>
+<blockquote class="blockquote">
+<p><strong>Hints for Preparing Documents</strong></p>
+<p>Most documents go through several versions (always more than you expected) before they are finally finished. Accordingly, you should do whatever possible to make the job of changing them easy.</p>
+<p>First, when you do the purely mechanical operations of typing, type so subsequent editing will be easy. Start each sentence on a new line. Make lines short, and break lines at natural places, such as after commas and semicolons, rather than randomly. Since most people change documents by rewriting phrases and adding, deleting and rearranging sentences, these precautions simplify any editing you have to do later.</p>
+<p>— Brian W. Kernighan, 1974 [9]</p>
+</blockquote>
+<p>Semantic line breaks help your source code files with version control, while also putting breaks that can make it easier to read the source file. When version controlling markdown files, the semantic line breaks make it easier to see where the actual differences and changes to the file were made when running <code>git diff</code>.</p>
+<p>How markdown renders a new line break:</p>
+<ul>
+<li>Use the <code>&lt;br/&gt;</code> HTML tag at the end of a line</li>
+<li>Place 2 spaces at the end of a line followed by a new line</li>
+<li>Use an extra empty line for a line break</li>
+</ul>
+<p>We provide more examples in the <a href="../appendix/semantic_line_breaks.html">Semantic Line Breaks Chapter</a></p>
+</section>
+</section>
+</section>
+<section id="text-and-rendering-r-markdown-documents" class="level2">
+<h2 class="anchored" data-anchor-id="text-and-rendering-r-markdown-documents">Text and rendering R Markdown documents</h2>
+<p>In a R Markdown document any line of text not in a code chunk (like this line of text) will be formatted using Markdown. Similar to JupyterLab, you can also use HTML and LaTeX here to do more advanced formatting. Unlike JupyterLab, you do not get to see these Markdown sections rendered on their own. To see this text rendered, <strong>you need to render the whole document</strong>. You can do that clicking the “Knit” or “Preview” button on the top. The difference between these two is that “Preview” creates a HTML version of your document as it looks right now, whereas “Knit” first restarts the R session and runs through the entire document from the beginning to make sure it will work when you send it to someone else.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Given that you need to render the entire document to see your Markdown and LaTeX rendered, <strong>it is important to “knit” often as you make changes</strong>. If you make an error in a LaTeX equation for example, it will stop the knitting/rendering process and you will not get to see the rendered document. So by knitting/rendering often you will know where the last changes you made are and then will be able to easily identify and fix your errors.</p>
+</div>
+</div>
+<section id="r-markdown-.rmd---markdown-.md" class="level4">
+<h4 class="anchored" data-anchor-id="r-markdown-.rmd---markdown-.md">R Markdown (<code>.Rmd</code>) -&gt; Markdown (<code>.md</code>)</h4>
+<p>Analogous to the Jupyter Notebook cells, the R Markdown code chunks after being render will be embedded in your final report.</p>
+<p>When you run render, R Markdown feeds the <code>.Rmd</code> file to <code>knitr</code>, which executes all of the code chunks and creates a new markdown (<code>.md</code>) document containing the code and its outputs.</p>
+<p>The markdown file generated by <code>knitr</code> is then processed by <code>pandoc</code> which is responsible for creating the finished format.</p>
+<p><img src="img/rstudio-conf-2022-rmarkdown.png" class="img-fluid" alt="alttag"> <em>Rmarkdown documents are created from text and R code</em></p>
+<div class="callout callout-style-default callout-activity callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Activity</span>Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What is the primary advantage of using an <code>.Rmd</code> file over a <code>.md</code> file to create the final HTML document?</p>
+<p>A. <code>.Rmd</code> files do not support code chunks.</p>
+<p>B. <code>.Rmd</code> files allow for the inclusion of executable code chunks, producing dynamic documents.</p>
+<p>C. <code>.md</code> files are easier to edit.</p>
+<p>D. There is no difference between <code>.Rmd</code> and <code>.md</code> files in terms of functionality.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="r-markdown-and-r-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-and-r-notebooks">R Markdown and R Notebooks</h2>
+<p>R Markdown is a “flavor” of Markdown that allows you to run R code in addition to supporting all the Markdown syntax that you have already learned.</p>
+<p>R Markdown documents (<code>.Rmd</code>) work similarly to Jupyter notebooks in the sense that you can interleave writing code, formatted narrative text, and view output all in the same document. These are both examples of what it called “literate programming” where the goal is to mix code and paragraph text seamlessly.</p>
+<p>R Notebooks are a little different. Let’s see an example of this by creating a new R Notebook via <code>File -&gt; New -&gt; R Notebook</code>. As you can see, there is a default template for Notebooks, which include useful info on how to use them. We can see the keyboard shortcuts for running and inserting cells, and when we execute the plot code the plot shows up inside the notebook rather than in the side panel as when we ran the same line from within the script script.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The main difference in an R Markdown document and an R Notebook document, is that R Markdown will “knit” the document in a new R session from top to bottom <strong>every time</strong>. The R Notebook, will convert whatever you have directly into HTML as-is. It does not execute any code on “Preview”.</p>
+<p>You can tell the difference by either looking at the YAML header of the document, or in RStudio, you will see a different button (Knit vs Preview).</p>
+</div>
+</div>
+<section id="create-run-and-edit-code-chunks" class="level3">
+<h3 class="anchored" data-anchor-id="create-run-and-edit-code-chunks">Create, Run, and Edit Code Chunks</h3>
+<p>Just like Jupyter notebooks, R Markdown has code cells, although they’re more commonly referred to as code “chunks” or “blocks”. These are based off fenced Markdown code blocks and always start and end with 3 backticks (```), just like in Markdown. Unique to R Markdown is that the leading three backticks are followed by curly braces containing the language engine you want to run, which for r looks like this <code>{r}</code>. Additional metadata can be included, for example a name to reference the code chunk:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r my-first-code-chunk}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>There are other language engines that can be used in RMarkdown, you can learn more about that <a href="https://bookdown.org/yihui/rmarkdown/language-engines.html">here</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>R Markdown documents can also execute Python code, you will need to have the R <code>{reticulate}</code> package installed, and then point your R installation to the Python version you need.</p>
+<p>You can learn more about <code>{reticulate}</code>: <a href="https://rstudio.github.io/reticulate/" class="uri">https://rstudio.github.io/reticulate/</a></p>
+</div>
+</div>
+<p>All code cells are run when you knit/render the entire document (like pressing “Run all” in JupyterLab). By default, the code in the chunk and the code output will be included in your rendered document. You can also run the code by clicking the green play button on the right-hand side of the code chunk.</p>
+</section>
+<section id="naming-code-chunks-and-r-markdown-document-sections" class="level3">
+<h3 class="anchored" data-anchor-id="naming-code-chunks-and-r-markdown-document-sections">Naming code chunks and R Markdown document sections</h3>
+<p>When you include Markdown headers (using the <code>#</code> symbol) R Studio automatically creates a pop-up-like menu for you to use to navigate the document, which you can access by clicking the bar below this editor panel. It looks like:</p>
+<p><img src="img/menu0.png" class="img-fluid"></p>
+<p><img src="img/menu1.png" class="img-fluid"></p>
+<p>By clicking on any of the headings in the pop-up-like menu, RStudio will navigate you to that section of the R Markdown document. Try clicking on one to see how it works.</p>
+<p>In addition to Markdown headings, RStudio also keeps track of code chunks in that menu. By default RStudio names the chunks by their position (e.g.&nbsp;Chunk 1, Chunk 2, etc). But in reality those names are not that useful and it is more helpful to give code chunks meaningful names. For example, in the code chunk below where we use a for loop to sum the numbers from 1 to 10, we name the chunk <code>for loop sum</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r for loop sum}</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># initialize sum to 0</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>loop_sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># loop of a sequence from 1 to 10 and calculate the sum</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)){</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  loop_sum <span class="ot">&lt;-</span> loop_sum <span class="sc">+</span> i</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(loop_sum)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 55</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-exercise callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exercise</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Convert Markdown to R Markdown and Generate a Plot</strong></p>
+<p><strong>Objective:</strong> Convert a given Markdown file into an R Markdown document. Ensure that the document includes at least one plot generated from a built-in R dataset. Submit the .Rmd file and the rendered HTML output. Additionally, discuss the advantages of using .Rmd over .md for generating dynamic documents.</p>
+<p><strong>Instructions:</strong></p>
+<ol type="1">
+<li><strong>Markdown to R Markdown Conversion:</strong>
+<ul>
+<li>Start with a provided Markdown file (e.g., <code>example.md</code>).</li>
+<li>Convert this Markdown file into an R Markdown document (<code>example.Rmd</code>).</li>
+<li>Ensure to include a necessary YAML header at the beginning of the document for proper rendering.</li>
+</ul></li>
+<li><strong>Adding a Plot:</strong>
+<ul>
+<li>Use a built-in R dataset (e.g., <code>mtcars</code>, <code>iris</code>) to generate a plot.</li>
+<li>Include the plot within a code chunk in your R Markdown document.</li>
+<li>Ensure that the plot renders correctly in the final HTML output.</li>
+</ul></li>
+<li><strong>Rendering the Document:</strong>
+<ul>
+<li>Render the <code>.Rmd</code> file to HTML format.</li>
+<li>Ensure all code chunks, plots, and narrative content are properly displayed in the rendered HTML document.</li>
+</ul></li>
+<li><strong>Discussion:</strong>
+<ul>
+<li>Write a section in your R Markdown document discussing the advantages of using <code>.Rmd</code> over <code>.md</code> for generating dynamic documents.</li>
+<li>Consider aspects such as reproducibility, integration of code and narrative, and the ability to produce various output formats.</li>
+</ul></li>
+<li><strong>Submission:</strong>
+<ul>
+<li>Submit the following:
+<ul>
+<li>The original Markdown file (<code>example.md</code>).</li>
+<li>The converted R Markdown file (<code>example.Rmd</code>).</li>
+<li>The rendered HTML output (<code>example.html</code>).</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Questions:</p>
+<ol type="1">
+<li>What are the advantages of using .Rmd over .md for generating dynamic documents?</li>
+<li>How do you include and render a plot from a built-in R dataset in an R Markdown document?</li>
+<li>What are the necessary steps to convert a Markdown file to an R Markdown document?</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="code-chunk-options" class="level3">
+<h3 class="anchored" data-anchor-id="code-chunk-options">Code chunk options</h3>
+<p>There are many code chunk options that you can set. These options let you customize chunk behavior, including whether a chunk is evaluated, whether to include the output in the rendered document, etc. A short list of code chunk options is shown below, but you can find an extensive list starting on the second page of <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">this</a> document.</p>
+<p><img src="img/chunk_options.jpeg" class="img-fluid"></p>
+<p>You can set the chunk options at either a global level (once set they will be applied to all code chunks in the <code>.Rmd</code> file) or locally for a specific chunk (these will override the global chunk options if they are contradictory).</p>
+<p>Global options are usually set in one chunk at the top of the document and looks like this:</p>
+<!-- hack to get the chunk to render -->
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r setup, include=FALSE}</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">knitr::opts_chunk$set(echo = FALSE)</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Global chunk options are set by adding them as arguments to <code>knitr::opts_chunk$set(...)</code>; replace the <code>...</code> with comma separated options. For example, if you set the global chunk option to <code>echo = FALSE</code>, it will hide the code chunks and only shows the output. This is something that can be useful for non-technical reports.</p>
+<p>Local chunk options are set by adding the options in the curly braces of a code chunk after the language engine and code chunk name. For example, to not display warnings in a single code chunk we would use the <code>warning = FALSE</code> code chunk as follows:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># some R code that throws a warning</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>( <span class="fu">c</span>( <span class="dv">1</span> , <span class="dv">1</span> ), <span class="fu">c</span>( <span class="dv">2</span> , <span class="dv">3</span> ) )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<p>R Markdown and <code>knitr</code> also support the Quarto <code>#|</code> comment option. At the beginning of your code chunk, you can supply your chunk options with a comment. This allows you to put many options (and long option text) on separate lines. This plays well with version control and tries to follow semantic line break rules.</p>
+<p>For example, you can re-write the <code>correlation no warning</code> chunk as</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, correlation no warning 2}</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>( <span class="fu">c</span>( <span class="dv">1</span> , <span class="dv">1</span> ), <span class="fu">c</span>( <span class="dv">2</span> , <span class="dv">3</span> ) )</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>#|</code> chunk option notation takes in a different format than the inline option. E.g., we use YAML <code>true</code>, and <code>false</code> values, instead of R’s <code>TRUE</code>, and <code>FALSE</code>. We also use <code>:</code> to set key-value pairs, instead of <code>=</code>.</p>
+<p>Also for the <code>correlation no warning</code> examples above we needed to change the name of the second chunk because documents cannot have chunks with the same name.</p>
+</div>
+</div>
+<p>See this page for more information about chunk options: <a href="https://yihui.org/knitr/options" class="uri">https://yihui.org/knitr/options</a></p>
+</section>
+<section id="a-few-tips-and-tricks" class="level3">
+<h3 class="anchored" data-anchor-id="a-few-tips-and-tricks">A few tips and tricks</h3>
+<ul>
+<li>R Markdown (and Quarto) support inline evaluated code via the following syntax</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Adding 3 to 4 gives <span class="in">`r 4 + 3`</span>.</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>The value of <span class="in">`x`</span> is currently <span class="in">`r x`</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Latex equations can be written the same way as in Jupyter notebooks and standard markdown documents.
+<ul>
+<li><code>$\alpha = 5$</code> for inline latex and <code>$$\alpha = 5$$</code> for a math block.</li>
+<li>When hovering over equations, R Studio will display the rendered equation in a pop up.</li>
+</ul></li>
+<li>R Markdown is built upon the Pandoc Markdown engine. This is useful to know since the <a href="https://pandoc.org/MANUAL.html">Pandoc manual</a> is a great exhaustive resource for looking up anything Markdown related.</li>
+<li>One of the features made available thanks to Pandoc is support for citations and bibliographies.
+<ul>
+<li>Let’s cite the R-package by typing <code>citation()</code> into the console, and copying the BibTex citation into a new document that we call <code>rstudio-demo.bib</code> and adding an identifier string (a key) before the first comma, e.g.&nbsp;<code>r-lang</code>.</li>
+<li>Include the following field in the YAML metadata in the beginning of the document: <code>bibliography: rstudio-demo.bib</code>, then cite it somewhere in the text by adding <code>[@r-lang]</code>. The bibliography will be appended to the document, so it is advisable to add a heading saying <code># References</code> at the very end.</li>
+</ul></li>
+</ul>
+<p>When working with R Markdown (and code in general) be careful that you don’t copy stylized quotation marks because these will not work. For example, this will throw an error:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>a = “This string”</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>It should look like this instead:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>a = "This string"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="r-markdown-templates" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-templates">R Markdown templates</h2>
+<p>We have seen how to use the output formats <code>html_document</code> and <code>pdf_document</code>, but as noted in lab3 during the lab, there are many more. A commonly used one is <code>github_document</code>, which both saves a <code>.md</code> markdown file and creates a temporary <code>.html</code> files for preview of how it will look on GitHub, which is stored in a temporary folder and later deleted. This format does not have as many options as HTML, and you can use it like this:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>YAML header</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20" data-filename="YAML header"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Another way of creating a a <code>github_document</code> is to go to <code>New -&gt; R Markdown -&gt; From Template -&gt; GitHub Document</code>. As you can see there are other useful templates here. We will see how to create a presentation soon.</p>
+<p>A word document can be created with this YAML header:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>YAML header</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21" data-filename="YAML header"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> word_document</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We can modify the style of a word document by opening one of our previously exported word files (it must have been created with R Studio / Pandoc), <a href="https://bookdown.org/yihui/rmarkdown-cookbook/word-template.html">changing the styling options as shown here</a>, saving this under a new name, and then using it as a template:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>YAML header</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22" data-filename="YAML header"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">reference_docx</span><span class="kw">:</span><span class="at"> </span><span class="st">"our-style-doc.docx"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>There are <a href="https://bookdown.org/yihui/rmarkdown/document-templates.html">more details in this article</a>, including how to create your own custom template, for example for a CV.</p>
+<div class="callout callout-style-default callout-exercise callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exercise</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Creating an RStudio Project and Generating an R Markdown Report</strong></p>
+<p><strong>Objective:</strong> Create an RStudio project, write a script to analyze a dataset of your choice, and generate a report in R Markdown. The report should include a narrative, code chunks, and visualizations. Submit the RStudio project folder along with the .Rmd file and the rendered HTML output. Additionally, include a section comparing R Notebooks and .Rmd documents, highlighting their similarities and differences.</p>
+<p><strong>Instructions:</strong></p>
+<ol type="1">
+<li><strong>Create an RStudio Project:</strong>
+<ul>
+<li>Open RStudio and create a new project (e.g., <code>Data_Analysis_Project</code>).</li>
+<li>Organize the project with appropriate folders for data, scripts, and reports.</li>
+</ul></li>
+<li><strong>Dataset Selection and Analysis:</strong>
+<ul>
+<li>Choose a dataset of your choice. This can be a built-in R dataset or an external dataset.</li>
+<li>Write an R script (<code>analysis.R</code>) to perform the data analysis. The script should include data loading, cleaning, analysis, and visualization.</li>
+</ul></li>
+<li><strong>Generate an R Markdown Report:</strong>
+<ul>
+<li>Create an R Markdown document (<code>report.Rmd</code>) within the project.</li>
+<li>The report should include:
+<ul>
+<li>A narrative explaining the analysis.</li>
+<li>Code chunks displaying the R code used for analysis.</li>
+<li>Visualizations generated from the analysis (e.g., plots, charts).</li>
+</ul></li>
+</ul></li>
+<li><strong>Rendering the Report:</strong>
+<ul>
+<li>Render the <code>.Rmd</code> file to HTML format.</li>
+<li>Ensure all code chunks, plots, and narrative content are properly displayed in the rendered HTML document.</li>
+</ul></li>
+<li><strong>Comparison Section:</strong>
+<ul>
+<li>Include a section in your report comparing R Notebooks and .Rmd documents.</li>
+<li>Highlight their similarities and differences, focusing on aspects such as interactivity, use cases, and workflow integration.</li>
+</ul></li>
+<li><strong>Submission:</strong>
+<ul>
+<li>Submit the following:
+<ul>
+<li>The entire RStudio project folder.</li>
+<li>The R script (<code>analysis.R</code>).</li>
+<li>The R Markdown file (<code>report.Rmd</code>).</li>
+<li>The rendered HTML output (<code>report.html</code>).</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Questions:</p>
+<ol type="1">
+<li>What are the key steps in setting up an RStudio project and organizing it for data analysis?</li>
+<li>How do you include and render visualizations in an R Markdown report?</li>
+<li>What are the similarities and differences between R Notebooks and .Rmd documents?</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ol type="1">
+<li>D. E. Knuth, Literate Programming, The Computer Journal, Volume 27, Issue 2, 1984, Pages 97–111, https://doi.org/10.1093/comjnl/27.2.97</li>
+<li>Y. Xie, Dynamic Documents with R and knitr</li>
+<li><a href="https://www.markdownguide.org/" class="uri">https://www.markdownguide.org/</a></li>
+<li><a href="https://daringfireball.net/projects/markdown/" class="uri">https://daringfireball.net/projects/markdown/</a></li>
+<li><a href="https://babelmark.github.io/faq/" class="uri">https://babelmark.github.io/faq/</a></li>
+<li>RStudio Conf 2022 - Quarto Workshop</li>
+<li><a href="https://rhodesmill.org/brandon/2012/one-sentence-per-line/" class="uri">https://rhodesmill.org/brandon/2012/one-sentence-per-line/</a> UNIX for Beginners</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<!--
+  Theme the quizdown quizzes.
+
+  `_extensions/quizdown` renders every quiz into a shadow root
+  (`attachShadow({mode: "open"})`), so nothing in `styles.scss` reaches inside
+  one -- a quiz arrives on the page wearing quizdown's own defaults, which are
+  `steelblue` on `#f2f2f2` with black text. In dark mode that is not merely
+  off-brand, it is unreadable: the parts that take a *background* from
+  quizdown's palette but *inherit* their text colour -- the left column of a
+  matching question, an evaluated slot, the per-pair feedback -- end up
+  painting the page's near-white body text onto a near-white fill, 1.03:1.
+
+  Two facts make that fixable from outside the shadow root:
+
+    * custom properties inherit *through* the shadow boundary, so the
+      `--mds-quiz-*` values set on `:root` in `styles.scss` are readable from
+      inside a quiz;
+    * quizdown writes its three colours as inline styles on
+      `.quizdown-content`, and `!important` in a stylesheet beats an inline
+      declaration.
+
+  So this file injects one stylesheet into each quiz's shadow root, written
+  entirely against `--mds-quiz-*`. The light and dark values of those live in
+  `styles.scss` and `styles-dark.scss`, and Quarto swaps those two bundles on
+  the colour-mode toggle -- so a quiz follows the toggle with no JavaScript of
+  its own.
+
+  Wired in from `format.html.include-after-body` in `_quarto.yml`, which is
+  what keeps the vendored extension under `_extensions/quizdown/` untouched: a
+  re-add or an update of that extension cannot clobber any of this.
+
+  Two things are deliberately left alone:
+
+    * `.hljs`, the highlight.js "github" theme quizdown bundles for a *fenced*
+      code block inside a question. Its plate is light in both colour modes,
+      but so are the token colours painted on it, so it stays self-consistent
+      and readable; re-tinting the plate alone would break it, and re-tinting
+      the tokens means shipping a second syntax theme. No question in the book
+      uses a fenced block -- inline code is themed below, and inline code is
+      what the questions actually use.
+    * `.print-review`, the plain questions-and-answers block quizdown reveals
+      under `@media print`. Paper is white in both colour modes, so the light
+      colours there are already the right ones.
+-->
+<script>
+  (() => {
+    // Note for editing: this is a template literal, so nothing inside it may
+    // be quoted in backticks the way the prose around it is -- a stray one
+    // ends the string, and the page fails with a JavaScript syntax error
+    // rather than with anything you would notice in the CSS.
+    //
+    // Every declaration below is `!important`, for two reasons that are not
+    // about winning an argument with the extension. Svelte scopes its own
+    // rules with a build hash (`.prompt.svelte-1ge161l`), which out-specifies
+    // anything we can write without hard-coding a hash that changes on every
+    // quizdown release; and the order our <style> ends up in relative to
+    // Svelte's, inside a shadow root neither of us owns, is not ours to pick.
+    const CSS = `
+      /* ---- the three knobs quizdown itself exposes ------------------------
+         Set as inline styles on .quizdown-content from the quiz config, so
+         !important is the only thing that can move them. Remapping these three
+         alone fixes most of dark mode: everything that reads its background
+         from --quizdown-color-secondary and inherits its text colour then
+         lands on a surface that belongs to the current mode. */
+      .quizdown-content {
+        --quizdown-color-primary: var(--mds-quiz-accent) !important;
+        --quizdown-color-secondary: var(--mds-quiz-surface) !important;
+        --quizdown-color-text: var(--mds-quiz-fg) !important;
+      }
+
+      /* ---- inline code in a question -------------------------------------
+         quizdown paints this #333 on #f8f8f8 in both modes. The book has its
+         own inline-code pair, one per mode, under typography.monospace-inline
+         in _brand.yml. */
+      code {
+        color: var(--mds-quiz-code-fg) !important;
+        background-color: var(--mds-quiz-code-bg) !important;
+      }
+
+      /* ---- buttons -------------------------------------------------------
+         Hard-coded to a white fill, which is a glaring plate on the dark page.
+         The hover is brightness(0.9): darkening is only a change you can see
+         when the surface starts light, so its direction is per-mode too. */
+      button {
+        background-color: var(--mds-quiz-surface) !important;
+        color: var(--mds-quiz-fg) !important;
+      }
+      button:disabled {
+        background-color: var(--mds-quiz-surface) !important;
+        color: var(--mds-quiz-muted) !important;
+      }
+      button:hover:not(:checked):not(:active):not(:disabled) {
+        filter: var(--mds-quiz-press) !important;
+      }
+
+      /* ---- multiple choice and single choice ------------------------------
+         The option rows are already painted from the two variables remapped
+         above; only the hover is hard-coded. */
+      [type='checkbox']:hover + span,
+      [type='checkbox']:focus + span,
+      [type='radio']:hover + span,
+      [type='radio']:focus + span {
+        filter: var(--mds-quiz-press) !important;
+      }
+
+      /* ---- sequence (drag to order) --------------------------------------
+         The rows come from the variables; the reorder buttons take a black
+         focus ring, which is invisible on the dark page. */
+      .buttons button:focus {
+        border-color: var(--mds-quiz-accent) !important;
+      }
+
+      /* ---- matching (drag a chip into a slot) -----------------------------
+         The type with the most hard-coded colour in it, and the one where the
+         dark-mode failure was actually visible: .prompt takes its fill from
+         quizdown's palette and its text colour from the page, so it painted
+         near-white body text onto near-white #f2f2f2. */
+      .arrow,
+      .placeholder {
+        color: var(--mds-quiz-muted) !important;
+      }
+      .slot,
+      .pool {
+        border-color: var(--mds-quiz-border) !important;
+      }
+      .slot-selected,
+      .slot-dragover,
+      .pool-dragover {
+        background-color: var(--mds-quiz-surface) !important;
+      }
+      .chip:hover {
+        filter: var(--mds-quiz-press) !important;
+      }
+      .chip-used {
+        background-color: var(--mds-quiz-surface) !important;
+        border-color: var(--mds-quiz-muted) !important;
+      }
+
+      /* ---- the evaluated state -------------------------------------------
+         Green and red, which the book already has: the success and danger
+         roles in _brand.yml each carry a value per mode. */
+      .slot.correct {
+        border-color: var(--mds-quiz-correct) !important;
+        background-color: var(--mds-quiz-correct-bg) !important;
+      }
+      .slot.wrong,
+      .slot.empty-eval {
+        border-color: var(--mds-quiz-wrong) !important;
+        background-color: var(--mds-quiz-wrong-bg) !important;
+      }
+      .badge-correct,
+      .correct-hint {
+        color: var(--mds-quiz-correct) !important;
+      }
+      .badge-wrong {
+        color: var(--mds-quiz-wrong) !important;
+      }
+      .pair-feedback {
+        border-left-color: var(--mds-quiz-correct) !important;
+        background-color: var(--mds-quiz-correct-bg) !important;
+      }
+      .pair-feedback-wrong {
+        border-left-color: var(--mds-quiz-wrong) !important;
+        background-color: var(--mds-quiz-wrong-bg) !important;
+      }
+
+      /* ---- the credit line under every quiz ------------------------------- */
+      .credits,
+      .credits a {
+        color: var(--mds-quiz-muted) !important;
+      }
+    `;
+
+    // Returns the number of quizzes that do not have a shadow root yet.
+    const paint = () => {
+      let waiting = 0;
+      for (const host of document.querySelectorAll(".quizdown")) {
+        const root = host.shadowRoot;
+        if (!root) {
+          waiting += 1;
+          continue;
+        }
+        if (root.querySelector("style[data-mds-quiz-theme]")) continue;
+        const style = document.createElement("style");
+        style.setAttribute("data-mds-quiz-theme", "");
+        style.textContent = CSS;
+        root.appendChild(style);
+      }
+      return waiting;
+    };
+
+    // quizdown creates the shadow roots from a `load` listener that it only
+    // registers once `DOMContentLoaded` has fired -- later than this script,
+    // which is inline at the end of <body>. A `load` listener added here would
+    // therefore run *before* the one that creates the thing we want to style,
+    // so the first attempt is deferred by a task, and then retried for a few
+    // frames in case a future version of the extension moves that work again.
+    // Bounded, so a quiz that never renders cannot leave a frame loop running.
+    const GIVE_UP_AFTER_MS = 5000;
+    addEventListener("load", () => {
+      const started = performance.now();
+      const tick = () => {
+        if (paint() > 0 && performance.now() - started < GIVE_UP_AFTER_MS) {
+          requestAnimationFrame(tick);
+        }
+      };
+      setTimeout(tick, 0);
+    });
+  })();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ubc-mds\.github\.io\/DSCI_521_platforms-dsci_book\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lectures/git-history-merge-conflicts-stash.html" class="pagination-link" aria-label="Git: History, Conflicts, and Ignores">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git: History, Conflicts, and Ignores</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../lectures/virtual-environments-uv.html" class="pagination-link" aria-label="Virtual Environments: uv">
+        <span class="nav-page-text">Virtual Environments: uv</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
