@@ -32,4 +32,12 @@ $body-emphasis-color: #ffffff;
 // page.
 :root {
   color-scheme: dark;
+
+  // The hover on a quiz button, answer or chip. quizdown darkens the surface
+  // (`filter: brightness(0.9)`), which is only a change you can see when the
+  // surface starts light; on the dark page the same filter walks a near-black
+  // panel towards black and nothing appears to happen. Lighten instead. The
+  // light value, and every other `--mds-quiz-*`, is in `styles.scss`; this is
+  // the one that cannot be derived from a `$`-variable brand.yml sets by mode.
+  --mds-quiz-press: brightness(1.45);
 }

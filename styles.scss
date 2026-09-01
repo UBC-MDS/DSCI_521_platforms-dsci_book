@@ -5,8 +5,10 @@
 // is available here as `$brand-<name>`, and as `--brand-<name>` in CSS.
 //
 // What is left in this file is the part brand.yml cannot express: the geometry
-// of `<kbd>`, and the two custom callouts. Rules that apply to only one colour
-// mode go in `styles-dark.scss`, which is layered on top of this one for dark.
+// of `<kbd>`, the two custom callouts, the label above a listing, and the
+// colours the quizzes read out of a shadow root. Rules that apply to only one
+// colour mode go in `styles-dark.scss`, which is layered on top of this one
+// for dark.
 
 // `<kbd>` is used throughout the book for key names. Bootstrap paints its grey
 // box on an inline box, and an inline box takes its height from the font's em
@@ -178,4 +180,68 @@ body.quarto-dark {
     background-color: $brand-output-bg-dark;
     color: $brand-output-fg-dark;
   }
+}
+
+// ------------------------------------------------------------------- quizzes
+//
+// Colours for the quizdown quizzes. The rules that consume these are NOT here
+// -- they cannot be. Each quiz lives in a shadow root, which no stylesheet on
+// the page can reach into, so they are injected by `quizdown-theme.html` (see
+// the header of that file for why, and for what is deliberately left alone).
+//
+// Custom properties *do* inherit through a shadow boundary, which is the whole
+// reason this split works: the values are declared here, once, and read from
+// inside every quiz. Declaring them means the colour-mode toggle needs no
+// JavaScript -- Quarto compiles this file into both bundles and swaps them, so
+// each `$`-variable below is already the value for the mode being rendered.
+//
+// That last point is only true of Sass variables `_brand.yml` actually sets
+// per mode. `$body-color`, `$body-bg`, `$primary`, `$success`, `$danger`,
+// `$code-color` and `$code-bg` all are. Anything Bootstrap merely *derives*
+// keeps its light-mode value in the dark build -- see the header of
+// `styles-dark.scss` for how that bites.
+//
+// Ratios below are against the background of the mode in question: white /
+// `$brand-white` for light, `#001328` / `$brand-ubc-blue-video` for dark.
+:root {
+  // Body text on a quiz surface: 13.99:1 light, 13.80:1 dark.
+  --mds-quiz-fg: #{$body-color};
+
+  // Placeholders, the `->` between a prompt and its slot, the credit line.
+  // Muted, but still AA on both the page (5.41:1 light, 7.39:1 dark) and on
+  // the quiz surface (4.69:1 / 6.37:1) -- quizdown's own `#bbb` and
+  // `lightgray` clear neither.
+  --mds-quiz-muted: #{mix($body-color, $body-bg, 66%)};
+
+  // The fill under an answer, a chip, a prompt, a button. Reads as a panel
+  // lifted off the page (1.15:1 light, 1.16:1 dark) rather than as the flat
+  // `#f2f2f2` quizdown paints in both modes.
+  --mds-quiz-surface: #{mix($body-color, $body-bg, 7%)};
+
+  // The dashed edge of a drop zone. A real boundary rather than decoration,
+  // so it is held to the 3:1 that AA asks of a UI component and not to
+  // quizdown's `#ccc`, which is 1.6:1 on white: 3.27:1 light, 4.65:1 dark.
+  --mds-quiz-border: #{mix($body-color, $body-bg, 50%)};
+
+  // The progress bar, the border of a selected answer, links in a question.
+  --mds-quiz-accent: #{$primary};
+
+  // The evaluated state. The text colours are the book's own `$success` and
+  // `$danger`, on the page (7.70:1 / 7.50:1 light, 10.72:1 / 7.21:1 dark);
+  // the fills are those hues taken almost all the way down to the page, so
+  // body text stays >= 13:1 on them in both modes.
+  --mds-quiz-correct: #{$success};
+  --mds-quiz-correct-bg: #{mix($success, $body-bg, 12%)};
+  --mds-quiz-wrong: #{$danger};
+  --mds-quiz-wrong-bg: #{mix($danger, $body-bg, 12%)};
+
+  // Inline code inside a question, from `typography.monospace-inline` in
+  // `_brand.yml`: 10.53:1 light, 9.72:1 dark.
+  --mds-quiz-code-fg: #{$code-color};
+  --mds-quiz-code-bg: #{$code-bg};
+
+  // The hover on a button, an answer and a chip. quizdown darkens
+  // (`brightness(0.9)`), which is a change you can only see when the surface
+  // starts light -- so dark mode lightens instead, in `styles-dark.scss`.
+  --mds-quiz-press: brightness(0.93);
 }

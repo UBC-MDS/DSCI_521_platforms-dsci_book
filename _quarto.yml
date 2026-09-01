@@ -156,6 +156,9 @@ format:
     toc: true
     toc-depth: 3
     toc-expand: 3
+    # Themes the quizdown quizzes, which render into a shadow root that no
+    # stylesheet on the page can reach into. See the header of the file.
+    include-after-body: quizdown-theme.html
 
 editor:
   render-on-save: true
