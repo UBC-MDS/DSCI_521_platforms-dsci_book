@@ -13,6 +13,14 @@ on:
 jobs:
   check-links:
     runs-on: ubuntu-latest
+    # A PR preview also pushes to gh-pages, which makes GitHub rebuild Pages and
+    # fire `pages-build-deployment` -- so without this, every push to every open
+    # PR would re-run the link checker against the production site it did not
+    # change. Only a Pages build from main is a real deploy worth checking. The
+    # cron, `workflow_dispatch` and `repository_dispatch` paths are unaffected.
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.head_branch == 'main'
 
     steps:
       - name: Check out repository
