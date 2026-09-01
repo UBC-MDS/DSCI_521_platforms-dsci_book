@@ -44,6 +44,12 @@ website:
             href: https://ubc-mds.github.io/resources_pages/quiz/
           - text: "MDS Quiz Procedures - Center for Accessibility"
             href: https://ubc-mds.github.io/resources_pages/quiz_cfa/
+      - text: "Current Students"
+        menu:
+          - text: "Github.com Public Student Repo"
+            href: https://github.com/UBC-MDS/DSCI_521_platforms-dsci
+          - text: Github.ubc.ca GHE Private Student Repo
+            href: https://github.ubc.ca/mds-2026-27/DSCI_521_platforms-dsci_students
 
   sidebar:
     logo: MDSlogo.png
