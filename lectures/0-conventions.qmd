@@ -263,6 +263,98 @@ ls -la
 ```
 :::
 
+## Quizzes
+
+Quizzes are written in a `quizdown` fence and rendered by
+`_extensions/quizdown`, a fork of `quizdown-js` kept at
+[UBC-MDS/quarto-quizdown-mds-ext](https://github.com/UBC-MDS/quarto-quizdown-mds-ext).
+The fence never says which kind of question it holds -- the type comes out of
+the shape of the list you write:
+
+| You write | You get |
+|---|---|
+| an unordered list whose items hold `::` | matching: drag a chip into a slot |
+| an ordered list with no checkboxes | sequence: drag the lines into order |
+| an unordered list of `- [ ]` and `- [x]` | multiple choice: tick every right answer |
+| an ordered list of `1. [ ]` and `1. [x]` | single choice: tick the one right answer |
+
+Three optional pieces work in all four: a `---` block of options above the
+question, a `>` blockquote under the heading, which becomes a hint behind a
+button, and a `>` blockquote indented under one answer, which becomes the
+feedback shown for that answer once the quiz is marked.
+
+A quiz renders into a shadow root, which is a corner of the page that no
+stylesheet can reach into from outside. So the colours below do not come from
+`styles.scss` like everything else on this page -- they come from
+`quizdown-theme.html`, which injects one stylesheet into each quiz. That is the
+thing all four of these are really here to check.
+
+The book only uses the first two types so far. The other two are on this page
+anyway, because an unused construct is the one that breaks without anyone
+noticing.
+
+### Matching
+
+Options, a hint and per-answer feedback, which the other three take the same
+way. An item with nothing on the left of its `::` is a distractor: it joins the
+pool of chips but matches no prompt.
+
+```quizdown
+---
+shuffle_answers: true
+---
+
+## Match each command to what it does
+
+> Every one of these appears in the first lecture.
+
+- `pwd` :: prints the directory you are in
+
+    > Print Working Directory.
+
+- `ls` :: lists what is beside you
+- `cd` :: moves you somewhere else
+- :: prints your username
+```
+
+### Sequence
+
+```quizdown
+## Put the steps of one trip around the shell's loop in order
+
+You type `ls -F` after the `$` prompt and press <kbd>Enter</kbd>.
+
+1. The shell takes in the line you typed
+2. The shell finds the `ls` program and runs it with the `-F` option
+3. The program's output is written to the terminal
+4. A fresh `$` prompt appears, waiting for the next command
+```
+
+### Multiple choice
+
+```quizdown
+## Which of these are shells?
+
+- [x] `bash`
+- [x] `zsh`
+- [ ] `ls`
+
+    > `ls` is a program you run *from* a shell.
+
+- [ ] JupyterLab
+```
+
+### Single choice
+
+```quizdown
+## Which command prints the directory you are in?
+
+1. [ ] `cd`
+2. [x] `pwd`
+3. [ ] `ls`
+4. [ ] `whoami`
+```
+
 ## Tables
 
 | Command | Purpose                 | Example use    |

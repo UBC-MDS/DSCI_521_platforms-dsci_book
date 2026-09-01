@@ -1,0 +1,101 @@
+# PR deployment previews. Each pull request gets its rendered site pushed to
+# gh-pages under `pr-preview/pr-<N>/`, and a sticky bot comment on the PR with
+# the URL. The preview is removed when the PR closes.
+#
+# The build steps below mirror `publish.yml` deliberately -- same Quarto, same
+# pinned R, same uv, same lockfiles. A preview built with a different toolchain
+# than production is a preview of something that will never ship. The only real
+# difference is the last step: `quarto render` into `_site` and hand that to the
+# preview action, rather than `quarto publish gh-pages`.
+#
+# Three known caveats, all accepted rather than solved:
+#
+#   * A production deploy rewrites gh-pages wholesale, so it can delete
+#     `pr-preview/`. An open PR's preview comes back on its next push.
+#   * A PR opened from a *fork* gets a read-only `GITHUB_TOKEN`, which no
+#     `permissions:` block can widen, so its preview deploy will fail. Previews
+#     work for branches pushed to this repository.
+#   * `site-url` in `_quarto.yml` still names the production site, so the
+#     canonical and Open Graph tags in a preview point there. Navigation and
+#     search are relative, so both work inside the preview.
+#
+# Pushing to gh-pages makes GitHub rebuild Pages, which fires the
+# `pages-build-deployment` workflow that `check-links.yml` listens for. That
+# workflow is gated to main so a preview push does not re-run the link checker
+# against production.
+
+name: PR Preview
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+
+# One preview build per PR at a time; a new push cancels the stale build.
+concurrency:
+  group: preview-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  RENV_PATHS_ROOT: ~/.cache/R/renv
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # push the preview to gh-pages
+      pull-requests: write # write the sticky preview comment
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # Everything from here to the render is skipped when the PR closes --
+      # there is nothing to build, and the final step still runs to take the
+      # preview back down.
+      - name: Set up Quarto
+        if: github.event.action != 'closed'
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Install R
+        if: github.event.action != 'closed'
+        uses: r-lib/actions/setup-r@v2
+        with:
+          # keep in sync with the R version recorded in renv.lock, and with
+          # publish.yml; an unpinned R silently drifts and breaks the locked
+          # packages
+          r-version: '4.6.1'
+
+      - name: Setup renv
+        if: github.event.action != 'closed'
+        uses: r-lib/actions/setup-renv@v2
+
+      - name: Set up uv
+        if: github.event.action != 'closed'
+        # setup-uv publishes no floating major tag (no v9/v10); pin the SHA
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          # installs the Python pinned in .python-version
+          enable-cache: true
+
+      - name: Install Python and Dependencies
+        if: github.event.action != 'closed'
+        run: |
+          uv sync
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
+
+      # Bare, exactly as `publish.yml` renders. Worth knowing before you copy
+      # this line somewhere else: lecture 4 calls `rmarkdown::render()` on a
+      # nested `.Rmd`, and rmarkdown looks for pandoc on PATH rather than using
+      # the copy Quarto ships. That works here only because the runner has
+      # pandoc; run the same command on a laptop that does not and the render
+      # fails. `make render` is what covers the gap locally, by exporting
+      # RSTUDIO_PANDOC -- see the top of the Makefile.
+      - name: Render site
+        if: github.event.action != 'closed'
+        run: quarto render
+
+      # auto = deploy on opened/reopened/synchronize, remove on closed
+      - name: Deploy PR preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: _site
+          action: auto

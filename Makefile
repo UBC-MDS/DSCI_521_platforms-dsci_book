@@ -1,7 +1,7 @@
 .PHONY: preview render check_css setup_python_env setup_r_env setup_quarto publish_manual clean
 
 # Quarto ships its own pandoc, but the nested rmarkdown::render() call in
-# lecture 6 looks for pandoc the way RStudio does and misses it.
+# lecture 4 looks for pandoc the way RStudio does and misses it.
 # Point rmarkdown at the copy Quarto already has.
 export RSTUDIO_PANDOC := $(shell find "$$(quarto --paths | head -1)/tools" -name pandoc -type f 2>/dev/null | head -1 | xargs dirname)
 
