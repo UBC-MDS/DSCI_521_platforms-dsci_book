@@ -129,20 +129,6 @@ gtag('js', new Date());
 gtag('config', 'G-1RNLL8GPXK', { 'anonymize_ip': true});
 </script>
 <style>
-div.callout-exercise.callout {
-  border-left-color: #1c5f2e;
-}
-div.callout-exercise.callout-style-default .callout-header {
-  background-color: rgba(28, 95, 46, 0.13);
-}
-div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f44b' !important;
-  background-image: none;
-}
 div.callout-activity.callout {
   border-left-color: #0055b7;
 }
@@ -155,6 +141,20 @@ div.callout-activity.callout-style-default .callout-icon::before, div.callout-ac
   font-weight: 900;
   font-style: normal;
   content: '\e53d' !important;
+  background-image: none;
+}
+div.callout-exercise.callout {
+  border-left-color: #1c5f2e;
+}
+div.callout-exercise.callout-style-default .callout-header {
+  background-color: rgba(28, 95, 46, 0.13);
+}
+div.callout-exercise .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exercise.callout-style-default .callout-icon::before, div.callout-exercise.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f44b' !important;
   background-image: none;
 }
 </style>
@@ -805,11 +805,11 @@ shuffle_answers: true
 
 ## Which is the better fit for each job? Some categories apply to more than one item.
 
+- Try a plot, tweak one parameter, look again :: JupyterLab
 - Run the same cleaning script on 200 files without opening each one :: Command line
+- Write a report that mixes prose, code, and figures :: JupyterLab
 - Move and rename a batch of files :: Command line
 - Start JupyterLab in the first place :: Command line
-- Try a plot, tweak one parameter, look again :: JupyterLab
-- Write a report that mixes prose, code, and figures :: JupyterLab
 - Walk through a new dataset one step at a time, keeping every output :: JupyterLab
 </div>
 </section>
@@ -1530,14 +1530,14 @@ An **absolute** reference works no matter where you are.
 A **relative** reference only makes sense from a particular starting point.
 Sort each one. Some categories apply to more than one item.
 
-- `+1 604 822 2211` :: Absolute
 - `822 2211` :: Relative
-- `2366 Main Mall, Vancouver, BC V6T 1Z4` :: Absolute
+- `+1 604 822 2211` :: Absolute
 - Walk past the Nest, turn right at the bus loop, second building on your left :: Relative
 - `49.2606° N, 123.2460° W` :: Absolute
-- Two floors up from here :: Relative
-- 14:30 PT on 2026-09-01 :: Absolute
+- `2366 Main Mall, Vancouver, BC V6T 1Z4` :: Absolute
 - In twenty minutes :: Relative
+- 14:30 PT on 2026-09-01 :: Absolute
+- Two floors up from here :: Relative
 - :: A nickname
 
 </div>
@@ -1553,13 +1553,13 @@ Drag each command to the directory it lands you in.
 Some directories are used more than once.
 
 - `cd ..` :: `/home/username/Documents`
-- `cd ~/Documents` :: `/home/username/Documents`
 - `cd ~` :: `/home/username`
-- `cd ../..` :: `/home/username`
 - `cd .` :: `/home/username/Documents/notes`
-- `cd /home/username/Documents/notes` :: `/home/username/Documents/notes`
 - `cd /` :: `/`
+- `cd ~/Documents` :: `/home/username/Documents`
+- `cd ../..` :: `/home/username`
 - `cd ../../../..` :: `/`
+- `cd /home/username/Documents/notes` :: `/home/username/Documents/notes`
 - :: `/home`
 
 </div>
