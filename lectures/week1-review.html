@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RStudio Configuration – DSCI 521: Computing Platforms for Data Science</title>
+<title>Week 1 Review – DSCI 521: Computing Platforms for Data Science</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../appendix/semantic_line_breaks.html" rel="next">
-<link href="../appendix/git_config.html" rel="prev">
+<link href="../lectures/quarto-github-pages.html" rel="next">
+<link href="../lectures/git-github-ssh-basic-workflow.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -125,18 +125,12 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </style>
 
 
-<meta property="og:title" content="RStudio Configuration – DSCI 521: Computing Platforms for Data Science">
+<meta property="og:title" content="Week 1 Review – DSCI 521: Computing Platforms for Data Science">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/rstudio-global_options-general.png">
 <meta property="og:site_name" content="DSCI 521: Computing Platforms for Data Science">
-<meta property="og:image:height" content="653">
-<meta property="og:image:width" content="628">
-<meta name="twitter:title" content="RStudio Configuration – DSCI 521: Computing Platforms for Data Science">
+<meta name="twitter:title" content="Week 1 Review – DSCI 521: Computing Platforms for Data Science">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://ubc-mds.github.io/DSCI_521_platforms-dsci_book/lectures/img/rstudio-global_options-general.png">
-<meta name="twitter:image-height" content="653">
-<meta name="twitter:image-width" content="628">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -387,7 +381,7 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/git_config.html">Additional Information</a></li><li class="breadcrumb-item"><a href="../appendix/rstudio_config.html">RStudio Configuration</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/mdstools-bash-filesystem.html">Week 1</a></li><li class="breadcrumb-item"><a href="../lectures/week1-review.html">Review</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -471,7 +465,7 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/week1-review.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/week1-review.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Review</span></a>
   </div>
 </li>
@@ -581,7 +575,7 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendix/rstudio_config.html" class="sidebar-item-text sidebar-link active">
+  <a href="../appendix/rstudio_config.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudio Configuration</span></a>
   </div>
 </li>
@@ -633,24 +627,16 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#global-setup" id="toc-global-setup" class="nav-link active" data-scroll-target="#global-setup">Global Setup</a></li>
-  <li><a href="#latex-and-xelatex" id="toc-latex-and-xelatex" class="nav-link" data-scroll-target="#latex-and-xelatex">LaTeX and XeLaTeX</a></li>
-  <li><a href="#code-snippets" id="toc-code-snippets" class="nav-link" data-scroll-target="#code-snippets">Code snippets</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/git_config.html">Additional Information</a></li><li class="breadcrumb-item"><a href="../appendix/rstudio_config.html">RStudio Configuration</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/mdstools-bash-filesystem.html">Week 1</a></li><li class="breadcrumb-item"><a href="../lectures/week1-review.html">Review</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">RStudio Configuration</h1>
+<h1 class="title">Week 1 Review</h1>
 </div>
 
 
@@ -667,22 +653,67 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 </header>
 
 
-<section id="global-setup" class="level2">
-<h2 class="anchored" data-anchor-id="global-setup">Global Setup</h2>
-<p>In the <code>Tools</code> &gt; <code>Global Options</code> &gt; <code>General</code> Tab, you want to uncheck the boxes that open previous files and projects, and also make sure that no <code>.RData</code> is saved when you quit RStudio, and to never save the <code>.RData</code> (this prevents RStudio from loading up previous data when you open it, it does not refer to its ability to load and save data as you use it).</p>
-<p><img src="../lectures/img/rstudio-global_options-general.png" class="img-fluid"></p>
-</section>
-<section id="latex-and-xelatex" class="level2">
-<h2 class="anchored" data-anchor-id="latex-and-xelatex">LaTeX and XeLaTeX</h2>
-<p>In the <code>Sweave</code> option</p>
-<p>change the <code>Sweave</code> option to <code>Knitr</code>, and <code>pdflatex</code> to <code>xelatex</code>.</p>
-</section>
-<section id="code-snippets" class="level2">
-<h2 class="anchored" data-anchor-id="code-snippets">Code snippets</h2>
-<p>As we started to type <code>for</code> above, the code completion popped up and the first entry said “snippet”, what is that? A code snippet is a text macro, which means that you can type a short string of characters to insert a template or snippet of text by pressing <kbd>Tab</kbd>. You can see all the default snippets and define your own by going to <code>Tools -&gt; Global options -&gt; Code -&gt; Edit snippets</code>. Snippets are available anywhere in RStudio, not just in R Markdown documents.</p>
+<p>A five-minute warm-up before Lecture 2. All of it is from Week 1.</p>
+<div class="quizdown">
+---
+shuffle_answers: true
+---
+
+## Put the commands in order to end up inside a new `projects` folder in your home directory, with `README.md` open in Positron
+
+&gt; You cannot step into a folder that does not exist yet.
+
+1. `cd ~`
+2. `mkdir projects`
+3. `cd projects`
+4. `positron README.md`
+
+## Sort the commands: which only look, and which change your files?
+
+- `ls` :: Only looks
+    &gt; Lists files and folders in the current folder.
+- `pwd` :: Only looks
+    &gt; Just prints the current path showing where we are.
+- `head` :: Only looks
+    &gt; Shows the first lines of a file.
+- `mv` :: Changes your files
+    &gt; Moves a file or folder: it appears in the new place and disappears from the old.
+- `rm -r` :: Changes your files
+    &gt; Deletes a folder with all its contents.
+- `cp` :: Changes your files
+    &gt; Copies a file or folder, the original stays where it was.
+
+## Where does each command leave you?
+
+Your working directory is `/home/username`.
+Some directories are used more than once.
+
+- `cd Documents` :: `/home/username/Documents`
+    &gt; Relative: counted from where you are.
+- `cd ./Documents` :: `/home/username/Documents`
+    &gt; `./` is the current folder, so this is the same as `cd Documents`.
+- `cd /home/username/Documents` :: `/home/username/Documents`
+    &gt; Absolute: counted from the root of filesystem, so works the same from anywhere.
+- `cd ..` :: `/home`
+    &gt; One step up from `/home/username` is `/home`.
+- `cd ~` :: `/home/username`
+    &gt; `~` is your home folder, from anywhere.
+- `cd` :: `/home/username`
+    &gt; `cd` with no argument also goes home.
+
+## The folder looks empty, but your classmate insists something is in it. What do you run?
+
+1. [x] `ls -a`
+    &gt; `-a` lists all entries, including names that start with a dot (hidden files and folders).
+2. [ ] `ls -F`
+    &gt; Decorates names with `/` and `*`; hidden files stay hidden.
+3. [ ] `ls -l`
+    &gt; Long listing with sizes, dates and permissions; hidden files stay hidden.
+4. [ ] `pwd`
+    &gt; Prints where you are, not what is in the current folder.
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <!--
@@ -1310,13 +1341,13 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../appendix/git_config.html" class="pagination-link" aria-label="Git Configuration">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git Configuration</span>
+      <a href="../lectures/git-github-ssh-basic-workflow.html" class="pagination-link" aria-label="Git, GitHub, and SSH">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git, GitHub, and SSH</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../appendix/semantic_line_breaks.html" class="pagination-link" aria-label="Semantic Line Breaks">
-        <span class="nav-page-text">Semantic Line Breaks</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../lectures/quarto-github-pages.html" class="pagination-link" aria-label="Quarto and GitHub Pages">
+        <span class="nav-page-text">Quarto and GitHub Pages</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1325,4 +1356,4 @@ div.callout-exercise.callout-style-default .callout-icon::before, div.callout-ex
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/UBC-MDS/DSCI_521_platforms-dsci_book/issues/new" class="toc-action"><i class="bi bi-chat-right"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
