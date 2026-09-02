@@ -77,6 +77,9 @@ website:
           - text: "Git, GitHub, and SSH"
             href: lectures/2-git-github-ssh-basic-workflow.qmd
 
+          - text: "Review"
+            href: lectures/week1-review.qmd
+
       - section: "Week 2"
         contents:
           - text: "Quarto and GitHub Pages"

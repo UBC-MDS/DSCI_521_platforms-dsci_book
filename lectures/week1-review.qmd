@@ -1,0 +1,65 @@
+---
+title: Week 1 Review
+---
+
+A five-minute warm-up before Lecture 2.
+All of it is from Week 1.
+
+```quizdown
+---
+shuffle_answers: true
+---
+
+## Put the commands in order to end up inside a new `projects` folder in your home directory, with `README.md` open in Positron
+
+> You cannot step into a folder that does not exist yet.
+
+1. `cd ~`
+2. `mkdir projects`
+3. `cd projects`
+4. `positron README.md`
+
+## Sort the commands: which only look, and which change your files?
+
+- `ls` :: Only looks
+    > Lists files and folders in the current folder.
+- `pwd` :: Only looks
+    > Just prints the current path showing where we are.
+- `head` :: Only looks
+    > Shows the first lines of a file.
+- `mv` :: Changes your files
+    > Moves a file or folder: it appears in the new place and disappears from the old.
+- `rm -r` :: Changes your files
+    > Deletes a folder with all its contents.
+- `cp` :: Changes your files
+    > Copies a file or folder, the original stays where it was.
+
+## Where does each command leave you?
+
+Your working directory is `/home/username`.
+Some directories are used more than once.
+
+- `cd Documents` :: `/home/username/Documents`
+    > Relative: counted from where you are.
+- `cd ./Documents` :: `/home/username/Documents`
+    > `./` is the current folder, so this is the same as `cd Documents`.
+- `cd /home/username/Documents` :: `/home/username/Documents`
+    > Absolute: counted from the root of filesystem, so works the same from anywhere.
+- `cd ..` :: `/home`
+    > One step up from `/home/username` is `/home`.
+- `cd ~` :: `/home/username`
+    > `~` is your home folder, from anywhere.
+- `cd` :: `/home/username`
+    > `cd` with no argument also goes home.
+
+## The folder looks empty, but your classmate insists something is in it. What do you run?
+
+1. [x] `ls -a`
+    > `-a` lists all entries, including names that start with a dot (hidden files and folders).
+2. [ ] `ls -F`
+    > Decorates names with `/` and `*`; hidden files stay hidden.
+3. [ ] `ls -l`
+    > Long listing with sizes, dates and permissions; hidden files stay hidden.
+4. [ ] `pwd`
+    > Prints where you are, not what is in the current folder.
+```
