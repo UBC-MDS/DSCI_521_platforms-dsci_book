@@ -21,16 +21,16 @@ shuffle_answers: true
 
 ## Sort the commands: which only look, and which change your files?
 
+- `mv` :: Changes your files
+    > Moves a file or folder: it appears in the new place and disappears from the old.
 - `ls` :: Only looks
     > Lists files and folders in the current folder.
 - `pwd` :: Only looks
     > Just prints the current path showing where we are.
-- `head` :: Only looks
-    > Shows the first lines of a file.
-- `mv` :: Changes your files
-    > Moves a file or folder: it appears in the new place and disappears from the old.
 - `rm -r` :: Changes your files
     > Deletes a folder with all its contents.
+- `head` :: Only looks
+    > Shows the first lines of a file.
 - `cp` :: Changes your files
     > Copies a file or folder, the original stays where it was.
 
@@ -41,16 +41,16 @@ Some directories are used more than once.
 
 - `cd Documents` :: `/home/username/Documents`
     > Relative: counted from where you are.
-- `cd ./Documents` :: `/home/username/Documents`
-    > `./` is the current folder, so this is the same as `cd Documents`.
-- `cd /home/username/Documents` :: `/home/username/Documents`
-    > Absolute: counted from the root of filesystem, so works the same from anywhere.
 - `cd ..` :: `/home`
     > One step up from `/home/username` is `/home`.
 - `cd ~` :: `/home/username`
     > `~` is your home folder, from anywhere.
+- `cd ./Documents` :: `/home/username/Documents`
+    > `./` is the current folder, so this is the same as `cd Documents`.
 - `cd` :: `/home/username`
     > `cd` with no argument also goes home.
+- `cd /home/username/Documents` :: `/home/username/Documents`
+    > Absolute: counted from the root of filesystem, so works the same from anywhere.
 
 ## The folder looks empty, but your classmate insists something is in it. What do you run?
 

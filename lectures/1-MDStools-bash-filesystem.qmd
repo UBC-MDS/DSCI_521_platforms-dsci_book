@@ -127,11 +127,11 @@ shuffle_answers: true
 
 ## Which is the better fit for each job? Some categories apply to more than one item.
 
+- Try a plot, tweak one parameter, look again :: JupyterLab
 - Run the same cleaning script on 200 files without opening each one :: Command line
+- Write a report that mixes prose, code, and figures :: JupyterLab
 - Move and rename a batch of files :: Command line
 - Start JupyterLab in the first place :: Command line
-- Try a plot, tweak one parameter, look again :: JupyterLab
-- Write a report that mixes prose, code, and figures :: JupyterLab
 - Walk through a new dataset one step at a time, keeping every output :: JupyterLab
 ```
 
@@ -998,14 +998,14 @@ An **absolute** reference works no matter where you are.
 A **relative** reference only makes sense from a particular starting point.
 Sort each one. Some categories apply to more than one item.
 
-- `+1 604 822 2211` :: Absolute
 - `822 2211` :: Relative
-- `2366 Main Mall, Vancouver, BC V6T 1Z4` :: Absolute
+- `+1 604 822 2211` :: Absolute
 - Walk past the Nest, turn right at the bus loop, second building on your left :: Relative
 - `49.2606° N, 123.2460° W` :: Absolute
-- Two floors up from here :: Relative
-- 14:30 PT on 2026-09-01 :: Absolute
+- `2366 Main Mall, Vancouver, BC V6T 1Z4` :: Absolute
 - In twenty minutes :: Relative
+- 14:30 PT on 2026-09-01 :: Absolute
+- Two floors up from here :: Relative
 - :: A nickname
 
 ```
@@ -1022,13 +1022,13 @@ Drag each command to the directory it lands you in.
 Some directories are used more than once.
 
 - `cd ..` :: `/home/username/Documents`
-- `cd ~/Documents` :: `/home/username/Documents`
 - `cd ~` :: `/home/username`
-- `cd ../..` :: `/home/username`
 - `cd .` :: `/home/username/Documents/notes`
-- `cd /home/username/Documents/notes` :: `/home/username/Documents/notes`
 - `cd /` :: `/`
+- `cd ~/Documents` :: `/home/username/Documents`
+- `cd ../..` :: `/home/username`
 - `cd ../../../..` :: `/`
+- `cd /home/username/Documents/notes` :: `/home/username/Documents/notes`
 - :: `/home`
 
 ```
