@@ -247,6 +247,71 @@ YAML is a "recursive acronym", it stands for "YAML Ain't Markup Language".
 You can go through the official quarto website documentation guide for more information:
 https://quarto.org/docs/websites/
 
+### Finding what you need in the Quarto documentation {#quarto-docs}
+
+The Quarto documentation is already an excellent resource.
+We don't want to reproduce all of it in this textbook.
+Also, reading a tool's own documentation is a skill in itself,
+and one you will use for every tool you meet from here on,
+so this is a good place to start practising it.
+
+The [Quarto Guide](https://quarto.org/docs/guide/) is the entry point.
+Think of it as the table of contents for everything Quarto can do.
+
+#### Site-wide settings, in `_quarto.yml`
+
+- **Navigation bar**, the links across the top of every page,
+  set with `website: navbar:` ---
+  [Website Navigation](https://quarto.org/docs/websites/website-navigation.html)
+- **Listing pages**, a page that indexes other pages for you,
+  set with `listing:` ---
+  [Website Listings](https://quarto.org/docs/websites/website-listings.html)
+- **Blogs**, the whole pattern of a `posts/` folder plus a listing page ---
+  [Creating a Blog](https://quarto.org/docs/websites/website-blog.html)
+- **Appearance**, set with `theme:` ---
+  [HTML Theming](https://quarto.org/docs/output-formats/html-themes.html)
+- **Publishing**, including the `output-dir: docs` approach we use below ---
+  [Publishing to GitHub Pages](https://quarto.org/docs/publishing/github-pages.html)
+
+#### Page content, in your `.qmd` files
+
+- **Markdown syntax**: headings, lists, links, bold, tables ---
+  [Markdown Basics](https://quarto.org/docs/authoring/markdown-basics.html)
+- **Images and figures**, including captions and sizing,
+  written as `![A caption.](path/to/image.jpg){width=250px}` ---
+  [Figures](https://quarto.org/docs/authoring/figures.html)
+- **About pages**, a built-in layout that puts a photo beside your text,
+  set with `about:` in the document's YAML header ---
+  [About Pages](https://quarto.org/docs/websites/website-about.html)
+
+#### Running code in your pages
+
+You do not need these for a site that is only text and images,
+but you will once you write posts that contain an actual analysis.
+
+- **Running R** ---
+  [Using R](https://quarto.org/docs/computations/r.html)
+- **Running Python** ---
+  [Using Python](https://quarto.org/docs/computations/python.html)
+- **Controlling what a cell shows**,
+  for example hiding the code but keeping the plot,
+  written as `#| echo: false` inside the cell ---
+  [Execution Options](https://quarto.org/docs/computations/execution-options.html)
+
+:::{.callout-tip}
+## Reading documentation is part of the job
+
+When you look one of these up,
+notice how the page is put together:
+a short explanation,
+then a small complete example you can copy,
+then a reference table of every option.
+Most good documentation is arranged this way.
+Skimming for the example first,
+and dropping to the reference table only when the example is not enough,
+will get you an answer faster than reading top to bottom.
+:::
+
 ### Rendering your website
 
 At the end of the day,
