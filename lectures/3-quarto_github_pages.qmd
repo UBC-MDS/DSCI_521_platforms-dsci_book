@@ -349,6 +349,8 @@ then you are experiencing github pages.
 Github uses [Jekyll](https://jekyllrb.com/) by default to render its github pages.
 However you can manually render your own `html` files and disable Github's `jekyll` rendering
 and tell Github pages to render your website content exactly as you have it.
+We do this with a `.nojekyll` file,
+which we will set up in [Turning off Jekyll with `.nojekyll`](#nojekyll).
 
 ### Github Pages and repositories
 
@@ -443,9 +445,80 @@ Output created: docs/index.html
 Don't forget to save your `yaml` file, re-`render`, remove the old `_site` folder, `add`, `commit`, and `push` your changes.
 :::
 
+#### Turning off Jekyll with `.nojekyll` {#nojekyll}
+
+There is one more file to create before the site will publish reliably.
+
+As we mentioned earlier,
+GitHub Pages runs [Jekyll](https://jekyllrb.com/) over your repository before it serves it.
+Jekyll is a site generator, similar to some Quarto features,
+and it expects to be handed a Jekyll source project to build (similar to the Quarto qmd files),
+not the finished `html` that `quarto render` produces.
+
+Jekyll skips over files and folders whose names begin with an underscore (`_`) or a dot (`.`),
+which is a problem when everything in `docs` is part of the site we want served.
+
+We turn Jekyll off by putting an empty file named `.nojekyll`
+in the folder GitHub publishes from.
+This is what the Quarto documentation recommends as well,
+see [Publishing to GitHub Pages: Render to `docs`](https://quarto.org/docs/publishing/github-pages.html#render-to-docs).
+
+Create the file at the top level of your repository:
+
+```bash
+touch .nojekyll
+```
+
+`touch` creates an empty file if one does not already exist.
+You only have to do this once.
+Quarto copies `.nojekyll` into your `output-dir` every time you render,
+so after your next `quarto render` you will have both
+`.nojekyll` and `docs/.nojekyll`.
+
+You can confirm it arrived with `ls -a`,
+the same `-a` flag we used to look for a `.git` folder:
+
+```bash
+ls -a docs
+```
+
+```out
+.
+..
+.nojekyll
+about.html
+index.html
+search.json
+site_libs
+```
+
+:::{.callout-warning}
+## Create `.nojekyll` at the top level, not inside `docs`
+
+`quarto render` empties `output-dir` before it fills it again.
+A `.nojekyll` that you create directly inside `docs` is deleted by the next render,
+and the site quietly goes back to being processed by Jekyll.
+
+Creating it at the top level avoids this,
+because Quarto copies it back in on every render.
+:::
+
+What GitHub Pages actually looks for is `.nojekyll` in the folder it publishes,
+so the file that matters is `docs/.nojekyll`.
+Check that it is on github.com after you push,
+not just on your own machine.
+
 On your main github repo, you'll notice a burnt orange dot next to the latest commit hash.
 This is github's continuous integration / deployment system creating and publishing your site.
 When the icon is green, you can navibate to your site and behold publishing somethign on the internet!
+
+:::{.callout-tip}
+## If your website renders incorrectly
+
+If your local quarto html files look coorect, but github pages seems to render something different.
+Then check that the rendering location (e.g., `docs/` or the project root `/`) has the `.nojekyll` file.
+If it doesn't then you may need to add a step to put it in there.
+:::
 
 ## Quarto for rendering your MDS assignments
 
