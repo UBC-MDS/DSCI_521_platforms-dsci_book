@@ -83,9 +83,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-717a1de2394aff971b7ede6d174c0923.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-45100720d3f54066ef127b942bb453b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-fb4d70f7a5d22372ff6e6331a6422932.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-45100720d3f54066ef127b942bb453b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-16877b4f3ebf041fad7d919f1d94ea9d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-84088657028dbfec42a669f15c4b7156.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-16877b4f3ebf041fad7d919f1d94ea9d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdown.js"></script>
 <script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdownKatex.js"></script>
 <script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdownHighlight.js"></script>
@@ -923,7 +923,7 @@ Note
 </div>
 </div>
 <p>Let’s start by explaining one of the most popular options, the Jupyter Notebook. The Notebook provides and interface where you can mix text, code, mathematical expressions, plot output, videos, and more, all in the same file. So instead of the traditional IDE experience where you would write code in a text file and then have figures pop up in a different panel, this information now all resides in the same document, which facilitates reproducibility and collaboration. The Notebooks can be exported to many formats, including PDF and HTML, which makes it easy to share your project with anyone. The cell that is encircled in blue is where we can input Python code, click here and type any mathematical expression, and then run the cell by clicking the play button in the top toolbar:</p>
-<div id="daf332be" class="cell" data-execution_count="1">
+<div id="ddfcf142" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>7</code></pre>
@@ -931,18 +931,18 @@ Note
 </div>
 <p><img src="img/jupyterlab-run-cell.png" class="img-fluid"></p>
 <p>As you can see, the output is returned just under input, and a new input cell was created. We could also have clicked the plus sign to create a new cell. Here, we can do anything we can do in Python, e.g.&nbsp;variable assignment:</p>
-<div id="800fcc36" class="cell" data-execution_count="2">
+<div id="bd97f0a4" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>There is no output because we just assigned a value to a variable, without asking for the value of that variable, which we can do by typing out the variable name:</p>
-<div id="ee80e6a0" class="cell" data-execution_count="3">
+<div id="81070e01" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>5</code></pre>
 </div>
 </div>
 <p>Jupyter Notebooks also supports editing code on multiple lines, so we could have done this instead:</p>
-<div id="b6117372" class="cell" data-execution_count="4">
+<div id="b45dd2e0" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -1052,7 +1052,7 @@ Note
 <section id="static-figure-creation" class="level3">
 <h3 class="anchored" data-anchor-id="static-figure-creation">Static figure creation</h3>
 <p>To show an example of how plots are rendered, we will use the <code>seaborn</code> plotting package which is a high level interface to the more widely known <code>matplotlib</code> package. This is only to illustrate how plots show up in the notebook, rather than a tutorial on how to plot in Python, so I will not go into details on what these commands mean.</p>
-<div id="5f326f9c" class="cell" data-execution_count="5">
+<div id="457c593a" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You don't have to understand what is going on in this cell</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># it is only to show you how a static plot looks inside JupyterLab</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>

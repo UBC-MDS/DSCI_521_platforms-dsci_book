@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-717a1de2394aff971b7ede6d174c0923.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-45100720d3f54066ef127b942bb453b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-fb4d70f7a5d22372ff6e6331a6422932.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-45100720d3f54066ef127b942bb453b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-16877b4f3ebf041fad7d919f1d94ea9d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-84088657028dbfec42a669f15c4b7156.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-16877b4f3ebf041fad7d919f1d94ea9d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdown.js"></script>
 <script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdownKatex.js"></script>
 <script src="../site_libs/quarto-contrib/quizdown-0.6.0/quizdownHighlight.js"></script>
@@ -961,11 +961,11 @@ Tip
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/your/directory</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li>Use the <code>git clone</code> command followed by the URL of your newly created GitHub repository.</li>
+<li>Use the <code>git clone</code> command followed by the SSH URL of your newly created GitHub repository.</li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><strong>Verify the Cloning Process:</strong>
 <ul>
@@ -1041,10 +1041,15 @@ Tip
 <h3 class="anchored" data-anchor-id="steps-to-follow">Steps to follow:</h3>
 <ul>
 <li><p>Step 1: start by navigating to the specific repository on GitHub.</p></li>
-<li><p>Step 2: Click the green “Clone or download” button, ensuring the pop-up indicates “Clone with HTTPS” (we will cover SSH authentication later).</p></li>
+<li><p>Step 2: Click the green “Code” button, and choose <strong>SSH</strong> in the pop-up. You set up your SSH key earlier in this lecture, so this is the option to use. The URL you get looks like <code>git@github.com:github_username/repository_name.git</code> rather than starting with <code>https://</code>.</p></li>
 <li><p>Step 3: Copy the provided URL to your clipboard.</p></li>
 <li><p>Step 4: Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command.</p></li>
-<li><p>Step 5: Type git clone followed by the URL, for example <code>git clone https://github.com/github_username/repository_name.git</code> and press <kbd>Enter</kbd>.</p></li>
+<li><p>Step 5: Type git clone followed by the URL and press <kbd>Enter</kbd>:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:github_username/repository_name.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You may also see an HTTPS URL offered, which looks like <code>https://github.com/github_username/repository_name.git</code>. That works too, but it will ask you to authenticate every time you push. With your SSH key set up, the <code>git@</code> URL will not.</p></li>
 <li><p>Step 6: After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.</p></li>
 </ul>
 <p>For more details, see Github’s docs on <a href="https://help.github.com/articles/cloning-a-repository/">cloning</a>.</p>
@@ -1059,7 +1064,20 @@ Tip
 <section id="steps-to-follow-1" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow-1">Steps to follow:</h3>
 <ul>
-<li><p>Step 1: Start by navigating to https://github.ubc.ca and ensure you are logged in.</p></li>
+<li><p>Step 1: Start by navigating to the GitHub you want the repository on, and ensure you are logged in. MDS uses two: <a href="https://github.com" class="uri">https://github.com</a> is the public GitHub, and <a href="https://github.ubc.ca" class="uri">https://github.ubc.ca</a> is UBC’s private GitHub Enterprise. They are separate sites with separate accounts.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Check which one an assignment asks for before you create anything. Coursework that has to be publicly visible, such as a personal website published with GitHub Pages, belongs on <a href="https://github.com" class="uri">https://github.com</a>. A repository created on the wrong site cannot simply be moved, so it is worth double checking.</p>
+</div>
+</div></li>
 <li><p>Step 2: Click the green “New repository” button. Alternatively, if you are on your profile page, select “Repositories” and then click the green “New” button.</p></li>
 <li><p>Step 3: Enter a name for your repository. Decide between making your repository public or private. Remember, a public repository is visible to everyone, though only you can push to it.</p></li>
 <li><p>Step 4: Check the box labeled “Initialize this repository with a README.” This step allows the repository to be cloned immediately without needing to add a file manually later.</p></li>
@@ -1167,7 +1185,13 @@ Use the command git commit -m "Clarify the README installation instructions" to 
 </section>
 <section id="push-local-changes-to-github" class="level2">
 <h2 class="anchored" data-anchor-id="push-local-changes-to-github">Push local changes to GitHub</h2>
-<p>Once you have committed, you changes are saved locally on your laptop. To also upload them to GitHub, you need to “push” the changes to Github. Since you cloned an online repository at the beginning, git knowed that you want to push you changes to that location by default, and you can do so by typing <code>git push</code> without specifyin a URL.</p>
+<p>Once you have committed, your changes are saved locally on your laptop. To also upload them to GitHub, you need to “push” the changes to Github. Since you cloned an online repository at the beginning, git knows that you want to push your changes to that location by default, and you can do so by typing <code>git push</code> without specifying a URL.</p>
+<p>You will also see the longer form written out in full:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This says the same thing explicitly. <code>origin</code> is the default name git gives the remote you cloned from, and <code>main</code> is the branch you are on. Being explicit is a good habit, and some assignments will ask you to type it this way so that it is obvious what is going where.</p>
 <p>For more details, see Github’s doc on <a href="https://help.github.com/articles/pushing-to-a-remote/">pushing changes to Github</a>.</p>
 <p><strong>Always verify that your assignments were uploaded by viewing the online repo!</strong></p>
 </section>
