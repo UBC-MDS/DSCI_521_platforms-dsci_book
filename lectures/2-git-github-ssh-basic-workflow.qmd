@@ -203,10 +203,10 @@ you are automatically getting a copy of `.git` and thus, working on a Git.
    cd path/to/your/directory
    ```
 
-   - Use the `git clone` command followed by the URL of your newly created GitHub repository.
+   - Use the `git clone` command followed by the SSH URL of your newly created GitHub repository.
 
    ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git
+   git clone git@github.com:YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git
    ```
 
 3. **Verify the Cloning Process:**
@@ -277,13 +277,27 @@ However, if you intend to run the code on your own machine and make modification
 
 * Step 1: start by navigating to the specific repository on GitHub.
 
-* Step 2: Click the green "Clone or download" button, ensuring the pop-up indicates "Clone with HTTPS" (we will cover SSH authentication later).
+* Step 2: Click the green "Code" button, and choose **SSH** in the pop-up.
+  You set up your SSH key earlier in this lecture,
+  so this is the option to use.
+  The URL you get looks like `git@github.com:github_username/repository_name.git`
+  rather than starting with `https://`.
 
 * Step 3: Copy the provided URL to your clipboard.
 
 * Step 4: Next, open Bash on your laptop and navigate to the directory where you wish to clone the repository using the cd command.
 
-* Step 5: Type git clone followed by the URL, for example `git clone https://github.com/github_username/repository_name.git` and press <kbd>Enter</kbd>.
+* Step 5: Type git clone followed by the URL and press <kbd>Enter</kbd>:
+
+  ```bash
+  git clone git@github.com:github_username/repository_name.git
+  ```
+
+  You may also see an HTTPS URL offered,
+  which looks like `https://github.com/github_username/repository_name.git`.
+  That works too,
+  but it will ask you to authenticate every time you push.
+  With your SSH key set up, the `git@` URL will not.
 
 * Step 6: After the download completes, you can use cd to enter the cloned directory and ls to verify that the contents match what you saw online.
 
@@ -306,7 +320,21 @@ and creating several new ones.
 
 ### Steps to follow:
 
-* Step 1: Start by navigating to https://github.ubc.ca and ensure you are logged in.
+* Step 1: Start by navigating to the GitHub you want the repository on,
+  and ensure you are logged in.
+  MDS uses two:
+  <https://github.com> is the public GitHub,
+  and <https://github.ubc.ca> is UBC's private GitHub Enterprise.
+  They are separate sites with separate accounts.
+
+  :::{.callout-important}
+  Check which one an assignment asks for before you create anything.
+  Coursework that has to be publicly visible,
+  such as a personal website published with GitHub Pages,
+  belongs on <https://github.com>.
+  A repository created on the wrong site cannot simply be moved,
+  so it is worth double checking.
+  :::
 
 * Step 2: Click the green "New repository" button. Alternatively, if you are on your profile page, select "Repositories" and then click the green "New" button.
 
@@ -461,11 +489,24 @@ that you want to associate with your changes.
 
 ## Push local changes to GitHub
 
-Once you have committed, you changes are saved locally on your laptop.
+Once you have committed, your changes are saved locally on your laptop.
 To also upload them to GitHub, you need to "push" the changes to Github.
 Since you cloned an online repository at the beginning,
-git knowed that you want to push you changes to that location by default,
-and you can do so by typing `git push` without specifyin a URL.
+git knows that you want to push your changes to that location by default,
+and you can do so by typing `git push` without specifying a URL.
+
+You will also see the longer form written out in full:
+
+```bash
+git push origin main
+```
+
+This says the same thing explicitly.
+`origin` is the default name git gives the remote you cloned from,
+and `main` is the branch you are on.
+Being explicit is a good habit,
+and some assignments will ask you to type it this way
+so that it is obvious what is going where.
 
 For more details, see Github's doc on [pushing changes to Github](https://help.github.com/articles/pushing-to-a-remote/).
 
