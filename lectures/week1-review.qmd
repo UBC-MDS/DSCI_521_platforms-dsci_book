@@ -5,6 +5,8 @@ title: Week 1 Review
 A five-minute warm-up before Lecture 2.
 All of it is from Week 1.
 
+## Bash and the filesystem (Lecture 1)
+
 ```quizdown
 ---
 shuffle_answers: true
@@ -62,4 +64,70 @@ Some directories are used more than once.
     > Long listing with sizes, dates and permissions; hidden files stay hidden.
 4. [ ] `pwd`
     > Prints where you are, not what is in the current folder.
+```
+
+## Git and GitHub (Lecture 2)
+
+```quizdown
+---
+shuffle_answers: true
+---
+
+## Match each command to the move it makes. (Not all arrows will be used.)
+
+You drew one row per command in lecture: a change moves between
+working directory, staging area, repository, and remote.
+
+- After editing `README.md`, you run `git add README.md` :: Working directory → Staging area
+    > `add` stages the change: chosen for the next commit, but not on the stack yet.
+- `git commit -m "Clarify README"` :: Staging area → Local Repository
+    > The sheet goes onto the stack: the staged change becomes a commit with a parent.
+- `git push origin main` :: Local Repository → Remote
+    > Your new commits go up to GitHub. Nothing on your machine changes.
+- `git log --oneline` :: No move: it only reads
+    > `log` reads the repository column. Reading commands get no arrow.
+- Your teammate pushed; you run `git pull origin main` :: Remote → Local Repository and working directory
+    > The mirror of clone: remote commits come down into your repository and your files.
+- :: Working directory → Remote
+    > No command does this. Edits reach GitHub only through add, commit, and push.
+- :: Staging area → Remote
+    > Staging is local. Only push talks to the remote, and it sends commits, not staged changes.
+
+> Which column is the change in before the command, and which after?
+
+## Where does each change exist right now?
+
+Some answers apply to more than one situation.
+
+- You saved a file in Positron but ran no git commands :: Working directory
+    > Git has not recorded anything yet: the change sits only in your files.
+- You edit `README.md` with the web pencil and press the green commit button :: Remote
+    > The green button commits inside GitHub's copy. Your clone gets it when you pull.
+- You ran `git commit` but have not pushed :: Local repository
+    > The sheet is on your local stack. GitHub learns about it when you push.
+- A commit you pushed yesterday :: Local repository and Remote
+    > Push copied it up; since then both repositories have it.
+- `git status` lists a file in red: changed, not staged :: Working directory
+    > Red means the change lives only in your files so far; `add` is what stages it.
+- Your teammate pushed an hour ago; you have not pulled :: Remote
+    > GitHub does not push to you. Until you pull, your clone has no idea.
+- :: Classmates' clones
+    > Never automatic. Each person's clone changes only when that person pulls.
+
+> Ask which copies of the repository have seen the change.
+
+## SSH setup: which piece goes where?
+
+- The text you paste at github.ubc.ca → Settings → SSH keys :: Public key
+    > The padlock: safe to hand out, useless for breaking in.
+- The file that must never leave your laptop :: Private key
+    > Whoever holds it can push as you. It is never pasted or sent anywhere.
+- What actually proves it is you when `git push` runs :: Private key
+    > Your machine answers the server's challenge with the private key.
+- What you would also add to github.com so a second site recognizes you :: Public key
+    > Copy the same padlock to as many doors as you like.
+- :: Your CWL password
+    > SSH replaces password logins. No step of the setup asks any site for your CWL password.
+
+> One half travels, one half stays home.
 ```
