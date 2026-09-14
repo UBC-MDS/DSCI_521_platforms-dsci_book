@@ -5,6 +5,8 @@ title: Week 1 Review
 A five-minute warm-up before Lecture 2.
 All of it is from Week 1.
 
+## Bash and the filesystem (Lecture 1)
+
 ```quizdown
 ---
 shuffle_answers: true
@@ -62,4 +64,217 @@ Some directories are used more than once.
     > Long listing with sizes, dates and permissions; hidden files stay hidden.
 4. [ ] `pwd`
     > Prints where you are, not what is in the current folder.
+```
+
+## Reading `git status` (Lecture 2)
+
+Each question shows a real terminal. Read it first, then choose.
+
+::: {.term}
+```{=html}
+<pre><span class="tp">$ git status</span>
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+        <span class="tr">modified:   README.md</span>
+
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+```
+:::
+
+```quizdown
+---
+shuffle_answers: true
+---
+
+## The change should end up in the next commit. Which command comes first?
+
+1. [x] `git add README.md`
+    > git add copies the change from the working directory into the staging area. The commit comes after.
+1. [ ] `git commit -m "Clarify README"`
+    > Nothing is staged yet, so there is nothing for this commit to record. Git answers: no changes added to commit. `git commit -a` stages every tracked file at once, so you lose the choice of what goes in.
+1. [ ] `git push origin main`
+    > Push sends commits to the remote. You have not made one yet.
+1. [ ] `git diff`
+    > Useful before adding: diff shows the change and stages nothing.
+```
+
+::: {.term}
+```{=html}
+<pre><span class="tp">$ git status</span>
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+        <span class="tr">modified:   README.md</span>
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+        <span class="tr">analysis.qmd</span>
+
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+```
+:::
+
+```quizdown
+---
+shuffle_answers: true
+---
+
+## Both files just changed on disk. Why does git list them in two sections?
+
+1. [x] README.md was previously committed, analysis.qmd wasn't
+    > Tracked vs untracked. Modified means "differs from the last commit". Untracked means "no last commit exists for this file".
+1. [ ] analysis.qmd is listed in .gitignore
+    > Ignored files do not appear in git status at all. Untracked is the opposite: git shows it and offers to start tracking.
+1. [ ] README.md is already staged and ready to commit, analysis.qmd is not
+    > Staged would read "Changes to be committed". The header you saw says the opposite.
+1. [ ] Git sorts the sections by file type, .md before .qmd
+    > Git does not care about extensions. The sections are about tracking state.
+```
+
+::: {.term}
+```{=html}
+<pre><span class="tp">$ git status</span>
+On branch main
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+        <span class="tr">modified:   README.md</span>
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+        <span class="tr">.ipynb_checkpoints/</span>
+        <span class="tr">analysis.qmd</span>
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+<span class="tp">$ git add . -vn</span>
+add 'README.md'
+add '.ipynb_checkpoints/analysis-checkpoint.qmd'
+add 'analysis.qmd'</pre>
+```
+:::
+
+```quizdown
+---
+shuffle_answers: true
+---
+
+## Before staging, you ran `git add . -vn`. What does the output tell you?
+
+1. [x] `git add .` would also stage the checkpoint folder
+    > `-n` is the dry-run flag (`--dry-run`): it stages nothing. `-v` lists what it would have staged, so you see the list before anything moves. To ignore checkpoint files add them to `.gitignore`.
+1. [ ] The three files are staged and ready to commit
+    > `-n` is the dry-run flag. Nothing moved, and `git status` says exactly what it said before.
+1. [ ] Only `README.md` would be staged, since the others are untracked
+    > `git add .` stages untracked files too. That is the risk the dry run is showing you.
+1. [ ] The checkpoint folder is ignored, so `git add .` is safe
+    > An ignored file never appears in this listing. It appeared, so no rule ignores it yet.
+```
+
+::: {.term}
+```{=html}
+<pre><span class="tp">$ git status</span>
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged &lt;file&gt;..." to unstage)
+        <span class="tg">modified:   README.md</span></pre>
+```
+:::
+
+```quizdown
+---
+shuffle_answers: true
+---
+
+## Record the staged change in history. Which command?
+
+1. [x] `git commit -m "Clarify README"`
+    > From staging into the repository: the change is now recorded in history.
+1. [ ] `git add README.md`
+    > Already staged. Adding again changes nothing.
+1. [ ] `git push origin main`
+    > Push sends existing commits. This one does not exist until you commit.
+1. [ ] `git log`
+    > git log shows history and records nothing.
+```
+
+::: {.term}
+```{=html}
+<pre><span class="tp">$ git commit -m "Clarify README"</span>
+[main e695129] Clarify README
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+<span class="tp">$ git status</span>
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean</pre>
+```
+:::
+
+```quizdown
+---
+shuffle_answers: true
+---
+
+## After that commit, where does your work exist?
+
+1. [x] In the repository on your laptop, nowhere else
+    > "Ahead by 1" means exactly this: the remote does not have it. The hint even names the fix.
+1. [ ] On your laptop and on GitHub
+    > Then the status would say "up to date". Ahead means the remote is missing your commit.
+1. [ ] On GitHub and on every collaborator's laptop
+    > Two steps away: you have not pushed, and they would still need to pull.
+1. [ ] In the staging area
+    > The commit moved the snapshot out of staging into the repository. Staging now matches the repo.
+```
+
+## Copies and keys (Lecture 2)
+
+```quizdown
+---
+shuffle_answers: true
+---
+
+## Which copies of the repository have the change?
+
+Some answers apply to more than one situation.
+
+- You edit `README.md` with the web pencil and press the green commit button :: Only the remote
+    > The green button commits inside GitHub's copy. Your clone gets it when you pull.
+- Your teammate pushed an hour ago and you have not pulled :: Only the remote
+    > GitHub does not push to you. Until you pull, your clone does not have it.
+- A commit you pushed yesterday :: Your clone and the remote
+    > Push copied it up. Since then both repositories have it.
+- A commit your teammate pushed, and you have already pulled :: Your clone and the remote
+    > Pull brought it down. Your clone and GitHub now match again.
+- :: Every classmate's clone
+    > Nothing reaches a classmate's clone until that classmate pulls.
+
+> A copy has the change only after a commit, push or pull moved it there.
+
+## SSH setup: which piece goes where?
+
+- The text you paste at github.ubc.ca → Settings → SSH keys :: Public key
+    > The public key is the padlock: safe to hand out, useless for breaking in.
+- The file that must never leave your laptop :: Private key
+    > Whoever holds it can push as you. It is never pasted or sent anywhere.
+- What proves it is you when `git push` runs :: Private key
+    > Your machine proves it holds the private key without ever sending it.
+- What you would also add to github.com so a second site recognizes you :: Public key
+    > The same public key can be added to any number of sites.
+- :: CWL password
+    > SSH replaces password logins. No step of the setup asks any site for your CWL password.
+
+> The public key is shared. The private key never leaves your laptop.
 ```
