@@ -63,15 +63,6 @@ you can access the help by typing the command `git log --help`.
 We have covered three distinct methods for viewing your project's history.
 Prior to starting the activities, give them a try yourself in an example Git repository!
 
-What are the changes introduced between the two commits? Whe have already learned three different ways to check your project history. Basically, your project history is a temporary line with the changes (commits) made in your project, along with its message and commit ID or hash.
-We can have access to this information on GitHub, and locally using the terminal and Jupyter Lab.
-
-But what if we want to go more into the details and see exactly what has changed between two commits? What lines have been modified?
-
-In the image you can see the comparison between two commits. In red is the old commit and in green is the most recent one. On the commit on the right has been introduced the phrase *"I have changed!* in line number 3 between the commits 35c218 and 89e195.
-
-This is the way we compare commits, let's see how we can access this view in the different platforms.
-
 ## Viewing the history of a project
 
 There are two ways to view the Git history of a project: you can either use the repository's code commit view on GitHub, or you can use the `git log` command on your local machine.
@@ -103,6 +94,138 @@ D. All of the above
 
 How similar are the local and webpage log views?? Do you get the same information from both? Which seems easier to read/navigate?
 
+## Comparing commits with `git diff`
+
+`git log` tells you *which* commits exist.
+`git diff` tells you *what changed*.
+
+### Comparing changes you have not committed yet
+
+Say you edited `README.md` twice:
+you staged the first edit with `git add`, then kept working.
+`git status` reports the two edits separately:
+
+```out
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   README.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+```
+
+`git diff` shows the changes that are **not** staged,
+the second group in that output:
+
+```out
+diff --git a/README.md b/README.md
+index 8656b4a..20244b2 100644
+--- a/README.md
++++ b/README.md
+@@ -6,3 +6,5 @@ Start date: 2026-09-01
+ 
+ - Python 3.12
+ - R
++
++## Usage
+```
+
+`git diff --staged` shows the changes that **are** staged,
+the ones that will go into your next commit:
+
+```out
+diff --git a/README.md b/README.md
+index fbb4751..8656b4a 100644
+--- a/README.md
++++ b/README.md
+@@ -4,5 +4,5 @@ Start date: 2026-09-01
+ 
+ ## Dependencies
+ 
+-- Python
++- Python 3.12
+ - R
+```
+
+So the two commands match the two headings in `git status`:
+
+| `git status` heading | Command that shows those changes |
+|---|---|
+| `Changes to be committed` | `git diff --staged` |
+| `Changes not staged for commit` | `git diff` |
+
+To read a diff:
+
+- `---` is the old version of the file, `+++` is the new one.
+- `@@ -4,5 +4,5 @@` says which lines this chunk covers.
+- Lines starting with `-` were removed, lines starting with `+` were added.
+- Lines starting with a space are unchanged, and are shown for context.
+
+A changed line shows up as a `-` and a `+` pair,
+because Git works line by line:
+it does not know you edited part of a line,
+only that the old line went away and a new one took its place.
+
+### Comparing two commits
+
+Take this history:
+
+```out
+f3db3d9 Add dependency list
+1f0d470 Make heading more precise
+42fc6a8 Initial commit
+```
+
+Give `git diff` two SHAs and it compares them, oldest first:
+
+```bash
+git diff 42fc6a8 f3db3d9
+```
+
+```out
+diff --git a/README.md b/README.md
+index f538d05..fbb4751 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,8 @@
+-# Project
++# Milk Tea Analysis
+ 
+ Start date: 2026-09-01
++
++## Dependencies
++
++- Python
++- R
+```
+
+Give it a single SHA, as in `git diff 1f0d470`,
+and it compares that commit to the files you have right now.
+
+Order matters.
+Swapping the two SHAs swaps the `-` and `+` lines,
+which makes it look like the change happened backwards.
+
+### Comparing commits on GitHub
+
+On GitHub, click any commit in the "*N* commits" list
+to see the same information as `git diff`,
+with removals in red and additions in green.
+
+To compare two commits that are not next to each other,
+use the compare view by adding `/compare/<older-sha>..<newer-sha>`
+to the repository URL:
+
+```out
+https://github.ubc.ca/mds-2026-27/DSCI_521_lab1_ilm/compare/42fc6a8..f3db3d9
+```
+
+Everything `git diff` can do is in
+[the official `git diff` documentation](https://git-scm.com/docs/git-diff).
+
 ## Restoring an older version of a file
 
 Oh no! We realize by viewing the history that we made a mistake! We didn't mean to delete our list of dependencies. Worry not! We can now take advantage that we have been tracking this file under version control by using `git restore` to retrieve an older version of the file to replace the current version.
@@ -119,7 +242,7 @@ Let's restore the version of the file BEFORE we deleted the software dependency 
 
 * Step 4: Don't forget to run `git push` to back up the file on GitHub!
 
-# 3. Deal with merge conflicts at the command line
+# Deal with merge conflicts at the command line
 
 When you run `git pull` git will do two things for you: it will `fetch` the content from the remote and then `merge` it into your repository. When you are working alone on a repository git will likely be able to do these two things automatically every time you `pull`, and you don't need to intervene manually.
 
@@ -363,6 +486,16 @@ We added this line in our last commit
 This line was added somewhere else
 ```
 
+You are not limited to the lines Git offers you.
+Keeping neither and writing something new is a perfectly good resolution:
+
+```{.default filename="README.md"}
+Some text up here
+that is not part of the merge conflict,
+but just included for context.
+We combined both lines by hand while resolving the conflict.
+```
+
 Now `git add README.md`.
 `git status` shows the conflict is settled but the merge is not finished:
 
@@ -406,6 +539,38 @@ True or False?
 You can solve a merge conflict by not accepting either the current changes or the incoming changes.
 :::
 
+
+## Conflicts that are not about lines
+
+Not every conflict is two people editing the same line.
+If you delete a file while someone else edits it,
+Git cannot decide whether the file should exist,
+and reports a `modify/delete` conflict:
+
+```out
+CONFLICT (modify/delete): notes.md deleted in HEAD and modified in 8a4a9c4.  Version 8a4a9c4 of notes.md left in tree.
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+There are no `<<<<<<<` markers to edit here,
+because there is nothing to mark up.
+Git leaves the other person's version of the file in your working directory
+and `git status` describes the conflict as `deleted by us`:
+
+```out
+Unmerged paths:
+  (use "git add/rm <file>..." as appropriate to mark resolution)
+	deleted by us:   notes.md
+```
+
+You resolve it by saying which outcome you want:
+
+- `git add notes.md` keeps the file, with the other person's changes.
+- `git rm notes.md` confirms the deletion.
+
+Then `git commit` as usual.
+The other kinds of conflict Git can report are listed in
+[the `git merge` documentation](https://git-scm.com/docs/git-merge#_how_conflicts_are_presented).
 
 ## What about merge conflicts of Jupyter notebooks?
 
@@ -480,27 +645,43 @@ is encoded by the following JSON:
 }
 ```
 
-## Version control and Jupyter notebook
+## Version control and Jupyter notebooks
 
-Because the notebooks are stored as plain text, we can use them for version control, but this is not without issues, since the JSON format can make it difficult to interpret difference between files and to manually fix conflicts.
+Notebooks are plain text, so Git can track them,
+but the JSON above shows the problem:
+a one-line edit to a cell can move execution counts, outputs and metadata around,
+and a conflict in the middle of that is painful to fix by hand.
+If you have ever resolved a notebook conflict by deleting the file
+and re-downloading it, this is why.
 
-JupyterLab IDE has made really easy now fix merge conflicts. ...
+Three things make notebooks much easier to live with:
 
-# Time travelling with `git reset`
+- **Commit early and commit often.** Most notebook conflicts happen because
+  two people changed the same notebook over a long stretch of time.
+  Small commits and frequent pulls are still the best defence.
 
-If we chose to write something new to replace both commits,
-it could look like this:
+- **Clear your outputs before committing.** Outputs are the bulkiest and most
+  conflict-prone part of the JSON, and they can be regenerated.
+  [`nbstripout`](https://github.com/kynan/nbstripout) can do this automatically
+  every time you commit.
 
-```{.default filename="README.md"}
-Some text up here
-that is not part of the merge conflict,
-but just included for context.
-We added this combined line after manually modification during the merge conflict.
-```
+- **Use a notebook-aware diff tool.**
+  [`nbdime`](https://nbdime.readthedocs.io/) understands notebook structure,
+  so it compares cells instead of JSON.
+  `nbdiff` and `nbmerge` are its command line versions,
+  and `nbdiff-web` and `nbmerge-web` open a side-by-side view in your browser.
+  Once installed, `nbdime config-git --enable --global` makes `git diff` and
+  `git merge` use it for `.ipynb` files automatically.
 
-You then need to `git add`, `git commit` and `git push` the file to have these changes reflected on GitHub.
+VS Code and Positron also render notebook diffs cell by cell
+in their Source Control panes,
+which is often enough to see what changed without leaving the editor.
 
-# 4. Stashing local non-committed changes before pulling
+If a notebook conflict does get away from you,
+`git merge --abort` puts you back where you started
+so you can pull again with one of these tools in place.
+
+# Stashing local non-committed changes before pulling
 
 We have learned that if there are changes on your remote repo in GitHub
 and you already have local committed changes,
@@ -550,7 +731,7 @@ but realize that you should actually work on another unrelated feature first,
 you can stash your existing work (instead of manually saving it elsewhere)
 and finish working on the most urgent feature first.
 
-#  5. Tell Git to ignore irrelevant files using a `.gitignore` file
+# Tell Git to ignore irrelevant files using a `.gitignore` file
 
 You may have encountered this before:
 
@@ -595,7 +776,58 @@ nothing to commit, working tree clean
 
 ## `.gitignore` tips and tricks
 
-To have files or folders ignored in subdirectories within the repo, append `**/` to the beginning of their names listed in the `.gitignore` file. Additionally, consider creating a [global `.gitignore` file](https://help.github.com/articles/ignoring-files/#create-a-global-gitignore) so that you do not have to create the same `.gitignore` for all your repositories.
+Listing files one per line works, but gets tedious.
+A `.gitignore` line can also be a pattern:
+
+```{.default filename=".gitignore"}
+# ignore every CSV file, anywhere in the repo
+*.csv
+
+# ...but keep this one
+!data/lookup-table.csv
+
+# ignore a folder and everything in it
+output/
+
+# ignore .ipynb_checkpoints in any subdirectory
+**/.ipynb_checkpoints/
+```
+
+- `*` matches any part of a filename, so `*.csv` catches every CSV file.
+- `!` un-ignores something that an earlier pattern caught.
+  Order matters: the `!` line has to come after the pattern it is undoing.
+- A trailing `/` means "this is a folder".
+- `#` starts a comment.
+
+The full pattern syntax is in
+[the official `gitignore` documentation](https://git-scm.com/docs/gitignore).
+
+:::{.callout-warning}
+`.gitignore` only applies to files Git is **not already tracking**.
+
+If you have already committed `data.csv`,
+adding `*.csv` to `.gitignore` changes nothing,
+and `git status` keeps reporting your edits to it:
+
+```out
+Changes not staged for commit:
+	modified:   data.csv
+```
+
+You have to tell Git to stop tracking it first:
+
+```bash
+git rm --cached data.csv
+```
+
+This removes the file from Git while leaving it on your computer.
+Commit that change, and the `.gitignore` rule takes over from there.
+Be aware that the file stays in the history of the commits you already made,
+so this is not a way to remove a large file or a password from a repository.
+:::
+
+Consider also creating a [global `.gitignore` file](https://docs.github.com/en/get-started/git-basics/ignoring-files#configuring-ignored-files-for-all-repositories-on-your-computer)
+so you do not have to write the same rules in every repository.
 
 Let's create a `gitignore` file in our 521 lab 2 repo.
 
@@ -609,66 +841,6 @@ Let's create a `gitignore` file in our 521 lab 2 repo.
 
 * Step 4: Type `git status` and see if you no longer see `.ipynb_checkpoints/` as an untracked file.
 
-In Git, we have the flexibility to handle changes in several ways. We can choose to keep the change made in the local repository, keep the change made in the remote repository, write something new to replace both, or get rid of the change entirely.
-
-To move the branch we are currently on back to a previously created commit, we can use the `git reset` command. For example, let's say we are on the master branch of a repository and the output of `git log --oneline` looks like this:
-
-```out
-fb962e0 (HEAD -> master) Add md demo
-bcb541e Make heading more precise
-5c01f2f Initial commit
-```
-
-To reset the branch to the commit with the message "Make heading more precise," we would use the command `git reset bcb541e`. This command repositions the branch to the specified commit, effectively discarding any changes made after that commit.
-
-We can move the location of the master branch back in the commit history
-by typing `git reset <sha>`.
-So to move to the previous commit,
-we would type `git reset bcb541e`.
-Our git log would now show this:
-
-```out
-bcb541e (HEAD -> master) Make heading more precise
-5c01f2f Initial commit
-```
-
-What happened to the changes that were made in commit `fb962e0`?
-The default behavior is to move them back into the working area,
-which was indicated by this message that showed up after we did `git reset bcb541e`:
-
-```out
-Unstaged changes after reset:
-M       README.md
-```
-
-That means we could now make any modification we wish
-and then commit again with a new commit message.
-If we want to discard the changes instead of moving them to the working area,
-we can add the `--hard` flag.
-Typing `git reset --hard 5c01f2f`
-will not show us any message,
-since the changes are not unstaged,
-they are discarded.
-Our log now looks like this
-
-```out
-5c01f2f (HEAD -> master) Initial commit
-```
-
-Are the previous changes lost forever?
-Not yet,
-git keeps a backup of everything that happens in the repo
-in its "reflog".
-Commits that are not part of any branch are referred to as being "dangling",
-and are cleared out at regular intervals,
-rather than immediately.
-So if we realize that we made a mistake right away,
-we could get our changes back by doing
-`git reset bcb541e`,
-which would move us forward to the commit we just "deleted".
-**This behavior should not be relied upon**
-because when the reflog is automatically cleared by git,
-your changes are gone forever.
 
 
 :::{.activity}
@@ -677,41 +849,183 @@ True or false?
 The `.gitignore` file itself can be committed and pushed to a remote repository.
 :::
 
+# Time travelling with `git reset`
 
+Sometimes you do not want to fix the current state of a file,
+you want to move the whole branch back to an earlier commit.
+That is what `git reset` does.
+
+Say `git log --oneline` shows this:
+
+```out
+fb962e0 (HEAD -> main) Add md demo
+bcb541e Make heading more precise
+5c01f2f Initial commit
+```
+
+To move the branch back to "Make heading more precise",
+we run `git reset bcb541e`.
+Our log now shows this:
+
+```out
+bcb541e (HEAD -> main) Make heading more precise
+5c01f2f Initial commit
+```
+
+What happened to the changes from commit `fb962e0`?
+That depends on which flag you use.
+The commit is gone either way,
+but the *changes it contained* can end up in one of three places.
+
+## The three flavours of `git reset`
+
+By default, `git reset <sha>` puts the changes back in the working area,
+as if you had made the edits but not run `git add` yet.
+This is what the message after the reset is telling you:
+
+```out
+Unstaged changes after reset:
+M       README.md
+```
+
+`git reset --soft <sha>` keeps the changes staged instead,
+ready to commit again.
+It prints nothing, but `git status` shows where the changes went:
+
+```out
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   README.md
+```
+
+This is the one to reach for when you committed too early,
+or wrote a commit message you regret:
+reset, then commit again with everything already staged.
+
+`git reset --hard <sha>` throws the changes away.
+It prints nothing either, because there is nothing left to report.
+After `git reset --hard 5c01f2f` our log is just:
+
+```out
+5c01f2f (HEAD -> main) Initial commit
+```
+
+| Flag | The commits are | Your changes end up |
+|---|---|---|
+| `--soft` | removed from the branch | staged |
+| (none, `--mixed`) | removed from the branch | in the working area, unstaged |
+| `--hard` | removed from the branch | discarded |
+
+The details are in
+[the official `git reset` documentation](https://git-scm.com/docs/git-reset).
+
+:::{.callout-warning}
+`--hard` is the only one of the three that destroys work.
+Run `git status` before you use it,
+and make sure you do not need anything it is about to discard.
+:::
+
+## Are the changes lost forever?
+
+Not immediately.
+Git keeps a record of everywhere your branch has been in its "reflog".
+Commits that are no longer part of any branch are called "dangling",
+and they are cleared out at intervals rather than right away.
+So if you realise the mistake straight away,
+`git reset bcb541e` moves you forward again to the commit you just "deleted".
+
+**Do not rely on this.**
+Once Git clears the reflog, those changes are gone for good.
+
+## Undoing a commit without rewriting history
+
+`git reset` works by pretending a commit never happened,
+which is a problem once that commit is on GitHub
+and other people have it.
+
+`git revert <sha>` is the safe alternative.
+Instead of removing the old commit,
+it makes a **new** commit that undoes it,
+so the history stays intact and everyone else stays in sync.
+See [the official `git revert` documentation](https://git-scm.com/docs/git-revert).
 ## Syncing with a remote after resetting
 
-**This is a dangerous operation
-that can delete all your work.**
-If we want to get rid of a commit on a remote,
-we will need to push our changes.
-But as we have seen before,
-git will refuse to push changes
-when the remote is ahead of the local branch.
-To override this warning and force git to push to the remote
-we can use the `-f/--force` flag.
+If the commit you reset away is already on GitHub,
+your local branch is now *behind* the remote,
+and Git refuses to push.
+The `-f`/`--force` flag overrides that refusal.
 
-Force pushing is dangerous,
-and you should never do this on the master branch of a repository
-that you share with collaborators
-unless you have all discussed this
-and they are aware of what you are doing.
-The reason is that by force pushing,
-you will make it so that everyone else who is using this repository
-are now out of sync with the master branch,
-since you have reset master to a previous state.
-**Be careful,
-better safe than sorry**
+:::{.callout-important}
+**Force pushing can delete other people's work.**
 
-Times when a force push is legitimate includes
-when you have have rebased a feature branch to syn it with master
-or if you are working alone and you are 100% sure
-that you want to remove a commit from GitHub.
-A safer way to undo a change in a commit,
-is to make a new commit that removes the content of the old one.
-You can do this manually,
-or use `git revert <sha>` to automatically create a new commit
-that undoes an old one.
+Never force push to a branch you share with collaborators
+unless you have all agreed to it first.
+By force pushing you reset the shared branch to an earlier state,
+so everyone else is now out of sync with it,
+and the commits they had are gone from the remote.
+:::
 
+Force pushing is reasonable when you are working alone
+and you are certain you want a commit removed from GitHub.
+Everywhere else, prefer `git revert <sha>`,
+which undoes the change with a new commit
+and leaves the shared history alone.
+
+# Other useful Git commands
+
+These are not part of the workflow you need for the labs,
+but you will see them referred to often enough to be worth knowing about.
+
+## `git fetch`
+
+Earlier we said that `git pull` does two things:
+it *fetches* the commits from the remote,
+then *merges* them into your branch.
+
+`git fetch` does only the first half
+(this is the split shown in the figure at the start of the merge conflict section).
+It downloads the new commits and updates `origin/main`,
+your local record of where the remote branch is,
+but leaves your own files untouched:
+
+```out
+From github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm
+   0e38f69..ada2b64  main       -> origin/main
+```
+
+Nothing in your working directory changed,
+and `git status` now tells you what is waiting:
+
+```out
+On branch main
+Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+```
+
+This is useful when you want to look before you leap.
+`git log --oneline main..origin/main` lists the commits you are about to receive,
+and `git diff main origin/main` shows what they change.
+When you are happy, `git pull` brings them in.
+
+See [the official `git fetch` documentation](https://git-scm.com/docs/git-fetch).
+
+## Two different `git restore` commands
+
+`git restore` does different things depending on the flag,
+and the two uses are easy to confuse:
+
+| Command | What it does |
+|---|---|
+| `git restore <file>` | Throws away uncommitted changes in the working area |
+| `git restore --staged <file>` | Unstages a file, keeping your changes |
+| `git restore --source <sha> <file>` | Brings back the version of a file from an older commit |
+
+Only the last one reaches into the history,
+and it is the one we used earlier in this chapter.
+See [the official `git restore` documentation](https://git-scm.com/docs/git-restore).
 
 ### Exercise: Accessing and Working with GitHub
 
