@@ -740,7 +740,7 @@ git status
 ```
 
 ```out
-On branch timberst-master
+On branch main
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
@@ -770,7 +770,7 @@ Inside the text file, list the files and folders you would like to ignore, one p
 Save the file, and `add` and `commit` it with Git. Then try `git status` again. You should see:
 
 ```out
-On branch timberst-master
+On branch main
 nothing to commit, working tree clean
 ```
 
@@ -949,28 +949,61 @@ Instead of removing the old commit,
 it makes a **new** commit that undoes it,
 so the history stays intact and everyone else stays in sync.
 See [the official `git revert` documentation](https://git-scm.com/docs/git-revert).
+
 ## Syncing with a remote after resetting
 
 If the commit you reset away is already on GitHub,
-your local branch is now *behind* the remote,
+your local history is now *behind* the remote,
 and Git refuses to push.
-The `-f`/`--force` flag overrides that refusal.
+To overwrite what is on GitHub with your reset history, use:
+
+```bash
+git push --force-with-lease origin main
+```
+
+The "lease" is a safety check.
+Git overwrites the remote only if the remote is still where you last saw it.
+If someone pushed something in the meantime,
+your push is rejected instead of quietly destroying their work:
+
+```out
+ ! [rejected]        main -> main (stale info)
+error: failed to push some refs to 'github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm.git'
+```
+
+`stale info` means "the remote moved and you have not looked at it yet".
+Run `git fetch origin`, see what arrived,
+decide what to do with it,
+and then push again.
+
+When the lease holds, Git tells you it rewrote the remote:
+
+```out
+ + 7c2695a...b78bf16 main -> main (forced update)
+```
 
 :::{.callout-important}
-**Force pushing can delete other people's work.**
+**Always `--force-with-lease`, never `--force`.**
 
-Never force push to a branch you share with collaborators
-unless you have all agreed to it first.
-By force pushing you reset the shared branch to an earlier state,
-so everyone else is now out of sync with it,
-and the commits they had are gone from the remote.
+You will also see `git push --force` (or `-f`) written in blog posts and
+answers online.
+It does the same thing without the safety check:
+it overwrites the remote no matter what is there,
+so any commits pushed since you last fetched are gone,
+and nothing warns you first.
+`--force-with-lease` gives you the same power and catches that mistake,
+so there is no reason to use the shorter one.
 :::
 
-Force pushing is reasonable when you are working alone
-and you are certain you want a commit removed from GitHub.
-Everywhere else, prefer `git revert <sha>`,
-which undoes the change with a new commit
+Even with the lease, you are rewriting history that other people may have
+already pulled, so they will be out of sync with the remote.
+Force pushing is fine when the repository is yours alone,
+and something to agree on first when it is not.
+When in doubt, prefer `git revert <sha>`:
+it undoes the change with a new commit
 and leaves the shared history alone.
+
+See [the official `git push` documentation](https://git-scm.com/docs/git-push#Documentation/git-push.txt---force-with-lease).
 
 # Other useful Git commands
 
