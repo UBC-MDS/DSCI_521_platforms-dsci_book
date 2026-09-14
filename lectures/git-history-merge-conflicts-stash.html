@@ -712,34 +712,56 @@ window.Quarto = {
   <li><a href="#steps-to-follow-1" id="toc-steps-to-follow-1" class="nav-link" data-scroll-target="#steps-to-follow-1">Steps to follow:</a></li>
   <li><a href="#reflection-point" id="toc-reflection-point" class="nav-link" data-scroll-target="#reflection-point">Reflection point</a></li>
   </ul></li>
+  <li><a href="#comparing-commits-with-git-diff" id="toc-comparing-commits-with-git-diff" class="nav-link" data-scroll-target="#comparing-commits-with-git-diff">Comparing commits with <code>git diff</code></a>
+  <ul class="collapse">
+  <li><a href="#comparing-changes-you-have-not-committed-yet" id="toc-comparing-changes-you-have-not-committed-yet" class="nav-link" data-scroll-target="#comparing-changes-you-have-not-committed-yet">Comparing changes you have not committed yet</a></li>
+  <li><a href="#comparing-two-commits" id="toc-comparing-two-commits" class="nav-link" data-scroll-target="#comparing-two-commits">Comparing two commits</a></li>
+  <li><a href="#comparing-commits-on-github" id="toc-comparing-commits-on-github" class="nav-link" data-scroll-target="#comparing-commits-on-github">Comparing commits on GitHub</a></li>
+  </ul></li>
   <li><a href="#restoring-an-older-version-of-a-file" id="toc-restoring-an-older-version-of-a-file" class="nav-link" data-scroll-target="#restoring-an-older-version-of-a-file">Restoring an older version of a file</a>
   <ul class="collapse">
   <li><a href="#steps-to-follow-2" id="toc-steps-to-follow-2" class="nav-link" data-scroll-target="#steps-to-follow-2">Steps to follow:</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#deal-with-merge-conflicts-at-the-command-line" id="toc-deal-with-merge-conflicts-at-the-command-line" class="nav-link" data-scroll-target="#deal-with-merge-conflicts-at-the-command-line">3. Deal with merge conflicts at the command line</a>
+  <li><a href="#deal-with-merge-conflicts-at-the-command-line" id="toc-deal-with-merge-conflicts-at-the-command-line" class="nav-link" data-scroll-target="#deal-with-merge-conflicts-at-the-command-line">Deal with merge conflicts at the command line</a>
   <ul class="collapse">
-  <li><a href="#how-do-you-know-you-have-a-merge-conflict" id="toc-how-do-you-know-you-have-a-merge-conflict" class="nav-link" data-scroll-target="#how-do-you-know-you-have-a-merge-conflict">How do you know you have a merge conflict?</a></li>
+  <li><a href="#how-do-you-know-you-have-a-merge-conflict" id="toc-how-do-you-know-you-have-a-merge-conflict" class="nav-link" data-scroll-target="#how-do-you-know-you-have-a-merge-conflict">How do you know you have a merge conflict?</a>
+  <ul class="collapse">
+  <li><a href="#problem-1-your-branch-and-the-remote-have-diverged" id="toc-problem-1-your-branch-and-the-remote-have-diverged" class="nav-link" data-scroll-target="#problem-1-your-branch-and-the-remote-have-diverged">Problem 1: your branch and the remote have diverged</a></li>
+  <li><a href="#outcome-a-git-merges-the-changes-for-you" id="toc-outcome-a-git-merges-the-changes-for-you" class="nav-link" data-scroll-target="#outcome-a-git-merges-the-changes-for-you">Outcome A: Git merges the changes for you</a></li>
+  <li><a href="#outcome-b-you-have-a-merge-conflict" id="toc-outcome-b-you-have-a-merge-conflict" class="nav-link" data-scroll-target="#outcome-b-you-have-a-merge-conflict">Outcome B: you have a merge conflict</a></li>
+  </ul></li>
   <li><a href="#what-do-you-do-to-fix-a-merge-conflict" id="toc-what-do-you-do-to-fix-a-merge-conflict" class="nav-link" data-scroll-target="#what-do-you-do-to-fix-a-merge-conflict">What do you do to fix a merge conflict?</a>
   <ul class="collapse">
   <li><a href="#steps-to-follow-3" id="toc-steps-to-follow-3" class="nav-link" data-scroll-target="#steps-to-follow-3">Steps to follow:</a></li>
   </ul></li>
+  <li><a href="#conflicts-that-are-not-about-lines" id="toc-conflicts-that-are-not-about-lines" class="nav-link" data-scroll-target="#conflicts-that-are-not-about-lines">Conflicts that are not about lines</a></li>
   <li><a href="#what-about-merge-conflicts-of-jupyter-notebooks" id="toc-what-about-merge-conflicts-of-jupyter-notebooks" class="nav-link" data-scroll-target="#what-about-merge-conflicts-of-jupyter-notebooks">What about merge conflicts of Jupyter notebooks?</a>
   <ul class="collapse">
   <li><a href="#first---a-bit-about-what-a-jupyter-notebook-is-made-up-of" id="toc-first---a-bit-about-what-a-jupyter-notebook-is-made-up-of" class="nav-link" data-scroll-target="#first---a-bit-about-what-a-jupyter-notebook-is-made-up-of">First - a bit about what a Jupyter notebook is made up of</a></li>
   </ul></li>
-  <li><a href="#version-control-and-jupyter-notebook" id="toc-version-control-and-jupyter-notebook" class="nav-link" data-scroll-target="#version-control-and-jupyter-notebook">Version control and Jupyter notebook</a></li>
+  <li><a href="#version-control-and-jupyter-notebooks" id="toc-version-control-and-jupyter-notebooks" class="nav-link" data-scroll-target="#version-control-and-jupyter-notebooks">Version control and Jupyter notebooks</a></li>
   </ul></li>
-  <li><a href="#time-travelling-with-git-reset" id="toc-time-travelling-with-git-reset" class="nav-link" data-scroll-target="#time-travelling-with-git-reset">Time travelling with <code>git reset</code></a></li>
-  <li><a href="#stashing-local-non-committed-changes-before-pulling" id="toc-stashing-local-non-committed-changes-before-pulling" class="nav-link" data-scroll-target="#stashing-local-non-committed-changes-before-pulling">4. Stashing local non-committed changes before pulling</a></li>
-  <li><a href="#tell-git-to-ignore-irrelevant-files-using-a-.gitignore-file" id="toc-tell-git-to-ignore-irrelevant-files-using-a-.gitignore-file" class="nav-link" data-scroll-target="#tell-git-to-ignore-irrelevant-files-using-a-.gitignore-file">5. Tell Git to ignore irrelevant files using a <code>.gitignore</code> file</a>
+  <li><a href="#stashing-local-non-committed-changes-before-pulling" id="toc-stashing-local-non-committed-changes-before-pulling" class="nav-link" data-scroll-target="#stashing-local-non-committed-changes-before-pulling">Stashing local non-committed changes before pulling</a></li>
+  <li><a href="#tell-git-to-ignore-irrelevant-files-using-a-.gitignore-file" id="toc-tell-git-to-ignore-irrelevant-files-using-a-.gitignore-file" class="nav-link" data-scroll-target="#tell-git-to-ignore-irrelevant-files-using-a-.gitignore-file">Tell Git to ignore irrelevant files using a <code>.gitignore</code> file</a>
   <ul class="collapse">
   <li><a href="#create-a-.gitignore-file" id="toc-create-a-.gitignore-file" class="nav-link" data-scroll-target="#create-a-.gitignore-file">Create a <code>.gitignore</code> file</a></li>
   <li><a href="#gitignore-tips-and-tricks" id="toc-gitignore-tips-and-tricks" class="nav-link" data-scroll-target="#gitignore-tips-and-tricks"><code>.gitignore</code> tips and tricks</a>
   <ul class="collapse">
   <li><a href="#steps-to-follow-4" id="toc-steps-to-follow-4" class="nav-link" data-scroll-target="#steps-to-follow-4">Steps to follow:</a></li>
   </ul></li>
-  <li><a href="#syncing-with-a-remote-after-resetting" id="toc-syncing-with-a-remote-after-resetting" class="nav-link" data-scroll-target="#syncing-with-a-remote-after-resetting">Syncing with a remote after resetting</a>
+  </ul></li>
+  <li><a href="#time-travelling-with-git-reset" id="toc-time-travelling-with-git-reset" class="nav-link" data-scroll-target="#time-travelling-with-git-reset">Time travelling with <code>git reset</code></a>
+  <ul class="collapse">
+  <li><a href="#the-three-flavours-of-git-reset" id="toc-the-three-flavours-of-git-reset" class="nav-link" data-scroll-target="#the-three-flavours-of-git-reset">The three flavours of <code>git reset</code></a></li>
+  <li><a href="#are-the-changes-lost-forever" id="toc-are-the-changes-lost-forever" class="nav-link" data-scroll-target="#are-the-changes-lost-forever">Are the changes lost forever?</a></li>
+  <li><a href="#undoing-a-commit-without-rewriting-history" id="toc-undoing-a-commit-without-rewriting-history" class="nav-link" data-scroll-target="#undoing-a-commit-without-rewriting-history">Undoing a commit without rewriting history</a></li>
+  <li><a href="#syncing-with-a-remote-after-resetting" id="toc-syncing-with-a-remote-after-resetting" class="nav-link" data-scroll-target="#syncing-with-a-remote-after-resetting">Syncing with a remote after resetting</a></li>
+  </ul></li>
+  <li><a href="#other-useful-git-commands" id="toc-other-useful-git-commands" class="nav-link" data-scroll-target="#other-useful-git-commands">Other useful Git commands</a>
+  <ul class="collapse">
+  <li><a href="#git-fetch" id="toc-git-fetch" class="nav-link" data-scroll-target="#git-fetch"><code>git fetch</code></a></li>
+  <li><a href="#two-different-git-restore-commands" id="toc-two-different-git-restore-commands" class="nav-link" data-scroll-target="#two-different-git-restore-commands">Two different <code>git restore</code> commands</a>
   <ul class="collapse">
   <li><a href="#exercise-accessing-and-working-with-github" id="toc-exercise-accessing-and-working-with-github" class="nav-link" data-scroll-target="#exercise-accessing-and-working-with-github">Exercise: Accessing and Working with GitHub</a></li>
   </ul></li>
@@ -808,10 +830,6 @@ window.Quarto = {
 <p>Adding the flag <code>--oneline</code> to the command <code>git log</code> will provide you a different format for the output, in this case, you get a succint version of the information of each commit.</p>
 <p>The terminal allows greater flexibility when it comes to obtaining information about your project. If you would like to know what other possibilities you have for using the <code>git log</code> command, you can access the help by typing the command <code>git log --help</code>.</p>
 <p>We have covered three distinct methods for viewing your project’s history. Prior to starting the activities, give them a try yourself in an example Git repository!</p>
-<p>What are the changes introduced between the two commits? Whe have already learned three different ways to check your project history. Basically, your project history is a temporary line with the changes (commits) made in your project, along with its message and commit ID or hash. We can have access to this information on GitHub, and locally using the terminal and Jupyter Lab.</p>
-<p>But what if we want to go more into the details and see exactly what has changed between two commits? What lines have been modified?</p>
-<p>In the image you can see the comparison between two commits. In red is the old commit and in green is the most recent one. On the commit on the right has been introduced the phrase <em>“I have changed!</em> in line number 3 between the commits 35c218 and 89e195.</p>
-<p>This is the way we compare commits, let’s see how we can access this view in the different platforms.</p>
 </section>
 <section id="viewing-the-history-of-a-project" class="level2">
 <h2 class="anchored" data-anchor-id="viewing-the-history-of-a-project">Viewing the history of a project</h2>
@@ -857,6 +875,126 @@ window.Quarto = {
 <p>How similar are the local and webpage log views?? Do you get the same information from both? Which seems easier to read/navigate?</p>
 </section>
 </section>
+<section id="comparing-commits-with-git-diff" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-commits-with-git-diff">Comparing commits with <code>git diff</code></h2>
+<p><code>git log</code> tells you <em>which</em> commits exist. <code>git diff</code> tells you <em>what changed</em>.</p>
+<section id="comparing-changes-you-have-not-committed-yet" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-changes-you-have-not-committed-yet">Comparing changes you have not committed yet</h3>
+<p>Say you edited <code>README.md</code> twice: you staged the first edit with <code>git add</code>, then kept working. <code>git status</code> reports the two edits separately:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>On branch main
+Changes to be committed:
+  (use "git restore --staged &lt;file&gt;..." to unstage)
+    modified:   README.md
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+    modified:   README.md</code></pre>
+</div>
+<p><code>git diff</code> shows the changes that are <strong>not</strong> staged, the second group in that output:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>diff --git a/README.md b/README.md
+index 8656b4a..20244b2 100644
+--- a/README.md
++++ b/README.md
+@@ -6,3 +6,5 @@ Start date: 2026-09-01
+ 
+ - Python 3.12
+ - R
++
++## Usage</code></pre>
+</div>
+<p><code>git diff --staged</code> shows the changes that <strong>are</strong> staged, the ones that will go into your next commit:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>diff --git a/README.md b/README.md
+index fbb4751..8656b4a 100644
+--- a/README.md
++++ b/README.md
+@@ -4,5 +4,5 @@ Start date: 2026-09-01
+ 
+ ## Dependencies
+ 
+-- Python
++- Python 3.12
+ - R</code></pre>
+</div>
+<p>So the two commands match the two headings in <code>git status</code>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><code>git status</code> heading</th>
+<th>Command that shows those changes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Changes to be committed</code></td>
+<td><code>git diff --staged</code></td>
+</tr>
+<tr class="even">
+<td><code>Changes not staged for commit</code></td>
+<td><code>git diff</code></td>
+</tr>
+</tbody>
+</table>
+<p>To read a diff:</p>
+<ul>
+<li><code>---</code> is the old version of the file, <code>+++</code> is the new one.</li>
+<li><code>@@ -4,5 +4,5 @@</code> says which lines this chunk covers.</li>
+<li>Lines starting with <code>-</code> were removed, lines starting with <code>+</code> were added.</li>
+<li>Lines starting with a space are unchanged, and are shown for context.</li>
+</ul>
+<p>A changed line shows up as a <code>-</code> and a <code>+</code> pair, because Git works line by line: it does not know you edited part of a line, only that the old line went away and a new one took its place.</p>
+</section>
+<section id="comparing-two-commits" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-two-commits">Comparing two commits</h3>
+<p>Take this history:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>f3db3d9 Add dependency list
+1f0d470 Make heading more precise
+42fc6a8 Initial commit</code></pre>
+</div>
+<p>Give <code>git diff</code> two SHAs and it compares them, oldest first:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff 42fc6a8 f3db3d9</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>diff --git a/README.md b/README.md
+index f538d05..fbb4751 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,8 @@
+-# Project
++# Milk Tea Analysis
+ 
+ Start date: 2026-09-01
++
++## Dependencies
++
++- Python
++- R</code></pre>
+</div>
+<p>Give it a single SHA, as in <code>git diff 1f0d470</code>, and it compares that commit to the files you have right now.</p>
+<p>Order matters. Swapping the two SHAs swaps the <code>-</code> and <code>+</code> lines, which makes it look like the change happened backwards.</p>
+</section>
+<section id="comparing-commits-on-github" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-commits-on-github">Comparing commits on GitHub</h3>
+<p>On GitHub, click any commit in the “<em>N</em> commits” list to see the same information as <code>git diff</code>, with removals in red and additions in green.</p>
+<p>To compare two commits that are not next to each other, use the compare view by adding <code>/compare/&lt;older-sha&gt;..&lt;newer-sha&gt;</code> to the repository URL:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>https://github.ubc.ca/mds-2026-27/DSCI_521_lab1_ilm/compare/42fc6a8..f3db3d9</code></pre>
+</div>
+<p>Everything <code>git diff</code> can do is in <a href="https://git-scm.com/docs/git-diff">the official <code>git diff</code> documentation</a>.</p>
+</section>
+</section>
 <section id="restoring-an-older-version-of-a-file" class="level2">
 <h2 class="anchored" data-anchor-id="restoring-an-older-version-of-a-file">Restoring an older version of a file</h2>
 <p>Oh no! We realize by viewing the history that we made a mistake! We didn’t mean to delete our list of dependencies. Worry not! We can now take advantage that we have been tracking this file under version control by using <code>git restore</code> to retrieve an older version of the file to replace the current version.</p>
@@ -873,7 +1011,7 @@ window.Quarto = {
 </section>
 </section>
 <section id="deal-with-merge-conflicts-at-the-command-line" class="level1">
-<h1>3. Deal with merge conflicts at the command line</h1>
+<h1>Deal with merge conflicts at the command line</h1>
 <p>When you run <code>git pull</code> git will do two things for you: it will <code>fetch</code> the content from the remote and then <code>merge</code> it into your repository. When you are working alone on a repository git will likely be able to do these two things automatically every time you <code>pull</code>, and you don’t need to intervene manually.</p>
 <p>However, when working with collaborators there are usually changes made in more than one place (e.g., you made changes in the local repo on your laptop at the same time as your collaborator updated the remote repo on GitHub). Eventually, the same document will have been changed in different places and this can create issues for git regarding how to consolidate and <code>merge</code> these changes together. There are two distinct merge scenarios for when a document is changed in two places:</p>
 <ul>
@@ -884,29 +1022,41 @@ window.Quarto = {
 <p><img src="img/fetchvspull.png" class="img-fluid"></p>
 <section id="how-do-you-know-you-have-a-merge-conflict" class="level2">
 <h2 class="anchored" data-anchor-id="how-do-you-know-you-have-a-merge-conflict">How do you know you have a merge conflict?</h2>
-<p>If you have committed some changes locally, you might see something like this when you try to <code>push</code> them:</p>
+<p>You usually find out when you try to <code>push</code> and Git refuses. Two different problems cause that rejected push, and only the second one is a merge conflict:</p>
+<ol type="1">
+<li>Your branch and the remote branch have <em>diverged</em>, and Git wants you to say how to reconcile them.</li>
+<li>Git tried to reconcile them and could not, because the same lines were changed in both places.</li>
+</ol>
+<p>You have to fix the first problem before you find out whether you have the second one.</p>
+<section id="problem-1-your-branch-and-the-remote-have-diverged" class="level3">
+<h3 class="anchored" data-anchor-id="problem-1-your-branch-and-the-remote-have-diverged">Problem 1: your branch and the remote have diverged</h3>
+<p>You commit some changes locally, and changes were also made on GitHub (by a collaborator, by you on a different computer, or by you editing a file in the GitHub web interface). <code>git status</code> shows that the two histories have drifted apart:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
-<pre class="out"><code>To https://github.com/joelostblom/DSCI_521_lab1_jostblom
- ! [rejected]        master -&gt; master (non-fast-forward)
-error: failed to push some refs to 'https://github.com/joelostblom/DSCI_521_lab1_jostblom'
+<pre class="out"><code>On branch main
+Your branch and 'origin/main' have diverged,
+and have 2 and 14 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+nothing to commit, working tree clean</code></pre>
+</div>
+<p>If you try to <code>git push origin main</code> in this state, the push is rejected:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>To github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm.git
+ ! [rejected]        main -&gt; main (non-fast-forward)
+error: failed to push some refs to 'github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm.git'
 hint: Updates were rejected because the tip of your current branch is behind
-hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
-hint: before pushing again.
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code></pre>
 </div>
-<p>As the message tells you, there are new changes to the remote repo that you need to <code>pull</code> down from GitHub before you are allowed to <code>push</code> up your changes. If there are no conflicts when you <code>pull</code>, Git will say that everything went OK and you can <code>push</code> up your new changes.</p>
-<p>If there are conflicts, you will see something like this:</p>
+<p>The remote has changes you do not have, and Git will not let you <code>push</code> until you <code>pull</code> them down.</p>
+<p>So you run <code>git pull origin main</code>, and Git refuses again:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
-<pre class="out"><code>
-remote: Enumerating objects: 5, done.
-remote: Counting objects: 100% (5/5), done.
-remote: Compressing objects: 100% (3/3), done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
-Unpacking objects: 100% (3/3), 418 bytes | 104.00 KiB/s, done.
-From github.ubc.ca:mds-2025-26/DSCI_lab1_ilm
-   30137f5..fa47713  main       -&gt; origin/main
+<pre class="out"><code>From github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm
+ * branch            main       -&gt; FETCH_HEAD
 hint: You have divergent branches and need to specify how to reconcile them.
 hint: You can do so by running one of the following commands sometime before
 hint: your next pull:
@@ -919,11 +1069,113 @@ hint: You can replace "git config" with "git config --global" to set a default
 hint: preference for all repositories. You can also pass --rebase, --no-rebase,
 hint: or --ff-only on the command line to override the configured default per
 hint: invocation.
-fatal: Need to specify how to reconcile divergent branches.
-</code></pre>
+fatal: Need to specify how to reconcile divergent branches.</code></pre>
 </div>
-<p>You have a merge conflict. Merge conflicts are not bad, they happen to everyone and you will need to know how to instruct git what to do.</p>
-<p>We usually want git to help us solve the conflict via merge, so a reasonable next step is <code>git pull --rebase=false</code>, which specifically tells git that we want to reconcile by merging.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>fatal: Need to specify how to reconcile divergent branches</code> does <strong>not</strong> mean you have a merge conflict. Git has not tried to combine the two histories yet. It will not guess whether you want to <em>merge</em> or <em>rebase</em>, and it will keep refusing until you tell it.</p>
+</div>
+</div>
+<p>When you see this, run this one command:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config pull.rebase false</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This tells Git that in this repository, <code>pull</code> reconciles divergent branches by <strong>merging</strong>. That was Git’s default in older versions, and it is what we use in this course. Merging leaves your commits and the remote’s commits as they are, so when something goes wrong it is easier to see what happened and recover.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>git config pull.rebase false</code> records a setting, it does not pull anything. You still need to run <code>git pull origin main</code> afterwards.</p>
+<p>Run it once per repository. To set it for every repository on your computer, run <code>git config --global pull.rebase false</code> instead.</p>
+</div>
+</div>
+<p>Once Git knows how to reconcile, one of two things happens.</p>
+</section>
+<section id="outcome-a-git-merges-the-changes-for-you" class="level3">
+<h3 class="anchored" data-anchor-id="outcome-a-git-merges-the-changes-for-you">Outcome A: Git merges the changes for you</h3>
+<p>If the changes are on different lines, Git merges them for you and reports the merge commit:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>From github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm
+ * branch            main       -&gt; FETCH_HEAD
+Merge made by the 'ort' strategy.
+ README.md      | 4 ++++
+ analysis.ipynb | 2 +-
+ 2 files changed, 5 insertions(+), 1 deletion(-)</code></pre>
+</div>
+<p>There is nothing to fix. <code>git push origin main</code> now works:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>Enumerating objects: 35, done.
+Counting objects: 100% (34/34), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (30/30), done.
+Writing objects: 100% (31/31), 2.46 MiB | 10.86 MiB/s, done.
+Total 31 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm.git
+   37deb72..ded3e69  main -&gt; main</code></pre>
+</div>
+</section>
+<section id="outcome-b-you-have-a-merge-conflict" class="level3">
+<h3 class="anchored" data-anchor-id="outcome-b-you-have-a-merge-conflict">Outcome B: you have a merge conflict</h3>
+<p>If the <em>same lines</em> were changed in both places, Git cannot decide for you. The same <code>git pull origin main</code> ends with extra lines:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>From github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm
+ * branch            main       -&gt; FETCH_HEAD
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+</div>
+<p>This is a merge conflict. The words to look for are <code>CONFLICT</code> and <code>Automatic merge failed</code>. Git names the file it could not merge, <code>README.md</code> here.</p>
+<p><code>git status</code> confirms where you are and what to do next:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add &lt;file&gt;..." to mark resolution)
+    both modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
+</div>
+<p>The file is listed under <strong>Unmerged paths</strong> as <code>both modified</code>: you and someone else edited it, and you have to pick what to keep.</p>
+<p>Merge conflicts are not bad. They happen to everyone, and you need to know how to tell Git what to do.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Changed your mind? <code>git merge --abort</code> undoes the merge and puts your repository back where it was before you pulled. Nothing is lost and you can try again.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-activity callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -942,12 +1194,13 @@ fatal: Need to specify how to reconcile divergent branches.
 </div>
 </div>
 </section>
+</section>
 <section id="what-do-you-do-to-fix-a-merge-conflict" class="level2">
 <h2 class="anchored" data-anchor-id="what-do-you-do-to-fix-a-merge-conflict">What do you do to fix a merge conflict?</h2>
 <section id="steps-to-follow-3" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow-3">Steps to follow:</h3>
 <ul>
-<li><p>Step 1: Open the file that has a conflict (the output of <code>git pull --rebase=false</code> will tell you which files) in a plain text editor (e.g., VS Code).</p></li>
+<li><p>Step 1: Open the file that has a conflict (the output of <code>git pull</code> will tell you which files) in a plain text editor (e.g., VS Code).</p></li>
 <li><p>Step 2: Look for the conflict (hint: search for <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>).</p></li>
 <li><p>Step 3: Fix the conflict by deleting everything you don’t want to keep in the file, including the <code>&lt;&lt;&lt;&lt;&lt;</code>, <code>=====</code>, and <code>&gt;&gt;&gt;&gt;&gt;</code> markers that Git added. Note: VS Code will help you with this by color highlighting the changes and providing buttons you can click to accept either the current or incoming change (or both). Using these buttons instead of modifying the file manually can save you from mistakes that can take a lot of time to troubleshoot and fix, so we highly recommend using this feature.</p></li>
 <li><p>Step 4: After the file looks as you want it, <code>add</code> it and <code>commit</code> your changes. Then you can <code>push</code> them up to GitHub.</p></li>
@@ -957,20 +1210,72 @@ fatal: Need to specify how to reconcile divergent branches.
 <div class="code-with-filename-file">
 <pre><strong>README.md</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="README.md"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Some text up here</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>that is not part of the merge conflict,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>but just included for context.</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>We added this line in our last commit</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>=======</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>This line was added somewhere else</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" data-filename="README.md"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Some text up here</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>that is not part of the merge conflict,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>but just included for context.</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>We added this line in our last commit</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>=======</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>This line was added somewhere else</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> precedes the change you made (that you couldn’t push)</li>
 <li><code>=======</code> is a separator between the conflicting changes</li>
 <li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d</code> flags the end of the conflicting change you pulled from GitHub</li>
 </ul>
+<p>Here we keep both lines, so we delete the three marker lines and leave the rest:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>README.md</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17" data-filename="README.md"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Some text up here</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>that is not part of the merge conflict,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>but just included for context.</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>We added this line in our last commit</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>This line was added somewhere else</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You are not limited to the lines Git offers you. Keeping neither and writing something new is a perfectly good resolution:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>README.md</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" data-filename="README.md"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Some text up here</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>that is not part of the merge conflict,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>but just included for context.</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>We combined both lines by hand while resolving the conflict.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now <code>git add README.md</code>. <code>git status</code> shows the conflict is settled but the merge is not finished:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+    modified:   README.md</code></pre>
+</div>
+<p><code>git commit -m "Resolve merge conflict in README.md"</code> concludes the merge:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>[main 8aa69f2] Resolve merge conflict in README.md</code></pre>
+</div>
+<p>Your history now contains the remote’s work, so <code>git push origin main</code> is accepted:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 616 bytes | 616.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm.git
+   fbb6482..8aa69f2  main -&gt; main</code></pre>
+</div>
 <div class="callout callout-style-default callout-activity callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -986,6 +1291,28 @@ fatal: Need to specify how to reconcile divergent branches.
 </div>
 </div>
 </section>
+</section>
+<section id="conflicts-that-are-not-about-lines" class="level2">
+<h2 class="anchored" data-anchor-id="conflicts-that-are-not-about-lines">Conflicts that are not about lines</h2>
+<p>Not every conflict is two people editing the same line. If you delete a file while someone else edits it, Git cannot decide whether the file should exist, and reports a <code>modify/delete</code> conflict:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>CONFLICT (modify/delete): notes.md deleted in HEAD and modified in 8a4a9c4.  Version 8a4a9c4 of notes.md left in tree.
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+</div>
+<p>There are no <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> markers to edit here, because there is nothing to mark up. Git leaves the other person’s version of the file in your working directory and <code>git status</code> describes the conflict as <code>deleted by us</code>:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>Unmerged paths:
+  (use "git add/rm &lt;file&gt;..." as appropriate to mark resolution)
+    deleted by us:   notes.md</code></pre>
+</div>
+<p>You resolve it by saying which outcome you want:</p>
+<ul>
+<li><code>git add notes.md</code> keeps the file, with the other person’s changes.</li>
+<li><code>git rm notes.md</code> confirms the deletion.</li>
+</ul>
+<p>Then <code>git commit</code> as usual. The other kinds of conflict Git can report are listed in <a href="https://git-scm.com/docs/git-merge#_how_conflicts_are_presented">the <code>git merge</code> documentation</a>.</p>
 </section>
 <section id="what-about-merge-conflicts-of-jupyter-notebooks" class="level2">
 <h2 class="anchored" data-anchor-id="what-about-merge-conflicts-of-jupyter-notebooks">What about merge conflicts of Jupyter notebooks?</h2>
@@ -1007,88 +1334,81 @@ fatal: Need to specify how to reconcile divergent branches.
 <div class="code-with-filename-file">
 <pre><strong>sample_notebook.ipynb</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="sample_notebook.ipynb"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> <span class="dt">"cells"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"cell_type"</span><span class="fu">:</span> <span class="st">"markdown"</span><span class="fu">,</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"metadata"</span><span class="fu">:</span> <span class="fu">{},</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"source"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"# A Markdown header cell</span><span class="ch">\n</span><span class="st">"</span><span class="ot">,</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="ot">,</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Below is a simple example of some code in Python:"</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>   <span class="ot">]</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"cell_type"</span><span class="fu">:</span> <span class="st">"code"</span><span class="fu">,</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"execution_count"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"metadata"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"collapsed"</span><span class="fu">:</span> <span class="kw">false</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>   <span class="fu">},</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"outputs"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>     <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"stdout"</span><span class="fu">,</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>     <span class="dt">"output_type"</span><span class="fu">:</span> <span class="st">"stream"</span><span class="fu">,</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>     <span class="dt">"text"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>      <span class="st">"15</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>     <span class="ot">]</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>   <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"source"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"x = 5</span><span class="ch">\n</span><span class="st">"</span><span class="ot">,</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"y = 10</span><span class="ch">\n</span><span class="st">"</span><span class="ot">,</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="ot">,</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"print(x + y)"</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>   <span class="ot">]</span></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a> <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a> <span class="dt">"metadata"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"anaconda-cloud"</span><span class="fu">:</span> <span class="fu">{},</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"kernelspec"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"display_name"</span><span class="fu">:</span> <span class="st">"Python [Root]"</span><span class="fu">,</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"language"</span><span class="fu">:</span> <span class="st">"python"</span><span class="fu">,</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Python [Root]"</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"language_info"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"codemirror_mode"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"ipython"</span><span class="fu">,</span></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"version"</span><span class="fu">:</span> <span class="dv">3</span></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>   <span class="fu">},</span></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"file_extension"</span><span class="fu">:</span> <span class="st">".py"</span><span class="fu">,</span></span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"mimetype"</span><span class="fu">:</span> <span class="st">"text/x-python"</span><span class="fu">,</span></span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"python"</span><span class="fu">,</span></span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"nbconvert_exporter"</span><span class="fu">:</span> <span class="st">"python"</span><span class="fu">,</span></span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"pygments_lexer"</span><span class="fu">:</span> <span class="st">"ipython3"</span><span class="fu">,</span></span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"3.5.1"</span></span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a> <span class="fu">},</span></span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a> <span class="dt">"nbformat"</span><span class="fu">:</span> <span class="dv">4</span><span class="fu">,</span></span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a> <span class="dt">"nbformat_minor"</span><span class="fu">:</span> <span class="dv">0</span></span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24" data-filename="sample_notebook.ipynb"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a> <span class="dt">"cells"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"cell_type"</span><span class="fu">:</span> <span class="st">"markdown"</span><span class="fu">,</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"metadata"</span><span class="fu">:</span> <span class="fu">{},</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"source"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"# A Markdown header cell</span><span class="ch">\n</span><span class="st">"</span><span class="ot">,</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="ot">,</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Below is a simple example of some code in Python:"</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>   <span class="ot">]</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"cell_type"</span><span class="fu">:</span> <span class="st">"code"</span><span class="fu">,</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"execution_count"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"metadata"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"collapsed"</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>   <span class="fu">},</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"outputs"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>     <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"stdout"</span><span class="fu">,</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>     <span class="dt">"output_type"</span><span class="fu">:</span> <span class="st">"stream"</span><span class="fu">,</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>     <span class="dt">"text"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>      <span class="st">"15</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>     <span class="ot">]</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>   <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"source"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"x = 5</span><span class="ch">\n</span><span class="st">"</span><span class="ot">,</span></span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"y = 10</span><span class="ch">\n</span><span class="st">"</span><span class="ot">,</span></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="ot">,</span></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"print(x + y)"</span></span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>   <span class="ot">]</span></span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a> <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a> <span class="dt">"metadata"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"anaconda-cloud"</span><span class="fu">:</span> <span class="fu">{},</span></span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"kernelspec"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"display_name"</span><span class="fu">:</span> <span class="st">"Python [Root]"</span><span class="fu">,</span></span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"language"</span><span class="fu">:</span> <span class="st">"python"</span><span class="fu">,</span></span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Python [Root]"</span></span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"language_info"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"codemirror_mode"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"ipython"</span><span class="fu">,</span></span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"version"</span><span class="fu">:</span> <span class="dv">3</span></span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a>   <span class="fu">},</span></span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"file_extension"</span><span class="fu">:</span> <span class="st">".py"</span><span class="fu">,</span></span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"mimetype"</span><span class="fu">:</span> <span class="st">"text/x-python"</span><span class="fu">,</span></span>
+<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"python"</span><span class="fu">,</span></span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"nbconvert_exporter"</span><span class="fu">:</span> <span class="st">"python"</span><span class="fu">,</span></span>
+<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"pygments_lexer"</span><span class="fu">:</span> <span class="st">"ipython3"</span><span class="fu">,</span></span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"3.5.1"</span></span>
+<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a> <span class="fu">},</span></span>
+<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a> <span class="dt">"nbformat"</span><span class="fu">:</span> <span class="dv">4</span><span class="fu">,</span></span>
+<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a> <span class="dt">"nbformat_minor"</span><span class="fu">:</span> <span class="dv">0</span></span>
+<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
-<section id="version-control-and-jupyter-notebook" class="level2">
-<h2 class="anchored" data-anchor-id="version-control-and-jupyter-notebook">Version control and Jupyter notebook</h2>
-<p>Because the notebooks are stored as plain text, we can use them for version control, but this is not without issues, since the JSON format can make it difficult to interpret difference between files and to manually fix conflicts.</p>
-<p>JupyterLab IDE has made really easy now fix merge conflicts. …</p>
+<section id="version-control-and-jupyter-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-and-jupyter-notebooks">Version control and Jupyter notebooks</h2>
+<p>Notebooks are plain text, so Git can track them, but the JSON above shows the problem: a one-line edit to a cell can move execution counts, outputs and metadata around, and a conflict in the middle of that is painful to fix by hand. If you have ever resolved a notebook conflict by deleting the file and re-downloading it, this is why.</p>
+<p>Three things make notebooks much easier to live with:</p>
+<ul>
+<li><p><strong>Commit early and commit often.</strong> Most notebook conflicts happen because two people changed the same notebook over a long stretch of time. Small commits and frequent pulls are still the best defence.</p></li>
+<li><p><strong>Clear your outputs before committing.</strong> Outputs are the bulkiest and most conflict-prone part of the JSON, and they can be regenerated. <a href="https://github.com/kynan/nbstripout"><code>nbstripout</code></a> can do this automatically every time you commit.</p></li>
+<li><p><strong>Use a notebook-aware diff tool.</strong> <a href="https://nbdime.readthedocs.io/"><code>nbdime</code></a> understands notebook structure, so it compares cells instead of JSON. <code>nbdiff</code> and <code>nbmerge</code> are its command line versions, and <code>nbdiff-web</code> and <code>nbmerge-web</code> open a side-by-side view in your browser. Once installed, <code>nbdime config-git --enable --global</code> makes <code>git diff</code> and <code>git merge</code> use it for <code>.ipynb</code> files automatically.</p></li>
+</ul>
+<p>VS Code and Positron also render notebook diffs cell by cell in their Source Control panes, which is often enough to see what changed without leaving the editor.</p>
+<p>If a notebook conflict does get away from you, <code>git merge --abort</code> puts you back where you started so you can pull again with one of these tools in place.</p>
 </section>
-</section>
-<section id="time-travelling-with-git-reset" class="level1">
-<h1>Time travelling with <code>git reset</code></h1>
-<p>If we chose to write something new to replace both commits, it could look like this:</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>README.md</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="README.md"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Some text up here</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>that is not part of the merge conflict,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>but just included for context.</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>We added this combined line after manually modification during the merge conflict.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>You then need to <code>git add</code>, <code>git commit</code> and <code>git push</code> the file to have these changes reflected on GitHub.</p>
 </section>
 <section id="stashing-local-non-committed-changes-before-pulling" class="level1">
-<h1>4. Stashing local non-committed changes before pulling</h1>
+<h1>Stashing local non-committed changes before pulling</h1>
 <p>We have learned that if there are changes on your remote repo in GitHub and you already have local committed changes, you will need to <code>pull</code> before you can <code>push</code>. If the local and remote changes are in the same lines, you will have to resolve the resulting merge conflict, otherwise git will merge automatically. But what if you have just started to make changes to a file when you realize that you forgot to pull before you started to work? The first thing to do is to try to <code>pull</code>, if you’re lucky there are either no new changes or they are not in the same file you modified. If they are in the same file, you will get an error message like this:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
@@ -1101,15 +1421,15 @@ Aborting</code></pre>
 <p>This workflow can save you from running into merge conflicts, as long as you have not already made modifications to the same lines as you are pulling down. If you have already modified the same file that was updated remotely, you will still run into a merge conflict when you do <code>git stash pop</code>. Stashing is also great when you are working on one feature but realize that you should actually work on another unrelated feature first, you can stash your existing work (instead of manually saving it elsewhere) and finish working on the most urgent feature first.</p>
 </section>
 <section id="tell-git-to-ignore-irrelevant-files-using-a-.gitignore-file" class="level1">
-<h1>5. Tell Git to ignore irrelevant files using a <code>.gitignore</code> file</h1>
+<h1>Tell Git to ignore irrelevant files using a <code>.gitignore</code> file</h1>
 <p>You may have encountered this before:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
-<pre class="out"><code>On branch timberst-master
+<pre class="out"><code>On branch main
 Untracked files:
   (use "git add &lt;file&gt;..." to include in what will be committed)
 
@@ -1124,26 +1444,75 @@ no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
 <p>Using the plain text editor of your choice (mine is VS Code) create a file called <code>.gitignore</code> inside your Git repo. To do this with VS Code, I would type:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> .gitignore</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> .gitignore</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Inside the text file, list the files and folders you would like to ignore, one per line. For example:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>.gitignore</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename=".gitignore"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>.ipynb_checkpoints/</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>.DS_Store</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29" data-filename=".gitignore"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>.ipynb_checkpoints/</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>.DS_Store</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Save the file, and <code>add</code> and <code>commit</code> it with Git. Then try <code>git status</code> again. You should see:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
-<pre class="out"><code>On branch timberst-master
+<pre class="out"><code>On branch main
 nothing to commit, working tree clean</code></pre>
 </div>
 </section>
 <section id="gitignore-tips-and-tricks" class="level2">
 <h2 class="anchored" data-anchor-id="gitignore-tips-and-tricks"><code>.gitignore</code> tips and tricks</h2>
-<p>To have files or folders ignored in subdirectories within the repo, append <code>**/</code> to the beginning of their names listed in the <code>.gitignore</code> file. Additionally, consider creating a <a href="https://help.github.com/articles/ignoring-files/#create-a-global-gitignore">global <code>.gitignore</code> file</a> so that you do not have to create the same <code>.gitignore</code> for all your repositories.</p>
+<p>Listing files one per line works, but gets tedious. A <code>.gitignore</code> line can also be a pattern:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>.gitignore</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31" data-filename=".gitignore"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a># ignore every CSV file, anywhere in the repo</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>*.csv</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a># ...but keep this one</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>!data/lookup-table.csv</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a># ignore a folder and everything in it</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>output/</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a># ignore .ipynb_checkpoints in any subdirectory</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>**/.ipynb_checkpoints/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li><code>*</code> matches any part of a filename, so <code>*.csv</code> catches every CSV file.</li>
+<li><code>!</code> un-ignores something that an earlier pattern caught. Order matters: the <code>!</code> line has to come after the pattern it is undoing.</li>
+<li>A trailing <code>/</code> means “this is a folder”.</li>
+<li><code>#</code> starts a comment.</li>
+</ul>
+<p>The full pattern syntax is in <a href="https://git-scm.com/docs/gitignore">the official <code>gitignore</code> documentation</a>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>.gitignore</code> only applies to files Git is <strong>not already tracking</strong>.</p>
+<p>If you have already committed <code>data.csv</code>, adding <code>*.csv</code> to <code>.gitignore</code> changes nothing, and <code>git status</code> keeps reporting your edits to it:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>Changes not staged for commit:
+    modified:   data.csv</code></pre>
+</div>
+<p>You have to tell Git to stop tracking it first:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cached</span> data.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This removes the file from Git while leaving it on your computer. Commit that change, and the <code>.gitignore</code> rule takes over from there. Be aware that the file stays in the history of the commits you already made, so this is not a way to remove a large file or a password from a repository.</p>
+</div>
+</div>
+<p>Consider also creating a <a href="https://docs.github.com/en/get-started/git-basics/ignoring-files#configuring-ignored-files-for-all-repositories-on-your-computer">global <code>.gitignore</code> file</a> so you do not have to write the same rules in every repository.</p>
 <p>Let’s create a <code>gitignore</code> file in our 521 lab 2 repo.</p>
 <section id="steps-to-follow-4" class="level3">
 <h3 class="anchored" data-anchor-id="steps-to-follow-4">Steps to follow:</h3>
@@ -1153,33 +1522,6 @@ nothing to commit, working tree clean</code></pre>
 <li><p>Step 3: Add and commit it with Git.</p></li>
 <li><p>Step 4: Type <code>git status</code> and see if you no longer see <code>.ipynb_checkpoints/</code> as an untracked file.</p></li>
 </ul>
-<p>In Git, we have the flexibility to handle changes in several ways. We can choose to keep the change made in the local repository, keep the change made in the remote repository, write something new to replace both, or get rid of the change entirely.</p>
-<p>To move the branch we are currently on back to a previously created commit, we can use the <code>git reset</code> command. For example, let’s say we are on the master branch of a repository and the output of <code>git log --oneline</code> looks like this:</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
-<pre class="out"><code>fb962e0 (HEAD -&gt; master) Add md demo
-bcb541e Make heading more precise
-5c01f2f Initial commit</code></pre>
-</div>
-<p>To reset the branch to the commit with the message “Make heading more precise,” we would use the command <code>git reset bcb541e</code>. This command repositions the branch to the specified commit, effectively discarding any changes made after that commit.</p>
-<p>We can move the location of the master branch back in the commit history by typing <code>git reset &lt;sha&gt;</code>. So to move to the previous commit, we would type <code>git reset bcb541e</code>. Our git log would now show this:</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
-<pre class="out"><code>bcb541e (HEAD -&gt; master) Make heading more precise
-5c01f2f Initial commit</code></pre>
-</div>
-<p>What happened to the changes that were made in commit <code>fb962e0</code>? The default behavior is to move them back into the working area, which was indicated by this message that showed up after we did <code>git reset bcb541e</code>:</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
-<pre class="out"><code>Unstaged changes after reset:
-M       README.md</code></pre>
-</div>
-<p>That means we could now make any modification we wish and then commit again with a new commit message. If we want to discard the changes instead of moving them to the working area, we can add the <code>--hard</code> flag. Typing <code>git reset --hard 5c01f2f</code> will not show us any message, since the changes are not unstaged, they are discarded. Our log now looks like this</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
-<pre class="out"><code>5c01f2f (HEAD -&gt; master) Initial commit</code></pre>
-</div>
-<p>Are the previous changes lost forever? Not yet, git keeps a backup of everything that happens in the repo in its “reflog”. Commits that are not part of any branch are referred to as being “dangling”, and are cleared out at regular intervals, rather than immediately. So if we realize that we made a mistake right away, we could get our changes back by doing <code>git reset bcb541e</code>, which would move us forward to the commit we just “deleted”. <strong>This behavior should not be relied upon</strong> because when the reflog is automatically cleared by git, your changes are gone forever.</p>
 <div class="callout callout-style-default callout-activity callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1196,11 +1538,193 @@ M       README.md</code></pre>
 </div>
 </section>
 </section>
+</section>
+<section id="time-travelling-with-git-reset" class="level1">
+<h1>Time travelling with <code>git reset</code></h1>
+<p>Sometimes you do not want to fix the current state of a file, you want to move the whole branch back to an earlier commit. That is what <code>git reset</code> does.</p>
+<p>Say <code>git log --oneline</code> shows this:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>fb962e0 (HEAD -&gt; main) Add md demo
+bcb541e Make heading more precise
+5c01f2f Initial commit</code></pre>
+</div>
+<p>To move the branch back to “Make heading more precise”, we run <code>git reset bcb541e</code>. Our log now shows this:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>bcb541e (HEAD -&gt; main) Make heading more precise
+5c01f2f Initial commit</code></pre>
+</div>
+<p>What happened to the changes from commit <code>fb962e0</code>? That depends on which flag you use. The commit is gone either way, but the <em>changes it contained</em> can end up in one of three places.</p>
+<section id="the-three-flavours-of-git-reset" class="level2">
+<h2 class="anchored" data-anchor-id="the-three-flavours-of-git-reset">The three flavours of <code>git reset</code></h2>
+<p>By default, <code>git reset &lt;sha&gt;</code> puts the changes back in the working area, as if you had made the edits but not run <code>git add</code> yet. This is what the message after the reset is telling you:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>Unstaged changes after reset:
+M       README.md</code></pre>
+</div>
+<p><code>git reset --soft &lt;sha&gt;</code> keeps the changes staged instead, ready to commit again. It prints nothing, but <code>git status</code> shows where the changes went:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>On branch main
+Changes to be committed:
+  (use "git restore --staged &lt;file&gt;..." to unstage)
+    modified:   README.md</code></pre>
+</div>
+<p>This is the one to reach for when you committed too early, or wrote a commit message you regret: reset, then commit again with everything already staged.</p>
+<p><code>git reset --hard &lt;sha&gt;</code> throws the changes away. It prints nothing either, because there is nothing left to report. After <code>git reset --hard 5c01f2f</code> our log is just:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>5c01f2f (HEAD -&gt; main) Initial commit</code></pre>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Flag</th>
+<th>The commits are</th>
+<th>Your changes end up</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>--soft</code></td>
+<td>removed from the branch</td>
+<td>staged</td>
+</tr>
+<tr class="even">
+<td>(none, <code>--mixed</code>)</td>
+<td>removed from the branch</td>
+<td>in the working area, unstaged</td>
+</tr>
+<tr class="odd">
+<td><code>--hard</code></td>
+<td>removed from the branch</td>
+<td>discarded</td>
+</tr>
+</tbody>
+</table>
+<p>The details are in <a href="https://git-scm.com/docs/git-reset">the official <code>git reset</code> documentation</a>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>--hard</code> is the only one of the three that destroys work. Run <code>git status</code> before you use it, and make sure you do not need anything it is about to discard.</p>
+</div>
+</div>
+</section>
+<section id="are-the-changes-lost-forever" class="level2">
+<h2 class="anchored" data-anchor-id="are-the-changes-lost-forever">Are the changes lost forever?</h2>
+<p>Not immediately. Git keeps a record of everywhere your branch has been in its “reflog”. Commits that are no longer part of any branch are called “dangling”, and they are cleared out at intervals rather than right away. So if you realise the mistake straight away, <code>git reset bcb541e</code> moves you forward again to the commit you just “deleted”.</p>
+<p><strong>Do not rely on this.</strong> Once Git clears the reflog, those changes are gone for good.</p>
+</section>
+<section id="undoing-a-commit-without-rewriting-history" class="level2">
+<h2 class="anchored" data-anchor-id="undoing-a-commit-without-rewriting-history">Undoing a commit without rewriting history</h2>
+<p><code>git reset</code> works by pretending a commit never happened, which is a problem once that commit is on GitHub and other people have it.</p>
+<p><code>git revert &lt;sha&gt;</code> is the safe alternative. Instead of removing the old commit, it makes a <strong>new</strong> commit that undoes it, so the history stays intact and everyone else stays in sync. See <a href="https://git-scm.com/docs/git-revert">the official <code>git revert</code> documentation</a>.</p>
+</section>
 <section id="syncing-with-a-remote-after-resetting" class="level2">
 <h2 class="anchored" data-anchor-id="syncing-with-a-remote-after-resetting">Syncing with a remote after resetting</h2>
-<p><strong>This is a dangerous operation that can delete all your work.</strong> If we want to get rid of a commit on a remote, we will need to push our changes. But as we have seen before, git will refuse to push changes when the remote is ahead of the local branch. To override this warning and force git to push to the remote we can use the <code>-f/--force</code> flag.</p>
-<p>Force pushing is dangerous, and you should never do this on the master branch of a repository that you share with collaborators unless you have all discussed this and they are aware of what you are doing. The reason is that by force pushing, you will make it so that everyone else who is using this repository are now out of sync with the master branch, since you have reset master to a previous state. <strong>Be careful, better safe than sorry</strong></p>
-<p>Times when a force push is legitimate includes when you have have rebased a feature branch to syn it with master or if you are working alone and you are 100% sure that you want to remove a commit from GitHub. A safer way to undo a change in a commit, is to make a new commit that removes the content of the old one. You can do this manually, or use <code>git revert &lt;sha&gt;</code> to automatically create a new commit that undoes an old one.</p>
+<p>If the commit you reset away is already on GitHub, your local history is now <em>behind</em> the remote, and Git refuses to push. To overwrite what is on GitHub with your reset history, use:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">--force-with-lease</span> origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The “lease” is a safety check. Git overwrites the remote only if the remote is still where you last saw it. If someone pushed something in the meantime, your push is rejected instead of quietly destroying their work:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code> ! [rejected]        main -&gt; main (stale info)
+error: failed to push some refs to 'github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm.git'</code></pre>
+</div>
+<p><code>stale info</code> means “the remote moved and you have not looked at it yet”. Run <code>git fetch origin</code>, see what arrived, decide what to do with it, and then push again.</p>
+<p>When the lease holds, Git tells you it rewrote the remote:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code> + 7c2695a...b78bf16 main -&gt; main (forced update)</code></pre>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Always <code>--force-with-lease</code>, never <code>--force</code>.</strong></p>
+<p>You will also see <code>git push --force</code> (or <code>-f</code>) written in blog posts and answers online. It does the same thing without the safety check: it overwrites the remote no matter what is there, so any commits pushed since you last fetched are gone, and nothing warns you first. <code>--force-with-lease</code> gives you the same power and catches that mistake, so there is no reason to use the shorter one.</p>
+</div>
+</div>
+<p>Even with the lease, you are rewriting history that other people may have already pulled, so they will be out of sync with the remote. Force pushing is fine when the repository is yours alone, and something to agree on first when it is not. When in doubt, prefer <code>git revert &lt;sha&gt;</code>: it undoes the change with a new commit and leaves the shared history alone.</p>
+<p>See <a href="https://git-scm.com/docs/git-push#Documentation/git-push.txt---force-with-lease">the official <code>git push</code> documentation</a>.</p>
+</section>
+</section>
+<section id="other-useful-git-commands" class="level1">
+<h1>Other useful Git commands</h1>
+<p>These are not part of the workflow you need for the labs, but you will see them referred to often enough to be worth knowing about.</p>
+<section id="git-fetch" class="level2">
+<h2 class="anchored" data-anchor-id="git-fetch"><code>git fetch</code></h2>
+<p>Earlier we said that <code>git pull</code> does two things: it <em>fetches</em> the commits from the remote, then <em>merges</em> them into your branch.</p>
+<p><code>git fetch</code> does only the first half (this is the split shown in the figure at the start of the merge conflict section). It downloads the new commits and updates <code>origin/main</code>, your local record of where the remote branch is, but leaves your own files untouched:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>From github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm
+   0e38f69..ada2b64  main       -&gt; origin/main</code></pre>
+</div>
+<p>Nothing in your working directory changed, and <code>git status</code> now tells you what is waiting:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file"><pre><strong>Output</strong></pre></div>
+<pre class="out"><code>On branch main
+Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean</code></pre>
+</div>
+<p>This is useful when you want to look before you leap. <code>git log --oneline main..origin/main</code> lists the commits you are about to receive, and <code>git diff main origin/main</code> shows what they change. When you are happy, <code>git pull</code> brings them in.</p>
+<p>See <a href="https://git-scm.com/docs/git-fetch">the official <code>git fetch</code> documentation</a>.</p>
+</section>
+<section id="two-different-git-restore-commands" class="level2">
+<h2 class="anchored" data-anchor-id="two-different-git-restore-commands">Two different <code>git restore</code> commands</h2>
+<p><code>git restore</code> does different things depending on the flag, and the two uses are easy to confuse:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git restore &lt;file&gt;</code></td>
+<td>Throws away uncommitted changes in the working area</td>
+</tr>
+<tr class="even">
+<td><code>git restore --staged &lt;file&gt;</code></td>
+<td>Unstages a file, keeping your changes</td>
+</tr>
+<tr class="odd">
+<td><code>git restore --source &lt;sha&gt; &lt;file&gt;</code></td>
+<td>Brings back the version of a file from an older commit</td>
+</tr>
+</tbody>
+</table>
+<p>Only the last one reaches into the history, and it is the one we used earlier in this chapter. See <a href="https://git-scm.com/docs/git-restore">the official <code>git restore</code> documentation</a>.</p>
 <section id="exercise-accessing-and-working-with-github" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-accessing-and-working-with-github">Exercise: Accessing and Working with GitHub</h3>
 <div class="callout callout-style-default callout-exercise callout-titled">
@@ -1239,7 +1763,7 @@ M       README.md</code></pre>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p><strong>Make Changes to the README File:</strong></p>
 <ul>
@@ -1253,14 +1777,14 @@ M       README.md</code></pre>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Commit the changes with a descriptive message.</li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Updated README with new content"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Updated README with new content"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p><strong>Create a New File, Add, and Commit It:</strong></p>
 <ul>
@@ -1270,14 +1794,14 @@ M       README.md</code></pre>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add newfile.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add newfile.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Commit the new file with a descriptive message.</li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Added newfile.txt with initial content"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Added newfile.txt with initial content"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p><strong>Push Your Changes to GitHub:</strong></p>
 <ul>
@@ -1285,7 +1809,7 @@ M       README.md</code></pre>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p><strong>Confirm Your Changes on GitHub:</strong></p>
 <ul>
@@ -1299,14 +1823,14 @@ M       README.md</code></pre>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Use the <code>git log --oneline</code> command for a more concise view.</li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p><strong>Restore an Older Version of a File:</strong></p>
 <ul>
@@ -1315,22 +1839,22 @@ M       README.md</code></pre>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore <span class="at">--source</span> SHORT_SHA-1 FILENAME</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore <span class="at">--source</span> SHORT_SHA-1 FILENAME</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Stage and commit the restored file.</li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add FILENAME</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Restored FILENAME to previous version"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add FILENAME</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Restored FILENAME to previous version"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Push the changes to GitHub.</li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file"><pre><strong>Terminal</strong></pre></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 </ol>
 <p><strong>Questions:</strong></p>
