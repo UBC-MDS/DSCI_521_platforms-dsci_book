@@ -135,36 +135,56 @@ In the second case, you have to help git by telling it which changes you want to
 
 ## How do you know you have a merge conflict?
 
-If you have committed some changes locally,
-you might see something like this when you try to `push` them:
+You usually find out when you try to `push` and Git refuses.
+Two different problems cause that rejected push,
+and only the second one is a merge conflict:
+
+1. Your branch and the remote branch have *diverged*,
+   and Git wants you to say how to reconcile them.
+2. Git tried to reconcile them and could not,
+   because the same lines were changed in both places.
+
+You have to fix the first problem before you find out
+whether you have the second one.
+
+### Problem 1: your branch and the remote have diverged
+
+You commit some changes locally,
+and changes were also made on GitHub
+(by a collaborator, by you on a different computer,
+or by you editing a file in the GitHub web interface).
+`git status` shows that the two histories have drifted apart:
 
 ```out
-To https://github.com/joelostblom/DSCI_521_lab1_jostblom
- ! [rejected]        master -> master (non-fast-forward)
-error: failed to push some refs to 'https://github.com/joelostblom/DSCI_521_lab1_jostblom'
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 2 and 14 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+nothing to commit, working tree clean
+```
+
+If you try to `git push origin main` in this state,
+the push is rejected:
+
+```out
+To github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm.git'
 hint: Updates were rejected because the tip of your current branch is behind
-hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
-hint: before pushing again.
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
 
-As the message tells you,
-there are new changes to the remote repo
-that you need to `pull` down from GitHub before you are allowed to `push` up your changes.
-If there are no conflicts when you `pull`,
-Git will say that everything went OK and you can `push` up your new changes.
+The remote has changes you do not have,
+and Git will not let you `push` until you `pull` them down.
 
-If there are conflicts, you will see something like this:
+So you run `git pull origin main`, and Git refuses again:
 
 ```out
-
-remote: Enumerating objects: 5, done.
-remote: Counting objects: 100% (5/5), done.
-remote: Compressing objects: 100% (3/3), done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
-Unpacking objects: 100% (3/3), 418 bytes | 104.00 KiB/s, done.
-From github.ubc.ca:mds-2025-26/DSCI_lab1_ilm
-   30137f5..fa47713  main       -> origin/main
+From github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm
+ * branch            main       -> FETCH_HEAD
 hint: You have divergent branches and need to specify how to reconcile them.
 hint: You can do so by running one of the following commands sometime before
 hint: your next pull:
@@ -178,13 +198,118 @@ hint: preference for all repositories. You can also pass --rebase, --no-rebase,
 hint: or --ff-only on the command line to override the configured default per
 hint: invocation.
 fatal: Need to specify how to reconcile divergent branches.
-
 ```
 
-You have a merge conflict.
-Merge conflicts are not bad, they happen to everyone and you will need to know how to instruct git what to do.
+:::{.callout-important}
+`fatal: Need to specify how to reconcile divergent branches` does **not** mean
+you have a merge conflict.
+Git has not tried to combine the two histories yet.
+It will not guess whether you want to *merge* or *rebase*,
+and it will keep refusing until you tell it.
+:::
 
-We usually want git to help us solve the conflict via merge, so a reasonable next step is `git pull --rebase=false`, which specifically tells git that we want to reconcile by merging.
+When you see this, run this one command:
+
+```bash
+git config pull.rebase false
+```
+
+This tells Git that in this repository,
+`pull` reconciles divergent branches by **merging**.
+That was Git's default in older versions,
+and it is what we use in this course.
+Merging leaves your commits and the remote's commits as they are,
+so when something goes wrong it is easier to see what happened and recover.
+
+:::{.callout-note}
+`git config pull.rebase false` records a setting, it does not pull anything.
+You still need to run `git pull origin main` afterwards.
+
+Run it once per repository.
+To set it for every repository on your computer,
+run `git config --global pull.rebase false` instead.
+:::
+
+Once Git knows how to reconcile, one of two things happens.
+
+### Outcome A: Git merges the changes for you
+
+If the changes are on different lines,
+Git merges them for you and reports the merge commit:
+
+```out
+From github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm
+ * branch            main       -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ README.md      | 4 ++++
+ analysis.ipynb | 2 +-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+```
+
+There is nothing to fix.
+`git push origin main` now works:
+
+```out
+Enumerating objects: 35, done.
+Counting objects: 100% (34/34), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (30/30), done.
+Writing objects: 100% (31/31), 2.46 MiB | 10.86 MiB/s, done.
+Total 31 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm.git
+   37deb72..ded3e69  main -> main
+```
+
+### Outcome B: you have a merge conflict
+
+If the *same lines* were changed in both places,
+Git cannot decide for you.
+The same `git pull origin main` ends with extra lines:
+
+```out
+From github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm
+ * branch            main       -> FETCH_HEAD
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+This is a merge conflict.
+The words to look for are `CONFLICT` and `Automatic merge failed`.
+Git names the file it could not merge, `README.md` here.
+
+`git status` confirms where you are and what to do next:
+
+```out
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+The file is listed under **Unmerged paths** as `both modified`:
+you and someone else edited it, and you have to pick what to keep.
+
+Merge conflicts are not bad.
+They happen to everyone,
+and you need to know how to tell Git what to do.
+
+:::{.callout-tip}
+Changed your mind?
+`git merge --abort` undoes the merge and puts your repository back
+where it was before you pulled.
+Nothing is lost and you can try again.
+:::
 
 :::{.activity}
 What of the following practices do you think could be a good idea in order to avoid having merge conflicts?
@@ -202,7 +327,7 @@ D. Work only locally or only in the remote repository.
 ## What do you do to fix a merge conflict?
 ### Steps to follow:
 
-* Step 1: Open the file that has a conflict (the output of `git pull --rebase=false` will tell you which files) in a plain text editor (e.g., VS Code).
+* Step 1: Open the file that has a conflict (the output of `git pull` will tell you which files) in a plain text editor (e.g., VS Code).
 
 * Step 2: Look for the conflict (hint: search for `<<<<<<< HEAD`).
 
@@ -226,6 +351,53 @@ This line was added somewhere else
 - `<<<<<<< HEAD` precedes the change you made (that you couldn't push)
 - `=======` is a separator between the conflicting changes
 - `>>>>>>> dabb4c8c450e8475aee9b14b4383acc99f42af1d` flags the end of the conflicting change you pulled from GitHub
+
+Here we keep both lines,
+so we delete the three marker lines and leave the rest:
+
+```{.default filename="README.md"}
+Some text up here
+that is not part of the merge conflict,
+but just included for context.
+We added this line in our last commit
+This line was added somewhere else
+```
+
+Now `git add README.md`.
+`git status` shows the conflict is settled but the merge is not finished:
+
+```out
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+	modified:   README.md
+```
+
+`git commit -m "Resolve merge conflict in README.md"` concludes the merge:
+
+```out
+[main 8aa69f2] Resolve merge conflict in README.md
+```
+
+Your history now contains the remote's work,
+so `git push origin main` is accepted:
+
+```out
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 616 bytes | 616.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.ubc.ca:mds-2026-27/DSCI_521_lab1_ilm.git
+   fbb6482..8aa69f2  main -> main
+```
 
 
 :::{.activity}
