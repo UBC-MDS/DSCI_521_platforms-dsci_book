@@ -245,3 +245,58 @@ body.quarto-dark {
   // starts light -- so dark mode lightens instead, in `styles-dark.scss`.
   --mds-quiz-press: brightness(0.93);
 }
+
+// ---- Console window ---------------------------------------------------------
+// A captured terminal session, shown as a window so a student recognises it as
+// "my screen" rather than a code listing. The content is always REAL output
+// from a real run; the spans mark what the terminal itself coloured. The window
+// carries its own dark ground in both light and dark mode, on purpose: a
+// terminal looks like a terminal. Markup:
+//
+//   ::: {.term}
+//   ```{=html}
+//   <pre><span class="tp">$ git status</span>
+//   ...</pre>
+//   ```
+//   :::
+//
+// Escape < > & inside the pre.
+.term {
+  background: #1d2129;
+  border-radius: 10px;
+  padding: 0.9em 1.1em 0.8em;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+  margin: 1.1em 0 0.7em;
+  max-width: 100%;
+
+  // the three window dots
+  &::before {
+    content: "";
+    display: block;
+    width: 3.4em;
+    height: 0.85em;
+    margin-bottom: 0.55em;
+    background:
+      radial-gradient(circle at 0.45em 50%, #ff5f56 0.33em, transparent 0.36em),
+      radial-gradient(circle at 1.6em 50%, #ffbd2e 0.33em, transparent 0.36em),
+      radial-gradient(circle at 2.75em 50%, #27c93f 0.33em, transparent 0.36em);
+  }
+
+  pre {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #d8dee9;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .tp { color: #ffffff; font-weight: 600; }  // the prompt line
+  .tr { color: #ef6a6a; }                    // red:    removed, error, unstaged
+  .tg { color: #5ec269; }                    // green:  added, staged
+  .ty { color: #d7ba5f; }                    // yellow: sha, commit line
+  .tc { color: #6fc3df; }                    // cyan:   hunk header, section
+}
